@@ -1,0 +1,28 @@
+name: Verify private Golden Dragon Alloy memory
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  memory-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out private skill and memory
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test continuous-learning memory behavior
+        run: python -m unittest discover -s forge -p test_owner_memory.py -v
+      - name: Test integrity and corruption detection
+        run: python -m unittest discover -s forge -p test_memory_integrity.py -v
+      - name: Verify actual snapshot and historical private-memory baseline
+        run: python forge/memory_integrity.py
