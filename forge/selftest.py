@@ -51,7 +51,7 @@ def run(root: Path, quick: bool = False, verbose: bool = False) -> int:
     check("SKILL.md: description 1–1024 chars", 0 < len(desc) <= 1024, f"{len(desc)} chars")
     n_lines = text.count("\n") + 1
     check("SKILL.md: under 500 lines", n_lines < 500, f"{n_lines} lines")
-    refs = sorted(set(re.findall(r"`((?:references|runtime|kb|forge|ledger|branches)/[^`\s*<>]+)`", text)))
+    refs = sorted(set(re.findall(r"`((?:references|runtime|kb|forge|ledger|branches|addons)/[^`\s*<>]+)`", text)))
     in_kb = []
     if not (root / "runtime").exists():  # portable packing: runtime/ files must be readable from the knowledge base
         kcon = sqlite3.connect(f"file:{(root / 'kb' / 'alloy.db').as_posix()}?mode=ro", uri=True)
@@ -87,7 +87,7 @@ def run(root: Path, quick: bool = False, verbose: bool = False) -> int:
     # 4) ledger: every original file accounted for, every place exists
     led = con.execute("SELECT path, place FROM ledger").fetchall()
     rt = [r for r in led if r[1].startswith("runtime/")]
-    check("ledger: every main file listed", len([r for r in led if not r[0].startswith("branch:")]) == man["runtime_files"],
+    check("ledger: every main file listed", len([r for r in led if not r[0].startswith(("branch:", "addon:"))]) == man["runtime_files"],
           f"{len(led)} entries, main files {man['runtime_files']}")
     have_rt = (root / "runtime").exists()
     if have_rt:
@@ -97,6 +97,13 @@ def run(root: Path, quick: bool = False, verbose: bool = False) -> int:
     if not portable:
         gone_b = [p for _, p in br if not os.path.exists(lp(root / p))]
         check("ledger: every branches/ place exists", not gone_b, f"{len(br)} checked" + (f", missing {gone_b[:3]}" if gone_b else ""))
+
+    # 4b) addons (skills added after the blend; runtime/ untouched)
+    if (root / "addons" / "addons.json").exists():
+        sys.path.insert(0, str(root / "forge"))
+        import addons as _addons  # noqa: E402
+        ok_a, det_a = _addons.check(verbose=False)
+        check("addons: every file in the ledger (sha-256) + a skill unit each", ok_a, det_a)
 
     # 5) runtime digest (byte-identical engine room)
     if have_rt and not quick:

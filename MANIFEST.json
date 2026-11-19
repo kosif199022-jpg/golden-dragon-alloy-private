@@ -1,17 +1,2941 @@
 {
  "name": "golden-dragon-alloy",
- "version": "4.0.0",
+ "version": "4.1.0",
  "source": "kosif199022-jpg/black-dragon-skill@f617a65",
  "runtime_files": 7226,
  "runtime_digest": "f0fe161df12763f7825573fcc508d5bcd4532edad714b40094770989f2953539",
  "files": {
+  ".gitattributes": {
+   "bytes": 9,
+   "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
+  },
+  ".gitignore": {
+   "bytes": 82,
+   "sha256": "cea6248911dcefe367c77f744a96ef9fdcf2c07f5d16f6274ba2c34ad1679793"
+  },
+  "README.md": {
+   "bytes": 2003,
+   "sha256": "9dde20bb8b8d553a0f85147404eafb20859c3c98e91fbe470f7db99b1bc151a5"
+  },
   "SKILL.md": {
-   "bytes": 17075,
-   "sha256": "8faf5388b23dd8d0a459344a84c929385af854dafe8ae69561569be5721cd359"
+   "bytes": 18628,
+   "sha256": "64a34d2f8842ee6cc5c044757ac2b75f8b02b7f75ceaccb2569487f2cb923191"
+  },
+  "addons/addons.json": {
+   "bytes": 3580,
+   "sha256": "764e8ffab9a004b1a215474cbaefdb127107f5b3a12828292dcba26dd1f80467"
+  },
+  "addons/cartoon-audio-short/SKILL.md": {
+   "bytes": 23458,
+   "sha256": "1acb6e3705e9a8e49887aecf06eb5f05d4978c2d72e50bf6895792673734c9f2"
+  },
+  "addons/cartoon-audio-short/kit/README.md": {
+   "bytes": 1292,
+   "sha256": "ae79593ab491b3d7ba3107341dc2c44456d50758a254b181fa0d33d75d5268fa"
+  },
+  "addons/cartoon-audio-short/kit/engine/index.html": {
+   "bytes": 456,
+   "sha256": "b4ece351fc7da6374192ff946d661d90f6f1b1be93ff87e806c824159d92cf9c"
+  },
+  "addons/cartoon-audio-short/kit/engine/main.js": {
+   "bytes": 31418,
+   "sha256": "cedea9f4cccc747d3c54d1880f6434bdff1e6a9d1f1cfa5072d53d221aed1e56"
+  },
+  "addons/cartoon-audio-short/kit/engine/motion.js": {
+   "bytes": 3826,
+   "sha256": "d895b4d0531fbd1126596e8a558801660edab305c7bfd2d0544dcb64c4e4ffcd"
+  },
+  "addons/cartoon-audio-short/kit/engine/paint.js": {
+   "bytes": 14028,
+   "sha256": "6d18e282f0ff86ed24c8cac2faa8a4fe23a2fe519e77a91577892cca4fe91fc6"
+  },
+  "addons/cartoon-audio-short/kit/engine/roman.js": {
+   "bytes": 18980,
+   "sha256": "8d53a82332f8974289ccc07fef67ff42b1caee39c10f88480f56dab798b7a4bc"
+  },
+  "addons/cartoon-audio-short/kit/example/soldier/audio.py": {
+   "bytes": 9194,
+   "sha256": "2384466df631d999e5f93550d8f5e26ce0b15a4092d8c703b19621eff1019b2e"
+  },
+  "addons/cartoon-audio-short/kit/example/soldier/stills.jpg": {
+   "bytes": 406429,
+   "sha256": "8a6791234ec3cbe82291e7804b32626979391a729bac30780b198d1425e3cf96"
+  },
+  "addons/cartoon-audio-short/kit/example/soldier/story.js": {
+   "bytes": 14033,
+   "sha256": "5ba77a6a909b84e69d19ea656a24bfc7cea33ef32ead14e748dd9e91eaa96322"
+  },
+  "addons/cartoon-audio-short/kit/fonts/Lalezar-Regular.ttf": {
+   "bytes": 290016,
+   "sha256": "7b80807bc831f141de0f7dcf6816412bf0c548968d548c5156ca388733390ea9"
+  },
+  "addons/cartoon-audio-short/kit/fonts/OFL-Lalezar.txt": {
+   "bytes": 4383,
+   "sha256": "327bac41d89cf9f32e0efe353228018e1661cff458a5d4905714958514df7bd5"
+  },
+  "addons/cartoon-audio-short/kit/tools/finish.sh": {
+   "bytes": 888,
+   "sha256": "43672c85845dd6d4e84c77bde34f92fc2bc4170154a5545fd269ec9fed082bbc"
+  },
+  "addons/cartoon-audio-short/kit/tools/mix.py": {
+   "bytes": 1376,
+   "sha256": "8c19989d30c8c318800f4358a15d290ce384d9b16086e72344c654484bd98599"
+  },
+  "addons/cartoon-audio-short/kit/tools/render.mjs": {
+   "bytes": 2359,
+   "sha256": "012a2fe9a4dff7203eb2d13e4916c5ba9ac21a4389efd8539b763b6e900b1802"
+  },
+  "addons/cartoon-audio-short/kit/tools/setup.sh": {
+   "bytes": 2619,
+   "sha256": "99961b4b683195b2e47ca5040017569045f08bccb3fd2acfe52f557e2fa1f4ce"
+  },
+  "addons/cartoon-audio-short/kit/tools/sheet.py": {
+   "bytes": 516,
+   "sha256": "49090c5391cda0dc8b66522900684aac39ed50180e60228a7cd168c103037c04"
+  },
+  "addons/cartoon-audio-short/kit/tools/timing.py": {
+   "bytes": 10656,
+   "sha256": "0fe532d0cfc6382c3974701cbc6014a2ef2ae8c376469b3f69b7e749a62561e4"
+  },
+  "addons/cartoon-audio-short/kit/vendor/LICENSE-claude-animated-shorts.txt": {
+   "bytes": 1078,
+   "sha256": "149873c6b307af64dba0f9606b491e971a7d4d5efc6816d828ea82e9f4ce91b5"
+  },
+  "addons/cartoon-audio-short/kit/vendor/three.module.js": {
+   "bytes": 1272972,
+   "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+  },
+  "addons/cartoon-audio-short/kit/vendor/toon.ts": {
+   "bytes": 55412,
+   "sha256": "524f6dfa0c41d4976268636ce2c3ff910ca65a7bec04648f88d2588e803b9aa5"
+  },
+  "addons/cartoon-audio-short/kit/vendor/toonbase.js": {
+   "bytes": 66483,
+   "sha256": "8fbe2efb40c8e643c09f01d540d3ec23493a31ae713aac2dcdf7f5f7c5b70c64"
+  },
+  "addons/cartoon-audio-short/upstream/README.md": {
+   "bytes": 2197,
+   "sha256": "d616410265137c5159a8006f50705abade255f979de228ce26948da69e5fc9cd"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/LICENSE": {
+   "bytes": 1063,
+   "sha256": "0c88b6c1afe23ba94a2326eb289868fa4bb24edfd6994ad0c6bb7f2f2ed517e2"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/README.md": {
+   "bytes": 2275,
+   "sha256": "9b515d97426ce7fbcc09cbd82466243ec5f9691001373d76478d8f5155403b05"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/UPSTREAM-SKILL.md": {
+   "bytes": 15131,
+   "sha256": "411dea3094044355c5023a7c97e178a0bd815051793f0e2cb3c6674999aeb34b"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/STYLE_BIBLE.md": {
+   "bytes": 3615,
+   "sha256": "d7bc0a4c83689ecb8aa4ba045f1f8b03b3aa1bfab1d27aed2b0e06d8ca25de29"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/reports/CONTEXT.md": {
+   "bytes": 4788,
+   "sha256": "01c9ea39ef3657207a5bc626485f09bb9c87dee25431126b2c2239a4a59159c5"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/reports/characters.md": {
+   "bytes": 48362,
+   "sha256": "789cee3f3c1bb77535fe3d32b68ac0e3c48555157b2b0423835f03311302203b"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/reports/depth.md": {
+   "bytes": 32449,
+   "sha256": "a523e8f12a8ba6f37230957ea6596cd66640366d6b61243db5ba535c17ca295f"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/reports/grade.md": {
+   "bytes": 27287,
+   "sha256": "451d6938af4f945afb55a107a4d6c1e90d5b2ae1a1ff8350f305a407b9acde38"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/reports/lighting.md": {
+   "bytes": 42547,
+   "sha256": "524389ee191a741aae0ea902ce1b55982c3afd861c73d31c8f5c5a8aeb490321"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/reports/motion.md": {
+   "bytes": 28092,
+   "sha256": "7b4b41b44f3dcdae9285a13ef589c6efd4f0353065e0e5c68acf2bc1964f25e8"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/reports/outlines.md": {
+   "bytes": 36391,
+   "sha256": "27133318848da6e1a74975b43da5ba90cc00e30b9d50c0bd89b94d8aa845b897"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/references/reports/textures.md": {
+   "bytes": 67164,
+   "sha256": "c4bc6266b3709548368df2b404a6970a570d9a4347ea405bd58bb3f7a75fe85a"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/SCRIPT_example.md": {
+   "bytes": 1849,
+   "sha256": "f8ceb1eeddb64b47b98132be410558bf07ae7a53938807850d616b1605734fee"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/audio/cues.md": {
+   "bytes": 50339,
+   "sha256": "baa8866f9b231764586050f378e2a28d4ce03140b6bf4b481d814ac5b5553489"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/audio/dsp.py": {
+   "bytes": 11468,
+   "sha256": "3b456f4653fde5f30b8a22aa53903e5d4b2b3ca508908978f210fb6934214355"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/audio/instruments.py": {
+   "bytes": 13122,
+   "sha256": "8f66ee6134daefc85021aadab1138a3ce480029c91fc4428d04cba6fd5737fee"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/audio/mix.py": {
+   "bytes": 15925,
+   "sha256": "c429dac4233931c23c8ca3728e5861169716ae26ab0b68b7f10a07192fae1ddb"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/audio/music.py": {
+   "bytes": 20211,
+   "sha256": "7b57f796841878d978feee6466e3be2788a417973d1d446697a741b3c5da8604"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/audio/sfx.py": {
+   "bytes": 19826,
+   "sha256": "3522996f4a4cc66e074e4380d52f8283a79ae3fb71b0d5374b30d5171d70e1ae"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/audio/sfx_gen.py": {
+   "bytes": 25699,
+   "sha256": "656e0d04a8fbd05e1b8c9a8a96e201c6033783cb6961eba788544f05f294a651"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/audio/timeline.py": {
+   "bytes": 5473,
+   "sha256": "7f1fd4055cea6c30c723f3687645d7f109501ea61cd87c386061bf71152f3913"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/Bridge.tsx": {
+   "bytes": 6417,
+   "sha256": "390fdbc2df2ae422dc722f959b59d5a2b9b91ab1338d868d2b438350722d5e6e"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/build.ts": {
+   "bytes": 45312,
+   "sha256": "2e27cbdb078c26e3e29cb492c792d08605a134f77d2a87dd7c5c4a9360d32d9a"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/cardshade.ts": {
+   "bytes": 6380,
+   "sha256": "b9dd6fbe552ebe93ea51f578460bed08b8b1582c1721c0a160e53aa0afaab4da"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/cast.ts": {
+   "bytes": 29380,
+   "sha256": "721974a08e906f79a027ea81af4c3c46a70aad7770abbbf21ba715a0760f0517"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/grade.ts": {
+   "bytes": 10019,
+   "sha256": "460b6deb3d08c9e5d0cbff1dd368ede3e59d05d841fbf6dcb0d582f30d70c13d"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/ink.ts": {
+   "bytes": 20875,
+   "sha256": "6dadbd41a11501d10d008eeaf9497ae74c267dc90cd073899813e40cfbfc31e1"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/lensblur.ts": {
+   "bytes": 7962,
+   "sha256": "74cd4ed67eb123fa3b482731e9539ca51af0158f386fa369f831cd7b82459af5"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/lights.ts": {
+   "bytes": 4247,
+   "sha256": "2d5fb50df74902b59fbe8121514afab13174b19100c902ce5621732c04bbd1bd"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/paint.ts": {
+   "bytes": 43718,
+   "sha256": "a01928e703951b6730354dd615e6f54326ab8e08b028ed2c96a5f68e67d445b2"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/shade.ts": {
+   "bytes": 5385,
+   "sha256": "7ba7d865a5acc4fb41ab61ba09340f340248616c3f73680abf40b9ff5f1b3d3d"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/story.ts": {
+   "bytes": 23869,
+   "sha256": "25f94c1c524c801093f53c53d7ad11a44864bb778b202c1dad0e3021b456da94"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/toon.ts": {
+   "bytes": 54503,
+   "sha256": "ed6823daad4cc5cdb88a7215502af545fe621efc18d58ea175f7464cc02fd725"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/bridge/world.ts": {
+   "bytes": 38820,
+   "sha256": "ac2fd64006511afb546af5fa10216140a8b9f3793b6b205891cfe9ffe15a50c9"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/sandbox_index_example.tsx": {
+   "bytes": 450,
+   "sha256": "7868cda2831ea00a663eed038a46d46ecb7598c41ec202202b8370f007498066"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/scripts/bridge-stills.mjs": {
+   "bytes": 1694,
+   "sha256": "e43c3aa5526f8adf34cc5177fc2d0560c8610fb1f74e794c18c3bb80a5747e69"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/scripts/bridge_merge.py": {
+   "bytes": 1398,
+   "sha256": "d322fb3eab9806a5535b8c4eae684c80ccf6cef70ada545c858183968dc4b612"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/scripts/bridge_shots.py": {
+   "bytes": 1430,
+   "sha256": "36746bc192ae9f56fda5facb0d1c1015b7dea923c5a27a040ec27d448deea341"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/scripts/sbs_sheet.py": {
+   "bytes": 1108,
+   "sha256": "f5f15c100a3d9b0bcec6be775daca38222e6ab4f6b40d8d9415baea0aaa7b947"
+  },
+  "addons/cartoon-audio-short/upstream/claude-animated-shorts/templates/scripts/short_qa.py": {
+   "bytes": 4727,
+   "sha256": "9a71fa351b2db50bac669eebdd37c9d9f00ccd2b8b710ab472871e0ce4160550"
+  },
+  "addons/clay-film-kitten-rescue/README.md": {
+   "bytes": 2469,
+   "sha256": "bf1c9bd45e4eaa7671dd928d14718dfd02ff476c7294382228f73245653ecd26"
+  },
+  "addons/clay-film-kitten-rescue/SKILL.md": {
+   "bytes": 2589,
+   "sha256": "b98012597ab16cd5217de4c875be2708ea7d48a77fdbdb0408f5f0629af4edea"
+  },
+  "addons/clay-film-kitten-rescue/index.html": {
+   "bytes": 1383,
+   "sha256": "0f899e8c69940a1ea5ed683412d44ef86b23391ef1d4689ef2d288b809b2f780"
+  },
+  "addons/clay-film-kitten-rescue/package.json": {
+   "bytes": 585,
+   "sha256": "a5fbb05047690eada88461752b4ffcd2a6b7eb9a43455b7a0cf21f82c8088bfb"
+  },
+  "addons/clay-film-kitten-rescue/scripts/export.mjs": {
+   "bytes": 4242,
+   "sha256": "4628ffc6cae1cbc59390f30347615e3b1d00d63f9b202e2529b222b32918ee99"
+  },
+  "addons/clay-film-kitten-rescue/scripts/sheet.mjs": {
+   "bytes": 2115,
+   "sha256": "61a118a43be674e8948d3b3deabd5bc4bbf617cd30c0ca1f451579616c79fe1c"
+  },
+  "addons/clay-film-kitten-rescue/scripts/sound.py": {
+   "bytes": 4124,
+   "sha256": "0759d63e02b57d2f2e084764388f0a10bba84fa8e6721d1dc0f43e4c083e9481"
+  },
+  "addons/clay-film-kitten-rescue/src/buddy.js": {
+   "bytes": 5710,
+   "sha256": "8831507973aa57d4de1854d0b83f008b0655abe1fb97b7b6e8d4c305619bc936"
+  },
+  "addons/clay-film-kitten-rescue/src/cat.js": {
+   "bytes": 6130,
+   "sha256": "c9b02620796918a8aa8ecadf209d67100782b74f757b9833a692a3e91a51b901"
+  },
+  "addons/clay-film-kitten-rescue/src/clay.js": {
+   "bytes": 3109,
+   "sha256": "99e460a35f9e624a4f851aea50a414e42dfa83da41ae507923dedbea71d1289e"
+  },
+  "addons/clay-film-kitten-rescue/src/main.js": {
+   "bytes": 4217,
+   "sha256": "ae2e5c7c6ee00cf56de72d374ca1f41837db686d3839d504652b59c87b3d43c2"
+  },
+  "addons/clay-film-kitten-rescue/src/man.js": {
+   "bytes": 9587,
+   "sha256": "a494121a8a79ffabad2904d0fa591ca895ab8f2ed387c85ac8c0afcf39f35176"
+  },
+  "addons/clay-film-kitten-rescue/src/pond.js": {
+   "bytes": 22860,
+   "sha256": "196ebaa6984d9aa15642ce3098f65c5e52a030fed9ef8c48971e0d567eebf119"
+  },
+  "addons/clay-film-kitten-rescue/src/shapes.js": {
+   "bytes": 4107,
+   "sha256": "fb9dd05d01edb6e84cff51bc6f6ca1019494fc73864ff41ef1b8d5ed98aa8a1c"
+  },
+  "addons/clay-film-kitten-rescue/vite.config.js": {
+   "bytes": 143,
+   "sha256": "521ebea5f9d00197f17ff08998303951d812aab3acfa1b5270cabcb98b8bd21d"
+  },
+  "addons/maven-3d/SKILL.md": {
+   "bytes": 6816,
+   "sha256": "8d19de6ad7042e1b416d63e9658a2bdaee1b150de13b22fcf3a099cb48194a67"
+  },
+  "addons/maven-3d/engine/core.js": {
+   "bytes": 16979,
+   "sha256": "ea438fd8aa65de65ca32060ccfad8c2a7d1207509ec1d7228b09ce3f99726d56"
+  },
+  "addons/maven-3d/engine/fonts/Lalezar-Regular.ttf": {
+   "bytes": 290016,
+   "sha256": "7b80807bc831f141de0f7dcf6816412bf0c548968d548c5156ca388733390ea9"
+  },
+  "addons/maven-3d/engine/fonts/OFL-lalezar.txt": {
+   "bytes": 4383,
+   "sha256": "327bac41d89cf9f32e0efe353228018e1661cff458a5d4905714958514df7bd5"
+  },
+  "addons/maven-3d/engine/fonts/OFL-poppins.txt": {
+   "bytes": 4385,
+   "sha256": "6be04893d770899a015649c7aa3b582f871b272f8747a92b78b17c3e5c8b2573"
+  },
+  "addons/maven-3d/engine/fonts/Poppins-ExtraBold.ttf": {
+   "bytes": 154836,
+   "sha256": "f2ab17c1a63a0ecc12c2461848fc8a469395e3cd2d641803e889c643d9f958e1"
+  },
+  "addons/maven-3d/engine/gallery.js": {
+   "bytes": 6820,
+   "sha256": "37fe14d41d4bd6aaac986da1873ac147c5f4edbab1f717276e2fbdb3a75a8f49"
+  },
+  "addons/maven-3d/engine/index.html": {
+   "bytes": 812,
+   "sha256": "e2be264dbe4fc0bc725dd374b10f753b487b6916fdfc89887f2e716f39100c9a"
+  },
+  "addons/maven-3d/engine/kits/characters.js": {
+   "bytes": 26393,
+   "sha256": "5e96a09469e862551a40e23db508a2a12b47a7914c25c18c673011288ca5988b"
+  },
+  "addons/maven-3d/engine/kits/creatures.js": {
+   "bytes": 12103,
+   "sha256": "9a2dfba383a45eecac98ac0ec90ae2dde8165065ff8aa156bdb4363a2bc6814c"
+  },
+  "addons/maven-3d/engine/kits/fx.js": {
+   "bytes": 12172,
+   "sha256": "c51d08d9e3bb2821200a1735c0f076f65a573e1b98cc968f8249d45f34df8a01"
+  },
+  "addons/maven-3d/engine/kits/props.js": {
+   "bytes": 10951,
+   "sha256": "735ef07b8b6f96e172b891f4aedac23822f170714f27a7782e2603ee740da5e3"
+  },
+  "addons/maven-3d/engine/kits/sets.js": {
+   "bytes": 23893,
+   "sha256": "c2f26793540c7910b71d1668f9875fdc02428baf6922df387f34fb65051fff78"
+  },
+  "addons/maven-3d/engine/lib/jsm/geometries/RoundedBoxGeometry.js": {
+   "bytes": 4625,
+   "sha256": "d20aeaf7077c459a8d952d215738d7b44fba028440bb862d84b622a34f0c80bb"
+  },
+  "addons/maven-3d/engine/lib/jsm/postprocessing/BokehPass.js": {
+   "bytes": 3394,
+   "sha256": "581ad606035764f92a6c5124980ddeb78c09cb076d2bdeb6c760ca9d0a8332ec"
+  },
+  "addons/maven-3d/engine/lib/jsm/postprocessing/EffectComposer.js": {
+   "bytes": 4651,
+   "sha256": "d234e578618fa816955ebdc059c049c577e203e650e33cf22bde3f232c29e669"
+  },
+  "addons/maven-3d/engine/lib/jsm/postprocessing/MaskPass.js": {
+   "bytes": 2231,
+   "sha256": "328cf7db0da5d9be83ffe39d54b01d5ac1fddf108cc98182ddbb056f5c8b537f"
+  },
+  "addons/maven-3d/engine/lib/jsm/postprocessing/OutputPass.js": {
+   "bytes": 2398,
+   "sha256": "13817fc7a87f662d29d2c5e00f44d3a4588c9afac4a372de0cacb0e44e368ffd"
+  },
+  "addons/maven-3d/engine/lib/jsm/postprocessing/Pass.js": {
+   "bytes": 1706,
+   "sha256": "b3c6128340eaa37e40a6a2f1b738e894c855239417d50959759b34a2b5e89f92"
+  },
+  "addons/maven-3d/engine/lib/jsm/postprocessing/RenderPass.js": {
+   "bytes": 1915,
+   "sha256": "1c90c085312871c4bcdccfcf519499c6276dd503363fcf7cb7f703add45cf4a2"
+  },
+  "addons/maven-3d/engine/lib/jsm/postprocessing/ShaderPass.js": {
+   "bytes": 1576,
+   "sha256": "3b28a1ee27e0eb96c0eab137a1f442ccf127a926904eced2d51e125ec44af781"
+  },
+  "addons/maven-3d/engine/lib/jsm/postprocessing/UnrealBloomPass.js": {
+   "bytes": 12406,
+   "sha256": "8f09315c0cec117a0ca2494d3e3586035b3c4323d6dcb037537cc51b04c3cdba"
+  },
+  "addons/maven-3d/engine/lib/jsm/shaders/BokehShader.js": {
+   "bytes": 5769,
+   "sha256": "a6558cc4baf2c372c192828e9fffcf088d22f80291ac72a13a5be6d3b7a18ddc"
+  },
+  "addons/maven-3d/engine/lib/jsm/shaders/CopyShader.js": {
+   "bytes": 571,
+   "sha256": "4e3346db194db56a596cd074e9bdb39fb5eb52040c333e0d29dc4eb1324d3b1d"
+  },
+  "addons/maven-3d/engine/lib/jsm/shaders/LuminosityHighPassShader.js": {
+   "bytes": 1192,
+   "sha256": "3d841cc594a0c1767d1b0185720b32761a0133c5f1b70b56658e28f2fb9b7900"
+  },
+  "addons/maven-3d/engine/lib/jsm/shaders/OutputShader.js": {
+   "bytes": 1393,
+   "sha256": "53a52e430c27bc36ceaab8ae90a2b4af7b02672d7ee4b29d6ba3c28e09c92c2a"
+  },
+  "addons/maven-3d/engine/lib/three.module.js": {
+   "bytes": 1272972,
+   "sha256": "76dea8151bc9352aef3528b4262e249b2604f62543828328db978d060d61a495"
+  },
+  "addons/maven-3d/examples/door-ar/config.json": {
+   "bytes": 140,
+   "sha256": "de47776c8b61d23b6b69eb5939b2f35c551d663c97d6a4e70174f33047e0449d"
+  },
+  "addons/maven-3d/examples/door-ar/cues.json": {
+   "bytes": 1732,
+   "sha256": "6f806cf44e82519001801816df7d827e72791fee06548877762c43e027da0f34"
+  },
+  "addons/maven-3d/examples/door-ar/script.txt": {
+   "bytes": 268,
+   "sha256": "10612fe31d8339044494ac5127bad8de9e91ab0abb12f77338de1c77c304c352"
+  },
+  "addons/maven-3d/examples/door-ar/sfx/m580.mp3": {
+   "bytes": 218488,
+   "sha256": "e386ff276c4e311619b6e9e573c29161dfca1bcf1af00734219093c35451c251"
+  },
+  "addons/maven-3d/examples/door-ar/sfx/m722.mp3": {
+   "bytes": 95682,
+   "sha256": "d2cb8c443c30d97fbc36729e0f696d6ed996f88b90e6fad340e5626da8573f0d"
+  },
+  "addons/maven-3d/examples/door-ar/story.js": {
+   "bytes": 7019,
+   "sha256": "0dd46de358932d63f8c0403fa2de39c3883fd82c7b2c0bcb7fd655f14dc9468a"
+  },
+  "addons/maven-3d/examples/dragons-en/config.json": {
+   "bytes": 153,
+   "sha256": "38aac3ee60e77409f345438d43db4321a3ead4ab235f20d0d063db3a770acd97"
+  },
+  "addons/maven-3d/examples/dragons-en/cues.json": {
+   "bytes": 2724,
+   "sha256": "b333c0b558c84d0365b1b001bdc0332dc63681a9d55fe1250ea855c37ccedc13"
+  },
+  "addons/maven-3d/examples/dragons-en/script.txt": {
+   "bytes": 203,
+   "sha256": "92d430cb7755cab982344dafd4d5daae3e6e41d6d4e791f7b0a44a1525f1c43a"
+  },
+  "addons/maven-3d/examples/dragons-en/sfx/m1294.mp3": {
+   "bytes": 620932,
+   "sha256": "260de9a7a576af1665221432f49d08088a750fb81b17024086f1b288f1b51d87"
+  },
+  "addons/maven-3d/examples/dragons-en/sfx/m2655.mp3": {
+   "bytes": 43325,
+   "sha256": "d8ab7a4870d7438f616aed3ee0711c4a7031f29923896c9064a6d75dbda2882b"
+  },
+  "addons/maven-3d/examples/dragons-en/sfx/m309.mp3": {
+   "bytes": 142309,
+   "sha256": "a67ddaaadab817beca89d7c35b05a677550ccfc0c435a9899706cf86dae4819f"
+  },
+  "addons/maven-3d/examples/dragons-en/sfx/m3103.mp3": {
+   "bytes": 80040,
+   "sha256": "3d98abb029d11b6ad428f21b0dd3b85fc9981be4e5308d6bf839a0108838b68d"
+  },
+  "addons/maven-3d/examples/dragons-en/sfx/m610.mp3": {
+   "bytes": 504323,
+   "sha256": "8a05ea4e339524502040b566f2785ceeaefc29353787ba352d5bfff20f5c839c"
+  },
+  "addons/maven-3d/examples/dragons-en/story.js": {
+   "bytes": 7906,
+   "sha256": "d1193637a9ea34ddefaa1e4f4d16fde1728bc092dd55ac4bf02f388c3a3e902e"
+  },
+  "addons/maven-3d/package-lock.json": {
+   "bytes": 1092,
+   "sha256": "82e6efdecb1bdf0e4d762a1195b70d52248978dbdb8c5ee136ba982de6d7f654"
+  },
+  "addons/maven-3d/package.json": {
+   "bytes": 102,
+   "sha256": "42dd475939004b175970d7b3301a70a01d578a9f3b0fe16b73b35be9739c3e07"
+  },
+  "addons/maven-3d/references/kits-gallery.jpg": {
+   "bytes": 294724,
+   "sha256": "71ce661bdad75bfeae63a5d5f5899999e6e30f2973884131130f4580fcc6e0d6"
+  },
+  "addons/maven-3d/references/kits.md": {
+   "bytes": 7667,
+   "sha256": "1756671a9b4015bf53f8437856f3bc0e13a5e1aed1c4142d0ff267a85145ca61"
+  },
+  "addons/maven-3d/references/production.md": {
+   "bytes": 5266,
+   "sha256": "a76b8ca846153624fda1bb026aec7d6c4b8147290107dc819b831d56fba4b1e7"
+  },
+  "addons/maven-3d/references/scripts.md": {
+   "bytes": 10042,
+   "sha256": "330e9776d4e90d11f75cc87d806fea61d37e0976d5f812020b793af41db46cef"
+  },
+  "addons/maven-3d/references/style.md": {
+   "bytes": 8916,
+   "sha256": "b39e6c89b64482b70dacd913df75702edfc2cab84a4b1a398ef4176895e6a531"
+  },
+  "addons/maven-3d/scripts/build.py": {
+   "bytes": 5100,
+   "sha256": "9ec0983f89fdca9473076f65e10d917f8731854626d5f93a49b132b62b0de4e2"
+  },
+  "addons/maven-3d/scripts/mix.py": {
+   "bytes": 6591,
+   "sha256": "157c0cfd1d2656e96b4aeb2a19a734487825494615dc573ef7a38df535987924"
+  },
+  "addons/maven-3d/scripts/new.py": {
+   "bytes": 2215,
+   "sha256": "aa4cd43be303ce956a4ca830f54c49f8e6973d51a06928f7dcf2197dac12ffa1"
+  },
+  "addons/maven-3d/scripts/render.mjs": {
+   "bytes": 3430,
+   "sha256": "e8e583c083711e5478dfc748ab33ba12b592750973450be9c70c31b30d8258d6"
+  },
+  "addons/maven-3d/scripts/sheet.py": {
+   "bytes": 961,
+   "sha256": "1bba8d2fde3e794f7f4a642fe4cd236e122f40f8d591112fcbb6f18d5c41a1a1"
+  },
+  "addons/maven-3d/scripts/voice.py": {
+   "bytes": 7307,
+   "sha256": "a8244528bccdb42299129497ad38395d4ad0b98e5aff15d308379fdaf6a9be37"
+  },
+  "addons/maven-3d/templates/config.ar.json": {
+   "bytes": 140,
+   "sha256": "de47776c8b61d23b6b69eb5939b2f35c551d663c97d6a4e70174f33047e0449d"
+  },
+  "addons/maven-3d/templates/config.en.json": {
+   "bytes": 148,
+   "sha256": "6cfde22b3795781fa1472a808c4912af30ea5ef9901322e641e39bc548650f4d"
+  },
+  "addons/maven-3d/templates/cues.json": {
+   "bytes": 387,
+   "sha256": "2af13c772c74132e32e0ad013bb54feecf3f40174f6c6f2a807bdb940a89751c"
+  },
+  "addons/maven-3d/templates/script.ar.txt": {
+   "bytes": 434,
+   "sha256": "8f1101b44ef90ea0011778c766ed00c335e51848c6c78d89c9b3b632a13825c0"
+  },
+  "addons/maven-3d/templates/script.en.txt": {
+   "bytes": 268,
+   "sha256": "6e416b7e317fab1d6c954416dbce9c0f33cef14a83f17fcf37a730398b61e028"
+  },
+  "addons/maven-3d/templates/story.js": {
+   "bytes": 3088,
+   "sha256": "6a4caf01955b709a4d6925e794cd97edf4264d6ede4564e7bd3e2fb1eb7f8762"
+  },
+  "addons/maven-reels/SKILL.md": {
+   "bytes": 5605,
+   "sha256": "13d74ca2fc389053d2968b413d37f70d13e7e0cb3d179b46f2f148308ca267e1"
+  },
+  "addons/maven-reels/assets/fonts/IBMPlexSansArabic-Medium.ttf": {
+   "bytes": 242100,
+   "sha256": "b8363ab9f733dfa4f8e96b8b2102c24b5cf4110fb96d1d3d9a9412f6fb49cf74"
+  },
+  "addons/maven-reels/assets/fonts/IBMPlexSansArabic-Regular.ttf": {
+   "bytes": 235924,
+   "sha256": "6f611412270a132bbac838da9259d4c68569b4175f3b3b8fa3fa36a30b56dab9"
+  },
+  "addons/maven-reels/assets/fonts/IBMPlexSansArabic-SemiBold.ttf": {
+   "bytes": 233588,
+   "sha256": "89785cc73468ad2383c93cfab97f44e2a68fb28948eb710a91709c3dd57907c4"
+  },
+  "addons/maven-reels/assets/fonts/Lalezar-Regular.ttf": {
+   "bytes": 290016,
+   "sha256": "7b80807bc831f141de0f7dcf6816412bf0c548968d548c5156ca388733390ea9"
+  },
+  "addons/maven-reels/examples/stemmy-en/reel.html": {
+   "bytes": 13345,
+   "sha256": "28ecb5994b58be3c79e2bc0376b43d92a1130e11c5cd1d194bdbe43b78e5c457"
+  },
+  "addons/maven-reels/examples/stemmy-en/vo.mp3": {
+   "bytes": 407853,
+   "sha256": "269d1edbb493e5f7dad1ba1064053b82579a4ee8637ca797d54ba211f3b30309"
+  },
+  "addons/maven-reels/examples/stemmy-en/words.js": {
+   "bytes": 1782,
+   "sha256": "a05cdd1ac5ed16f6dfb5c96ee960043a3491ae1784a3ac3dfeaa730f51e6a9ef"
+  },
+  "addons/maven-reels/examples/tannour-ar/reel.html": {
+   "bytes": 11672,
+   "sha256": "84d835091f3292361027b4cbf298bf521f68d2761d19e662750a9278d4581b17"
+  },
+  "addons/maven-reels/extras/README.md": {
+   "bytes": 2261,
+   "sha256": "c838c9b25eafacf03e982ab1d3de6527b2c5fe7458ccae54bf3ead0b2ac7dc7b"
+  },
+  "addons/maven-reels/extras/instagram-agent/LICENSE": {
+   "bytes": 1094,
+   "sha256": "9f65c2af3935669d28c1afb82da45e5da609c590a636c233866a4888e84f91f4"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-audit/SKILL.md": {
+   "bytes": 4660,
+   "sha256": "029e0129353dc12b6ebbd44df7a4232802ab434877bd579431dcbc691ed455d3"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-caption/SKILL.md": {
+   "bytes": 4747,
+   "sha256": "e808d4dc51d770161082ee0f6815f5084c87c50fccfec6bd84c3a108dfca2909"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-caption/caption.py": {
+   "bytes": 9908,
+   "sha256": "c0098711e7ca73fb47f0fc64ccda3caeca913289e0036d9ff0fc66e935ae8058"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-carousel/SKILL.md": {
+   "bytes": 4193,
+   "sha256": "9c48b662afb9a2d3f2b963265aefd39a3714a73b11da2dbaed6a88d987364443"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-comment/SKILL.md": {
+   "bytes": 4398,
+   "sha256": "49527fe0a87fe2cd301aa9559b6c95d58b669f403b813b7afb628463dbe519c1"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-dm/SKILL.md": {
+   "bytes": 4800,
+   "sha256": "e2681bce13a1c8051d11e4826af27aa85e8bf84e0c27eaa976d5ceb7042d4bca"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-human/SKILL.md": {
+   "bytes": 5353,
+   "sha256": "8529817ab027e49a79156fb5c77af9b3a80de71b209e2f9b11e03abc1fb9d589"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-human/detect.py": {
+   "bytes": 8761,
+   "sha256": "f5f189abf4b22b1ced1384982f7551da545c7776edadfc36d9066bcfd84e27d7"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-human/humanize.py": {
+   "bytes": 11192,
+   "sha256": "1c71b2362aa2b4e9ebeaa1db7228698b7f1055e5f3f3449d7d430be01cb18a35"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-human/slop.json": {
+   "bytes": 22657,
+   "sha256": "4bd5936356e2c451df92dfcf1dd2c6f4ee3ccb57e3b0d5aac76b33b9da6a569e"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-plan/SKILL.md": {
+   "bytes": 4016,
+   "sha256": "539b036c05df26dc742a85dd6ccf532f47e29278892b568e13bd7206716ffb4d"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-profile/SKILL.md": {
+   "bytes": 3489,
+   "sha256": "fd1a187cfbada2f952cadbd52eddb7347c89a98beccba9c1046c72abdb8ef2b4"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-profile/rubric.json": {
+   "bytes": 4231,
+   "sha256": "bd61641158a549603cdda1627e696e1fb8baa6c644d6172dbeb527558c10afcf"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-reel/SKILL.md": {
+   "bytes": 6694,
+   "sha256": "240968ca94209d67880ea17a1cd7fd4fd5bf9b8a0da8cf2cdb484c97a7e6d58f"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-reel/beats.py": {
+   "bytes": 8438,
+   "sha256": "af3242f86f4cb76cd48a612d37f1a4ae507abcc1074a2c38215869fd8f6bb2aa"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-reel/hooks.json": {
+   "bytes": 18199,
+   "sha256": "b400700c0b57109fd9bc0cc9cf12c85650ac47ee457f33f4f29b08c36dafd887"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-reel/hookscore.py": {
+   "bytes": 13127,
+   "sha256": "3b8909286a41dd85ea8a8fffd81ce6f21cf2fd12ee0ab24b3b1a25d5358cea8c"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-reply/SKILL.md": {
+   "bytes": 4086,
+   "sha256": "2f8d63ff070e4ffe8da540376468bd2dc7ab61d8315142024da8c20722e0cd9e"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-repurpose/SKILL.md": {
+   "bytes": 3499,
+   "sha256": "5750a3231123a48576b82babb0f04854fa26f5b2cbd54c8ce53e4e2eb0462a2b"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-story/SKILL.md": {
+   "bytes": 4466,
+   "sha256": "d5f39a3ec77278c4ad536bfa56c9a942a312949b97b09f5a4f35a62799a6906d"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-viral/SKILL.md": {
+   "bytes": 7182,
+   "sha256": "c237f72c23605cfe45bb8c98404cc5b7c404fb5780d430af6b888fe2f8f7503e"
+  },
+  "addons/maven-reels/extras/instagram-agent/skills/ig-viral/swipe.py": {
+   "bytes": 8602,
+   "sha256": "10bcb9acdb6289fece096eb3e45bf182a4d71e07d28a3798f2e59eab1035f4f7"
+  },
+  "addons/maven-reels/extras/marketingskills/.claude-plugin/marketplace.json": {
+   "bytes": 917,
+   "sha256": "8f3eb92df77c8123d78cad7b3f48a17596c6f6cc163edb561e1a00c3927fd096"
+  },
+  "addons/maven-reels/extras/marketingskills/.claude-plugin/plugin.json": {
+   "bytes": 425,
+   "sha256": "85bfc3333f4c837cda50f7dab661af245571d377ab8716efbebf2ccf0fb94662"
+  },
+  "addons/maven-reels/extras/marketingskills/LICENSE": {
+   "bytes": 1090,
+   "sha256": "3bb73920cd10a04b0ce3f28b84bada69e9286d0c33cf654ff10c279409791aa9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ab-testing/SKILL.md": {
+   "bytes": 13242,
+   "sha256": "dcb067a1708d3d2a5a333ed0ec70890a89248e5d498f5a4bf220406e95b6faa0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ab-testing/evals/evals.json": {
+   "bytes": 9141,
+   "sha256": "5904397cfa460f3156f4abdd0c2b2ea19407b2a0882e7f75298ecf4dfc1268f0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ab-testing/references/sample-size-guide.md": {
+   "bytes": 9461,
+   "sha256": "45111a7fa014834761f450e898fac1adf58ff40b7e23b0b08afc0bf2cac2a270"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ab-testing/references/test-templates.md": {
+   "bytes": 6750,
+   "sha256": "1ececdef6d9fcbca75d8e871691d5fe68e2bc8ccbf6943166def4fe5d51198e6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/SKILL.md": {
+   "bytes": 27051,
+   "sha256": "66705db4edd37c11e19aa66dea8fa1f04eaf50c1c39c0ed5950837fe882a596a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/assets/creative-review-template.html": {
+   "bytes": 26524,
+   "sha256": "bb3d39d08201abc40fa75ef6fdf6204a1ce24a7f83c2f6de83f750bc185e1a34"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/evals/evals.json": {
+   "bytes": 29358,
+   "sha256": "511756b080e4ac6dbb45f4ff2606451f84d5900dddccd4f3d22d4f13e8e2d54f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/awareness-headlines.md": {
+   "bytes": 6819,
+   "sha256": "15c97c573d75789d1015f918213f2b41c26b9c9486125710a9d2976370ddc355"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/creative-review-page.md": {
+   "bytes": 9711,
+   "sha256": "27c48e6a4cfa7ad2d058d79dc58d5e39fb4684de401786d4c69823f70347a9df"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/creative-roadmap.md": {
+   "bytes": 9128,
+   "sha256": "5489e06389c4cbb049bf3fa6298f90327e5603f30a14f6cc1c9a7227e8cf5615"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/generative-tools.md": {
+   "bytes": 24824,
+   "sha256": "e6c6e8803990535466a0cec26c92ebf9aeab391f1c94ab6fc6089d531cdcda0a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/hook-system.md": {
+   "bytes": 10152,
+   "sha256": "354093d4d700f1cfd99a8f16d6243ac1994a3c8faa35db57d599ac25dde0c5d1"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/imessage-video-ads.md": {
+   "bytes": 20119,
+   "sha256": "d8e2ff030cc52d6b3631889a7ebdf330c0a43ddba300df13b85e373b6d094c55"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/meta-creative-formats.md": {
+   "bytes": 11052,
+   "sha256": "67512066baa0b79ded27fc1c6c652255b02876a1f77d6c70bae973fbfebab439"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/motion-video-ads.md": {
+   "bytes": 11927,
+   "sha256": "106dbb7aba2733949fde0e7b99b0be2ec12781b5e60104afc799805f0d1c2bd5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/platform-specs.md": {
+   "bytes": 6738,
+   "sha256": "2926db9b4ed0f2c2d4db2bd235fcf687b977e8aa42b3e84b26468d07bea71d18"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/short-form-video-specs.md": {
+   "bytes": 19602,
+   "sha256": "7ce3373f92515effc99ac2da19544f13c8fdecc6fd29fbb6496a420673229984"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ad-creative/references/static-ad-templates.md": {
+   "bytes": 37601,
+   "sha256": "a5c38d682f00213aeab5551d2d316d35b147af1e7b918188f17f7b56d8b244cc"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/SKILL.md": {
+   "bytes": 30586,
+   "sha256": "733434655bad39571c3a28c0e4cf39cda18de843f8af61f519f4e2269fbc0fcf"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/evals/evals.json": {
+   "bytes": 27339,
+   "sha256": "4371e15077d4f181e26523bf028fe05ec5aec89d33139d03dbcb1d0484c9624c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/abm-playbook.md": {
+   "bytes": 8201,
+   "sha256": "573df365e927a82505d0d34a2c0ea4de5ec21099ae9035b1329e61c917014cda"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/ad-copy-templates.md": {
+   "bytes": 5028,
+   "sha256": "0b80e831bb726cc1d63761c7e5b3651dbdd8ac3b310748badbefd66f9b538934"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/audience-targeting.md": {
+   "bytes": 6310,
+   "sha256": "1c896ec1a7d5b7807703eacce538045335f6cd01cebcd7c977c044a8b4b012c9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/audit-guardrails.md": {
+   "bytes": 8251,
+   "sha256": "c012cf43c90240a6f91184146fb9f9891ddaa1aa627eae1edf0a15383b26c5f2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/b2b-paid-playbook.md": {
+   "bytes": 8066,
+   "sha256": "50eb07c29a61f63cc1b368c0ca50aacb889ea82eaa03681a5b9d7ee41885e425"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/creative-research-automation.md": {
+   "bytes": 10581,
+   "sha256": "f59dacbd5799b5f2b3b6913c9e4217c77d73ffb5d928c016dcb186a3d8073e27"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/google-ads-audit-checklist.md": {
+   "bytes": 12928,
+   "sha256": "025633f72cccab325c328ab7e600f273999a7564cf311143c839cb2d8bdf7429"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/google-search-playbook.md": {
+   "bytes": 10997,
+   "sha256": "00501f3e3c558e1deab4ab0b9bd517b682e2693e7288c4a724c6ea207e4c0427"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/linkedin-b2b-playbook.md": {
+   "bytes": 9331,
+   "sha256": "1d159c48e6fd0d028c8067aead794c3fc3db83b82060f343aa82f08065250be8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/meta-andromeda-playbook.md": {
+   "bytes": 8278,
+   "sha256": "1980572b2169c610061542175372aadb82873fe0c315ea09acd8e46bc62a6f08"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/meta-decision-system.md": {
+   "bytes": 15839,
+   "sha256": "16483d999ca0b6e7f1e8c1d03397b6e698d5c3b823cad68d1035657793cf137c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/operating-check.md": {
+   "bytes": 7312,
+   "sha256": "02f1a14ae0c448b9d384d8d6c22a390b417a013b39b09bed98e653420627d56f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/payback-period.md": {
+   "bytes": 6993,
+   "sha256": "4fd3b71e2db95d86f53f6a3a3bbba1dc5df466c7a65ab66e4bf5bfe332b2073a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/platform-setup-checklists.md": {
+   "bytes": 7890,
+   "sha256": "b6de1c381a483677f60a893b3f722f3510ee76469d688be09d35e842741ee5da"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/reading-google-ads-data.md": {
+   "bytes": 8871,
+   "sha256": "5b0a1d0ba63e0d3da1af943e434bea19eb31b7bcaa9e02ccf8592d40565fcacd"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ads/references/rsa-output-spec.md": {
+   "bytes": 3777,
+   "sha256": "7198b6894d0c024c38d5ca2a6401ea572e4a6e7d1aae685580abacdea5faef35"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/SKILL.md": {
+   "bytes": 36778,
+   "sha256": "a3fcccc67990cf090594f116d6412fe56eecc5d8882864bfee376b4999436774"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/evals/evals.json": {
+   "bytes": 20903,
+   "sha256": "7b36af6609906cdb559a0138b03c25c161f143b85fcc295bb7355663e6f9a157"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/agent-defaults.md": {
+   "bytes": 9423,
+   "sha256": "52dd7927b9d94865617d1eb1491788cd531b080a59e79bb59d5df9483893834b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/agent-readiness.md": {
+   "bytes": 17608,
+   "sha256": "070af8442e0f876a72822ce169a210e56f498cd171c854030d767cb5c9f4e68d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/ai-attribution.md": {
+   "bytes": 4356,
+   "sha256": "c0a71b165a31650ff7e44ab6db3ef293d4fe0918c06691b88d0d4662edb4b679"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/answer-accuracy.md": {
+   "bytes": 5789,
+   "sha256": "9269e683d4c74d77bb357ef5da9ddfbcd23e4e29ff857ee50e3446e251a2a87d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/citations-vs-recommendations.md": {
+   "bytes": 12959,
+   "sha256": "2ebf7faa308402d98e13f1507f60ffa59d0163598f2618b25a3b434f5a07b696"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/content-patterns.md": {
+   "bytes": 13260,
+   "sha256": "470833aed12593a88e13696dfa1188e3a47411f9fd07e2d493e75c763e98f080"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/content-types.md": {
+   "bytes": 3640,
+   "sha256": "e9bb6f9fb7c532654e838fca2c273e6136b838e843159f864916c0de5b6efe39"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/format-volatility.md": {
+   "bytes": 7364,
+   "sha256": "d3a1bf01fee577b6081c500206e4cfbee95547bbc90d6dc1f71f6491599f0ae7"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/linkedin-ai-citations.md": {
+   "bytes": 8878,
+   "sha256": "1cfef30d80ac4e6bce84a737ad34e8e352c45e745f0170ebabdd69ff53798c1f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/multilingual-and-commerce.md": {
+   "bytes": 4935,
+   "sha256": "a0028cb618a0277f591d7ad4a0acb241875b843152bd0e642d5a5f2bae92c744"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/okf.md": {
+   "bytes": 6056,
+   "sha256": "7fd63ae9a47ce1705edaf3d8cb0d00d61755791019a483aa510d1d2b6ed9a509"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/platform-ranking-factors.md": {
+   "bytes": 16921,
+   "sha256": "0141f1347c849772e101d339157be9674071c862fa61c718ae32bd230a9c2a8b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/positioning-and-consensus.md": {
+   "bytes": 7385,
+   "sha256": "764deaaee11b7895c73ef4a997b97a6988bce6d47008459bf19d8e69958c682d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/prompt-portfolio.md": {
+   "bytes": 7809,
+   "sha256": "ecbc9717bf802d2b047ad26f7e6c1f8d1628b85a30742ede217c8d5ec47c8fb5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/ai-seo/references/youtube-ai-citations.md": {
+   "bytes": 4544,
+   "sha256": "a482fd623e7e1f9626e28677ffef0c733c31256e3e5cc6f6dde4c73f327a605f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/analytics/SKILL.md": {
+   "bytes": 14441,
+   "sha256": "f76ec0f7c144311285daf431ab67d88df2c256181d0f1d28488a3b3da764c7f2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/analytics/evals/evals.json": {
+   "bytes": 8936,
+   "sha256": "8c1cfa3a6ef03edada141b6cbed5bfb768265edfe0ef7d3777db264c4a9790ff"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/analytics/references/event-library.md": {
+   "bytes": 8914,
+   "sha256": "716aa9c1fa771319a1248eda96bdec66ad97e4cf6363a0432db9459f5e880b38"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/analytics/references/ga4-implementation.md": {
+   "bytes": 7493,
+   "sha256": "f7d5ad158af1a3e958501b68a3ab60c980ef9cc41473dc7ec2a46c654553555c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/analytics/references/gtm-implementation.md": {
+   "bytes": 8809,
+   "sha256": "65eb4493ab6bc835259cd70456c5ea28c1dfa77bbd2d9b45e60f0c222f65bdd0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/aso/SKILL.md": {
+   "bytes": 16030,
+   "sha256": "2b7fb0be015e1cbb8468a242d20d9d19cdead79e4e923e7a5a0c11724f5ad1c1"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/aso/evals/evals.json": {
+   "bytes": 8870,
+   "sha256": "dc40086cfdc1a983da166fbb9d9de82a7eb5c8d17befbbb0e1c38ae6d449bc59"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/aso/references/apple-specs.md": {
+   "bytes": 6301,
+   "sha256": "a3480fc78dfd284ea5b37b0b7a7b5caf1fadbf488e729b2d052de3e4b8a46fdb"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/aso/references/benchmarks.md": {
+   "bytes": 5575,
+   "sha256": "2bf1c2e59e605389caec561eff82318ae9faf3d4620d44ca6f5150ace5c27546"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/aso/references/google-play-specs.md": {
+   "bytes": 6734,
+   "sha256": "bd5f8ebcd11cc4b5830f2165c5fea7ca690d125bf49f655802a015632f4a98a9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/aso/references/report-template.md": {
+   "bytes": 5337,
+   "sha256": "5ca91a34bb03521aceaef3a2d0b1dc92856daf9c5f9e54d48e1dd2ab8216495f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/aso/references/scoring-criteria.md": {
+   "bytes": 13969,
+   "sha256": "a60f8542a144167a9427a5c93265f170a6015db76d2d4b9a95fd6c7f3e78a2b6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/attribution/SKILL.md": {
+   "bytes": 23073,
+   "sha256": "9ce67a3fa35e989799969f32720ee8decab756a21a9d00778c583f8e81c16ac3"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/attribution/evals/evals.json": {
+   "bytes": 13314,
+   "sha256": "86b9313db1fa75d567695b039c10660cbb497331fdeb2c46ffa9da9e1700e228"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/attribution/references/attribution-models.md": {
+   "bytes": 6857,
+   "sha256": "d07f8252b8cb874287a613d348ba5fb87663d654e78dd7d72107a14c7728222e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/attribution/references/by-business-type.md": {
+   "bytes": 7911,
+   "sha256": "6e181f8fc93e34798006ee281afbb0b91dff3de5d803ede3e75ff57c6f3c7bee"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/attribution/references/first-party-tracking.md": {
+   "bytes": 20120,
+   "sha256": "0b56255d229a607531feaf1b814ac3943db2c96d38cb09201d7d2f1150af0aa9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/attribution/references/measurement-paradigms.md": {
+   "bytes": 10684,
+   "sha256": "1fce67c812445c1ac45bdd833a1d2c80f308e26a9edfae429f969561d15b2166"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/churn-prevention/SKILL.md": {
+   "bytes": 20098,
+   "sha256": "05256d0fc7cd8ede32102e71933be0f4e4659db76a06db5302d0d5d626b3c6a1"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/churn-prevention/evals/evals.json": {
+   "bytes": 8251,
+   "sha256": "c825e8dbd91a90992057d038939047a909fd3bdc865e70387a23aa29ac33d851"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/churn-prevention/references/cancel-flow-patterns.md": {
+   "bytes": 10966,
+   "sha256": "50bfc77321a7caa6269526cec74f449e2df82782272769c3271054e4ea9505fa"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/churn-prevention/references/dunning-playbook.md": {
+   "bytes": 14477,
+   "sha256": "1e88f789c4c2216536e6f3b6a86aa0858fa00c1f45a4426f355fcd5ecc9c1aa9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/co-marketing/SKILL.md": {
+   "bytes": 12249,
+   "sha256": "f12d144b700eed24647ac88ac8f074562e023e0e5f54963107b2d88b62deffcb"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/co-marketing/evals/evals.json": {
+   "bytes": 9032,
+   "sha256": "e2b3f723497233fcc4c306892902f75086fb9eddc012f8f195c58f85c26d3900"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/co-marketing/references/partnership-types.md": {
+   "bytes": 8211,
+   "sha256": "80df5ca1a3582c59654b344dc5949f19c8ece379b7ea400ff9fb8cb5751bdf24"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/SKILL.md": {
+   "bytes": 12381,
+   "sha256": "d15eb7ce1a04ffc1d514d1f772db49097d4b14b625bbb6957ed573907907dffa"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/evals/evals.json": {
+   "bytes": 10578,
+   "sha256": "5306c820edb85836b50c032841f8d20366890ab6b19e9555793dc8dbeb86ff01"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/benchmarks.md": {
+   "bytes": 6498,
+   "sha256": "72ed9e5f2830e4d492ee0b0fc62ede16d2bb5511f5a2b67e4ea60b08362eb47e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/deliverability.md": {
+   "bytes": 7944,
+   "sha256": "e56763371c3a43036bcb089d5252ae02f612b1e0c0be36c028ebe7440f7d2b06"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/follow-up-sequences.md": {
+   "bytes": 4028,
+   "sha256": "d34d1164f29bfec0335886ea98418ba9626294ebc1023ebea085b44003cddd72"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/frameworks.md": {
+   "bytes": 5477,
+   "sha256": "d1a7bef8541f2f894d03126e9fde6949d9e45314927f3654b644b219f757382e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/linkedin-outreach.md": {
+   "bytes": 5841,
+   "sha256": "ec8efeadb1a300edf74e9c53e6b549a6aeed7169bcad65df7a9c02db02a5e9bf"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/multichannel-cadence.md": {
+   "bytes": 5560,
+   "sha256": "b4cc3d45c2a25087ba8938fc9b50a141540c1e0e8b3fbb2e26b080c82d08b2d7"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/outbound-plays.md": {
+   "bytes": 6201,
+   "sha256": "b46228ffdebf4bbfed03a62164d3846afb66048e8d409df497549cbffb48fc46"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/personalization.md": {
+   "bytes": 5328,
+   "sha256": "23927412b348032416d6a81086fde9a4c9278f2f11417483c2042a05f4240495"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/reply-handling.md": {
+   "bytes": 4713,
+   "sha256": "6857a0262836c25632e1d558a118d0ef99e5c1a017c8bf4b1ed0d12c0674de51"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cold-email/references/subject-lines.md": {
+   "bytes": 3068,
+   "sha256": "3f85ad2d02e69b6aaaf2423d4e977e666758743496a9d3ce23b8c212dd0636d3"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/community-marketing/SKILL.md": {
+   "bytes": 9700,
+   "sha256": "8d72d78f47200f7bec84bfb75d292fd1c57b8b598cb471a45b90144bbe765f8e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/community-marketing/evals/evals.json": {
+   "bytes": 9554,
+   "sha256": "08263506e69c7bc9f1885be24617ea4d312778ddbaec069b82eea125086d2cc8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/community-marketing/references/community-models.md": {
+   "bytes": 4109,
+   "sha256": "e1e5cbc7d2e72d9d84110ec9d4c241bb79b65153b75d6880f9607badde0ee076"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/competitor-profiling/SKILL.md": {
+   "bytes": 17832,
+   "sha256": "02870cac853fc5b24ce3a957535172c55c1b3bdeb70c9133dd22efd307458ecf"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/competitor-profiling/evals/evals.json": {
+   "bytes": 8662,
+   "sha256": "140f2821d97253ac2704f770890ae58d6c5d6dc0cd4848cff6e9f931957bb1b6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/competitor-profiling/references/templates.md": {
+   "bytes": 4835,
+   "sha256": "146dcb7130d01c6d7d8b25292c5be8dd13934f895b7b4f0eecd51146e5d607fe"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/competitor-profiling/references/tool-reference.md": {
+   "bytes": 13446,
+   "sha256": "f90f4a0bfc852e33defcc2f9d15fb2abcb13d8b01cba3408c0d66a0c319a3878"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/competitors/SKILL.md": {
+   "bytes": 11798,
+   "sha256": "635ff99f4dfa0a1b6dc9a47e0dd5ed759d9f05e5d3437d4c0dd27307dd5fbc2c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/competitors/evals/evals.json": {
+   "bytes": 9256,
+   "sha256": "3c3f5174db5a519e030b9447a6e501ece54003f3696e58222f5335b72034e2da"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/competitors/references/content-architecture.md": {
+   "bytes": 8022,
+   "sha256": "cf55870fa8a606f0adb16d4a8728ab3b0b6c987c373e6edd6ee18b448831bff2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/competitors/references/templates.md": {
+   "bytes": 5875,
+   "sha256": "bb4e8fb211f3f639f16a341e77d7f5ea46333aa6e89177011d3f4342a2315754"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/content-strategy/SKILL.md": {
+   "bytes": 19484,
+   "sha256": "29cb3ee52ecf22025181a4dce193f769280dfa454da3ad0cd580965e22e6a429"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/content-strategy/evals/evals.json": {
+   "bytes": 10306,
+   "sha256": "c1394df7a6148f76855157c08571afc0428d257f3c442dd22ee95f9f2993e82a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/content-strategy/references/content-distribution.md": {
+   "bytes": 5659,
+   "sha256": "7c752892cfd6504621872584ca461c5e564aa66ae7fc0756f8344a2bb1972cb4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/content-strategy/references/headless-cms.md": {
+   "bytes": 8777,
+   "sha256": "6e79cc642da23d7eb09f61c27a9fedb20accb0971eb0a50626fd60456c31192d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/SKILL.md": {
+   "bytes": 30640,
+   "sha256": "39844d290a6ed76bfcffa1bb4131f7c1cde7d69c4c9921240f4420ea000c91d2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/README.md": {
+   "bytes": 6466,
+   "sha256": "d9b39464d48aa404a928400076706cb6e01e70899624f3d1952cf4cffdcef2ba"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-acuity-scheduling.json": {
+   "bytes": 7313,
+   "sha256": "cc3da64799dd958b0ee704b09e18820e79181c28953cc0b82bf5d8519691ee79"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-cal-com.json": {
+   "bytes": 9199,
+   "sha256": "4b7c3fad4c5dd8bbe131e5f465c637a5fb443d3ac44ab38c545ba7b809ef427a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-calendly.json": {
+   "bytes": 7994,
+   "sha256": "673f257c8641d5ebadf83c7f75e9d00584e29d53433d8eb719b3de94c77d85e3"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-contact-form-7.json": {
+   "bytes": 6562,
+   "sha256": "0e6b2ba3dfab1ccb1bf328ec605ba9aab9ef067245f7d1d2b9aaf640627e4d40"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-divi-forms.json": {
+   "bytes": 5194,
+   "sha256": "3dc8399b4cb44be6ee361f9ae838c0e376ef54dc02f0be9ceda584a795868d51"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-elementor-forms.json": {
+   "bytes": 4565,
+   "sha256": "94dcb93de84e8943822ba4934359bdd9bae46134e9985ef02ea00ecab08574f7"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-file-download.json": {
+   "bytes": 5179,
+   "sha256": "2b8560b09f5f98dac71324f373a49c018ef38ac51670bb3193a9662fd02ef691"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-fluent-forms.json": {
+   "bytes": 7042,
+   "sha256": "ceff8b5721904e6d4fb1fb7540ba2b5a59e65b52b86fcfcd70df759680b5b973"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-formidable-forms.json": {
+   "bytes": 11131,
+   "sha256": "70a4ab592fbc9743970e2456474436a4e5dd7ae427cc5dd9fc79386880724cac"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-forminator.json": {
+   "bytes": 5718,
+   "sha256": "bc47ff1719d88214c24b555dbc4260d891f3ad2a38452f6ccf51b3a8359e4556"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-framer-forms.json": {
+   "bytes": 6589,
+   "sha256": "e87860c9a5b02b3fa0f3d98559824c6a477b13dbe32000acec614fd369978639"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-generic-ajax-form.json": {
+   "bytes": 8093,
+   "sha256": "c6ca93e2df3d85c19f7d7922b719dfa6c99190bf4ecff844cf6fe98af2b89127"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-gravity-forms.json": {
+   "bytes": 15864,
+   "sha256": "5d3ef93251e7a917874d1644d0eebf31c3c598b2e765f3939b9f4abb7e07db7f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-hubspot-forms.json": {
+   "bytes": 9574,
+   "sha256": "b538497790346eff7c44df982d8a85e614cba7880bd375b54c561b0413752244"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-jotform.json": {
+   "bytes": 3987,
+   "sha256": "d42416802997ba0f126eb9ab17020ccf603b14f1f97d0538eb3201d6b68ba78c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-ninja-forms.json": {
+   "bytes": 8707,
+   "sha256": "e3db59db6b2b59034d99c1826e981f4465b3fe8fd00bd8f762eb1c81651b114c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-phone-click.json": {
+   "bytes": 4826,
+   "sha256": "1a5ca503caf24e23fc4f84f393194221c9ed4348a8b4f08d1ee72b66847af32c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-squarespace-forms.json": {
+   "bytes": 19087,
+   "sha256": "96d550fbfb37338a4f042c282afab754659bbf9f5036233773e621cd92b48a43"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-tally.json": {
+   "bytes": 10783,
+   "sha256": "98e9881b9f1f09832c8d7061441d31460f2ac0f2efff67a86bef5adcea7cc7c2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-thank-you-page.json": {
+   "bytes": 6407,
+   "sha256": "a70baa85121ddce8a2baf1d682c2dfc1eb14b64e462217e749e154ea4e789001"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-typeform.json": {
+   "bytes": 8182,
+   "sha256": "911ec0709eee0d667827fa62a963725e6108aa236b37ca73f989995a781f58dd"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-webflow-forms.json": {
+   "bytes": 5797,
+   "sha256": "5ee653aa7b8b49becd236ed5c007ef26e115b36eb08e461968554ac468049564"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-wix-forms.json": {
+   "bytes": 9874,
+   "sha256": "3da4ea31e6af5eac36729c45bf54b19b365f092afc8ccbbf2cdf633d831ebff6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-wix-scheduling.json": {
+   "bytes": 5301,
+   "sha256": "46cf9f0ca6ebfafad662fa105b6ca7c0cb999d2f34dde5ec19c11a172a17d919"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-wpforms.json": {
+   "bytes": 11483,
+   "sha256": "ee42b318f904825ccbe3f418e64fe1922c208871769e6cc0d0dc8b8732538fdf"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/detect/detect-ws-form.json": {
+   "bytes": 4879,
+   "sha256": "751ff80918c3d0e8da445c8e13c56ea6ff29ce905561cb9e9c60974deba973d9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/event-map.json": {
+   "bytes": 3343,
+   "sha256": "a6e7f36ab3cef477e8c43ad56c03fc23fe2e94812c9ebeefad3c7217d8d62dbf"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/send/ga4.json": {
+   "bytes": 1917,
+   "sha256": "4065734f1c13391e4a1fadf0315285294f554c207dc6b4b5216fd4b5d0ff679f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/send/google-ads.json": {
+   "bytes": 2841,
+   "sha256": "b85a4eea8c505e222a0098922c4c27a79c6899c51a71365b4d89c6a5966093c5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/send/linkedin.json": {
+   "bytes": 3979,
+   "sha256": "8e80bdd83367f5cecd9bc6db1795a02bb034828d01c9fb0bae5f866158727ff2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/send/meta.json": {
+   "bytes": 4346,
+   "sha256": "3652badae8a054dfc8449c90897bb7688f0c8c6a49baa94b1528441b21ac1c75"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/send/microsoft.json": {
+   "bytes": 4233,
+   "sha256": "d2399e7fb02f4f598149b35b1e8ad507033272d3c7be9c420a47a46ca59c6ef8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/gtm-recipes/send/tiktok.json": {
+   "bytes": 4592,
+   "sha256": "e410ff3b92a2d564ac24a3fbfb2f474677efac9d0c21bd4739c0c7455edd93cb"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/README.md": {
+   "bytes": 17831,
+   "sha256": "1a05b12109b09004a658023b33fd28d5801a84a0c5506f2f5d25239a9ccc1fd9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/acuity-scheduling-field.html": {
+   "bytes": 1318,
+   "sha256": "53c8b1e9c08bfdfc499d2f31bcf0efb3bc6088b68dd511748bcd28802193ffd5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/acuity-scheduling.js": {
+   "bytes": 3441,
+   "sha256": "318b696b4906d94bba878fda59ed612e43621bc40c501f27defe885a77ddc621"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/cal-com.js": {
+   "bytes": 5782,
+   "sha256": "752f66a441ae92d826ea917d9fe40f432665660cee0443028aca3c4446ad5a87"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/calendly.js": {
+   "bytes": 5034,
+   "sha256": "e946ba5ed4859412ca478d536e1f9dfde56c943e43d5466cb64f4b92b1aa3b7e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/contact-form-7.js": {
+   "bytes": 4063,
+   "sha256": "31d6e941045d503bb2f8083b3de5a90660ea06352782145eaa0b7dfabeb70f86"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/divi-forms.js": {
+   "bytes": 2709,
+   "sha256": "c8feb489b3e91290eaf4d512ba98858af1842e9f38279f6ccb74e1df4f01ab1e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/elementor-forms.js": {
+   "bytes": 2065,
+   "sha256": "91cdacaf5e207f712802da84e2663e1a888a6b341f21cdb35b20f3df148fe97a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/file-download.js": {
+   "bytes": 3324,
+   "sha256": "80c9ec2669d42c0f87aeb37b7e7c479d7aa8eff7aaced9f9107b2886089c6388"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/fluent-forms.js": {
+   "bytes": 4508,
+   "sha256": "68183fe2b07180d0e5329429af10f24e4607507030bb1893af570a93c2953e1d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/formidable-forms.js": {
+   "bytes": 8624,
+   "sha256": "00da47d3cf0b2ea88a9d980ecf0fa99c8561843575db4230d19639b12c12b92c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/forminator.js": {
+   "bytes": 3227,
+   "sha256": "83bf6ab7992c4618ad4d6c4de0545e7d6994199263fe929ec5f656a98fc5c6d5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/framer-forms.js": {
+   "bytes": 4084,
+   "sha256": "d1e7c5a887bf41eb35b5117e68fd64e74c388c3fd2eeb61acd1374ad4594625a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/generic-ajax-form.js": {
+   "bytes": 6234,
+   "sha256": "4ed760f7fd0dbd24a890d267b2e5a492ca47954193879f70397ccc0aecf358c3"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/gravity-forms.js": {
+   "bytes": 13326,
+   "sha256": "7c60796c29bffef4aa94b74df1408d8eefcb7fc82128ffdf18009f68ea7fd302"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/hubspot-forms.js": {
+   "bytes": 7081,
+   "sha256": "4b1d034e75213ce5c2d720292531c8f88b010eb054372de789686e7a110b1bb3"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/jotform.js": {
+   "bytes": 1495,
+   "sha256": "309874dbac753bd92790e3b8affabe4fee43af50af7ddebb42ff47d1013f5c7b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/ninja-forms.js": {
+   "bytes": 6210,
+   "sha256": "270dab35849fc3072c9214f402ed9fbc2aae6b4ea6d799d3a617e8891ecc8339"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/phone-click.js": {
+   "bytes": 2939,
+   "sha256": "ae365156c52a925c099fc923f6284918994c538d335252a72f305305efc95cb2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/squarespace-forms.js": {
+   "bytes": 16116,
+   "sha256": "2257d37fd76a85bbfb3981f224a0f013dec349620c1d640ff91ccd58fad517a7"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/tally.js": {
+   "bytes": 7833,
+   "sha256": "f0666c24a30310a8f40a0b477569924d4f3375027e7986578d76cc81ae4c8f92"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/thank-you-page.js": {
+   "bytes": 4549,
+   "sha256": "7623d590c31e7cc6fa33dd052eb5a6c59a5c7ad9c344b3a4e6f4cc3b828560b0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/typeform.js": {
+   "bytes": 5225,
+   "sha256": "46b892c385a4cd8bda0d08d8647d8a768f6f8407debe300df59c7a427367ca06"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/webflow-forms.js": {
+   "bytes": 3300,
+   "sha256": "e896398b8b28b3b6164c5bdc9c513b6f08b52371b0109a20f73406e090d45967"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/wix-forms.js": {
+   "bytes": 7375,
+   "sha256": "a48e0fdb7ae1d0262a3b6fd54150b94a830524414005987e6d1b35e43df1016e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/wix-scheduling.js": {
+   "bytes": 2800,
+   "sha256": "86cf102e61ca206b0243c1430506afa06247c72e70ab7e3c9a5cf0e0c789ed15"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/wpforms.js": {
+   "bytes": 8993,
+   "sha256": "cd785c82d3e343c51b4cf01581267bf2f05c9a8f50702df5ec62653e7af062dc"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/assets/snippets/ws-form.js": {
+   "bytes": 2401,
+   "sha256": "87afc2c9b65d7e316839971023803ae6267d64f986f8311035b2f8316fd95d82"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/evals/evals.json": {
+   "bytes": 21770,
+   "sha256": "a5706dccb859828d8b81093a438cb0629ab7f6adcc078cd193f12c2210ea0e29"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/audit-playbook.md": {
+   "bytes": 12968,
+   "sha256": "e3939ee198c893de242999bae527099310b57e28b16a705c5ed7d96336463430"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/browser-side.md": {
+   "bytes": 23453,
+   "sha256": "ddc941fe98226a6d92c23af58641af14e56a2cfc0b1e13266687a465729c4b58"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/conversion-moments.md": {
+   "bytes": 32328,
+   "sha256": "f218d677ec8ad1ead1c936aec9c860e03eb204113ff5475543fb75beb6ac1323"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/discrepancies.md": {
+   "bytes": 13903,
+   "sha256": "14a55ae6ccf4fd02e3743976440d1a01799b498c5e38473aaf36b1c6721e7168"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/ecommerce-platforms.md": {
+   "bytes": 10198,
+   "sha256": "9c0e2363c8e437d78ed0d71ff270a8e6bf7d821a001015a7f1112d2e7600d3ad"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/google-ads.md": {
+   "bytes": 30610,
+   "sha256": "0ddada0226eb38eee5214840ef58b3a32f7397446a3d59743168e44d6fd38cd6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/meta.md": {
+   "bytes": 18451,
+   "sha256": "695e3f4c0b6403532cd85e908b078957bf033ea9372562652948881ca1451e67"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/other-platforms.md": {
+   "bytes": 20205,
+   "sha256": "341f409b5dfb8fe8d09f6c9c46743d841964f9cf5414184169bc4afc80da4df8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/references/server-side.md": {
+   "bytes": 32081,
+   "sha256": "7905fb97fb30dee6178fb9b4690bdd6507108f7ba43e01af421137b8b31a0664"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/scripts/build_recipe.py": {
+   "bytes": 11330,
+   "sha256": "a9aa419f13260d983b547c4adaf60058fc74f569f5379edd7bd2cc0a45791630"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/conversion-tracking/scripts/check_recipes.py": {
+   "bytes": 3335,
+   "sha256": "400ed4911cdaf2e0b73f8639c615f9d0bef3b0da259f507cdb122e6cf561edbb"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copy-editing/SKILL.md": {
+   "bytes": 18454,
+   "sha256": "c16f2087b34529f306ad33bf8ded1506afee5ac7e12fcc717fb4eb78e17f1db2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copy-editing/evals/evals.json": {
+   "bytes": 12010,
+   "sha256": "9a35b8642640b1623c80e040ac7d88aed9b58f80b3623b9c40728fe5c2cde660"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copy-editing/references/checklist.md": {
+   "bytes": 4606,
+   "sha256": "3ee21b8b58ab852090f05d669d8c121a46f59f638e8e5cdea278e5fda5ee827e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copy-editing/references/content-refresh.md": {
+   "bytes": 4733,
+   "sha256": "33a3a7dbf4fc4b9425a10378ea05ed177929ab04d3b9f532650b5f01f55b7144"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copy-editing/references/plain-english-alternatives.md": {
+   "bytes": 8652,
+   "sha256": "0bde00902bb1ae02d6fda0b87928d5f2caa9eb4bd0367015eae368cb0f7d3c0f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copywriting/SKILL.md": {
+   "bytes": 15383,
+   "sha256": "3ddfc07d1c2fc19de06848b7c0a6497a25c4a61c2230aaa29749f6dbffe1072b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copywriting/evals/evals.json": {
+   "bytes": 13149,
+   "sha256": "cd44f25b0aaff3d6ddf8db1fcbf633a45e49e4f73be05515d50ea7e102546053"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copywriting/references/ai-tells.md": {
+   "bytes": 21113,
+   "sha256": "e440070f751a959d793c08edb461d421983ba3291b2c19b3007daf1fa1613824"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copywriting/references/copy-frameworks.md": {
+   "bytes": 14841,
+   "sha256": "562efb58fa0ec6463c49af48e9dc07b2c9724441a73d03e6f71373f3beab5cce"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/copywriting/references/natural-transitions.md": {
+   "bytes": 5817,
+   "sha256": "0e2cdaf06b93e484a01ebd99e86b1864f26d743398b6dceb41279c1380ee2dcb"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cro/SKILL.md": {
+   "bytes": 7013,
+   "sha256": "7f54186a01322626c010735c0b9ae5f85d140a551334e01e4c383b7e6637501e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cro/evals/evals.json": {
+   "bytes": 7767,
+   "sha256": "31a978defd41b86a0aafa2728499be488de21bfb0f1c7f33a93c1ce876eb38fd"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cro/references/experiments.md": {
+   "bytes": 8098,
+   "sha256": "f3103edc47e61e62eb4c733f30aa6bebe31e117beb74d61b3d44b766ae9324a1"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/cro/references/form.md": {
+   "bytes": 10754,
+   "sha256": "5629d0b9710edd5a40cb7bdce11b560523cd2167578560bc389d2d6c0415d604"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/customer-research/SKILL.md": {
+   "bytes": 14878,
+   "sha256": "53857a6690b327c8e3f355bea6714e33bf7f0ed8495d26488334b64e0a8ec4f2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/customer-research/evals/evals.json": {
+   "bytes": 12723,
+   "sha256": "9c17438738d36a6351924d23244b053c80f4d533fd9c3a0210e3688beb779180"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/customer-research/references/interviews-and-surveys.md": {
+   "bytes": 8795,
+   "sha256": "6583191c870887feb288eee93248bd82cc997b6b010762076fe16a49b67806f5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/customer-research/references/source-guides.md": {
+   "bytes": 16641,
+   "sha256": "23db7acf05f07da54af9bee47003c8f08a18b4ccef7da3e8e3d128aa06d1ca58"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/directory-submissions/SKILL.md": {
+   "bytes": 32193,
+   "sha256": "3607c144c13e208bfa1a852608ca4c6387ad9fa9900a39a844f5dc8d41d2b065"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/directory-submissions/evals/evals.json": {
+   "bytes": 12587,
+   "sha256": "acf4346cc214a285bcffcdf92126f86c1b78c8bf049ec599a518b19213b0dc94"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/directory-submissions/references/agent-registry-files.md": {
+   "bytes": 4217,
+   "sha256": "07f3b0d7c1d12be9cf3d83505f27f8057add6352b5a6044dd166cc788a07b4b4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/directory-submissions/references/directory-list.md": {
+   "bytes": 33236,
+   "sha256": "e7ede90f406b6679f0f55adea37cfb09635f87465ec0bc164c005108a63fd319"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/directory-submissions/references/listing-kit.md": {
+   "bytes": 6462,
+   "sha256": "1a8af236ed6fa1a6dc076fc491a641e424ff53e8fa5941dc369ae2b3d756fabd"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/directory-submissions/references/positioning-variations.md": {
+   "bytes": 9641,
+   "sha256": "7dd3bc678f54949f14f3d36d8c6f71405e7c639f84c6171ef147f53561c52728"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/directory-submissions/references/submission-tracker-template.csv": {
+   "bytes": 20961,
+   "sha256": "2f2c25e9fdd74d027a2cdc29469a28ee2d7689b588712d2eebfb781707b0a1ce"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/emails/SKILL.md": {
+   "bytes": 11568,
+   "sha256": "e204c569c7a129b53df532d6e085843152b8c1704cf8e229896e2f48045f64ba"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/emails/evals/evals.json": {
+   "bytes": 7576,
+   "sha256": "93da845b6d00ba075194dd75a92ebd2701f3bc7dd55ebce2f1fa3f550cbc1c1e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/emails/references/copy-guidelines.md": {
+   "bytes": 2445,
+   "sha256": "7eccc8b04502d8b2e627e14f3438c2d5287f154d9e8c2c39fff9891d3afae84f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/emails/references/email-types.md": {
+   "bytes": 14765,
+   "sha256": "9ec9c5cf465715f37a08cfc992bf30f65ac3bb2f573c135f11ee83227e63f6e2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/emails/references/sequence-templates.md": {
+   "bytes": 4077,
+   "sha256": "69bfe4e7f07b909ce6344d1d570718becf9ba7f3dd5614fe8d016975a3f63017"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/events/SKILL.md": {
+   "bytes": 11778,
+   "sha256": "d1b775c785fa8fc8e18077aca5556859f8cba10b03da6ae6ab38b69081f4ec34"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/events/evals/evals.json": {
+   "bytes": 11270,
+   "sha256": "1ac53f6cb6152426d623cc82c96fd123c2d982ea2264f804f0c605f2d756fb3f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/events/references/event-portfolio-strategy.md": {
+   "bytes": 8061,
+   "sha256": "1b6cfc2898ad5cfcd571fa054215736046e79b6235911476d7befe2b370bd02c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/events/references/speaking.md": {
+   "bytes": 5397,
+   "sha256": "6637d7b089dba1e4c2d9c4ebe13e84569cf4f623130b36d7c16a346127bbcfef"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/events/references/sponsorship-roi.md": {
+   "bytes": 6300,
+   "sha256": "26400a8d033b8344aa3e5a551e0440850293f319548a93424bd87d369628301a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/events/references/webinar-funnel.md": {
+   "bytes": 8279,
+   "sha256": "3e213a80e005cd6dcab1006af65c8152fce9509de283b183b9ffdef59e5bcfd8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/free-tools/SKILL.md": {
+   "bytes": 7235,
+   "sha256": "a3d49e981cb3946f8bee8ba49392ce49dc8489f99aa0020a06e1a2fa152cb060"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/free-tools/evals/evals.json": {
+   "bytes": 7706,
+   "sha256": "6c9aa28ef70787aa71dd01e6acbb0ed34dc2bd4849461703ddd4eed1e5d1340f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/free-tools/references/tool-benchmarks.md": {
+   "bytes": 4850,
+   "sha256": "905b7fa4bf1f1b7adc005e55dfa7325eef39d87f9c721afbe25d53a01dad2163"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/free-tools/references/tool-types.md": {
+   "bytes": 4229,
+   "sha256": "ff74e9bcd11501b86f10ebacf6a81585657ca03cee23187db815fad218ee46e4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/image/SKILL.md": {
+   "bytes": 15909,
+   "sha256": "938a2cffb41d11c6da84812be62340ea6a24d278cbd1a4b112eed9c5172fb727"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/image/evals/evals.json": {
+   "bytes": 7021,
+   "sha256": "fcc368aa8d2ecfef081044839e322ce2496e7d32c88b12ae0974fce1e8086759"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/image/references/ai-image-prompting.md": {
+   "bytes": 8495,
+   "sha256": "732f8bb6da05c736f2e703192558aaafe99d650f52c0bedf5109f06da8ba1470"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/influencer-marketing/SKILL.md": {
+   "bytes": 19999,
+   "sha256": "cdee5cc2ace3a15e12cdd456687e9ce2cd06636ac8da0235028fcefb813b7050"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/influencer-marketing/evals/evals.json": {
+   "bytes": 10943,
+   "sha256": "1ae67051c1edcb6bd99cb5fcc930509c0789b2a290285a2d6cc5f84a343a1ded"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/influencer-marketing/references/newsletter-sponsorships.md": {
+   "bytes": 6242,
+   "sha256": "b076ca252083b17eb5dbf43e66e2db5423e850ee0ed8cfe43d053f08f935d291"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/influencer-marketing/references/paid-ads-creator-program.md": {
+   "bytes": 7229,
+   "sha256": "d05c37eee52de01ce16ad8e77c6253fcb916727dd08c4d93756650cefca48f2a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/influencer-marketing/references/telegram-channels.md": {
+   "bytes": 8340,
+   "sha256": "40018c9d23c48d8f2221c68d2b9133281e1ff5327738a6cef89d082ff56c06b4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/influencer-marketing/references/ugc-creator-program.md": {
+   "bytes": 8999,
+   "sha256": "9dfb0ba1d05591282bafefd77142e557c44e026fda2bc6b3cf060460e25a2c3b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/launch/SKILL.md": {
+   "bytes": 15765,
+   "sha256": "41364958485fff76a930b95fd6945a839c1e4d8893cf3bc3f2644059627cb3d0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/launch/evals/evals.json": {
+   "bytes": 10702,
+   "sha256": "45bbda415e09019229bbfd1c21d8bd6840d0686798d1636fddfff0d9e2004e58"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/launch/references/shipped-changes.md": {
+   "bytes": 4787,
+   "sha256": "e7410ed62626e50187bdd38f018f1e2b1114ce7ab481a3abe6d05b067fd39100"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/launch/references/site-launch-qa.md": {
+   "bytes": 3850,
+   "sha256": "3b0dd3f36ad55266b6f3217bdd3eeabf059e65a43a598b7da6d7740a8edf6e30"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/lead-magnets/SKILL.md": {
+   "bytes": 11174,
+   "sha256": "3b1f03ec781fa0e5663824aebda22f0d503e82cbaad617c6ac44907af90e44a4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/lead-magnets/evals/evals.json": {
+   "bytes": 9750,
+   "sha256": "6a565c0bebab26266630e5e442172bd2a596c62def087054af9b6e4376337cfd"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/lead-magnets/references/benchmarks.md": {
+   "bytes": 4363,
+   "sha256": "dcb59c5f88a09b8410af1e7ca6f30ffbf10ed9d24d30be15f206ce680ee8e8db"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/lead-magnets/references/content-to-skill-corpus-design.md": {
+   "bytes": 5097,
+   "sha256": "2b49268c202fa4dd317612c8c07c7e35d5d085168c6d530ff1fd66ebe04ee052"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/lead-magnets/references/content-to-skill-release.md": {
+   "bytes": 4863,
+   "sha256": "d0d6610f9769441f749162dc5b3b4bf40c75b693cf7734b56be418ba654e06fd"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/lead-magnets/references/content-to-skill.md": {
+   "bytes": 8515,
+   "sha256": "3bd37f154c9a7b163c866630a52e1bd96a71dbcea94011c458b2a03f7117ebc0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/lead-magnets/references/format-guide.md": {
+   "bytes": 6022,
+   "sha256": "fbb0bd857f91a4deb92326387e665af47178534ca90002074129af38221fc68c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/link-building/SKILL.md": {
+   "bytes": 13547,
+   "sha256": "71f35885474ea11785fdecfee8467d818b8c9b34660c5dcf3f210d3084c6a7d8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/link-building/evals/evals.json": {
+   "bytes": 5783,
+   "sha256": "5c4781604790521fe2b7f6669089a1343a2f79200715b0e72049aff51e8a5555"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/link-building/references/prospecting-and-outreach.md": {
+   "bytes": 4732,
+   "sha256": "bca9eff40b77891b770fc2e4bd3c2ff3aeaa1eff6c6d8750af7e45501f606949"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/link-building/references/risk-policy.md": {
+   "bytes": 4728,
+   "sha256": "6fdace7097eeacf154cd682763d7a75377c8ebdff436b02cb9bd349eb634be19"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/link-building/references/tactics.md": {
+   "bytes": 7318,
+   "sha256": "f6fc7edf5122625f9131e2c9d58dc553e4bd900c5c3a0e3caf784aa74a28c7c2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/SKILL.md": {
+   "bytes": 12154,
+   "sha256": "88ffb118d356d066dccb52a34bf307342db146a1d344b755bc28e9fe91ba4d88"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/evals/evals.json": {
+   "bytes": 5779,
+   "sha256": "da66ba64380d105fb452455f78dfc334a5e493e29c6bb92c1ed7c619aa952dc3"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisor-template.md": {
+   "bytes": 2163,
+   "sha256": "af49376a9fd84187968161e086af558798b309debfffe4612fc70edcccef3d88"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/alex-hormozi.md": {
+   "bytes": 4030,
+   "sha256": "e24bcffa9bf75e589278e4391cc4b46bbcabb921adbdbb04fbc07155737b763a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/ann-handley.md": {
+   "bytes": 4107,
+   "sha256": "0cb5c7e05464bbad7e3f2f39297afb7faf0cc60d1c4b6ba55b1802264227c0d2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/april-dunford.md": {
+   "bytes": 4451,
+   "sha256": "58655594d415928728db6d0e4cf0a985171fd39193b46f428d94bf4c3a925773"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/byron-sharp.md": {
+   "bytes": 4833,
+   "sha256": "3a244854931971a2a366bfd6b0f6b23565eded7055bed667c8a2459180b02022"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/claude-hopkins.md": {
+   "bytes": 3831,
+   "sha256": "b6d8cc254efbcec36ad83837279bb8668d38fa96d5f1f63ac612281c09d697fc"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/david-ogilvy.md": {
+   "bytes": 4138,
+   "sha256": "21d8367a419ef293c1fc42ba830deaacc3721c3ebbeae44c4d1d21e5f8630280"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/eugene-schwartz.md": {
+   "bytes": 4226,
+   "sha256": "8be7adf112cb43b4a598b56cc45134786adc8e537198e8bcd263bd042c2924f4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/gary-halbert.md": {
+   "bytes": 4011,
+   "sha256": "05eb507dcb9e2e2238e1fbd5f2a70229c1cdadbfd264733dab2920fcfbc65da9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/gary-vaynerchuk.md": {
+   "bytes": 4442,
+   "sha256": "e84a6671c7363d849bbc4688811ec7290d7920de12e88f835bd8ec585bdb9da2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/rory-sutherland.md": {
+   "bytes": 4774,
+   "sha256": "b147b688836ea79f61848c465763f1d7c82f23981b91a0da915bbab75d6a2d19"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/russell-brunson.md": {
+   "bytes": 4374,
+   "sha256": "d07b8c1b78b0ddd965dc72af7559743a9ac89eb1d78abe1e320c8175b1d7102a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-council/references/advisors/seth-godin.md": {
+   "bytes": 4069,
+   "sha256": "69ebf483cb90575a0ec9a9e3715e13a9a595e9e4dabbec4aa5852a6b2e2cd701"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-ideas/SKILL.md": {
+   "bytes": 5842,
+   "sha256": "82216aed58a31a0e12de6a331c365ed6cfb9b8fcb453f224a2932838dfde6be8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-ideas/evals/evals.json": {
+   "bytes": 7595,
+   "sha256": "b7976c4a35eee8d91b6d1406aae4f1fa2d5c262e2c758ec07b6af510c97a37a7"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-ideas/references/guerrilla-marketing.md": {
+   "bytes": 5089,
+   "sha256": "d2bb0df8b06aec856d9dc6a79e49d6d92a26ca66590e4017d5f1ab2bdcf1ceb0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-ideas/references/ideas-by-category.md": {
+   "bytes": 15766,
+   "sha256": "c0710cde1d82fc96181dcaf1dedab8a501035ac31fe42509c2d19fcf457362c4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/SKILL.md": {
+   "bytes": 9705,
+   "sha256": "e0c85c8c98f65e136a3e26678660c43db5bcf8379ba776a861296a91e8285825"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/evals/evals.json": {
+   "bytes": 12061,
+   "sha256": "f6ec305b84c20ba8f67c72cfc670de993979d91685a5e99f4d5c724b4a26641b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/references/loop-catalog.md": {
+   "bytes": 69432,
+   "sha256": "f46ead4665528045889d47133a8db3a19e97e538fdd8299eb46abf4f235159fe"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/references/loop-guardrails.md": {
+   "bytes": 5071,
+   "sha256": "acb41e4041b5440a44c459744806254041b751c6169fe4e2dfed190b6308023b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/references/loop-orchestration.md": {
+   "bytes": 5404,
+   "sha256": "2a034e3c1992050b518a5d2919342c96aaf1f38a6584f953f69ceb2095a5c87e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/references/loop-state.md": {
+   "bytes": 5956,
+   "sha256": "9743e216e49598c5c237214eb1b132121162f863d31433a1f8316a2fd9b6e17f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/references/loop-template.md": {
+   "bytes": 5201,
+   "sha256": "ad31ec8f54fafd3ac25d4d7a23438d89e3b3940989956ec46a33eb159656af1c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/references/outbound-operator.md": {
+   "bytes": 5087,
+   "sha256": "cc8138926fa16007f5768d490fb5e5e48a4aaf35d3495410d360427496d1df85"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-loops/references/seo-operator.md": {
+   "bytes": 8487,
+   "sha256": "218db7f0b2bd94c860364de0cb82f2576b4d7328ac98bc8643b5c36ca68a6462"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/SKILL.md": {
+   "bytes": 25122,
+   "sha256": "affda74835152cc84887d642b74544c3b3fc84a5fd748e730d1cc4d579e19f65"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/evals/evals.json": {
+   "bytes": 12867,
+   "sha256": "9bda278a720b315669ac529ce4dee6c9679bacae6d69a0d61548b6a45ba55885"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/aarrr-framework.md": {
+   "bytes": 10946,
+   "sha256": "ad6d14748ea5515908cbec2f1624ff4c1f500b2fb689de960e86104de5e1fdda"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/budget-planning.md": {
+   "bytes": 10442,
+   "sha256": "e8e2bedff793550fedef907fabf3011f2638650e8aec881bbda9441de58ccda8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/client-types.md": {
+   "bytes": 11759,
+   "sha256": "ca1313061b1057e6b001bff94833c6711805cdd0ab4910b551fad8fe2e675a9e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/current-state-rubric.md": {
+   "bytes": 11911,
+   "sha256": "b293de9d8ff7d3e1d08f53f4906f5457472f272e924d325cbe06349d8c2b8440"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/example-quietude.md": {
+   "bytes": 70088,
+   "sha256": "349f4445a76e148add8763915b897dff7883c075807780ac761a65418c8a7311"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/funding-stage-unlocks.md": {
+   "bytes": 10027,
+   "sha256": "07b35998d35942040fd81b7fdb16c0421e9cd532039f850b4642351c35f77fa0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/growth-patterns.md": {
+   "bytes": 13609,
+   "sha256": "5ac4d4684b7567834586f582c77385de68257e5cceeb8593b859d73a84b08806"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/idea-cross-reference.md": {
+   "bytes": 13683,
+   "sha256": "3024a740912a8b375898cf7f0e94f08ca1580a0d4b00510a587e8aae4b0a0489"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/market-sizing.md": {
+   "bytes": 9986,
+   "sha256": "1e1fe0bf2a30cca3bcc2a0119507632e448edb9ec327813dc0cc1b9e58e7b1d6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/measurement-framework.md": {
+   "bytes": 11058,
+   "sha256": "0f210adca0709cac1e770a97b6f1546e7bfbaa12a1ed95c2a2a06a1bdf3665cd"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/methodology.md": {
+   "bytes": 17171,
+   "sha256": "656117913f0a7c9ef3ef4def1731cdf006c22be3d7007308bad8823c3dc53426"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/ops-stack-mapping.md": {
+   "bytes": 12418,
+   "sha256": "e002db4200074bc8456881b8715f81fc741d39be9cdca80962288acc53fd7352"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/plan-template.md": {
+   "bytes": 19229,
+   "sha256": "c13c6799f9335808aacfe60e95eebd9c048abbffce5be00314fe3af79c14a694"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-plan/references/team-and-agency-model.md": {
+   "bytes": 14815,
+   "sha256": "669c6bdb1f71f35f4e15c890ae12f3829cc649f3e2aea0258d214db2d2faf66b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-psychology/SKILL.md": {
+   "bytes": 22052,
+   "sha256": "7ec7742477000e81342c17dae538a5993916811ebbdf702dc1bcc44934a9a294"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/marketing-psychology/evals/evals.json": {
+   "bytes": 6124,
+   "sha256": "0048b391dc56b7b73b5b3fa42ea05158949cced630d771d5dbb92869465e6260"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/SKILL.md": {
+   "bytes": 9748,
+   "sha256": "9e64f4c120c89ff8065aa6f102090c7f30dcf67579d18a8f5fbda9eadce265dc"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/evals/evals.json": {
+   "bytes": 3224,
+   "sha256": "64e17fb9d42e67992fc941d636b6251efaaef269c613d7e3191c535217eb56f4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/references/bonus-stacking.md": {
+   "bytes": 7908,
+   "sha256": "4eb96ddc4d8082db3f4a108e4283fdb1bfc653ff41a11ff0924212ff44653e08"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/references/examples.md": {
+   "bytes": 10418,
+   "sha256": "13bb485f9e6635dab08bd3e412d877e73e1e9de0f0da86e67fe942e2e7912e4d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/references/guarantee-design.md": {
+   "bytes": 8345,
+   "sha256": "b72c217b742f12da96194ff2dfdb55e7fd16f789206f77a527813402ba285b06"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/references/offer-anatomy.md": {
+   "bytes": 9060,
+   "sha256": "893b2b31f1fc71e4def28d447489d73ea341676803aa3489e45bbbec6346ef9b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/references/offer-formats.md": {
+   "bytes": 10930,
+   "sha256": "bd9aee2b5019b0f8b5a1943f2388393ec35d172900c070c78441445b278ecd3b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/references/saas-offers.md": {
+   "bytes": 7985,
+   "sha256": "fad3a171d55de32e63f92567ed6701dee450e9cd2e188aad2ef4e38e9b2f8af9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/references/scarcity-urgency.md": {
+   "bytes": 7281,
+   "sha256": "2bc92ec3484151591963b48648afa0de8d8e83f1a26732da3af8b4fd27a30111"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/offers/references/value-equation.md": {
+   "bytes": 8017,
+   "sha256": "514a26395bf74b4e66bec2ca8a2f190b345101047dbc19d226c4b93e739e3595"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/onboarding/SKILL.md": {
+   "bytes": 11516,
+   "sha256": "7f5c9393e7b36d7c3b9286d524f3805c875266445168bd678829ad476f570c7a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/onboarding/evals/evals.json": {
+   "bytes": 8347,
+   "sha256": "99290932228501cf61bba4bc4fc65e75f81ac2b208ebf68ce46edfb648788869"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/onboarding/references/activation-models.md": {
+   "bytes": 4149,
+   "sha256": "736e3c2f6329bbcb63fe713fcb995fa38d034744179838b978ded5f7637c443e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/onboarding/references/experiments.md": {
+   "bytes": 8054,
+   "sha256": "6a1f86b4b79238ef323e78020f831ee0e0d5c207719bc9ed72c4822373434057"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/onboarding/references/minimum-path-to-value.md": {
+   "bytes": 3201,
+   "sha256": "01a23897984cfda0b2d4e1cc1f5bfb5e7232e0aab1f33ce6f9ce1e67887b904a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/paywalls/SKILL.md": {
+   "bytes": 6009,
+   "sha256": "6e1a2d5c8d52fe95cda09e4b90c66b86b8aa7b33c2ae262d003cb1ab065e2239"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/paywalls/evals/evals.json": {
+   "bytes": 8268,
+   "sha256": "04e296b8c41a7c3d8b2cb26ecb993132175bdb44f888cc8960a74f992de77a98"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/paywalls/references/experiments.md": {
+   "bytes": 5969,
+   "sha256": "c0271ec7557615374cc7e7783b6d6b940de045f754c71b3a0d762a005c6549af"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/paywalls/references/mobile-subscription-paywalls.md": {
+   "bytes": 5456,
+   "sha256": "7e304722baaea0d7dafd8912031481eddbd1b7c1b3cdc19144769b361477d84a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/popups/SKILL.md": {
+   "bytes": 11976,
+   "sha256": "83ebc6831aef7f9147a4f1f02154edf082f902457df82472ca52959e9a8c94e2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/popups/evals/evals.json": {
+   "bytes": 6679,
+   "sha256": "bee3f3593f902b6c90b437df5202d995e65dae2f12e5c5b79887e5ae54b51cf2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/pricing/SKILL.md": {
+   "bytes": 13244,
+   "sha256": "71cefc3c8bee2274e2ec55919ad29172a5df832dc2dcd048953233a65056dded"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/pricing/evals/evals.json": {
+   "bytes": 11426,
+   "sha256": "4941428297479025cccfd74b5a3c795ae23a01fa2aead47529afadb0794bd7ee"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/pricing/references/pricing-models.md": {
+   "bytes": 4747,
+   "sha256": "d9f43756cc12a8cb1ec4d275a51392e3a5e035982c9a27970e0ee907d02174da"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/pricing/references/pricing-page-teardown.md": {
+   "bytes": 7370,
+   "sha256": "92f131c17dd4c06706aa2919a2ed12164e182d16418f907f44862f061955e0a5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/pricing/references/research-methods.md": {
+   "bytes": 6843,
+   "sha256": "5bde71e8f4eac0c81b385d80e3c72b5b450bce41b89a052f27ffbb4418497068"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/pricing/references/tier-structure.md": {
+   "bytes": 7431,
+   "sha256": "da36e44bd2e67d84c69d3136bd7f64f9828a702bcb78aa66aea8423074364429"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/product-marketing/SKILL.md": {
+   "bytes": 13889,
+   "sha256": "f84a3b11ca915a4be593c96d0edab8615809bff6f02b54e1f9eaca3abfbdff6e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/product-marketing/evals/evals.json": {
+   "bytes": 7312,
+   "sha256": "99ed087b244d4724bb93b6426107c63ec87957196842e5905334efd7ab29acd0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/product-marketing/references/brand-voice.md": {
+   "bytes": 8464,
+   "sha256": "595871313bf032be3996a567a053b4531837bc9362f91e76c253f4b95542ac60"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/programmatic-seo/SKILL.md": {
+   "bytes": 7596,
+   "sha256": "390f307ee6c9085fa6d27c156a22f889e9e87c2112ec61aaf0ed1d59c32318e1"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/programmatic-seo/evals/evals.json": {
+   "bytes": 8334,
+   "sha256": "fc1a234e076d8cb04547ff21b99dbbe46be8557d370bc06ad7c959b4399c6452"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/programmatic-seo/references/implementation-platforms.md": {
+   "bytes": 5658,
+   "sha256": "0dd8364ff31cf0b670af409b5c2e6934b655468a26f33a9610fdf13a4e05fd56"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/programmatic-seo/references/playbooks.md": {
+   "bytes": 8613,
+   "sha256": "dd8fadd94caccc7e6b27be35976dedcae43ff4b0d6f3c464182a9aaccfeb48ff"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/SKILL.md": {
+   "bytes": 20067,
+   "sha256": "279d8d57155c407787aa5282cc27ddb964512cd4e6961bc9f5a5e207a60f92d8"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/evals/evals.json": {
+   "bytes": 18562,
+   "sha256": "98e540623908fe89dbfac7603e226d27e504b1c4413b58d5cc8b85fa1140bca1"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/account-research.md": {
+   "bytes": 3830,
+   "sha256": "59f4f39e6928f343ee76009421c5b966d9dddac4accd49e9c31d66f1ca602e13"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/b2b-prospecting.md": {
+   "bytes": 5084,
+   "sha256": "e59649dc46a28893564ed616c15755ea6b4ae82893e327b6e85297009b1f2410"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/compliance.md": {
+   "bytes": 11226,
+   "sha256": "e8d7165947c0533652095aa7f43f0a15a2b88ac8edd6113925af2d7f08e475b7"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/data-sources.md": {
+   "bytes": 13756,
+   "sha256": "74eae8527c8ce62305500260a5ecbaa1de16c7f7b15579cb58890e8e9be219e2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/demand-signals.md": {
+   "bytes": 10316,
+   "sha256": "8bce7e2c7081f6094c79aba3753512a6f1b25a3eb4dd280851c6940191a75108"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/enrichment-playbook.md": {
+   "bytes": 5351,
+   "sha256": "63a0896e5a11582e1aed692aeccdb73eab6590e4e6726d488792b13fa27b214c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/local-prospecting.md": {
+   "bytes": 8315,
+   "sha256": "b55b90adcad0ae87ebbc144030890cc3b3d0ef478604eaedbbd8f4ff48062327"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/saas-prospecting.md": {
+   "bytes": 6168,
+   "sha256": "81821aa700f778c06b2135ddef9f6df9f556e21afe1c08155c0c48d886998264"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/signal-plays.md": {
+   "bytes": 14052,
+   "sha256": "c287544382c4572dc5a0fad810745620b4ea21ef57b28e4c83283d063d10a851"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/prospecting/references/sourcing-and-enrichment.md": {
+   "bytes": 6829,
+   "sha256": "0c699198016c76db5c9d9b642245daa6823882b167536aefcde595d48b0b2a61"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/SKILL.md": {
+   "bytes": 9425,
+   "sha256": "89ddfeafe3f2a7160c125991547687547144fa2db5d7d8a91b8a8871278eb119"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/evals/evals.json": {
+   "bytes": 3849,
+   "sha256": "231fb158b9e3f598f218e39ba9f3a127aa5caf776e89f99ce4045cb999996b09"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/references/crisis-communications.md": {
+   "bytes": 8712,
+   "sha256": "6d42af62f5665a532b16cbc1c562b712936431e9e7824a9b58fb1f2f6f08a7d6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/references/journalist-pitching.md": {
+   "bytes": 11433,
+   "sha256": "952be3bd15932d23b4bf5679a0da607d1f0a17b96ab4217cbdab9065d1a0e2a7"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/references/media-outlets.md": {
+   "bytes": 9514,
+   "sha256": "c8ef0596c94a7009cc19ee8b1b7e27733a28e4cbfb63b909213572e8d0a029ad"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/references/newsjacking.md": {
+   "bytes": 8870,
+   "sha256": "6e979ac9d44bea06b87954dcd10bab8c3ddfa0f78d905fa2be0eba4fd3de04da"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/references/podcast-guest-prep.md": {
+   "bytes": 5653,
+   "sha256": "7cb6d1a25fe51b85af1fc9d389c76ce370ccf1f6cf23a8f77b83d251df0b4c22"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/references/press-platforms.md": {
+   "bytes": 7097,
+   "sha256": "7be898f47e157d0d14db4b9bffd561024a1dab3d44ded777e0bdc3c986f950e6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/references/statement-templates.md": {
+   "bytes": 5782,
+   "sha256": "ec582333f7ffbf69f07e50d8a09e6bf777a0b06c74a3212da3b2d9fd392c5093"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/public-relations/references/story-angles.md": {
+   "bytes": 6596,
+   "sha256": "ef4715081b4581120838cc6aad3e15815759aa62e2baef17d2be6d44b3d49359"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/SKILL.md": {
+   "bytes": 10435,
+   "sha256": "84be411eb5056f4d5ac2fd0ef771206df49a00bcea2ba94a399a95de494d33b3"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/evals/evals.json": {
+   "bytes": 15127,
+   "sha256": "e2e4cf6c6daaf87615eaba7f2c0c78bbc3a1b496736860a6543da11204ea4277"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/references/affiliate-operations.md": {
+   "bytes": 7162,
+   "sha256": "fd428b30917fd454e1594f4cc2774e0309ee8f35f2705776c82f7055683fd184"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/references/affiliate-programs.md": {
+   "bytes": 4651,
+   "sha256": "1c98ff837d79b926aa09d2670d2acb32865be7a7b2cd139d4b6c9b097dbc9b21"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/references/program-examples.md": {
+   "bytes": 6093,
+   "sha256": "e6e7320cad877ab611a3846e93911534ab04e36dd5e7dc583f674b181f93971a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/references/review-platform-rules.md": {
+   "bytes": 4569,
+   "sha256": "48acc6a1ad460eca6b582bfc054e225c336a05b3dffca13c1bcd282008abea47"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/references/review-program-operations.md": {
+   "bytes": 4445,
+   "sha256": "9beff675c45e01ef782d17fe0cd999976dda5e04c491cb941617294aecf6706b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/references/review-programs.md": {
+   "bytes": 9714,
+   "sha256": "e8e9783d24c5f3a64fb8afde4fe4aab53322bb6c3d1ed3f5f9aa91cf863af7d0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/referrals/references/viral-mechanisms.md": {
+   "bytes": 6159,
+   "sha256": "ce9168a30428d4ca96641987ae49f976ad80bf6d2f20481ba633cfd54bc69523"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/SKILL.md": {
+   "bytes": 27332,
+   "sha256": "6f40c49c3956e55921295f1d2e4be4cd9be700efa319d3c5f9022c3192c8e300"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/evals/evals.json": {
+   "bytes": 20874,
+   "sha256": "8a29fda611551a710d00fafb24ea705468e5867e1da18c2dbf174efcc4cc2b16"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/content-teardown.md": {
+   "bytes": 4912,
+   "sha256": "bb2eb248385a74200aef028614099edd359229c8ee34dc76b5b4d60bcf24824d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/data-sources.md": {
+   "bytes": 10726,
+   "sha256": "8981821c8e32a31a723b0c81cc0cfdaa7b360430ae9db4f34eedd98dbfe78250"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/funnel-hack.md": {
+   "bytes": 6103,
+   "sha256": "64fe2205d92b58493c0d481f772e9f76969b312c9f7a13f1de0cf85fe96d54a1"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/go-inside.md": {
+   "bytes": 6539,
+   "sha256": "d83b5e234ddcb543c026b2a333e32ddf1b80c90608c246b7fc9b1eaaf271ad29"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/hidden-signals.md": {
+   "bytes": 6366,
+   "sha256": "9c229f1e52505c5a4b7e16c901f31ae89189f6c59a9abafb7510e13e9cde3e86"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/agencies-b2b-services.md": {
+   "bytes": 6195,
+   "sha256": "a605b1e56688e80a38fa7cc53cca8afb699f7b017270be84756854d68a70340c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/automotive.md": {
+   "bytes": 6432,
+   "sha256": "7eade6b91636814bc5e90378bdd87c4c25d60d2568aae4218e3e7de618f08ba4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/care-services.md": {
+   "bytes": 7611,
+   "sha256": "ac07535e10db2f949f8dcfa7a00fc91e6ead56daf89074a168785bb37d94e6be"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/consumer-hardware.md": {
+   "bytes": 7290,
+   "sha256": "5fef429be31dc6ebed6a0077efd997b0b165464c3532c3a4b7ee717e81790ca1"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/cpg-food-beverage.md": {
+   "bytes": 6663,
+   "sha256": "31a1beea10af7ab434fcc1aa8fe9052e77f1abb4f566b6907250ea907e9e9bcb"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/crypto-web3.md": {
+   "bytes": 7061,
+   "sha256": "c6fd3d9df7f0303380621dc47a25129b1f009d8e66c646ac535b27fbb8bdadeb"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/ecommerce-dtc.md": {
+   "bytes": 8168,
+   "sha256": "5e579de88f88b7f9cdd642291cede255f2557526f5585e63d76d80427bcbe713"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/education.md": {
+   "bytes": 7431,
+   "sha256": "0a2d17dd4212e55dbd78257e7deb782dd7b7935c921e97a3a337f7bc0192ab01"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/events-entertainment.md": {
+   "bytes": 7537,
+   "sha256": "061fdd260b97441d7024b153ef125c54a7e572e6dc7dad08314635855e9f05ee"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/finance.md": {
+   "bytes": 8806,
+   "sha256": "84b96265910eaaa3265b508ce2570c983b9cb4cda4be39104f989c4e6347dc7d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/fitness-wellness.md": {
+   "bytes": 7380,
+   "sha256": "251987bad76dfda0972da2509d6cb0d9735806b0345da473ba589e92443efd0a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/franchising.md": {
+   "bytes": 7565,
+   "sha256": "470a41d2a1b5ea896e1d51667ca44d0eef53ace0dd2907c58840359d01321e9e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/gambling-betting.md": {
+   "bytes": 7822,
+   "sha256": "c2590b32a0f466f6c2ce00e6387a89a5a0a1bd4d45ad3de65079f6fb9f0e3910"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/games-pc-console.md": {
+   "bytes": 7529,
+   "sha256": "bfdd95c9a89c91aa17e9f70264447ba2a02aa9a277fa00688cc5e6a79ff1ec81"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/govtech-public-sector.md": {
+   "bytes": 6758,
+   "sha256": "2c618f74f275a0d413c4fc3c1fba63477dbf2b44bcc14e4baecc02c61ea1828b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/healthcare.md": {
+   "bytes": 8567,
+   "sha256": "2a8239a2b70bebbe439dd6f765b9d0ca4642c119b65f0e9c78cada5a464e501a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/hospitality-travel.md": {
+   "bytes": 7776,
+   "sha256": "fc5ddeb8f2ce498cf1c835a9b9acc380aeee173bb6127cfc7cb26bc29a0ac371"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/insurance.md": {
+   "bytes": 8023,
+   "sha256": "31d36be206f319edd96c2ed6307f0d0b92291ce625625dac2d532550a59b3c73"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/legal-professional-services.md": {
+   "bytes": 7847,
+   "sha256": "c33af4f2fd2e7c7b3226419294f869c9208949fd42d700a37cbf43febcb2bf93"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/local-services.md": {
+   "bytes": 8519,
+   "sha256": "09ae1bc4db857cb1b45e551b6c4447de1ad9501bdc88fc97496a6bbcbd8426a4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/logistics-transportation.md": {
+   "bytes": 7054,
+   "sha256": "fb2bc1e85a0b24eb0a84e4a2ec36a72c76c2520505740c21bfadab2d770c8877"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/manufacturing-industrial.md": {
+   "bytes": 6544,
+   "sha256": "87207e6de7eade36aebf038901238a0fad33f136b1e761b5a0f33e48fd5b1949"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/marketplaces.md": {
+   "bytes": 7529,
+   "sha256": "e8809306fecd3c3cf780f5888c46340c95e60c199c419c6aedc405d8c37f954d"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/media-creators.md": {
+   "bytes": 6962,
+   "sha256": "381b265187665106153897249c9f7e7477f46aa6341f8e0583e51a4fe572b5d5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/mobile-apps-games.md": {
+   "bytes": 9452,
+   "sha256": "64b09c89a7351bd9e9a72caa79c87cd408bf820250c02f5bbaf326b00fdf9aad"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/nonprofit.md": {
+   "bytes": 6497,
+   "sha256": "916f0bc7e63abf33bab5e35122c596f629388d43a40146eb63f93e90d1443459"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/real-estate.md": {
+   "bytes": 7864,
+   "sha256": "da790245e440a8cead2b28e198014b81fd740bb10f5c13bf6fc8e6a7506c8183"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/regulated-goods.md": {
+   "bytes": 8663,
+   "sha256": "ae1dff317792861e5248e20b5cc1de2b074ea1b3d007b0b4b0259b82f0f3bc84"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/retail.md": {
+   "bytes": 6428,
+   "sha256": "574a755906b09f4991c230472b6fc06afe42bcc78ecf9bc34f7eebede8cd48e6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/saas.md": {
+   "bytes": 7946,
+   "sha256": "8ef3de82aad9d799ff6584022281c45dd6fbe625ba76771f0f37eb99f12c8d4b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/industries/solar-home-energy.md": {
+   "bytes": 7852,
+   "sha256": "3a5e9317de85aa3f965e06c8d8810f37cba8e99af62db2cae1353e38c963823e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/landscape.md": {
+   "bytes": 5046,
+   "sha256": "e7abe021895cfc853f8ecf39052f77c6b7bb5883865f4a68560f411a17e0e163"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/play-routing.md": {
+   "bytes": 6112,
+   "sha256": "8d4b9a14ea94e1695a7284d3741995b528bd68ccab29d2616dddd3bfe9f15f98"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/playbook-template.md": {
+   "bytes": 4611,
+   "sha256": "cb6c3f638b83bd9e4148d2c21d05671988b3b570f761469c9ab203b32e8606fd"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/team-voices.md": {
+   "bytes": 4635,
+   "sha256": "c10e702e603d5790d82e23e00eb8ed70808e9a621850b902b2002695d74960e9"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/timeline-analysis.md": {
+   "bytes": 3880,
+   "sha256": "9de70a61df7ce38b81e2b869fba76522e36eecd0428336ec718cbd2989b1893a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/references/weak-spots.md": {
+   "bytes": 6383,
+   "sha256": "8cdf62fe2faad4b86c6f18a6703fc0bfcefaa119744fc8ccdb506606eb458e6c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/reverse-engineer-marketing/scripts/teardown.mjs": {
+   "bytes": 102986,
+   "sha256": "9b0506059671a49a67763b2246a58e542289abef22e1b6ddfbe6cc1ebe1135f4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/revops/SKILL.md": {
+   "bytes": 16674,
+   "sha256": "b086cde2716291a2fe3db992fa11fdab6341395a9f70e68e0193904c4cb57270"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/revops/evals/evals.json": {
+   "bytes": 7273,
+   "sha256": "34a3c482f2a9c76df95af657f72a8798c2d2d8457233831dbdfbe128753f1d4f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/revops/references/automation-playbooks.md": {
+   "bytes": 11455,
+   "sha256": "15841e458f931a4feb5f8a7c25485d3a3f0550f94873eaba34fe7a97eb9cb0dc"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/revops/references/inbound-routing.md": {
+   "bytes": 4685,
+   "sha256": "b049a71b7ae081ec96c9575bd66360cfc6a920a3a776f94e4d609eaad7025e1f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/revops/references/lifecycle-definitions.md": {
+   "bytes": 9756,
+   "sha256": "81a5628a84f690dc929edf105cb900f1f1ef35e024d0becec5514ce1e29c0e0b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/revops/references/routing-rules.md": {
+   "bytes": 6995,
+   "sha256": "64973cd55645906963a70a5a156f69029c3898be73438577a1a16a45d896c2f4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/revops/references/scoring-models.md": {
+   "bytes": 10926,
+   "sha256": "9d417c9c679eba8a2b4abbbef1ecc03765c1edd3ac97cdb1ce10896c2bfd0248"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sales-enablement/SKILL.md": {
+   "bytes": 20924,
+   "sha256": "747978fea8be16879ee448c1b4f97c96a114ca9a7ca517fac90037d0a55008a5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sales-enablement/evals/evals.json": {
+   "bytes": 11841,
+   "sha256": "cb27684b4f4a3f319caa42e3367dfa014aa9f31ea300fac72741788e5032b3ee"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sales-enablement/references/cold-call-scripts.md": {
+   "bytes": 4201,
+   "sha256": "ef2de0344a649c877d70ce4b292b472968724b88be07d16d7fb0e410339f9c7b"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sales-enablement/references/deck-frameworks.md": {
+   "bytes": 7993,
+   "sha256": "b5a75e2bc15dfae40a2cb38a7694fc707f2ec8159a0afaca58deff4385323ef3"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sales-enablement/references/demo-scripts.md": {
+   "bytes": 12124,
+   "sha256": "1f2c4f8f9b0581caab53ca89ccad7e440f8c3a49761165fd4c40cf19b803c0ac"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sales-enablement/references/objection-library.md": {
+   "bytes": 13663,
+   "sha256": "6611abfd7b3a8c97e4dce01e68d613f7777aa4606d41261fbf5a0a63273aa10e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sales-enablement/references/one-pager-templates.md": {
+   "bytes": 6031,
+   "sha256": "06bb842227d4f753d45c2eba3da1df0050523f1f11fde1b02fe90a989b933969"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sales-enablement/references/win-loss-analysis.md": {
+   "bytes": 4371,
+   "sha256": "6753eaee214d75823df0783ec1ec87f2902dbe5b36d93a16ff645de972966b83"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/schema/SKILL.md": {
+   "bytes": 7105,
+   "sha256": "447eabcfc82d29a2466f85ad5a5ec314afb2c0960dcebf965998ab8062e23b5f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/schema/evals/evals.json": {
+   "bytes": 9942,
+   "sha256": "875b327c9c61784307f30883395f40d12980e60e40ac0541b7dea0e758caf989"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/schema/references/schema-examples.md": {
+   "bytes": 9690,
+   "sha256": "741b79db51909479e27e9e48955664394a3981e7083071a555a08b02e9f6b529"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/SKILL.md": {
+   "bytes": 18282,
+   "sha256": "23d021a8936ec3a0764974ffc7d5c8068ef0c83f56629c9f4063c5193a20811a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/evals/evals.json": {
+   "bytes": 15921,
+   "sha256": "556bc8d66fc8b429b0f17a084433cb212541f183ee39ac70433ed0e34dc0e788"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/references/ai-writing-detection.md": {
+   "bytes": 6728,
+   "sha256": "847cbc0e9effb41e9fbdc98f05b85e2824ebe266dcbc291689a23ee0ea320f11"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/references/international-seo.md": {
+   "bytes": 15128,
+   "sha256": "69f6bca80580fe7bcd03a54edd5f99f83317ffc359d5aea50a4a436f1a59a4f7"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/references/local-seo-pages-and-measurement.md": {
+   "bytes": 4075,
+   "sha256": "d701d6f05343566e4766cbaba2289393972d32b13e1328f537243d9238ed105f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/references/local-seo-profile-and-citations.md": {
+   "bytes": 4012,
+   "sha256": "a391b633149be3c0cf3e5fb7cb31746cf8c970581fbdc6feb1fb59423c83ea05"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/references/local-seo.md": {
+   "bytes": 7335,
+   "sha256": "6930b7c10c69ac2136e3b135432f69f9da68640206c7bbcb28b28e74d9a8468f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/references/rankings-push.md": {
+   "bytes": 4571,
+   "sha256": "6ad38a99617cb0db839b8825adc18795d3a094ff304a73765d3966c1891bdde0"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/seo-audit/references/title-tags.md": {
+   "bytes": 5622,
+   "sha256": "a31be7db8a68ce18f3c482b58d77a292aaccab9f08bff3c0ace5f4f9f9127c6a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/signup/SKILL.md": {
+   "bytes": 10808,
+   "sha256": "4cee9994cf22d5f6a8c92f82311dbc0610f7ddd9fafb2390d3ae3939a77ada39"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/signup/evals/evals.json": {
+   "bytes": 6331,
+   "sha256": "5cae4442f5f3291d6c54be3fafcbf6f7525b5fbb856849a7d3580f9132bce546"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/site-architecture/SKILL.md": {
+   "bytes": 13913,
+   "sha256": "9a703a6751c73f54aa837a6f26a458bfeabb805c1a39cf9aa8ecab81dce61995"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/site-architecture/evals/evals.json": {
+   "bytes": 8499,
+   "sha256": "279feddd54b49883ec0dbea7564c7aafa109c124ceb3402b87a0c8c93fb3ddd4"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/site-architecture/references/mermaid-templates.md": {
+   "bytes": 5138,
+   "sha256": "0b080be5dee5c1ee354853994fc6610ab8f03f301f2d63cd05602c237555a23a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/site-architecture/references/navigation-patterns.md": {
+   "bytes": 11038,
+   "sha256": "499fd8af66a4701827d85d68b06b8e746a7ecee2f0dc8540796ddf375764fca6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/site-architecture/references/platforms-and-migration.md": {
+   "bytes": 10001,
+   "sha256": "5d5e9b36189b5a5a8e8115ab2c2533c553ebc839a3e6e70eb2770286d6cea175"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/site-architecture/references/site-type-templates.md": {
+   "bytes": 9917,
+   "sha256": "dbf487f57f0f96294ceaa58b31e3a8f84c3d067db9988e49bfb9f6b492289ef5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sms/SKILL.md": {
+   "bytes": 18319,
+   "sha256": "bf812a82b129515fd6b8c8a11fa7addbe62cd229a117f6a67f08423737643531"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sms/evals/evals.json": {
+   "bytes": 11387,
+   "sha256": "c593695363a31eeee5afb1eb0597b9b9a92a2463f5ac3bdded44bab04db42871"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sms/references/compliance.md": {
+   "bytes": 8035,
+   "sha256": "088bce243af81fba6d62ecc99f58c43a2e4ec474e1b84e6a0d442970c0b1d843"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sms/references/platforms.md": {
+   "bytes": 10183,
+   "sha256": "cca009e11da9e31fa974428d35e59241b5bdcd8aad8cff048182dcc95bd6b448"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sms/references/sequence-templates.md": {
+   "bytes": 7352,
+   "sha256": "b37b26ad27bd025a91b4a839098d1932b4b053ead761c52d5351307580833d3e"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/sms/references/whatsapp.md": {
+   "bytes": 16454,
+   "sha256": "7623bc78d4e9032f6f7f3ed3166fb12f61b58d2f511cc7e64d72ab51819a0128"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/SKILL.md": {
+   "bytes": 18828,
+   "sha256": "c7f6a01a03d01c92fdedfdec34185cfd7c0017c3b790d83852226093b483bbe2"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/evals/evals.json": {
+   "bytes": 17316,
+   "sha256": "09da762279215dc8fe2fb9fffe92a6f605f3c9dc2338c2cf6f6b0e321df98c95"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/carousel-frameworks.md": {
+   "bytes": 11265,
+   "sha256": "88dabd955dda8b6683d5ffe6906549916e8a028cd3cfd0110fd6559c15eb8e90"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/listening-sources-template.md": {
+   "bytes": 3602,
+   "sha256": "7a756c72e1210365fa7182898d3f944a374dcc9aa63e68307d1ee3588e81c117"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/listening.md": {
+   "bytes": 13772,
+   "sha256": "a79924afb89333eab14f198085fddf6e73a73f5ab24c5dc865671f067a6430e5"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/platform-limits.md": {
+   "bytes": 2940,
+   "sha256": "39fbf03f9ae4b470f8a242d48e563ed0ab3a943fe78880ccba3859e1ad0d382f"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/platforms.md": {
+   "bytes": 8646,
+   "sha256": "ddb828de977097990ffa3380b70ec21ce16a3f47ad9f4ed98f7a18fe2044fd33"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/post-templates.md": {
+   "bytes": 4195,
+   "sha256": "aed94b32ebcf2bbd6c30c49b811c883a8688f566865d930eef19c03090ff6120"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/reverse-engineering.md": {
+   "bytes": 5746,
+   "sha256": "8d2a8637deecaa41baf6d3d529868289c58b544bab1fd3247412cb6607e63959"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/ship-post.md": {
+   "bytes": 6470,
+   "sha256": "a21b704003e44a4c9698a2cea407032f7442bc557108b3aba55a862fdd05ad18"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/short-form-video.md": {
+   "bytes": 10828,
+   "sha256": "51172fc828c84385b2f498a36fd31ec7efdc9e62009614571d2abe9503476176"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/social/references/x-algorithm.md": {
+   "bytes": 7182,
+   "sha256": "62d2076caffef6640863ff6fa1f0820be3ac0db0eabad31f180a68937cc3050a"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/video/SKILL.md": {
+   "bytes": 17180,
+   "sha256": "096f0c18dc50cb81a0b5808a008c958d52b16fab7a6b405bae26856cddde4b07"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/video/evals/evals.json": {
+   "bytes": 14714,
+   "sha256": "9c08eb28804bf79488a3ccbf1429d5a050a55063db07d2952d468158adef225c"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/video/references/ai-video-prompting.md": {
+   "bytes": 5433,
+   "sha256": "cc1c2db4e76c38096a1b252792e0267b9819565ca7c2c077aa4ba2d894334c41"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/video/references/code-rendered-product-films.md": {
+   "bytes": 8944,
+   "sha256": "5df02ba0700f59e4435eb9945feee4d3dd5c1cd85685be80535cdda5b36d58f6"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/video/references/edit-anatomy.md": {
+   "bytes": 7679,
+   "sha256": "59e652260e6e7ae64d28c40d15269dc2ebc33fe63bfa7c8ccd7416aeef0e7951"
+  },
+  "addons/maven-reels/extras/marketingskills/skills/video/references/product-demo-recording.md": {
+   "bytes": 10811,
+   "sha256": "4f499a6f2bd3ae93bf41a2e2694f3af04bb17aa4d649443cf9120dee382b18e6"
+  },
+  "addons/maven-reels/extras/remocn/.claude-plugin/marketplace.json": {
+   "bytes": 590,
+   "sha256": "375a171dd917e015f599cd825fe4ca79014ac695b4a93192c917efee9e236606"
+  },
+  "addons/maven-reels/extras/remocn/LICENSE": {
+   "bytes": 1084,
+   "sha256": "80f75f05a6c59d3e212d1b536d06203b798834db28551986915dd8bcfa255e97"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/.claude-plugin/plugin.json": {
+   "bytes": 1006,
+   "sha256": "d8b5a36712fbf076970dc8b565f0608ff4497b6a543ba61e6e5f6069c976393c"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/.mcp.json": {
+   "bytes": 116,
+   "sha256": "e46c3d0f6f229d540aa89124cdad6279b23ba5b72e4d83e82b98a96663741a8a"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/README.md": {
+   "bytes": 4708,
+   "sha256": "d4fec6bb8b1cf28106cb5c935c90f860e7c0e924f38da4346685feaf81a11755"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/agents/scene-reviewer.md": {
+   "bytes": 2923,
+   "sha256": "d1525b9248799cb50b0a28bc0ad1d64f6800975bec63c90fca7fee7d5625a0bb"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/agents/video-director.md": {
+   "bytes": 2536,
+   "sha256": "dc108200745601c1da2dc39726aec5bcb662436fd4a05e42b96f9105c1df19ba"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/assets/icon.png": {
+   "bytes": 20088,
+   "sha256": "20822583601e4a45f165361f2ce2a5a3ba51d6651ffd58abcc764489d2826765"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/mcp.json": {
+   "bytes": 307,
+   "sha256": "1c4b97f2cde41da3c9d4bcc9f6d749ec3fa1fb62cafb1271cfe588f350276e45"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/plugin.json": {
+   "bytes": 1822,
+   "sha256": "650f80dca33debd2d90ddba695c6a2af33b73d7026c3757565db77ddb7f60b58"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/add/SKILL.md": {
+   "bytes": 1997,
+   "sha256": "cccf9e0f39c4354138c7173b15f243bb95e2ccd5c570298c4fbd1d8974fe6610"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/changelog/SKILL.md": {
+   "bytes": 1984,
+   "sha256": "6676304aab2b9fcd9fd7449dcf0c7008ba676dc9fb027b43d27d06517bcb9951"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/SKILL.md": {
+   "bytes": 15366,
+   "sha256": "90d2b0386be7602952cae4eac84208be265431a906918d67331898ea3de60efe"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/anatomy.md": {
+   "bytes": 9691,
+   "sha256": "87ee81dd655cb88a6fffbebaef96a35e15e0cd1347cbe1975b6bee91ab0de585"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/changelog.md": {
+   "bytes": 3409,
+   "sha256": "9e535d62d1292dd0c79fcb5102308bbfddb33ed1126660eacd8ffb209d72c162"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/cli-tool-demo.md": {
+   "bytes": 7602,
+   "sha256": "8151aebfeb5cfa2878c05cec9e5a0fd231a7d119ec8c31bc37b4c790b062dd96"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/feature-announcement.md": {
+   "bytes": 4015,
+   "sha256": "d2a1023e96cb8e5f0c833d1cfffb5dfec2c882ae94d36bf014bc79aebd7d9157"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/index.md": {
+   "bytes": 2095,
+   "sha256": "cad7603518568cdd28e81b10ed5adf3617e144ca1b088f4cecd6d13fe508cdb3"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/logo-bumper.md": {
+   "bytes": 5166,
+   "sha256": "bf453c36b6292b4f1e8b7970cef7249a0b6da3029b6214b407dc2868216f3507"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/oss-showcase.md": {
+   "bytes": 6445,
+   "sha256": "ba7903763202a8ea857fb7b3490b7bbc058ffb6a10c91a19103fb5ad961da243"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/pricing-reveal.md": {
+   "bytes": 5759,
+   "sha256": "811f95e95fa69f85353f3ff319839e1f4b130e7f730cda7a8030ae08c38c9fa4"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/product-demo.md": {
+   "bytes": 7900,
+   "sha256": "0763b322b0099ebb7aef2391c04ae92ac5537ada13d891dddc5f7912217998bd"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/testimonial-reel.md": {
+   "bytes": 5311,
+   "sha256": "e1bacefcbb7e900bacf7742013c341543c790008aa4f257526eb1f8338b10c7c"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/remocn/references/archetypes/year-in-review.md": {
+   "bytes": 6333,
+   "sha256": "b26e772f7ead3868820779fa38677aad8969c4cc2d5f1000ff059b3e951c685a"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/studio/SKILL.md": {
+   "bytes": 3781,
+   "sha256": "f0133fb69523cfe7611edcb742b91cbf16a8d469b5de7a90f7539ede01667130"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/studio/assets/registry.tsx": {
+   "bytes": 1990,
+   "sha256": "f47684b1f0733c7c46903786db0440a988d47e4e2cf486a72903596eedcbc6af"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/studio/scripts/studio.mjs": {
+   "bytes": 13186,
+   "sha256": "50b5d124fba9e1cccf73e448a6ad7da4cfdd08efffbedd41559188e9639786f7"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/video/SKILL.md": {
+   "bytes": 5756,
+   "sha256": "7898a861a6dbf5d684aee4da3b18bea14d858fe7aa6ce3c605d58404ac4d695d"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/video/references/storyboard.md": {
+   "bytes": 3112,
+   "sha256": "7a07d99fa2995bc72875c025ddae8e84295d8857f25ec86615649ff3ac48361f"
+  },
+  "addons/maven-reels/extras/remocn/plugins/remocn/skills/video/scripts/setup.mjs": {
+   "bytes": 9574,
+   "sha256": "7c8cfc74e55f211239beb9e06908efc65937dcb361828414b445688b00654791"
+  },
+  "addons/maven-reels/extras/skill-creator/LICENSE.txt": {
+   "bytes": 11357,
+   "sha256": "58d1e17ffe5109a7ae296caafcadfdbe6a7d176f0bc4ab01e12a689b0499d8bd"
+  },
+  "addons/maven-reels/extras/skill-creator/SKILL.md": {
+   "bytes": 33168,
+   "sha256": "dcd4803e61e913e6fc27294184cd3a71f09f5e924ff20c8a9a20173e7b3c2bcf"
+  },
+  "addons/maven-reels/extras/skill-creator/agents/analyzer.md": {
+   "bytes": 10376,
+   "sha256": "bf68f4cac5a56c673a928c2e6d619586c5b93ea364026ab37547772cb45a663a"
+  },
+  "addons/maven-reels/extras/skill-creator/agents/comparator.md": {
+   "bytes": 7287,
+   "sha256": "fe1fc9787c495d864c5d6eada47396478572325fde1b33a96d78bf4b849b7a3e"
+  },
+  "addons/maven-reels/extras/skill-creator/agents/grader.md": {
+   "bytes": 9049,
+   "sha256": "57134da0c1a4eea33fbd74a1c9c44aa814f07d6bc64de303edb586f941e5d21a"
+  },
+  "addons/maven-reels/extras/skill-creator/assets/eval_review.html": {
+   "bytes": 7058,
+   "sha256": "ce477dcc74dc1c0d1d3352646a79167b5a63634e936b1019160025065974e452"
+  },
+  "addons/maven-reels/extras/skill-creator/eval-viewer/generate_review.py": {
+   "bytes": 16365,
+   "sha256": "fc9d1b9243fe5ab6012ebd579bd76d0035de1b79fd3b969de114defab26478fb"
+  },
+  "addons/maven-reels/extras/skill-creator/eval-viewer/viewer.html": {
+   "bytes": 44998,
+   "sha256": "a53213426ee1100441d701a3a0d49cda7a842f992d2c36463f4d3cc0258575fa"
+  },
+  "addons/maven-reels/extras/skill-creator/references/schemas.md": {
+   "bytes": 12061,
+   "sha256": "8e8876180a8989b406a4d3edddf875b04cdfd5805cc8616686d552b11ce4455f"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/__init__.py": {
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/aggregate_benchmark.py": {
+   "bytes": 14386,
+   "sha256": "123ef128ea5ccc01a4b1ac212ef5567f21e9c13d3d240609780beeb3200c49aa"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/generate_report.py": {
+   "bytes": 12847,
+   "sha256": "13df7118a3c50c83c4c3250a606d5f2b20b25a3d44cbc392b3d669ec75281453"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/improve_description.py": {
+   "bytes": 11116,
+   "sha256": "87d864570220b699fac52da309d2d6efdb060647bfebc74f768128e646accf80"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/package_skill.py": {
+   "bytes": 4234,
+   "sha256": "1a33059b0db1ef73375d46d513e5ea81369d2e8838c970597b0d52ddef8d1c0f"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/quick_validate.py": {
+   "bytes": 6021,
+   "sha256": "f65315971b2a723349234947062de2ffae76cad98884b7f441e453e6dbe01892"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/run_eval.py": {
+   "bytes": 11464,
+   "sha256": "43e3b8f80dbf69c343967ba77e268fae991d9fa3ed68b32a0ff02532cd48657f"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/run_loop.py": {
+   "bytes": 13605,
+   "sha256": "7bd6f674203168520517eec94c55f493c0d154339b061b4d7c0f0dad187d0f21"
+  },
+  "addons/maven-reels/extras/skill-creator/scripts/utils.py": {
+   "bytes": 1661,
+   "sha256": "3af8ae62c40c73ab712207436a0d9a981e845f25c5a7040229eb189cc8e45bb1"
+  },
+  "addons/maven-reels/kit/reel.js": {
+   "bytes": 37003,
+   "sha256": "7b119b10680d4b193c1a3ed4e007c723171ae4c59e8b3727dd0f310b38d35e95"
+  },
+  "addons/maven-reels/package.json": {
+   "bytes": 410,
+   "sha256": "d1834f4e05b96e25df07d0fb2ed748d7f2cef80b228b03b6a74f3da3a04bad15"
+  },
+  "addons/maven-reels/references/kit.md": {
+   "bytes": 4446,
+   "sha256": "023da277c200328a63c66bae3d7a68dcf17f8c0285ac15c8eee760b7d0e8638c"
+  },
+  "addons/maven-reels/references/style-card.md": {
+   "bytes": 2365,
+   "sha256": "6792d2fa3e982f3bff9cab57ccc488fa720b560633e7b74e3a08ef76e85d2912"
+  },
+  "addons/maven-reels/references/style-cards/founder-story.md": {
+   "bytes": 2411,
+   "sha256": "0b5b7d0cff621992279027f43b56ea2b1a39f9f93bdd1a921d91cef4b135a4b0"
+  },
+  "addons/maven-reels/requirements.txt": {
+   "bytes": 114,
+   "sha256": "626539a25cd9b6bf0bc5381575f6a259c93319f9dfdbbb4cec67d4f470f74f23"
+  },
+  "addons/maven-reels/rights/MAVEN-RIGHTS.txt": {
+   "bytes": 1557,
+   "sha256": "ba5b4895d8545e4f61a17399515f8a78af01c6e44b6691d9c220cd08f3de6663"
+  },
+  "addons/maven-reels/rights/OFL-FONTS.txt": {
+   "bytes": 4486,
+   "sha256": "a86543149665aeeb050cbf2eabfdaac00ee8433c160691e47255130554bd9ce2"
+  },
+  "addons/maven-reels/scripts/analyze.py": {
+   "bytes": 12392,
+   "sha256": "74db5e3cddb89a5b2f4e429fda293bb1c3953f6f29704cffff15135c766f2274"
+  },
+  "addons/maven-reels/scripts/install_extras.py": {
+   "bytes": 3985,
+   "sha256": "b3056f29fa149122ea73875341eeccb3af3e6feac155d254fe68cc9d97a85b17"
+  },
+  "addons/maven-reels/scripts/new.py": {
+   "bytes": 802,
+   "sha256": "d913e8cfb8dcf55b836a922dd44620dd26f9cf859cea4f52f5030ff1a671033c"
+  },
+  "addons/maven-reels/scripts/render.mjs": {
+   "bytes": 9553,
+   "sha256": "3387cae6d95c035e9cbc4dd14929daf6345ebe5caf2e66b1a50fa5fbafddba9c"
+  },
+  "addons/maven-reels/scripts/timestamps.py": {
+   "bytes": 1526,
+   "sha256": "f52b2b0ad885e2f2d99d6363ac449643da7f8c20174ba117ce750b379c0721d4"
+  },
+  "addons/maven-reels/setup.ps1": {
+   "bytes": 923,
+   "sha256": "18e59e3f390367b80d9ea21e49955c2a0b8bbaf23437339ea6e4575af2ab30ed"
+  },
+  "addons/maven-reels/setup.sh": {
+   "bytes": 851,
+   "sha256": "4d2777c20e54a41ceb44748d0b68b555fd7083b451f7d2d1f914d5c499afef88"
+  },
+  "addons/maven-reels/templates/reel.html": {
+   "bytes": 1279,
+   "sha256": "88e15aa6cb32a0d4aa548b11ea77a108a31ecc54dc4312bdba36464379defec8"
+  },
+  "addons/trickat-stickman/CREDITS.md": {
+   "bytes": 1090,
+   "sha256": "24a2216ca58af14853b7bba1c6d92b437d2a124cd9f21e4f66c8be6d410d7da7"
+  },
+  "addons/trickat-stickman/SKILL.md": {
+   "bytes": 15787,
+   "sha256": "d5edeb9a1c70b96a9171e74ef52c3c0bef76c29c09bcd77319d5141e8622fff2"
+  },
+  "addons/trickat-stickman/engine/__init__.py": {
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "addons/trickat-stickman/engine/__main__.py": {
+   "bytes": 8040,
+   "sha256": "159583d6d82283f0444856af49ccf679d87d79494a6c7f3b2abdaac1d3d0b808"
+  },
+  "addons/trickat-stickman/engine/artext.py": {
+   "bytes": 4417,
+   "sha256": "784f3aa3305bf259e8f054aa63dd8e418d721a2b0f2d8e11d03f6f6aae005d24"
+  },
+  "addons/trickat-stickman/engine/audio.py": {
+   "bytes": 14108,
+   "sha256": "d9fecae0a1c1647e35aaf6b5f9ff04476276c31c72a260b1055d36be85db59dc"
+  },
+  "addons/trickat-stickman/engine/fx.py": {
+   "bytes": 5243,
+   "sha256": "751256d8a4686672263529d8490ee74af2b392be503df0ba43bcc442a86041c5"
+  },
+  "addons/trickat-stickman/engine/kit.py": {
+   "bytes": 27049,
+   "sha256": "c9d7c8614ba7e327c2c6c683afb962eb3cef63b2f6952c2674dda8ef628ae7b7"
+  },
+  "addons/trickat-stickman/engine/props.py": {
+   "bytes": 15397,
+   "sha256": "61d8acfea0cd1a307423e3ab9e6ba4ba3b92bc9c5b9b1469d60c1ec539d2a7c8"
+  },
+  "addons/trickat-stickman/engine/render.py": {
+   "bytes": 12468,
+   "sha256": "de372c812fea79cd0aa9a867a25ee527c779cc3ca865a71f42926676c59973b8"
+  },
+  "addons/trickat-stickman/engine/sets.py": {
+   "bytes": 21374,
+   "sha256": "ed9b099aab0b3a532b29fb50cbfb0a2729d5b76ae6a0b040bf104bc9c742d4c2"
+  },
+  "addons/trickat-stickman/engine/shots.py": {
+   "bytes": 32009,
+   "sha256": "593966b3e4dade369284a4d09186eb1150d8c94d5b32872aa14b6f3a18654eb8"
+  },
+  "addons/trickat-stickman/engine/timeline.py": {
+   "bytes": 5164,
+   "sha256": "7bed5962ef79dcebe5e29a3eda7a2e1dbe37abc868dd5d8ecf409c4395bfe3df"
+  },
+  "addons/trickat-stickman/engine/timing.py": {
+   "bytes": 14415,
+   "sha256": "d48802e4447dc51f331928bf43c6311030b98981a203ef5588e558402ee600b6"
+  },
+  "addons/trickat-stickman/examples/arabic-marshmallow/README.md": {
+   "bytes": 1163,
+   "sha256": "7a977c00c7578c37fffa120f021f625f159da30f331fb84323bd4a014a9a479e"
+  },
+  "addons/trickat-stickman/examples/arabic-marshmallow/story.json": {
+   "bytes": 4063,
+   "sha256": "f4ab322491003e5a6f0b53bd9e441ed0b666370802a81558c10544875a534e48"
+  },
+  "addons/trickat-stickman/examples/arabic-marshmallow/subs.srt": {
+   "bytes": 1649,
+   "sha256": "67d70eaf8aa5a0706ec0305a11a09ce9c4aae7206b130c0f499c978e29f6c965"
+  },
+  "addons/trickat-stickman/fonts/ArefRuqaa-Bold.ttf": {
+   "bytes": 123852,
+   "sha256": "247071015b7eefd63f94d6e47949c5d10294ed31bd432f809ba9a219d93f91bb"
+  },
+  "addons/trickat-stickman/fonts/CaveatBrush-Regular.ttf": {
+   "bytes": 295568,
+   "sha256": "e565bd7bffd895ca64f8d1cb77c816b9b38d9c010246386a07c9648592f6f282"
+  },
+  "addons/trickat-stickman/fonts/Kalam-Bold.ttf": {
+   "bytes": 460896,
+   "sha256": "2f6576601db015d4f6c08678120277fc8510b98c06e932ce7a6a9cbff4cbdded"
+  },
+  "addons/trickat-stickman/fonts/LICENSE-Apache.txt": {
+   "bytes": 11358,
+   "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "addons/trickat-stickman/fonts/Lalezar-Regular.ttf": {
+   "bytes": 290016,
+   "sha256": "7b80807bc831f141de0f7dcf6816412bf0c548968d548c5156ca388733390ea9"
+  },
+  "addons/trickat-stickman/fonts/Marhey-Bold.ttf": {
+   "bytes": 132152,
+   "sha256": "59ff68112f3c8d2805f194b259f980dff7b76c671f97820b2991682821c15c07"
+  },
+  "addons/trickat-stickman/fonts/OFL.txt": {
+   "bytes": 4444,
+   "sha256": "21b54eb0d7513524798a00dfbaf99a02c003a0012a728cc5f0e02d24c50482fb"
+  },
+  "addons/trickat-stickman/fonts/PermanentMarker-Regular.ttf": {
+   "bytes": 74632,
+   "sha256": "28f82c8a7943cb8e9d599f8554da1d4fc75dbcf69b9885ad6c0611d20c6946c5"
+  },
+  "addons/trickat-stickman/references/ideas-and-scripts.md": {
+   "bytes": 7138,
+   "sha256": "5b5397bb7b91f4d1b72ef896cb66b634a7e8eb2e52ca8f62d16dc0ed64e40b8b"
+  },
+  "addons/trickat-stickman/references/story-format.md": {
+   "bytes": 11786,
+   "sha256": "27e15145bc7f4af3fe182e7b9351f06a98b9c29b83e2b5dcffa0b450f55bce16"
+  },
+  "addons/trickat-stickman/scripts/setup.sh": {
+   "bytes": 1353,
+   "sha256": "5ad1dcb26ba6353ee3d994b876aa731fef1f88f7c13e7ee5efbf356b2d3632e9"
   },
   "alloy.py": {
    "bytes": 25729,
-   "sha256": "c0c1a922280f0666bad14593100e713a828ea05bf85e716572ed5b3424a795f1"
+   "sha256": "b19beea397efaca141f5ed546c15345c48fd5ec6ab6be2444144bebfe9e2204a"
   },
   "branches/claude-sharp-ptolemy-mku5pf/PATCHES/.gitignore.diff": {
    "bytes": 233,
@@ -289,6 +3213,10 @@
    "bytes": 46833,
    "sha256": "be25b272fd72940897624ec43f6e96f408782977209474d735c9b19d63e80158"
   },
+  "forge/addons.py": {
+   "bytes": 10191,
+   "sha256": "1b8f5b0c2ed0164db79a5536d1d849bf8cc8274ec3758bf4861315aa00f4317a"
+  },
   "forge/blend.py": {
    "bytes": 54946,
    "sha256": "5fb95012d572eb4697161ff7d348b383a47858c98d1a004db49545de7b005cfe"
@@ -296,6 +3224,10 @@
   "forge/eval_route.py": {
    "bytes": 5333,
    "sha256": "94bd0155f1d73f227ef21f797943b8ae9d2f80aaaff2b5079f943be3aa6f5b6f"
+  },
+  "forge/owner_memory.py": {
+   "bytes": 7543,
+   "sha256": "4b6fd0ca3c4691a8ee0da59c0911ddcfa11d95f7309b9d7b3f07dcdaafa03355"
   },
   "forge/pack.py": {
    "bytes": 2328,
@@ -306,8 +3238,8 @@
    "sha256": "6240a6c71de6e5a2fbdb66eefafbf120f3fdd1d60c143531fac835760485b6c7"
   },
   "forge/selftest.py": {
-   "bytes": 8135,
-   "sha256": "b5ac647b7fe399685ae9701d14569947f4947a63a889fa159465bb9af80b9ab3"
+   "bytes": 8513,
+   "sha256": "a7d50d29870eb924a6a2623dd3e046fe86b840c3751a6a4c3356b5723acd4f4e"
   },
   "forge/take.json": {
    "bytes": 54450,
@@ -317,9 +3249,13 @@
    "bytes": 6355,
    "sha256": "7890541b842e2630fb9e9a898b55a4fcf90ccf8ab16379745c3bb148a5d4f297"
   },
+  "forge/test_owner_memory.py": {
+   "bytes": 2436,
+   "sha256": "db478c3d59872cfe7931c1c4becc9e44bfdb0cb6e2f9b0cb2fe2a079ea8c56d3"
+  },
   "kb/alloy.db": {
-   "bytes": 46870528,
-   "sha256": "0b57f6765f354f19489154490003c7caaa4f1e65896beea8bee1f75292424222"
+   "bytes": 55537664,
+   "sha256": "5f04b98b4bb251bbb3958a46622a284c56e61ada029a0deb3796cf68a85dc9c8"
   },
   "ledger/blend_report.json": {
    "bytes": 7325,
@@ -337,6 +3273,86 @@
    "bytes": 2090866,
    "sha256": "8f472aa0193b6e7e0ff887fe6fb9b6175efd5e5558d92be3ea640aff58d88ef5"
   },
+  "owner-memory/live/chats/c20261112-151000-2.md": {
+   "bytes": 904,
+   "sha256": "1b64b708c04e2d299ec22fb302f1e4d134ea651b8a715b77bf2a75c174211d76"
+  },
+  "owner-memory/live/chats/c20261112-222437-3.md": {
+   "bytes": 1789,
+   "sha256": "8d2e0c9c14f2137d8c43d21b322d06f3b62241042128d9a75ca616fa4311c356"
+  },
+  "owner-memory/live/chats/index.json": {
+   "bytes": 702,
+   "sha256": "86f4dbe0ec5e561e749e431ecf685d2317252f2dda0f27d3b7188885684dd562"
+  },
+  "owner-memory/live/guard/183e8d4289adfb7f.json": {
+   "bytes": 2377,
+   "sha256": "c29473227fcae7c2006a7f637ad58f46d2cc416a941829aadc4241ef17c0f07d"
+  },
+  "owner-memory/live/guard/c9882c73e94953e1.json": {
+   "bytes": 299687,
+   "sha256": "d6151b6b8215de2f78175e102e37f68eebe6b59416ee31ddc4227d29f6063bd4"
+  },
+  "owner-memory/live/hits.jsonl": {
+   "bytes": 9739,
+   "sha256": "0640b415e177e7d39ab2da8ac834de81f4f06ac20723e3e3a11f033560164761"
+  },
+  "owner-memory/live/installed_index.json": {
+   "bytes": 315916,
+   "sha256": "2709541128cf362c74672388eda20bf4c363c0d4b04c45a7f4a9f99975a1797e"
+  },
+  "owner-memory/live/last_turn.json": {
+   "bytes": 2257,
+   "sha256": "d080adbb31ba113ee5b015ef617ddc83d95fbcee204d8844834d6d53fd6c926a"
+  },
+  "owner-memory/live/lessons.jsonl": {
+   "bytes": 11634,
+   "sha256": "d05969cb2560d5e05d2f8d834ad00b25ee7f0bc39fcc4fa145ebaf6898ccc571"
+  },
+  "owner-memory/live/outcomes.jsonl": {
+   "bytes": 1140,
+   "sha256": "acddcf4328bed604a747a2a5b64aed9b0a6cd9123ad35b956e089d7343314635"
+  },
+  "owner-memory/live/route_examples.jsonl": {
+   "bytes": 793,
+   "sha256": "f824ffa14d62dd3f6be3dd78fc38b1a30912d9872e2385bd06f5b024dc23199e"
+  },
+  "owner-memory/live/route_examples.jsonl.bak-20261113": {
+   "bytes": 571,
+   "sha256": "42e658b5e12709cca5b815d94423e18be0b6ff0dc3d7bfe9bf5df323715425da"
+  },
+  "owner-memory/live/sync/misses.jsonl": {
+   "bytes": 2104,
+   "sha256": "d2db47a8b5a6c8967559571f878683aeedf53bd9762e318c8e156466c5f1344e"
+  },
+  "owner-memory/live/think/plans/20261115-081722/plan.json": {
+   "bytes": 7695,
+   "sha256": "8381753e418e9466b24355fee9a66c32ea9e03ebd872d5ed22e11a6829326ce6"
+  },
+  "owner-memory/live/think/plans/20261115-081722/plan_v1.md": {
+   "bytes": 13369,
+   "sha256": "3305ffa2379cc54d4f14dfc37f07859e5c4266e9c98f191495e7afa27593619d"
+  },
+  "owner-memory/live/think/plans/20261115-103519/plan.json": {
+   "bytes": 7047,
+   "sha256": "3027fa65d6ea96d98109662a3fd930622f42873832f9d74bea5f5850d68154a5"
+  },
+  "owner-memory/live/think/plans/20261115-103519/plan_v1.md": {
+   "bytes": 9797,
+   "sha256": "d12c7c47a18f4f3f0c6c08fc161c592c97b6869ec6254098535dd256650b0f60"
+  },
+  "owner-memory/live/think/plans/20261119-163513/plan.json": {
+   "bytes": 10161,
+   "sha256": "33e49329f8bb37f2dd89bd0f21718500f7be4b5499cbf248eb5b47a88e70596e"
+  },
+  "owner-memory/live/think/plans/20261119-163513/plan_v1.md": {
+   "bytes": 12624,
+   "sha256": "64b453a8ef245a397a179677af63da2bc279eb5cd7fa14346707d66d59fbffb9"
+  },
+  "owner-memory/snapshot_manifest.json": {
+   "bytes": 3268,
+   "sha256": "e6335f867ff7bdc314d7e72add8ab4a976a5c16043beb69c5eff44a0c5d9d402"
+  },
   "references/BLEND_REPORT.md": {
    "bytes": 8609,
    "sha256": "3b97729643a5a77e1f0b663437326d888b2e0b492a75437f4e0d0d04861dc0db"
@@ -344,6 +3360,10 @@
   "references/CAPABILITIES.md": {
    "bytes": 2210,
    "sha256": "c846e8094ceb2b848a3ba803ffb4847eef6f28cc12d8f4df8fda8656d49b53ff"
+  },
+  "references/CHANGELOG.md": {
+   "bytes": 1615,
+   "sha256": "54d645e5eea3fc219f52e6d438ee43a3edf204fb8a800bc9c72c7661459434fb"
   },
   "references/INSTALL.md": {
    "bytes": 4067,
@@ -364,21 +3384,6 @@
   "references/THINKING.md": {
    "bytes": 56191,
    "sha256": "d50a4305c331de908d5a08cc0e6268604a68fdb876112285eb8a274a82f8cfd4"
-  },
-  "forge/owner_memory.py": {
-   "bytes": 7543,
-   "sha256": "4b6fd0ca3c4691a8ee0da59c0911ddcfa11d95f7309b9d7b3f07dcdaafa03355"
-  },
-  "forge/test_owner_memory.py": {
-   "bytes": 2436,
-   "sha256": "db478c3d59872cfe7931c1c4becc9e44bfdb0cb6e2f9b0cb2fe2a079ea8c56d3"
   }
- },
- "memory": {
-  "mode": "private repository / continuous local learning",
-  "historical_private_units_preserved": 163,
-  "live_snapshot_path": "owner-memory/live",
-  "append_only_journal_path": "owner-memory/journal.jsonl",
-  "public_uploads_disabled": true
  }
 }

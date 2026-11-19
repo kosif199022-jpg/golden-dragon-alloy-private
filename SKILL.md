@@ -1,9 +1,9 @@
 ---
 name: golden-dragon-alloy
-description: "التنين الذهبي — السبيكة (Golden Dragon Alloy v4): مستودع التنين كله متصهر في مهارة واحدة: باب واحد alloy.py لكل الأوامر والمحركات، ومعرفة واحدة (26 ألف وحدة: 679 مهارة والمراجع و43 طريق و221 درس و134 قاعدة و51 أداة تفكير والكتالوج) بمصدر ورخصة كل حاجة، والعقل المقاس وسلّم «صح من أول مرة». Use first when the user says «التنين» (الذهبي، الأسود، الأحمر، الأبيض) or Golden/Black/Red/White Dragon، «السبيكة»، «قدراتك»، «فكّر كويس»، «مونتاج» or «مونتاتج»، «اعمل فيديو» or «فديو»، «ريلز»، «موشن جرافيك»، «كرتون» or «أنمي»، «محاكي ماكينة»، «حلل» or «هندسة عكسية»، «طابق»، «اصنع تطبيق»، «حوّله لمهارة»، «فين الملف»، «اتعلم من غلطك»، Blender 3D، «رندر على السحابة»، or sends TikTok, Instagram or YouTube links with an edit request, Arabic typed on an English keyboard, or a document. Works on the owner's Windows laptop (everything) and in the cloud (knowledge, roads, rules; the measured router and engines need runtime/)."
+description: "التنين الذهبي — السبيكة (Golden Dragon Alloy v4.1): مستودع التنين كله متصهر في مهارة واحدة: باب واحد alloy.py لكل الأوامر والمحركات، ومعرفة واحدة (26 ألف وحدة: 679 مهارة والمراجع و43 طريق و221 درس و134 قاعدة و51 أداة تفكير والكتالوج) بمصدر ورخصة كل حاجة، والعقل المقاس وسلّم «صح من أول مرة». Use first when the user says «التنين» (الذهبي، الأسود، الأحمر، الأبيض) or Golden/Black/Red/White Dragon، «السبيكة»، «قدراتك»، «فكّر كويس»، «مونتاج» or «مونتاتج»، «اعمل فيديو» or «فديو»، «ريلز»، «موشن جرافيك»، «كرتون» or «أنمي»، «محاكي ماكينة»، «حلل» or «هندسة عكسية»، «طابق»، «اصنع تطبيق»، «حوّله لمهارة»، «فين الملف»، «اتعلم من غلطك»، Blender 3D، «رندر على السحابة»، or sends TikTok, Instagram or YouTube links with an edit request, Arabic typed on an English keyboard, or a document. Works on the owner's Windows laptop (everything) and in the cloud (knowledge, roads, rules; the measured router and engines need runtime/)."
 ---
 
-# التنين الذهبي — السبيكة (Golden Dragon Alloy) v4.0.0
+# التنين الذهبي — السبيكة (Golden Dragon Alloy) v4.1.0
 
 > المستودع كله (main `f617a65` + 7 فروع ماكانتش مدموجة) اتحط في الخلاط. 7,226 ملف و679 `SKILL.md` بقوا مهارة واحدة: **باب واحد، معرفة واحدة، كتاب قواعد واحد، كتاب طرق واحد، دفتر واحد**. والكود الشغّال نفسه في غرفة الماكينات `runtime/`، مطابق لـ main بالبايت، علشان أي أمر قديم يفضل شغّال.
 
@@ -91,6 +91,21 @@ description: "التنين الذهبي — السبيكة (Golden Dragon Alloy 
 | توليد مدفوع (Higgsfield، Kling، Suno) | `paid-gen`: موافقة على الأداة والسعر كل مرة |
 
 الطرق كلها بخطواتها: `$A roads "<كلمات>"` أو `$A show road:<id>`.
+
+## الإضافات (v4.1): مهارات اتضافت بعد الصهر
+بتتلاقي بـ `$A find` و`$A route` زي أي حاجة تانية، والقايمة ومصدر ورخصة كل واحدة في `addons/addons.json`.
+
+| الطلب | المهارة |
+|---|---|
+| ريل بنفس ستايل فيديو تاني (ستايل كارت)، أو إعلان براند أو برومو تطبيق بكابشن عربي كلمة كلمة | `addons/maven-reels/SKILL.md` |
+| قصص «في العالم ده» بشخصيات مكعبة ثلاثي الأبعاد | `addons/maven-3d/SKILL.md` |
+| يوتيوب كرتون عربي 16:9 من تعليق صوتي وملف SRT | `addons/trickat-stickman/SKILL.md` |
+| شورتس كرتون: 10 أفكار، وسكريبت، وفويس أوفر يتحوّل لـ MP4 | `addons/cartoon-audio-short/SKILL.md` |
+| فيلم صلصال ثلاثي الأبعاد بالكود (Three.js وGSAP) | `addons/clay-film-kitten-rescue/SKILL.md` |
+
+- **ممنوع تنشر أو تشارك `maven-reels` و`maven-3d`:** حقوقهم بتسمح بالاستخدام الشخصي والتعديل على نسختك بس (`addons/maven-reels/rights/MAVEN-RIGHTS.txt`). علشان كده مكانهم المستودع الخاص بس.
+- **`trickat-stickman`:** اسيب كريدت Trickat زي ما هو.
+- **إضافة مهارة جديدة:** حطها في `addons/<id>/`، وسجّلها في `addons/addons.json`، وشغّل `python -I -X utf8 forge/addons.py`، وبعدين `$A selftest`. `runtime/` مابيتلمسش.
 
 ## قواعد مابتتكسرش (كلها بأسبابها في `references/RULES.md`)
 - **الفلوس:** أي أداة بتخصم رصيد محتاجة السعر بالظبط، وجنبه اختيار ببلاش، و«موافق» على المبلغ ده بالذات. `balance` قبل وبعد.
