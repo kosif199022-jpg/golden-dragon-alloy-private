@@ -6,6 +6,10 @@ The ZIP ships with the app; the verified SQLite member is cached per-user.
 import hashlib
 import json
 import os
+import re
+import sqlite3
+from contextlib import closing
+import unicodedata
 import threading
 import zipfile
 from pathlib import Path
@@ -76,10 +80,70 @@ def _sha256(path):
     return digest.hexdigest()
 
 
+
+def _private_alloy_database():
+    """Local-only optional full Alloy DB; never shipped with the public app."""
+    folder = os.environ.get("GOLDEN_DRAGON_ALLOY_HOME", "")
+    base = Path(folder) if folder else Path.home() / "golden-dragon-alloy"
+    db = (base / "kb" / "alloy.db").resolve()
+    return db if db.is_file() else None
+
+
+def _private_alloy_search(query, limit=5, database=None):
+    """Search source-linked active units; NEVER expose private memory by default."""
+    db = Path(database) if database is not None else _private_alloy_database()
+    if db is None or not db.is_file():
+        return []
+    simplified = unicodedata.normalize("NFKC", query).casefold()
+    simplified = "".join(c for c in simplified if not (0x064b <= ord(c) <= 0x065f or ord(c) == 0x0670))
+    simplified = simplified.translate(str.maketrans({
+        "أ": "ا", "إ": "ا", "آ": "ا", "ى": "ي", "ة": "ه", "ؤ": "و", "ئ": "ي"}))
+    terms = list(dict.fromkeys(re.findall(r"\w+", simplified)))[:20]
+    if not terms:
+        return []
+    match = " OR ".join('"' + t.replace('"', '""') + '"*' if len(t) >= 3 else
+                        '"' + t.replace('"', '""') + '"' for t in terms)
+    with closing(sqlite3.connect(Path(db).resolve().as_uri() + "?mode=ro", uri=True)) as con:
+        con.execute("PRAGMA query_only=ON")
+        rows = con.execute(
+            "SELECT u.title,u.summary,u.path,u.sources,u.kind "
+            "FROM fts JOIN units u ON u.rowid=fts.rowid "
+            "WHERE fts MATCH ? AND u.status='active' AND u.kind!='memory' "
+            "ORDER BY bm25(fts, 8.0, 4.0, 1.0) LIMIT ?", (match, min(int(limit), 10))).fetchall()
+    out = []
+    for title, summary, path, raw_sources, kind in rows:
+        try:
+            sources = json.loads(raw_sources or "[]")
+        except (ValueError, TypeError):
+            sources = []
+        sources = [x for x in sources if isinstance(x, dict)][:8]
+        if not sources and path:
+            sources = [{"path": str(path)}]
+        content = (str(title or "") + chr(10) + str(summary or "")).strip()
+        out.append({"text": content[:1300], "sources": sources,
+                    "original_variants": 1, "origin": "private-full-alloy", "kind": kind})
+    return out
+
+
+def _private_alloy_count():
+    db = _private_alloy_database()
+    if not db:
+        return 0
+    with closing(sqlite3.connect(db.resolve().as_uri() + "?mode=ro", uri=True)) as con:
+        return con.execute("SELECT count(*) FROM units").fetchone()[0]
+
+
+
 def status():
     try:
         result = knowledge.status(verified_database())
-        return {"ok": result["passed"], **result, "integration": "embedded read-only knowledge"}
+        try:
+            full_count = _private_alloy_count()
+        except (sqlite3.Error, OSError, ValueError):
+            full_count = 0
+        return {"ok": result["passed"], **result,
+                "integration": "embedded read-only knowledge",
+                "alloy_units_available": full_count}
     except (OSError, KeyError, ValueError, zipfile.BadZipFile, json.JSONDecodeError) as exc:
         return {"ok": False, "why": f"{type(exc).__name__}: {exc}"[:250]}
 
@@ -91,7 +155,12 @@ def search(text, limit=5):
         return {"ok": False, "why": "Query is too long"}
     try:
         limit = min(10, max(1, int(limit)))
-        matches = knowledge.search(text, limit, verified_database())
+        try:
+            matches = _private_alloy_search(text, limit)
+        except (sqlite3.Error, OSError, ValueError, KeyError):
+            matches = []
+        if not matches:
+            matches = knowledge.search(text, limit, verified_database())
         # Expose bounded, traceable text, never execute it as instructions.
         return {"ok": True, "matches": [
             {"text": record["text"][:1300],

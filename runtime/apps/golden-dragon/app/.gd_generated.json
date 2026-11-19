@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19 15:27:01",
+ "generated": "2026-11-19 19:09:11",
  "source": "%USERPROFILE%\\OneDrive\\Desktop\\مهارات\\التنين الأسود\\apps\\dragon_desktop",
  "source_app_sha256": "6abc7c69e15cae3552222a62c74d94013d1b92715a4647510b198b162bcb6692",
  "white_bird_forge_sha256": "ec7929434f9c2788f45dc8e2b7789b8e25cb1acf735e44ea7d8b4b603e73c34e",
@@ -30,7 +30,7 @@
   "gd_core_integrations.py": "79d40d9a6354e0603396912f7405529a4382b98000c072dad3df30747b29296f",
   "gd_discover.py": "3f69d55627279fc991ecf2ce4710e26940bd47bfd29c8ecaa57f53890ff8913a",
   "golden_dragon_runtime.py": "bede87d13769ab241960d23ea4dcf75296ce420c0665ef11a51197e3cf070784",
-  "golden_knowledge_bridge.py": "a3dea5d8c417d83b7d21ab8c35aed706eef00610d27bdf8f2fcfe81c1ba3095e",
+  "golden_knowledge_bridge.py": "2191149c5498bbfd1b68cee2d3465b94cf55c69145fba0a385df7ce5d965f3ae",
   "golden_steer.py": "bea19dfac1156baa6960e848f91df5cba9e2f5d09bb20a60a273d35d7949b1dd",
   "golden_tools.py": "2b06ec01cadc37d339605cc10479e021677fb050b70e935c55cfe854bf263bb4",
   "mcp_control.py": "de3b5b578f54eff0cd0a18053bbdf3b594c1a69dfa0703d29e0cbcfac180fbc8",
