@@ -1,0 +1,19 @@
+{
+  "schema": "kosif.black-dragon.video-12.v2",
+  "source": "https://www.instagram.com/reel/Dfmun_Fjap1/",
+  "source_evidence": "12 tools enumerated in the published Instagram caption; video/audio not independently transcribed",
+  "tools": [
+    {"id":"remotion","category":"video","kind":"node-cli","packages":["remotion","@remotion/cli"],"binary":"remotion","license_note":"license conditions differ by organization and usage","url":"https://www.remotion.dev/"},
+    {"id":"hyperframes","category":"video","kind":"node-cli","packages":["hyperframes"],"binary":"hyperframes","license_note":"Check HyperFrames terms and any optional paid features","url":"https://github.com/heygen-com/hyperframes"},
+    {"id":"motion-canvas","category":"video","kind":"node-library","packages":["@motion-canvas/core","@motion-canvas/2d","@motion-canvas/vite-plugin"],"license_note":"Requires composition project; no universal CLI","url":"https://motioncanvas.io/"},
+    {"id":"threejs","category":"visual","kind":"node-library","packages":["three"],"license_note":"MIT","url":"https://threejs.org/"},
+    {"id":"manim","category":"visual","kind":"python-cli","packages":["manim"],"binary":"manim","module":"manim","license_note":"System Cairo/Pango dependencies often required","url":"https://www.manim.community/"},
+    {"id":"roughjs","category":"visual","kind":"node-library","packages":["roughjs"],"license_note":"MIT","url":"https://roughjs.com/"},
+    {"id":"gsap","category":"motion","kind":"node-library","packages":["gsap"],"license_note":"GSAP terms apply","url":"https://gsap.com/"},
+    {"id":"animejs","category":"motion","kind":"node-library","packages":["animejs"],"license_note":"Verify current package license","url":"https://animejs.com/"},
+    {"id":"mojs","category":"motion","kind":"node-library","packages":["@mojs/core"],"license_note":"Open source","url":"https://github.com/mojs/mojs"},
+    {"id":"whisperx","category":"audio","kind":"python-cli","packages":["whisperx"],"binary":"whisperx","module":"whisperx","license_note":"Speech models may require additional downloads, consent and licenses","url":"https://github.com/m-bain/whisperX"},
+    {"id":"auto-editor","category":"audio","kind":"python-cli","packages":["auto-editor"],"binary":"auto-editor","module":"auto_editor","license_note":"Keep pause margins and review before final cutting","url":"https://auto-editor.com/"},
+    {"id":"ffmpeg","category":"delivery","kind":"system-binary","packages":["@ffmpeg-installer/ffmpeg","@ffprobe-installer/ffprobe"],"binary":"ffmpeg","license_note":"Codec/build-dependent LGPL/GPL obligations","url":"https://ffmpeg.org/"}
+  ]
+}

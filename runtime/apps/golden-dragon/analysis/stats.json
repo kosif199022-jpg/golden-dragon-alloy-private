@@ -1,0 +1,481 @@
+{
+ "skills": 550,
+ "skills_containers": [
+  [
+   ".trash",
+   3
+  ],
+  [
+   "bd_src",
+   17
+  ],
+  [
+   "kosif-claude-app",
+   200
+  ],
+  [
+   "kosif-tool-main",
+   200
+  ],
+  [
+   "output",
+   0
+  ],
+  [
+   "references",
+   0
+  ],
+  [
+   "synced",
+   43
+  ]
+ ],
+ "skills_loose_files": 21,
+ "skills_files_total": 15219,
+ "skills_bytes_total_gb": 0.55,
+ "skills_with_scripts": 180,
+ "skills_scripts_total": 4542,
+ "langs": {
+  "en": 495,
+  "ar": 26,
+  "zh": 23,
+  "ru": 1,
+  "ko": 1,
+  "fa": 4
+ },
+ "flags": {
+  "mentions-missing-files": 32,
+  "skill-md-over-500-lines": 20,
+  "missing-shared-refs": 18,
+  "description-over-1024": 18,
+  "name-differs-from-folder": 5
+ },
+ "families_top": [
+  [
+   "blender",
+   16
+  ],
+  [
+   "motion",
+   14
+  ],
+  [
+   "yt",
+   11
+  ],
+  [
+   "creative",
+   10
+  ],
+  [
+   "ig",
+   10
+  ],
+  [
+   "linkedin",
+   10
+  ],
+  [
+   "replica",
+   10
+  ],
+  [
+   "trader",
+   10
+  ],
+  [
+   "video-template-frame",
+   10
+  ],
+  [
+   "founder",
+   9
+  ],
+  [
+   "li",
+   9
+  ],
+  [
+   "ae-ltd",
+   7
+  ],
+  [
+   "chengfeng",
+   7
+  ],
+  [
+   "teleport",
+   7
+  ],
+  [
+   "video",
+   7
+  ],
+  [
+   "frame",
+   6
+  ],
+  [
+   "pinme",
+   6
+  ],
+  [
+   "rea",
+   6
+  ],
+  [
+   "auto-editor",
+   5
+  ],
+  [
+   "tia",
+   5
+  ],
+  [
+   "agent",
+   4
+  ],
+  [
+   "amazon",
+   4
+  ],
+  [
+   "audit",
+   4
+  ],
+  [
+   "goodmem",
+   4
+  ],
+  [
+   "animation",
+   3
+  ]
+ ],
+ "families_count": 74,
+ "older_versions": [],
+ "name_differs": [
+  [
+   "bmw-design-analysis",
+   "BMW-design-analysis"
+  ],
+  [
+   "goodmem-help",
+   "goodmem:help"
+  ],
+  [
+   "goodmem-java",
+   "goodmem:java"
+  ],
+  [
+   "goodmem-mcp",
+   "goodmem:mcp"
+  ],
+  [
+   "goodmem-python",
+   "goodmem:python"
+  ]
+ ],
+ "desc_over_1024": [
+  "artcraft-studio",
+  "aws-bedrock-agentcore-skill",
+  "cadcraft",
+  "craft-anything",
+  "deckcraft",
+  "designcraft",
+  "dragon-genius",
+  "effectcraft",
+  "figcraft",
+  "filmcraft",
+  "gridcraft",
+  "krita-draw",
+  "montage-arena",
+  "omni-analyst",
+  "physics-math",
+  "rea-ultra",
+  "reanimate",
+  "red-dragon"
+ ],
+ "over_500_lines": [
+  "agent-evaluation",
+  "analyse",
+  "apply-anthropic-skill-best-practices",
+  "attach-review-to-pr",
+  "audit-agents-skills",
+  "book-to-skill",
+  "bootstrap-project",
+  "data-visualization-discipline",
+  "debugging-network-issues",
+  "embodied-ai-paper-writer",
+  "eval-hooks",
+  "marketing-machine",
+  "pinme-uniwebpay",
+  "qiaomu-anything-to-notebooklm",
+  "reverse-engineer-anything",
+  "setup-adrs",
+  "setup-architecture-as-code",
+  "video-add-b-roll",
+  "video-add-captions",
+  "video-to-shorts"
+ ],
+ "partial_examples": [
+  [
+   "acestep",
+   [
+    "tools/music_gen.py",
+    "tools/sfx.py"
+   ]
+  ],
+  [
+   "agent-launcher-orchestrator",
+   [
+    "../../references/cma-primitives.md",
+    "../../references/loops-and-workflows.md"
+   ]
+  ],
+  [
+   "apply-anthropic-skill-best-practices",
+   [
+    "reference/finance.md",
+    "reference/guide.md"
+   ]
+  ],
+  [
+   "architect",
+   [
+    "bin/essense-flow-tools.cjs",
+    "references/code-conventions.md"
+   ]
+  ],
+  [
+   "asset-optimization",
+   [
+    "../references/polycount-budgets.md",
+    "../references/validation-checklist.md"
+   ]
+  ],
+  [
+   "autoresearch",
+   [
+    "scripts/autoresearch/loop-remove-as-any/program.md",
+    "scripts/autoresearch/runner.sh"
+   ]
+  ],
+  [
+   "beu1000-evuba",
+   [
+    "tools/flasher/baikal_uart_flash.py"
+   ]
+  ],
+  [
+   "blender-animation",
+   [
+    "references/bpy-patterns.md"
+   ]
+  ],
+  [
+   "blender-clothing",
+   [
+    "references/roblox.md"
+   ]
+  ],
+  [
+   "blender-director",
+   [
+    "../references/asset-pipeline.md",
+    "../references/mcp-integration.md"
+   ]
+  ],
+  [
+   "blender-modeler",
+   [
+    "../references/asset-pipeline.md",
+    "../references/mcp-integration.md"
+   ]
+  ],
+  [
+   "building-python-mcp-servers",
+   [
+    "scripts/_contract.py"
+   ]
+  ],
+  [
+   "captions-overlay",
+   [
+    "references/captions.md"
+   ]
+  ],
+  [
+   "chengfeng-check-updates",
+   [
+    "../../references/runtime-and-product-contract.md"
+   ]
+  ],
+  [
+   "chengfeng-cut",
+   [
+    "../../references/business-workflow-contract.md"
+   ]
+  ]
+ ],
+ "paid_or_external": [
+  "3d-asset-generation",
+  "absolute-creativity",
+  "agents",
+  "ai-video-gen",
+  "atlas-cloud",
+  "avatar-video",
+  "azure-speech-to-text",
+  "azure-text-to-speech",
+  "bfl-api",
+  "bulk-data-export",
+  "cloud-architect",
+  "douyin",
+  "instagram",
+  "kosif-black-dragon-ultra",
+  "linkedin-engager-analytics",
+  "media-use",
+  "open-edit",
+  "reanimate",
+  "reverse-any-video",
+  "social-media-downloader",
+  "tikhub-endpoint-discovery",
+  "visual-forge"
+ ],
+ "biggest_skills_mb": [
+  [
+   "red-dragon",
+   191
+  ],
+  [
+   "white-dragon",
+   131
+  ],
+  [
+   "black-dragon",
+   130
+  ],
+  [
+   "teardown",
+   16
+  ],
+  [
+   "github-atlas",
+   7
+  ],
+  [
+   "canvas-design",
+   6
+  ],
+  [
+   "visual-forge",
+   4
+  ],
+  [
+   "linkedin-marketing",
+   3
+  ],
+  [
+   "montage-arena",
+   3
+  ],
+  [
+   "book-to-skill",
+   2
+  ]
+ ],
+ "mcp_named": [
+  [
+   "readable-card",
+   2
+  ],
+  [
+   "server",
+   2
+  ],
+  [
+   "ccd_session",
+   2
+  ],
+  [
+   "github_inline_comment",
+   1
+  ],
+  [
+   "heygen",
+   1
+  ],
+  [
+   "blackdragon",
+   1
+  ],
+  [
+   "claude-in-chrome",
+   1
+  ],
+  [
+   "rea",
+   1
+  ],
+  [
+   "plugin_goodmem_goodmem",
+   1
+  ],
+  [
+   "plugin_goodmem_goodmem-gateway",
+   1
+  ],
+  [
+   "claude_ai_Higgsfield",
+   1
+  ],
+  [
+   "alpaca",
+   1
+  ]
+ ],
+ "index_counts": {
+  "skill": 550,
+  "tool": 24,
+  "engine": 15,
+  "studio": 10,
+  "lib": 154,
+  "program": 32,
+  "re": 34,
+  "mcp": 7
+ },
+ "index_status": {
+  "ok": 627,
+  "partial": 48,
+  "needs-setup": 105,
+  "reference": 45,
+  "missing": 1
+ },
+ "maharat_top_level": {
+  ".zip": 46,
+  "dirs": 30,
+  ".bat": 5,
+  ".rar": 5,
+  ".lnk": 4,
+  ".txt": 3,
+  ".md": 3,
+  ".exe": 2,
+  ".ps1": 1,
+  ".css": 1,
+  ".bak-0814": 1,
+  ".ico": 1,
+  ".json": 1,
+  ".py": 1,
+  ".xlsx": 1
+ },
+ "maharat_top_level_gb_by_ext": {
+  ".rar": 6.79,
+  ".zip": 3.23,
+  ".exe": 0.04,
+  ".xlsx": 0.0,
+  ".bak-0814": 0.0,
+  ".ico": 0.0,
+  ".md": 0.0,
+  ".json": 0.0
+ }
+}

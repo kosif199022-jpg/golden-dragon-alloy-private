@@ -1,0 +1,125 @@
+{
+  "version": "10.7.0",
+  "based_on": "black-dragon-v10.6.0.zip",
+  "sources": [
+    {
+      "archive": "black-dragon-v10.0.0.zip",
+      "sha256": "5ebcc56c2af6f40c0b72d12e7270c0605d4d748b9a80a962a15a9ba9e3bdfd12"
+    },
+    {
+      "archive": "black-dragon-v1.3.zip",
+      "sha256": "ad1dbc8bb77ecf3439632e49bf7da83b494d5af11e020a541b7da13178425b3c"
+    },
+    {
+      "archive": "black-dragon-v1.2(2).zip",
+      "sha256": "1842b789ef5b77ae31d41fe48f80a0a27d5faa66943fc857fb5733545a1f19c4"
+    },
+    {
+      "archive": "black-dragon-skill-v1.2(1).zip",
+      "sha256": "6fb664597f16ccb267111bc366036f7f0690453136766ade09db5472e84a4044"
+    },
+    {
+      "archive": "SKILL(2).md",
+      "sha256": "0bd6f906dc61d44fc164bfb8d964c2b84463a49e4309335484e3a3054a1e6739",
+      "type": "user supplied skill instructions only; original Windows mh.py and 615-site catalog not supplied"
+    },
+    {
+      "archive": "black-dragon-v10.2.0.zip",
+      "sha256": "fc853cf237530ab2249b4e5fc0da1ee93715603800bf916c8f26b406ee4bf9f1",
+      "type": "baseline archive; no modifications made to this input"
+    },
+    {
+      "archive": "ultra-mind.rar",
+      "sha256": "5980322a9bcf4cc05219878c39d6b3ea1417208b20437158f752761145b30fe7",
+      "type": "user supplied 8 files: procedural skill; references; scaffold script; manual eval cases; all copied unchanged under skills/ultra-mind"
+    },
+    {
+      "archive": "black-dragon-v10.3.0.zip",
+      "sha256": "495dc5cca39fa1af7cfc6e77d4ded32ddc078f06e222ec50dded6fb92cd76d8d",
+      "type": "base release bundled unchanged except documented v10.4 changes"
+    },
+    {
+      "archive": "expert-council.rar",
+      "sha256": "ca19636a8ae02f8dcb7bed58b4eab342b1b13123694b60716f5bebfb8097c9e9",
+      "type": "user-supplied RAR5 skill package: instructions, domain references, private lessons script and evaluation cases; no real agents invoked"
+    },
+    {
+      "archive": "black-dragon-v10.4.0.zip",
+      "sha256": "086f46d1c2db9c597dcdf0a0fed0fdd96c5a28a32cffd7aba9eff9effc6c5d90",
+      "type": "release baseline, all original features preserved"
+    },
+    {
+      "archive": "blender-pro.zip",
+      "sha256": "54687227f1817be8dce6717422b77227c0626946b1f284041f1ddd4f097f2244",
+      "type": "user-uploaded Blender Pro with source code; selected safe-to-package subproject and references"
+    },
+    {
+      "archive": "old_note.txt",
+      "sha256": "cba06b5736faf67e54b07b561eae94395e774c517a7d910a54369e1263ccfbd4",
+      "type": "plain text with word old; no executable capability"
+    },
+    {
+      "archive": "script.md",
+      "sha256": "79952e433acc71baae3f927f536512f4231c4dbee8a45361fda7a50ca35acf8b",
+      "type": "header only; no executable capability"
+    },
+    {
+      "archive": "absolute-creativity.zip",
+      "sha256": "0c39ba7432b27cef9198c980e9f9dd573b79f77d7f888e708121a7a11ce567c7",
+      "type": "User-supplied 13-file absolute-creativity skill; nine guides, idea generator, Arabic font lab. Excluded machine-specific .font_cache.json; portable path/validation adjustments in bundled copy."
+    }
+  ],
+  "note": "Source hashes reflect exact extracted user-uploaded bytes. Neither role cards nor sample eval prompts prove model execution.",
+  "expert_council_files": {
+    "SKILL.md": "7c558af7b74c514f8d3a9423d14e4d891141249d238ddea2407b55682fbf65f7",
+    "evals/evals.json": "62463e480b04cda31f796f4c821194b503978b2ca0d25d923f1a064e6eb10af4",
+    "references/council-protocol.md": "26cc507baaf9baede41659266e27e2a52a2f86585e5dbeabf18e6cf1a7d6409a",
+    "references/domains/cinematography.md": "5d9e5d86794c6a193aaa709365a390bd7b07c1b9e10f344b8e79b9dfbae8b472",
+    "references/domains/directing.md": "feb9cd30cb0f512ee49e9d54e07428e80c9955596207b1a5f9ad189f236eae97",
+    "references/domains/editing.md": "4c99b1dfd23d65217ed6e091b9d2d6074f7af730b1af90d0ad925763f9b7dbad",
+    "references/domains/literary-criticism.md": "e265e18efe3fa0fb96f57a7ee6c164a70672db340e6779bd8b16054b3c6f8a9d",
+    "references/learning-loop.md": "7d19af539310eb6b0bc1186ac5c2077cabb9aa8d689b99c2985875c7065e8b2c",
+    "references/personas.md": "17d431a8202fbd5cc1a1651ec791c55043730d36f74db5ea511e5e91210e8c41",
+    "scripts/lessons.py": "a66224b7822743b0b018ecec79479dddc88a7e6beeda9e92cf42c778c40b5a68"
+  },
+  "blender_pro": {
+    "source_root": "blender-pro/",
+    "packaged_under": "tools/blender-pro/",
+    "exclusions": [
+      "__pycache__",
+      "*.pyc",
+      "binary font files",
+      "synced account plugin snapshots"
+    ],
+    "adaptations": [
+      "portable example paths",
+      "output-dir patch for VSE/Grease Pencil runner",
+      "safe read-only bridge",
+      "explicit --execute for render"
+    ],
+    "blender_render_executed": false
+  },
+  "absolute_creativity": {
+    "source_root": "absolute-creativity",
+    "packaged_under": "skills/absolute-creativity",
+    "exclusions": [
+      ".font_cache.json",
+      "__pycache__",
+      "*.pyc",
+      "binary font files"
+    ],
+    "notes": [
+      "9 subject reference guides + original skill",
+      "IDEA FORGE produces structured seeds only",
+      "RTL rendering requires local font, Pillow with libraqm; no automatic install",
+      "no generated media or external agents inferred"
+    ]
+  },
+  "rea_ultra": {
+    "archive": "rea-ultra.zip",
+    "sha256": "bc5a75acaf9387c79f3725873f63f61263a43a7e8d5b4bb1844661c365b316b3",
+    "integrated_path": "skills/rea-ultra/",
+    "bridge": "tools/rea_ultra/bridge.py",
+    "operation": "offline-readonly-no-sample-execution"
+  }
+}

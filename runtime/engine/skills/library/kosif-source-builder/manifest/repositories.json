@@ -1,0 +1,403 @@
+{
+  "title": "KOSIF Film & Tools Repository Registry",
+  "created": "2026-10-25",
+  "source_policy": "Repository links and installer only; no third-party source or model weights prebundled",
+  "repos": [
+    {
+      "name": "kosif-tool",
+      "group": "own-video",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-tool",
+      "clone": "https://github.com/kosif199022-jpg/kosif-tool.git",
+      "description": "KOSIF Superpowers, motion styles, templates, render_html, video QA",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-studio",
+      "group": "own-video",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-studio",
+      "clone": "https://github.com/kosif199022-jpg/kosif-studio.git",
+      "description": "Pixel drawing, image animation, film export, KOSIF Motion",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-one",
+      "group": "own-video",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-one",
+      "clone": "https://github.com/kosif199022-jpg/kosif-one.git",
+      "description": "Unified KOSIF montage, mimic, social, studio, and motion tools",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-omni",
+      "group": "own-video",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-omni",
+      "clone": "https://github.com/kosif199022-jpg/kosif-omni.git",
+      "description": "KOSIF multimodal agent, cinema/audio/video and MCP skills",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-render-lab",
+      "group": "own-video",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-render-lab",
+      "clone": "https://github.com/kosif199022-jpg/kosif-render-lab.git",
+      "description": "GitHub Actions multi-runner rendering experiments",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "fastify-motion-bro",
+      "group": "own-video",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/fastify-motion-bro",
+      "clone": "https://github.com/kosif199022-jpg/fastify-motion-bro.git",
+      "description": "Independent storyboard and code-based motion studio",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "ai-style-atlas-prompts",
+      "group": "own-video",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/ai-style-atlas-prompts",
+      "clone": "https://github.com/kosif199022-jpg/ai-style-atlas-prompts.git",
+      "description": "Styles and prompt catalog",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-atlas",
+      "group": "own-extended",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-atlas",
+      "clone": "https://github.com/kosif199022-jpg/kosif-atlas.git",
+      "description": "Public KOSIF Atlas skills catalog",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-atlas-private",
+      "group": "own-extended",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-atlas-private",
+      "clone": "https://github.com/kosif199022-jpg/kosif-atlas-private.git",
+      "description": "Private KOSIF Atlas collection, auth required",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-audit-studio",
+      "group": "own-extended",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-audit-studio",
+      "clone": "https://github.com/kosif199022-jpg/kosif-audit-studio.git",
+      "description": "KOSIF auditing system",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-audit-pro",
+      "group": "own-extended",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-audit-pro",
+      "clone": "https://github.com/kosif199022-jpg/kosif-audit-pro.git",
+      "description": "KOSIF audit companion",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-earth-ci-fork",
+      "group": "own-extended",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-earth-ci-fork",
+      "clone": "https://github.com/kosif199022-jpg/kosif-earth-ci-fork.git",
+      "description": "KOSIF site and CI",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "kosif-wow",
+      "group": "own-extended",
+      "origin": "KOSIF account",
+      "url": "https://github.com/kosif199022-jpg/kosif-wow",
+      "clone": "https://github.com/kosif199022-jpg/kosif-wow.git",
+      "description": "KOSIF project (may be empty)",
+      "notes": "Requires authorization if repository is private; ZIP does not contain original repository source."
+    },
+    {
+      "name": "blender",
+      "group": "filming",
+      "origin": "Third party",
+      "url": "https://github.com/blender/blender",
+      "clone": "https://github.com/blender/blender.git",
+      "description": "3D production, cinematography, lighting",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "storyboarder",
+      "group": "filming",
+      "origin": "Third party",
+      "url": "https://github.com/wonderunit/storyboarder",
+      "clone": "https://github.com/wonderunit/storyboarder.git",
+      "description": "Storyboards and shot planning",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "nerfstudio",
+      "group": "filming",
+      "origin": "Third party",
+      "url": "https://github.com/nerfstudio-project/nerfstudio",
+      "clone": "https://github.com/nerfstudio-project/nerfstudio.git",
+      "description": "3D scene reconstruction and virtual views",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "colmap",
+      "group": "filming",
+      "origin": "Third party",
+      "url": "https://github.com/colmap/colmap",
+      "clone": "https://github.com/colmap/colmap.git",
+      "description": "Structure from motion",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "libgphoto2",
+      "group": "filming",
+      "origin": "Third party",
+      "url": "https://github.com/gphoto/libgphoto2",
+      "clone": "https://github.com/gphoto/libgphoto2.git",
+      "description": "DSLR camera control library",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "opencv",
+      "group": "filming",
+      "origin": "Third party",
+      "url": "https://github.com/opencv/opencv",
+      "clone": "https://github.com/opencv/opencv.git",
+      "description": "Computer vision and tracking",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "ffmpeg",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/FFmpeg/FFmpeg",
+      "clone": "https://github.com/FFmpeg/FFmpeg.git",
+      "description": "Encode, cut, compose and export",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "remotion",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/remotion-dev/remotion",
+      "clone": "https://github.com/remotion-dev/remotion.git",
+      "description": "React video rendering",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "kdenlive",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/KDE/kdenlive",
+      "clone": "https://github.com/KDE/kdenlive.git",
+      "description": "Nonlinear video editor",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "shotcut",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/mltframework/shotcut",
+      "clone": "https://github.com/mltframework/shotcut.git",
+      "description": "Video editor",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "olive",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/olive-editor/olive",
+      "clone": "https://github.com/olive-editor/olive.git",
+      "description": "Video editor",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "losslesscut",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/mifi/lossless-cut",
+      "clone": "https://github.com/mifi/lossless-cut.git",
+      "description": "Lossless clip trimming",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "auto-editor",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/WyattBlue/auto-editor",
+      "clone": "https://github.com/WyattBlue/auto-editor.git",
+      "description": "Silence-based automated cuts",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "pyscenedetect",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/Breakthrough/PySceneDetect",
+      "clone": "https://github.com/Breakthrough/PySceneDetect.git",
+      "description": "Automatic shot boundaries",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "opentimelineio",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO",
+      "clone": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO.git",
+      "description": "Timeline interchange",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "obs-studio",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/obsproject/obs-studio",
+      "clone": "https://github.com/obsproject/obs-studio.git",
+      "description": "Video capture and live production",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "libopenshot",
+      "group": "editing",
+      "origin": "Third party",
+      "url": "https://github.com/OpenShot/libopenshot",
+      "clone": "https://github.com/OpenShot/libopenshot.git",
+      "description": "Video editing library",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "natron",
+      "group": "vfx",
+      "origin": "Third party",
+      "url": "https://github.com/NatronGitHub/Natron",
+      "clone": "https://github.com/NatronGitHub/Natron.git",
+      "description": "Node-based compositing",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "opencolorio",
+      "group": "vfx",
+      "origin": "Third party",
+      "url": "https://github.com/AcademySoftwareFoundation/OpenColorIO",
+      "clone": "https://github.com/AcademySoftwareFoundation/OpenColorIO.git",
+      "description": "Color pipeline",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "motion-canvas",
+      "group": "vfx",
+      "origin": "Third party",
+      "url": "https://github.com/motion-canvas/motion-canvas",
+      "clone": "https://github.com/motion-canvas/motion-canvas.git",
+      "description": "Programmatic motion graphics",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "openrv",
+      "group": "vfx",
+      "origin": "Third party",
+      "url": "https://github.com/AcademySoftwareFoundation/OpenRV",
+      "clone": "https://github.com/AcademySoftwareFoundation/OpenRV.git",
+      "description": "Production media review",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "comfyui",
+      "group": "ai-video",
+      "origin": "Third party",
+      "url": "https://github.com/Comfy-Org/ComfyUI",
+      "clone": "https://github.com/Comfy-Org/ComfyUI.git",
+      "description": "Node-based creative pipelines",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "wan2.2",
+      "group": "ai-video",
+      "origin": "Third party",
+      "url": "https://github.com/Wan-Video/Wan2.2",
+      "clone": "https://github.com/Wan-Video/Wan2.2.git",
+      "description": "Text/image/audio to video; model weights separate",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "hunyuanvideo",
+      "group": "ai-video",
+      "origin": "Third party",
+      "url": "https://github.com/Tencent-Hunyuan/HunyuanVideo",
+      "clone": "https://github.com/Tencent-Hunyuan/HunyuanVideo.git",
+      "description": "Video generation; model weights separate",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "whisperx",
+      "group": "audio",
+      "origin": "Third party",
+      "url": "https://github.com/m-bain/whisperX",
+      "clone": "https://github.com/m-bain/whisperX.git",
+      "description": "Word-level speech alignment",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "theatrejs",
+      "group": "motion-extras",
+      "origin": "Third party",
+      "url": "https://github.com/theatre-js/theatre",
+      "clone": "https://github.com/theatre-js/theatre.git",
+      "description": "Animated scene authoring",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "svgjs",
+      "group": "motion-extras",
+      "origin": "Third party",
+      "url": "https://github.com/svgdotjs/svg.js",
+      "clone": "https://github.com/svgdotjs/svg.js.git",
+      "description": "SVG motion",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "flubber",
+      "group": "motion-extras",
+      "origin": "Third party",
+      "url": "https://github.com/veltman/flubber",
+      "clone": "https://github.com/veltman/flubber.git",
+      "description": "SVG shape morphing",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "konva",
+      "group": "motion-extras",
+      "origin": "Third party",
+      "url": "https://github.com/konvajs/konva",
+      "clone": "https://github.com/konvajs/konva.git",
+      "description": "Canvas authoring",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "twodotjs",
+      "group": "motion-extras",
+      "origin": "Third party",
+      "url": "https://github.com/jonobr1/two.js",
+      "clone": "https://github.com/jonobr1/two.js.git",
+      "description": "2D drawing",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    },
+    {
+      "name": "d3",
+      "group": "motion-extras",
+      "origin": "Third party",
+      "url": "https://github.com/d3/d3",
+      "clone": "https://github.com/d3/d3.git",
+      "description": "Data-driven animation",
+      "notes": "Check upstream license and installation requirements. Sources and weights not bundled."
+    }
+  ]
+}

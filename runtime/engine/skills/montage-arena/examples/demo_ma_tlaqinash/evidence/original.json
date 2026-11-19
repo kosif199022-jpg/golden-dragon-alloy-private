@@ -1,0 +1,42 @@
+{
+ "file": "C:/Users/cinde/tiktok_clone/source/original.mp4",
+ "duration_s": 41.935,
+ "size_mb": 12.96,
+ "audio": true,
+ "acodec": "aac",
+ "sample_rate": 44100,
+ "channels": 2,
+ "width": 1920,
+ "height": 1080,
+ "fps": 29.213,
+ "vcodec": "hevc",
+ "pix_fmt": "yuv420p",
+ "aspect": "16:9",
+ "cuts": [],
+ "soft_transition_candidates": [],
+ "shot_boundaries": [],
+ "shot_count": 1,
+ "asl_s": 41.94,
+ "first_cut_s": null,
+ "longest_shot_s": 41.94,
+ "shortest_shot_s": 41.94,
+ "cuts_in_first_3s": 0,
+ "black_segments": [],
+ "cuts_per_10s": [
+  0,
+  0,
+  0,
+  0,
+  0
+ ],
+ "lufs_i": -13.5,
+ "lra": 2.2,
+ "true_peak_db": -2.7,
+ "silences": [],
+ "first_sound_s": 0.0,
+ "flags": [
+  "أطول لقطة 41.94 ث = أكتر من نص الفيديو",
+  "الانتقالات الناعمة (soft?) مرشّحة بس: اتأكد بشيت الفريمات، وممكن يفوته انتقال بين لقطتين ألوانهم قريبة"
+ ],
+ "sheet": "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\arena\\20261111-153954-تحويل-ريمكس-وما-تلاقيناش-لريل-9\\evidence\\original_sheet.png"
+}

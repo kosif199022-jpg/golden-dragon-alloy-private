@@ -1,0 +1,13 @@
+{
+ "repo": "ECC (archive ECC-main.zip, ecc-universal 2.2.3)",
+ "license": "mit",
+ "archive": "%USERPROFILE%\\OneDrive\\Desktop\\مهارات\\ECC-main.zip",
+ "path_in_repo": "skills/tasteforge-video",
+ "review_before_running": [
+  "exec (ffmpeg/python subprocess)",
+  "network + PAID only with FAL_KEY (falapi.py)"
+ ],
+ "note": "only these skills were installed, NOT the ECC plugin (its hooks run on every session). Keep FAL_KEY unset: mint.py is offline.",
+ "approved_by_owner": "2026-11-14",
+ "note2": "SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

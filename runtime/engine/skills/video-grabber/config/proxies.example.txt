@@ -1,0 +1,22 @@
+# video-grabber proxy list (example)
+# Copy to  %USERPROFILE%\.video-grabber\proxies.txt  and put your own proxies, one per line.
+# Or set the env var VG_PROXIES="http://u:p@host:port, socks5://host:1080"
+#
+# Accepted formats:
+#   scheme://user:pass@host:port      (scheme: http | https | socks5 | socks5h | socks4)
+#   scheme://host:port
+#   host:port                         (assumed http)
+#   host:port:user:pass               (assumed http)
+# URL-encode special characters in passwords (@ -> %40, : -> %3A).
+# Lines starting with # and text after # are ignored.
+#
+# Notes
+# - Proxies from this file / VG_PROXIES are TRUSTED: cookies may be exported through them.
+# - Free public proxies (--free) are UNTRUSTED: no cookie export / Cookie headers through them.
+# - Chromium cannot use SOCKS proxies WITH a username/password; use http(s) for authenticated proxies.
+# - If no proxy is healthy, everything falls back to a DIRECT connection (reported as "direct (no proxy)").
+#
+# http://user:password@203.0.113.10:8080
+# https://proxy.example.net:443
+# socks5://127.0.0.1:9050          # Tor (or use --tor)
+# 198.51.100.23:3128

@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# release builds (published as GitHub release assets, not committed)
+dist/
+
+# in-game harness / viewer build outputs (generated under MCBUILD_HOME, never here)
+scripts/mcbuild/harness/.gradle/
+scripts/mcbuild/harness/build/
+scripts/mcbuild/harness/run/
+scripts/mcbuild/web/node_modules/
+node_modules/
+
+# editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

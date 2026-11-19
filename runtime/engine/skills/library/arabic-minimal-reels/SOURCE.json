@@ -1,0 +1,16 @@
+{
+ "schema": "black-dragon.library.source.v1",
+ "id": "arabic-minimal-reels",
+ "source_archive": "arabic-minimal-reels.zip",
+ "source_archive_sha256": "dfdcc0ccae6ce04940968acda4e8faa4d8d0e9e0d1ea6de677caf57ee5118ab7",
+ "files": 5,
+ "bytes": 38859,
+ "copied": "verbatim",
+ "excluded": [
+  ".DS_Store",
+  "__MACOSX",
+  "._*"
+ ],
+ "license_notice": "No separate licence identified in the supplied archive. Bundled at the owner's request for his own use; check reuse rights before redistribution.",
+ "run_policy": "Reference and source. `tool library` only reads. Read a script before running it; installers, downloads and paid generation need the owner's explicit yes."
+}

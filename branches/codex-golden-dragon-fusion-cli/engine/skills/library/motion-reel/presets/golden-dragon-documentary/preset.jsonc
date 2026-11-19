@@ -1,0 +1,29 @@
+{
+  "name": "Golden Dragon documentary",
+  "colors": {
+    "bg": "#212322",
+    "accent": "#AFBD89",
+    "ink": "#F4F1E9"
+  },
+  "timeline": {
+    "duration": 15,
+    "music": {
+      "source": "synth"
+    },
+    "formats": [
+      "9x16",
+      "16x9"
+    ],
+    "fps": 60,
+    "bpm": 78
+  },
+  "voiceover": {
+    "provider": "none"
+  },
+  "brand": {
+    "product": "Golden Dragon"
+  },
+  "notes": [
+    "Use J-cuts under location footage. Keep interview captions inside the portrait safe area."
+  ]
+}

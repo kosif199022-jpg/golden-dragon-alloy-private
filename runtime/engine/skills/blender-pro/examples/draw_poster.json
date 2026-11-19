@@ -1,0 +1,156 @@
+{
+ "scene": {},
+ "steps": [
+  {
+   "op": "gp_canvas",
+   "width": 16,
+   "resolution": [
+    1280,
+    720
+   ],
+   "background": "#FFF8E7",
+   "name": "Poster"
+  },
+  {
+   "op": "gp_materials",
+   "name": "SunMat",
+   "color": "#B8860B",
+   "fill": "#FFCC00",
+   "gradient": "#FF7A00",
+   "gradient_type": "RADIAL"
+  },
+  {
+   "op": "draw_shape",
+   "shape": "circle",
+   "center": [
+    -4.5,
+    1.2
+   ],
+   "r": 2.0,
+   "radius": 0.07,
+   "material": "SunMat",
+   "jitter": 0.03
+  },
+  {
+   "op": "draw_shape",
+   "shape": "star",
+   "center": [
+    4.5,
+    1.5
+   ],
+   "r": 1.6,
+   "sides": 5,
+   "radius": 0.06,
+   "color": "#C0392B",
+   "fill": "#F5B7B1",
+   "rotation": 10
+  },
+  {
+   "op": "draw_shape",
+   "shape": "spiral",
+   "center": [
+    0,
+    1.4
+   ],
+   "r": 1.4,
+   "turns": 3,
+   "radius": 0.05,
+   "color": "#1F618D",
+   "taper": 0.2
+  },
+  {
+   "op": "draw_shape",
+   "shape": "rect",
+   "center": [
+    0,
+    -2.9
+   ],
+   "size": [
+    12,
+    0.2
+   ],
+   "corner": 0.08,
+   "radius": 0.03,
+   "color": "#222222",
+   "fill": "#222222"
+  },
+  {
+   "op": "draw_shape",
+   "shape": "bezier",
+   "points": [
+    [
+     -7,
+     -2
+    ],
+    [
+     -5,
+     -0.5
+    ],
+    [
+     -3,
+     -3.5
+    ],
+    [
+     -1,
+     -2
+    ],
+    [
+     1,
+     -0.5
+    ],
+    [
+     3,
+     -3.5
+    ],
+    [
+     5,
+     -2
+    ]
+   ],
+   "radius": 0.06,
+   "color": "#117A65",
+   "jitter": 0.02,
+   "passes": 2
+  },
+  {
+   "op": "draw_text_outline",
+   "text": "التنين الأسود",
+   "size": 1.1,
+   "position": [
+    0,
+    -3.8
+   ],
+   "color": "#111111",
+   "fill": "#111111",
+   "radius": 0.01,
+   "order": "rtl"
+  },
+  {
+   "op": "draw_text_outline",
+   "text": "Black Dragon",
+   "size": 0.9,
+   "position": [
+    0,
+    3.5
+   ],
+   "color": "#8E44AD",
+   "radius": 0.03
+  },
+  {
+   "op": "gp_effects",
+   "effects": [
+    {
+     "type": "shadow",
+     "offset": [
+      10,
+      -10
+     ]
+    }
+   ]
+  }
+ ],
+ "render": {
+  "kind": "draw_still",
+  "filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/draw_poster.png"
+ }
+}

@@ -1,0 +1,2 @@
+(red dragon 2.14.0: 318 example keys hidden)
+{"set": "old", "split": "all", "hybrid": true, "n": 101, "covered": 79, "coverage": 1.0, "top1": 0.658, "ok": 0.81, "top3": 0.937, "abstain": "11/22", "gaps": {}}

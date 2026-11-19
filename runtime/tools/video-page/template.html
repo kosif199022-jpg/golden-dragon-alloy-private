@@ -1,0 +1,140 @@
+<title>{{TITLE}}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
+<style>
+/* Layout: one centered column, the vertical video as the hero, actions under it. */
+:root {
+  --bg: #f6f1e6; --surface: #fffaf0; --fg: #2a2216; --muted: #6f624c;
+  --gold: #a87a1f; --line: #e2d6bd; --on-gold: #fffaf0;
+  --display: "Aref Ruqaa", "Amiri", serif;
+  --body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #14110b; --surface: #1d1810; --fg: #f1e7d2; --muted: #b3a283;
+  --gold: #e0b45a; --line: #3a3020; --on-gold: #1a1408; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #14110b; --surface: #1d1810; --fg: #f1e7d2; --muted: #b3a283;
+  --gold: #e0b45a; --line: #3a3020; --on-gold: #1a1408; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+main { max-width: 460px; margin: 0 auto; padding-block: 28px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 20px; }
+header { text-align: center; display: grid; gap: 2px; }
+h1 { font-family: var(--display); font-weight: 700; font-size: 2.4rem; line-height: 1.3; margin: 0; color: var(--gold); text-wrap: balance; }
+.date { color: var(--muted); font-size: .95rem; direction: ltr; unicode-bidi: isolate; }
+video { width: 100%; max-width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; background: #000; display: block;
+  box-shadow: 0 10px 40px rgb(0 0 0 / .25); }
+.actions { display: grid; gap: 10px; }
+.btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; padding: 10px 18px;
+  border-radius: 12px; font: 600 1.05rem var(--body); text-decoration: none; cursor: pointer; border: 1px solid var(--gold); }
+.primary { background: var(--gold); color: var(--on-gold); }
+.secondary { background: transparent; color: var(--gold); }
+.btn:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
+.btn[disabled] { opacity: .6; cursor: progress; }
+.sub { font-size: .8rem; font-weight: 400; opacity: .85; }
+#status { min-height: 1.4em; text-align: center; color: var(--muted); font-size: .9rem; margin: 0; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; display: grid; gap: 8px; }
+.card h2 { margin: 0; font-size: 1rem; font-weight: 600; }
+.link { direction: ltr; font-family: ui-monospace, Menlo, monospace; font-size: .75rem; color: var(--muted);
+  word-break: break-all; user-select: all; background: var(--bg); border-radius: 8px; padding: 8px 10px; }
+.caption { white-space: pre-wrap; font-size: .95rem; user-select: all; }
+.copy { justify-self: start; background: none; border: 1px solid var(--line); color: var(--fg); border-radius: 8px;
+  padding: 4px 12px; font: 600 .85rem var(--body); cursor: pointer; }
+.copy:focus-visible { outline: 2px solid var(--gold); }
+ol { margin: 0; padding-inline-start: 1.2em; color: var(--muted); font-size: .9rem; }
+.back { justify-self: center; color: var(--gold); font-size: .9rem; text-decoration: none; }
+.back:focus-visible { outline: 2px solid var(--gold); }
+.specs { text-align: center; color: var(--muted); font-size: .8rem; direction: ltr; }
+</style>
+
+<main dir="rtl">
+  <header>
+    <a class="back" href="{{HUB_URL}}" target="_blank" rel="noopener">كل الفيديوهات ←</a>
+    <h1>{{TITLE}}</h1>
+    <div class="date">{{DATE}} · {{HANDLE}}</div>
+  </header>
+
+  <video id="vid" src="light.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+
+  <div class="actions">
+    <button class="btn primary" id="saveFull" type="button">تحميل بأعلى جودة <span class="sub">({{FULL_MB}} MB)</span></button>
+    <button class="btn secondary" id="save" type="button">تحميل نسخة خفيفة <span class="sub">({{LIGHT_MB}} MB)</span></button>
+    <p id="status" role="status"></p>
+  </div>
+
+<!--DIRECT-->
+  <section class="card">
+    <h2>الرابط المباشر (النسخة الكاملة)</h2>
+    <div class="link" id="direct">{{DIRECT_URL}}</div>
+    <button class="copy" type="button" data-copy="direct">نسخ الرابط</button>
+  </section>
+<!--/DIRECT-->
+
+  <section class="card">
+    <h2>الكابشن والهاشتاجات</h2>
+    <div class="caption" id="cap">{{CAPTION}}</div>
+    <button class="copy" type="button" data-copy="cap">نسخ الكابشن</button>
+  </section>
+
+<!--DIRECT-->
+  <section class="card">
+    <h2>لو الحفظ من الصفحة مانفعش (آيفون)</h2>
+    <ol>
+      <li>افتح الرابط المباشر في Safari.</li>
+      <li>دوس على زر المشاركة، واختار «Save to Files» أو «حفظ الفيديو».</li>
+    </ol>
+  </section>
+<!--/DIRECT-->
+
+  <div class="specs">{{SPECS}}</div>
+</main>
+
+<script>
+(function () {
+  var status = document.getElementById('status');
+  var btns = [document.getElementById('saveFull'), document.getElementById('save')];
+  var FULL_PARTS = {{PARTS_JSON}};
+  var FULL_SIZE = {{FULL_SIZE}};
+  var dl = null;
+  if (window.claude && window.claude.use) {
+    window.claude.use('downloads').then(function (d) { dl = d; }).catch(function () {});
+  }
+  async function run(parts, filename, size) {
+    if (!dl) { status.textContent = 'التحميل من الصفحة مش متاح هنا. {{FALLBACK}}'; return; }
+    btns.forEach(function (b) { b.disabled = true; });
+    try {
+      var chunks = [];
+      for (var i = 0; i < parts.length; i++) {
+        status.textContent = parts.length > 1 ? 'بيجهّز الفيديو… ' + Math.round(i / parts.length * 100) + '%' : 'بيجهّز الفيديو…';
+        var res = await fetch(parts[i]);
+        if (!res.ok) throw new Error('fetch');
+        chunks.push(await res.blob());
+      }
+      var blob = new Blob(chunks, { type: 'video/mp4' });
+      if (size && blob.size !== size) throw new Error('size');
+      status.textContent = 'أكّد الحفظ في النافذة اللي ظهرت.';
+      await dl.save({ filename: filename, data: blob });
+      status.textContent = 'اتحفظ الفيديو.';
+    } catch (e) {
+      var c = e && e.code;
+      status.textContent = c === 'declined' ? 'اتلغى الحفظ.' :
+        c === 'rate_limited' ? 'فيه نافذة حفظ مفتوحة؛ استنى ثواني وجرّب تاني.' :
+        'الحفظ مانجحش هنا. {{FALLBACK}}';
+    } finally { btns.forEach(function (b) { b.disabled = false; }); }
+  }
+  btns[0].addEventListener('click', function () { run(FULL_PARTS, {{FILENAME_JSON}}, FULL_SIZE); });
+  btns[1].addEventListener('click', function () { run(['light.mp4'], {{LIGHT_FILENAME_JSON}}, 0); });
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.getElementById(b.getAttribute('data-copy'));
+      var t = el.textContent.trim();
+      var done = function () { var o = b.textContent; b.textContent = 'اتنسخ ✓'; setTimeout(function () { b.textContent = o; }, 1600); };
+      try {
+        navigator.clipboard.writeText(t).then(done, function () { selectEl(el); });
+      } catch (e) { selectEl(el); }
+    });
+  });
+  function selectEl(el) { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+})();
+</script>

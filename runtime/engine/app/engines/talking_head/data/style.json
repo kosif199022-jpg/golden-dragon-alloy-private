@@ -1,0 +1,20 @@
+{
+ "kinds": {"full": ["clips"], "frame": ["clips", "rect"], "band": ["clips"], "vsplit": ["clips", "tsplit"],
+           "logo_flash": ["slots"], "cards": ["cards"], "bar": [], "converge": ["logos"], "number": [],
+           "solid": [], "cutout": ["bgclip"], "pframe": []},
+ "transitions": {"whip": 0.22, "whipL": 0.22, "zoom": 0.22, "zoomrot": 0.22, "bulge": 0.26, "cut": 0.0, "panels": 0.0},
+ "fonts": {"anton": "Anton-Regular", "serif": "Didot-Bold", "didot": "Didot", "sub": "HelveticaNeue-Medium"},
+ "font_files": ["fonts/Anton-Regular.ttf", "/System/Library/Fonts/Supplemental/Didot.ttc", "/System/Library/Fonts/HelveticaNeue.ttc"],
+ "default_anim": {"anton": "build", "sub": "pop", "*": "soft"},
+ "anims": ["build", "words", "pop", "soft"],
+ "char_w": {"anton": 0.41, "serif": 0.47, "didot": 0.45, "sub": 0.44},
+ "caps_w": 1.25,
+ "joined_script": "[؀-ۿݐ-ݿࢠ-ࣿﭐ-﷿ﹰ-﻿]",
+ "framing": {"wide": {"scale": 1.0125, "face_y": 0.396}, "tight": {"scale": 1.30, "face_y": 0.406},
+             "half": {"scale": 1.24, "face_y": 0.344}},
+ "look": {"halftone": "assets/halftone_1080x1920.png", "halftone_opacity": 24, "vignette": 42, "grain": 4},
+ "colors": {"accent": "#ED3B22", "bw_black": "#0E0C0E", "bw_white": "#EDE6DE", "ui_bg": "#161216"},
+ "palette": ["#FFFFFF", "#161216", "#0B0B0B", "#000000"],
+ "rules": {"max_w": 0.89, "bottom_zone": 0.78, "short_insert": 0.6, "alone": 6.0, "max_lines": 2},
+ "shutter": 0.6111111111111112
+}

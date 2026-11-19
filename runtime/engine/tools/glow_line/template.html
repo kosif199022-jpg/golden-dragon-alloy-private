@@ -1,0 +1,69 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>@font-face{font-family:Almarai;src:url(fonts/Almarai-Bold.ttf)}html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style>
+</head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// «العقل: من الفوضى للشجرة» — glowing line art on black (style card ST13 «خط مضيء على أسود»).
+// A sketched head in profile; inside, a tiny worker untangles a knot of thoughts, stacks them, and they grow into a golden tree.
+const W=1080,H=1920,DUR=13.167,cv=document.getElementById('c'),g=cv.getContext('2d'),S=2.7;
+const cl=x=>Math.max(0,Math.min(1,x)),seg=(t,a,b)=>cl((t-a)/(b-a)),lerp=(a,b,k)=>a+(b-a)*k,eio=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2,eo=k=>1-Math.pow(1-k,3);
+function rng(s){return()=>{s=(s*16807)%2147483647;return s/2147483647}}
+const HEAD=[[70,545],[100,480],[112,450],[80,400],[60,330],[65,260],[110,200],[190,172],[260,185],[305,235],[318,290],[322,330],[345,378],[338,390],[322,393],[326,410],[318,420],[324,435],[316,448],[322,462],[305,482],[270,484],[235,476]];
+const NECK=[[235,476],[218,520],[205,568]],JAW=[[178,438],[210,462],[240,476]];
+function spline(pts,jx=0,jy=0){g.beginPath();for(let i=0;i<pts.length-1;i++){const p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+  if(!i)g.moveTo(p1[0]*S+jx,p1[1]*S+jy);g.bezierCurveTo((p1[0]+(p2[0]-p0[0])/6)*S+jx,(p1[1]+(p2[1]-p0[1])/6)*S+jy,(p2[0]-(p3[0]-p1[0])/6)*S+jx,(p2[1]-(p3[1]-p1[1])/6)*S+jy,p2[0]*S+jx,p2[1]*S+jy)}g.stroke()}
+function head(a){const R=rng(5);g.lineCap='round';for(let i=0;i<4;i++){g.strokeStyle=`rgba(225,225,232,${a*(i?0.35:0.9)})`;g.lineWidth=i?1.6:3.2;const jx=i?(R()-.5)*9:0,jy=i?(R()-.5)*9:0;spline(HEAD,jx,jy);spline(NECK,jx,jy);if(i<2)spline(JAW,jx,jy)}}
+// ---- thought strands: tangle -> order (stack + rays) -> golden curtain
+const N=34,M=70,C=[190,322],HAND=[212,318],BASE=[190,452];
+const ST=(()=>{const R=rng(21),a=[];for(let i=0;i<N;i++){const h=[];for(let k=1;k<5;k++)h.push([R()*6.28,R()*6.28,(R()*.9+.2)/k]);
+  a.push({h,rx:18+R()*42,ry:14+R()*34,ox:(R()-.5)*44,oy:(R()-.5)*36,rot:R()*3.14,th:-2.9+ (i/N)*4.6+R()*.1,delay:R()*.5,bow:(R()-.5)*30});}return a})();
+function tangle(s,u){const a=u*6.283;let x=Math.cos(a),y=Math.sin(a);for(const[p1,p2,am]of s.h){x+=am*Math.sin(a*(1+s.h.indexOf([p1,p2,am]))+p1);y+=am*Math.cos(a*2+p2)}
+  const c=Math.cos(s.rot),d=Math.sin(s.rot);return[C[0]+s.ox+(x*c-y*d)*s.rx,C[1]+s.oy+(x*d+y*c)*s.ry]}
+function order(s,i,u){if(i<9){return[128+u*124,384+i*4.2]}               // the neat stack under his feet
+  const ex=C[0]-8+Math.cos(s.th)*118,ey=300+Math.sin(s.th)*112,mx=(HAND[0]+ex)/2+s.bow*Math.sin(s.th),my=(HAND[1]+ey)/2-s.bow*Math.cos(s.th);
+  const v=1-u;return[v*v*HAND[0]+2*v*u*mx+u*u*ex,v*v*HAND[1]+2*v*u*my+u*u*ey]}
+function curtain(s,i,u){const side=i%2?1:-1,top=[C[0]+side*(60+ (i%9)*8),205+(i%7)*9],mid=[C[0]+side*(95-(i%5)*14),380];const v=1-u;
+  return[v*v*top[0]+2*v*u*mid[0]+u*u*(BASE[0]+side*(i%6)*3),v*v*top[1]+2*v*u*mid[1]+u*u*BASE[1]]}
+function strands(t){const gold=seg(t,7.3,8.4),out=1-seg(t,9.0,10.2);if(out<=0)return;g.save();g.beginPath();g.ellipse(190*S,318*S,128*S,150*S,0,0,6.283);g.clip();
+  for(let i=0;i<N;i++){const s=ST[i],k=eio(seg(t,2.6+s.delay*3.2,5.2+s.delay*3.6)),c=eio(seg(t,7.4+s.delay*.6,8.6+s.delay*.6));
+    const wob=(1-k)*3;g.beginPath();for(let j=0;j<=M;j++){const u=j/M,A=tangle(s,u+ t*0.012*(1-k)),B=order(s,i,u),D=curtain(s,i,u);
+      let x=lerp(lerp(A[0],B[0],k),D[0],c),y=lerp(lerp(A[1],B[1],k),D[1],c);x+=Math.sin(t*2.2+i+u*9)*wob;y+=Math.cos(t*1.9+i*2+u*7)*wob;j?g.lineTo(x*S,y*S):g.moveTo(x*S,y*S)}
+    const al=(0.16+0.3*k)*out;g.strokeStyle=gold>0?`rgba(${lerp(215,255,gold)},${lerp(215,196,gold)},${lerp(225,70,gold)},${al+0.25*gold*out})`:`rgba(215,215,225,${al})`;g.lineWidth=lerp(1.5,2.4,gold);g.stroke()}g.restore()}
+// ---- the tree
+const TREE=(()=>{const R=rng(77),segs=[];let maxD=0;function br(x,y,ang,len,d,w){const ex=x+Math.cos(ang)*len,ey=y+Math.sin(ang)*len;
+    if(d>0&&Math.hypot(ex-188,(ey-296)*0.92)>126)return;segs.push([x,y,ex,ey,d,w,(R()-.5)*len*.25]);maxD=Math.max(maxD,d);if(d>=7)return;
+    const n=d<1?5:(d<3||R()<.4?3:2);for(let i=0;i<n;i++){const sp=d<1?(-1.25+i*0.625):((i-(n-1)/2)*0.55+(R()-.5)*.3);br(ex,ey,ang+sp,len*(0.70+R()*.12),d+1,w*0.68)}}
+  br(190,452,-Math.PI/2,78,0,17);const roots=[];for(let i=0;i<7;i++){const a=Math.PI/2+(i-3)*0.42;roots.push([190,450,190+Math.cos(a)*(48+ (i%3)*14),450+Math.sin(a)*(16+(i%2)*8)+Math.abs(i-3)*2])}
+  return{segs,maxD,roots}})();
+function glowStroke(draw,w,a){g.lineCap='round';g.strokeStyle=`rgba(255,170,30,${0.16*a})`;g.lineWidth=w*S+16;draw();g.strokeStyle=`rgba(255,190,50,${0.9*a})`;g.lineWidth=w*S;draw();g.strokeStyle=`rgba(255,238,170,${0.8*a})`;g.lineWidth=Math.max(1,w*S*0.35);draw()}
+function tree(t){const gr=seg(t,8.6,11.6);if(gr<=0)return;const D=TREE.maxD+1;
+  for(const[x,y,ex,ey,d,w,bow]of TREE.segs){const p=eo(seg(gr,d/D*0.85,(d+1)/D*0.85+0.1));if(p<=0)continue;const mx=(x+ex)/2+bow,my=(y+ey)/2;
+    glowStroke(()=>{g.beginPath();g.moveTo(x*S,y*S);g.quadraticCurveTo(lerp(x,mx,p)*S,lerp(y,my,p)*S,lerp(x,ex,p)*S,lerp(y,ey,p)*S);g.stroke()},Math.max(0.7,w*0.5),1)}
+  const rp=eo(seg(t,10.2,11.8));if(rp>0)for(const[x,y,ex,ey]of TREE.roots)glowStroke(()=>{g.beginPath();g.moveTo(x*S,y*S);g.quadraticCurveTo(lerp(x,ex,.5)*S,(y+6)*S,lerp(x,ex,rp)*S,lerp(y,ey,rp)*S);g.stroke()},1.3,.8)}
+// ---- the little worker
+function man(t){const up=eio(seg(t,3.0,4.6)),toBase=eio(seg(t,7.2,8.6)),glow=seg(t,10.6,12.0);
+  const x=lerp(lerp(196,214,up),190,toBase)*S,y=lerp(lerp(322,360,up),446,toBase)*S,h=lerp(lerp(50,70,up),64,toBase)*S,lean=lerp(0.55,0.0,up);
+  g.save();g.translate(x,y);g.lineCap='round';g.lineJoin='round';
+  const col=glow>0?`rgba(255,${lerp(255,244,glow)},${lerp(255,190,glow)},1)`:'rgba(245,245,250,.95)';
+  if(glow>0){const r=g.createRadialGradient(0,-h*.5,2,0,-h*.5,h*1.3);r.addColorStop(0,`rgba(255,220,120,${.55*glow})`);r.addColorStop(1,'rgba(255,200,80,0)');g.fillStyle=r;g.fillRect(-h*1.4,-h*1.9,h*2.8,h*2.8)}
+  g.strokeStyle=col;g.fillStyle=col;g.lineWidth=glow>0?lerp(4.5,13,glow):4.5;g.rotate(lean*0.5);
+  const hip=-h*0.45,sh=-h*0.82,pull=(1-toBase)*(0.5+0.25*Math.sin(t*5));
+  g.beginPath();g.moveTo(-h*0.13,0);g.lineTo(-h*0.05,hip);g.lineTo(h*0.13+lean*h*.2,0);g.moveTo(-h*0.05,hip);g.lineTo(0,sh);            // legs + spine
+  g.moveTo(0,sh);g.lineTo(lerp(h*0.36,h*0.2,toBase)*(1-toBase*.4)+pull*h*.05,lerp(sh+h*0.02-pull*h*.1,sh+h*.42,toBase));                 // front arm (pulling)
+  g.moveTo(0,sh);g.lineTo(lerp(h*0.26,-h*0.2,toBase),lerp(sh+h*0.16,sh+h*.42,toBase));g.stroke();
+  g.beginPath();g.arc(0,sh-h*0.13,h*0.1,0,6.283);glow>0?g.fill():g.stroke();
+  if(toBase<.9){g.beginPath();g.moveTo(-h*0.11,sh-h*0.2);g.lineTo(h*0.17,sh-h*0.2);g.stroke()}                                           // cap brim
+  g.restore()}
+async function render(t){
+  g.fillStyle='#000';g.fillRect(0,0,W,H);
+  const a=1;head(a);g.save();g.globalAlpha=a;strands(t);tree(t);man(t);
+  // drifting sparks around the lit figure
+  const sp=seg(t,11,12);if(sp>0){const R=rng(9);for(let i=0;i<16;i++){const x=(190+(R()-.5)*60)*S,y=(445-R()*40)*S-((t*18+i*7)%40);g.fillStyle=`rgba(255,220,130,${.7*sp*R()})`;g.beginPath();g.arc(x,y,2.2,0,6.283);g.fill()}}
+  g.restore();
+  const ck=seg(t,DUR-3,DUR-2.5);if(ck>0){g.save();g.globalAlpha=ck;g.textAlign='center';g.direction='rtl';g.fillStyle='#f3ead2';g.font='700 40px Almarai';g.fillText('مونتاج وإخراج Mahmoud Elkosif',540,1680);
+    g.font='700 30px Almarai';g.fillStyle='#bfb59a';g.fillText('تابعني على فيسبوك',540,1736);g.restore()}
+  g.save();g.font='700 22px Almarai';g.direction='ltr';g.textAlign='left';g.fillStyle='rgba(255,255,255,.4)';g.fillText('© Mahmoud Elkosif',40,1890);g.restore();
+}
+document.fonts.load('700 40px Almarai').then(async()=>{await render(0);window.__kosifReady=true});
+window.__kosif={duration:DUR,seek:async t=>{await render(t)}};
+</script></body></html>

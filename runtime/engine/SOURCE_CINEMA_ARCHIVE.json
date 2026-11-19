@@ -1,0 +1,36 @@
+{
+  "schema": "kosif.black-dragon.cinema-source.v1",
+  "source": "_skills.rar (user supplied)",
+  "source_file_count": 17,
+  "source_files_sha256": {
+    "black-dragon-cinema/SKILL.md": "8a96c760884cdc01d37c0b1d8f633634024e32625f6a2af001d5600fae0f756c",
+    "black-dragon-cinema/references/SKILL_ATLAS.md": "0fe75bb640828848235b1411a1ead2f15ff36081d42799512a06a8f4d3705870",
+    "black-dragon-cinema/scripts/apply_style.py": "3dfb47d95482fc3766a3e65993f1036fffff2b09f3f2a776672674075ba11e2f",
+    "black-dragon-cinema/scripts/build.py": "92918905810730532c6e58aa34fb647de8bb5823678bc3377bc278f83c11b89e",
+    "black-dragon-cinema/scripts/engine.js": "e5cd1bbdf520e656c120ae9d7f37bdf869c188a260df822fd402f1b2ff6ca559",
+    "black-dragon-cinema/scripts/fast_dl.py": "7ebc4c83460de841d7661b5fb36426c959734c71128cf8de4d39f991474c038d",
+    "black-dragon-cinema/scripts/lyrics.py": "225c8ea5997f07821eec8fc5e668a62ce38ac1e69b0daa0e964ea4735b28403b",
+    "black-dragon-cinema/scripts/sheets.py": "7c6b4db8ccbd3d83c348a22c3fbb44855bad9dc3afb04ca9c47155a0c49ef81c",
+    "black-dragon-cinema/scripts/skill_atlas.py": "7851019f7e9efeb3fd45143d29f87d7085c55443799825e7de634dcd7af412d7",
+    "black-dragon-cinema/scripts/smart_cut.py": "c132ac11d28c753c86511bb8d8f46f08c81f654f425b00747875e74b3b8fb4d3",
+    "black-dragon-cinema/scripts/song_map.py": "b9da6a15e9cb13a64ac332caceaf97b80dff89d71ca17de77df9a670c87ec5b5",
+    "black-dragon-cinema/templates/example_beat_cut.json": "9660e5d37902d51177075193a316b9e0e24dd59c528abf31526f70022af3c638",
+    "black-dragon-cinema/templates/example_epic_counter.json": "03d58492ef6ae6ece9cf51ba5bf5fd9067503d4fc0ce492b1b93d189b6019021",
+    "black-dragon-cinema/templates/example_voice_karaoke.json": "68a29e3794d236e5f1008d2ffd575d639e007865b258448c380e31ee6cebf4f6",
+    "black-dragon/REBUILD_PLAN.md": "6e69b077671e94f1fbb8c8361630e82af61da0011e26f9f41fb71ab2ac47bb22",
+    "black-dragon/SKILL.md": "af06ab55da0ad060371faced05fdf58ab76d07a4d2d6186abd7904fcb5c39206",
+    "creative-studio/SKILL.md": "5ac6ef4041a1a86dc6146914d7d12813b5aa4daebdca5ac27f854650c46c573d"
+  },
+  "dragon_genius_exact_duplicate": true,
+  "dragon_genius_files_verified": 8,
+  "handling": "source code retained in references/source_archives; no source scripts launched automatically; safer local adapter under tools/cinema_craft",
+  "not_merged_as_primary": [
+    "black-dragon/SKILL.md",
+    "black-dragon/REBUILD_PLAN.md"
+  ],
+  "known_overlaps": [
+    "creative-studio/SKILL.md already referenced verbatim",
+    "sample templates already present",
+    "cinema engine.js and song_map/sheets/skill_atlas already extended in the current version"
+  ]
+}

@@ -1,0 +1,128 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>@font-face{font-family:Tajawal;src:url(fonts/Tajawal-Bold.ttf)}html,body{margin:0;background:#ddd;overflow:hidden}canvas{display:block}</style>
+</head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// «Hope fed no one» — surreal minimal black-and-white (style card ST09, after Hossein Zare's language).
+// One locked camera, real perspective (world -> screen), white void / salt flat, black-suited men in fedoras,
+// repetition to the horizon, one figure breaks the pattern. Hard sun from the upper right, shadows fall left.
+const W=1080,H=1920,DUR=12.285,cv=document.getElementById('c'),g=cv.getContext('2d');
+const VX=540,VY=600,F=470,CH=2.62;           // vanishing point, focal, camera height
+const P=(X,Y,z)=>[VX+X*F/z, VY+(CH-Y)*F/z, F/z]; // world (X right, Y up, z depth) -> screen
+const cl=x=>Math.max(0,Math.min(1,x)),seg=(t,a,b)=>cl((t-a)/(b-a)),eio=k=>k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+function rng(s){return()=>{s=(s*16807)%2147483647;return s/2147483647}}
+const SUN=[-0.62,0.12]; // shadow offset per unit height (X, z)
+const Z0=1.3,DZ=0.46,ROWS=90,TW=0.5,TH=0.7,SX=0.74;
+const ROWZ=[...Array(ROWS)].map((_,i)=>Z0+DZ*i*(1+i*0.004));
+
+// ---------- ground: salt crust polygons (jittered grid, deterministic)
+const CR=(()=>{const R=rng(11),L=[];for(let gz=0;gz<60;gz++)for(let gx=-14;gx<=14;gx++){const z=0.9+gz*0.85+R()*.4,x=gx*1.25+R()*.5;
+  const z2=z+0.85+R()*.3,x2=x+1.25+R()*.4;L.push([x,z,x2,z+R()*.3-.15]);L.push([x,z,x+R()*.4-.2,z2]);}return L})();
+function ground(){
+  let gr=g.createLinearGradient(0,0,0,VY);gr.addColorStop(0,'#8f8f8f');gr.addColorStop(.55,'#c4c4c4');gr.addColorStop(1,'#e9e9e9');g.fillStyle=gr;g.fillRect(0,0,W,VY+2);
+  gr=g.createLinearGradient(0,VY,0,H);gr.addColorStop(0,'#e6e6e6');gr.addColorStop(.25,'#efefef');gr.addColorStop(1,'#f3f3f3');g.fillStyle=gr;g.fillRect(0,VY,W,H-VY);
+  g.lineCap='round';
+  for(const[x1,z1,x2,z2]of CR){const a=P(x1,0,z1),b=P(x2,0,z2);if(a[1]<VY+3)continue;const w=Math.min(a[2],b[2]);
+    if(Math.min(z1,z2)<1.05)continue;g.strokeStyle=`rgba(80,80,80,${Math.min(.6,.14+w/420)})`;g.lineWidth=Math.max(.8,w/200);g.beginPath();g.moveTo(a[0],a[1]);
+    const m=P((x1+x2)/2+.08,0,(z1+z2)/2+.05);g.quadraticCurveTo(m[0],m[1],b[0],b[1]);g.stroke()}
+}
+function quad(pts,col){g.beginPath();pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.closePath();g.fillStyle=col;g.fill()}
+function shadowBox(X1,X2,z1,z2,Y,col){ // floor shadow of a box footprint lifted to height Y
+  const o=[SUN[0]*Y,SUN[1]*Y];quad([P(X1,0,z1),P(X1+o[0],0,z1+o[1]),P(X1+o[0],0,z2+o[1]),P(X2+o[0],0,z2+o[1]),P(X2,0,z2),P(X2,0,z1)],col)}
+
+// ---------- people
+function man(X,z,pose,k,side,walkPh){
+  // pose 'sit' | 'stand'. k = stand-up progress (0 seated .. 1 standing). side: -1 left of table (faces right), +1 right (faces left)
+  const s=F/z;if(s<3)return;
+  const seatY=0.47,hip=lerp(seatY,0.95,k),shY=lerp(1.08,1.52,k),headY=shY+0.15,hatY=headY+0.1;
+  const [x,yHip]=P(X,hip,z),[,ySh]=P(X,shY,z),[,yHead]=P(X,headY,z),[,yFloor]=P(X,0,z);
+  const bw=0.40*s,lean=(1-k)*side*0.06*s;
+  // legs
+  g.fillStyle='#141414';
+  if(k<0.5&&pose==='sit'){ // thighs toward table, shins down
+    const tx=x+side*0.32*s;g.fillRect(Math.min(x,tx)-0.02*s,yHip-0.05*s,Math.abs(tx-x)+0.04*s,0.13*s);
+    g.fillRect(tx-0.07*s,yHip,0.13*s,yFloor-yHip);
+  }else{
+    const sw=Math.sin(walkPh||0)*0.16*s,lw=0.085*s;
+    leg(x-0.07*s,yHip,yFloor,lw,sw);leg(x+0.07*s,yHip,yFloor,lw,-sw);
+  }
+  // coat / torso
+  g.beginPath();g.moveTo(x-bw/2+lean,ySh);g.quadraticCurveTo(x-bw/2-0.02*s+lean,(ySh+yHip)/2,x-bw*0.46,yHip+(k>.5?0.12*s:0));
+  g.lineTo(x+bw*0.46,yHip+(k>.5?0.12*s:0));g.quadraticCurveTo(x+bw/2+0.02*s+lean,(ySh+yHip)/2,x+bw/2+lean,ySh);
+  g.quadraticCurveTo(x+lean,ySh-0.06*s,x-bw/2+lean,ySh);g.fillStyle='#111';g.fill();
+  // rim light on the sunny (right) edge
+  g.strokeStyle='rgba(255,255,255,.18)';g.lineWidth=Math.max(1,0.012*s);g.beginPath();g.moveTo(x+bw/2+lean,ySh+0.02*s);g.lineTo(x+bw*0.47,yHip);g.stroke();
+  // arm on the table (seated) or hanging/swinging (standing)
+  if(pose==='sit'&&k<0.3){const ex=x+side*0.42*s,[,yt]=P(X,TH+0.02,z);g.strokeStyle='#121212';g.lineWidth=0.1*s;g.lineCap='round';
+    g.beginPath();g.moveTo(x+side*bw*0.3+lean,ySh+0.08*s);g.lineTo(ex,yt);g.stroke();g.fillStyle='#d8d8d8';g.fillRect(ex-0.04*s,yt-0.03*s,0.08*s,0.05*s)}
+  else{const sw=Math.sin((walkPh||0)+Math.PI)*0.1*s;g.strokeStyle='#121212';g.lineWidth=0.085*s;g.lineCap='round';
+    for(const d of[-1,1]){g.beginPath();g.moveTo(x+d*bw*0.45,ySh+0.05*s);g.lineTo(x+d*bw*0.5+sw*d*0.3,ySh+0.55*s);g.stroke()}}
+  // collar + head + fedora
+  if(pose==='sit'&&k<0.5){g.fillStyle='#e9e9e9';g.beginPath();g.ellipse(x+side*0.07*s+lean,ySh-0.005*s,0.06*s,0.03*s,0,0,6.283);g.fill()}
+  g.fillStyle='#6c6c6c';g.fillRect(x-0.045*s+lean,ySh-0.08*s,0.09*s,0.09*s);
+  g.fillStyle=pose==='sit'&&k<0.5?'#9a9a9a':'#2a2a2a';g.beginPath();g.ellipse(x+lean,yHead,0.095*s,0.115*s,0,0,6.283);g.fill();
+  if(pose==='sit'&&k<0.5){g.fillStyle='#c9c9c9';g.beginPath();g.ellipse(x+side*0.05*s+lean,yHead+0.01*s,0.05*s,0.09*s,0,0,6.283);g.fill()}
+  const [,yHat]=P(X,hatY,z);g.fillStyle='#0c0c0c';
+  g.beginPath();g.ellipse(x+lean,yHat+0.02*s,0.19*s,0.045*s,0,0,6.283);g.fill();
+  g.beginPath();g.moveTo(x-0.11*s+lean,yHat+0.02*s);g.quadraticCurveTo(x-0.12*s+lean,yHat-0.16*s,x+lean,yHat-0.15*s);g.quadraticCurveTo(x+0.12*s+lean,yHat-0.16*s,x+0.11*s+lean,yHat+0.02*s);g.fill();
+  g.fillStyle='#2e2e2e';g.fillRect(x-0.11*s+lean,yHat-0.02*s,0.22*s,0.035*s);
+}
+function leg(x,y0,y1,w,sw){g.beginPath();g.moveTo(x-w/2,y0);g.lineTo(x+w/2,y0);g.lineTo(x+w/2+sw,y1-w*.6);g.lineTo(x-w/2+sw,y1-w*.6);g.fill();
+  g.beginPath();g.ellipse(x+sw,y1-w*.35,w*.75,w*.38,0,0,6.283);g.fill()}
+const lerp=(a,b,k)=>a+(b-a)*k;
+function chair(X,z,side){const s=F/z;if(s<4)return;const bx=X+side*0.2,[x,yb]=P(bx,0,z),[,ys]=P(bx,0.47,z),[,yt]=P(bx,0.95,z);
+  g.strokeStyle='#8c8c8c';g.lineWidth=Math.max(1,0.035*s);g.beginPath();g.moveTo(x,yb);g.lineTo(x,yt);g.stroke();
+  const [x2]=P(bx-side*0.36,0,z);g.beginPath();g.moveTo(x2,yb);g.lineTo(x2,ys);g.stroke();
+  g.fillStyle='#a3a3a3';g.fillRect(Math.min(x,x2),ys-0.03*s,Math.abs(x2-x),0.05*s);
+  for(const yy of[0.72,0.86]){const[,y]=P(bx,yy,z);g.fillRect(x-0.025*s,y,0.05*s,0.06*s)}
+  g.fillStyle='rgba(0,0,0,.07)';}
+
+// ---------- table
+function table(){
+  const zf=ROWZ[0]-0.32,zb=120;
+  // shadow under the table and of the seated rows (one soft-edged band each side, falls left)
+  shadowBox(-TW,TW,zf,zb,TH,'rgba(60,60,60,.30)');
+  for(let i=ROWS-1;i>=0;i--){const z=ROWZ[i];for(const side of[-1,1]){const X=side*SX;if(i===0&&side===-1)continue;
+    shadowBox(X-0.2,X+0.2,z-0.18,z+0.18,1.3,'rgba(40,40,40,.22)')}}
+  // top
+  quad([P(-TW,TH,zf),P(-TW,TH,zb),P(TW,TH,zb),P(TW,TH,zf)],'#f6f6f6');
+  // plates + glasses, far to near
+  for(let i=ROWS-1;i>=0;i--){const z=ROWZ[i],s=F/z;if(s<5)continue;
+    for(const sd of[-1,1]){const[px,py]=P(sd*0.29,TH,z);g.fillStyle='#ffffff';g.strokeStyle='#9d9d9d';g.lineWidth=Math.max(.6,s/300);
+      g.beginPath();g.ellipse(px,py,0.12*s,0.05*s,0,0,6.283);g.fill();g.stroke();g.beginPath();g.ellipse(px,py,0.075*s,0.03*s,0,0,6.283);g.stroke();
+      const[gx,gy]=P(sd*0.12,TH,z-0.12);g.strokeStyle='#8a8a8a';g.beginPath();g.moveTo(gx-0.025*s,gy-0.12*s);g.lineTo(gx-0.02*s,gy-0.05*s);g.lineTo(gx+0.02*s,gy-0.05*s);g.lineTo(gx+0.025*s,gy-0.12*s);g.stroke();
+      g.beginPath();g.moveTo(gx,gy-0.05*s);g.lineTo(gx,gy);g.stroke();}}
+  // edges
+  g.strokeStyle='#b5b5b5';g.lineWidth=2;for(const sd of[-1,1]){const a=P(sd*TW,TH,zf),b=P(sd*TW,TH,zb);g.beginPath();g.moveTo(a[0],a[1]);g.lineTo(b[0],b[1]);g.stroke()}
+}
+function tableFront(){const zf=ROWZ[0]-0.32,s=F/zf;
+  quad([P(-TW,TH,zf),P(TW,TH,zf),P(TW,TH-0.09,zf),P(-TW,TH-0.09,zf)],'#d9d9d9');
+  for(const sd of[-1,1]){const[x,y]=P(sd*(TW-0.04),TH-0.09,zf),[,yf]=P(0,0,zf);const lx=x-0.03*s;
+    g.fillStyle='#b8b8b8';g.fillRect(lx,y,0.07*s,yf-y);g.fillStyle='#8f8f8f';g.fillRect(lx+0.05*s,y,0.02*s,yf-y)}}
+
+// ---------- the one who leaves
+function leaver(t){
+  const k=eio(seg(t,0.5,2.2)),step=eio(seg(t,2.0,3.2));
+  const walkT=Math.max(0,t-2.9);let z=ROWZ[0]+walkT*0.3,X=lerp(-SX,-1.32,step);
+  const pose=k>0.5?'stand':'sit',ph=walkT>0?walkT*5.2:(step>0&&step<1?step*6:0);
+  // own shadow
+  const s=F/z,[x,yf]=P(X,0,z),o=P(X+SUN[0]*1.6,0,z+SUN[1]*1.6);
+  g.fillStyle='rgba(30,30,30,.32)';g.beginPath();g.moveTo(x-0.12*s,yf);g.lineTo(o[0]-0.06*s,o[1]);g.lineTo(o[0]+0.06*s,o[1]);g.lineTo(x+0.12*s,yf);g.fill();
+  man(X,z,pose,k,-1,ph);return z}
+const ORDER=[];
+async function render(t){
+  ground();table();
+  const zl=ROWZ[0]+Math.max(0,t-2.9)*0.3;let drawnL=false;
+  for(let i=ROWS-1;i>=0;i--){const z=ROWZ[i];
+    if(!drawnL&&z<=zl+0.01&&t>2.2){leaver(t);drawnL=true}
+    for(const side of[-1,1]){if(i===0&&side===-1){chair(-SX,z,-1);continue}chair(side*SX,z,side);man(side*SX,z,'sit',0,side,0)}}
+  tableFront();
+  if(!drawnL)leaver(t);
+  // credit (last 3 s) in the sky, watermark on the ground
+  const c=cl((t-(DUR-3))/0.4);if(c>0){g.save();g.globalAlpha=c;g.fillStyle='#2b2b2b';g.textAlign='center';g.direction='rtl';g.font='700 40px Tajawal';
+    g.fillText('مونتاج وإخراج Mahmoud Elkosif',540,250);g.font='700 30px Tajawal';g.fillText('تابعني على فيسبوك',540,302);g.restore()}
+  g.save();g.font='700 24px Tajawal';g.direction='ltr';g.textAlign='left';g.fillStyle='rgba(40,40,40,.55)';g.fillText('© Mahmoud Elkosif',40,1890);g.restore();
+}
+document.fonts.load('700 40px Tajawal').then(async()=>{await render(0);window.__kosifReady=true});
+window.__kosif={duration:DUR,seek:async t=>{await render(t)}};
+</script></body></html>

@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="{{LANG}}" dir="{{DIR}}"><head><meta charset="utf-8">
+<title>{{TITLE}}</title>
+<style>
+html,body{margin:0;width:{{W}}px;height:{{H}}px;overflow:hidden;background:{{BG}};color:{{FG}};font-family:'{{FONT}}',system-ui,sans-serif}
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;visibility:hidden;will-change:transform,opacity}
+h1{position:relative;margin:0 8%;font-size:{{TYPE_PX}}px;line-height:1.25;text-align:center}
+.w{display:inline-block}
+.shape{position:absolute;inset:0;margin:auto;width:46%;aspect-ratio:1;background:{{ACCENT}};opacity:.9}
+.field{position:absolute;inset:0} .field i{position:absolute;border-radius:50%;background:{{ACCENT}}}
+</style></head><body>
+{{SCENES}}
+<script>{{ENGINE}}</script>
+</body></html>

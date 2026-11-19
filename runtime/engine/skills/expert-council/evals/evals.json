@@ -1,0 +1,10 @@
+{
+  "skill_name": "expert-council",
+  "evals": [
+    {"id": 1, "prompt": "I shot at 25fps under 50Hz fluorescent light with 1/60 shutter and see flicker. Why and fix?", "expected": "1/60 is not a multiple of 1/100 s light pulses in 50Hz regions; use 1/50 (180deg at 25fps) or 1/100; mention flicker-free LEDs / deflicker in post."},
+    {"id": 2, "prompt": "Council: critique this 30s reel cut plan: 45 cuts, music at -6 LUFS, voice under music, text in first 3 seconds.", "expected": "Loudness way too hot (target ~-14 LUFS integrated, TP <= -1 dBTP), voice must sit over music (ducking), pacing check vs comprehension, hook evaluation; dissent recorded."},
+    {"id": 3, "prompt": "انقد البيت: «على قدر أهل العزم تأتي العزائم» نقدًا بلاغيًا.", "expected": "Correct attribution to al-Mutanabbi, bahr al-Tawil, analysis of muqabala/ parallelism and maxim (hikma); no invented facts."},
+    {"id": 4, "prompt": "Dialogue scene with 3 characters around a table, one secretly lying. Plan blocking and coverage.", "expected": "Scene objective/subtext, axis management for 3 people, POV choice that reveals the lie to audience or not (suspense vs surprise), shot list with motivated inserts."},
+    {"id": 5, "prompt": "Last time you told me wrong loudness. Remember it.", "expected": "Records a lesson via lessons.py add with domain editing, trigger, mistake, actionable rule; source user."}
+  ]
+}

@@ -1,0 +1,16 @@
+{
+ "schema": "black-dragon.library.source.v1",
+ "id": "editorial-film-edit",
+ "source_archive": "editorial-film-edit.zip",
+ "source_archive_sha256": "08f477e689c20e2ba2e71da764ef6c2e70ae01264a77006994e9b84aa161f5b6",
+ "files": 8,
+ "bytes": 66230,
+ "copied": "verbatim",
+ "excluded": [
+  ".DS_Store",
+  "__MACOSX",
+  "._*"
+ ],
+ "license_notice": "No separate licence identified in the supplied archive. Bundled at the owner's request for his own use; check reuse rights before redistribution.",
+ "run_policy": "Reference and source. `tool library` only reads. Read a script before running it; installers, downloads and paid generation need the owner's explicit yes."
+}

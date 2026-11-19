@@ -1,0 +1,4 @@
+#!/bin/sh
+# stub for a-Shell open/view: just record the call
+echo "$0 $*" >> "${STUB_LOG:-/dev/null}"
+exit 0

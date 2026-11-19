@@ -1,0 +1,93 @@
+{
+ "as_of": "2026-11-11",
+ "method": "same cloud/bench.sh on all three machines; transfers timed by curl; balance 347.88 before (see ledger)",
+ "local": {
+  "machine": "user laptop, Windows 11, 12 threads, ffmpeg 9.0.2",
+  "bench": {
+   "A_1080p_medium_s": 5.62,
+   "B_reel_slow_noise_s": 125.77,
+   "C_python_s": 1.35
+  },
+  "upload_MBps": 0.87,
+  "upload_note": "6 MB file: 6.6 s (0.87 MB/s). 77 MB file: connection reset after 358 s at 0.10 MB/s average -> keep uploads small",
+  "download_MBps": 4.85,
+  "download_note": "78 MB from CloudFront in 15.3 s, sha256 verified; 2.2 MB/s from server8.mp3quran.net",
+  "runs_quick_A": [
+   5.62,
+   6.6
+  ]
+ },
+ "cloud_standard": {
+  "machine": "gVisor/Modal, Debian 12, 2 vCPU (nproc says 1), 8 GiB, 382 GB, no GPU, ffmpeg 5.1.9",
+  "bench": {
+   "A_1080p_medium_s": 16.3,
+   "B_reel_slow_noise_s": 191.25,
+   "C_python_s": 0.85
+  },
+  "runs_quick_A": [
+   16.3,
+   7.72
+  ],
+  "variance_note": "A was 16.30 s on one standard allocation and 7.72 s on another (2.1x)"
+ },
+ "cloud_xl": {
+  "machine": "4 vCPU, 16 GiB, same image; workspace moved with files kept",
+  "bench": {
+   "A_1080p_medium_s": 5.88,
+   "B_reel_slow_noise_s": 118.64,
+   "C_python_s": 1.19
+  },
+  "runs": [
+   {
+    "A_1080p_medium_s": 7.52,
+    "B_reel_slow_noise_s": 155.61,
+    "C_python_s": 1.59,
+    "sandbox": "sb-01M75RQMKCPM42NK64Q6K5BE8W"
+   },
+   {
+    "A_1080p_medium_s": 4.23,
+    "B_reel_slow_noise_s": 81.66,
+    "C_python_s": 0.79,
+    "sandbox": "sb-01M75T49BP09GVYVH0GQRNMQ58"
+   }
+  ],
+  "variance_note": "two XL allocations the same day differed 1.8-2.0x; run `hfc bench --quick` per session and pass --xl-a"
+ },
+ "cloud_upload_MBps": 5.4,
+ "cloud_upload_note": "sandbox -> S3 presigned PUT: 78 MB in 13.8 s",
+ "cloud_internet_MBps": 20,
+ "overhead_s": 15,
+ "whisper": {
+  "note": "same 60 s Arabic recitation (Al-Mulk 1-3, Alafasy), int8, beam 5, VAD; rtf excludes model load",
+  "large-v3_rtf_xl": 0.95,
+  "large-v3_rtf_local": 1.45,
+  "small_rtf_xl": 0.23,
+  "small_rtf_local": 0.37,
+  "load_s": 12,
+  "load_s_local": 18,
+  "quality": "large-v3 identical text on both machines and correct; small inserted verse numbers and misspelled 4 words -> never small for Quran"
+ },
+ "html2mp4": {
+  "note": "title_ar.html 1080x1920@30, 180 frames, 4 Chromium workers on XL, PNG. v1.0.0 (clock running) 49 s; v1.0.1 (paused clock) 12 s",
+  "render_s": 12,
+  "encode_s": 5,
+  "ms_per_frame_xl": 67,
+  "ms_per_frame_per_worker": 266
+ },
+ "hybrid": {
+  "note": "600-frame 1080x1920 source made in the cloud, downloaded (sha256 equal); 4 parts, 2 local (ffmpeg 9) + 2 XL (ffmpeg 5.1), medium crf20",
+  "local_parts_s": 20.6,
+  "cloud_parts_s_incl_upload": 23,
+  "joined_frames": "600/600",
+  "decode_errors": 0,
+  "psnr_vs_source_mean_db": 44.8,
+  "psnr_min_db": 38.25,
+  "psnr_off_by_one_control_db": 27.7
+ },
+ "safe_upload_mb": 50,
+ "balance": {
+  "before": 347.88,
+  "after": 347.88,
+  "last_transaction": "2026-11-10T16:38:32Z GPT Image 2.6 (not from this session)"
+ }
+}

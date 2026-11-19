@@ -1,0 +1,293 @@
+--- Cinema_C_V35_iPhone.sh	2026-11-16 16:53:24.136677928 +0000
++++ Cinema_C_V36_iPhone.sh	2026-11-17 07:01:45.585411071 +0000
+@@ -1,5 +1,15 @@
+ #!/bin/sh
+-# Cinema C V35 — Studio — iPhone / a-Shell
++# Cinema C V36 — Smart Media Studio — iPhone / a-Shell
++# New in V36 (every V35 feature kept; merges V31 SmartMedia):
++# - Instagram photo posts, carousels and mixed photo+video posts via gallery-dl
++# - c --smart URL   : for an Instagram /p/ post, fetch ALL its files first
++# - c --gallery URL : use gallery-dl directly
++# - when yt-dlp says "There is no video in this post" on an /p/ link, Cinema
++#   switches to gallery-dl by itself (no update loop for a photo post)
++# - c --setup       : install/update yt-dlp + gallery-dl on explicit request
++# - every album goes to its own folder: Instagram_<POST>_<time>
++# - --doctor shows gallery-dl, --self-test checks the Instagram post helpers
++#
+ # New in V35 (fix & safety release; every V34 feature kept):
+ # - menus accept Arabic digits (١٢٣ / ۱۲۳) and stray spaces; a wrong number
+ #   asks again instead of closing Cinema; y / ن / نعم all mean yes
+@@ -70,7 +80,7 @@
+ set -u
+ 
+ APP='Cinema C'
+-VERSION='35.0-Studio-iPhone'
++VERSION='36.0-SmartMedia-Studio-iPhone'
+ 
+ HOME_DIR=${HOME:-.}
+ BIN_DIR="$HOME_DIR/Documents/bin"
+@@ -118,6 +128,13 @@
+ BATCH_FILE=''
+ SHOW_HISTORY=0
+ 
++# V36 flags (SmartMedia)
++SMART_MODE=''     # '' | smart | gallery
++DO_SETUP=0
++GALLERY=''
++GALLERY_MODE=''
++GALLERY_OUTPUT_DIR=''
++
+ # V35 flags
+ SELF_TEST=0
+ CLEAR_HISTORY=0
+@@ -183,7 +200,7 @@
+ }
+ 
+ usage() {
+-  say 'Cinema C V35 — Studio — iPhone / a-Shell'
++  say 'Cinema C V36 — Smart Media Studio — iPhone / a-Shell'
+   say ''
+   say 'Daily use:'
+   say '  c'
+@@ -192,6 +209,12 @@
+   say '  paste a video/reel URL (or the whole share text) -> quality -> Photos SAFE or Files'
+   say '  press Enter on an empty prompt to use the URL in the clipboard'
+   say ''
++  say 'Instagram photo / carousel / photo+video post (gallery-dl):'
++  say '  c --smart "https://www.instagram.com/p/POST_ID/"     (every file of the post)'
++  say '  c --gallery "https://www.instagram.com/p/POST_ID/"   (gallery-dl directly)'
++  say '  c --files --smart "URL"                              (straight to Files)'
++  say '  c --setup                                            (install yt-dlp + gallery-dl)'
++  say ''
+   say 'Many links at once:'
+   say '  c --batch              (paste links, empty line to start)'
+   say '  c --batch links.txt'
+@@ -223,7 +246,7 @@
+   say '  c --self-test          (offline check of Cinema itself, nothing downloaded)'
+   say ''
+   say 'Install once:'
+-  say '  sh ./Cinema_C_V35_iPhone.sh --install'
++  say '  sh ./Cinema_C_V36_iPhone.sh --install'
+   say ''
+   say 'Facebook authentication:'
+   say '  c --setup-facebook-cookies'
+@@ -287,6 +310,133 @@
+   "$YTDLP" "$@"
+ }
+ 
++# ---------------------------------------------------------------------
++# V36 SmartMedia (from V31): Instagram photo posts / carousels via gallery-dl
++# ---------------------------------------------------------------------
++find_gallery() {
++  GALLERY=''
++  GALLERY_MODE=''
++  if have gallery-dl && gallery-dl --version >/dev/null 2>&1; then
++    GALLERY='gallery-dl'; GALLERY_MODE='binary'; return 0
++  fi
++  if have python3 && python3 -m gallery_dl --version >/dev/null 2>&1; then
++    GALLERY='python3'; GALLERY_MODE='module'; return 0
++  fi
++  return 1
++}
++
++run_gallery() {
++  if [ "$GALLERY_MODE" = 'module' ]; then
++    "$GALLERY" -m gallery_dl "$@"
++  else
++    "$GALLERY" "$@"
++  fi
++}
++
++install_or_update_deps() {
++  if ! have python3; then
++    err 'Python3 is missing. a-Shell needs Python to install these packages.'
++    return 1
++  fi
++  say '[C] Installing/updating yt-dlp and gallery-dl (explicit request)...'
++  if python3 -m pip install --user --upgrade yt-dlp gallery-dl; then
++    say '[C] Packages updated. Run: c --doctor'
++    return 0
++  fi
++  err 'pip installation failed; check a-Shell Python/pip and network access.'
++  return 1
++}
++
++is_instagram_post() {
++  case "${1:-$INPUT}" in
++    https://instagram.com/p/*|https://www.instagram.com/p/*|https://m.instagram.com/p/*|http://instagram.com/p/*|http://www.instagram.com/p/*)
++      return 0 ;;
++  esac
++  return 1
++}
++
++instagram_post_slug() {
++  slug=$(printf '%s\n' "${1:-$INPUT}" | sed -n 's#^.*/p/\([^/?][^/?]*\).*#\1#p' | tr -cd 'A-Za-z0-9_-')
++  [ -n "$slug" ] || slug='post'
++  printf '%s' "$slug"
++}
++
++is_gallery_media() {
++  case "$1" in
++    *.jpg|*.JPG|*.jpeg|*.JPEG|*.png|*.PNG|*.webp|*.WEBP|*.gif|*.GIF|*.heic|*.HEIC|*.avif|*.AVIF|*.mp4|*.MP4|*.mov|*.MOV|*.m4v|*.M4V|*.webm|*.WEBM|*.mkv|*.MKV)
++      return 0 ;;
++  esac
++  return 1
++}
++
++# Downloads every asset of the post into its own folder and fills OUTPUTS /
++# OUTPUT_FILE / OUTPUT_COUNT, so finish() (Photos SAFE or Files) works as usual.
++run_gallery_download() {
++  if ! find_gallery; then
++    err 'Instagram photos/carousels need gallery-dl.'
++    say 'Install it in a-Shell with: c --setup'
++    say 'Or: python3 -m pip install --user --upgrade gallery-dl'
++    return 1
++  fi
++  if [ -n "${WORK_DIR:-}" ] && [ -d "$WORK_DIR" ]; then
++    rm -rf "$WORK_DIR" 2>/dev/null || true
++  fi
++  new_work_dir
++  g_work="$WORK_DIR/gallery"
++  mkdir -p "$g_work" || return 1
++  say ''
++  say '[C] Gallery mode: downloading every photo/video of the post...'
++  set -- --no-input -D "$g_work" --no-mtime --retries 3
++  [ -z "$COOKIES" ] || set -- "$@" --cookies "$COOKIES"
++  set -- "$@" "$INPUT"
++  # An extractor may exit non-zero after saving some items: success = files exist.
++  g_rc=0
++  run_gallery "$@" || g_rc=$?
++  g_count=0; g_imgs=0; g_vids=0
++  for f in "$g_work"/*; do
++    [ -f "$f" ] || continue
++    is_gallery_media "$f" || continue
++    is_temp_artifact "${f##*/}" && continue
++    g_count=$((g_count + 1))
++    if is_video_file "$f"; then g_vids=$((g_vids + 1)); else g_imgs=$((g_imgs + 1)); fi
++  done
++  if [ "$g_count" -eq 0 ]; then
++    err 'gallery-dl did not produce any complete media files.'
++    if [ -z "$COOKIES" ]; then
++      say 'If the post needs a login, give your own cookies file:'
++      say '  c --cookies cookies.txt --smart "POST_URL"'
++    fi
++    return 1
++  fi
++  stamp=$(date '+%Y%m%d_%H%M%S' 2>/dev/null || printf 'job')
++  if is_instagram_post; then tag="Instagram_$(instagram_post_slug)"; else tag='Cinema_Gallery'; fi
++  GALLERY_OUTPUT_DIR="$DOWNLOAD_DIR/${tag}_${stamp}_$$"
++  mkdir -p "$GALLERY_OUTPUT_DIR" || return 1
++  OUTPUTS=''; OUTPUT_FILE=''; OUTPUT_COUNT=0
++  for f in "$g_work"/*; do
++    [ -f "$f" ] || continue
++    is_gallery_media "$f" || continue
++    is_temp_artifact "${f##*/}" && continue
++    if mv "$f" "$GALLERY_OUTPUT_DIR/"; then
++      dest="$GALLERY_OUTPUT_DIR/${f##*/}"
++      [ -n "$OUTPUT_FILE" ] || OUTPUT_FILE=$dest
++      OUTPUTS="$OUTPUTS$dest
++"
++      OUTPUT_COUNT=$((OUTPUT_COUNT + 1))
++    else
++      warn "Could not move: ${f##*/}"
++    fi
++  done
++  [ "$OUTPUT_COUNT" -gt 0 ] || return 1
++  [ "$g_rc" -eq 0 ] || warn 'gallery-dl reported some errors; kept every file it could fetch.'
++  log_history
++  say ''
++  say "[C] Saved $OUTPUT_COUNT file(s): $g_imgs photo(s), $g_vids video(s)."
++  say "[C] Folder: $GALLERY_OUTPUT_DIR"
++  [ "$g_imgs" -eq 0 ] || say '[C] Photos: open the folder in Files -> Share -> Save Image.'
++  return 0
++}
++
+ validate_connections() {
+   case "$CONNECTIONS" in
+     ''|*[!0-9]*)
+@@ -473,6 +623,18 @@
+         SELF_TEST=1
+         shift
+         ;;
++      --smart)
++        SMART_MODE='smart'
++        shift
++        ;;
++      --gallery)
++        SMART_MODE='gallery'
++        shift
++        ;;
++      --setup)
++        DO_SETUP=1
++        shift
++        ;;
+       --version)
+         say "$APP $VERSION"
+         exit 0
+@@ -1330,6 +1492,14 @@
+       ytdlp_attempt "$fallback" "$action" "$FB_IMPERSONATE" && recovered=1
+     fi
+ 
++    # V36: "There is no video in this post" -> a photo/carousel post, not a broken yt-dlp
++    if [ "$recovered" -eq 0 ] && is_instagram_post && [ "$action" != 'm4a' ] && [ "$action" != 'mp3' ]; then
++      warn 'yt-dlp found no video: this Instagram post is photos/carousel. Switching to gallery-dl...'
++      if run_gallery_download; then
++        return 0
++      fi
++    fi
++
+     if [ "$recovered" -eq 0 ]; then
+       err 'yt-dlp reported a download error.'
+       up=n
+@@ -2401,6 +2571,11 @@
+   else
+     say 'yt-dlp: NOT FOUND  ->  pip install yt-dlp'
+   fi
++  if find_gallery; then
++    say "gallery-dl: $(run_gallery --version 2>/dev/null || printf '?') ($GALLERY_MODE)"
++  else
++    say 'gallery-dl: MISSING (Instagram photos/carousels)  ->  c --setup'
++  fi
+   if have pbpaste; then say 'clipboard (pbpaste): OK'; else say 'clipboard (pbpaste): missing'; fi
+   if ! have ffmpeg; then
+     say 'ffmpeg: MISSING (Photos SAFE and Audio Lab disabled)'
+@@ -2958,7 +3133,13 @@
+   st_expect 'keep ts' '' "$(is_temp_artifact 'فيديو [id].ts' && printf temp)"
+   st_expect 'video mp4' 'v' "$(is_video_file 'a.mp4' && printf v)"
+   st_expect 'not video jpg' '' "$(is_video_file 'a.jpg' && printf v)"
++  st_expect 'ig post yes' 'p' "$(is_instagram_post 'https://www.instagram.com/p/DdcxrlloOml/?x=1' && printf p)"
++  st_expect 'ig reel no' '' "$(is_instagram_post 'https://www.instagram.com/reel/C1xYz/' && printf p)"
++  st_expect 'ig slug' 'DdcxrlloOml' "$(instagram_post_slug 'https://www.instagram.com/p/DdcxrlloOml/?obrf=x')"
++  st_expect 'gallery media heic' 'g' "$(is_gallery_media 'a.HEIC' && printf g)"
++  st_expect 'gallery skip json' '' "$(is_gallery_media 'a.json' && printf g)"
+   if have ffmpeg; then say 'ffmpeg: present'; else say 'ffmpeg: missing (Photos SAFE / Studio off)'; fi
++  if find_gallery; then say 'gallery-dl: present'; else say 'gallery-dl: missing (c --setup)'; fi
+   if find_ytdlp; then say 'yt-dlp: present'; else say 'yt-dlp: missing (pip install yt-dlp)'; fi
+   say '----------------------------------------'
+   say "self-test: $ST_PASS passed, $ST_FAIL failed"
+@@ -2991,6 +3172,11 @@
+     exit 0
+   fi
+ 
++  if [ "$DO_SETUP" -eq 1 ]; then
++    install_or_update_deps
++    exit $?
++  fi
++
+   if [ "$DO_UPDATE" -eq 1 ]; then
+     update_ytdlp
+     exit $?
+@@ -3059,6 +3245,13 @@
+     exit $?
+   fi
+ 
++  # V36 SmartMedia: whole Instagram post (photos, carousel, photo+video)
++  if [ "$SMART_MODE" = 'gallery' ] || { [ "$SMART_MODE" = 'smart' ] && is_instagram_post; }; then
++    run_gallery_download || exit 1
++    finish
++    exit $?
++  fi
++
+   show_menu
+   while :; do
+     printf 'Number: '

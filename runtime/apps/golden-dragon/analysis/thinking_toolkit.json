@@ -1,0 +1,516 @@
+{
+  "tools": [
+    {
+      "id": "polya-four-phases",
+      "name_ar": "مراحل بوليا الأربعة: افهم، خطّط، نفّذ، راجع",
+      "source": [
+        "George Polya — How to Solve It (1945) والمسألة المساعدة: ~/.claude/skills/ultra-mind/references/books.md §حل المشكلات بند 1 و2",
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ① (افهم قبل ما تحل)",
+        "~/.claude/skills/ultra-mind/references/verification.md §رياضيات/منطق (التعويض العكسي، الحالة الصغيرة)",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md أداة 2 و5"
+      ],
+      "use_when": ["understand", "plan", "analyze", "debug", "estimate"],
+      "steps_ar": [
+        "افهم: اكتب المجهول والمعطيات والشروط قبل أي حل؛ لو مش قادر تكتبهم يبقى لسه مافهمتش.",
+        "خطّط: دوّر على مسألة حلّيتها قبل كده تشبهها، أو ابدأ بجزء منها أو حالة صغيرة (n=1,2).",
+        "نفّذ الخطة خطوة خطوة، وافحص كل خطوة لوحدها قبل ما تبني عليها.",
+        "راجع: رجّع الناتج للشروط الأصلية، وجرّب توصل له بطريقة تانية أو بحالة صغيرة معروفة نتيجتها."
+      ],
+      "check_ar": "هل المجهول والشروط اتكتبوا قبل الحل، والناتج اترجّع عليهم في الآخر؟",
+      "trigger_words": ["حل", "مسألة", "إزاي أعمل", "خطوة خطوة", "اتزنقت", "مش عارف أبدأ منين", "لغز", "solve", "problem", "step by step", "stuck", "puzzle"]
+    },
+    {
+      "id": "restate-and-unknowns",
+      "name_ar": "أعد صياغة الطلب: المقال، والمقصود، واللي ناقص",
+      "source": [
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ① (المطلوب فعلًا مقابل المفهوم ضمنيًا)",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md §1 ① اقرا الإنسان",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md أداة 1 (أعد صياغة الطلب)",
+        "~/.claude/skills/planning-mind/SKILL.md §1 افهم (كارت الفهم 6 بنود) و«شكل أول رد»",
+        "~/.claude/skills/golden-dragon/mind/lessons_seed.jsonl (s01، h28) و ~/.claude/skills/golden-dragon/mind/OWNER_ESSENCE.md §إزاي تقرا كلامه"
+      ],
+      "use_when": ["understand", "plan"],
+      "steps_ar": [
+        "اكتب الطلب كجملة واحدة من صياغتك انت؛ أي كلمة فيها جت من تخمين علّم عليها.",
+        "افصل الكلام الحرفي عن الهدف اللي وراه، وعن اللي هيضيع لو غلطت: وقت، ملف، فلوس، سمعة.",
+        "في الرسايل الطويلة أو الملزوقة الطلب غالبًا الجملة القصيرة الأخيرة؛ وغلطات الصوت والكيبورد فكّها من السياق وقول فكّيتها إزاي.",
+        "افتح ردك بـ «فهمت إنك عايز: …» وبعدها «هعمل: …» عشان أي سوء فهم يتصحّح بدري."
+      ],
+      "check_ar": "تقدر تكتب الطلب في جملة من غير كلماته، وتشاور على كل تخمين فيها؟",
+      "trigger_words": ["مش واضح", "قصدي", "يعني", "زي ما قلتلك", "حاجة كده", "ظبطلي", "طوّر", "شوف ده", "I mean", "something like", "unclear", "vague"]
+    },
+    {
+      "id": "constraint-ledger",
+      "name_ar": "سجل القيود والكلمات اللي بتقلب المعنى",
+      "source": [
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ① (الكلمات اللي بتقلب المعنى)",
+        "~/.claude/skills/ultra-mind/references/failure-modes.md (نسيان قيد، اللغز المشهور المعدّل، استبدال السؤال)",
+        "Daniel Kahneman — Thinking, Fast and Slow (استبدال السؤال الصعب بسؤال أسهل): ~/.claude/skills/ultra-mind/references/books.md بند 5",
+        "Atul Gawande — The Checklist Manifesto: ~/.claude/skills/ultra-mind/references/books.md بند 26 و ~/.claude/skills/ultra-mind/references/verification.md",
+        "~/.claude/skills/golden-dragon/engine/skills/planning-mind/data/council.json (logic_checks) و mistakes_seed.jsonl (M03، M08)",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md ⑨ انقد نفسك"
+      ],
+      "use_when": ["understand", "review", "create"],
+      "steps_ar": [
+        "اعمل قايمة مرقّمة بكل شرط: مقاس، مدة، لغة، عدد، ميعاد، ممنوعات، ومعاها الطلب الصغير اللي في آخر الرسالة.",
+        "علّم كلمات النفي والاستثناء والحدود («مش»، «إلا»، «على الأقل») والوحدات؛ و«نفس» معناها مطابق حرفيًا مش قريب منه.",
+        "لو الطلب شبه لغز أو مهمة مشهورة، اكتب إيه المختلف هنا عن النسخة المعروفة قبل ما تحل.",
+        "قبل التسليم امشي على القايمة بند بند، واسأل: رديت على المطلوب ده بالظبط ولا على سؤال أسهل؟"
+      ],
+      "check_ar": "هل كل بند في القايمة عليه ✓ في الناتج، ومفيش كلمة اتفهمت حرفيًا وهي مجاز (أو العكس)؟",
+      "trigger_words": ["بالظبط", "نفس", "لازم", "ممنوع", "من غير", "على الأقل", "بس", "إلا", "exactly", "must", "only", "without"]
+    },
+    {
+      "id": "ask-or-assume-gate",
+      "name_ar": "بوابة: أسأل ولا أفترض؟",
+      "source": [
+        "~/.claude/skills/planning-mind/SKILL.md §2 قرّر: أسأل ولا أفترض (الخطر = الأثر × عدم اليقين)",
+        "~/.claude/skills/planning-mind/references/asking.md §2 (3 فلاتر قبل أي سؤال) و§6 (بعد الإجابة)",
+        "~/.claude/skills/planning-mind/references/research-basis.md §1 (Clarify When Necessary؛ Knowing but Not Showing)",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md §2 إمتى أسأل وإمتى أتصرف",
+        "John Whitmore — Coaching for Performance (GROW): ~/.claude/skills/coaching-grow/SKILL.md 场景一",
+        "关键跨越(新手篇) — خلّي اللي قدامك يختار من اختيارات مش يجاوب سؤال مفتوح: ~/.claude/skills/first-time-manager/SKILL.md 场景三",
+        "~/.claude/skills/golden-dragon/mind/OWNER_ESSENCE.md §بيتضايق من إيه (أسئلة الموافقة الروتينية)"
+      ],
+      "use_when": ["understand", "plan", "communicate"],
+      "steps_ar": [
+        "أي حاجة تقدر تعرفها من ملف أو أمر أو المحادثة في أقل من دقيقة: اعرفها بنفسك وماتسألش.",
+        "لكل بند ناقص ادّي الأثر وعدم اليقين درجة من 0 لـ3؛ حاصل الضرب 6 أو أكتر يبقى اسأل، غير كده افترض وأعلن.",
+        "اسأل سؤال واحد باختيارات مش سؤال مفتوح، أولها مقترحك ⭐ وسببه، واشتغل في المستقل عن الإجابة وانت مستني.",
+        "لو قال «ناقشني» أو «ساعدني أفكر»: سؤال واحد في المرة بترتيب GROW: الهدف، الوضع واللي اتجرّب، الاختيارات، الخطوة الجاية."
+      ],
+      "check_ar": "هل كل سؤال اتسأل كانت إجابته هتغيّر الناتج، وظهرت فعلًا في الناتج بعد ما اتجاوب؟",
+      "trigger_words": ["اسألني لو مش واضح", "مش متأكد", "اللي تشوفه", "نفّذ", "ناقشني", "ساعدني أفكر", "مش عارف عايز إيه", "ask me", "clarify", "your call", "help me think", "not sure"]
+    },
+    {
+      "id": "begin-with-the-end",
+      "name_ar": "ابدأ من الآخر: التسليم ودليله، وبعدين أرخص تجربة",
+      "source": [
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md ② ابدأ من الآخر و⑥ نفّذ صغير",
+        "Polya — اشتغل من الآخر للأول: ~/.claude/skills/ultra-mind/references/books.md بند 1 و ~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md أداة 3",
+        "~/.claude/skills/dragon-genius/SKILL.md ④ الأرخص الأول و⑤ نفّذ صغير وقابل للرجوع",
+        "~/.claude/skills/planning-mind/SKILL.md §4 (أرخص اختبار)",
+        "Antonio Gulli — Agentic Design Patterns (الحل الثابت قبل الوكيل): ~/.claude/skills/agent-design-patterns/SKILL.md §Core Philosophy"
+      ],
+      "use_when": ["plan", "create", "understand"],
+      "steps_ar": [
+        "قبل أول أداة اكتب لنفسك: «التسليم: ___ في ___، وهعرف إنه صح لما ___».",
+        "ارجع لورا من التسليم: كل مرحلة محتاجة إيه قبلها مباشرة؟ لحد ما توصل لأول خطوة تقدر تعملها حالًا.",
+        "قبل ما تبني جديد: فيه حاجة جاهزة، أداة متثبتة، أو حل ثابت بكود بسيط يعملها؟",
+        "جرّب على عيّنة (ثواني، صفوف قليلة، صفحة واحدة) قبل الشغل الكامل أو أي خطوة غالية."
+      ],
+      "check_ar": "هل سطر التسليم ومعيار «صح» اتكتبوا قبل أول أداة، والعيّنة نجحت قبل الشغل الكامل؟",
+      "trigger_words": ["اعملي", "ابنيلي", "جهّزلي", "عايز ملف", "ريل", "تقرير", "تطبيق", "مشروع", "build", "make", "deliver", "ship"]
+    },
+    {
+      "id": "first-principles",
+      "name_ar": "المبادئ الأولى: ابني من اللي صحيح أكيد",
+      "source": [
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ② (فكّك لمبادئ أولى، least-to-most)",
+        "~/.claude/skills/compounding-operating-system/SKILL.md §Decision process (بند المبادئ الأولى) و§Output (First Principles)",
+        "René Descartes — Discourse on Method: ~/.claude/skills/ultra-mind/references/books.md بند 4",
+        "Step-Back Prompting (Zheng et al. 2023) و Least-to-Most (Zhou et al. 2022): ~/.claude/skills/ultra-mind/references/research.md",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md أداة 14 (اكسر افتراض)"
+      ],
+      "use_when": ["analyze", "decide", "create", "plan"],
+      "steps_ar": [
+        "افصل الحقايق المؤكدة (قيود فيزيائية، أرقام مقاسة، شروط صاحب الشغل) عن العادات والافتراضات.",
+        "اكتب 3–5 افتراضات محدش قالها، واسأل عن كل واحد: لو شلناه، الحل يتغيّر إزاي؟",
+        "اسأل: المسألة دي حالة من أنهي مبدأ أو نوع مسائل؟ وابني الحل من المبدأ مش من «المعتاد».",
+        "قسّم الكبيرة لأجزاء أبسط، وحلّها من الأسهل للأصعب، وكل جزء يستخدم ناتج اللي قبله."
+      ],
+      "check_ar": "هل كل جزء في الحل يتبرر بحقيقة مكتوبة، مش بـ«ده اللي بيتعمل عادة»؟",
+      "trigger_words": ["من الأساس", "من الصفر", "ليه لازم كده", "أصل المشكلة", "فكّر من جديد", "مبدأ", "first principles", "from scratch", "fundamentals", "rethink", "why must"]
+    },
+    {
+      "id": "outside-view",
+      "name_ar": "النظرة من برّه: المعدل الأساسي قبل تفاصيل الحالة",
+      "source": [
+        "Daniel Kahneman — Outside View / إهمال المعدل الأساسي: ~/.claude/skills/ultra-mind/references/books.md بند 6",
+        "Philip Tetlock & Dan Gardner — Superforecasting: ~/.claude/skills/ultra-mind/references/books.md بند 17",
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ② و ~/.claude/skills/ultra-mind/scripts/scaffold.py (forecast) و ~/.claude/skills/ultra-mind/references/verification.md §تنبؤ/تقدير",
+        "~/.claude/skills/compounding-operating-system/SKILL.md (المعدلات الأساسية لو متاحة، ومن غير دقة متألّفة)",
+        "~/.claude/skills/deepread/SKILL.md §5 Test the reasoning (غياب مجموعة المقارنة أو خط الأساس)"
+      ],
+      "use_when": ["estimate", "decide", "analyze", "plan"],
+      "steps_ar": [
+        "حدّد الفئة اللي الحالة دي واحدة منها (مشاريع شبهها، تطبيقات من نوعها، طلبات زيها قبل كده).",
+        "هات معدل الفئة من مصدر أو سجل حقيقي؛ لو مش متاح قول «مجهول» وماتألّفش رقم.",
+        "ابدأ من المعدل، وحرّكه بتفاصيل الحالة تحريكات صغيرة، كل واحدة بسببها.",
+        "أي رقم أو ادعاء قارنه بخط أساس: أكتر من إيه؟ مقارنة بمين؟ في أنهي فترة؟"
+      ],
+      "check_ar": "هل التقدير بدأ من رقم الفئة، أو قال صراحة إنه مش متاح، قبل تفاصيل الحالة؟",
+      "trigger_words": ["هياخد قد إيه", "احتمال", "هينجح؟", "متوقع", "عادة", "نسبة", "كام في المية", "how likely", "chances", "typically", "forecast", "base rate"]
+    },
+    {
+      "id": "fermi-estimate",
+      "name_ar": "تقدير فيرمي: فكّك الرقم وخمّن قبل ما تحسب",
+      "source": [
+        "Fermi Estimation و Douglas Hubbard — How to Measure Anything: ~/.claude/skills/ultra-mind/references/books.md بند 15 و16",
+        "Tetlock — فكّك السؤال (Fermi-ize): ~/.claude/skills/ultra-mind/references/books.md بند 17",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md أداة 9 و10",
+        "Program-of-Thoughts / PAL: ~/.claude/skills/ultra-mind/references/research.md و ~/.claude/skills/ultra-mind/references/failure-modes.md (الحساب الذهني، الوحدات)"
+      ],
+      "use_when": ["estimate", "analyze", "plan"],
+      "steps_ar": [
+        "قبل أي حساب اكتب تخمين سريع لحجم النتيجة (عشرات؟ آلاف؟ ملايين؟).",
+        "فكّك المجهول لحاصل ضرب عوامل تقدر تقدّرها، وادّي كل عامل نطاق (من–لحد) مش رقم واحد.",
+        "احسب بكود مش في دماغك، والوحدة جنب كل رقم: بت/بايت، ثانية/فريم، 1000/1024.",
+        "لو الناتج بعيد عن تخمينك بأكتر من 10 أضعاف: فيه وحدة أو عامل غلط، لاقيه قبل ما تسلّم."
+      ],
+      "check_ar": "هل الرقم النهائي نطاق مبني على عوامل، ومتقارن بتخمين مبدئي، ووحداته مكتوبة؟",
+      "trigger_words": ["كام", "تقريبًا", "قدّر", "حجم", "هياخد وقت قد إيه", "تكلفة", "مساحة", "estimate", "how many", "how much", "ballpark", "rough"]
+    },
+    {
+      "id": "competing-hypotheses",
+      "name_ar": "تحليل الفرضيات المتنافسة (ACH)",
+      "source": [
+        "Richards Heuer — Psychology of Intelligence Analysis (ACH): ~/.claude/skills/ultra-mind/references/books.md بند 11",
+        "Judea Pearl & Dana Mackenzie — The Book of Why (مُربك، سببية معكوسة): ~/.claude/skills/ultra-mind/references/books.md بند 13",
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ③ و ~/.claude/skills/ultra-mind/scripts/scaffold.py (analysis: ACH matrix)",
+        "~/.claude/skills/planning-mind/SKILL.md §4 (فرضيات متنافسة)",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md أدوات 6 و7 و8"
+      ],
+      "use_when": ["analyze", "debug", "decide", "understand"],
+      "steps_ar": [
+        "اكتب 2–4 تفسيرات مختلفة فعلًا؛ ولو الادعاء «X سبب Y» ضيف: عامل مُربك، سببية معكوسة، صدفة.",
+        "لكل تفسير: لو هو اللي صح، إيه اللي لازم يبان؟ ودوّر على الدليل اللي بيميّز بينهم بس.",
+        "اعمل جدول تفسيرات × أدلة، وعلّم الدليل اللي بيهدم كل تفسير؛ الأقل أدلة ضده يكسب مؤقتًا.",
+        "ابدأ بالأسباب العادية (مسار أو مجلد غلط، ترميز، نسخة قديمة، كاش) قبل أي تفسير غريب."
+      ],
+      "check_ar": "هل الدليل اللي حسم كان بيفرّق بين التفسيرات، ولا كان هيتوافق مع كلهم؟",
+      "trigger_words": ["ليه حصل", "السبب", "إيه اللي عمل كده", "تفسير", "غريب", "مش منطقي", "بسبب", "why did", "cause", "explain why", "diagnose"]
+    },
+    {
+      "id": "falsify-it",
+      "name_ar": "التكذيب: الملاحظة اللي لو ظهرت تهدّ استنتاجك",
+      "source": [
+        "Karl Popper — The Logic of Scientific Discovery: ~/.claude/skills/ultra-mind/references/books.md بند 12",
+        "Julia Galef — The Scout Mindset: ~/.claude/skills/ultra-mind/references/books.md بند 9",
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ⑤ و§3 القاعدة 5",
+        "~/.claude/skills/planning-mind/SKILL.md §4 (كذّب نفسك)",
+        "~/.claude/skills/compounding-operating-system/SKILL.md (بند الـ red-team ومحاولة التكذيب قبل القبول)",
+        "~/.claude/skills/golden-dragon/mind/lessons_seed.jsonl h09 (نجاح 100% على حالات متظبطة مش دليل)"
+      ],
+      "use_when": ["analyze", "review", "decide", "debug"],
+      "steps_ar": [
+        "قبل الحكم اكتب: «لو لقيت ___ يبقى أنا غلطان»، وخلّيها حاجة محددة تتقاس.",
+        "دوّر عليها فعلًا: مثال مضاد، حالة طرفية، أو بيانات جديدة ماشافهاش الحل قبل كده.",
+        "لو ظهرت عدّل الاستنتاج نفسه بدل ما تدوّر على مبرر يحافظ عليه؛ ولو ماظهرتش قول دوّرت فين.",
+        "اختبار الكشاف: لو نفس الدليل كان في صف الرأي العكسي، كنت هتصدّقه بنفس السهولة؟"
+      ],
+      "check_ar": "هل اتكتبت قبل الحكم ملاحظة محددة كانت هتهدّه، واتدوّر عليها فعلًا؟",
+      "trigger_words": ["متأكد؟", "أكيد؟", "اثبت", "راجع كلامك", "ده صح؟", "ممكن يكون غلط", "prove", "are you sure", "counterexample", "falsify", "sanity check"]
+    },
+    {
+      "id": "inversion",
+      "name_ar": "اعكس: إيه اللي يضمن الفشل؟",
+      "source": [
+        "Charlie Munger — The Psychology of Human Misjudgment (Inversion): ~/.claude/skills/ultra-mind/references/books.md بند 8",
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ⑤ و ~/.claude/skills/ultra-mind/references/creativity.md أداة 2 (عكس الافتراضات)",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md §3 (اعكس السؤال)",
+        "Jim Collins — Good to Great (قايمة «بطّل تعمل» 停止做清单): ~/.claude/skills/good-to-great/SKILL.md 场景二"
+      ],
+      "use_when": ["plan", "decide", "create", "review"],
+      "steps_ar": [
+        "اقلب السؤال: لو عايز الشغل ده يفشل أكيد، هعمل إيه؟ اكتب 5 حاجات.",
+        "حوّلهم لقايمة «ماتعملش» وحطها قيود صريحة في الخطة.",
+        "راجع حلّك الحالي على القايمة؛ لو بيعمل أي بند منها غيّره قبل ما تكمّل.",
+        "للأفكار الجديدة: اقلب افتراض بديهي واسأل: لو العكس هو الصح، الحل يبقى شكله إيه؟"
+      ],
+      "check_ar": "فيه قايمة «ماتعملش» مكتوبة، والحل اتراجع عليها بند بند؟",
+      "trigger_words": ["إزاي منفشلش", "إيه اللي ممكن يبوّظ", "أتجنب إيه", "غلطات", "ماعملش إيه", "عكس", "avoid", "what not to do", "pitfalls", "invert"]
+    },
+    {
+      "id": "premortem",
+      "name_ar": "تشريح قبل الفشل (Pre-mortem)",
+      "source": [
+        "Gary Klein — Pre-mortem (HBR 2007) / Sources of Power: ~/.claude/skills/ultra-mind/references/books.md بند 19",
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ⑤ و ~/.claude/skills/ultra-mind/references/verification.md §قرار/خطة",
+        "~/.claude/skills/planning-mind/SKILL.md §4 و ~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md ⑤ و reasoning-toolkit.md أداة 13",
+        "~/.claude/skills/expert-council/references/personas.md §2 المقعد 1 (المشكّك / الفريق الأحمر)"
+      ],
+      "use_when": ["plan", "decide", "create", "review"],
+      "steps_ar": [
+        "افترض إن الشغل اتسلّم وصاحبه رفضه. اكتب أكتر 3 أسباب محتملة، محددة مش عامة.",
+        "قصاد كل سبب حط فحص أو احتياط جوه الخطة، ويفضّل في أولها قبل الخطوات الغالية.",
+        "حدّد الافتراض اللي لو طلع غلط كل حاجة تقع، واختبره بأرخص طريقة دلوقتي."
+      ],
+      "check_ar": "هل كل سبب فشل متوقع ليه فحص أو احتياط باسم خطوة في الخطة؟",
+      "trigger_words": ["خطة", "هنطلق", "قبل ما نبدأ", "مخاطر", "ممكن يفشل", "ماتغلطش", "تسليم نهائي", "risk", "launch", "what could go wrong", "before we start"]
+    },
+    {
+      "id": "alternatives-before-commit",
+      "name_ar": "ولّد بدائل قبل ما تختار، واختار بمعايير",
+      "source": [
+        "Tree of Thoughts (Yao et al. 2023): ~/.claude/skills/ultra-mind/references/research.md و ~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ③ و§3 القاعدة 1",
+        "Kahneman, Sibony & Sunstein — Noise؛ Bezos — Type 1 / Type 2 decisions: ~/.claude/skills/ultra-mind/references/books.md بند 7 و22",
+        "~/.claude/skills/ultra-mind/references/creativity.md (تباعد ثم انتقاء) و ~/.claude/skills/ultra-mind/references/verification.md §قرار/خطة",
+        "~/.claude/skills/planning-mind/references/workflows.md §قرار / اختيار / استراتيجية",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md أداة 11 و12"
+      ],
+      "use_when": ["decide", "create", "plan"],
+      "steps_ar": [
+        "اكتب 2–4 طرق مختلفة فعلًا (بإيدك، بأداة موجودة، أو بتغيير تعريف المشكلة)؛ وفي القرارات ضيف «ماتعملش حاجة».",
+        "حدّد المعايير وأوزانها، وقيّم كل بديل على كل معيار لوحده قبل الحكم الكلي، والحساب بكود.",
+        "اسأل: القرار يترجع فيه؟ لو أيوه خده بسرعة وجرّب؛ لو لأ بطّأ وزوّد التحقق.",
+        "في الإبداع: الأفكار الأولى المتوقعة اكتبها وعدّيها لحد 6–10 من فئات مختلفة، وقدّم ⭐ وبديل جريء."
+      ],
+      "check_ar": "هل البدائل مختلفة فعلًا مش نسخ من فكرة واحدة، والاختيار متبرر بمعايير مكتوبة؟",
+      "trigger_words": ["أختار", "أنهي أحسن", "ولا", "قارن", "بدائل", "أفكار", "اقترح", "قرار", "which", "compare", "options", "should I"]
+    },
+    {
+      "id": "red-team-council",
+      "name_ar": "الفريق الأحمر ومجلس محامي الشيطان",
+      "source": [
+        "~/.claude/skills/expert-council/SKILL.md و ~/.claude/skills/expert-council/references/council-protocol.md (جولة مستقلة، اشتباك steelman، تحقيق، حكم)",
+        "Micah Zenko — Red Team؛ Surowiecki — The Wisdom of Crowds؛ Multi-agent Debate (Du et al. 2023): ~/.claude/skills/expert-council/references/council-protocol.md §1",
+        "~/.claude/skills/expert-council/references/personas.md §2 المقاعد الإلزامية و§5 الأنماط الممنوعة",
+        "~/.claude/skills/dragon-genius/SKILL.md ⑦ المراجعة العدائية",
+        "~/.claude/skills/compounding-operating-system/SKILL.md §Output (Red-Team Critique)",
+        "Antonio Gulli — Agentic Design Patterns (مراجع واحد قبل نقاش وكلاء كتير): ~/.claude/skills/agent-design-patterns/SKILL.md 场景二"
+      ],
+      "use_when": ["review", "decide", "create", "analyze"],
+      "steps_ar": [
+        "ابدأ بناقد واحد ياخد الناتج والطلب بس من غير رأيك، وكلّفه يصطاد الأخطاء مش يمدح ولا يلخّص.",
+        "للقرار الكبير: 3–5 مقاعد بمعايير مختلفة (خبير، جمهور، عملي، متشكك)، وكل مقعد يحكم لوحده الأول.",
+        "في أي خلاف: كل طرف يعرض أقوى نسخة من حجة التاني قبل ما يرد، والقياس أو التجربة يحسم.",
+        "خد الملاحظات اللي صمدت بس، ولو فيه اعتراض قوي لسه قايم اكتبه صراحة جنب الحكم."
+      ],
+      "check_ar": "هل النقد جه من حد ماشافش استنتاجك، ولو الكل اتفق من أول جولة اتطلب هجوم أقوى؟",
+      "trigger_words": ["مجلس خبراء", "محامي الشيطان", "انقد", "قيّم", "رأي الخبراء", "اعترض عليا", "red team", "devil's advocate", "critique", "poke holes", "second opinion"]
+    },
+    {
+      "id": "root-cause-trace",
+      "name_ar": "السبب الجذري: ارجع لورا لحد أول سبب",
+      "source": [
+        "~/.claude/skills/systematic-debugging/SKILL.md (The Iron Law؛ The Four Phases)",
+        "~/.claude/skills/systematic-debugging/root-cause-tracing.md (The Tracing Process؛ Key Principle)",
+        "~/.claude/skills/dragon-genius/references/agent-ops.md §5 تشخيص الفشل (أول فشل سبّب الباقي، حد 3 محاولات)",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md ⑦ اقرا النتيجة و§5 (تصديق تشخيص المستخدم من غير تأكد)"
+      ],
+      "use_when": ["debug", "analyze"],
+      "steps_ar": [
+        "اقرا الخطأ للآخر (الـ stack trace كامل)، وافصل العَرَض اللي اتشاف عن أي تشخيص جاهز، حتى لو من المستخدم.",
+        "من مكان الخطأ اسأل: مين نادى ده وبأنهي قيمة؟ وكرّر السؤال لورا لحد ما تلاقي أول مصدر للقيمة الغلط.",
+        "قارن بنسخة شبهها شغالة واكتب كل فرق، وبعدين فرضية واحدة مكتوبة: «السبب X لأن Y».",
+        "صلّح عند المصدر مش عند العَرَض؛ ولو 3 تصليحات فشلت وقّف وراجع التصميم نفسه."
+      ],
+      "check_ar": "تقدر تشاور على السطر أو القيمة اللي بدأت المشكلة، وتشرح ليه التصليح هناك مش عند العَرَض؟",
+      "trigger_words": ["مش شغال", "باج", "خطأ", "بيضرب", "وقف فجأة", "اتكسر", "error", "crash", "bug", "failing", "broken", "exception"]
+    },
+    {
+      "id": "minimal-repro",
+      "name_ar": "إعادة إنتاج مصغّرة (Minimal Reproducible Example)",
+      "source": [
+        "~/.claude/skills/systematic-debugging/SKILL.md Phase 1 (Reproduce Consistently) و Phase 4 (Create Failing Test Case)",
+        "~/.claude/skills/writing-defect-reports/SKILL.md §Pick the narrowest injection point و§The anomaly is real; the headline may not be",
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ④ و ~/.claude/skills/ultra-mind/references/verification.md §كود/باجات",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md أداة 5 (صغّر المسألة)"
+      ],
+      "use_when": ["debug", "review", "analyze"],
+      "steps_ar": [
+        "اكتب خطوات دقيقة تطلّع المشكلة كل مرة؛ لو مابتتكررش اجمع دليل زيادة بدل التخمين.",
+        "صغّر: شيل أي حاجة والمشكلة لسه موجودة، لحد أصغر ملف أو أمر أو صف بيطلّعها.",
+        "حوّل الإعادة لاختبار بيفشل دلوقتي قبل التصليح، وغيّر حاجة واحدة بس في كل مرة.",
+        "اكسر أضيق نقطة تطلّع الفشل، واتأكد إنه فشل في المكان المقصود وعلى المستوى اللي المستخدم شافه."
+      ],
+      "check_ar": "فيه أمر أو ملف صغير بيطلّع المشكلة كل مرة، وبقى بيعدّي بعد التصليح بس؟",
+      "trigger_words": ["بيحصل ساعات", "مش بيتكرر", "عندي بس", "اختبار", "جرّب كده", "reproduce", "repro", "flaky", "intermittent", "test case", "minimal example"]
+    },
+    {
+      "id": "verify-api-not-memory",
+      "name_ar": "الـ API والأوامر من المصدر، مش من الذاكرة",
+      "source": [
+        "~/.claude/skills/strict-api/SKILL.md (The Only Rule؛ Workflow؛ Anti-Patterns)",
+        "~/.claude/skills/dragon-genius/SKILL.md ② أرّض: الحقيقة قبل الكلام",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md ④ أرّض و§2 (المعلومة الناقصة ماتتألّفش)",
+        "~/.claude/skills/planning-mind/SKILL.md §4 (قيس مش افترض)",
+        "~/.claude/skills/ultra-mind/references/failure-modes.md (معرفة قديمة، اختراع مصادر)"
+      ],
+      "use_when": ["debug", "create", "review", "analyze"],
+      "steps_ar": [
+        "اعمل قايمة بكل import ودالة وخيار أمر هتستخدمه، واعرف إصدار البرنامج المتثبت فعلًا.",
+        "اتأكد من كل واحد: --help على النسخة المتثبتة، أو كود المكتبة، أو توثيق الإصدار ده.",
+        "اللي مش متأكد منه علّم عليه بتعليق «اتأكد إنه موجود في إصدارك»، وماتكتبوش كأنه أكيد.",
+        "نفس القاعدة للأرقام والأسعار والتواريخ والمسارات: من قياس أو مصدر، والناقص يتعلّم [ناقص] ومايتألّفش."
+      ],
+      "check_ar": "هل كل دالة وخيار في الكود ليهم دليل وجود في الإصدار المتثبت، أو عليهم علامة شك واضحة؟",
+      "trigger_words": ["كود", "مكتبة", "أمر", "فلاج", "إصدار", "سكربت", "API", "import", "function", "version", "flag", "CLI"]
+    },
+    {
+      "id": "independent-verification",
+      "name_ar": "تحقق مستقل: عين غير اللي عملت",
+      "source": [
+        "Chain-of-Verification (Dhuliawala et al. 2023) و Huang et al. 2023: ~/.claude/skills/ultra-mind/references/research.md و ~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ⑥",
+        "~/.claude/skills/dragon-genius/SKILL.md ⑥ سلّم التحقق (VERIFIED / FAILED / NOT PERFORMED)",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md ⑧ و reasoning-toolkit.md أداة 16",
+        "~/.claude/skills/golden-dragon/mind/lessons_seed.jsonl (h15، h16، s48)",
+        "~/.claude/skills/writing-defect-reports/SKILL.md §A red gate is not an aside"
+      ],
+      "use_when": ["review", "debug", "analyze", "estimate"],
+      "steps_ar": [
+        "حضّر 3–5 أسئلة فحص محددة، وجاوبها من الصفر كأنك ماشفتش مسودتك.",
+        "افحص بطريقة غير اللي طلّعت الناتج: شغّل الكود، عوّض في المعادلة، قيس بأداة، اقرا الملف بعد كتابته.",
+        "اكتب نطاق الفحص (فحصت كام من كام) وحالته: اتأكد، فشل، أو ماتعملش.",
+        "لو طريقتين طلّعوا نتيجتين مختلفتين ماتختارش واحدة: افهم سبب الاختلاف الأول."
+      ],
+      "check_ar": "هل فيه فحص واحد على الأقل اتعمل بأداة أو طريقة غير اللي طلّعت الناتج؟",
+      "trigger_words": ["اتأكد", "شغّال؟", "خلصت؟", "افحص", "قيس", "تمام؟", "جرّبته؟", "verify", "check", "test", "confirm", "does it work"]
+    },
+    {
+      "id": "feynman-explain-back",
+      "name_ar": "اشرحها ببساطة عشان تتأكد إنك فاهم (Feynman)",
+      "source": [
+        "Richard Feynman — اشرحها ببساطة / Cargo Cult Science (1974): ~/.claude/skills/ultra-mind/references/books.md بند 3",
+        "~/.claude/skills/deepread/references/feynman.md (Procedure؛ Gap Types؛ Quality Rules)",
+        "~/.claude/skills/deepread/SKILL.md §7 Close the learning loop"
+      ],
+      "use_when": ["learn", "understand", "review", "communicate"],
+      "steps_ar": [
+        "من غير ما تبص على المصدر، اشرح الفكرة أو الحل بكلام بسيط من غير ما تشيل «ليه» و«عشان كده».",
+        "علّم أي جملة مبهمة أو مصطلح من غير شرح أو خطوة متنطّة، وحدّد أول حلقة مكسورة.",
+        "ارجع للمصدر في الحتة دي بس، وصلّحها بآلية أو مثال ملموس مش بمصطلح تاني.",
+        "اختبر: طبّق الفكرة على حالة جديدة، وقول حالة ماتنطبقش فيها."
+      ],
+      "check_ar": "تقدر تشرحها من الذاكرة لحد مش متخصص، وتقول إمتى ماتنفعش؟",
+      "trigger_words": ["اشرحلي", "فهّمني", "ببساطة", "يعني إيه", "إزاي بيشتغل", "علّمني", "explain", "ELI5", "how does it work", "teach me", "in simple terms"]
+    },
+    {
+      "id": "calibrate-and-update",
+      "name_ar": "عاير ثقتك وحدّثها بالدليل بس",
+      "source": [
+        "Philip Tetlock & Dan Gardner — Superforecasting (تحديث بخطوات صغيرة، فرّق بين 60% و70%): ~/.claude/skills/ultra-mind/references/books.md بند 17 و ~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ⑦",
+        "Sharma et al. 2023 (Sycophancy) و Kadavath et al. 2022: ~/.claude/skills/ultra-mind/references/research.md",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/references/reasoning-toolkit.md §معايرة الثقة",
+        "~/.claude/skills/deepread/SKILL.md §4 (labels الثقة الأربعة، ومن غير دقة رقمية مزيفة)",
+        "~/.claude/skills/dragon-genius/SKILL.md ⑧ التسليم (اتأكد بدليل / استنتاج / مجهول / ماتفحصش)",
+        "~/.claude/skills/writing-defect-reports/SKILL.md (القاعدة الأساسية: publish the claim you actually measured, at the layer you measured it)"
+      ],
+      "use_when": ["estimate", "analyze", "decide", "communicate", "review"],
+      "steps_ar": [
+        "صنّف كل ادعاء مهم: اتقاس، اتستنتج من دليل، ولا مفترض؛ والثقة بكلام محدد زي «مرجّح ~70% لأن…».",
+        "سمّي الإشارة اللي هتحرّك تقديرك، ولما تظهر حدّث بخطوة صغيرة مش بقفزة.",
+        "لو صاحب الشغل اعترض: غيّر رأيك لو فيه دليل أو حجة جديدة بس، وإلا وضّح بأدب ليه.",
+        "ماتعمّمش أبعد من اللي قسته: الادعاء على قد المستوى والنطاق اللي اتفحص فعلًا."
+      ],
+      "check_ar": "هل كل جملة مهمة في الرد واضح هي اتقاست ولا اتستنتجت ولا اتفترضت؟",
+      "trigger_words": ["متأكد قد إيه", "احتمال", "توقعك", "رأيك", "إنت غلطان", "لأ مش كده", "how sure", "confidence", "probability", "you're wrong", "update"]
+    },
+    {
+      "id": "one-big-idea-first",
+      "name_ar": "النتيجة الأول: فكرة واحدة لقارئ محدد",
+      "source": [
+        "Cole Nussbaumer Knaflic — Storytelling with Data (الجمهور، الفكرة الكبيرة في جملة، الفعل المطلوب): ~/.claude/skills/data-storytelling/SKILL.md 场景一",
+        "~/.claude/skills/data-visualization-discipline/SKILL.md 阶段 1 (كل رسمة ليها جملة استنتاج وإلا تتشال)",
+        "~/.claude/skills/ultra-mind/SKILL.md §2 المرحلة ⑦ و ~/.claude/skills/ultra-mind/references/verification.md §كتابة/شرح",
+        "~/.claude/skills/golden-dragon/engine/skills/claude-mind/SKILL.md §4 الكلام: شكل الرد",
+        "~/.claude/skills/golden-dragon/mind/OWNER_ESSENCE.md §بيحب إيه (المسار ونعم/لأ في أول سطر، والقيم في بلوك يتنسخ)"
+      ],
+      "use_when": ["communicate", "create", "review"],
+      "steps_ar": [
+        "حدّد مين هيقرا وهيعمل إيه بعدها، واكتب الفكرة الأساسية في جملة واحدة.",
+        "أول سطر: النتيجة أو مسار الملف كامل أو نعم/لأ؛ بعدها السبب في سطرين، والتفاصيل لو لازمة.",
+        "أي جدول أو رسمة أو فقرة: اكتب «القارئ هيطلع منها بـ ___»؛ لو ماعرفتش احذفها.",
+        "اشطب الحشو وإعادة السؤال، وأي كود أو قيمة هتتنسخ حطها في بلوك لوحدها."
+      ],
+      "check_ar": "لو القارئ قرا أول سطر بس، هيعرف النتيجة والخطوة الجاية؟",
+      "trigger_words": ["لخّص", "اكتب", "تقرير", "اعرض", "قدّم", "رسمة", "شرايح", "summary", "report", "present", "chart", "slides"]
+    },
+    {
+      "id": "after-action-review",
+      "name_ar": "مراجعة ما بعد الفعل: كل تصحيح يبقى درس",
+      "source": [
+        "After-Action Review؛ Matthew Syed — Black Box Thinking؛ Reflexion (Shinn et al. 2023): ~/.claude/skills/expert-council/references/learning-loop.md",
+        "~/.claude/skills/dragon-genius/SKILL.md ⑧ التسليم والتعلم و ~/.claude/skills/dragon-genius/references/lessons.md (append-only)",
+        "~/.claude/skills/data-visualization-discipline/SKILL.md §正文之外 (被批之后：退一步 و 迭代：纠正必须当场写回)",
+        "Crucial Accountability — CPR (أول مرة محتوى، التكرار نمط): ~/.claude/skills/crucial-accountability/SKILL.md 场景一",
+        "~/.claude/skills/golden-dragon/mind/lessons_seed.jsonl و ~/.claude/skills/golden-dragon/engine/skills/planning-mind/data/mistakes_seed.jsonl (M01–M13)"
+      ],
+      "use_when": ["learn", "review"],
+      "steps_ar": [
+        "اكتب التصحيح بكلام صاحب الشغل نفسه، ومعاه: كان المتوقع إيه، حصل إيه، وليه الفرق.",
+        "حوّله لقاعدة بتبدأ بفعل ومعاها «امتى تنطبق»، وسجّلها في ملف الدروس في نفس الدور.",
+        "لو الغلطة اتكررت أو النقد على أكتر من نقطة: ده نمط؛ ارجع للبنية وحوّل القاعدة لفحص آلي.",
+        "في أول أي مهمة شبهها: دوّر في الدروس، واللي يطلع يبقى قيود قبل ما تبدأ."
+      ],
+      "check_ar": "آخر تصحيح من صاحب الشغل بقى قاعدة مكتوبة هتظهر لوحدها في المهمة الجاية الشبيهة؟",
+      "trigger_words": ["اتعلم من غلطك", "ماتكررش", "سجّل الدرس", "قلتلك قبل كده", "غلط تاني", "مش كده", "learn from", "don't repeat", "lesson", "mistake again"]
+    }
+  ],
+  "protocol_ar": [
+    "① افهم وصنّف: حدّد العمق (L0 معلومة أو أمر واضح = ① و⑧ بس، L1 = ①②③⑥⑧، L2–L3 = الكل)، ولخّص الطلب بكلامك بمجهوله وشروطه وقيوده — restate-and-unknowns، constraint-ledger، polya-four-phases",
+    "② أسأل ولا أفترض: لو الخطر 6 أو أكتر سؤال واحد باختيارات و⭐، غير كده افتراض معلن في أول الرد — ask-or-assume-gate",
+    "③ ابدأ من الآخر: اكتب سطر التسليم ومعيار «صح»، وارجع لورا لحد أول خطوة — begin-with-the-end",
+    "④ ارجع خطوة لورا: المعدل الأساسي والمبادئ الأولى قبل التفاصيل، وأي رقم بفيرمي وكود — outside-view، first-principles، fermi-estimate",
+    "⑤ ولّد قبل ما تختار: 2–4 طرق أو تفسيرات مختلفة فعلًا، والدليل اللي يفرّق بينهم — alternatives-before-commit، competing-hypotheses",
+    "⑥ نفّذ صغير ومتأرّض: عيّنة رخيصة الأول، كل API وأمر من المصدر، والباج: إعادة إنتاج مصغّرة ثم سبب جذري — begin-with-the-end، verify-api-not-memory، minimal-repro، root-cause-trace",
+    "⑦ اكسر حلّك: تشريح قبل الفشل، اعكس، دوّر على الملاحظة اللي تهدّه، وناقد مستقل للحاجات الغالية (L2+) — premortem، inversion، falsify-it، red-team-council",
+    "⑧ اتحقق وسلّم واتعلم: فحص بطريقة تانية، اشرحه ببساطة، النتيجة أول سطر مع اتقاس/استنتاج/افتراض، وأي تصحيح يبقى درس — independent-verification، feynman-explain-back، calibrate-and-update، one-big-idea-first، after-action-review"
+  ],
+  "dropped": [
+    "«5 Whys» باسمه (Toyota): المصادر المحددة ماعلّمتهوش كطريقة؛ book-to-skill ذكر اسمه بس كمثال على دقة التسمية. مكانه اتحط التتبّع لورا من systematic-debugging/root-cause-tracing.md (نفس الفكرة: اسأل «إيه اللي سبّب ده؟» لحد أول مصدر). الاسم موجود في ~/.claude/skills/analyse-problem و kosif-superpowers بس دول برّه نطاق المصادر وماقريتهمش.",
+    "Pearl (سلّم السببية) مش أداة لوحده: اندمج في competing-hypotheses (مُربك، سببية معكوسة، صدفة).",
+    "Noise و Bezos Type 1/2 اندمجوا في alternatives-before-commit؛ Hubbard و Program-of-Thoughts في fermi-estimate؛ Self-Consistency في independent-verification؛ Gawande في constraint-ledger؛ Galef في falsify-it؛ Step-Back و Descartes في first-principles.",
+    "أدوات الإبداع (TRIZ، SCAMPER، Bisociation، المصفوفة المورفولوجية، القبعات الست، Po): مااتعملتش أدوات منفصلة عشان سقف الـ 22؛ مرجعها ultra-mind/references/creativity.md، وخطوة الإبداع في alternatives-before-commit بتنادي عليها.",
+    "Meadows (الأنظمة)، Toulmin، Taleb، Rumelt، Boyd OODA، Gall's Law، Sagan، Duke: موجودين في ultra-mind/references/books.md بس مش في صميم «فهم الطلب صح من أول مرة»، فاتسابوا لسقف العدد.",
+    "behavior-design (B=MAP والعادات): لتصميم سلوك الناس مش لفهم طلب؛ مااتاخدش منه أداة.",
+    "brain-efficiency (المسرح، SCARF، FPC): فكرة «طلّع الذاكرة العاملة برّه دماغك» موجودة أصلًا في dragon-genius ③ (الخطة على الديسك)؛ الباقي لإدارة الناس والمشاعر.",
+    "devops-three-ways (WIP، نقطة الاختناق، blameless): مفيد لخطوط التسليم والفرق؛ أداة «نقطة الاختناق / 80-20» اتشالت عشان سقف العدد.",
+    "good-to-great و first-time-manager و coaching-grow و crucial-accountability: اتاخد منهم حتة صغيرة بس (قايمة «بطّل تعمل»، أسئلة الاختيارات، ترتيب GROW، CPR) واندمجت في أدوات تانية؛ الباقي قيادة وإدارة فرق.",
+    "data-visualization-discipline: قواعد الرسوم نفسها (نوع الرسمة، الألوان، المحاور، الإحصاء) اتسابت لأنها خاصة بالرسوم؛ اتاخد منها جملة الاستنتاج والتراجع بعد النقد الهيكلي.",
+    "deepread (شجرة الحجة وخريطة المعرفة على Toulmin): مفيدة لقراية الكتب، مش أداة منفصلة هنا؛ اتاخد منها Feynman وlabels الثقة وفحص خط الأساس.",
+    "agent-design-patterns (اختيار نمط الورك فلو، RAG، تبديل الموديلات): هندسة وكلاء مش تفكير في الطلب نفسه؛ اتاخد منه «الحل الثابت قبل الوكيل» و«مراجع واحد قبل نقاش وكلاء».",
+    "book-to-skill: طريقة لتحويل كتاب لمهارة؛ اتاخد منها شكل الصندوق ده (أطر بأساميها + خطوات + أخطاء)، مش أداة تفكير."
+  ],
+  "sources_read": [
+    "%USERPROFILE%\\.claude\\skills\\ultra-mind\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\ultra-mind\\references\\books.md",
+    "%USERPROFILE%\\.claude\\skills\\ultra-mind\\references\\creativity.md",
+    "%USERPROFILE%\\.claude\\skills\\ultra-mind\\references\\failure-modes.md",
+    "%USERPROFILE%\\.claude\\skills\\ultra-mind\\references\\research.md",
+    "%USERPROFILE%\\.claude\\skills\\ultra-mind\\references\\verification.md",
+    "%USERPROFILE%\\.claude\\skills\\ultra-mind\\scripts\\scaffold.py",
+    "%USERPROFILE%\\.claude\\skills\\planning-mind\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\planning-mind\\references\\asking.md",
+    "%USERPROFILE%\\.claude\\skills\\planning-mind\\references\\research-basis.md",
+    "%USERPROFILE%\\.claude\\skills\\planning-mind\\references\\examples.md — جزئي: الأمثلة 2–5 والدرس المشترك",
+    "%USERPROFILE%\\.claude\\skills\\planning-mind\\references\\workflows.md — جزئي: قرار، كتابة، طلب عام",
+    "%USERPROFILE%\\.claude\\skills\\expert-council\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\expert-council\\references\\council-protocol.md",
+    "%USERPROFILE%\\.claude\\skills\\expert-council\\references\\personas.md — جزئي: السطور 1–301 من 425 + كل العناوين",
+    "%USERPROFILE%\\.claude\\skills\\expert-council\\references\\learning-loop.md",
+    "%USERPROFILE%\\.claude\\skills\\dragon-genius\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\dragon-genius\\references\\agent-ops.md",
+    "%USERPROFILE%\\.claude\\skills\\dragon-genius\\references\\lessons.md",
+    "%USERPROFILE%\\.claude\\skills\\dragon-genius\\references\\sources.md — العناوين بس",
+    "%USERPROFILE%\\.claude\\skills\\dragon-genius\\references\\montage-craft.md — العناوين بس",
+    "%USERPROFILE%\\.claude\\skills\\agent-design-patterns\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\systematic-debugging\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\systematic-debugging\\root-cause-tracing.md",
+    "%USERPROFILE%\\.claude\\skills\\strict-api\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\writing-defect-reports\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\deepread\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\deepread\\references\\feynman.md",
+    "%USERPROFILE%\\.claude\\skills\\deepread\\references\\knowledge-map.md",
+    "%USERPROFILE%\\.claude\\skills\\golden-dragon\\SKILL.md — جزئي: أقسام v2.8 لـ v2.14 (منها «عقل Claude» و«فكّر وخطّط»)",
+    "%USERPROFILE%\\.claude\\skills\\golden-dragon\\mind\\OWNER_ESSENCE.md",
+    "%USERPROFILE%\\.claude\\skills\\golden-dragon\\mind\\lessons_seed.jsonl — جزئي: دروس owner/meta/test/report (42 من 130)",
+    "%USERPROFILE%\\.claude\\skills\\golden-dragon\\mind\\understand_tests.json",
+    "%USERPROFILE%\\.claude\\skills\\golden-dragon\\engine\\skills\\claude-mind\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\golden-dragon\\engine\\skills\\claude-mind\\references\\reasoning-toolkit.md",
+    "%USERPROFILE%\\.claude\\skills\\golden-dragon\\engine\\skills\\planning-mind\\data\\council.json — logic_checks بس",
+    "%USERPROFILE%\\.claude\\skills\\golden-dragon\\engine\\skills\\planning-mind\\data\\mistakes_seed.jsonl",
+    "%USERPROFILE%\\.claude\\skills\\good-to-great\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\behavior-design\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\brain-efficiency\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\coaching-grow\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\crucial-accountability\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\data-storytelling\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\data-visualization-discipline\\SKILL.md — جزئي: السطور 1–130 و640–747 + كل العناوين",
+    "%USERPROFILE%\\.claude\\skills\\devops-three-ways\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\first-time-manager\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\compounding-operating-system\\SKILL.md",
+    "%USERPROFILE%\\.claude\\skills\\book-to-skill\\SKILL.md — جزئي: Philosophy و Step 3 و Quality Rules"
+  ]
+}

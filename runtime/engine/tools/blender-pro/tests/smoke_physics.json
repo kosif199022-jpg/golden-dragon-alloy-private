@@ -1,0 +1,23 @@
+{
+  "_comment": "Physics smoke test: rigid drop, cloth over a collider, particles, follow_path, bake.",
+  "scene": {"resolution": [960, 540], "fps": 24, "frame_start": 1, "frame_end": 40, "engine": "EEVEE", "samples": 16,
+            "world": {"type": "gradient", "top": "#2b2f38", "bottom": "#0b0c0f"}},
+  "steps": [
+    {"op": "add_primitive", "type": "cube", "name": "Brick", "size": 0.4, "material": "plastic", "bevel": 0.02},
+    {"op": "rigid_drop", "source": "Brick", "count": 12, "area": [2, 2], "height": [2, 5], "seed": 5},
+    {"op": "add_primitive", "type": "grid", "name": "Cloth", "size": 2.0, "segments": 24, "location": [3, 0, 2.2]},
+    {"op": "cloth", "target": "Cloth", "preset": "silk", "quality": 4},
+    {"op": "add_primitive", "type": "sphere", "name": "Ball", "size": 1.2, "location": [3, 0, 0.6], "material": "glossy_plastic"},
+    {"op": "collision", "target": "Ball"},
+    {"op": "material", "name": "Silk", "preset": "velvet", "target": "Cloth"},
+    {"op": "add_primitive", "type": "ico_sphere", "name": "Emitter", "size": 0.3, "location": [-3, 0, 1.5]},
+    {"op": "particles", "emitter": "Emitter", "count": 200, "lifetime": 40, "velocity": 2.0, "gravity": 0.3, "size": 0.04},
+    {"op": "circle_path", "name": "Track", "radius": 1.0, "height": 0.4, "center": [-3, -2, 0]},
+    {"op": "add_primitive", "type": "monkey", "name": "Rider", "size": 0.5, "material": "gold"},
+    {"op": "follow_path", "path": "Track", "target": "Rider", "follow": true},
+    {"op": "three_point"},
+    {"op": "camera", "name": "Cam", "location": [0, -12, 5], "target": [0, 0, 0.8], "lens": 32},
+    {"op": "bake_physics"}
+  ],
+  "render": {"type": "still", "out": "physics_f40.png", "frame": 40}
+}

@@ -1,0 +1,11 @@
+{
+  "project": "KOSIF",
+  "title": "Cinematic demonstration",
+  "orientation": "9:16",
+  "audio_master": true,
+  "shots": [
+    {"id": "01", "description": "Wide shot, establishing setting, slow camera push", "source": "", "duration": 3, "color": "0x162b28"},
+    {"id": "02", "description": "Medium shot, hands and action, side key light", "source": "", "duration": 3, "color": "0x3d3430"},
+    {"id": "03", "description": "Detail close-up, cinematic shallow depth of field", "source": "", "duration": 3, "color": "0x222c41"}
+  ]
+}

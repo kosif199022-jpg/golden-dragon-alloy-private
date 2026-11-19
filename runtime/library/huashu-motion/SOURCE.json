@@ -1,0 +1,12 @@
+{
+ "repo": "https://github.com/alchaincyf/huashu-motion",
+ "stars_on_2026-11-14": 2704,
+ "license": "mit",
+ "commit": "0272906",
+ "path_in_repo": "skills/huashu-motion/",
+ "review_before_running": [
+  "exec",
+  "network"
+ ],
+ "note": "copied unchanged with its LICENSE (v2.18.0); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

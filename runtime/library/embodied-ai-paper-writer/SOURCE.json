@@ -1,0 +1,12 @@
+{
+ "repo": "https://github.com/OpenGHz/embodied-ai-paper-writer",
+ "stars_on_2026-11-12": 16,
+ "license": "mit",
+ "path_in_repo": "skills-hub/OpenGHz__embodied-ai-paper-writer",
+ "review_before_running": [
+  "exec",
+  "network",
+  "secrets-read"
+ ],
+ "note": "copied unchanged; SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

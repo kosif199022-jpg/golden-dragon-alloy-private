@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>codekit demo: gsap</title>
+<style>
+html,body{margin:0;background:#0b0d12;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0b0d12}
+h1{position:absolute;top:170px;left:0;right:0;margin:0;text-align:center;color:#f4f1ea;
+   font:700 84px "Noto Kufi Arabic","Cairo","Segoe UI",Tahoma,"DejaVu Sans",sans-serif}
+.tag{position:absolute;bottom:150px;left:0;right:0;text-align:center;color:#7f8796;direction:ltr;
+   font:500 40px "Segoe UI",Tahoma,"DejaVu Sans",sans-serif}
+.card{position:absolute;left:190px;width:700px;height:200px;border-radius:36px;background:#e0b354}
+#c1{top:700px}#c2{top:960px;background:#7fd1c8}#c3{top:1220px;background:#e2574c}
+</style>
+</head>
+<body>
+<div id="stage"><h1>{{TITLE}}</h1><div class="card" id="c1"></div><div class="card" id="c2"></div><div class="card" id="c3"></div><div class="tag">GSAP · seek-driven</div></div>
+<script src="./gsap.min.js"></script>
+<script>
+// gsap.min.js is copied here by codekit.py from your own installed copy (GSAP is not vendored).
+// The timeline is paused for ever: the renderer asks for time t and we call tl.time(t).
+const D = 3;
+const tl = gsap.timeline({paused: true, defaults: {ease: 'power3.out'}});
+tl.fromTo('h1', {opacity: 0, y: 70}, {opacity: 1, y: 0, duration: 0.7}, 0)
+  .fromTo('.card', {x: -1000, rotation: -12}, {x: 0, rotation: 0, duration: 0.9, stagger: 0.18}, 0.2)
+  .to('#c2', {scaleX: 0.55, duration: 0.7, ease: 'power2.inOut'}, 1.5)
+  .to('.card', {y: -110, rotation: 4, duration: 0.7, stagger: 0.1, ease: 'back.out(2)'}, 2.1);
+function draw(t) { tl.time(Math.max(0, Math.min(D, t))); }
+window.__kosif = {duration: D, seek: async t => { draw(t); }};
+draw(0);
+window.__kosifReady = true;
+</script>
+</body>
+</html>

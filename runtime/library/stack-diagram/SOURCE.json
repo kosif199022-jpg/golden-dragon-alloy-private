@@ -1,0 +1,12 @@
+{
+ "repo": "https://github.com/caru-ini/stack-diagram",
+ "stars_on_2026-11-14": 2500,
+ "license": "mit",
+ "commit": "9175bde",
+ "path_in_repo": "skills/stack-diagram/",
+ "review_before_running": [
+  "exec",
+  "network"
+ ],
+ "note": "copied unchanged with its LICENSE (v2.18.0); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

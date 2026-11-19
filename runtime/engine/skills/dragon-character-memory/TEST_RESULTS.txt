@@ -1,0 +1,27 @@
+python -m pytest tests -q -rA   (2026-11-13, on the owner's laptop, demo character)
+
+..................                                                       [100%]
+=================================== PASSES ====================================
+____________________ test_new_scene_needs_only_the_memory _____________________
+---------------------------- Captured stdout call -----------------------------
+new scene: C:\Users\cinde\AppData\Local\Temp\pytest-of-cinde\pytest-297\test_new_scene_needs_only_the_0\scene\new_scene.mp4 · 135 frames · idle=observed · walk_to=observed · wave=observed · laugh=synthesized · sit=synthesized · blink=observed
+=========================== short test summary info ===========================
+PASSED tests/test_dcm.py::test_every_frame_extracted_with_its_original_time
+PASSED tests/test_dcm.py::test_redraw_is_close_to_the_reference
+PASSED tests/test_dcm.py::test_redraw_is_real_vector_data
+PASSED tests/test_dcm.py::test_redraw_adds_no_jitter
+PASSED tests/test_dcm.py::test_still_parts_stay_still
+PASSED tests/test_dcm.py::test_tracker_matches_ground_truth
+PASSED tests/test_dcm.py::test_expressions_are_read_correctly
+PASSED tests/test_dcm.py::test_hidden_eye_is_reported_as_hidden_not_as_closed
+PASSED tests/test_dcm.py::test_memory_has_the_required_sections
+PASSED tests/test_dcm.py::test_memory_joints_and_proportions_are_right
+PASSED tests/test_dcm.py::test_memory_round_trip
+PASSED tests/test_dcm.py::test_reference_can_be_rebuilt_from_memory
+PASSED tests/test_dcm.py::test_new_scene_needs_only_the_memory
+PASSED tests/test_dcm.py::test_character_in_the_new_scene_is_the_same_character
+PASSED tests/test_dcm.py::test_scene_moves_across_and_stays_on_the_ground
+PASSED tests/test_dcm.py::test_expression_change_leaves_the_body_untouched
+PASSED tests/test_dcm.py::test_pose_change_keeps_every_part_the_same_size
+PASSED tests/test_dcm.py::test_red_dragon_selftest_still_passes
+18 passed in 39.38s

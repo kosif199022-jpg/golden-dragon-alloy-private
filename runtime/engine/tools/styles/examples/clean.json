@@ -1,0 +1,32 @@
+{
+  "_doc": {
+    "about": "clean: a clean cinematic tribute, elegant type only (the 40 s «ميار، بنت مصر», 2026-11-06, for the brief «cinematic, no explaining, only beautiful type»). Full bleed, a gentle push, short dissolves, white Ruqaa quotes.",
+    "lines": "her quotes in white Ruqaa 76, word by word, in the lower band; '|' forces a line break, long quotes wrap at 900 px; hold a standalone quote 8-10 s",
+    "title": "gold Ruqaa 250 over the opening aerial, start..end",
+    "shots[].broll": "aerials / library shots get 0.5 s dissolves; between two shots of her the dissolve is 0.14 s (no ghost double faces)",
+    "end": "the footage dims 0.2 s before at; gold Ruqaa title; credit 1 s later",
+    "other fields": "same as examples/nil.json"
+  },
+  "style": "clean",
+  "name": "clean tribute",
+  "duration": 40.0,
+  "watermark": "© Mahmoud Elkosif",
+  "credit": ["مونتاج وإخراج Mahmoud Elkosif", "تابعني على فيسبوك"],
+  "song": {"path": "music/medley.m4a", "start": 0.0, "fade_in": 0.8, "fade_out": 2.5},
+  "shots": [
+    {"src": "broll/aerial.mp4", "ss": 0, "start": 0.0, "end": 4.0, "broll": true},
+    {"src": "clips/stage.mp4", "ss": 13.0, "start": 4.0, "end": 9.0, "focus": [0.43, 0.42]},
+    {"src": "clips/announcement.mp4", "ss": 71.8, "start": 9.0, "end": 14.0, "focus": [0.5, 0.55]},
+    {"src": "clips/announcement.mp4", "ss": 76.3, "start": 14.0, "end": 19.0, "focus": [0.4, 0.5], "speed": 0.55},
+    {"src": "broll/river.mp4", "ss": 0, "start": 19.0, "end": 23.0, "broll": true},
+    {"src": "clips/homecoming.mp4", "ss": 8.0, "start": 23.0, "end": 29.0, "focus": [0.5, 0.45]},
+    {"src": "clips/interview.mp4", "ss": 19.1, "start": 29.0, "end": 36.0, "focus": [0.5, 0.4], "box": [0, 0, 1080, 1420]},
+    {"src": "broll/aerial.mp4", "ss": 6.0, "start": 36.0, "end": 40.0, "broll": true}
+  ],
+  "title": {"text": "اسمها", "start": 0.25, "end": 3.25},
+  "lines": [
+    {"text": "سطر من كلامها|يكمل في سطر ثاني", "start": 5.0, "end": 13.0},
+    {"text": "اقتباس ثانٍ يظهر كلمة كلمة ويلتف لو كان طويلًا", "start": 24.0, "end": 33.0}
+  ],
+  "end": {"at": 36.0, "title": "اسمها هنا"}
+}

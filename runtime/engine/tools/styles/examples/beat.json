@@ -1,0 +1,44 @@
+{
+  "_doc": {
+    "about": "beat: cut on the beat with punch-ins, whips, one three-panel split and Lalezar slams (the «قوم يا مصري» look, 2026-11-08). Use it only when the owner asks for energy («حماسي»).",
+    "beat": "the song's beat grid in film time: period (s per beat) and phase (s of the first beat); or {\"bpm\": 107.7, \"phase\": 0.35}; or \"auto\" (measured with librosa: python scripts/dragon.py beats song.wav first if unsure)",
+    "shots[].beats": "how many beats the shot lasts; shots follow each other on the grid from 0 s",
+    "shots[].tri": "three shots shown as vertical panels, one arriving per beat, the middle one opening to full frame (beats = length of the split)",
+    "shots[].rest": "true: runs from the end of the beat shots to the end of the film (the end card sits on it)",
+    "shots[].broll": "true for aerials / library shots: no whip into or out of them",
+    "slams": "big Lalezar words: {text, beats: [first, last]} or {text, start, end}; '…' is replaced with '،' (Lalezar has no '…' glyph)",
+    "punch / whip / bar": "punch-in strength (0.12), whip on every second cut (true), slam underline colour (#c8102e; null hides it)",
+    "end": "at defaults to the start of the rest shot; title in white Lalezar, sub in gold Tajawal; credit 1.6 s later",
+    "other fields": "same as examples/nil.json"
+  },
+  "style": "beat",
+  "name": "beat-cut film",
+  "duration": 23.0,
+  "watermark": "© Mahmoud Elkosif",
+  "credit": ["مونتاج وإخراج Mahmoud Elkosif", "تابعني على فيسبوك"],
+  "song": {"path": "music/song.m4a", "start": 147.0, "fade_in": 0.25, "fade_out": 1.5},
+  "beat": {"period": 0.5571, "phase": 0.35},
+  "shots": [
+    {"src": "clips/stage.mp4", "ss": 13.5, "beats": 2, "focus": [0.43, 0.42]},
+    {"src": "clips/stage.mp4", "ss": 59.8, "beats": 2, "focus": [0.43, 0.42]},
+    {"src": "clips/announcement.mp4", "ss": 71.8, "beats": 4, "focus": [0.5, 0.55]},
+    {"src": "clips/announcement.mp4", "ss": 76.3, "beats": 4, "focus": [0.4, 0.5], "speed": 0.7},
+    {"src": "broll/pyramids.mp4", "ss": 0, "beats": 2, "broll": true},
+    {"tri": [
+      {"src": "clips/street.mp4", "ss": 2.0, "focus": [0.5, 0.45]},
+      {"src": "clips/school.mp4", "ss": 8.7, "focus": [0.5, 0.5]},
+      {"src": "clips/home.mp4", "ss": 0.5, "focus": [0.5, 0.5]}
+    ], "beats": 8},
+    {"src": "clips/street.mp4", "ss": 10.0, "beats": 4, "focus": [0.5, 0.45]},
+    {"src": "clips/reception.mp4", "ss": 25.0, "beats": 4, "focus": [0.5, 0.45], "box": [0, 330, 1080, 1590]},
+    {"src": "clips/interview.mp4", "ss": 19.1, "beats": 4, "focus": [0.5, 0.4], "box": [0, 0, 1080, 1420]},
+    {"src": "broll/gold_detail.mp4", "ss": 0, "rest": true, "broll": true}
+  ],
+  "slams": [
+    {"text": "اسمها", "beats": [0, 2]},
+    {"text": "الأولى", "beats": [4, 8]},
+    {"text": "على العرب", "beats": [8, 12]},
+    {"text": "فخر بلدها", "beats": [28, 32]}
+  ],
+  "end": {"title": "اسمها هنا", "sub": "سطر واحد عنها"}
+}

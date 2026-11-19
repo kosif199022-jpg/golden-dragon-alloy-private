@@ -1,0 +1,10 @@
+#!/bin/sh
+# Real ffmpeg, but pretend libx264 and VideoToolbox are absent (like a-Shell
+# when the hardware encoder refuses) so the MPEG-4 fallback path is exercised.
+for a in "$@"; do
+  case "$a" in
+    -encoders) /usr/bin/ffmpeg "$@" | grep -v -e libx264 -e videotoolbox; exit 0 ;;
+    libx264|libx264rgb) echo 'Unknown encoder libx264' >&2; exit 1 ;;
+  esac
+done
+exec /usr/bin/ffmpeg "$@"

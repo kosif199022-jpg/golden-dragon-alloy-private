@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: fixes-real-cause-not-user-guess
+expected_outcome: |
+  The user blames the division, but the real cause is that "1,250" and "1,100" fail float() and are silently
+  skipped while count still increments, and one row has no amount. A good run reproduces the 408.33 output,
+  finds the real cause, fixes parsing, reports the corrected average (960 when the empty row is excluded),
+  says how the empty row was handled, and leads with the result.
+context:
+  scaffold_script: place-files.sh

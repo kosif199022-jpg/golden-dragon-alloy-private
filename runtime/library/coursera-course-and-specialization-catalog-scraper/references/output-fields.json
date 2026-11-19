@@ -1,0 +1,40 @@
+{
+  "actor": "https://apify.com/nimbryxo-studio/coursera-course-and-specialization-catalog-scraper",
+  "source": "dataset-schema",
+  "build": "1.1.1",
+  "shown": [
+    {
+      "field": "name",
+      "label": "Name"
+    },
+    {
+      "field": "partnerName",
+      "label": "Partner Name"
+    },
+    {
+      "field": "difficultyLevel",
+      "label": "Difficulty Level"
+    },
+    {
+      "field": "avgRating",
+      "label": "Avg Rating"
+    },
+    {
+      "field": "learnerCount",
+      "label": "Learner Count"
+    },
+    {
+      "field": "courseUrl",
+      "label": "Course Url"
+    }
+  ],
+  "all": [
+    "recordType",
+    "name",
+    "partnerName",
+    "difficultyLevel",
+    "avgRating",
+    "learnerCount",
+    "courseUrl"
+  ]
+}

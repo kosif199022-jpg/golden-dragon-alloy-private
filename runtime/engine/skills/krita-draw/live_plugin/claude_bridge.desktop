@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Service
+ServiceTypes=Krita/PythonPlugin
+X-KDE-Library=claude_bridge
+X-Python-2-Compatible=false
+Name=Claude Bridge
+Comment=Runs local Python jobs from %APPDATA%/krita/claude_bridge/inbox so Claude can paint with Krita's real brushes while you watch. Local only, no network.

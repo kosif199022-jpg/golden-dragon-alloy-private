@@ -1,0 +1,17 @@
+{
+  "scene": {},
+  "steps": [
+    {"op": "vse_from_edl",
+     "resolution": [960, 540],
+     "clips": [
+       {"file": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/clipA.mp4", "in": 0.0, "out": 2.5, "text": "Clip one"},
+       {"file": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/clipB.mp4", "in": 1.0, "out": 3.5, "transition": "GAMMA_CROSS", "transition_duration": 0.8, "text": "المشهد الثاني"},
+       {"file": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/still.png", "image": true, "out": 2.0, "transition": "CROSS", "kenburns": [1.0, 1.3]}
+     ],
+     "music": {"file": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/music.mp3", "volume": 0.2},
+     "end_card": {"text": "The End", "duration": 1.5},
+     "fade_in": 0.5, "fade_out": 0.7,
+     "grade": {"saturation": 1.1, "contrast": 8}}
+  ],
+  "render": {"filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/video_edl.mp4"}
+}

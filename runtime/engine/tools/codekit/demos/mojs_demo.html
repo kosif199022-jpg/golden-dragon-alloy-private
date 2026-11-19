@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>codekit demo: mojs</title>
+<style>
+html,body{margin:0;background:#0b0d12;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0b0d12}
+h1{position:absolute;top:170px;left:0;right:0;margin:0;text-align:center;color:#f4f1ea;
+   font:700 84px "Noto Kufi Arabic","Cairo","Segoe UI",Tahoma,"DejaVu Sans",sans-serif}
+.tag{position:absolute;bottom:150px;left:0;right:0;text-align:center;color:#7f8796;direction:ltr;
+   font:500 40px "Segoe UI",Tahoma,"DejaVu Sans",sans-serif}
+
+</style>
+</head>
+<body>
+<div id="stage"><h1>{{TITLE}}</h1><div class="tag">mo.js · seek-driven</div></div>
+<script src="./mo.umd.js"></script>
+<script>
+// Nothing is played: the timeline is moved by setProgress(t / duration).
+const D = 3;
+const parent = document.getElementById('stage');
+const at = {parent, left: '50%', top: '50%'};
+const circle = new mojs.Shape({...at, shape: 'circle', radius: {0: 300}, fill: 'none', stroke: '#e0b354',
+  strokeWidth: {70: 8}, duration: 1300, easing: 'cubic.out', isShowEnd: true});
+const burst = new mojs.Burst({...at, radius: {80: 440}, count: 12, delay: 500,
+  children: {shape: 'line', stroke: '#7fd1c8', strokeWidth: 12, radius: 46, scale: {1: 0.3},
+             duration: 1500, easing: 'quad.out', isShowEnd: true}});
+const square = new mojs.Shape({...at, shape: 'rect', radius: 110, fill: '#e2574c', rotate: {0: 225},
+  scale: {0: 1}, duration: 1700, delay: 1100, easing: 'cubic.out', isShowEnd: true});
+const pad = new mojs.Tween({duration: D * 1000});  // fixes the timeline length at D seconds
+const tl = new mojs.Timeline();
+tl.add(circle, burst, square, pad);
+function draw(t) { tl.setProgress(Math.max(0, Math.min(1, t / D))); }
+window.__kosif = {duration: D, seek: async t => { draw(t); }};
+draw(0);
+window.__kosifReady = true;
+</script>
+</body>
+</html>

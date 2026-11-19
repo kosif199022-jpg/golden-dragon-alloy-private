@@ -1,0 +1,1847 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الطائر الأبيض</title>
+<style>
+:root{--bg:var(--bg);--panel:var(--panel);--line:#232835;--text:#e9e6df;--mute:#8b8f9a;--gold:#d6a84a;--gold2:#f0cf86;--red:#e0695f;--green:#5fbf8a}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--text);font:15px/1.7 "Segoe UI","Tahoma",sans-serif}
+body{display:flex;flex-direction:column}
+button{font:inherit;border:1px solid var(--line);background:var(--panel);color:var(--text);padding:6px 13px;border-radius:8px;cursor:pointer}
+button:hover{border-color:var(--gold)}
+button:disabled{opacity:.5;cursor:default}
+button.gold{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:600}
+button.red{border-color:var(--red);color:var(--red)}
+button.icon{padding:6px 10px}
+.sub{color:var(--mute);font-size:12px}
+.sp{flex:1}
+/* top bar */
+header{display:flex;align-items:center;gap:10px;padding:8px 16px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--bg),var(--bg))}
+.logo{font-size:19px;font-weight:700;color:var(--gold2)}
+.pill{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:12px;color:var(--mute);max-width:380px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer}
+.pill b{color:var(--gold2);font-weight:600}
+.pill.money b{color:var(--green)}
+.pill.low b{color:var(--red)}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--mute);margin-inline-end:6px}
+.dot.ok{background:var(--green)}.dot.bad{background:var(--red)}
+/* layout */
+#app{flex:1;display:flex;min-height:0}
+nav#side{width:240px;border-inline-end:1px solid var(--line);background:var(--bg2);display:flex;flex-direction:column;min-height:0}
+nav#side .top{padding:10px;border-bottom:1px solid var(--line)}
+nav#side .top button{width:100%}
+#chats{flex:1;overflow-y:auto;padding:6px}
+.ch{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;cursor:pointer;border:1px solid transparent;margin-bottom:3px}
+.ch:hover{background:var(--panel)}
+.ch.act{background:var(--panel);border-color:var(--line)}
+.ch .nm{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:13.5px}
+.ch .meta{font-size:11px;color:var(--mute);white-space:nowrap}
+.ch .x{opacity:0;font-size:12px;color:var(--mute);padding:0 3px}
+.ch:hover .x{opacity:1}
+.agentcard{border:1px solid var(--accent-soft);background:var(--card);border-radius:10px;padding:8px 12px;margin:8px 0;font-size:13px}
+.agentcard .h{display:flex;gap:8px;align-items:center;color:var(--gold2);font-weight:600}
+.agentcard .b{color:var(--text);white-space:pre-wrap;margin-top:4px;max-height:160px;overflow:auto}
+.agentcard.ok{border-color:var(--green)}.agentcard.ok .h{color:var(--green)}
+.agentcard.bad{border-color:var(--red)}.agentcard.bad .h{color:var(--red)}
+.tool .ag{background:var(--accent-soft);color:var(--gold2);border-radius:4px;padding:0 6px;font-size:11px;margin-inline-end:6px}
+#teamPop{position:absolute;top:44px;inset-inline-end:16px;z-index:6;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;width:340px;display:none;box-shadow:0 10px 30px #000a}
+#teamPop select{width:100%;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--fill2);color:var(--text);font:inherit;margin:4px 0}
+#teamPop .slot{display:flex;gap:8px;align-items:center}
+#teamPop .slot span{width:58px;font-size:12px;color:var(--mute)}
+.bar{position:relative}
+#foPop{position:absolute;top:44px;inset-inline-start:16px;z-index:6;width:440px;display:none;padding:14px;background:var(--panel);
+  backdrop-filter:blur(30px);border:1px solid var(--line2);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+#foPop .fo{display:flex;gap:6px;align-items:center;padding:4px 0}
+#foPop .fo span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:right;font-size:12.5px}
+#foPop .fo button{padding:2px 8px;font-size:12px}
+.cmpgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:6px 0 14px}
+.cmpcard{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:10px 14px;box-shadow:var(--shadow);min-height:90px}
+.cmpcard .h{display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px;margin-bottom:6px}
+.cmpcard .h .s{margin-inline-start:auto;color:var(--mute);font-weight:400;font-size:11.5px}
+.cmpcard.bad{border-color:rgba(255,69,58,.5)}
+#cmpPop{position:absolute;bottom:120px;inset-inline-start:max(16px,calc(50% - 440px));z-index:6;width:340px;display:none;padding:14px;
+  background:var(--panel);backdrop-filter:blur(30px);border:1px solid var(--line2);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+#cmpPop label{display:flex;gap:8px;align-items:center;padding:5px 4px}
+#cmpPop .nr{color:var(--mute);font-size:11px;margin-inline-start:auto}
+#linkPop{position:absolute;top:44px;inset-inline-end:16px;z-index:6;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;width:380px;display:none;box-shadow:0 10px 30px #000a}
+#linkList{max-height:340px;overflow-y:auto;margin:8px 0}
+#linkList label{display:flex;gap:8px;align-items:center;padding:6px 6px;border-radius:8px;cursor:pointer}
+#linkList label:hover{background:var(--hover)}
+#linkList .w{color:var(--mute);font-size:11px;margin-inline-start:auto;white-space:nowrap}
+#linkList .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ch .lk{font-size:11px;color:var(--gold2)}
+aside#files{width:290px;flex:0 0 290px;border-inline-start:1px solid var(--line);background:var(--bg2);display:flex;flex-direction:column;min-height:0}
+aside#files.hide{display:none}
+.fh{display:flex;align-items:center;gap:6px;padding:9px 10px;border-bottom:1px solid var(--line)}
+.fh b{color:var(--gold2)}
+.ftabs{display:flex;gap:4px;padding:6px 8px;border-bottom:1px solid var(--line)}
+.ftabs button{flex:1;font-size:12px;padding:4px 6px}
+.ftabs button.on{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:700}
+#fsearch{margin:6px 8px;padding:5px 9px;border-radius:8px;border:1px solid var(--line);background:var(--fill2);color:var(--text);font:inherit;font-size:12px}
+#flist{flex:1;overflow-y:auto;padding:4px 6px 10px}
+.fg{font-size:11px;color:var(--mute);padding:8px 4px 3px;direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fi{display:flex;align-items:center;gap:8px;padding:6px 7px;border-radius:8px;cursor:pointer;border:1px solid transparent}
+.fi:hover{background:var(--panel);border-color:var(--line)}
+.fi .ico{width:34px;height:34px;flex:0 0 34px;border-radius:6px;background:#000 center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:17px}
+.fi .nm{flex:1;min-width:0}
+.fi .nm div:first-child{font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;direction:ltr;text-align:right}
+.fi .nm div:last-child{font-size:10.5px;color:var(--mute)}
+.fi .acts{display:none;gap:2px}
+.fi:hover .acts{display:flex}
+.fi .acts span{padding:2px 5px;border-radius:5px;font-size:13px}
+.fi .acts span:hover{background:var(--hover)}
+.fi.new .nm div:first-child{color:var(--gold2);font-weight:600}
+.fempty{color:var(--mute);font-size:12px;padding:20px 12px;text-align:center;line-height:1.8}
+#upd{display:none;background:linear-gradient(90deg,#3b2f12,#1b1a14);border-bottom:1px solid var(--orange);padding:7px 16px;align-items:center;gap:10px;font-size:13px;color:var(--gold2)}
+.msg{position:relative}
+.cpy{position:absolute;top:2px;inset-inline-end:2px;opacity:0;font-size:11px;padding:2px 8px;border-radius:6px}
+.msg:hover>.cpy,pre:hover>.cpy{opacity:1}
+pre{position:relative}
+#tasksPop{position:absolute;bottom:110px;inset-inline-start:max(16px,calc(50% - 440px));z-index:6;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;width:420px;max-height:60vh;overflow:auto;display:none;box-shadow:0 10px 30px #000a}
+#tasksPop button{display:block;width:100%;text-align:start;margin:3px 0;font-size:13px}
+#tasksPop .g{color:var(--mute);font-size:11px;margin:8px 4px 2px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--fill2)}
+.seg button{border:0;border-radius:0;padding:5px 14px;font-size:13px;background:transparent;color:var(--mute)}
+.seg button.on{background:var(--gold);color:#fff;font-weight:700}
+.seg button:not(.on):hover{color:var(--text)}
+.sec{font-size:11px;color:var(--mute);padding:10px 10px 4px;display:flex;align-items:center;gap:6px}
+#saved .ch .nm{color:var(--text);font-size:12.5px}
+.tool .live{margin-top:4px;font-size:11.5px;color:var(--gold2);direction:ltr;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:Consolas,monospace}
+.card select{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--fill2);color:var(--text);font:inherit;margin:6px 0}
+body.drag::after{content:"⬇ سيب الملفات هنا عشان تترفق، أو مجلد عشان يبقى مجلد الشغل";position:fixed;inset:12px;border:2px dashed var(--gold);border-radius:16px;background:var(--glass-strong);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--gold2);z-index:9}
+.ic{width:14px;height:14px;flex:0 0 14px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.ic.idle::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--fill)}
+.ic.ok{color:var(--green)}.ic.bad{color:var(--red)}
+.ic.wait{color:var(--gold2);animation:pulse 1s ease-in-out infinite}
+.ch.wait{border-color:var(--orange)}
+.ch.unread .nm{font-weight:700}
+.spin{width:13px;height:13px;border-radius:50%;border:2px solid var(--fill);border-top-color:var(--gold);display:inline-block;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{opacity:.35}}
+section#center{flex:1;display:flex;flex-direction:column;min-width:0}
+.bar{display:flex;align-items:center;gap:8px;padding:6px 16px;border-bottom:1px solid var(--line)}
+#chatwrap{flex:1;display:flex;min-height:0}
+.chat{flex:1;overflow-y:auto;padding:20px max(16px,calc(50% - 440px));display:none}
+.chat.act{display:block}
+#chatwrap.pv-open .chat{padding:20px 22px}
+.msg{margin:0 0 16px}
+.user{background:var(--hover);border:1px solid var(--line);padding:10px 14px;border-radius:12px;white-space:pre-wrap}
+.user .att{color:var(--gold2);font-size:12px;margin-top:4px}
+.badge{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:12px;border-radius:999px;padding:1px 10px;border:1px solid var(--line);color:var(--mute);white-space:normal}
+.badge.run{color:var(--gold2);border-color:var(--orange)}
+.badge.wait{color:#fff;background:var(--gold);border-color:var(--gold);font-weight:700}
+.badge.ok{color:var(--green);border-color:var(--green)}
+.badge.bad{color:var(--red);border-color:var(--red)}
+.badge .spin{width:11px;height:11px}
+.bot p{margin:.4em 0}
+.bot ul{margin:.3em 0;padding-inline-start:22px}
+.bot pre{background:var(--fill2);border:1px solid var(--line);padding:10px;border-radius:8px;overflow-x:auto;direction:ltr;text-align:left}
+.bot code{background:var(--fill2);padding:1px 5px;border-radius:4px;direction:ltr;unicode-bidi:embed}
+.bot table{border-collapse:collapse;margin:.5em 0}.bot td,.bot th{border:1px solid var(--line);padding:4px 10px}
+.think{color:var(--mute);font-size:12.5px;border-inline-start:2px solid var(--line);padding-inline-start:10px;margin:6px 0;white-space:pre-wrap;max-height:120px;overflow:auto}
+.tool{border:1px solid var(--line);background:var(--panel);border-radius:10px;padding:8px 12px;margin:8px 0;font-size:13px}
+.tool .t{color:var(--gold2);font-weight:600}
+.tool pre{margin:6px 0 0;max-height:220px;overflow:auto;direction:ltr;text-align:left;white-space:pre-wrap;color:var(--text);background:var(--fill2);padding:8px;border-radius:6px}
+.tool.err{border-color:var(--red)}
+.approve{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+.approve .why{margin-top:6px;color:var(--text);font-size:14px}
+.approve .btns{margin-top:8px;display:flex;gap:8px}
+.err-msg{color:var(--red)}
+.usage{color:var(--mute);font-size:11px;margin-top:4px}
+.welcome{color:var(--mute);text-align:center;margin-top:9vh}
+.welcome h1{color:var(--gold2);font-size:30px;margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:16px}
+.chips button{font-size:13px}
+/* preview */
+aside#pv{width:40%;max-width:760px;min-width:340px;border-inline-start:1px solid var(--line);background:var(--bg2);display:none;flex-direction:column;min-height:0}
+#chatwrap.pv-open aside#pv{display:flex}
+.pvh{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--line)}
+.pvh b{color:var(--gold2)}
+#viewer{background:#000;display:flex;align-items:center;justify-content:center;min-height:200px;flex:0 0 auto}
+#viewer video,#viewer img{max-width:100%;max-height:56vh;display:block}
+#viewer iframe{width:100%;height:56vh;border:0;background:#fff}
+#viewer audio{width:92%;margin:30px 0}
+#viewer .empty{color:var(--mute);padding:40px;text-align:center;font-size:13px}
+.vbar{display:flex;gap:6px;padding:6px 12px;border-bottom:1px solid var(--line);align-items:center;font-size:12px;color:var(--mute)}
+.vbar .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:right}
+.vbar button{padding:3px 9px;font-size:12px}
+#plist{flex:1;overflow-y:auto;padding:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px;align-content:start}
+.it{border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:pointer;background:var(--panel);font-size:11px}
+.it:hover,.it.sel{border-color:var(--gold)}
+.it .th{height:78px;background:#000 center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:26px;position:relative}
+.it .th video{width:100%;height:100%;object-fit:cover}
+.it .th .new{position:absolute;top:4px;inset-inline-start:4px;background:var(--gold);color:#fff;border-radius:4px;padding:0 5px;font-size:10px;font-weight:700}
+.it .n{padding:3px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;direction:ltr;text-align:right}
+/* state bar + input */
+#state{display:flex;align-items:center;gap:10px;padding:6px max(16px,calc(50% - 440px));border-top:1px solid var(--line);font-size:13px;background:transparent}
+#state .tm{color:var(--mute);font-variant-numeric:tabular-nums}
+#state.idle{color:var(--mute)}
+#state.run #stLbl{color:var(--gold2)}
+#state.wait{background:rgba(255,159,10,.12)}#state.wait #stLbl{color:var(--gold2);font-weight:700}
+#state.ok #stLbl{color:var(--green);font-weight:600}
+#state.bad #stLbl{color:var(--red);font-weight:600}
+#state .spin{display:none}
+#state.run .spin,#state.wait .spin{display:inline-block}
+#others{margin-inline-start:auto;color:var(--mute);font-size:12px}
+footer{border-top:1px solid var(--line);padding:8px max(16px,calc(50% - 440px)) 10px;background:var(--bg)}
+#atts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12px;display:flex;gap:6px;align-items:center}
+.chip span{cursor:pointer;color:var(--red)}
+.row{display:flex;gap:8px;align-items:flex-end}
+textarea{flex:1;resize:none;height:58px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}
+textarea:focus{outline:none;border-color:var(--gold)}
+.opts{display:flex;gap:14px;align-items:center;margin-top:6px;font-size:12px;color:var(--mute)}
+.opts label{display:flex;gap:6px;align-items:center;cursor:pointer}
+/* settings */
+.modal{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;z-index:5}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;width:min(560px,92vw);max-height:90vh;overflow:auto}
+.card h3{margin:0 0 4px}
+.card input{width:100%;padding:9px 11px;border-radius:8px;border:1px solid var(--line);background:var(--fill2);color:var(--text);direction:ltr;font:inherit;margin:8px 0}
+.card hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+
+/* ===================== Apple-style skin (macOS / iOS look) ===================== */
+:root{
+  --bg:#1c1c1e;--bg2:#141416;--panel:rgba(44,44,46,.72);--panel2:rgba(58,58,60,.6);--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --text:#f5f5f7;--mute:#98989d;--gold:#e5383b;--gold2:#ff8f85;--accent:#e5383b;--green:#30d158;--red:#ff453a;--orange:#ff9f0a;
+  --radius:14px;--shadow:0 8px 30px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.04) inset;
+}
+@media (prefers-color-scheme: light){
+  :root{--bg:#f5f5f7;--bg2:#ececf0;--panel:rgba(255,255,255,.78);--panel2:rgba(255,255,255,.9);--line:rgba(0,0,0,.08);--line2:rgba(0,0,0,.14);
+        --text:#1d1d1f;--mute:#6e6e73;--gold:#c1121f;--gold2:#a50f1a;--accent:#c1121f;--green:#28a745;--red:#ff3b30;
+        --shadow:0 8px 30px rgba(0,0,0,.08),0 1px 0 rgba(255,255,255,.6) inset}
+}
+html,body{font:14.5px/1.6 "Segoe UI Variable Text","Segoe UI Variable","SF Pro Text","Segoe UI",system-ui,"Tahoma",sans-serif;
+  background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;letter-spacing:0}
+body{background:radial-gradient(1200px 600px at 85% -10%,rgba(229,56,59,.10),transparent 60%),radial-gradient(900px 500px at 0% 110%,rgba(100,210,255,.06),transparent 60%),var(--bg)}
+*{transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:rgba(128,128,128,.35);border-radius:10px;border:3px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-track{background:transparent}
+
+/* top bar: translucent like a macOS toolbar */
+header{background:var(--panel);backdrop-filter:saturate(180%) blur(24px);-webkit-backdrop-filter:saturate(180%) blur(24px);border-bottom:1px solid var(--line);padding:10px 18px}
+.logo{font-weight:650;font-size:17px;color:var(--text)}
+.logo::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-inline-end:8px;background:linear-gradient(135deg,#64d2ff,#0a84ff);box-shadow:0 0 12px rgba(229,56,59,.6);vertical-align:middle}
+
+/* buttons: soft filled, iOS-like */
+button{background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:6px 14px;font-weight:500}
+button:hover{border-color:var(--line2);background:rgba(120,120,128,.24)}
+button:active{transform:scale(.98)}
+button.gold{background:var(--accent);border-color:transparent;color:#fff;font-weight:600;box-shadow:0 2px 10px rgba(229,56,59,.35)}
+button.gold:hover{filter:brightness(1.08);background:var(--accent)}
+button.red{background:rgba(255,69,58,.14);border-color:transparent;color:var(--red)}
+button.icon{border-radius:50%;width:36px;height:36px;padding:0;display:inline-flex;align-items:center;justify-content:center}
+
+/* segmented control */
+.seg{background:rgba(120,120,128,.2);border:0;border-radius:10px;padding:2px}
+.seg button{border:0;border-radius:8px;background:transparent;color:var(--text);padding:4px 12px;font-size:12.5px;box-shadow:none}
+.seg button.on{background:var(--panel2);color:var(--text);font-weight:600;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+
+.pill{border:1px solid var(--line);background:var(--panel2);border-radius:999px;color:var(--mute)}
+.pill b{color:var(--text)}
+.pill.money b{color:var(--green)}
+.sub{color:var(--mute)}
+
+/* sidebar: macOS source list */
+nav#side{background:var(--panel);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-inline-end:1px solid var(--line)}
+.ch{border-radius:8px;padding:7px 10px;margin:1px 2px}
+.ch:hover{background:rgba(120,120,128,.14)}
+.ch.act{background:var(--accent);border-color:transparent;color:#fff}
+.ch.act .meta,.ch.act .ic{color:rgba(255,255,255,.85)}
+.sec{text-transform:none;font-weight:600;color:var(--mute);font-size:11.5px}
+
+/* chat */
+.bar{background:transparent;border-bottom:1px solid var(--line)}
+.user{background:var(--accent);color:#fff;border:0;border-radius:18px 18px 4px 18px;padding:10px 15px;box-shadow:0 4px 14px rgba(229,56,59,.22);width:fit-content;max-width:78%;margin-inline-start:auto}
+.user .att{color:rgba(255,255,255,.85)}
+.badge{background:rgba(255,255,255,.18);border:0;color:#fff}
+.badge.run{color:#fff;background:rgba(255,255,255,.2)}
+.badge.wait{background:var(--orange);color:#1d1d1f}
+.badge.ok{background:rgba(48,209,88,.9);color:#fff}
+.badge.bad{background:rgba(255,69,58,.9);color:#fff}
+.bot{background:var(--panel);border:1px solid var(--line);border-radius:18px 18px 18px 4px;padding:10px 16px;backdrop-filter:blur(20px);box-shadow:var(--shadow);max-width:92%}
+.bot:empty{display:none}
+.bot .sub,.msg.bot>.sub{display:block}
+.think{border-inline-start:2px solid var(--line2);color:var(--mute)}
+.thinkbox{margin:4px 0 8px;border:1px dashed var(--line2);border-radius:10px;padding:6px 10px;background:var(--panel2)}
+.thinkbox>summary{cursor:pointer;color:var(--accent);font-size:12.5px;font-weight:600;list-style:none}.thinkbox>summary::-webkit-details-marker{display:none}
+.thinkbox .think{max-height:220px;margin:6px 0 2px;border-inline-start:2px solid var(--accent);font-size:12.5px;line-height:1.6;unicode-bidi:plaintext}
+.tool,.agentcard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;box-shadow:none}
+.tool .t{color:var(--accent)}
+.tool pre,.bot pre{background:rgba(120,120,128,.12);color:var(--text);border:1px solid var(--line);border-radius:10px}
+.tool .live{color:var(--accent)}
+.opts{flex-wrap:wrap;gap:8px}
+.opts label{white-space:nowrap}
+.opts>.sub{flex-basis:100%}
+.approve{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,159,10,.18)}
+.welcome h1{font-weight:700;font-size:34px;background:linear-gradient(135deg,#64d2ff,#0a84ff 60%,#5e5ce6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.chips button{border-radius:999px;padding:7px 16px;background:var(--panel)}
+
+/* input: floating rounded composer */
+footer{background:transparent;border-top:0;padding-bottom:16px}
+footer .row{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:8px;box-shadow:var(--shadow);backdrop-filter:blur(24px)}
+textarea{background:transparent;border:0;border-radius:14px;padding:8px 10px}
+textarea:focus{border:0;outline:none}
+footer .row:focus-within{border-color:rgba(229,56,59,.55);box-shadow:0 0 0 4px rgba(229,56,59,.15),var(--shadow)}
+#sendBtn{border-radius:999px;padding:8px 18px}
+.opts label{background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+.opts input[type=checkbox]{accent-color:var(--accent)}
+
+/* status bar */
+#state{background:transparent;border-top:0}
+#state.wait{background:rgba(255,159,10,.12);border-radius:12px}
+#state.run #stLbl{color:var(--accent)}
+
+/* side panels */
+aside#pv,aside#files{background:var(--panel);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px);border-color:var(--line)}
+.fi{border-radius:10px}.fi:hover{background:rgba(120,120,128,.14);border-color:transparent}
+.fi.new .nm div:first-child{color:var(--accent)}
+.ftabs{background:rgba(120,120,128,.2);border-radius:10px;margin:8px;padding:2px;border:0}
+.ftabs button{border:0;border-radius:8px;background:transparent}
+.ftabs button.on{background:var(--panel2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+#fsearch,.card input,.card select,#teamPop select{background:rgba(120,120,128,.16);border:1px solid transparent;border-radius:10px}
+#fsearch:focus,.card input:focus{outline:none;border-color:rgba(229,56,59,.6);box-shadow:0 0 0 3px rgba(229,56,59,.18)}
+.it{border-radius:12px}.it:hover,.it.sel{border-color:var(--accent)}
+
+/* sheets / popovers */
+.modal{background:rgba(0,0,0,.35);backdrop-filter:blur(6px)}
+.card,#teamPop,#linkPop,#tasksPop{background:var(--panel);backdrop-filter:saturate(180%) blur(30px);-webkit-backdrop-filter:saturate(180%) blur(30px);
+  border:1px solid var(--line2);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.card{animation:pop .22s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes pop{from{transform:scale(.96);opacity:0}to{transform:none;opacity:1}}
+.card h3{font-weight:650}
+#upd{background:linear-gradient(90deg,rgba(229,56,59,.22),rgba(94,92,230,.18));color:var(--text);border-bottom:1px solid var(--line)}
+.spin{border-color:rgba(128,128,128,.35);border-top-color:var(--accent)}
+.err-msg{color:var(--red)}
+
+/* ---- resizable panels + view menu ---- */
+nav#side,aside#files,aside#pv{position:relative}
+.rz{position:absolute;top:0;bottom:0;width:7px;cursor:col-resize;z-index:4}
+.rz:hover,.rz.drag{background:linear-gradient(90deg,transparent 2px,var(--accent) 2px,var(--accent) 4px,transparent 4px)}
+nav#side>.rz{inset-inline-end:-4px}
+aside#files>.rz,aside#pv>.rz{inset-inline-start:-4px}
+body.resizing{cursor:col-resize;user-select:none}
+body.resizing iframe,body.resizing video{pointer-events:none}
+body.hide-side nav#side{display:none}
+body.hide-files aside#files{display:none}
+body.focus nav#side,body.focus aside#files,body.focus aside#pv{display:none!important}
+#viewPop{position:absolute;top:52px;inset-inline-end:110px;z-index:7;width:300px;display:none;padding:12px;background:var(--panel);
+  backdrop-filter:saturate(180%) blur(30px);border:1px solid var(--line2);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+#viewPop .g{color:var(--mute);font-size:11.5px;margin:8px 2px 4px}
+#viewPop .r{display:flex;gap:6px;flex-wrap:wrap}
+#viewPop .r button{flex:1;font-size:12.5px;padding:5px 8px}
+#viewPop label{display:flex;gap:8px;align-items:center;padding:4px 2px;cursor:pointer}
+header{position:relative}
+
+.tool .step{display:flex;align-items:center;gap:8px;font-size:13.5px}
+.tool .step .ico{font-size:15px}
+.tool .step .what{color:var(--mute);direction:ltr;unicode-bidi:plaintext;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
+.tool .why2{margin-top:4px;font-size:13px}
+.tool .res{margin-top:5px;font-size:12.5px;color:var(--green)}
+.tool.err .res{color:var(--red)}
+.tool details.raw{margin-top:4px;font-size:11.5px;color:var(--mute)}
+.tool details.raw summary{cursor:pointer;color:var(--mute)}
+.tool details.raw pre{max-height:260px}
+
+/* ===================== readable code + theme switch (fixes the black boxes in light mode) ===================== */
+:root{--code-bg:rgba(120,120,128,.22);--code-fg:var(--text);--code-line:rgba(120,120,128,.28);--hover:rgba(120,120,128,.14);color-scheme:dark}
+@media (prefers-color-scheme: light){:root{--code-bg:rgba(0,0,0,.06);--code-fg:#b3261e;--code-line:rgba(0,0,0,.10);color-scheme:light}}
+:root[data-theme=light]{--bg:#f5f5f7;--bg2:#ececf0;--panel:rgba(255,255,255,.78);--panel2:rgba(255,255,255,.9);--line:rgba(0,0,0,.08);--line2:rgba(0,0,0,.14);
+  --text:#1d1d1f;--mute:#6e6e73;--gold:#c1121f;--gold2:#a50f1a;--accent:#c1121f;--green:#28a745;--red:#ff3b30;
+  --shadow:0 8px 30px rgba(0,0,0,.08),0 1px 0 rgba(255,255,255,.6) inset;--code-bg:rgba(0,0,0,.06);--code-fg:#b3261e;--code-line:rgba(0,0,0,.10);color-scheme:light}
+:root[data-theme=dark]{--bg:#1c1c1e;--bg2:#141416;--panel:rgba(44,44,46,.72);--panel2:rgba(58,58,60,.6);--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --text:#f5f5f7;--mute:#98989d;--gold:#e5383b;--gold2:#ff8f85;--accent:#e5383b;--green:#30d158;--red:#ff453a;
+  --shadow:0 8px 30px rgba(0,0,0,.35),0 1px 0 rgba(255,255,255,.04) inset;--code-bg:rgba(120,120,128,.22);--code-fg:#ffd479;--code-line:rgba(120,120,128,.28);color-scheme:dark}
+@media (prefers-color-scheme: dark){:root:not([data-theme=light]){--code-fg:#ffd479}}
+code,kbd{font-family:"Cascadia Code","Cascadia Mono",Consolas,"Courier New",monospace;font-size:.92em}
+.bot code,.card code,.sub code,.tool code,.user code{background:var(--code-bg);color:var(--code-fg);border:1px solid var(--code-line);padding:1px 6px;border-radius:6px;
+  direction:ltr;unicode-bidi:isolate;white-space:pre-wrap;word-break:break-word}
+.user code{background:rgba(255,255,255,.2);color:#fff;border-color:transparent}
+.bot pre,.tool pre{background:var(--code-bg);color:var(--text);border:1px solid var(--code-line);border-radius:10px;padding:12px 14px;line-height:1.55;font-size:13px;
+  font-family:"Cascadia Code","Cascadia Mono",Consolas,monospace;tab-size:2}
+.bot pre code{background:none;border:0;padding:0;color:inherit;white-space:pre;word-break:normal;font-size:inherit}
+.bot pre[data-lang]{padding-top:26px}
+.bot pre[data-lang]::before{content:attr(data-lang);position:absolute;top:4px;left:12px;font-size:10.5px;color:var(--mute);letter-spacing:.04em;text-transform:uppercase}
+.bot .tw{overflow-x:auto;margin:.6em 0;border:1px solid var(--line2);border-radius:12px}
+.bot table{border-collapse:collapse;margin:0;width:100%}
+.bot td,.bot th{border:0;border-bottom:1px solid var(--line);border-inline-start:1px solid var(--line);padding:7px 12px;text-align:start;vertical-align:top}
+.bot td:first-child,.bot th:first-child{border-inline-start:0}
+.bot tr:last-child td{border-bottom:0}
+.bot th{background:var(--hover);font-weight:600}
+.bot tr:hover td{background:var(--hover)}
+.bot h3{font-size:1.12em;margin:.9em 0 .35em}.bot h4{font-size:1.02em;margin:.8em 0 .3em}
+.bot ol{margin:.3em 0;padding-inline-start:24px}.bot li{margin:.15em 0}
+.bot hr{border:0;border-top:1px solid var(--line2);margin:.9em 0}
+.bot blockquote{margin:.5em 0;padding:4px 12px;border-inline-start:3px solid var(--accent);color:var(--mute);background:var(--hover);border-radius:6px}
+.bot a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;direction:ltr;unicode-bidi:isolate;word-break:break-all}
+.bot a:hover{border-bottom-color:var(--accent)}
+.user a{color:#fff;text-decoration:underline}
+.bot p:first-child{margin-top:0}.bot p:last-child{margin-bottom:0}
+/* leftovers of the old dark skin that turned into black/grey blocks on the light theme */
+#linkList label:hover,.fi .acts span:hover{background:var(--hover)}
+.agentcard .b,#saved .ch .nm{color:var(--text)}
+.fi .ico,.it .th{background-color:var(--hover)}
+.ic.idle::after{background:var(--mute);opacity:.5}
+.ch.wait{border-color:var(--orange)}
+body.drag::after{background:var(--panel);backdrop-filter:blur(18px);color:var(--accent);border-color:var(--accent)}
+.card select option,#teamPop select option{background:var(--bg);color:var(--text)}
+#toBottom{position:absolute;bottom:14px;inset-inline-start:50%;transform:translateX(50%);z-index:3;display:none;border-radius:999px;padding:5px 14px;font-size:12.5px;
+  background:var(--panel);backdrop-filter:blur(20px);box-shadow:var(--shadow)}
+#chatsArea{position:relative}
+#rePop{position:absolute;bottom:120px;inset-inline-start:max(16px,calc(50% - 440px));z-index:6;width:min(820px,94vw);max-height:66vh;overflow:auto;display:none;padding:14px 14px 0;
+  background:var(--panel);backdrop-filter:saturate(180%) blur(30px);border:1px solid var(--line2);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+#rePop .g{color:var(--mute);font-size:11.5px;font-weight:600;margin:10px 2px 2px}
+#rePop .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px 8px;margin-top:8px}
+#rePop label{display:flex;gap:8px;align-items:flex-start;padding:5px 6px;border-radius:8px;cursor:pointer}
+#rePop label:hover{background:var(--hover)}
+#rePop label input{margin-top:5px;accent-color:var(--accent)}
+#rePop label b{font-weight:600;font-size:13px}#rePop label i{font-style:normal;font-size:10.5px;color:var(--accent);background:var(--hover);border-radius:999px;padding:0 7px;white-space:nowrap}
+#rePop label span{color:var(--mute);font-size:11.5px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#rePop label.off{opacity:.45}
+#rePop .r{display:flex;gap:6px;margin-top:8px;position:sticky;bottom:0;background:var(--bg);padding:10px 0 12px;border-top:1px solid var(--line)}
+#reLbl.on{border-color:var(--accent);color:var(--accent)}
+#skPop{position:absolute;bottom:120px;inset-inline-start:max(16px,calc(50% - 440px));z-index:6;width:min(820px,94vw);max-height:70vh;overflow:auto;display:none;padding:14px 14px 0;
+  background:var(--panel);backdrop-filter:saturate(180%) blur(30px);border:1px solid var(--line2);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+#skPop .skrow{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}#skPop .skrow input{flex:1;min-width:200px}
+#skPop input{font:inherit;font-size:13px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:7px 10px}
+#skFind{width:100%;margin-top:10px;box-sizing:border-box}
+#skList .sk .skc{margin-top:5px;accent-color:var(--accent);flex:none}
+#skList .sk{display:flex;gap:8px;align-items:flex-start;padding:7px 6px;border-radius:10px}#skList .sk:hover{background:var(--hover)}
+#skList .sk .i{flex:1;min-width:0}#skList .sk b{font-size:13px}#skList .sk i{font-style:normal;font-size:10.5px;color:var(--accent);background:var(--hover);border-radius:999px;padding:0 7px;margin-inline-start:6px}
+#skList .sk span{display:block;color:var(--mute);font-size:11.5px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#skList .sk button{padding:3px 10px;font-size:12px;white-space:nowrap}
+#libBox,#repoBox{margin-top:6px}#repoBox #repoFind{width:100%;margin-top:8px}
+#repoList .sk{display:flex;gap:8px;align-items:flex-start;padding:7px 6px;border-radius:10px;border-bottom:1px solid var(--line)}#repoList .sk:hover{background:var(--hover)}
+#repoList .sk .i{flex:1;min-width:0}#repoList .sk b{font-size:13px}#repoList .sk i{font-style:normal;font-size:10.5px;color:var(--accent);background:var(--hover);border-radius:999px;padding:0 7px;margin-inline-start:6px}
+#repoList .sk span{display:block;color:var(--mute);font-size:11.5px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#repoList .sk button{padding:3px 10px;font-size:12px;white-space:nowrap}#repoList .sk .repc{width:16px;height:16px;padding:0;margin:4px 0 0;flex:none;accent-color:var(--accent)}#libBox #libFind{width:100%;margin-top:8px}
+#libList .sk .libc{width:16px;height:16px;padding:0;margin:4px 0 0;flex:none;accent-color:var(--accent)}
+#libList .sk{border-bottom:1px solid var(--line)}
+#libList .sk{display:flex;gap:8px;align-items:flex-start;padding:7px 6px;border-radius:10px}#libList .sk:hover{background:var(--hover)}
+#libList .sk .i{flex:1;min-width:0}#libList .sk b{font-size:13px}#libList .sk i{font-style:normal;font-size:10.5px;color:var(--accent);background:var(--hover);border-radius:999px;padding:0 7px;margin-inline-start:6px}
+#libList .sk span{display:block;color:var(--mute);font-size:11.5px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#libList .sk button{padding:3px 10px;font-size:12px;white-space:nowrap}
+#libList .sk .libc{margin-top:5px;accent-color:var(--accent);flex:none}
+#skPop .r{display:flex;gap:6px;margin-top:8px;position:sticky;bottom:0;background:var(--bg);padding:10px 0 12px;border-top:1px solid var(--line)}
+#micBtn.rec{background:var(--red);color:#fff;border-color:transparent;animation:pulse 1.1s ease-in-out infinite}
+#micBtn.busy{opacity:.7}
+#micBar{display:none;align-items:center;gap:8px;margin:0 6px 6px;padding:6px 12px;border-radius:12px;background:var(--hover);font-size:12.5px}
+#micBar .dotr{width:9px;height:9px;border-radius:50%;background:var(--red);animation:pulse 1s ease-in-out infinite}
+#micBar select{font:inherit;font-size:12px;border-radius:8px;border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:2px 6px}
+
+/* ===================== الطائر الأبيض — Apple design layer =====================
+   Comes last, so it wins over the older skins above. It only restyles: every rule that places panels,
+   popovers and resize handles is untouched, so the app logic (JS) sees the same DOM. */
+@font-face{font-family:"WB Arabic";src:url("fonts/noto-sans-arabic-wght.woff2") format("woff2");font-weight:100 900;font-display:swap;
+  unicode-range:U+0600-06FF,U+0750-077F,U+0870-088E,U+0890-0891,U+0898-08E1,U+08E3-08FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE70-FE74,U+FE76-FEFC}
+@font-face{font-family:"WB Text";src:url("fonts/inter-latin-wght.woff2") format("woff2");font-weight:100 900;font-display:swap;
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-200B,U+2012-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* ---- tokens: dark ---- */
+:root{
+  --accent:#0a84ff;--accent-soft:rgba(10,132,255,.18);--ring:rgba(10,132,255,.42);
+  --bg:#161618;--bg2:#1c1c1f;--card:#222226;--sheet:#232327;--seg-on:#5a5a5f;
+  --panel:rgba(36,36,39,.72);--panel2:rgba(255,255,255,.07);--glass:rgba(32,32,35,.66);--glass-strong:rgba(40,40,44,.86);
+  --line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.13);
+  --text:#f5f5f7;--mute:#98989f;--gold:#0a84ff;--gold2:#64d2ff;--green:#30d158;--red:#ff453a;--orange:#ff9f0a;
+  --hover:rgba(255,255,255,.06);--sel:rgba(255,255,255,.11);--fill:rgba(118,118,128,.26);--fill2:rgba(118,118,128,.16);
+  --bubble:#0a84ff;--hero1:#ffffff;--hero2:#64d2ff;--glow1:rgba(10,132,255,.10);--glow2:rgba(94,92,230,.08);
+  --shadow:0 1px 1px rgba(0,0,0,.25),0 10px 28px rgba(0,0,0,.32);--shadow-lg:0 30px 80px rgba(0,0,0,.55),0 0 0 .5px rgba(255,255,255,.1);
+  --code-bg:rgba(118,118,128,.2);--code-fg:#ff7ab2;--code-line:rgba(255,255,255,.08);color-scheme:dark}
+@media (prefers-color-scheme: dark){:root:not([data-theme=light]){--code-fg:#ff7ab2}}
+:root[data-theme=dark]{
+  --accent:#0a84ff;--accent-soft:rgba(10,132,255,.18);--ring:rgba(10,132,255,.42);
+  --bg:#161618;--bg2:#1c1c1f;--card:#222226;--sheet:#232327;--seg-on:#5a5a5f;
+  --panel:rgba(36,36,39,.72);--panel2:rgba(255,255,255,.07);--glass:rgba(32,32,35,.66);--glass-strong:rgba(40,40,44,.86);
+  --line:rgba(255,255,255,.075);--line2:rgba(255,255,255,.13);
+  --text:#f5f5f7;--mute:#98989f;--gold:#0a84ff;--gold2:#64d2ff;--green:#30d158;--red:#ff453a;--orange:#ff9f0a;
+  --hover:rgba(255,255,255,.06);--sel:rgba(255,255,255,.11);--fill:rgba(118,118,128,.26);--fill2:rgba(118,118,128,.16);
+  --bubble:#0a84ff;--hero1:#ffffff;--hero2:#64d2ff;--glow1:rgba(10,132,255,.10);--glow2:rgba(94,92,230,.08);
+  --shadow:0 1px 1px rgba(0,0,0,.25),0 10px 28px rgba(0,0,0,.32);--shadow-lg:0 30px 80px rgba(0,0,0,.55),0 0 0 .5px rgba(255,255,255,.1);
+  --code-bg:rgba(118,118,128,.2);--code-fg:#ff7ab2;--code-line:rgba(255,255,255,.08);color-scheme:dark}
+
+/* ---- tokens: light (the White Bird's home look) ---- */
+@media (prefers-color-scheme: light){:root{
+  --accent:#0071e3;--accent-soft:rgba(0,113,227,.10);--ring:rgba(0,113,227,.30);
+  --bg:#f5f5f7;--bg2:#fbfbfd;--card:#ffffff;--sheet:#ffffff;--seg-on:#ffffff;
+  --panel:rgba(255,255,255,.72);--panel2:rgba(0,0,0,.035);--glass:rgba(250,250,252,.72);--glass-strong:rgba(255,255,255,.88);
+  --line:rgba(0,0,0,.07);--line2:rgba(0,0,0,.115);
+  --text:#1d1d1f;--mute:#86868b;--gold:#0071e3;--gold2:#0066cc;--green:#248a3d;--red:#d70015;--orange:#ff9500;
+  --hover:rgba(0,0,0,.04);--sel:rgba(0,0,0,.075);--fill:rgba(118,118,128,.13);--fill2:rgba(118,118,128,.08);
+  --bubble:#0a7cff;--hero1:#1d1d1f;--hero2:#0a64d8;--glow1:rgba(10,132,255,.07);--glow2:rgba(94,92,230,.05);
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 6px 20px rgba(0,0,0,.05);--shadow-lg:0 24px 70px rgba(0,0,0,.16),0 0 0 .5px rgba(0,0,0,.08);
+  --code-bg:rgba(0,0,0,.045);--code-fg:#9b2393;--code-line:rgba(0,0,0,.06);color-scheme:light}}
+:root[data-theme=light]{
+  --accent:#0071e3;--accent-soft:rgba(0,113,227,.10);--ring:rgba(0,113,227,.30);
+  --bg:#f5f5f7;--bg2:#fbfbfd;--card:#ffffff;--sheet:#ffffff;--seg-on:#ffffff;
+  --panel:rgba(255,255,255,.72);--panel2:rgba(0,0,0,.035);--glass:rgba(250,250,252,.72);--glass-strong:rgba(255,255,255,.88);
+  --line:rgba(0,0,0,.07);--line2:rgba(0,0,0,.115);
+  --text:#1d1d1f;--mute:#86868b;--gold:#0071e3;--gold2:#0066cc;--green:#248a3d;--red:#d70015;--orange:#ff9500;
+  --hover:rgba(0,0,0,.04);--sel:rgba(0,0,0,.075);--fill:rgba(118,118,128,.13);--fill2:rgba(118,118,128,.08);
+  --bubble:#0a7cff;--hero1:#1d1d1f;--hero2:#0a64d8;--glow1:rgba(10,132,255,.07);--glow2:rgba(94,92,230,.05);
+  --shadow:0 1px 2px rgba(0,0,0,.04),0 6px 20px rgba(0,0,0,.05);--shadow-lg:0 24px 70px rgba(0,0,0,.16),0 0 0 .5px rgba(0,0,0,.08);
+  --code-bg:rgba(0,0,0,.045);--code-fg:#9b2393;--code-line:rgba(0,0,0,.06);color-scheme:light}
+
+/* ---- type + canvas ---- */
+html,body{font:15px/1.7 "WB Text","WB Arabic","SF Pro Text","SF Arabic","Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;color:var(--text)}
+body{background:radial-gradient(1100px 520px at 85% -12%,var(--glow1),transparent 62%),radial-gradient(900px 480px at 0% 112%,var(--glow2),transparent 60%),var(--bg)}
+::selection{background:var(--accent-soft)}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-thumb{background:rgba(128,128,128,.3);border:3px solid transparent;background-clip:padding-box;border-radius:10px}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(128,128,128,.5)}
+.sub{color:var(--mute)}
+kbd,.wb-k{font:500 11px/1 "WB Text","Segoe UI",sans-serif;background:var(--fill2);border:.5px solid var(--line2);border-bottom-width:1.5px;border-radius:5px;padding:2px 5px;color:var(--mute);direction:ltr;unicode-bidi:isolate}
+
+/* ---- toolbar ---- */
+header{min-height:54px;padding:6px 14px;gap:8px;background:var(--glass);backdrop-filter:saturate(180%) blur(28px);-webkit-backdrop-filter:saturate(180%) blur(28px);
+  border-bottom:.5px solid var(--line2);box-shadow:none;z-index:5}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand img{width:34px;height:34px;margin:-2px;filter:drop-shadow(0 1px 1.5px rgba(0,0,0,.18));flex:none}
+.logo{font-size:15px;font-weight:650;color:var(--text);line-height:1.25}
+.logo::before{display:none}
+header #st{font-size:11.5px;line-height:1.35}
+.dot{width:7px;height:7px}.dot.ok{background:#34c759}.dot.bad{background:#ff3b30}
+.wb-search{display:inline-flex;align-items:center;gap:8px;min-width:230px;justify-content:flex-start;color:var(--mute);background:var(--fill2);border:.5px solid var(--line);
+  border-radius:9px;padding:5px 10px;font-size:13px;box-shadow:none}
+.wb-search svg{width:15px;height:15px;flex:none}
+.wb-search .wb-k{margin-inline-start:auto}
+.wb-search:hover{background:var(--fill);color:var(--text)}
+
+/* ---- buttons ---- */
+button{background:var(--fill2);border:.5px solid var(--line);border-radius:9px;color:var(--text);padding:5px 12px;font-size:13px;font-weight:500;line-height:1.5;
+  box-shadow:0 .5px 1px rgba(0,0,0,.05)}
+button:hover{background:var(--fill);border-color:var(--line2)}
+button:active{transform:scale(.97)}
+button:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring)}
+button.gold{background:var(--accent);color:#fff;border-color:transparent;font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.12),inset 0 1px 0 rgba(255,255,255,.16)}
+button.gold:hover{background:var(--accent);filter:brightness(1.08)}
+button.red{background:rgba(255,59,48,.12);color:var(--red);border-color:transparent}
+button.icon{width:34px;height:34px;border-radius:50%;padding:0;font-size:15px;background:transparent;border-color:transparent;box-shadow:none}
+button.icon:hover{background:var(--fill)}
+.seg{background:var(--fill);border:0;border-radius:9px;padding:2px}
+.seg button{background:transparent;border:0;border-radius:7px;padding:3px 12px;font-size:12.5px;color:var(--text);box-shadow:none}
+.seg button.on{background:var(--seg-on);color:var(--text);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.14),0 0 0 .5px rgba(0,0,0,.04)}
+.seg button:not(.on):hover{background:var(--hover)}
+.pill{background:var(--fill2);border:.5px solid var(--line);border-radius:999px;padding:3px 12px;font-size:12px;color:var(--mute)}
+.pill b{color:var(--text);font-weight:600}.pill.money b{color:var(--green)}.pill.low b{color:var(--red)}
+
+/* ---- sidebar: macOS source list ---- */
+nav#side{background:var(--glass);backdrop-filter:saturate(180%) blur(30px);-webkit-backdrop-filter:saturate(180%) blur(30px);border-inline-end:.5px solid var(--line2)}
+nav#side .top{padding:12px 10px 8px;border-bottom:0}
+nav#side .top button{border-radius:10px;padding:7px 12px}
+#chats{padding:2px 8px}
+.ch{border:0;border-radius:8px;padding:6px 10px;margin:1px 0;gap:8px}
+.ch:hover{background:var(--hover)}
+.ch.act{background:var(--sel);color:var(--text)}
+.ch.act .nm{font-weight:600}
+.ch.act .meta,.ch.act .ic{color:var(--mute)}
+.ch.act .ic.ok{color:var(--green)}.ch.act .ic.bad{color:var(--red)}.ch.act .ic.wait{color:var(--orange)}
+.ch .nm{font-size:13.5px}.ch .meta{font-size:11px}
+.ch.wait{box-shadow:inset 3px 0 0 var(--orange)}
+.sec{font-size:11px;font-weight:600;color:var(--mute);padding:12px 18px 4px}
+#saved .ch .nm{color:var(--text);font-size:13px}
+.ch .lk{color:var(--accent)}
+
+/* ---- chat ---- */
+.bar{padding:7px 16px;gap:4px;border-bottom:.5px solid var(--line);background:transparent}
+.bar>button{background:transparent;border-color:transparent;box-shadow:none;font-size:12.5px;padding:4px 10px}
+.bar>button:hover{background:var(--fill)}
+.bar>button.red{background:rgba(255,59,48,.12);color:var(--red)}
+.chat{padding:28px max(20px,calc(50% - 410px))}
+#chatwrap.pv-open .chat{padding:24px 22px}
+.msg{margin:0 0 18px}
+.user{background:var(--bubble);color:#fff;border:0;border-radius:20px 20px 20px 6px;padding:9px 15px;box-shadow:none;max-width:76%;line-height:1.65}
+.user .att{color:rgba(255,255,255,.85)}
+.badge{background:rgba(255,255,255,.2);border:0;color:#fff;font-size:11.5px;padding:1px 9px}
+.badge.run{background:rgba(255,255,255,.2);color:#fff}
+.badge.wait{background:#ff9f0a;color:#1d1d1f;font-weight:600}
+.badge.ok{background:rgba(52,199,89,.92);color:#fff}
+.badge.bad{background:rgba(255,59,48,.92);color:#fff}
+.bot{background:var(--card);border:.5px solid var(--line);border-radius:20px 20px 6px 20px;padding:12px 18px;box-shadow:var(--shadow);backdrop-filter:none;
+  max-width:min(94%,860px);line-height:1.8}
+.bot h1,.bot h2,.bot h3,.bot h4{font-weight:650;line-height:1.4}
+.bot strong,.bot b{font-weight:650}
+.thinkbox{background:var(--fill2);border:0;border-radius:12px;padding:7px 12px}
+.thinkbox>summary{color:var(--accent)}
+.thinkbox .think{border-inline-start:2px solid var(--accent-soft)}
+.think{color:var(--mute);border-inline-start:2px solid var(--line2)}
+.tool,.agentcard{background:var(--card);border:.5px solid var(--line);border-radius:14px;padding:9px 14px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.tool .t,.tool .live,.agentcard .h{color:var(--accent)}
+.tool .ag{background:var(--accent-soft);color:var(--accent);border-radius:6px}
+.tool .res{color:var(--green)}.tool.err{border-color:rgba(255,59,48,.45)}.tool.err .res{color:var(--red)}
+.agentcard.ok{border-color:rgba(52,199,89,.45)}.agentcard.ok .h{color:var(--green)}
+.agentcard.bad{border-color:rgba(255,59,48,.45)}.agentcard.bad .h{color:var(--red)}
+.approve{border:1px solid var(--orange);box-shadow:0 0 0 4px rgba(255,159,10,.14)}
+.usage{color:var(--mute)}
+.err-msg{color:var(--red)}
+#toBottom{background:var(--glass-strong);border:.5px solid var(--line2);box-shadow:var(--shadow)}
+.cmpcard{background:var(--card);border:.5px solid var(--line);box-shadow:var(--shadow)}
+
+/* ---- welcome ---- */
+.welcome{margin-top:9vh;color:var(--mute)}
+.welcome .wb-hero{width:112px;height:112px;display:block;margin:0 auto 12px;filter:drop-shadow(0 16px 22px rgba(10,90,240,.24)) drop-shadow(0 2px 3px rgba(0,0,0,.08))}
+.welcome h1{font-size:40px;font-weight:700;line-height:1.25;margin:0 0 10px;background:linear-gradient(135deg,var(--hero1) 35%,var(--hero2));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.welcome>div{max-width:640px;margin:0 auto;font-size:15px;line-height:1.9}
+.chips{gap:8px;margin:22px auto 0;max-width:780px}
+.chips button{background:var(--card);border:.5px solid var(--line2);border-radius:999px;padding:7px 15px;font-size:13px;box-shadow:var(--shadow)}
+.chips button:hover{border-color:var(--accent);color:var(--accent);background:var(--card)}
+
+/* ---- composer ---- */
+#state{padding:4px max(20px,calc(50% - 410px));font-size:12px;background:transparent;border:0}
+#state.wait{background:rgba(255,159,10,.12);border-radius:10px}
+#state.run #stLbl{color:var(--accent)}#state.ok #stLbl{color:var(--green)}#state.bad #stLbl{color:var(--red)}
+footer{padding:6px max(20px,calc(50% - 410px)) 14px;background:transparent;border-top:0}
+footer .row{background:var(--card);border:.5px solid var(--line2);border-radius:26px;padding:6px 6px 6px 8px;align-items:flex-end;backdrop-filter:none;
+  box-shadow:0 1px 2px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.07)}
+footer .row:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px var(--ring),0 12px 32px rgba(0,0,0,.07)}
+textarea{font-size:15px;line-height:1.6;min-height:44px;padding:9px 8px;background:transparent;color:var(--text);border:0}
+textarea::placeholder{color:var(--mute)}
+#sendBtn{border-radius:999px;padding:7px 18px;min-height:38px}
+.opts{gap:6px;margin-top:9px;font-size:12px}
+.opts label{background:transparent;border:.5px solid var(--line2);border-radius:999px;padding:3px 11px;color:var(--text)}
+.opts label:hover{background:var(--hover)}
+.opts label:has(input:checked){background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.opts input[type=checkbox],.card input[type=checkbox],#viewPop input[type=checkbox]{accent-color:var(--accent)}
+.chip{background:var(--card);border:.5px solid var(--line2)}
+.chip span{color:var(--red)}
+
+/* ---- side panels ---- */
+aside#pv,aside#files{background:var(--glass);backdrop-filter:saturate(180%) blur(30px);-webkit-backdrop-filter:saturate(180%) blur(30px);border-inline-start:.5px solid var(--line2)}
+.fh,.pvh{padding:10px 12px;border-bottom:.5px solid var(--line)}
+.fh b,.pvh b{color:var(--text);font-weight:650}
+.ftabs{background:var(--fill);border:0;border-radius:9px;margin:8px 10px;padding:2px}
+.ftabs button{background:transparent;border:0;border-radius:7px;font-size:12px;box-shadow:none;color:var(--text)}
+.ftabs button.on{background:var(--seg-on);color:var(--text);font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.14)}
+#fsearch{margin:2px 10px 6px;background:var(--fill2);border:.5px solid transparent;border-radius:9px;padding:6px 10px;color:var(--text)}
+#fsearch:focus,.card input:focus,.card select:focus,#skPop input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--ring)}
+.fi{border:0;border-radius:9px}.fi:hover{background:var(--hover)}
+.fi .ico{border-radius:8px;background-color:var(--fill2)}
+.fi.new .nm div:first-child{color:var(--accent)}
+.fg{color:var(--mute)}
+.vbar{border-bottom:.5px solid var(--line)}
+.it{border-radius:12px;border:.5px solid var(--line);background:var(--card)}
+.it .th{background-color:var(--fill2)}
+.it:hover,.it.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--ring)}
+.it .th .new{background:var(--accent);color:#fff}
+
+/* ---- popovers + sheets ---- */
+#teamPop,#linkPop,#tasksPop,#viewPop,#foPop,#rePop,#skPop,#cmpPop{background:var(--glass-strong);backdrop-filter:saturate(180%) blur(40px);-webkit-backdrop-filter:saturate(180%) blur(40px);
+  border:.5px solid var(--line2);border-radius:16px;box-shadow:var(--shadow-lg);color:var(--text)}
+#rePop .r,#skPop .r{background:var(--sheet)}
+#teamPop select,#teamCount,#skPop input,.card input,.card select{background:var(--fill2);border:.5px solid var(--line);border-radius:9px;color:var(--text)}
+#linkList label:hover,#rePop label:hover,#skList .sk:hover,#libList .sk:hover,#repoList .sk:hover{background:var(--hover)}
+.modal{background:rgba(0,0,0,.26);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.card{background:var(--sheet);border:.5px solid var(--line2);border-radius:22px;padding:24px 26px;box-shadow:var(--shadow-lg);width:min(640px,94vw)}
+.card h3{font-size:15px;font-weight:650;margin:0 0 6px}
+.card hr{border:0;border-top:.5px solid var(--line);margin:18px 0}
+#upd{background:var(--accent-soft);color:var(--text);border-bottom:.5px solid var(--line)}
+#acct{background:var(--fill2)!important}
+body.drag::after{background:var(--glass-strong);backdrop-filter:blur(18px);border:2px dashed var(--accent);border-radius:22px;color:var(--accent)}
+.spin{border-color:var(--fill);border-top-color:var(--accent)}
+#micBtn.rec{background:#ff3b30;color:#fff}
+
+/* ---- Spotlight (Ctrl+K) ---- */
+#wbSpot{position:fixed;inset:0;z-index:50;display:none;align-items:flex-start;justify-content:center;padding-top:13vh;background:rgba(0,0,0,.14)}
+#wbSpot.on{display:flex}
+#wbSpot .box{width:min(660px,92vw);background:var(--glass-strong);backdrop-filter:saturate(180%) blur(40px);-webkit-backdrop-filter:saturate(180%) blur(40px);
+  border:.5px solid var(--line2);border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden;animation:wbIn .18s cubic-bezier(.2,.9,.3,1.1)}
+#wbSpot .in{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:.5px solid var(--line)}
+#wbSpot .in svg{width:21px;height:21px;color:var(--mute);flex:none}
+#wbSpot input{flex:1;border:0;background:transparent;font:inherit;font-size:19px;color:var(--text);outline:none;min-width:0}
+#wbSpot .list{max-height:52vh;overflow-y:auto;padding:6px}
+#wbSpot .g{font-size:11px;font-weight:600;color:var(--mute);padding:8px 10px 3px}
+#wbSpot .it2{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:9px;cursor:pointer;font-size:14px}
+#wbSpot .it2 .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#wbSpot .it2 .e{width:26px;height:26px;border-radius:7px;background:var(--fill2);display:flex;align-items:center;justify-content:center;font-size:14px;flex:none}
+#wbSpot .it2 .k{color:var(--mute);font-size:11.5px;white-space:nowrap}
+#wbSpot .it2.on{background:var(--accent);color:#fff}
+#wbSpot .it2.on .k{color:rgba(255,255,255,.82)}#wbSpot .it2.on .e{background:rgba(255,255,255,.2)}
+#wbSpot .none{color:var(--mute);font-size:13px;padding:14px 12px}
+#wbSpot .ft{display:flex;gap:16px;padding:7px 14px;border-top:.5px solid var(--line);font-size:11px;color:var(--mute)}
+@keyframes wbIn{from{opacity:0;transform:translateY(-6px) scale(.985)}to{opacity:1;transform:none}}
+@media (max-width:900px){.wb-search{min-width:0}.wb-search .wb-l,.wb-search .wb-k{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand"><img src="white-bird.png" alt=""><div><div class="logo">الطائر الأبيض</div><div class="sub" id="st"><span class="dot"></span>بيحمّل…</div></div></div>
+  <div class="sp"></div>
+  <button id="wbSpotBtn" class="wb-search" title="بحث سريع في المحادثات والأوامر والإعدادات (Ctrl+K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><span class="wb-l">دوّر أو نفّذ أمر…</span><span class="wb-k">Ctrl K</span></button>
+  <div class="sp"></div>
+  <div class="seg" title="تبديل طريقة التشغيل (بيتطبّق على الطلبات الجاية)">
+    <button id="segSub" data-e="subscription">⭐ Claude</button><button id="segCodex" data-e="codex">🟢 ChatGPT</button><button id="segGem" data-e="gemini" title="نفس موديلات Gemini اللي في Antigravity، بمفتاح Google AI Studio">🔷 Antigravity</button><button id="segApi" data-e="api">💳 الرصيد</button>
+  </div>
+  <button id="relinkBtn" title="إعادة ربط حساب Claude: اربط التطبيق بحساب تاني (أو سجّل دخول من جديد) وكمّل المحادثة من حيث وقفت">🔄 <span id="acctLbl">الحساب</span></button>
+  <div class="pill money" id="balPill" title="الرصيد"><span id="balLbl">الرصيد</span> <b id="bal">—</b></div>
+  <button id="viewBtn" title="العرض: أحجام اللوحات والخط والنافذة">🪟 العرض</button>
+  <div id="viewPop">
+    <div class="g">اللوحات</div>
+    <label><input type="checkbox" id="vSide" checked> قايمة المحادثات</label>
+    <label><input type="checkbox" id="vFiles" checked> لوحة الملفات</label>
+    <label><input type="checkbox" id="vFocus"> وضع التركيز (الشات بس) · F11</label>
+    <div class="g">المظهر</div>
+    <div class="r" id="themeRow"><button data-t="auto">تلقائي</button><button data-t="light">☀ فاتح</button><button data-t="dark">🌙 غامق</button></div>
+    <div class="g">حجم الخط والتكبير <span id="zoomV"></span></div>
+    <div class="r"><button data-z="-">A−</button><button data-z="0">100%</button><button data-z="+">A+</button></div>
+    <div class="g">النافذة</div>
+    <div class="r"><button data-w="small">صغيرة</button><button data-w="medium">متوسطة</button><button data-w="large">كبيرة</button></div>
+    <div class="r" style="margin-top:6px"><button data-w="side">عمود جانبي</button><button data-w="max">ملء الشاشة</button><button data-w="min">تصغير</button></div>
+    <label style="margin-top:6px"><input type="checkbox" id="vTop"> 📌 فوق كل النوافذ</label>
+    <div class="r" style="margin-top:6px"><button id="vReset">رجّع الأحجام الأصلية</button></div>
+    <div class="sub" style="margin-top:6px">اسحب حافة أي لوحة عشان تكبّرها أو تصغّرها. Ctrl + و Ctrl − للخط، Ctrl+B للقايمة.</div>
+  </div>
+  <button id="setBtn">الإعدادات</button>
+</header>
+
+<div id="acct" style="display:none;background:var(--panel2);border-bottom:1px solid var(--line);padding:8px 16px;align-items:center;gap:10px;font-size:13px;flex-wrap:wrap"></div>
+<div id="upd"><span>⬆ فيه نسخة جديدة من التطبيق جاهزة.</span><span class="sub" id="updV"></span><div class="sp"></div>
+  <button class="gold" id="updBtn">حدّث دلوقتي</button><button id="updLater">بعدين</button></div>
+<div id="app">
+  <nav id="side"><div class="rz" data-for="side"></div>
+    <div class="top"><button class="gold" id="newBtn">+ محادثة جديدة</button>
+      <button id="zeroBtn" style="width:100%;margin-top:6px" title="محادثة ما تعرفش أي حاجة عن المحادثات اللي فاتت، ومش بتتحفظ">🫥 جديدة بدون ذاكرة</button>
+      <button id="allBtn" style="width:100%;margin-top:6px" title="يدمج كل محادثاتك مرة واحدة في محادثة جديدة: تسأل سؤال، والطائر يجاوب من نتائج كل المحادثات ويقول كل معلومة جت من أنهي محادثة">🧠 اسأل كل المحادثات</button></div>
+    <div id="chats"></div>
+    <div class="sec">المحادثات المحفوظة <span class="sp"></span><span id="savedCount"></span></div>
+    <div id="saved" style="max-height:38%;overflow-y:auto;padding:0 6px 8px"></div>
+  </nav>
+  <section id="center">
+    <div class="bar">
+      <div class="pill" id="wdPill" title="مجلدات الشغل للمحادثة دي">📁 <b id="wd">اختار مجلد الشغل</b></div>
+      <div id="foPop"><b>📁 مجلدات الشغل للمحادثة دي</b>
+        <div class="sub">تقدر تضيف أكتر من مجلد. الطائر بيشوفهم كلهم، وبيحط النواتج في المجلد الأساسي ⭐.</div>
+        <div id="foList" style="margin:8px 0"></div>
+        <div style="display:flex;gap:8px"><button class="gold" id="foAdd">➕ إضافة مجلد</button><div class="sp"></div><button id="foClose">إغلاق</button></div></div>
+      <span class="sub" id="sessCost"></span>
+      <div class="sp"></div>
+      <button id="linkBtn" title="اربط المحادثة دي بمحادثات تانية عشان تشوف كل اللي حصل فيها">🔗 ربط <b id="linkN"></b></button>
+      <div id="linkPop">
+        <b style="color:var(--gold2)">🔗 ربط محادثات بالمحادثة دي</b>
+        <div class="sub">اختار المحادثات اللي عايز الطائر يشوفها وهو بيرد هنا. كل اللي حصل فيها بيوصله، ولو لسه شغالة بيوصله الجديد مع كل سؤال.</div>
+        <div id="linkList"></div>
+        <div style="display:flex;gap:8px"><button class="gold" id="linkSave">ربط</button><button id="linkNew" title="افتح محادثة جديدة مربوطة بالمحادثات المختارة">دمج في محادثة جديدة</button><div class="sp"></div><button id="linkClose">إغلاق</button></div>
+      </div>
+      <button id="teamBtn" title="عدد الوكلاء المساعدين وموديل كل واحد">🤖 الوكلاء: <b id="teamN">0</b></button>
+      <button id="pvBtn">🎬 المعاينة <span id="pvCount"></span></button>
+      <button id="fBtn" title="إظهار/إخفاء لوحة الملفات">📂 الملفات</button>
+      <div id="teamPop">
+        <b style="color:var(--gold2)">الوكلاء المساعدين للمحادثة دي</b>
+        <div class="sub">الطائر الرئيسي بيوزّع الأجزاء المستقلة على الوكلاء، وكلهم بيشتغلوا مع بعض في نفس الوقت. كل وكيل بيصرف من الرصيد حسب الموديل بتاعه.</div>
+        <div class="slot" style="margin-top:8px"><span>العدد</span><input id="teamCount" type="number" min="0" step="1" value="0"
+          style="flex:1;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--fill2);color:var(--text);font:inherit"></div>
+        <div class="slot"><span>للكل</span><select id="teamAll"><option value="">موديل مختلف لكل وكيل</option></select></div>
+        <div class="sub" id="teamWarn"></div>
+        <div id="teamSlots" style="max-height:300px;overflow-y:auto"></div>
+        <div style="display:flex;gap:8px;margin-top:8px"><button class="gold" id="teamSave">حفظ</button><button id="teamClose">إغلاق</button></div>
+      </div>
+      <button id="expBtn" title="احفظ المحادثة كملف">⤓ تصدير</button>
+      <button id="stopBtn" class="red" style="display:none">إيقاف</button>
+    </div>
+    <div id="chatwrap">
+      <div id="chatsArea" style="flex:1;display:flex;min-width:0"><button id="toBottom" title="انزل لآخر الرد">↓ آخر الرد</button></div>
+      <aside id="pv"><div class="rz" data-for="pv"></div>
+        <div class="pvh"><b>المعاينة</b><span class="sub">نواتج المحادثة دي</span><div class="sp"></div>
+          <button id="pvRefresh" title="كل ملفات الميديا في مجلد الشغل">↻ تحديث</button><button id="pvClose">✕</button></div>
+        <div id="viewer"><div class="empty">لسه مفيش ناتج. لما الطائر يعمل فيديو أو صورة أو صوت هيظهر هنا.</div></div>
+        <div class="vbar" id="vbar" style="display:none"><span class="nm" id="vname"></span>
+          <button id="vOpen">افتح بالبرنامج</button><button id="vReveal">افتح المجلد</button></div>
+        <div id="plist"></div>
+      </aside>
+    </div>
+    <div id="state" class="idle"><span class="spin"></span><span id="stLbl">جاهز</span><span class="tm" id="stTm"></span><span id="others"></span></div>
+    <footer>
+      <div id="atts"></div>
+      <div class="row">
+        <button class="icon" id="attBtn" title="إرفاق ملفات">📎</button>
+        <button class="icon" id="dirBtn" title="اختيار مجلد الشغل">📁</button>
+        <button class="icon" id="tasksBtn" title="مهام جاهزة">⚡</button>
+        <button class="icon" id="skBtn" title="🧩 حوّل ملف لمهارة محفوظة، واستخدم مهاراتك">🧩</button>
+        <button class="icon" id="micBtn"title="رسالة صوتية: دوس واتكلم، ودوس تاني عشان كلامك يتحوّل لنص (Ctrl+M)">🎤</button>
+        <textarea id="inp" placeholder="اكتب طلبك… (Enter للإرسال · Shift+Enter سطر جديد · Ctrl+N محادثة جديدة · Esc إيقاف)"></textarea>
+        <button class="gold" id="sendBtn">إرسال</button>
+      </div>
+      <div id="tasksPop"></div>
+      <div id="rePop"><b>🧰 أدوات التحليل</b><div class="sub">علّم على الأدوات اللي عايزها تتستخدم في التحليل: كلها أو واحدة بس. الاختيار بيتطبّق على الطلبات الجاية في المحادثة دي.</div>
+        <div id="reList"></div>
+        <div class="r"><button id="reAll">علّم الكل</button><button id="reNone">شيل الكل</button><span class="sub" id="reCnt" style="align-self:center"></span><div class="sp"></div><button class="gold" id="reOk">تمام</button></div></div>
+      <div id="skPop"><b>🧩 المهارات</b>
+        <div class="seg" id="skTabs" style="margin:8px 0 4px"><button class="on" data-t="inst">المتثبتة <span id="skN"></span></button><button data-t="lib">📚 المكتبة <span id="libN">(500 مهارة)</span></button><button data-t="repo">🌐 المستودعات <span id="repoN">(500)</span></button></div>
+        <div id="skInst">
+        <div class="sub">اختار أي ملف (PDF، Word، ملاحظات، برومبت، سكربت، أو حزمة مهارة zip) والتطبيق يحوّله لمهارة محفوظة على الجهاز، تستعين بيها في أي محادثة بعد كده.</div>
+        <div class="skrow"><input id="skName" placeholder="اسم المهارة بالإنجليزي (اختياري، زي my-skill)"><input id="skWhy" placeholder="المهارة دي عشان إيه؟ (اختياري)"></div>
+        <div class="skrow"><button class="gold" id="skAdd">➕ اختار ملف أو أكتر وحوّلهم لمهارات</button>
+          <label class="sub" style="align-self:center" title="متعلّم: كل ملف تختاره يبقى مهارة مستقلة. مش متعلّم: كل الملفات تتجمع في مهارة واحدة."><input type="checkbox" id="skSplit" checked> كل ملف مهارة لوحده</label>
+          <span class="sub" id="skMsg" style="align-self:center"></span></div>
+        <div class="skrow"><button id="skAll">☑ علّم الكل</button><button id="skMine">☑ اللي من ملفاتي</button><button id="skNone">☐ شيل التعليم</button>
+          <div style="flex:1"></div><button class="gold" id="skUse">استخدم المتعلّم عليهم</button></div>
+        <input id="skFind" placeholder="دوّر في المهارات…">
+        <div id="skList"></div></div>
+        <div id="libBox" style="display:none"><b>📚 مكتبة أشهر المهارات</b> <span class="sub" id="libCnt"></span>
+          <div class="sub">مهارات Claude الأشهر على GitHub، محفوظة جوه الطائر الأبيض ومش متثبتة (مابتاخدش من سياق المحادثة). «استخدم» بيخلّي الطائر يقراها للطلب ده بس، و«ثبّت» بيضيفها للمهارات الدايمة.</div>
+          <input id="libFind" placeholder="دوّر في المكتبة بالعربي أو الإنجليزي: مونتاج، تسويق، تداول، blender، prompt…">
+          <div class="skrow"><button class="gold" id="libUse">استخدم المتعلّم عليهم</button><button id="libInst">ثبّت المتعلّم عليهم</button><button id="libAll">☑ علّم الكل</button><button id="libShown">☑ علّم المعروضين</button><button id="libNone">☐ شيل التعليم</button>
+            <span class="sub" id="libSel" style="align-self:center"></span></div>
+          <div id="libList"></div></div>
+        <div id="repoBox" style="display:none"><b>🌐 أشهر 500 مستودع على GitHub</b> <span class="sub" id="repoCnt"></span>
+          <div class="sub">فهرس مرتب بالنجوم، وكل مستودع معاه بيعمل إيه وإمتى يتستخدم وهل يشتغل على ويندوز. مفيش حاجة متنزّلة: «استخدم» بيخلّي الطائر يدرس المستودع للطلب ده، وأي تنزيل أو تثبيت بيستنى موافقتك.</div>
+          <input id="repoFind" placeholder="دوّر: مونتاج، ترجمة، تحميل، قاعدة بيانات، agent، ocr، 3d…">
+          <div class="skrow"><button class="gold" id="repoUse">استخدم المتعلّم عليهم</button><button id="repoShown">☑ علّم المعروضين</button><button id="repoNone">☐ شيل التعليم</button>
+            <span class="sub" id="repoSel" style="align-self:center"></span></div>
+          <div id="repoList"></div></div>
+        <div class="r"><span class="sub" id="skCnt" style="align-self:center"></span><div class="sp"></div><button id="skClose">قفل</button></div></div>
+      <div id="cmpPop"><b>🧪 الموديلات اللي هتجاوب</b><div class="sub">كلهم بيجاوبوا على نفس السؤال في نفس الوقت، كتابة بس من غير تشغيل أدوات.</div>
+        <div id="cmpList" style="margin:8px 0"></div><div style="display:flex;gap:8px"><button class="gold" id="cmpOk">تمام</button></div></div>
+      <div id="micBar"><span class="dotr"></span><b id="micLbl">بيسجّل…</b><span id="micT" class="sub"></span><div class="sp"></div>
+        <label class="sub">اللغة <select id="micLang"><option value="ar">عربي</option><option value="en">English</option><option value="auto">تلقائي (أبطأ)</option></select></label>
+        <label class="sub" title="يبعت الرسالة على طول بعد التفريغ من غير ما تراجعها"><input type="checkbox" id="micAuto"> ابعت على طول</label>
+        <button id="micX">إلغاء</button></div>
+      <div class="opts">
+        <label title="Claude يقدر يشوف الشاشة ويحرّك الماوس ويكتب، ويتحكم في الكمبيوتر كله (برامج، عمليات، صوت، سطوع، إعدادات، طاقة) وفي كروم بالإضافة. الأفعال الخطيرة بتستنى موافقتك. فرملة الطوارئ: ودّي الماوس للركن الشمال اللي فوق." style="color:var(--red)"><input type="checkbox" id="ctl"> 🖥 تحكم في الكمبيوتر كله وكروم</label>
+        <label title="ابعت نفس السؤال لكذا موديل مع بعض وقارن ردودهم جنب بعض"><input type="checkbox" id="cmp"> 🧪 قارن موديلات <b id="cmpN" class="sub"></b></label>
+        <label title="Claude بيفكّر أعمق، وبيحلّل الملفات والبرامج والمواقع بـ REA، وبيفصل الدليل عن الاستنتاج"><input type="checkbox" id="deep"> 🔬 تحليل عميق بـ REA</label>
+        <label title="قبل كل رسالة: الطائر الأبيض بيفك الكتابة (كيبورد إنجليزي، غلطات الصوت)، ويختار الطريق والمهارات، ويفكّر النموذج بالدروس القديمة. اقفله لو عايز الرسالة توصل زي ما هي."><input type="checkbox" id="brainChk" checked> 🧠 عقل الطائر</label>
+        <label title="اعرض ملخص اللي النموذج بيفكّر فيه قبل ما يرد (في وضع اشتراك Claude). الملخص بيتكتب لحظة بلحظة وبيتطوي لما الرد يبدأ."><input type="checkbox" id="thinkChk" checked> 💭 اعرض التفكير</label>
+        <label title="الشغل التقيل (رندر، ترميز، تفريغ) يتنفّذ على سحابة Higgsfield المجانية بدل جهازك، من غير ما يصرف كريدت. محتاج وضع الاشتراك وHiggsfield متوصل."><input type="checkbox" id="cloudChk"> ☁ سحابة Higgsfield المجانية</label>
+        <label id="reLbl" title="اختار أدوات الهندسة العكسية اللي تتستخدم في التحليل: كلها أو واحدة بس"><input type="checkbox" id="reChk"> 🧰 أدوات التحليل <b id="reN" class="sub"></b></label>
+        <label><input type="checkbox" id="auto"> موافقة تلقائية على الأوامر</label>
+        <span class="sub">ترفق ملفات: 📎 أو اسحبها هنا أو انسخها من المجلد (Ctrl+C) والزقها (Ctrl+V).</span>
+      </div>
+    </footer>
+  </section>
+  <aside id="files"><div class="rz" data-for="files"></div>
+    <div class="fh"><b>📂 الملفات</b><span class="sub" id="fcount"></span><div class="sp"></div>
+      <button class="icon" id="fRefresh" title="تحديث" style="padding:3px 8px">↻</button>
+      <button class="icon" id="fOpenDir" title="افتح مجلد الشغل" style="padding:3px 8px">📁</button></div>
+    <div class="ftabs"><button id="ftMade" class="on">اتعملت في المحادثة</button><button id="ftDir">مجلد الشغل</button></div>
+    <input id="fsearch" placeholder="دوّر في الملفات…">
+    <div id="flist"></div>
+  </aside>
+</div>
+
+<div class="modal" id="modal"><div class="card">
+  <h3>طريقة التشغيل</h3>
+  <div class="sub">«اشتراك Claude» بيشغّل برنامج Claude Code الأصلي المتثبت عندك وهو داخل باشتراكك (Pro/Max)، والاستخدام بيتحسب من حدود الاشتراك مش من الرصيد. «رصيد API» بيستخدم مفتاح API والدفع بالتوكن.</div>
+  <div style="display:flex;gap:8px;margin:8px 0">
+    <button id="engSub">⭐ اشتراك Claude</button><button id="engApi">💳 رصيد API</button>
+  </div>
+  <div class="sub" id="engMsg"></div>
+  <hr>
+  <h3>إضافة كروم 🧩</h3>
+  <div class="sub">الإضافة بتخلّي الطائر يفتح الصفحات في كروم بتاعك ويقراها ويضغط ويكتب فيها، لما تفعّل «🖥 تحكم في الجهاز وكروم» في المحادثة.</div>
+  <div class="sub" id="extState" style="margin:6px 0"></div>
+  <div style="display:flex;gap:8px;align-items:center"><input id="extTok" readonly style="flex:1"><button id="extCopy">نسخ الكود</button></div>
+  <div class="sub" style="margin-top:6px;line-height:1.9">
+    <b>التثبيت مرة واحدة:</b><br>
+    1) دوس «افتح مجلد الإضافة» تحت.<br>
+    2) في كروم افتح <code>chrome://extensions</code> وفعّل <b>Developer mode</b> من فوق على اليمين.<br>
+    3) دوس <b>Load unpacked</b> واختار المجلد اللي اتفتح.<br>
+    4) دوس على أيقونة الإضافة 🕊 في كروم، والزق كود الربط، ودوس «حفظ وربط».
+  </div>
+  <button id="extFolder" style="margin-top:6px">حط الإضافة على سطح المكتب وافتح مجلدها</button>
+  <hr>
+  <h3>GitHub 🐙</h3>
+  <div class="sub">سجّل دخول مرة واحدة بأداة GitHub الرسمية (gh)، والطائر يقدر يشوف مستودعاتك وينزّلها ويقرا الـ issues والـ PRs. مش هيرفع أو ينشر أي حاجة من غير موافقتك.</div>
+  <div style="display:flex;gap:8px;align-items:center;margin-top:6px"><span id="ghState" class="sub" style="flex:1">…</span><button id="ghLogin">سجّل دخول GitHub</button></div>
+  <div style="margin-top:10px"><b>اشتراكات تانية</b></div>
+  <div class="sub">بيشتغلوا عن طريق الأدوات الرسمية لكل منصة وهي داخلة بحسابك: Codex CLI لاشتراك ChatGPT، وGemini CLI لحساب جوجل. التطبيق مش بيشوف بيانات دخولك؛ الدخول بيتم في نافذة المنصة نفسها.</div>
+  <div id="extRows" style="margin-top:6px"></div>
+  <div style="margin-top:10px"><b>🔷 Gemini بمفتاح Google AI Studio</b> <span class="sub">(بديل Antigravity المسموح)</span></div>
+  <div class="sub">جوجل بتمنع ربط حساب Antigravity بأي برنامج تاني، وده ممكن يوقّف حسابك. وبتنصح بمفتاح من Google AI Studio (aistudio.google.com ← Get API key) عشان تستخدم نفس موديلات Gemini. المفتاح بيتحفظ في خزنة ويندوز.</div>
+  <div style="display:flex;gap:8px"><input id="gKey" type="password" placeholder="AIza..." style="flex:1"><button id="gKeySave">حفظ</button></div>
+  <div class="sub" id="gKeyMsg"></div>
+  <hr>
+  <h3>مفتاح Anthropic API</h3>
+  <div class="sub">بيتحفظ في خزنة ويندوز (Credential Manager)، مش في ملف. ماتشاركهوش في أي شات.</div>
+  <input id="keyIn" type="password" placeholder="sk-ant-...">
+  <div style="display:flex;gap:8px"><button class="gold" id="saveKey">حفظ المفتاح</button><button class="red" id="delKey">مسح المفتاح</button></div>
+  <div class="sub" id="keyMsg"></div>
+  <hr>
+  <h3>الموديل ومستوى التفكير</h3>
+  <div class="sub">Opus 5.5 هو الافتراضي. Fable 5.2 الأقوى (أغلى من Opus مرتين). القايمة بتتحدّث لوحدها من Anthropic لما ينزل موديل جديد. التفكير الأعلى بيدّي جودة أحسن في الشغل الصعب ويصرف أكتر.</div>
+  <select id="modelSel"></select>
+  <select id="effortSel"></select>
+  <div class="sub" style="margin-top:6px">موديل ChatGPT (فاضي = الافتراضي)</div>
+  <input id="codexModel" placeholder="مثلًا: اسم الموديل زي ما بيظهر في Codex">
+  <div class="sub">موديل Antigravity / Gemini (فاضي = الافتراضي)</div>
+  <input id="gemModel" placeholder="مثلًا: اسم الموديل زي ما هو في Google AI Studio">
+  <button id="extModelsSave">حفظ الموديلات</button>
+  <label class="sub" style="display:block;margin-top:8px"><input type="checkbox" id="ccChrome"> 🌐 Claude in Chrome في وضع الاشتراك (يتحكم في كروم بتاعك بإضافة Claude الرسمية)</label>
+  <label class="sub" style="display:block;margin-top:6px;color:var(--red)"><input type="checkbox" id="ctlAll"> 🖥 تحكم كامل في الكمبيوتر في كل المحادثات (الشاشة والماوس والكيبورد + البرامج والعمليات والصوت والسطوع والإعدادات والطاقة). قفل برنامج أو إطفاء أو إزالة برنامج بيستنى موافقتك دايمًا. فرملة الطوارئ: الماوس في الركن الشمال اللي فوق.</label>
+  <div class="sub">🔗 الربط مع Claude Code: أي جلسة Claude Code على الجهاز تقدر تبعت للمحادثات هنا وتقرا ردودها بأداة <b>blackdragon_app</b>.</div>
+  <div class="sub" id="prefMsg"></div>
+  <hr>
+  <h3>🔌 الخدمات المربوطة بـ Claude (MCP)</h3>
+  <div class="sub">الخدمات دي مربوطة بحسابك في Claude، والتطبيق بيستخدمها في وضع «⭐ اشتراك Claude»: Higgsfield (سحابة مجانية + توليد مدفوع بموافقتك)، Suno، Claude Docs، REA، وتنين MCP.</div>
+  <div id="mcpList" class="sub" style="margin:8px 0;line-height:1.9">دوس «افحص الاتصال».</div>
+  <button id="mcpCheck">🔄 افحص الاتصال</button> <button id="mcpOpen">🔗 افتح صفحة ربط الخدمات</button>
+  <div class="sub" id="mcpMsg"></div>
+  <hr>
+  <h3>الرصيد</h3>
+  <div class="sub">Anthropic مش بتطلّع الرصيد عن طريق API. اكتب رصيدك الحالي من صفحة الفوترة، والتطبيق هيطرح تكلفة كل طلب بالظبط من عدد التوكنز (لكل المحادثات).</div>
+  <input id="balIn" type="text" inputmode="decimal" placeholder="مثلًا 25.40">
+  <div style="display:flex;gap:8px"><button class="gold" id="saveBal">حفظ الرصيد</button><button id="billing">افتح صفحة الفوترة</button></div>
+  <div class="sub" id="balMsg"></div>
+  <hr>
+  <div style="display:flex"><div class="sp"></div><button id="closeM">إغلاق</button></div>
+  <div class="sub" id="info" style="margin-top:12px;direction:ltr;text-align:left;white-space:pre-line"></div>
+</div></div>
+
+<script>
+try{const t=JSON.parse(localStorage.getItem('bd_theme')||'"auto"'); if(t==='light'||t==='dark') document.documentElement.dataset.theme=t}catch(e){}
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money=v=>v==null?'—':'$'+Number(v).toFixed(v<1?3:2);
+const fmt=s=>{s=Math.max(0,Math.round(s));return (s>=60?Math.floor(s/60)+':'+String(s%60).padStart(2,'0'):s+'ث')};
+const sizeTxt=b=>b>1e9?(b/1e9).toFixed(2)+' GB':b>1e6?(b/1e6).toFixed(1)+' MB':Math.ceil(b/1e3)+' KB';
+const TOOL_AR={dragon_find:'بيدوّر في كتالوج التنين',dragon_show:'بيقرا تفاصيل مهارة',list_engines:'بيشوف المحركات',superpowers_find:'بيدوّر في سوبر باور',
+  run_engine:'بيشغّل محرك',run_command:'بيشغّل أمر',verify_media:'بيقيس الملفات',list_dir:'بيتصفح مجلد',read_text_file:'بيقرا ملف',
+  view_image:'بيبص على صورة',write_file:'بيكتب ملف',deployment_status:'بيكلّم الـ deployment',web_search:'بيدوّر على النت',web_fetch:'بيقرا صفحة من النت',delegate:'بيوزّع الشغل على الوكلاء',computer:'بيتحكم في الجهاز',browser:'بيتحكم في كروم',rea:'بيحلّل بعمق بـ REA',retool:'بيشغّل أداة هندسة عكسية',omni:'بيتعرّف على الهدف ويخطط التحليل',skill:'بيقرا مهارة متثبتة',Skill:'بيشغّل مهارة',
+  mcp__claude_ai_Higgsfield__sandbox_exec:'بيشغّل أمر على سحابة Higgsfield',mcp__claude_ai_Higgsfield__balance:'بيشوف رصيد Higgsfield',
+  PowerShell:'بيشغّل أمر',Bash:'بيشغّل أمر',Read:'بيقرا ملف',Write:'بيكتب ملف',Edit:'بيعدّل ملف',Glob:'بيدوّر على ملفات',Grep:'بيدوّر جوه الملفات',WebSearch:'بيدوّر على النت',WebFetch:'بيقرا صفحة من النت',Task:'بيشغّل وكيل مساعد',Agent:'بيشغّل وكيل مساعد'};
+const ICON={video:'🎬',image:'🖼️',audio:'🎵',html:'🌐',pdf:'📄'};
+
+function mdInline(s){   // s is already HTML-escaped
+  const codes=[];
+  s=s.replace(/`([^`\n]+)`/g,(m,c)=>{codes.push('<code>'+c+'</code>');return '\u0001'+(codes.length-1)+'\u0001'});
+  s=s.replace(/\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)/g,(m,t,u)=>{codes.push('<a href="'+u+'">'+t+'</a>');return '\u0001'+(codes.length-1)+'\u0001'})
+     .replace(/(^|[\s(])(https?:\/\/[^\s<)\u0001]+[^\s<).,،؛:\u0001])/g,(m,p,u)=>{codes.push('<a href="'+u+'">'+u+'</a>');return p+'\u0001'+(codes.length-1)+'\u0001'})
+     .replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/(^|[^*\w])\*([^*\s][^*\n]*?)\*(?![*\w])/g,'$1<i>$2</i>').replace(/~~(.+?)~~/g,'<s>$1</s>');
+  let prev; do{prev=s; s=s.replace(/\u0001(\d+)\u0001/g,(m,i)=>codes[i])}while(s!==prev&&s.indexOf('\u0001')>=0);
+  return s;
+}
+function md(src){
+  const blocks=[];
+  src=String(src==null?'':src).replace(/\r/g,'').replace(/[\u0000\u0001]/g,'')
+    .replace(/(^|\n)[ \t]*```([\w+#.-]*)[^\n]*\n?([\s\S]*?)(?:\n[ \t]*```[ \t]*(?=\n|$)|$)/g,(m,pre,l,c)=>{
+      blocks.push('<pre'+(l?' data-lang="'+esc(l)+'"':'')+'><code>'+esc(c)+'</code></pre>');return pre+'\u0000'+(blocks.length-1)+'\u0000\n'});
+  const L=esc(src).split('\n'), out=[]; let para=[], list=null, m;
+  const flushP=()=>{if(para.length){out.push('<p>'+para.join('<br>')+'</p>');para=[]}};
+  const flushL=()=>{if(list){out.push('<'+list.t+(list.start>1?' start="'+list.start+'"':'')+'>'+list.items.map(x=>'<li>'+x+'</li>').join('')+'</'+list.t+'>');list=null}};
+  const isRow=r=>/^\s*\|.*\|\s*$/.test(r);
+  const cells=r=>{const keep=[]; r=r.trim().replace(/^\||\|$/g,'').replace(/`[^`]*`/g,x=>{keep.push(x);return '\u0001'+(keep.length-1)+'\u0001'});
+    return r.split('|').map(c=>mdInline(c.replace(/\u0001(\d+)\u0001/g,(q,i)=>keep[i]).trim()))};
+  for(let i=0;i<L.length;i++){const ln=L[i];
+    if((m=ln.match(/^\u0000(\d+)\u0000$/))){flushP();flushL();out.push(blocks[m[1]]);continue}
+    if(/^\s*$/.test(ln)){flushP();flushL();continue}
+    if((m=ln.match(/^\s{0,3}(#{1,6})\s+(.*?)\s*#*\s*$/))){flushP();flushL();const h=m[1].length<=2?'h3':'h4';out.push('<'+h+'>'+mdInline(m[2])+'</'+h+'>');continue}
+    if(/^\s*([-*_])(\s*\1){2,}\s*$/.test(ln)){flushP();flushL();out.push('<hr>');continue}
+    if(isRow(ln)&&i+1<L.length&&/^\s*\|[-:| ]+\|\s*$/.test(L[i+1])){flushP();flushL();
+      let h='<div class="tw"><table><tr>'+cells(ln).map(c=>'<th>'+c+'</th>').join('')+'</tr>'; i+=2;
+      while(i<L.length&&isRow(L[i])){h+='<tr>'+cells(L[i]).map(c=>'<td>'+c+'</td>').join('')+'</tr>';i++}
+      i--; out.push(h+'</table></div>');continue}
+    if((m=ln.match(/^\s*(?:[-*•]|(\d+)[.)])\s+(.*)$/))){flushP();const t=m[1]?'ol':'ul';
+      if(!list||list.t!==t){flushL();list={t,items:[],start:m[1]?+m[1]:1}} list.items.push(mdInline(m[2]));continue}
+    if((m=ln.match(/^\s*&gt;\s?(.*)$/))){flushP();flushL();out.push('<blockquote>'+mdInline(m[1])+'</blockquote>');continue}
+    if(list&&/^\s{2,}\S/.test(ln)){list.items[list.items.length-1]+='<br>'+mdInline(ln.trim());continue}
+    flushL();para.push(mdInline(ln));
+  }
+  flushP();flushL();return out.join('');
+}
+// links open in the system browser, never inside the app window
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href]'); if(!a) return; e.preventDefault();
+  const u=a.getAttribute('href'); if(/^https?:\/\//i.test(u)&&window.pywebview) pywebview.api.open_url(u)});
+
+/* ================= sessions ================= */
+const S={}; let act=null, fileBase='', nChat=0;
+const WELCOME=`<div class="welcome"><img class="wb-hero" src="white-bird.png" alt=""><h1>الطائر الأبيض</h1>
+  <div>اختار مجلد الشغل، وارفق ملفاتك، واكتب طلبك بكلامك (حتى لو الكيبورد إنجليزي بالغلط).<br>معاك عقل الطائر، ومكتبة 500 مهارة وفهرس 500 مستودع، وكل محركات التنين الأسود وسوبر باور والبرامج اللي على جهازك.<br><span class="wb-k">Ctrl K</span> للبحث السريع في المحادثات والأوامر.</div>
+  <div class="chips">
+    <button data-q="إيه كل قدراتك؟ اعرض المحركات وأهم أدوات سوبر باور والبرامج اللي تقدر تتحكم فيها">قدراتك</button>
+    <button data-q="طابق الكشفين المرفقين: رقم الفرق في أول سطر، وبعده البنود اللي عاملاه، وطلّع ملف Excel بالتسوية على سطح المكتب">⚖ طابق كشفين</button>
+    <button data-q="حلل الملف أو البرنامج المرفق بأدوات الهندسة العكسية وقولّي معمول بإيه وبيعمل إيه (اتأكد بدليل / استنتاج / مجهول)">🔬 حلل ملف</button>
+    <button data-q="دوّر في مكتبة المهارات عن أنسب مهارة للطلب ده واستخدمها: ">📚 من مكتبة المهارات</button>
+    <button data-q="شوف الفيديوهات اللي في مجلد الشغل واعمل منها ريل سينمائي 9:16">ريل من مجلد الشغل</button>
+    <button data-q="اعمل لوجو ذهبي ثلاثي الأبعاد بيلف في Blender ورندره فيديو قصير">لوجو 3D في Blender</button>
+    <button data-q="قيس كل الفيديوهات اللي في مجلد الشغل وقولّي مين محتاج تصليح">قياس الفيديوهات</button>
+    <button data-q="استخدم مهارة teardown: ابني مثال محرك الـ V8 الجاهز كصفحة محاكي 3D أقدر أفككها (v8-live) وافتحها لي، وبعدها اسألني عايز محاكي لأنهي ماكينة واطلب مني صورة مرجع ليها">🔩 محاكي 3D لماكينة</button>
+    <button data-q="حلّل بعمق بـ REA البرنامج أو الملف اللي هرفقه: هو إيه، ومبني بإيه، وبيكلّم أنهي سيرفرات، وفيه إيه مهم">🔬 تحليل عميق بـ REA</button>
+    <button data-q="اعرض كل أدوات الهندسة العكسية المتثبتة بـ retool list في جدول، وقولّي كل واحدة تنفع في إيه وإزاي أستخدمها">🧰 أدوات الهندسة العكسية</button>
+  </div></div>`;
+
+async function newChat(zero){ const r=await pywebview.api.new_session(!!zero); return adoptSession(r, zero?'🫥 بدون ذاكرة':undefined) }
+async function adoptSession(r,title,bg){
+  nChat++;
+  const el=document.createElement('div'); el.className='chat'; el.innerHTML=WELCOME; $('#chatsArea').appendChild(el);
+  el.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>send(b.dataset.q));
+  S[r.sid]={sid:r.sid,title:title||('محادثة '+nChat),el,workdir:r.workdir,busy:false,waiting:0,hadErr:false,t0:0,secs:0,
+    st:{cls:'idle',label:'جاهز'},badge:null,cur:null,curText:'',curThink:null,items:new Map(),sel:null,atts:[],auto:!!r.auto,
+    draft:'',cost:0,unread:false,pvOpen:false,helpers:r.helpers||[],linked:[],zero:!!r.zero,control:!!r.control};
+  if(r.zero){ el.querySelector('.welcome div')&&(el.querySelector('.welcome div').innerHTML='🫥 <b>محادثة بدون ذاكرة</b>: مش شايفة أي محادثة قبل كده، ولا ذاكرة Claude Code أو إعداداته، ومش هتتحفظ بعد ما تقفلها.') }
+  if(bg&&act&&S[act]) renderSide(); else switchTo(r.sid);   // a chat opened from outside doesn't steal the screen
+}
+function switchTo(sid){
+  ['#rePop','#linkPop','#teamPop','#foPop','#skPop'].forEach(id=>{const e=$(id); if(e) e.style.display='none'});
+  if(act&&S[act]) S[act].draft=$('#inp').value;
+  act=sid; const s=S[sid]; s.unread=false;
+  document.querySelectorAll('.chat').forEach(c=>c.classList.toggle('act',c===s.el));
+  $('#inp').value=s.draft; $('#auto').checked=s.auto; $('#deep').checked=!!s.deep; $('#cloudChk').checked=!!s.cloud; $('#ctl').checked=!!s.control; paintRe();
+  showFolders(s,{main:s.workdir,extra:s.extra||[]});
+  $('#sessCost').textContent=s.cost?`تكلفة المحادثة ${money(s.cost)}`:'';
+  $('#chatwrap').classList.toggle('pv-open',s.pvOpen);
+  renderAtts(); renderPreview(); paintState(); renderSide(); $('#inp').focus();
+  showLinks&&showLinks(s);
+  if(typeof renderFiles==='function'){ if(fTab==='dir') loadDir(); else renderFiles(); }
+}
+async function closeChat(sid,ev){
+  ev.stopPropagation(); const s=S[sid];
+  if(s.busy&&!confirm('المحادثة دي لسه شغالة. أقفلها وأوقفها؟')) return;
+  await pywebview.api.close_session(sid); s.el.remove(); delete S[sid]; loadSaved();
+  const left=Object.keys(S); if(!left.length) return newChat(); if(act===sid) switchTo(left[left.length-1]); else renderSide();
+}
+function renderSide(){
+  $('#chats').innerHTML=Object.values(S).slice().reverse().map(s=>{
+    const c=s.st.cls; const icon=c==='run'?'<span class="spin"></span>':c==='wait'?'⏸':c==='ok'?'✓':c==='bad'?'✕':'';
+    const meta=s.busy?fmt((Date.now()-s.t0)/1000):c==='ok'||c==='bad'?fmt(s.secs):'';
+    return `<div class="ch${s.sid===act?' act':''}${c==='wait'?' wait':''}${s.unread?' unread':''}" data-s="${s.sid}" title="${esc(s.st.label)}">
+      <span class="ic ${c}">${icon}</span><span class="nm">${s.zero?'<span class="lk">🫥 </span>':''}${(s.linked||[]).length?'<span class="lk">🔗 </span>':''}${s.allChats&&!/^🧠/.test(s.title)?'<span class="lk">🧠 </span>':''}${esc(s.title)}</span><span class="meta">${meta}</span><span class="x" data-x="${s.sid}">✕</span></div>`}).join('');
+  $('#chats').querySelectorAll('.ch').forEach(d=>d.onclick=()=>switchTo(d.dataset.s));
+  $('#chats').querySelectorAll('.x').forEach(x=>x.onclick=e=>closeChat(x.dataset.x,e));
+  const busy=Object.values(S).filter(s=>s.busy), waits=busy.filter(s=>s.waiting);
+  const others=busy.filter(s=>s.sid!==act).length;
+  $('#others').textContent=others?`${others} محادثة تانية شغالة`+(waits.some(s=>s.sid!==act)?' · فيه واحدة مستنية موافقتك':''):'';
+}
+
+/* ================= state ================= */
+function setState(s,cls,label){
+  s.st={cls,label};
+  if(s.badge){s.badge.className='badge '+cls; s.badge.innerHTML=(cls==='run'||cls==='wait'?'<span class="spin"></span>':'')+esc(label)}
+  if(s.sid===act) paintState(); renderSide();
+}
+function paintState(){
+  const s=S[act]; if(!s) return;
+  $('#state').className=s.st.cls; $('#stLbl').textContent=s.st.label;
+  $('#stTm').textContent=s.busy?fmt((Date.now()-s.t0)/1000):'';
+  $('#sendBtn').textContent=s.busy?'ابعت وهو شغال':'إرسال'; $('#stopBtn').style.display=s.busy?'':'none';
+  $('#teamN').textContent=(s.helpers||[]).length;
+}
+setInterval(()=>{const s=S[act]; if(s&&s.busy) $('#stTm').textContent=fmt((Date.now()-s.t0)/1000);
+  if(Object.values(S).some(x=>x.busy)) renderSide()},1000);
+
+/* ================= chat ================= */
+function add(s,cls,html){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=html;s.el.appendChild(d);s.el.scrollTop=s.el.scrollHeight;return d}
+let CMP=[];
+async function openCmp(){const o=await pywebview.api.compare_options(); CMP=CMP.length?CMP:o.chosen;
+  $('#cmpList').innerHTML=o.models.map(m=>`<label><input type="checkbox" value="${m.key}" ${CMP.includes(m.key)?'checked':''} ${m.ready?'':'disabled'}> ${esc(m.name)} <span class="nr">${m.ready?'':'مش متجهّز'}</span></label>`).join('');
+  $('#cmpPop').style.display='block'}
+$('#cmp').onchange=e=>{ if(e.target.checked) openCmp(); else {$('#cmpPop').style.display='none'; $('#cmpN').textContent=''} };
+$('#cmpOk').onclick=()=>{CMP=[...document.querySelectorAll('#cmpList input:checked')].map(x=>x.value); $('#cmpPop').style.display='none';
+  $('#cmpN').textContent=CMP.length?`(${CMP.length})`:''; if(!CMP.length) $('#cmp').checked=false};
+async function send(q){
+  const s=S[act]; q=(q??$('#inp').value).trim(); if(!q&&!s.atts.length) return;
+  if($('#cmp').checked&&CMP.length&&!s.busy){
+    s.el.querySelector('.welcome')?.remove();
+    add(s,'user',esc(q)+`<div class="att">🧪 ${CMP.length} موديل</div>`);
+    const r=await pywebview.api.send_compare(s.sid,q,CMP);
+    if(!r.ok){add(s,'bot',`<span class="err-msg">${esc(r.error||'')}</span>`);return}
+    $('#inp').value=''; s.draft=''; s.atts=[]; renderAtts(); s.busy=true; s.hadErr=false; s.badge=null; s.t0=Date.now(); setState(s,'run','🧪 الموديلات بتجاوب…'); return;
+  }
+  s.el.querySelector('.welcome')?.remove();
+  if(s.busy){   // like Claude Code: the message reaches the agent while it works
+    const u=add(s,'user',esc(q)+(s.atts.length?`<div class="att">📎 ${s.atts.map(a=>esc(a.name)).join('، ')}</div>`:'')+'<div class="badge run">📨 هيوصله وهو شغال…</div>');
+    const r=await pywebview.api.send(s.sid,q);
+    if(!r.ok){u.querySelector('.badge').remove();add(s,'bot',`<span class="err-msg">${esc(r.error||'مقدرتش أبعت')}</span>`);return}
+    (s.qbadges=s.qbadges||[]).push(u.querySelector('.badge'));
+    $('#inp').value=''; s.draft=''; s.atts=[]; renderAtts(); return;
+  }
+  const u=add(s,'user',esc(q)+(s.atts.length?`<div class="att">📎 ${s.atts.map(a=>esc(a.name)).join('، ')}</div>`:'')+'<div class="badge run"><span class="spin"></span>بيبدأ…</div>');
+  const r=await pywebview.api.send(s.sid,q);
+  if(!r.ok){u.querySelector('.badge').remove();add(s,'bot',`<span class="err-msg">${esc(r.error||'مشغول')}</span>`);return}
+  if((s.title.startsWith('محادثة ')||s.title==='🫥 بدون ذاكرة')&&q) s.title=(s.zero?'🫥 ':'')+q.slice(0,40);
+  $('#inp').value=''; s.draft=''; s.atts=[]; renderAtts();
+  s.badge=u.querySelector('.badge'); s.busy=true; s.hadErr=false; s.waiting=0; s.cur=null; s.t0=Date.now();
+  for(const it of s.items.values()) it.fresh=false; if(s.sid===act) renderPreview();
+  setState(s,'run','بيبدأ…');
+}
+function approvalText(e){
+  const a=e.args||{};
+  if(e.name==='run_command') return a.command;
+  if(e.name==='run_engine') return `python -m dragon run ${a.engine} ${arr(a.args).join(' ')}`;
+  if(e.name==='write_file') return `${a.path}\n\n${String(a.content||'').slice(0,1500)}`;
+  return JSON.stringify(a,null,1);
+}
+const tcard=(s,id)=>s.el.querySelector('[id="t_'+String(id).replace(/"/g,'')+'"]');
+let replaying=false, ENGINE='api', PLAN={}, MCPS=[];
+function showPlan(){
+  if(ENGINE!=='subscription') return;
+  const pc=v=>v==null?'—':Math.round(v*100)+'%';
+  $('#balLbl').textContent='الاشتراك'; $('#bal').textContent=PLAN.five_hour==null?'الاستخدام هيظهر بعد أول طلب':`${pc(PLAN.five_hour)} من حد الـ 5 ساعات · ${pc(PLAN.seven_day)} من الأسبوع`;
+  $('#balPill').classList.toggle('low',(PLAN.five_hour||0)>0.85||(PLAN.seven_day||0)>0.9);
+  $('#balPill').title=PLAN.resets?('بيتجدد '+new Date(PLAN.resets*1000).toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'})):'';
+}
+/* ---- Claude account: show it, relink to another one, continue where the chat stopped ---- */
+const CONT_MSG='اتربط التطبيق بحساب Claude تاني. كمّل من حيث وقفت بالظبط في نفس المهمة: راجع آخر حاجة اتعملت، وماتعيدش اللي خلص.';
+function acctBar(html){const b=$('#acct'); b.style.display='flex'; b.innerHTML=html+'<div class="sp"></div><button id="acctX">قفل</button>'; $('#acctX').onclick=()=>b.style.display='none'}
+async function paintAcct(){let a={}; try{a=await pywebview.api.account_status()}catch(_){}
+  $('#acctLbl').textContent=a.loggedIn?(String(a.email||'').split('@')[0]||'متصل')+(a.plan?' · '+a.plan:''):'مش مربوط'; $('#relinkBtn').title='حساب Claude: '+(a.loggedIn?(a.email||'')+(a.plan?' ('+a.plan+')':'')+(a.expires?' · الدخول صالح لحد '+a.expires:''):'مفيش حساب مربوط')+'\nدوس عشان تربط حساب تاني وتكمّل من حيث وقفت.'; return a}
+$('#relinkBtn').onclick=async()=>{const a=await paintAcct();
+  acctBar('<span>🔄 الحساب المربوط: <b>'+esc(a.loggedIn?(a.email||'متصل'):'مفيش')+'</b>'+(a.plan?' ('+esc(a.plan)+')':'')+'. الربط بحساب تاني بيسجّل خروج من ده على الجهاز كله (Claude Code وكل نوافذه)، والمحادثات بتفضل زي ما هي.</span><button class="gold" id="acctGo">اربط بحساب تاني</button>'+(a.loggedIn?'':'<button id="acctIn">سجّل دخول بس</button>'));
+  const go=async(lo)=>{let r; try{r=await pywebview.api.relink_account(lo)}catch(e){r={ok:false,error:String(e)}}
+    if(!r.ok){acctBar('<span>⚠ '+esc(r.error||'ماقدرتش أبدأ')+'</span>');return}
+    acctBar('<span><span class="spin"></span> اتفتحت نافذة سودا وهيتفتح المتصفح: سجّل دخول بالحساب اللي عايزه. التطبيق مستني وهيكمّل لوحده.</span>')};
+  $('#acctGo').onclick=()=>{const b=$('#acctGo'); if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='متأكد؟ دوس تاني';return} go(true)};
+  if($('#acctIn')) $('#acctIn').onclick=()=>go(false)};
+function onAccount(e){paintAcct();
+  if(!e.ok){acctBar('<span>⚠ الربط ماكملش: '+esc(e.error||'')+'</span>');return}
+  const s=S[act]; const stopped=s&&!s.busy&&s.hadErr;
+  acctBar('<span>✅ اتربط بحساب <b>'+esc(e.email||'')+'</b>'+(e.plan?' ('+esc(e.plan)+')':'')+(e.changed?'':' (نفس الحساب اللي فات)')+'. '+(stopped?'المحادثة دي كانت واقفة على خطأ: بكمّلها دلوقتي.':'تقدر تكمّل أي محادثة من حيث وقفت.')+'</span><button class="gold" id="acctCont">كمّل المحادثة دي من حيث وقفت</button>');
+  $('#acctCont').onclick=()=>{$('#acct').style.display='none'; send(CONT_MSG)};
+  if(stopped) setTimeout(()=>{ if(S[act]===s&&!s.busy){$('#acct').style.display='none'; send(CONT_MSG)} },1500)}
+window.addEventListener('pywebviewready',()=>setTimeout(paintAcct,1500));
+window.onDragon=e=>{
+  if(e.kind==='account'){onAccount(e);return}
+  if(e.kind==='plan'){PLAN=e;showPlan();return}
+  if(e.kind==='mcp'){MCPS=e.servers||[];return}
+  if(e.kind==='updating'){$('#upd').style.display='flex';$('#upd').innerHTML='<span>⬆ الشغل خلص، وبيحدّث دلوقتي… هيرجع في ثواني بنفس المحادثات.</span>';return}
+  if(e.kind==='remote_new'){ if(!S[e.sid]) adoptSession(e,e.title,true); return }   // a chat opened by Claude Code outside the app
+  const s=S[e.sid]; if(!s) return;
+  if(e.kind==='remote_user'){   // a message sent by another Claude Code session (blackdragon_app)
+    s.el.querySelector('.welcome')?.remove();
+    const u=add(s,'user',esc(e.text||'')+'<div class="att">🔗 من Claude Code</div>'+(e.queued?'<div class="badge run">📨 هيوصله وهو شغال…</div>':'<div class="badge run"><span class="spin"></span>بيبدأ…</div>'));
+    if(e.queued){(s.qbadges=s.qbadges||[]).push(u.querySelector('.badge'))}
+    else{ if(s.title.startsWith('محادثة ')) s.title='🔗 '+(e.text||'').slice(0,40);
+      s.badge=u.querySelector('.badge'); s.busy=true; s.hadErr=false; s.waiting=0; s.cur=null; s.t0=Date.now();
+      for(const it of s.items.values()) it.fresh=false; setState(s,'run','بيبدأ…') }
+    if(s.sid!==act){s.unread=true; renderSide()} return}
+  if(e.kind==='remote_fail'){ if(s.badge){s.badge.remove(); s.badge=null} s.busy=false; add(s,'bot',`<span class="err-msg">${esc(e.error||'مقدرتش أبعت')}</span>`); setState(s,'bad','وقف بخطأ'); return}
+  if(!replaying&&s.sid!==act&&['text','done','approval','outputs'].includes(e.kind)) s.unread=true;
+  if(e.kind==='control_off'){s.control=false; if(s.sid===act) $('#ctl').checked=false; add(s,'bot','<span class="err-msg">⛔ فرملة الطوارئ: التحكم اتقفل والطلب اتوقف.</span>'); return}
+  if(e.kind==='cmp_start'){const g=add(s,'cmpgrid',''); g.id='cg_'+e.id;
+    g.innerHTML=e.models.map(m=>`<div class="cmpcard" id="cc_${e.id}_${m.key.replace(/[^a-z0-9]/gi,'')}"><div class="h"><span class="spin"></span>${esc(m.name)}<span class="s"></span></div><div class="txt"></div></div>`).join(''); return}
+  if(e.kind==='cmp_chunk'){const c=document.getElementById(`cc_${e.id}_${e.model.replace(/[^a-z0-9]/gi,'')}`); if(!c) return;
+    c._t=(c._t||'')+e.text; c.querySelector('.txt').innerHTML=md(c._t); if(!replaying) s.el.scrollTop=s.el.scrollHeight; return}
+  if(e.kind==='cmp_done'){const c=document.getElementById(`cc_${e.id}_${e.model.replace(/[^a-z0-9]/gi,'')}`); if(!c) return;
+    c.querySelector('.spin')?.remove(); c.querySelector('.s').textContent=(e.ok?'✓ ':'✕ ')+fmt(e.secs); if(!e.ok){c.classList.add('bad'); c.querySelector('.txt').textContent=e.error||'فشل'} return}
+  if(e.kind==='queued_in'){(s.qbadges||[]).splice(0).forEach(b=>{b.className='badge ok';b.textContent='✓ وصلته وهو شغال'}); return}
+  if(e.kind==='turn_continue'){ return }
+  if(e.kind==='agent'){
+    let c=document.getElementById('ag_'+e.id);
+    if(!c){c=add(s,'agentcard','');c.id='ag_'+e.id}
+    c.className='msg agentcard '+(e.state==='ok'?'ok':e.state==='bad'?'bad':'');
+    const ic=e.state==='run'?'<span class="spin"></span>':e.state==='ok'?'✓':'✕';
+    c.innerHTML=`<div class="h">${ic} 🤖 وكيل ${e.k} · ${esc(e.model)} ${e.state==='ok'?'· خلص':e.state==='bad'?'· وقف بخطأ':'· شغال'}</div><div class="b">${esc(e.text||'')}</div>`;
+    if(e.state==='run'&&!s.waiting) setState(s,'run',`الوكلاء شغالين بالتوازي…`);
+    if(!replaying) s.el.scrollTop=s.el.scrollHeight; return}
+  if(e.kind==='user'){ if(!replaying) return;
+    s.el.querySelector('.welcome')?.remove();
+    const u=add(s,'user',esc(e.text||'')+(e.atts&&e.atts.length?`<div class="att">📎 ${e.atts.map(esc).join('، ')}</div>`:'')+(e.queued?'<div class="badge ok">✓ اتبعتت وهو شغال</div>':'<div class="badge run"><span class="spin"></span>…</div>'));
+    if(!e.queued){s.badge=u.querySelector('.badge'); s.hadErr=false} return}
+  if(e.kind==='progress'){
+    if(e.web){ if(!s.waiting) setState(s,'run',e.web==='web_search'?'بيدوّر على النت…':'بيقرا صفحة من النت…'); return }
+    const box=tcard(s,e.id); if(!box) return;
+    let l=box.querySelector('.live'); if(!l){l=document.createElement('div');l.className='live';box.appendChild(l)} l.textContent='▸ '+e.text; return}
+  if(e.kind==='skills'){add(s,'bot','<div class="sub">🧩 '+(e.all?'اتبعت فهرس كل المهارات المتثبتة مع الطلب':'اتحمّلت المهارات مع الطلب: '+esc((e.names||[]).join('، ')))+'</div>'); return}
+  if(e.kind==='brain'){add(s,'bot','<details class="raw"><summary>🧠 عقل الطائر فهم الطلب واقترح الطريق</summary><div class="sub" style="white-space:pre-wrap">'+esc(e.text)+'</div></details>'); return}
+  if(e.kind==='attachments'){s.atts=e.items; if(s.sid===act) renderAtts(); return}
+  if(e.kind==='workdir'){s.workdir=e.workdir; if(s.sid===act){$('#wd').textContent=e.workdir;$('#wdPill').title=e.workdir} return}
+  const run=l=>{if(!s.waiting) setState(s,'run',l)};
+  if(e.kind==='turn_start'){s.cur=add(s,'bot','');s.curText='';s.curThink=null;s.curThinkBox=null;run('بيفكّر…')}
+  else if(e.kind==='thinking'){ if(!e.text) return; run('💭 بيفكّر…');if(!s.cur){s.cur=add(s,'bot','');s.curText=''}if(!s.curThink){const box=document.createElement('details');box.className='thinkbox';box.open=true;box.innerHTML='<summary>💭 بيفكّر دلوقتي…</summary>';s.curThink=document.createElement('div');s.curThink.className='think';box.appendChild(s.curThink);s.cur.insertBefore(box,s.cur.querySelector('.txt'));s.curThinkBox=box;s.thinkT0=Date.now()}s.curThink.textContent+=e.text;s.curThink.scrollTop=s.curThink.scrollHeight;s.el.scrollTop=s.el.scrollHeight}
+  else if(e.kind==='text'){run('بيكتب الرد…');if(s.curThinkBox&&s.curThinkBox.open&&!s.curThinkBox.dataset.done){s.curThinkBox.dataset.done='1';s.curThinkBox.open=false;s.curThinkBox.querySelector('summary').textContent='💭 فكّر '+Math.max(1,Math.round((Date.now()-(s.thinkT0||Date.now()))/1000))+' ث — دوس عشان تشوف فكّر في إيه'}if(!s.cur){s.cur=add(s,'bot','');s.curText=''}s.curText+=e.text;let t=s.cur.querySelector('.txt');if(!t){t=document.createElement('div');t.className='txt';s.cur.appendChild(t)}t.innerHTML=md(s.curText);s.el.scrollTop=s.el.scrollHeight}
+  else if(e.kind==='tool'){run((TOOL_AR[e.name]||e.name)+(e.name==='run_engine'&&e.args&&e.args.engine?`: ${e.args.engine}`:'')+'…');
+    const d=describeTool(e.name,e.args||{});
+    add(s,'tool-wrap',`<div class="tool" id="t_${e.id}">${e.agent?`<span class="ag">${esc(e.agent)}</span>`:''}<div class="step"><span class="ico">${d.icon}</span><b>${esc(d.title)}</b>${d.what?` <span class="what">${esc(d.what)}</span>`:''}</div>${(e.args&&e.args.reason)?`<div class="why2">💬 ${esc(e.args.reason)}</div>`:''}<details class="raw"><summary>التفاصيل التقنية</summary><code>${esc(e.name)}</code> <span class="sub">${esc(JSON.stringify(e.args))}</span></details></div>`)}
+  else if(e.kind==='approval'){
+    s.waiting++; setState(s,'wait','⏸ مستني موافقتك عشان يكمّل');
+    const box=tcard(s,e.id); box.classList.add('approve');
+    box.insertAdjacentHTML('beforeend',`${e.args.reason?`<div class="why">${esc(e.args.reason)}</div>`:''}<pre>${esc(approvalText(e))}</pre><div class="btns"><button class="gold" data-ok="1">وافق وشغّل</button><button class="red" data-ok="0">ارفض</button></div>`);
+    box.querySelectorAll('.btns button').forEach(b=>b.onclick=()=>{pywebview.api.approve(e.id,b.dataset.ok==='1');box.querySelector('.btns').remove();box.classList.remove('approve');
+      s.waiting=Math.max(0,s.waiting-1); if(!s.waiting) setState(s,'run',b.dataset.ok==='1'?(TOOL_AR[e.name]||e.name)+'…':'بيكمّل…')});
+    s.el.scrollTop=s.el.scrollHeight}
+  else if(e.kind==='tool_result'){const box=tcard(s,e.id);if(box){box.querySelector('.live')?.remove();if(e.error)box.classList.add('err');
+    const txt=String(e.text||''); const first=txt.split('\n').find(l=>l.trim()&&!/^exit code 0$/.test(l.trim()))||'';
+    box.insertAdjacentHTML('beforeend',`<div class="res">${e.error?'✕ ما نجحش: ':'✓ '}${esc(first.slice(0,180))}</div>`+(txt.length>first.length+5?`<details class="raw"><summary>الناتج كامل</summary><pre>${esc(txt)}</pre></details>`:''))}}
+  else if(e.kind==='files'){s.files=s.files||new Map(); for(const it of e.items){it.fresh=!replaying; s.files.set(it.path,it)} if(s.sid===act) renderFiles(); }
+  else if(e.kind==='outputs'){for(const it of e.items){it.fresh=true;s.items.set(it.path,it)}
+    add(s,'bot',`<span class="sub">🎬 ناتج جديد في المعاينة: ${e.items.map(i=>esc(i.name)).join('، ')}</span>`);
+    s.pvOpen=true; s.sel=e.items[0].path; if(s.sid===act){$('#chatwrap').classList.add('pv-open');renderPreview(true)}}
+  else if(e.kind==='usage'){s.cost=e.session_cost; if(!replaying&&!e.plan) showBalance(e); if(s.sid===act)$('#sessCost').textContent=`تكلفة المحادثة ${money(s.cost)}`;
+    if(s.cur)s.cur.insertAdjacentHTML('beforeend',`<div class="usage">↑${e.input} ↓${e.output}${e.cache_read?` · cache ${e.cache_read}`:''} · ${money(e.cost)}</div>`)}
+  else if(e.kind==='error'){add(s,'bot',`<span class="err-msg">${esc(e.text)}</span>`);s.hadErr=true}
+  else if(e.kind==='done'){s.busy=false;s.waiting=0;s.secs=e.secs; if(!replaying){loadSaved();pywebview.api.attention()}
+    const n=[...s.items.values()].filter(i=>i.fresh).length;
+    if(e.stopped) setState(s,'bad',`⏹ اتوقف بعد ${fmt(e.secs)}`);
+    else if(s.hadErr) setState(s,'bad',`✕ وقف بخطأ بعد ${fmt(e.secs)}`);
+    else setState(s,'ok',`✓ خلص في ${fmt(e.secs)}`+(n?` · ${n} ناتج في المعاينة`:''));
+    s.badge=null; if(s.sid===act) paintState()}
+  if(!replaying) renderSide();
+};
+
+/* ================= saved chats ================= */
+async function loadSaved(){
+  const list=await pywebview.api.list_saved(); $('#savedCount').textContent=list.length||'';
+  $('#saved').innerHTML=list.map(c=>`<div class="ch" data-c="${esc(c.id)}" title="${esc(c.workdir||'')}"><span class="ic">💾</span><span class="nm">${esc(c.title)}</span><span class="meta">${esc((c.updated||'').slice(5,16).replace('T',' '))}</span><span class="x" data-d="${esc(c.id)}" title="امسح">🗑</span></div>`).join('');
+  $('#saved').querySelectorAll('.ch').forEach(d=>d.onclick=()=>openSaved(d.dataset.c));
+  $('#saved').querySelectorAll('.x').forEach(x=>x.onclick=async ev=>{ev.stopPropagation(); if(!confirm('أمسح المحادثة دي نهائي؟'))return; await pywebview.api.delete_saved(x.dataset.d); loadSaved()});
+}
+async function openSaved(cid){
+  if(S[cid]) return switchTo(cid);
+  const r=await pywebview.api.open_saved(cid);
+  const el=document.createElement('div'); el.className='chat'; $('#chatsArea').appendChild(el);
+  S[r.sid]={sid:r.sid,title:r.title||'محادثة',el,workdir:r.workdir,busy:false,waiting:0,hadErr:false,t0:0,secs:0,
+    st:{cls:'idle',label:'محادثة محفوظة، تقدر تكمّل فيها'},badge:null,cur:null,curText:'',curThink:null,items:new Map(),sel:null,atts:[],auto:!!r.auto,
+    draft:'',cost:r.cost||0,unread:false,pvOpen:false,helpers:r.helpers||[],extra:r.extra||[],linked:(r.linked||[]).map(x=>x.title),allChats:!!r.all_chats,control:!!r.control};
+  replaying=true; try{ for(const ev of r.log) onDragon({...ev,sid:r.sid}) } finally { replaying=false }
+  const s=S[r.sid]; if(s.badge){s.badge.className='badge';s.badge.textContent='اتقطع قبل ما يخلص'} s.badge=null;
+  s.st={cls:'idle',label:'محادثة محفوظة، تقدر تكمّل فيها'}; for(const it of s.items.values()) it.fresh=false;
+  switchTo(r.sid); loadSaved();
+}
+
+/* ================= linked chats ================= */
+async function openLinks(){const pop=$('#linkPop'); if(pop.style.display==='block'){pop.style.display='none';return}
+  if(S[act]&&S[act].zero){add(S[act],'bot','<span class="sub">🫥 المحادثة دي بدون ذاكرة، فمينفعش تتربط بمحادثات تانية.</span>');return}
+  const list=await pywebview.api.link_options(act);
+  $('#linkList').innerHTML=list.length?list.map(o=>`<label><input type="checkbox" value="${esc(o.id)}" ${o.linked?'checked':''}><span class="t">${o.busy?'⏳ ':''}${esc(o.title)}</span><span class="w">${esc(o.where)}</span></label>`).join('')
+    :'<div class="sub">مفيش محادثات تانية لسه.</div>';
+  pop.style.display='block'}
+const chosen=()=>[...document.querySelectorAll('#linkList input:checked')].map(x=>x.value);
+function showLinks(s){const n=(s.linked||[]).length; $('#linkN').textContent=n?`(${n})`:''; renderSide()}
+$('#linkBtn').onclick=openLinks;
+$('#linkClose').onclick=()=>$('#linkPop').style.display='none';
+$('#linkSave').onclick=async()=>{const s=S[act]; const r=await pywebview.api.set_links(act,chosen()); $('#linkPop').style.display='none';
+  s.linked=r.titles||[]; showLinks(s);
+  add(s,'bot',`<span class="sub">🔗 ${s.linked.length?'المحادثة دي مربوطة بـ: '+s.linked.map(esc).join('، ')+'. الطائر هيشوف كل اللي فيهم مع سؤالك الجاي.':'اتشال الربط.'}</span>`)};
+$('#linkNew').onclick=async()=>{const ids=chosen(); if(!ids.length) return; $('#linkPop').style.display='none';
+  const r=await pywebview.api.merge_new(ids); await adoptSession(r,'دمج: '+r.titles.join(' + ')); const s=S[r.sid]; s.linked=r.titles; showLinks(s);
+  add(s,'bot',`<span class="sub">🔗 محادثة مدموجة من: ${r.titles.map(esc).join('، ')}. اسأل أي حاجة عنهم كلهم.</span>`)};
+
+/* ================= helper agents ================= */
+let MODELS_ALL={}, MAXH=8;
+function teamSlots(n,models){
+  $('#teamSlots').innerHTML=Array.from({length:n},(_,i)=>`<div class="slot"><span>وكيل ${i+1}</span><select data-i="${i}">${
+    Object.entries(MODELS_ALL).map(([k,v])=>`<option value="${k}" ${k===(models[i]||'claude-sonnet-5-5')?'selected':''}>${v}</option>`).join('')}</select></div>`).join('');
+}
+function teamWarn(n){$('#teamWarn').textContent=n===0?'الطائر هيشتغل لوحده.':n>20?`⚠ ${n} وكيل شغالين مع بعض: الاستهلاك أسرع، وممكن تقابل حدود عدد الطلبات.`:''}
+$('#teamBtn').onclick=()=>{const s=S[act];const pop=$('#teamPop');if(pop.style.display==='block'){pop.style.display='none';return}
+  const h=s.helpers||[]; $('#teamCount').value=h.length;
+  $('#teamAll').innerHTML='<option value="">موديل مختلف لكل وكيل</option>'+Object.entries(MODELS_ALL).map(([k,v])=>`<option value="${k}">كلهم ${v}</option>`).join('');
+  teamSlots(h.length,h); teamWarn(h.length); pop.style.display='block'};
+$('#teamCount').oninput=()=>{const n=Math.max(0,Math.floor(+$('#teamCount').value||0));const cur=[...document.querySelectorAll('#teamSlots select')].map(x=>x.value);
+  const all=$('#teamAll').value; teamSlots(n,all?Array(n).fill(all):cur); teamWarn(n)};
+$('#teamAll').onchange=()=>{const v=$('#teamAll').value; if(v) document.querySelectorAll('#teamSlots select').forEach(x=>x.value=v)};
+$('#teamClose').onclick=()=>$('#teamPop').style.display='none';
+$('#teamSave').onclick=async()=>{const s=S[act];const models=[...document.querySelectorAll('#teamSlots select')].map(x=>x.value);
+  const r=await pywebview.api.set_agents(s.sid,Math.max(0,Math.floor(+$('#teamCount').value||0)),models);s.helpers=r.models;$('#teamN').textContent=r.count;$('#teamPop').style.display='none';
+  if(r.count){const by={};r.models.forEach(m=>by[m]=(by[m]||0)+1);
+    add(s,'bot',`<span class="sub">🤖 فريق المحادثة دي: ${r.count} وكيل مساعد (${Object.entries(by).map(([m,n])=>`${n} ${MODELS_ALL[m]}`).join('، ')})</span>`)}};
+
+/* ================= prefs ================= */
+async function loadPrefs(){
+  try{ await pywebview.api.refresh_models() }catch(e){}
+  const p=await pywebview.api.prefs(); MODELS_ALL=p.models; MAXH=p.max_helpers||8;
+  $('#modelSel').innerHTML=Object.entries(p.models).map(([k,v])=>`<option value="${k}" ${k===p.model?'selected':''}>${v}</option>`).join('');
+  const EA={low:'منخفض (أسرع وأرخص)',medium:'متوسط',high:'عالي (الافتراضي)',xhigh:'عالي جدًا',max:'أقصى حاجة (أبطأ وأغلى)'};
+  $('#effortSel').innerHTML=p.efforts.map(k=>`<option value="${k}" ${k===p.effort?'selected':''}>التفكير: ${EA[k]}</option>`).join('');
+  $('#ccChrome').checked=p.cc_chrome!==false; $('#ctlAll').checked=!!p.control_default;
+}
+$('#ctlAll').onchange=async e=>{const on=e.target.checked; await pywebview.api.set_control_default(on);
+  for(const s of Object.values(S)) if(!s.zero) s.control=on; $('#ctl').checked=!!(S[act]&&S[act].control);
+  $('#prefMsg').textContent=on?'التحكم الكامل اتفعّل في كل المحادثات ✓':'التحكم الكامل اتقفل ✓'};
+async function savePrefs(){await pywebview.api.set_prefs($('#modelSel').value,$('#effortSel').value);$('#prefMsg').textContent='اتحفظ ✓ (هيتطبّق على الطلبات الجاية)';refresh()}
+$('#modelSel').onchange=$('#effortSel').onchange=savePrefs;
+const MCP_AR={connected:'✅ متصل','needs-auth':'🔑 محتاج تسجيل دخول',failed:'❌ فشل',pending:'⏳ بيتصل',missing:'— مش مربوط',unknown:'؟'};
+function paintMcp(r){
+  $('#mcpList').innerHTML=(r.servers||[]).length?r.servers.map(m=>`<div><b>${esc(m.name.replace(/^claude\.ai /,''))}</b> · ${MCP_AR[m.state]||esc(m.state)}</div>`).join(''):'مفيش خدمات ظاهرة. اتأكد إن Claude Code متثبت ومسجّل دخول.';
+  const hf=r.higgsfield;
+  $('#mcpMsg').innerHTML=r.engine!=='subscription'?'⚠ الخدمات دي بتشتغل في وضع «⭐ اشتراك Claude» بس. إنت دلوقتي على وضع تاني.'
+    :hf==='connected'||hf==='pending'?'Higgsfield مربوط بالتطبيق ✓ علّم «☁ سحابة Higgsfield المجانية» في المحادثة عشان الشغل التقيل يروح للسحابة.'
+    :hf==='needs-auth'?'Higgsfield محتاج تسجيل دخول: دوس «افتح صفحة ربط الخدمات» وسجّل دخول فيه، وبعدين «افحص الاتصال».'
+    :'Higgsfield مش مربوط بحساب Claude. دوس «افتح صفحة ربط الخدمات»، ضيف Higgsfield، وبعدين «افحص الاتصال».'}
+$('#mcpCheck').onclick=async()=>{$('#mcpMsg').textContent='بيفحص… (ممكن ياخد نص دقيقة)'; paintMcp(await pywebview.api.mcp_status(true))};
+$('#mcpOpen').onclick=()=>pywebview.api.open_connectors();
+$('#ccChrome').onchange=async e=>{await pywebview.api.set_cc_chrome(e.target.checked);$('#prefMsg').textContent='اتحفظ ✓ (هيتطبّق على الطلبات الجاية)'};
+
+/* ================= drag & drop highlight ================= */
+let dragN=0;
+document.addEventListener('dragenter',e=>{e.preventDefault();if(!dragN) pywebview.api.drop_log('dragenter types='+[...(e.dataTransfer?.types||[])].join(','));dragN++;document.body.classList.add('drag')});
+document.addEventListener('dragleave',()=>{if(--dragN<=0){dragN=0;document.body.classList.remove('drag')}});
+document.addEventListener('dragover',e=>e.preventDefault());
+document.addEventListener('drop',async e=>{e.preventDefault();dragN=0;document.body.classList.remove('drag');
+  const files=e.dataTransfer&&e.dataTransfer.files;
+  pywebview.api.drop_log('drop files='+(files?files.length:'none')+' hasPost='+!!(window.chrome&&chrome.webview&&chrome.webview.postMessageWithAdditionalObjects));
+  if(!files||!files.length) return;
+  try{ chrome.webview.postMessageWithAdditionalObjects('FilesDropped', files) }catch(err){ pywebview.api.drop_log('post failed '+err) }   // WebView2 hands Python the full paths
+  const names=[...files].map(f=>f.name);
+  const r=await pywebview.api.dropped(act,names);
+  const s=S[act];
+  if(r.ok) add(s,'bot',`<span class="sub">📎 اترفق: ${names.map(esc).join('، ')}</span>`);
+  else add(s,'bot',`<span class="err-msg">مقدرتش أاخد الملفات بالسحب${r.error?': '+esc(r.error):''}. انسخها من المجلد (Ctrl+C) والزقها هنا (Ctrl+V)، أو استخدم زرار 📎.</span>`);
+});
+
+/* ================= attachments / folder ================= */
+function renderAtts(){const s=S[act]; if(!s) return;
+  $('#atts').innerHTML=s.atts.map(a=>`<div class="chip" title="${esc(a.path)}">📄 ${esc(a.name)} <span data-i="${a.i}">✕</span></div>`).join('');
+  $('#atts').querySelectorAll('span').forEach(x=>x.onclick=async()=>{s.atts=await pywebview.api.remove_attachment(s.sid,+x.dataset.i);renderAtts()})}
+$('#attBtn').onclick=async()=>{const s=S[act];s.atts=await pywebview.api.pick_files(s.sid);renderAtts()};
+function showFolders(s,f){ s.workdir=f.main; s.extra=f.extra||[]; const n=(f.main?1:0)+(f.extra||[]).length;
+  $('#wd').textContent=f.main?(f.main.split(/[\\/]/).pop()+(n>1?` (+${n-1})`:'')):'اختار مجلد الشغل'; $('#wdPill').title=[f.main,...(f.extra||[])].filter(Boolean).join('\n') }
+async function renderFolders(){const s=S[act]; const f=await pywebview.api.folders(s.sid); showFolders(s,f);
+  const row=(p,main)=>`<div class="fo"><span title="${esc(p)}">${main?'⭐ ':'📁 '}${esc(p)}</span>${main?'':`<button data-m="${esc(p)}" title="خليه الأساسي">⭐</button>`}<button data-r="${esc(p)}" title="شيل">✕</button></div>`;
+  $('#foList').innerHTML=(f.main?row(f.main,true):'')+(f.extra||[]).map(p=>row(p,false)).join('')||'<div class="sub">مفيش مجلدات لسه.</div>';
+  $('#foList').querySelectorAll('[data-r]').forEach(b=>b.onclick=async()=>{showFolders(s,await pywebview.api.remove_folder(s.sid,b.dataset.r));renderFolders();if(fTab==='dir')loadDir()});
+  $('#foList').querySelectorAll('[data-m]').forEach(b=>b.onclick=async()=>{showFolders(s,await pywebview.api.make_main_folder(s.sid,b.dataset.m));renderFolders()});}
+$('#wdPill').onclick=()=>{const p=$('#foPop'); if(p.style.display==='block'){p.style.display='none';return} renderFolders(); p.style.display='block'};
+$('#foAdd').onclick=$('#dirBtn').onclick=async()=>{const s=S[act]; showFolders(s,await pywebview.api.add_folder(s.sid)); if($('#foPop').style.display==='block') renderFolders(); if(fTab==='dir')loadDir()};
+$('#foClose').onclick=()=>$('#foPop').style.display='none';
+$('#auto').onchange=e=>{S[act].auto=e.target.checked;pywebview.api.set_auto(act,e.target.checked)};
+$('#ctl').onchange=e=>{S[act].control=e.target.checked;pywebview.api.set_control(act,e.target.checked);
+  if(e.target.checked) add(S[act],'bot','<span class="sub" style="color:var(--red)">🖥 التحكم اتفعّل: Claude يقدر يشوف الشاشة ويستخدم الماوس والكيبورد، ويتحكم في كروم لو الإضافة متوصلة. هيسألك قبل أي شراء أو بعت أو مسح. <b>فرملة الطوارئ:</b> ودّي الماوس للركن الشمال اللي فوق.</span>')};
+/* ---- 🎤 voice message: click = record, click again = transcribe into the composer (or send right away) ---- */
+let MIC={on:false,busy:false,t0:0,iv:null};
+function micPaint(){const b=$('#micBtn'); b.classList.toggle('rec',MIC.on); b.classList.toggle('busy',MIC.busy); b.textContent=MIC.busy?'⏳':(MIC.on?'⏹':'🎤');
+  $('#micBar').style.display=(MIC.on||MIC.busy)?'flex':'none'; $('#micLbl').textContent=MIC.busy?'بيحوّل كلامك لنص…':'بيسجّل… دوس ⏹ لما تخلص'; $('#micX').style.display=MIC.busy?'none':''}
+async function micToggle(){
+  if(MIC.busy) return;
+  if(!MIC.on){
+    MIC.busy=true; micPaint(); $('#micLbl').textContent='بيجهّز الميكروفون…';
+    const r=await pywebview.api.voice_start(); MIC.busy=false;
+    if(!r.ok){micPaint(); add(S[act],'bot',`<span class="err-msg">🎤 ${esc(r.error||'الميكروفون ما اشتغلش')}</span>`); return}
+    MIC.on=true; MIC.t0=Date.now(); clearInterval(MIC.iv); MIC.iv=setInterval(()=>{$('#micT').textContent=fmt((Date.now()-MIC.t0)/1000)},500); micPaint(); return}
+  MIC.on=false; MIC.busy=true; clearInterval(MIC.iv); const secs=(Date.now()-MIC.t0)/1000; micPaint();
+  MIC.iv=setInterval(()=>{$('#micT').textContent=fmt((Date.now()-MIC.t0)/1000-secs)},500);
+  const sid=act, r=await pywebview.api.voice_stop(); clearInterval(MIC.iv); MIC.busy=false; $('#micT').textContent=''; micPaint();
+  if(!r.ok){ if(!r.cancelled) add(S[sid],'bot',`<span class="err-msg">🎤 ${esc(r.error||'التفريغ فشل')}</span>`); return}
+  if(sid!==act){S[sid].draft=((S[sid].draft||'')+' '+r.text).trim(); return}
+  const t=$('#inp'); t.value=(t.value?t.value.trimEnd()+' ':'')+r.text; growInp(); t.focus();
+  if($('#micAuto').checked) send();
+}
+$('#micBtn').onclick=micToggle;
+$('#micX').onclick=async()=>{clearInterval(MIC.iv); MIC.on=false; MIC.busy=false; micPaint(); await pywebview.api.voice_cancel()};
+$('#micLang').onchange=e=>pywebview.api.voice_lang(e.target.value);
+$('#micAuto').onchange=e=>LS.set('mic_auto',e.target.checked);
+window.addEventListener('pywebviewready',async()=>{$('#micAuto').checked=!!LS.get('mic_auto',false); try{$('#micLang').value=(await pywebview.api.voice_lang()).lang||'ar'}catch(e){}});
+document.addEventListener('keydown',e=>{if(e.ctrlKey&&!e.shiftKey&&!e.altKey&&(e.code==='KeyM'||e.keyCode===77)){e.preventDefault();micToggle()}});
+/* ---- «🧰 أدوات التحليل»: pick which reverse-engineering tools the analysis uses (per chat) ---- */
+let RETOOLS=null;
+function paintRe(){const s=S[act]; const n=(s&&s.retools||[]).length; $('#reChk').checked=n>0; $('#reN').textContent=n?('('+n+')'):''; $('#reLbl').classList.toggle('on',n>0)}
+async function openRe(){
+  if(!RETOOLS){$('#reList').innerHTML='<div class="sub">بيحمّل الأدوات…</div>'; $('#rePop').style.display='block'; RETOOLS=(await pywebview.api.retool_list()).tools||[]}
+  const s=S[act], sel=new Set(s.retools&&s.retools.length?s.retools:LS.get('retools',[])), groups={};
+  $('#reList').innerHTML=RETOOLS.length?'<div class="grid">'+RETOOLS.map(t=>
+    `<label class="${t.installed?'':'off'}" title="${esc(t.what_ar)}"><input type="checkbox" value="${esc(t.id)}" ${sel.has(t.id)&&t.installed?'checked':''} ${t.installed?'':'disabled'}><div><b>${esc(t.name)}</b> <i>${esc(t.kind)}</i><span>${esc(t.what_ar)}${t.installed?'':' · مش متثبتة'}</span></div></label>`).join('')+'</div>'
+    :'<div class="sub">مالقيتش صندوق الأدوات (re-tools/retool.py).</div>';
+  countRe();
+  $('#rePop').style.display='block'}
+function countRe(){const n=document.querySelectorAll('#reList input:checked').length; $('#reCnt').textContent=n?('متعلّم على '+n):'مفيش حاجة متعلّمة'}
+async function saveRe(){const ids=[...document.querySelectorAll('#reList input:checked')].map(x=>x.value); const s=S[act];
+  const r=await pywebview.api.set_retools(act,ids); s.retools=r.retools||[]; LS.set('retools',s.retools); $('#rePop').style.display='none'; paintRe()}
+$('#reChk').onchange=async e=>{ if(e.target.checked) openRe(); else {$('#rePop').style.display='none'; await pywebview.api.set_retools(act,[]); S[act].retools=[]; paintRe()} };
+$('#reLbl').addEventListener('click',e=>{ if(e.target.id!=='reChk'&&$('#reChk').checked){e.preventDefault(); openRe()} });
+$('#reAll').onclick=()=>{document.querySelectorAll('#reList input:not(:disabled)').forEach(x=>x.checked=true);countRe()};
+$('#reList').addEventListener('change',countRe);
+$('#reNone').onclick=()=>{document.querySelectorAll('#reList input').forEach(x=>x.checked=false);countRe()};
+$('#reOk').onclick=saveRe;
+document.addEventListener('click',e=>{const p=$('#rePop'); if(p.style.display==='block'&&!p.contains(e.target)&&!$('#reLbl').contains(e.target)) saveRe()});
+/* ---- 🧩 file -> saved skill, and the list of saved skills ---- */
+let SKILLS=[]; const SKSEL=new Set();
+function paintSkSel(){$('#skUse').textContent=SKSEL.size?`استخدم المتعلّم عليهم (${SKSEL.size})`:'استخدم المتعلّم عليهم'}
+function useSkills(names){ if(!names.length) return; $('#skPop').style.display='none'; const i=$('#inp');
+  const all=names.length>1&&names.length===SKILLS.length;
+  const t=names.length===1?`استخدم مهارة «${names[0]}»: `
+    :all?`استخدم كل المهارات المتثبتة (${names.length} مهارة) مع بعض: اختار منها كل اللي يفيد الطلب، وحمّلها قبل ما تبدأ، وقول استخدمت أنهي واحدة في إيه. الطلب: `
+    :`استخدم المهارات دي مع بعض (${names.length}): ${names.map(n=>'«'+n+'»').join('، ')}. حمّلها كلها قبل ما تبدأ، وقول استخدمت كل واحدة في إيه. الطلب: `;
+  i.value=t+i.value; i.focus(); i.setSelectionRange(i.value.length,i.value.length)}
+function paintSkills(){const q=($('#skFind').value||'').trim().toLowerCase();
+  const rows=SKILLS.filter(k=>!q||k.name.toLowerCase().includes(q)||(k.desc||'').toLowerCase().includes(q));
+  $('#skCnt').textContent=`${SKILLS.length} مهارة · ${SKILLS.filter(k=>k.mine).length} من ملفاتك`; paintSkSel();
+  $('#skList').innerHTML=rows.length?rows.map(k=>`<div class="sk"><input type="checkbox" class="skc" value="${esc(k.name)}" ${SKSEL.has(k.name)?'checked':''}><div class="i"><b>${esc(k.name)}</b>${k.mine?'<i>من ملفاتك</i>':''}${(k.miss||[]).length?`<i title="ملفات مذكورة في المهارة ومش موجودة: ${esc(k.miss.join('، '))}">⚠ ناقصها ${k.miss.length} ملف</i>`:''}<span title="${esc(k.desc||'')}">${esc(k.desc||'')}</span></div>
+    <button class="gold" data-use="${esc(k.name)}">استخدم</button><button data-open="${esc(k.name)}" title="افتح مجلد المهارة">📁</button>${k.mine?`<button class="red" data-del="${esc(k.name)}" title="شيل المهارة (بتتنقل لنسخة احتياطية)">🗑</button>`:''}</div>`).join('')
+    :'<div class="sub" style="padding:10px">مفيش مهارات بالاسم ده.</div>'}
+async function loadSkills(){SKILLS=await pywebview.api.skills_list(); try{$('#skN').textContent='('+SKILLS.length+')'}catch(_){}; const have=new Set(SKILLS.map(k=>k.name)); for(const n of [...SKSEL]) if(!have.has(n)) SKSEL.delete(n); paintSkills()}
+$('#skList').addEventListener('change',e=>{ if(!e.target.classList.contains('skc')) return; e.target.checked?SKSEL.add(e.target.value):SKSEL.delete(e.target.value); paintSkSel()});
+$('#skAll').onclick=()=>{SKILLS.forEach(k=>SKSEL.add(k.name)); paintSkills()};
+$('#skMine').onclick=()=>{SKSEL.clear(); SKILLS.filter(k=>k.mine).forEach(k=>SKSEL.add(k.name)); paintSkills()};
+$('#skNone').onclick=()=>{SKSEL.clear(); paintSkills()};
+$('#skUse').onclick=()=>{ if(!SKSEL.size){$('#skMsg').textContent='علّم على مهارة واحدة على الأقل'; return} useSkills(SKILLS.filter(k=>SKSEL.has(k.name)).map(k=>k.name))};
+async function openSkills(){const p=$('#skPop'); if(p.style.display==='block'){p.style.display='none';return}
+  $('#skMsg').textContent=''; $('#skList').innerHTML='<div class="sub" style="padding:10px">بيحمّل المهارات…</div>'; p.style.display='block'; loadLib(); await loadSkills()}
+/* ---- skill library (Red Dragon): search, use for this request, or install ---- */
+let LIBT=null, LIBTOTAL=0, LIBDIR=''; const LIBSEL=new Map();   // name -> SKILL.md path; kept while the user searches for more
+function paintLibSel(){const n=LIBSEL.size; $('#libSel').textContent=n?('متعلّم على '+n+': '+[...LIBSEL.keys()].slice(0,6).join('، ')+(n>6?'…':'')):'علّم على أكتر من مهارة، ودوّر وعلّم تاني: التعليم بيفضل.';
+  $('#libUse').disabled=!n; $('#libInst').disabled=!n;
+  if($('#libBox').style.display!=='none') $('#skCnt').textContent='المكتبة: '+(LIBTOTAL||200)+' مهارة · متعلّم على '+n}
+async function loadLib(){
+  let r; try{r=await pywebview.api.library_list($('#libFind').value||'')}catch(_){r={ok:false,why:'النسخة دي من التطبيق مافيهاش المكتبة',rows:[]}}
+  if(!r.ok){$('#libList').innerHTML='<div class="sub" style="padding:8px">'+esc(r.why||'المكتبة مش متاحة')+'</div>';$('#libCnt').textContent='';return}
+  LIBTOTAL=r.total; if(r.rows.length) LIBDIR=r.rows[0].path.replace(/[\\/][^\\/]+[\\/]SKILL\.md$/,''); $('#libAll').textContent='☑ علّم الكل ('+r.total+')'; $('#libN').textContent='('+r.total+' مهارة)'; $('#libCnt').textContent=($('#libFind').value?'نتايج البحث: ':'الأشهر أولًا: ')+r.rows.length+' من '+r.total+'. اكتب في البحث عشان توصل للباقي.';
+  $('#libList').innerHTML=r.rows.length?r.rows.map(k=>`<div class="sk"><input type="checkbox" class="libc" value="${esc(k.name)}" data-path="${esc(k.path)}" ${LIBSEL.has(k.name)?'checked':''} ${k.installed?'data-inst="1"':''}><div class="i"><b>${esc(k.name)}</b><i>★ ${Number(k.stars).toLocaleString('en')}</i><i>${esc(k.repo)}</i>${(k.review||[]).length?'<i title="فيها سكربتات لازم تتقري قبل التشغيل: '+esc(k.review.join('، '))+'">⚠ سكربتات</i>':''}<span title="${esc(k.description)}">${esc(k.description)}</span></div>
+    <button class="gold" data-luse="${esc(k.name)}" data-path="${esc(k.path)}">استخدم</button>${k.installed?'<button disabled>متثبتة</button>':`<button data-linst="${esc(k.name)}">ثبّت</button>`}</div>`).join('')
+    :'<div class="sub" style="padding:8px">مفيش مطابق. جرّب كلمة تانية.</div>'; paintLibSel()}
+$('#libFind').oninput=()=>{clearTimeout(LIBT);LIBT=setTimeout(loadLib,250)};
+/* ---- top 500 GitHub repositories (index only) ---- */
+let REPT=null, REPTOTAL=0; const REPSEL=new Set(); const WINAR={yes:'ويندوز ✓',docker:'Docker',wsl:'WSL',no:'مش لويندوز','n/a':'مرجع'};
+function paintRepSel(){const n=REPSEL.size; $('#repoSel').textContent=n?('متعلّم على '+n+': '+[...REPSEL].slice(0,5).join('، ')+(n>5?'…':'')):'علّم على مستودع أو أكتر.'; $('#repoUse').disabled=!n;
+  if($('#repoBox').style.display!=='none') $('#skCnt').textContent='المستودعات: '+(REPTOTAL||500)+' · متعلّم على '+n}
+async function loadRepos(){let r; try{r=await pywebview.api.repos_list($('#repoFind').value||'')}catch(_){r={ok:false,why:'النسخة دي من التطبيق مافيهاش فهرس المستودعات',rows:[]}}
+  if(!r.ok){$('#repoList').innerHTML='<div class="sub" style="padding:8px">'+esc(r.why||'الفهرس مش متاح')+'</div>';return}
+  REPTOTAL=r.total; $('#repoN').textContent='('+r.total+')'; $('#repoCnt').textContent=($('#repoFind').value?'نتايج البحث: ':'الأشهر أولًا: ')+r.rows.length+' من '+r.total;
+  $('#repoList').innerHTML=r.rows.length?r.rows.map(k=>`<div class="sk"><input type="checkbox" class="repc" value="${esc(k.repo)}" ${REPSEL.has(k.repo)?'checked':''}><div class="i"><b>#${k.rank} ${esc(k.repo)}</b><i>★ ${Number(k.stars).toLocaleString('en')}</i><i>${esc(k.category)}</i><i>${esc(WINAR[k.windows]||k.windows)}</i><span title="${esc(k.what+' — '+k.use_when+(k.install&&k.install!=='n/a'?' — التثبيت: '+k.install:''))}">${esc(k.what)}</span></div>
+    <button class="gold" data-ruse="${esc(k.repo)}">استخدم</button><button data-ropen="${esc(k.url)}" title="افتح صفحة المستودع في المتصفح">↗</button></div>`).join(''):'<div class="sub" style="padding:8px">مفيش مطابق. جرّب كلمة تانية.</div>'; paintRepSel()}
+function useRepos(names){ if(!names.length) return; $('#skPop').style.display='none'; const i=$('#inp');
+  i.value=`استعين بالمستودع${names.length>1?'ات دي':' ده'} من أشهر مستودعات GitHub: ${names.join('، ')}.\nلكل واحد اقرا تفاصيله الأول (rd.py repos show REPO)، وقول ينفع للطلب ولا لأ وليه، وإيه رخصته وهل يشتغل على ويندوز. ماتنزّلش ولا تثبّت أي حاجة غير بعد ما توريني الخطة وأوافق.\nالطلب: `+i.value; i.focus(); i.setSelectionRange(i.value.length,i.value.length)}
+$('#repoFind').oninput=()=>{clearTimeout(REPT);REPT=setTimeout(loadRepos,250)};
+$('#repoList').addEventListener('change',e=>{const c=e.target; if(!c.classList.contains('repc')) return; c.checked?REPSEL.add(c.value):REPSEL.delete(c.value); paintRepSel()});
+$('#repoList').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return; if(b.dataset.ruse) useRepos([b.dataset.ruse]); else if(b.dataset.ropen){try{pywebview.api.open_url(b.dataset.ropen)}catch(_){}}});
+$('#repoShown').onclick=()=>{document.querySelectorAll('#repoList .repc').forEach(c=>{c.checked=true;REPSEL.add(c.value)}); paintRepSel()};
+$('#repoNone').onclick=()=>{REPSEL.clear(); document.querySelectorAll('#repoList .repc').forEach(c=>c.checked=false); paintRepSel()};
+$('#repoUse').onclick=()=>useRepos([...REPSEL]);
+function skTab(t){document.querySelectorAll('#skTabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  $('#skInst').style.display=t==='inst'?'':'none'; $('#libBox').style.display=t==='lib'?'':'none'; $('#repoBox').style.display=t==='repo'?'':'none';
+  if(t==='lib'){loadLib(); $('#libFind').focus()} else if(t==='repo'){loadRepos(); $('#repoFind').focus()} else {try{paintSkills()}catch(_){}}}
+$('#skTabs').addEventListener('click',e=>{const b=e.target.closest('button'); if(b) skTab(b.dataset.t)});
+$('#libList').addEventListener('change',e=>{const c=e.target; if(!c.classList.contains('libc')) return; c.checked?LIBSEL.set(c.value,c.dataset.path):LIBSEL.delete(c.value); paintLibSel()});
+$('#libAll').onclick=async()=>{const b=$('#libAll'); b.disabled=true; let r; try{r=await pywebview.api.library_list('')}catch(_){r={rows:[]}}
+  for(const k of (r.rows||[])) LIBSEL.set(k.name,k.path);
+  document.querySelectorAll('#libList .libc').forEach(c=>{if(LIBSEL.has(c.value)) c.checked=true}); b.disabled=false; paintLibSel();
+  if(LIBSEL.size<LIBTOTAL) $('#libSel').textContent='اتعلّم على '+LIBSEL.size+' من '+LIBTOTAL+' (النسخة دي بتعرض جزء بس).'};
+$('#libShown').onclick=()=>{document.querySelectorAll('#libList .libc').forEach(c=>{c.checked=true;LIBSEL.set(c.value,c.dataset.path)}); paintLibSel()};
+$('#libNone').onclick=()=>{LIBSEL.clear(); document.querySelectorAll('#libList .libc').forEach(c=>c.checked=false); $('#libInst').dataset.sure=''; $('#libInst').textContent='ثبّت المتعلّم عليهم'; paintLibSel()};
+$('#libUse').onclick=()=>{const L=[...LIBSEL.entries()]; if(!L.length) return; $('#skPop').style.display='none'; const i=$('#inp');
+  const all=LIBTOTAL>1&&L.length>=LIBTOTAL;
+  const head=all?`استخدم مكتبة المهارات كلها (${L.length} مهارة): دوّر فيها عن كل اللي يفيد الطلب (rd.py skills find "<كلمات>" بأكتر من صياغة، والمجلد: ${LIBDIR})، واقرا ملف SKILL.md بتاع كل مهارة تختارها بأداة Read واستخدمها كمرجع، وقول اخترت أنهي مهارات وليه واستخدمت كل واحدة في إيه.`
+    :L.length===1?`استخدم مهارة المكتبة «${L[0][0]}»: اقرا الملف ده الأول بأداة Read واستخدمه كمرجع (${L[0][1]})، وقول استخدمتها في إيه.`
+    :`استخدم مهارات المكتبة دي مع بعض (${L.length}): ${L.map(x=>'«'+x[0]+'»').join('، ')}.\nاقرا ملف SKILL.md بتاع كل واحدة الأول بأداة Read واستخدمهم كمرجع، وقول استخدمت كل واحدة في إيه:\n${L.map(x=>'- '+x[0]+': '+x[1]).join('\n')}`;
+  i.value=head+'\nالطلب: '+i.value; i.focus(); i.setSelectionRange(i.value.length,i.value.length)};
+$('#libInst').onclick=async()=>{const b=$('#libInst'); const names=[...LIBSEL.keys()]; if(!names.length) return;
+  if(b.dataset.sure!=='1'){b.dataset.sure='1'; b.textContent='متأكد إنك عايز تثبّت '+names.length+'؟ دوس تاني'; return}
+  b.disabled=true; let ok=0, bad=[]; for(const n of names){b.textContent='بيثبّت '+(ok+bad.length+1)+' من '+names.length+'…';
+    let r; try{r=await pywebview.api.library_install(n)}catch(e){r={ok:false,why:String(e)}} if(r.ok) ok++; else bad.push(n+': '+(r.why||''))}
+  b.dataset.sure=''; b.textContent='ثبّت المتعلّم عليهم'; await loadSkills(); await loadLib();
+  $('#libSel').textContent='اتثبّت '+ok+' من '+names.length+(bad.length?' · ماتثبّتش: '+bad.join(' ⏐ '):''); $('#libSel').title=bad.join('\n')};
+$('#libList').addEventListener('click',async e=>{const b=e.target.closest('button'); if(!b) return;
+  if(b.dataset.luse){$('#skPop').style.display='none'; const i=$('#inp');
+    i.value=`استخدم مهارة المكتبة «${b.dataset.luse}»: اقرا الملف ده الأول بأداة Read واستخدمه كمرجع (${b.dataset.path})، وقول استخدمتها في إيه. الطلب: `+i.value; i.focus(); return}
+  if(b.dataset.linst){ if(b.dataset.sure!=='1'){b.dataset.sure='1';b.textContent='متأكد؟ دوس تاني';return}
+    b.disabled=true;b.textContent='بيثبّت…'; const r=await pywebview.api.library_install(b.dataset.linst);
+    if(r.ok){b.textContent='متثبتة'; await loadSkills()} else {b.textContent='ماتثبّتتش'; b.title=r.why||''}}});
+$('#skBtn').onclick=openSkills; $('#skClose').onclick=()=>$('#skPop').style.display='none'; $('#skFind').oninput=paintSkills;
+$('#skList').addEventListener('click',async e=>{const b=e.target.closest('button'); if(!b) return;
+  if(b.dataset.use){useSkills([b.dataset.use]); return}
+  if(b.dataset.open){pywebview.api.skill_open(b.dataset.open); return}
+  if(b.dataset.del){ if(!confirm(`أشيل المهارة «${b.dataset.del}»؟ هتتنقل لنسخة احتياطية ومش هتتمسح.`)) return;
+    const r=await pywebview.api.skill_remove(b.dataset.del); $('#skMsg').textContent=r.ok?'اتشالت ✓ (النسخة الاحتياطية في skills_backup)':(r.error||'ماتشالتش'); loadSkills()}});
+$('#skAdd').onclick=async()=>{const s=S[act]; if(!s) return;
+  const paths=await pywebview.api.skill_pick(act); if(!paths||!paths.length) return;
+  $('#skMsg').textContent='بيحوّل…';
+  const r=(paths.length>1&&$('#skSplit').checked)?await pywebview.api.skill_make_many(act,paths,$('#skWhy').value)
+    :await pywebview.api.skill_make(act,paths,$('#skName').value,$('#skWhy').value);
+  if(!r.ok){$('#skMsg').textContent='✕ '+(r.error||'فشل'); return}
+  $('#skName').value=''; $('#skWhy').value=''; $('#skMsg').textContent='✓ '+r.msg; await loadSkills();
+  for(const n of (r.names||[r.name])) SKSEL.add(n); paintSkills();
+  if(r.prompt){ $('#skPop').style.display='none'; if(r.mode==='many') add(s,'bot',`<span class="sub">🧩 ${esc(r.msg)}</span>`); send(r.prompt) }
+  else add(s,'bot',`<span class="sub">🧩 ${esc(r.msg)} افتح 🧩 وعلّم عليهم ودوس «استخدم المتعلّم عليهم».</span>`)};
+document.addEventListener('click',e=>{const p=$('#skPop'); if(p.style.display==='block'&&!p.contains(e.target)&&!$('#skBtn').contains(e.target)&&document.body.contains(e.target)) p.style.display='none'});
+$('#thinkChk').onchange=async e=>{try{await pywebview.api.set_show_thinking(e.target.checked)}catch(_){}};
+window.addEventListener('pywebviewready',async()=>{try{const t=await pywebview.api.thinking_status(); $('#thinkChk').checked=!!t.on; if(!t.supported){$('#thinkChk').disabled=true; $('#thinkChk').parentElement.title='نسخة Claude Code المتثبتة مابتدعمش عرض التفكير. حدّثها: npm i -g @anthropic-ai/claude-code'}}catch(_){}});
+$('#brainChk').onchange=async e=>{try{await pywebview.api.set_brain(e.target.checked)}catch(_){}};
+window.addEventListener('pywebviewready',async()=>{try{const b=await pywebview.api.brain_status(); $('#brainChk').checked=!!b.on; if(!b.ok){$('#brainChk').disabled=true; $('#brainChk').parentElement.title=b.why||''}}catch(_){}});
+$('#cloudChk').onchange=async e=>{S[act].cloud=e.target.checked;pywebview.api.set_cloud(act,e.target.checked);
+  if(e.target.checked){const sid=act; const r=await pywebview.api.mcp_status(false);
+    if(r.engine!=='subscription') add(S[sid],'bot','<span class="err-msg">☁ السحابة محتاجة وضع «⭐ اشتراك Claude» (من الإعدادات). في الوضع الحالي Higgsfield مش واصل للتطبيق.</span>');
+    else if(!['connected','pending'].includes(r.higgsfield)) add(S[sid],'bot','<span class="err-msg">☁ Higgsfield مش متصل بحساب Claude دلوقتي. افتح الإعدادات ← «🔌 الخدمات المربوطة» واربطه، وبعدين جرّب تاني.</span>')}
+  if(e.target.checked) add(S[act],'bot','<span class="sub">☁ سحابة Higgsfield المجانية اتفعّلت: الرندر والترميز والتفريغ التقيل هيتنفّذوا على السحابة بمهارة higgsfield-free، والرصيد بيتقاس قبل وبعد. أي توليد مدفوع لسه محتاج موافقتك.</span>')};
+$('#deep').onchange=e=>{S[act].deep=e.target.checked;pywebview.api.set_deep(act,e.target.checked);
+  if(e.target.checked) add(S[act],'bot','<span class="sub">🔬 التحليل العميق اتفعّل: تفكير أعلى، وREA للملفات والبرامج والمواقع.</span>')};
+
+/* ================= preview ================= */
+const url=(s,p)=>fileBase+encodeURIComponent(p)+'&v='+(s.items.get(p)?.mtime||0);
+function renderPreview(autoplay){
+  const s=S[act]; if(!s) return;
+  $('#pvCount').textContent=s.items.size?`(${s.items.size})`:'';
+  const arr=[...s.items.values()].sort((a,b)=>b.mtime-a.mtime);
+  $('#plist').innerHTML=arr.map(it=>{
+    const th=it.kind==='image'?`style="background-image:url('${url(s,it.path)}')"`:'';
+    const inner=it.kind==='video'?`<video src="${url(s,it.path)}#t=0.5" muted preload="metadata"></video>`:it.kind==='image'?'':ICON[it.kind];
+    return `<div class="it${it.path===s.sel?' sel':''}" data-p="${esc(it.path)}" title="${esc(it.path)}"><div class="th" ${th}>${inner}${it.fresh?'<span class="new">جديد</span>':''}</div><div class="n">${esc(it.name)}</div></div>`}).join('');
+  $('#plist').querySelectorAll('.it').forEach(d=>d.onclick=()=>{s.sel=d.dataset.p;renderPreview(true)});
+  const it=s.items.get(s.sel), v=$('#viewer');
+  if(!it){v.dataset.p='';v.innerHTML='<div class="empty">لسه مفيش ناتج. لما الطائر يعمل فيديو أو صورة أو صوت هيظهر هنا.</div>';$('#vbar').style.display='none';return}
+  const u=url(s,it.path), cur=v.dataset.p;
+  if(cur!==it.path+it.mtime){
+    v.dataset.p=it.path+it.mtime;
+    v.innerHTML=it.kind==='video'?`<video src="${u}" controls ${autoplay?'autoplay':''}></video>`:it.kind==='image'?`<img src="${u}">`:
+      it.kind==='audio'?`<audio src="${u}" controls ${autoplay?'autoplay':''}></audio>`:`<iframe sandbox="allow-scripts" src="${u}"></iframe>`;
+  }
+  $('#vbar').style.display='flex'; $('#vname').textContent=`${it.name} · ${sizeTxt(it.size)}`; $('#vname').title=it.path;
+}
+$('#pvBtn').onclick=()=>{const s=S[act];s.pvOpen=!s.pvOpen;$('#chatwrap').classList.toggle('pv-open',s.pvOpen);renderPreview()};
+$('#pvClose').onclick=()=>{S[act].pvOpen=false;$('#chatwrap').classList.remove('pv-open')};
+$('#pvRefresh').onclick=async()=>{const s=S[act];for(const it of await pywebview.api.recent_outputs(s.sid,60)){if(!s.items.has(it.path))s.items.set(it.path,it)}
+  if(!s.sel&&s.items.size)s.sel=[...s.items.values()].sort((a,b)=>b.mtime-a.mtime)[0].path; s.pvOpen=true;$('#chatwrap').classList.add('pv-open');renderPreview()};
+$('#vOpen').onclick=()=>{const s=S[act];s.sel&&pywebview.api.open_path(s.sel)};
+$('#vReveal').onclick=()=>{const s=S[act];s.sel&&pywebview.api.reveal_path(s.sel)};
+
+/* ================= settings / balance ================= */
+const ENG_NAME={subscription:'⭐ اشتراك Claude',codex:'🟢 اشتراك ChatGPT',gemini:'🔷 Antigravity / Gemini',api:'💳 رصيد API'};
+function showBalance(b){
+  if(ENGINE==='subscription') return showPlan();
+  if(ENGINE==='codex'||ENGINE==='gemini'){ $('#balLbl').textContent=ENGINE==='codex'?'اشتراك ChatGPT':'Gemini'; $('#bal').textContent='من غير خصم من الرصيد'; $('#balPill').classList.remove('low'); return }
+  $('#bal').textContent=money(b.balance==null?b.spent:b.balance); $('#balLbl').textContent=b.balance==null?'المصروف':'الرصيد';
+  $('#balPill').classList.toggle('low',b.balance!=null&&b.balance<2);
+}
+async function refresh(){
+  const s=await pywebview.api.status();
+  $('#st').innerHTML=`<span class="dot ${(s.has_key||s.engine!=='api')&&s.repo_ok?'ok':'bad'}"></span>`+((s.has_key||s.engine!=='api')?(s.repo_ok?`${ENG_NAME[s.engine]||'💳 رصيد API'}${(s.engine==='api'||s.engine==='subscription')?' · '+s.model:''}`:'مجلد التنين مش موجود'):'محتاج مفتاح API');
+  $('#info').textContent=`model: ${s.model}\nrepo: ${s.repo}\nsuperpowers hub: ${s.superpowers?'OK':'missing'}\npython: ${s.python}`+(s.balance_at?`\nbalance set: ${s.balance_at}`:'');
+  ENGINE=s.engine||'api'; PLAN=s.plan||{}; $('#codexModel').value=s.codex_model||''; $('#gemModel').value=s.gemini_model||''; showBalance(s); fileBase=s.file_base;
+  $('#engSub').className=ENGINE==='subscription'?'gold':''; $('#engApi').className=ENGINE==='api'?'gold':'';
+  document.querySelectorAll('.seg button').forEach(b=>b.className=b.dataset.e===ENGINE?'on':'');
+  renderExt();
+  $('#engMsg').textContent=ENGINE==='subscription'?(s.claude?'شغّال باشتراكك عن طريق Claude Code ✓':'Claude Code مش متثبت على الجهاز'):'شغّال برصيد API';
+  if(!s.has_key&&ENGINE==='api') openModal();
+}
+function openModal(){$('#modal').style.display='flex';$('#keyMsg').textContent='';$('#balMsg').textContent=''}
+$('#setBtn').onclick=$('#balPill').onclick=openModal; $('#closeM').onclick=()=>{$('#modal').style.display='none'};
+$('#saveKey').onclick=async()=>{const r=await pywebview.api.set_key($('#keyIn').value);$('#keyIn').value='';$('#keyMsg').textContent=r.ok?'اتحفظ ✓':r.error;if(r.ok)refresh()};
+$('#delKey').onclick=async()=>{await pywebview.api.clear_key();$('#keyMsg').textContent='اتمسح';refresh()};
+$('#saveBal').onclick=async()=>{const r=await pywebview.api.set_balance($('#balIn').value);$('#balMsg').textContent=r.ok?'اتحفظ ✓':r.error;if(r.ok){showBalance(r);$('#balIn').value=''}};
+$('#billing').onclick=()=>pywebview.api.open_billing();
+$('#extModelsSave').onclick=async()=>{const r=await pywebview.api.set_ext_models($('#codexModel').value,$('#gemModel').value);$('#prefMsg').textContent='اتحفظت الموديلات ✓'};
+$('#engSub').onclick=async()=>{const r=await pywebview.api.set_engine('subscription');await refresh();if(!r.claude)$('#engMsg').textContent='Claude Code مش متثبت. ثبّته وسجّل دخول باشتراكك الأول.'};
+$('#engApi').onclick=async()=>{await pywebview.api.set_engine('api');await refresh()};
+async function switchEngine(eng){
+  if(eng===ENGINE) return;
+  const r=await pywebview.api.set_engine(eng); await refresh();
+  const s=S[act]; const busy=Object.values(S).some(x=>x.busy);
+  const ex=r.ext||{};
+  const msg=eng==='codex'?(ex.codex&&ex.codex.logged_in?'🟢 اتحوّلت لاشتراك ChatGPT: الطلبات الجاية بيشتغل عليها Codex بحسابك.':'🟢 اتحوّلت لـ ChatGPT، بس لازم تسجّل دخول الأول: الإعدادات ← «سجّل دخول» جنب ChatGPT.')
+    :eng==='gemini'?(ex.gemini&&ex.gemini.logged_in?'🔷 اتحوّلت لـ Gemini بحساب جوجل بتاعك. ملاحظة: Gemini هنا بيعدّل الملفات بس، والأوامر بتحتاج Claude أو ChatGPT.':'🔷 اتحوّلت لـ Gemini، بس لازم تسجّل دخول الأول: الإعدادات ← «سجّل دخول» جنب Gemini.')
+    :eng==='subscription'?(r.claude?'⭐ اتحوّلت للاشتراك: الطلبات الجاية بتتحسب من اشتراك Claude بتاعك.':'⚠ Claude Code مش متثبت، فالاشتراك مش هيشتغل. ثبّته وسجّل دخول الأول.')
+    :(document.querySelector('#st .dot.bad')?'💳 اتحوّلت للرصيد، بس محتاج تحط مفتاح API من الإعدادات.':'💳 اتحوّلت للرصيد: الطلبات الجاية بتتحسب بالتوكن من رصيد API.');
+  if(s) add(s,'bot',`<span class="sub">${msg}${busy?' (الطلب الشغال دلوقتي هيكمّل بالطريقة القديمة)':''}</span>`);
+}
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>switchEngine(b.dataset.e));
+async function renderBridge(){const b=await pywebview.api.bridge_info();
+  $('#extTok').value=b.token||''; $('#extState').innerHTML=!b.ok?`<span class="err-msg">الجسر مش شغال: ${esc(b.error||'')}</span>`:b.connected?'<span style="color:var(--green)">✓ الإضافة متوصلة</span>':'✕ الإضافة مش متوصلة لسه';
+  $('#ctlState')&&($('#ctlState').textContent=b.connected?'كروم ✓':'')}
+$('#extCopy').onclick=()=>{navigator.clipboard.writeText($('#extTok').value);$('#extCopy').textContent='✓ اتنسخ';setTimeout(()=>$('#extCopy').textContent='نسخ الكود',1200)};
+$('#extFolder').onclick=()=>pywebview.api.open_extension_folder();
+async function renderGh(){const g=await pywebview.api.github_status();
+  $('#ghState').textContent=!g.installed?'أداة gh مش متثبتة':g.logged_in?('✓ مسجّل دخول'+(g.user?' باسم '+g.user:'')):'✕ مش مسجّل دخول'}
+$('#ghLogin').onclick=()=>{pywebview.api.login_platform('github');$('#ghState').textContent='كمّل في النافذة السودا والمتصفح…';setTimeout(renderGh,25000)};
+$('#gKeySave').onclick=async()=>{const r=await pywebview.api.set_gemini_key($('#gKey').value);$('#gKey').value='';$('#gKeyMsg').textContent=r.ok?'اتحفظ ✓، اختار 🔷 Gemini من فوق':r.error;renderExt()};
+setInterval(()=>{if($('#modal').style.display==='flex') renderBridge()},3000);
+async function renderExt(){ renderBridge(); renderGh();
+  const x=await pywebview.api.ext_info(); const rows=[['codex','🟢 ChatGPT (Codex)'],['gemini','🔷 Gemini']];
+  $('#extRows').innerHTML=rows.map(([k,n])=>{const st=x[k]||{};const txt=!st.installed?'مش متثبت':st.logged_in?'✓ داخل بحسابك':'✕ محتاج تسجيل دخول';
+    return `<div style="display:flex;align-items:center;gap:8px;margin:4px 0"><span style="flex:1">${n} · <span class="sub">${txt}</span></span><button data-l="${k}">سجّل دخول</button></div>`}).join('');
+  $('#extRows').querySelectorAll('button').forEach(b=>b.onclick=()=>{pywebview.api.login_platform(b.dataset.l);
+    b.textContent='كمّل في النافذة السودا…'; setTimeout(renderExt,20000)});
+}
+
+/* ================= wiring ================= */
+$('#sendBtn').onclick=()=>send();
+$('#inp').addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
+// composer grows with the text (up to 220px); «↓ آخر الرد» appears when the chat is scrolled up
+function growInp(){const t=$('#inp'); t.style.height='58px'; t.style.height=Math.min(220,Math.max(58,t.scrollHeight))+'px'}
+$('#inp').addEventListener('input',growInp);
+setInterval(()=>{const s=S[act], b=$('#toBottom'); if(!s||!b) return; const el=s.el; b.style.display=(el.scrollHeight-el.scrollTop-el.clientHeight>260)?'block':'none';
+  if(!$('#inp').value&&$('#inp').style.height!=='58px') growInp()},400);
+$('#toBottom').onclick=()=>{const s=S[act]; if(s) s.el.scrollTo({top:s.el.scrollHeight,behavior:'smooth'})};
+$('#stopBtn').onclick=()=>pywebview.api.stop(act);
+$('#newBtn').onclick=()=>newChat();
+$('#zeroBtn').onclick=()=>newChat(true);
+$('#allBtn').onclick=async()=>{const b=$('#allBtn'); if(b.disabled) return; b.disabled=true; const old=b.textContent; b.textContent='🧠 بيجمع المحادثات…';
+  try{ const r=await pywebview.api.merge_all(); await adoptSession(r,'🧠 كل المحادثات'); const s=S[r.sid]; s.allChats=true;
+    const w=s.el.querySelector('.welcome div'); if(w) w.innerHTML=`🧠 <b>كل المحادثات في مكان واحد</b>: ${r.count} محادثة مدموجة هنا. اسأل أي سؤال، والطائر هيجاوب من نتائجها كلها ويكتب كل معلومة جت من أنهي محادثة.`;
+    add(s,'bot',`<span class="sub">🧠 اتدمجت ${r.count} محادثة. خلاصة نتائجها بتتبعت مع أول سؤال، والنص الكامل لكل محادثة محفوظ للبحث في: ${esc(r.library||'')}. المحادثات الجديدة أو اللي تتغيّر بتتضاف لوحدها مع كل سؤال.</span>`);
+    renderSide();
+  }catch(e){ console.error(e) } finally { b.disabled=false; b.textContent=old } };
+
+/* ================= layout: resizable panels, zoom, view menu ================= */
+const LS={get:(k,d)=>{try{const v=localStorage.getItem('bd_'+k);return v==null?d:JSON.parse(v)}catch(e){return d}},
+          set:(k,v)=>{try{localStorage.setItem('bd_'+k,JSON.stringify(v))}catch(e){}}};
+const PANEL={side:'nav#side',files:'aside#files',pv:'aside#pv'}, LIM={side:[170,520],files:[200,640],pv:[280,1100]};
+function applyLayout(){
+  for(const k in PANEL){const w=LS.get('w_'+k,null); const el=document.querySelector(PANEL[k]);
+    if(w){el.style.width=w+'px'; el.style.flex='0 0 '+w+'px'; el.style.maxWidth='none'; el.style.minWidth='0'}}
+  document.body.classList.toggle('hide-side',!LS.get('show_side',true)); document.body.classList.toggle('hide-files',!LS.get('show_files',true));
+  document.body.classList.toggle('focus',!!LS.get('focus',false));
+  const z=LS.get('zoom',1); document.body.style.zoom=z; $('#zoomV').textContent=Math.round(z*100)+'%';
+  $('#vSide').checked=LS.get('show_side',true); $('#vFiles').checked=LS.get('show_files',true); $('#vFocus').checked=!!LS.get('focus',false);
+}
+document.querySelectorAll('.rz').forEach(h=>h.addEventListener('mousedown',e=>{
+  e.preventDefault(); const k=h.dataset.for, el=document.querySelector(PANEL[k]); const r=el.getBoundingClientRect(), z=LS.get('zoom',1);
+  const rightEdge=(k==='side'); h.classList.add('drag'); document.body.classList.add('resizing');
+  const mv=ev=>{ let w=rightEdge? (r.right - ev.clientX/1) : (ev.clientX - r.left); w=Math.max(LIM[k][0],Math.min(LIM[k][1],w/1));
+    el.style.width=w+'px'; el.style.flex='0 0 '+w+'px'; el.style.maxWidth='none'; el.style.minWidth='0'; LS.set('w_'+k,Math.round(w)) };
+  const up=()=>{document.removeEventListener('mousemove',mv);document.removeEventListener('mouseup',up);h.classList.remove('drag');document.body.classList.remove('resizing')};
+  document.addEventListener('mousemove',mv); document.addEventListener('mouseup',up);
+}));
+function zoom(d){let z=LS.get('zoom',1); z=d==='0'?1:Math.max(.7,Math.min(1.6,+(z+(d==='+'?.1:-.1)).toFixed(2))); LS.set('zoom',z); applyLayout()}
+$('#viewBtn').onclick=e=>{e.stopPropagation(); const p=$('#viewPop'); p.style.display=p.style.display==='block'?'none':'block'};
+document.addEventListener('click',e=>{const p=$('#viewPop'); if(p.style.display==='block'&&!p.contains(e.target)&&e.target.id!=='viewBtn') p.style.display='none'});
+$('#vSide').onchange=e=>{LS.set('show_side',e.target.checked);applyLayout()};
+$('#vFiles').onchange=e=>{LS.set('show_files',e.target.checked);applyLayout()};
+$('#vFocus').onchange=e=>{LS.set('focus',e.target.checked);applyLayout()};
+$('#vTop').onchange=e=>pywebview.api.win_on_top(e.target.checked);
+document.querySelectorAll('#viewPop [data-z]').forEach(b=>b.onclick=()=>zoom(b.dataset.z));
+function applyTheme(){const t=LS.get('theme','auto'); if(t==='auto') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme=t;
+  document.querySelectorAll('#themeRow button').forEach(b=>b.classList.toggle('gold',b.dataset.t===t))}
+document.querySelectorAll('#themeRow button').forEach(b=>b.onclick=()=>{LS.set('theme',b.dataset.t);applyTheme()});
+applyTheme();
+document.querySelectorAll('#viewPop [data-w]').forEach(b=>b.onclick=()=>pywebview.api.win_size(b.dataset.w));
+$('#vReset').onclick=()=>{['w_side','w_files','w_pv','zoom','show_side','show_files','focus'].forEach(k=>{try{localStorage.removeItem('bd_'+k)}catch(e){}});
+  for(const k in PANEL){const el=document.querySelector(PANEL[k]); el.style.width='';el.style.flex='';el.style.maxWidth='';el.style.minWidth=''} applyLayout()};
+$('#fBtn').onclick=()=>{LS.set('show_files',!LS.get('show_files',true));applyLayout()};
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&(e.key==='='||e.key==='+')){e.preventDefault();zoom('+')}
+  else if(e.ctrlKey&&e.key==='-'){e.preventDefault();zoom('-')}
+  else if(e.ctrlKey&&e.key==='0'){e.preventDefault();zoom('0')}
+  else if(e.ctrlKey&&(e.key==='b'||e.key==='B'||e.keyCode===66)){e.preventDefault();LS.set('show_side',!LS.get('show_side',true));applyLayout()}
+  else if(e.key==='F11'){e.preventDefault();LS.set('focus',!LS.get('focus',false));applyLayout()}
+});
+applyLayout();
+
+/* ================= files panel (left) ================= */
+let fTab='made', fDir={workdir:'',items:[]};
+const FICON={video:'🎬',image:'🖼️',audio:'🎵',html:'🌐',pdf:'📕','.docx':'📘','.xlsx':'📗','.pptx':'📙','.md':'📝','.txt':'📝','.srt':'💬','.vtt':'💬','.ass':'💬',
+  '.json':'🧾','.blend':'🧊','.psd':'🎨','.kra':'🎨','.xcf':'🎨','.svg':'✒️','.zip':'🗜️','.7z':'🗜️','.py':'🐍','.js':'📜','.cube':'🎛️','.ttf':'🔤','.otf':'🔤'};
+const ago=t=>{const d=(Date.now()/1000-t);return d<60?'دلوقتي':d<3600?Math.floor(d/60)+' د':d<86400?Math.floor(d/3600)+' س':new Date(t*1000).toLocaleDateString('ar-EG')};
+function fileRow(it,s){
+  const ico=it.kind==='image'?`style="background-image:url('${fileBase+encodeURIComponent(it.path)}&v=${it.mtime}')"`:'';
+  return `<div class="fi${it.fresh?' new':''}" data-p="${esc(it.path)}" title="${esc(it.path)}">
+    <div class="ico" ${ico}>${it.kind==='image'?'':(FICON[it.kind]||FICON[it.ext]||'📄')}</div>
+    <div class="nm"><div>${esc(it.name)}</div><div>${sizeTxt(it.size)} · ${ago(it.mtime)}</div></div>
+    <div class="acts"><span data-a="open" title="افتح بالبرنامج">↗</span><span data-a="reveal" title="افتح مكانه">📁</span><span data-a="copy" title="انسخ المسار">📋</span></div></div>`;
+}
+function renderFiles(){
+  const s=S[act]; if(!s) return;
+  const q=($('#fsearch').value||'').trim().toLowerCase();
+  let arr=fTab==='made'?[...(s.files||new Map()).values()]:fDir.items;
+  if(q) arr=arr.filter(it=>it.name.toLowerCase().includes(q));
+  arr=arr.slice().sort((a,b)=>b.mtime-a.mtime);
+  $('#fcount').textContent=arr.length?`(${arr.length})`:'';
+  if(!arr.length){$('#flist').innerHTML=`<div class="fempty">${fTab==='made'?'لسه مفيش ملفات اتعملت في المحادثة دي.<br>أي ملف الطائر يعمله أو يعدّله هيظهر هنا على طول.':(s.workdir?'المجلد فاضي.':'اختار مجلد الشغل الأول من 📁 تحت.')}</div>`;return}
+  // group by folder (relative to the working folder)
+  const wd=(s.workdir||'').replace(/[\\/]+$/,''); const groups=new Map();
+  for(const it of arr){const rel=wd&&it.folder.startsWith(wd)?(it.folder.slice(wd.length).replace(/^[\\/]/,'')||'مجلد الشغل'):it.folder;(groups.get(rel)||groups.set(rel,[]).get(rel)).push(it)}
+  $('#flist').innerHTML=[...groups].map(([g,items])=>`<div class="fg" title="${esc(g)}">${esc(g)}</div>`+items.map(it=>fileRow(it,s)).join('')).join('');
+  $('#flist').querySelectorAll('.fi').forEach(d=>{
+    d.onclick=ev=>{const p=d.dataset.p, a=ev.target.dataset.a; const it=(s.files&&s.files.get(p))||fDir.items.find(x=>x.path===p);
+      if(a==='reveal') return pywebview.api.reveal_path(p);
+      if(a==='copy'){navigator.clipboard.writeText(p);ev.target.textContent='✓';return setTimeout(()=>ev.target.textContent='📋',1000)}
+      if(a!=='open'&&it&&it.kind!=='file'){s.items.set(p,{...it}); s.sel=p; s.pvOpen=true; $('#chatwrap').classList.add('pv-open'); renderPreview(true); return}
+      pywebview.api.open_path(p)};
+  });
+}
+async function loadDir(){const s=S[act]; if(!s) return; fDir=await pywebview.api.folder_files(s.sid,400); renderFiles()}
+$('#ftMade').onclick=()=>{fTab='made';$('#ftMade').className='on';$('#ftDir').className='';renderFiles()};
+$('#ftDir').onclick=()=>{fTab='dir';$('#ftDir').className='on';$('#ftMade').className='';loadDir()};
+$('#fRefresh').onclick=()=>fTab==='dir'?loadDir():renderFiles();
+$('#fOpenDir').onclick=()=>{const s=S[act]; if(s&&s.workdir) pywebview.api.open_path(s.workdir)};
+$('#fsearch').oninput=()=>renderFiles();
+setInterval(()=>{if(fTab==='dir'&&S[act]?.busy) loadDir()},8000);
+
+
+/* ================= plain-Arabic step descriptions ================= */
+/* the model sometimes sends a list field as one string (or a JSON string): never let that break the chat */
+function arr(x){
+  if(Array.isArray(x)) return x;
+  if(x==null||x==='') return [];
+  if(typeof x==='string'){const t=x.trim(); if(t[0]==='['){try{const j=JSON.parse(t); if(Array.isArray(j)) return j}catch(_){}} return [x]}
+  return [x];
+}
+function describeTool(n,a){
+  try{return describeTool0(n,(a&&typeof a==='object'&&!Array.isArray(a))?a:{})}
+  catch(err){try{pywebview.api.drop_log('describeTool '+n+': '+err.message)}catch(_){} return {icon:'⚙️',title:TOOL_AR[n]||String(n),what:''}}
+}
+function describeTool0(n,a){
+  if(String(n).startsWith('mcp__blackdragon__')) n=n.slice(18);
+  const short=(x,k=90)=>{x=String(x||'');return x.length>k?x.slice(0,k)+'…':x};
+  const base=p=>String(p||'').split(/[\\/]/).pop();
+  const M={
+    dragon_find:['🔎','بيدوّر في كتالوج التنين',a.query], dragon_show:['📖','بيقرا تفاصيل مهارة',a.id], list_engines:['🧰','بيشوف المحركات المتاحة',''],
+    superpowers_find:['🔎','بيدوّر في سوبر باور',a.query], run_engine:['⚙️','بيشغّل محرك '+(a.engine||''),short(arr(a.args).join(' '))],
+    run_command:['▶️','بيشغّل أمر',short(a.command)], verify_media:['📏','بيقيس الملفات',arr(a.paths).map(base).join('، ')],
+    list_dir:['📂','بيشوف محتوى مجلد',a.path], read_text_file:['📄','بيقرا ملف',base(a.path)], view_image:['👁️','بيبص على صورة',base(a.path)],
+    write_file:['✍️','بيكتب ملف',base(a.path)], deployment_status:['🛰️','بيكلّم الـ deployment',a.deployment_id], rea:['🔬','بيحلّل بعمق بـ REA',short(arr(a.args).join(' '))],
+    delegate:['🤖','بيوزّع الشغل على الوكلاء',arr(a.tasks).length+' مهمة'], web_search:['🌐','بيدوّر على النت',a.query], web_fetch:['🌐','بيقرا صفحة من النت',a.url],
+    computer:['🖥️','بيتحكم في الجهاز',({screenshot:'بياخد صورة للشاشة',click:'بيضغط',double_click:'دبل كليك',right_click:'كليك يمين',type:'بيكتب: '+short(a.text,40),key:'بيدوس '+(a.keys||''),
+      scroll:'بيسكرول',windows:'بيشوف النوافذ المفتوحة',focus:'بيجيب نافذة لقدام: '+(a.target||''),open:'بيفتح '+(a.target||''),wait:'بيستنى'})[a.action]||a.action],
+    browser:['🧭','بيتحكم في كروم',({tabs:'بيشوف التابات',open:'بيفتح '+(a.url||''),navigate:'بيروح لـ '+(a.url||''),read:'بيقرا الصفحة',click:'بيضغط على عنصر',type:'بيكتب في خانة',
+      scroll:'بيسكرول',screenshot:'بيصوّر التاب',back:'بيرجع للصفحة اللي فاتت'})[a.action]||a.action],
+    PowerShell:['▶️','بيشغّل أمر',short(a.command)], Bash:['▶️','بيشغّل أمر',short(a.command)], Read:['📄','بيقرا ملف',base(a.file_path)], Write:['✍️','بيكتب ملف',base(a.file_path)],
+    Edit:['✏️','بيعدّل ملف',base(a.file_path)], Glob:['🔎','بيدوّر على ملفات',a.pattern], Grep:['🔎','بيدوّر جوه الملفات',a.pattern], WebSearch:['🌐','بيدوّر على النت',a.query],
+    WebFetch:['🌐','بيقرا صفحة من النت',a.url], Task:['🤖','بيشغّل وكيل مساعد',a.description], Agent:['🤖','بيشغّل وكيل مساعد',a.description],
+  };
+  const m=M[n]||['⚙️',TOOL_AR[n]||n,''];
+  return {icon:m[0],title:m[1],what:m[2]||''};
+}
+
+/* ================= v2: update banner, copy, export, tasks, shortcuts, attention ================= */
+async function checkUpdate(){const u=await pywebview.api.update_info(); if(u.available){$('#upd').style.display='flex';$('#updV').textContent=`(${u.current} ← ${u.staged})`}}
+const UPD_GO='<span>⬆ بيحدّث… هتظهر نافذة صغيرة، والتطبيق هيرجع لوحده خلال دقيقة بنفس المحادثات. ماتفتحوش بإيدك.</span>';
+async function doUpdate(force){let r; try{r=await pywebview.api.apply_update(act,!!force)}catch(e){r={ok:false,error:String(e)}}
+  if(!r.ok){$('#upd').style.display='flex';$('#upd').innerHTML='<span>⚠ التحديث مابدأش: '+esc(r.error||'')+'</span>';return}
+  if(r.waiting){$('#upd').innerHTML='<span>⏳ فيه شغل لسه شغال ('+esc((r.busy||[]).join('، '))+'). التحديث هيتعمل لوحده أول ما يخلص.</span><div class="sp"></div><button class="gold" id="updForce">حدّث دلوقتي ووقّف الشغل</button>';
+    $('#updForce').onclick=()=>doUpdate(true); return}
+  $('#upd').innerHTML=UPD_GO}
+$('#updBtn').onclick=()=>doUpdate(false);
+async function showUpdateResult(){let r={}; try{r=await pywebview.api.update_result()}catch(_){}
+  if(r.ok===undefined) return; $('#upd').style.display='flex';
+  $('#upd').innerHTML=(r.ok?'<span>✅ اتحدّث للنسخة '+esc(r.now||r.to||'')+' (من '+esc(r.from||'')+') في '+esc(String(r.seconds||0))+' ثانية.</span>'
+    :'<span>⚠ التحديث ماكملش والنسخة القديمة زي ما هي: '+esc(r.error||'سبب غير معروف')+'</span>')+'<div class="sp"></div><button id="updOk">تمام</button>';
+  $('#updOk').onclick=()=>{$('#upd').style.display='none'; if(!r.ok) checkUpdate()}}
+$('#updLater').onclick=()=>$('#upd').style.display='none';
+setInterval(checkUpdate,120000);
+$('#expBtn').onclick=async()=>{const r=await pywebview.api.export_chat(act); if(r.ok) add(S[act],'bot',`<span class="sub">⤓ اتحفظت: ${esc(r.path)}</span>`)};
+function addCopy(root){
+  root.querySelectorAll('.msg.bot:not([data-c]),.msg.user:not([data-c])').forEach(m=>{m.dataset.c=1;const b=document.createElement('button');b.className='cpy';b.textContent='نسخ';
+    b.onclick=e=>{e.stopPropagation();navigator.clipboard.writeText((m.querySelector('.txt')||m).innerText.replace(/^نسخ/,''));b.textContent='✓ اتنسخ';setTimeout(()=>b.textContent='نسخ',1200)};m.appendChild(b)});
+  root.querySelectorAll('pre:not([data-c])').forEach(p=>{p.dataset.c=1;const b=document.createElement('button');b.className='cpy';b.textContent='نسخ';
+    b.onclick=e=>{e.stopPropagation();navigator.clipboard.writeText((p.querySelector('code')||p).innerText.replace(/نسخ$/,''));b.textContent='✓';setTimeout(()=>b.textContent='نسخ',1200)};p.appendChild(b)});
+}
+setInterval(()=>{const s=S[act]; if(s) addCopy(s.el)},1500);
+const TASKS=[
+  ['مونتاج وفيديو',[
+    ['ريل سينمائي 9:16 من فيديوهات مجلد الشغل','شوف كل الفيديوهات اللي في مجلد الشغل واعمل منها ريل سينمائي 9:16 بأعلى جودة، بموسيقى مناسبة وقطعات على الإيقاع، وقيسه في الآخر.'],
+    ['تفريغ وترجمة SRT لفيديو','فرّغ كلام الفيديو المرفق أو اللي في مجلد الشغل وطلّع ترجمة SRT متظبطة بالتوقيت بالعربي.'],
+    ['قص السكتات من فيديو كلام','اعمل ريل من فيديو الكلام اللي في مجلد الشغل: شيل السكتات، ظبط الصوت على -14 LUFS، وحط كلام متحرك.'],
+    ['فصل الصوت عن الموسيقى','افصل الصوت عن الموسيقى في الملف المرفق بـ demucs، وطلّع ملفين.'],
+    ['تنضيف الصوت','نضّف صوت الملف المرفق من الدوشة بـ deep-filter وقيس علو الصوت قبل وبعد.'],
+    ['قياس كل الفيديوهات','قيس كل الفيديوهات اللي في مجلد الشغل وقولّي مين محتاج تصليح وليه.']]],
+  ['أنيميشن وكارتون 🎨',[
+    ['حوّل الفيديو لأنمي','حوّل الفيديو المرفق لأسلوب أنمي بمحرك toon. اعمل معاينة 3 ثواني بالأسلوبين hayao وshinkai الأول، ووريني الاتنين، وبعد ما أختار حوّل الفيديو كله.'],
+    ['حوّل الفيديو لكارتون 3D','حوّل الفيديو المرفق لأسلوب كارتون 3D (شبه أفلام الأنيميشن) بمحرك toon بالأسلوب 3d. اعمل معاينة 3 ثواني الأول.'],
+    ['حوّل صورة لكارتون','حوّل الصورة المرفقة لكارتون بكل أساليب محرك toon، ووريني النتايج جنب بعض.'],
+    ['صورة بأسلوب فيلم أنيميشن 3D (الأقوى)','حوّل الصورة المرفقة بأسلوب ai3d في محرك toon لصورة كأنها لقطة من فيلم أنيميشن 3D، ووريني النتيجة جنب الأصل.']]],
+  ['صور وتصميم',[
+    ['تكبير الصور 4×','كبّر كل الصور اللي في مجلد الشغل 4 مرات بـ Upscayl وحطها في مجلد output.'],
+    ['شيل الخلفية','شيل الخلفية من الصور المرفقة بـ rembg وطلّعها PNG شفافة.'],
+    ['لوجو 3D ذهبي في Blender','اعمل لوجو ذهبي ثلاثي الأبعاد بيلف في Blender بإضاءة سينمائية، ورندره فيديو 1080x1920.'],
+    ['بوستر احترافي','صمّم بوستر احترافي من الصورة المرفقة بخط عربي جميل، 1080x1350.']]],
+  ['تحليل عميق (REA)',[
+    ['حلّل برنامج أو ملف','حلّل بعمق بـ REA الملف المرفق: هو إيه، ومبني بإيه، وأهم الدوال والمكتبات، وبيكلّم أنهي سيرفرات، وأي حاجة مريبة.'],
+    ['حلّل موقع','حلّل بـ REA الموقع ده: التقنيات اللي مبني بيها، والـ APIs اللي بيكلّمها، وأهم ملفات الجافاسكربت. الرابط: '],
+    ['قارن نسختين','قارن بـ REA بين النسختين المرفقتين من البرنامج وقولّي إيه اللي اتغيّر.']]],
+  ['هندسة عكسية 🧰',[
+    ['فحص أولي سريع لملف','اعمل فحص أولي بـ retool triage للملف المرفق: نوعه، ومبني بإيه، ومضغوط أو محمي ولا لأ، ومتوقّع ولا لأ، والروابط والعناوين اللي جواه. واشرحلي النتيجة ببساطة.'],
+    ['فحص عميق: قدرات البرنامج','اعمل retool triage --deep للملف المرفق، واشرحلي من نتيجة capa وFLOSS البرنامج يقدر يعمل إيه (شبكة، ملفات، تشفير، ريجستري)، وإيه اللي يقلق فيه.'],
+    ['كود برنامج ‎.NET','الملف المرفق برنامج ‎.NET. طلّع كود C# بتاعه بـ ilspy في مجلد جوه مجلد الشغل، واشرحلي بنيته وأهم الكلاسات.'],
+    ['فك برنامج بايثون متغلّف','الملف المرفق برنامج بايثون متغلّف بـ PyInstaller. فكّه بـ pyinstxtractor، واعرض الملفات اللي جواه، واشرحلي السكربت الرئيسي بيعمل إيه.'],
+    ['حلّل تطبيق أندرويد APK','حلّل الـ APK المرفق: الصلاحيات والمكوّنات بـ apktool، والكود بـ jadx، والروابط والمفاتيح المتسابة بـ apkleaks. واكتب تقرير مختصر.'],
+    ['فك تشويش ملف جافاسكربت','الملف المرفق جافاسكربت متشوّش أو متجمّع. رجّعه مقروء بـ webcrack في مجلد جوه مجلد الشغل، واشرحلي بيعمل إيه وبيكلّم أنهي روابط.'],
+    ['البرنامج بيكلّم مين؟ (pcap)','حلّل ملف الـ pcap المرفق بـ tshark: أنهي سيرفرات ودومينات اتكلّمت، وبأنهي بروتوكولات، وحجم البيانات.'],
+    ['كل أدوات الهندسة العكسية','اعرض كل أدوات الهندسة العكسية المتثبتة بـ retool list في جدول، وقولّي كل واحدة تنفع في إيه.']]],
+  ['GitHub 🐙',[
+    ['اعرض مستودعاتي','اعرض كل مستودعاتي على GitHub في جدول: الاسم، والوصف، واللغة، وآخر تحديث، وخاص ولا عام.'],
+    ['نزّل مستودع وحلّله','نزّل المستودع ده في مجلد الشغل واشرحلي هو بيعمل إيه وإزاي أشغّله: '],
+    ['issues وPRs المفتوحة','اعرض الـ issues والـ pull requests المفتوحة في مستودعاتي.']]],
+  ['بحث وتحميل',[
+    ['هات لقطات B-roll مجانية','دوّر على النت على لقطات فيديو مجانية بأعلى جودة عن الموضوع اللي هكتبه، ونزّلها في مجلد الشغل، واكتب مصادرها في sources.txt. الموضوع: '],
+    ['حمّل فيديو من رابط','نزّل الفيديو ده بأعلى جودة في مجلد الشغل: '],
+    ['دوّر على مهارة مناسبة','دوّر في كتالوج التنين وسوبر باور على أحسن مهارة أو أداة للمهمة دي واشرحلي هتعمل إيه: ']]],
+];
+function renderTasks(){$('#tasksPop').innerHTML=TASKS.map(([g,items])=>`<div class="g">${g}</div>`+items.map(([n,q])=>`<button data-q="${esc(q)}">${esc(n)}</button>`).join('')).join('');
+  $('#tasksPop').querySelectorAll('button').forEach(b=>b.onclick=()=>{$('#inp').value=b.dataset.q;$('#tasksPop').style.display='none';$('#inp').focus()})}
+$('#tasksBtn').onclick=()=>{const p=$('#tasksPop');if(p.style.display==='block'){p.style.display='none';return}renderTasks();p.style.display='block'};
+document.addEventListener('paste',async e=>{   // files copied in Explorer (Ctrl+C) -> Ctrl+V here attaches them
+  const types=[...(e.clipboardData?.types||[])];
+  if(types.includes('Files')||!types.includes('text/plain')){
+    const r=await pywebview.api.paste_files(act);
+    if(r.ok){add(S[act],'bot',`<span class="sub">📎 اترفق باللصق: ${r.names.map(esc).join('، ')}</span>`)}
+  }
+});
+document.addEventListener('keydown',e=>{
+  if(e.ctrlKey&&(e.key==='n'||e.key==='N'||e.keyCode===78)){e.preventDefault();newChat()}
+  else if(e.key==='Escape'){if($('#tasksPop').style.display==='block'||$('#teamPop').style.display==='block'){$('#tasksPop').style.display='none';$('#teamPop').style.display='none'} else if(S[act]?.busy) pywebview.api.stop(act)}
+  else if(e.ctrlKey&&(e.key==='e'||e.key==='E'||e.keyCode===69)){e.preventDefault();$('#expBtn').click()}
+  else if(e.ctrlKey&&e.key==='Tab'){e.preventDefault();const ids=Object.keys(S);if(ids.length>1)switchTo(ids[(ids.indexOf(act)+1)%ids.length])}
+});
+window.addEventListener('pywebviewready',async()=>{await refresh();await loadPrefs();
+  const rs=await pywebview.api.take_resume();
+  if(rs.open&&rs.open.length){ for(const id of rs.open){ try{await openSaved(id)}catch(e){} }
+    if(rs.active&&S[rs.active]) switchTo(rs.active);
+    add(S[act],'bot',`<span class="sub">✓ التطبيق اتحدّث${rs.to?' للنسخة '+esc(rs.to):''}، ورجعت محادثاتك زي ما كانت.</span>`) }
+  else await newChat();
+  loadSaved();checkUpdate();showUpdateResult()});
+
+/* ===================== الطائر الأبيض: Spotlight (Ctrl+K) =====================
+   Quick search over open and saved chats, every app command and toggle, and the look; free text is sent as a request.
+   It only clicks the app's own buttons, so it can't drift from the app logic. */
+(function(){
+  const $1=s=>document.querySelector(s);
+  const norm=t=>(t||'').toLowerCase().replace(/[ً-ٰٟـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/\s+/g,' ').trim();
+  const esc=t=>(t||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const box=document.createElement('div'); box.id='wbSpot';
+  box.innerHTML='<div class="box" role="dialog" aria-label="بحث سريع"><div class="in">'+
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>'+
+    '<input id="wbSpotIn" placeholder="دوّر على محادثة أو أمر، أو اكتب طلبك وابعته…" autocomplete="off" spellcheck="false"></div>'+
+    '<div class="list" id="wbSpotList"></div><div class="ft"><span><kbd>↑</kbd> <kbd>↓</kbd> تنقّل</span><span><kbd>Enter</kbd> تنفيذ</span><span><kbd>Esc</kbd> قفل</span>'+
+    '<span style="margin-inline-start:auto">الطائر الأبيض</span></div></div>';
+  document.body.appendChild(box);
+  const inp=box.querySelector('#wbSpotIn'), list=box.querySelector('#wbSpotList');
+  let items=[], sel=0;
+  const click=s=>()=>{const el=$1(s); if(el) el.click()};
+  const on=s=>{const el=$1(s); return !!(el&&el.checked)};
+  function catalog(){
+    const A=[];
+    document.querySelectorAll('#chats .ch').forEach(d=>{const n=d.querySelector('.nm');
+      A.push({g:'المحادثات المفتوحة',t:(n?n.textContent:'').trim()||'محادثة',e:'💬',k:d.classList.contains('act')?'الحالية':'',run:()=>d.click()})});
+    document.querySelectorAll('#saved .ch').forEach(d=>{const n=d.querySelector('.nm'),m=d.querySelector('.meta');
+      A.push({g:'المحادثات المحفوظة',t:(n?n.textContent:'').trim(),e:'🕘',k:m?m.textContent.trim():'',run:()=>d.click()})});
+    [['محادثة جديدة','✚','#newBtn','Ctrl N'],['محادثة جديدة بدون ذاكرة','🫥','#zeroBtn'],['اسأل كل المحادثات مرة واحدة','🧠','#allBtn'],
+     ['اختار مجلد الشغل','📁','#dirBtn'],['إرفاق ملفات','📎','#attBtn'],['رسالة صوتية','🎤','#micBtn','Ctrl M'],['مهام جاهزة','⚡','#tasksBtn'],
+     ['المهارات والمكتبة والمستودعات','🧩','#skBtn'],['ربط محادثات بالمحادثة دي','🔗','#linkBtn'],['الوكلاء المساعدين','🤖','#teamBtn'],
+     ['المعاينة','🎬','#pvBtn'],['لوحة الملفات','📂','#fBtn'],['تصدير المحادثة','⤓','#expBtn','Ctrl E'],['إيقاف الشغل الحالي','⏹','#stopBtn','Esc'],
+     ['الإعدادات: المفتاح والموديل والإضافات','⚙','#setBtn'],['العرض وأحجام اللوحات','🪟','#viewBtn']
+    ].forEach(([t,e,s,k])=>{const el=$1(s); if(el&&!(s==='#stopBtn'&&el.style.display==='none')) A.push({g:'أوامر',t,e,k:k||'',run:click(s)})});
+    [['تحليل عميق بـ REA','🔬','#deep'],['تحكم في الكمبيوتر كله وكروم','🖥','#ctl'],['قارن موديلات','🧪','#cmp'],['عقل الطائر','🧠','#brainChk'],
+     ['اعرض التفكير','💭','#thinkChk'],['سحابة Higgsfield المجانية','☁','#cloudChk'],['أدوات التحليل','🧰','#reChk'],['موافقة تلقائية على الأوامر','✓','#auto']
+    ].forEach(([t,e,s])=>{if($1(s)) A.push({g:'مفاتيح المحادثة',t:(on(s)?'اقفل: ':'شغّل: ')+t,e,k:on(s)?'شغّال ●':'مقفول ○',run:click(s),toggle:1})});
+    [['مظهر فاتح','☀','#themeRow [data-t=light]'],['مظهر غامق','🌙','#themeRow [data-t=dark]'],['مظهر تلقائي مع ويندوز','◐','#themeRow [data-t=auto]'],
+     ['وضع التركيز (الشات بس)','◎','#vFocus','F11'],['تكبير الخط','A+','#viewPop [data-z="+"]','Ctrl +'],['تصغير الخط','A−','#viewPop [data-z="-"]','Ctrl −']
+    ].forEach(([t,e,s,k])=>{if($1(s)) A.push({g:'المظهر',t,e,k:k||'',run:click(s)})});
+    return A;
+  }
+  function score(it,q){
+    if(!q) return it.g==='أوامر'||it.g==='المحادثات المفتوحة'?1:0;
+    const h=norm(it.t+' '+it.g), toks=q.split(' ');
+    if(!toks.every(w=>h.includes(w))) return 0;
+    const p=norm(it.t).indexOf(toks[0]); return (p===0?3:p>0?2:1)-(it.toggle?0.5:0);   // a tie never puts a switch first
+  }
+  function render(){
+    const raw=inp.value.trim(), q=norm(raw), all=catalog();
+    items=all.map(it=>({it,s:score(it,q)})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s).map(x=>x.it).slice(0,40);
+    if(raw) items.push({g:'اطلب من الطائر',t:'ابعت: «'+raw+'»',e:'🕊',k:'Enter',ask:raw},{g:'اطلب من الطائر',t:'حطها في خانة الكتابة بس',e:'✎',k:'',fill:raw});
+    if(sel>=items.length) sel=0;
+    let g='', h='';
+    items.forEach((it,i)=>{ if(it.g!==g){g=it.g; h+='<div class="g">'+esc(g)+'</div>'}
+      h+='<div class="it2'+(i===sel?' on':'')+'" data-i="'+i+'"><span class="e">'+esc(it.e)+'</span><span class="t">'+esc(it.t)+'</span><span class="k">'+esc(typeof it.k==='string'?it.k:'')+'</span></div>'});
+    list.innerHTML=h||'<div class="none">اكتب أي حاجة…</div>';
+    const cur=list.querySelector('.it2.on'); if(cur) cur.scrollIntoView({block:'nearest'});
+  }
+  function run(i){
+    const it=items[i]; if(!it) return; close();
+    if(it.ask!=null||it.fill!=null){const t=$1('#inp'); if(!t) return; t.value=it.ask!=null?it.ask:it.fill; t.dispatchEvent(new Event('input',{bubbles:true}));
+      t.focus(); if(it.ask!=null){const b=$1('#sendBtn'); if(b) b.click()} return}
+    setTimeout(()=>it.run(),0);
+  }
+  function open(){box.classList.add('on'); inp.value=''; sel=0; render(); setTimeout(()=>inp.focus(),0)}
+  function close(){box.classList.remove('on')}
+  window.wbSpotlight={open,close};
+  inp.addEventListener('input',()=>{sel=0;render()});
+  inp.addEventListener('keydown',e=>{
+    if(e.key==='ArrowDown'){e.preventDefault();sel=Math.min(sel+1,items.length-1);render()}
+    else if(e.key==='ArrowUp'){e.preventDefault();sel=Math.max(sel-1,0);render()}
+    else if(e.key==='Enter'){e.preventDefault();run(sel)}
+    else if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close()}
+  });
+  list.addEventListener('mousemove',e=>{const d=e.target.closest('.it2'); if(d&&+d.dataset.i!==sel){sel=+d.dataset.i;render()}});
+  list.addEventListener('click',e=>{const d=e.target.closest('.it2'); if(d) run(+d.dataset.i)});
+  box.addEventListener('mousedown',e=>{if(e.target===box) close()});
+  document.addEventListener('keydown',e=>{
+    if(e.ctrlKey&&!e.shiftKey&&!e.altKey&&(e.code==='KeyK'||e.keyCode===75||e.key==='k'||e.key==='K')){e.preventDefault();e.stopPropagation();box.classList.contains('on')?close():open()}
+  },true);
+  // Esc closes the settings sheet like a macOS sheet (and never reaches the «stop the work» shortcut while it does)
+  document.addEventListener('keydown',e=>{
+    if(e.key!=='Escape'||box.classList.contains('on')) return;
+    const m=$1('#modal'); if(m&&getComputedStyle(m).display!=='none'){e.preventDefault();e.stopPropagation();const c=$1('#closeM'); if(c) c.click(); else m.style.display='none'}
+  },true);
+  const btn=$1('#wbSpotBtn'); if(btn) btn.onclick=open;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,786 @@
+{
+ "schema": "black-dragon.hf-trend.v1",
+ "as_of": "2026-11-11",
+ "note": "Snapshot of public Higgsfield catalog metadata. References are for free analysis (timing, energy, rhythm, layout) only: never copy their footage, music, wording or characters into a deliverable. Trends change: refresh with the live tools listed in live_sources.",
+ "live_sources": [
+  {
+   "tool": "tiktok_music_trending",
+   "cost": "read-only, measured 0 on 2026-11-11",
+   "needs": "active TikTok account (tiktok_accounts)",
+   "args": "connector_id, country_code (SA/EG/US...), date_range 1DAY|7DAY|30DAY|90DAY, genre, limit, offset",
+   "measured": "SA 7DAY ثم EG 7DAY: كل مرة 100 تراك بروابط استماع",
+   "warning": "للسماع والاختيار. ممنوع تنزيل التراك بتزوير Referer/User-Agent؛ والتراك بيتركّب في تيك توك من ودجت النشر (النشر ممنوع من التنين)"
+  },
+  {
+   "tool": "get_presets",
+   "cost": "read-only",
+   "args": "source=genjutsu category=genjutsu-trending | genjutsu-new ; source=viral ; source=katana ; source=what_if ; source=shorts_studio",
+   "warning": "browsing never authorizes execute_preset (paid)",
+   "measured": "genjutsu-trending: 12 بريسيت، كل واحد بـpreview_url عام (HEAD 200)"
+  },
+  {
+   "tool": "get_preset_instructions",
+   "cost": "read-only",
+   "args": "omit preset to list all commands + published Katana presets"
+  },
+  {
+   "tool": "virality_predictor / video_analysis_create",
+   "cost": "UNKNOWN - not measured; needs owner yes"
+  }
+ ],
+ "what_if_styles": [
+  {
+   "slug": "haze-countdown",
+   "title": "Haze Countdown",
+   "look": "Hazy grey city streets, big countdown timers, flying debris",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/040e4aa0061dfb0f14e7de34a54fe75ccf2de3c7e796e5a616af6cf88bc78eac"
+  },
+  {
+   "slug": "pixel-night",
+   "title": "Pixel Night",
+   "look": "16-bit pixel art, retro game HUD, neon night city",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/acb45064cd115877d5288f3f8d9098ded0de9bcbe34048929832ae08df3a2a34"
+  },
+  {
+   "slug": "heatwave-park",
+   "title": "Heatwave Park",
+   "look": "Sunny low-poly streets, temperature counters, serif captions",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/fd5531bbf0399e6efa245ab702015be557a8388c08c12988ea1a54ca1e61f2ba"
+  },
+  {
+   "slug": "night-scan",
+   "title": "Night Scan",
+   "look": "Dark point-cloud hologram, camera timestamps, amber UI",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/13ba62976f57d2acab115f35fd421a7f22ce2cf965baf21413905290791b740a"
+  },
+  {
+   "slug": "toy-planet",
+   "title": "Toy Planet",
+   "look": "Tilt-shift toy 3D, tiny globe dioramas, soft clouds",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/cf3a78be1eff98c19c1b4ddac74b2547cb6437d54eb0a2f546c96641a0c85b05"
+  },
+  {
+   "slug": "lowpoly-skyline",
+   "title": "Lowpoly Skyline",
+   "look": "Bright low-poly city, serif captions, live counters",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/2edbd643bc23efbdc5188519d54dfa68f638df040840747ac2629e15360ac623"
+  },
+  {
+   "slug": "shard-pixel",
+   "title": "Shard Pixel",
+   "look": "Faceted low-poly, saturated reds and blues, pixel-font titles",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/f07164461052524d2346203c29602cf8fa1d93c771d56d8e957a80a908930ee5"
+  },
+  {
+   "slug": "ink-gold",
+   "title": "Ink & Gold",
+   "look": "Sumi-ink wash, silhouettes, gold-leaf accents",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/541d1820a87e3747e56ebf5b184c268a8048a523741f3b5a9e8429643a103204"
+  },
+  {
+   "slug": "astro-hud",
+   "title": "Astro HUD",
+   "look": "Cinematic 3D astronaut, fire and dust, game HUD",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/03eb02cf51848488251f28e719c06608eb194d05013081233e824546427a240a"
+  },
+  {
+   "slug": "mannequin-commute",
+   "title": "Mannequin Commute",
+   "look": "Grey mannequin crowds, station clock HUD, warm signage glow",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/0d18be5826fb9bcd2f6bbff0c4350b99e1f1da4e167afe3556fd7cd23493a5f9"
+  },
+  {
+   "slug": "cutaway-lab",
+   "title": "Cutaway Lab",
+   "look": "Clean 3D product cutaways, glowing particles, orange word captions",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/4021e6b6fd39224327b0907ee8aceb9ab20a8e890bf0fcd40b7e1edbc222794b"
+  },
+  {
+   "slug": "grain-poster",
+   "title": "Grain Poster",
+   "look": "Two-tone grainy print, coral and cobalt, bold condensed labels",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/c7c077cc85b2439589aed357d888921cbfbdc5bd5ca3562b5e3303d00da64255"
+  },
+  {
+   "slug": "frost-lowpoly",
+   "title": "Frost Lowpoly",
+   "look": "Icy monochrome low-poly, one warm orange accent, frozen motion",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/d85ea4b2bf075b47e5add84349d51a53b190d81b2944a469a7b1d926cda9e301"
+  },
+  {
+   "slug": "wash-atlas",
+   "title": "Wash Atlas",
+   "look": "Soft watercolor maps, cream paper, thin serif captions",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/d728b71032ec90d014bf4bd7b637e90f07622e109d2287a434367b6225942f9b"
+  },
+  {
+   "slug": "offline-grid",
+   "title": "Offline Grid",
+   "look": "Dark navy minimal 3D, white mannequin figures, status chips",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/f963e6bf5f8c05a7a20b7aef2e7de6e1daa5d1510cb329c638bf539936bf1051"
+  },
+  {
+   "slug": "grain-primary",
+   "title": "Grain Primary",
+   "look": "Print-grain texture, flat red, blue and yellow shapes",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/ad20612f1e496d3779fe80e73d1e305b7a682180ecfa0cb60f61c645fb6f480d"
+  },
+  {
+   "slug": "night-ledger",
+   "title": "Night Ledger",
+   "look": "Dusk toon 3D homestead, bold red headline type, starry serif data panels",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/1fd338884451ae38574ecc50577cd8a1177b23b9e6df29a4c64303479690e05d"
+  },
+  {
+   "slug": "phosphor-vector",
+   "title": "Phosphor Vector",
+   "look": "Green CRT vector lines, amber figure, terminal type",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/52a5c08474e3f32287a4a5be850efe93cb927608dc1b79b1123bbe386c1ceb0a"
+  },
+  {
+   "slug": "crowd-sim",
+   "title": "Crowd Sim",
+   "look": "Pale white crowd render, one blue figure, map overlays",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/05f5107295b3e8495b19f886871e4f655043092b526eac9e4fc55eaebcd2f52c"
+  },
+  {
+   "slug": "toon-mission",
+   "title": "Toon Mission",
+   "look": "Anime-toon 3D hero, game HUD and save-file menus",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/e474b1b33035d0d58e1f223823c032889a4a10daa09f2022a4acc38122fc8567"
+  },
+  {
+   "slug": "oval-office-toon",
+   "title": "Oval Office Toon",
+   "look": "Warm toon 3D crowds, cinematic interiors, thin serif timers",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/da684dd0f173c6b47781082fcb05e4ca6e9b01e97a281ff758bc0de4b30ea79b"
+  },
+  {
+   "slug": "speed-run",
+   "title": "Speed Run",
+   "look": "Realistic 3D city streets, speed and heat HUD, serif numbers",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/b1798e1261b86f3a3b25c8b65d3b9a440cb8c5b31742bef0ce2f6cff2d6f1273"
+  },
+  {
+   "slug": "iso-diorama",
+   "title": "Iso Diorama",
+   "look": "Isometric terrain blocks, muted earth on charcoal, red data numbers",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/347fd63031df07e3167b9a8233f889c89d4a6c2f14c3a5895e1a76b9271ad923"
+  },
+  {
+   "slug": "gas-giant",
+   "title": "Gas Giant",
+   "look": "Cinematic planet descent, cloud layers, serif depth readouts",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/475cd362a80e0fc6e67b0e28dc4903bc4b3de3f0c75ac88eded11242d770e234"
+  },
+  {
+   "slug": "ops-console",
+   "title": "Ops Console",
+   "look": "Dark command-center dashboards, red alert numerals, world maps",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/e4211f1303702ac8384d4633630a48e4fca8909e9b12a02c0334ebb080007772"
+  },
+  {
+   "slug": "rubber-hose",
+   "title": "Rubber Hose",
+   "look": "1930s rubber-hose cartoon, aged paper, art-deco signage",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/ef5f2a262fb9cc733534d19f11070da371dbd5403771d9375912b33603b12880"
+  },
+  {
+   "slug": "canyon-crowd",
+   "title": "Canyon Crowd",
+   "look": "Low-poly city canyon, crowd swarms, neon billboards",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/a8d08a01d88db3cac97b53ef403eb76ee67b60d332f64288835bfb15183b0f98"
+  },
+  {
+   "slug": "knit-sky",
+   "title": "Knit Sky",
+   "look": "Knitted puppet 3D, lavender sky, game-HUD chips",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/336264cc5c89a92342cadc4a1badc0222b065a24a2fb7b6e7d439449f191b1bb"
+  },
+  {
+   "slug": "brick-toy",
+   "title": "Brick Toy",
+   "look": "Blocky toy 3D, cutaway globe, bright grass and chunky labels",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/3e2148607411f5c7b48b981611632b94c87cbc4157ac8bd6d3afe90ac4e21f36"
+  },
+  {
+   "slug": "bold-flat",
+   "title": "Bold Flat",
+   "look": "Bold flat 2D, navy starfield, thick cartoon type",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/3a841686ba236d307a7a5ec608a4fc3bed5f62af223fe040ba1a6ac1c2c91ad6"
+  },
+  {
+   "slug": "sepia-silhouette",
+   "title": "Sepia Silhouette",
+   "look": "Silhouettes at sepia dusk, manuscript inserts, editorial serif",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/e601ba107a7e13f850615a0a27f95825d1ead696042c70f5548eabb51028bc09"
+  },
+  {
+   "slug": "park-skyline",
+   "title": "Park Skyline",
+   "look": "Realistic park and skyline, thin serif HUD, data labels",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/967ceaa8e86cb94414105e8916366813d132dc70e8e2e0a93b828b42e6aaa855"
+  },
+  {
+   "slug": "poly-captcha",
+   "title": "Poly Captcha",
+   "look": "Low-poly toon characters, web UI overlays, bold white captions",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/e2ca638003394371909f35f2343416112ec26d27185b0977eab350f83f1b8f90"
+  },
+  {
+   "slug": "retro-poly-jungle",
+   "title": "Retro Poly Jungle",
+   "look": "Low-res 90s console 3D, dark jungle greens, blue RPG dialogue boxes",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/dda8f38268553e3372cd804c0851da96914b5bd8dae0907fda32c40370889504"
+  },
+  {
+   "slug": "botanical-plate",
+   "title": "Botanical Plate",
+   "look": "Engraved botanical plates, cream paper, didone serif numbers",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/a6e6495f3887cf8f1d5ece17786e0f784b92dcf6a405a6c9ba5babdc7317fbf0"
+  },
+  {
+   "slug": "peach-scale",
+   "title": "Peach Scale",
+   "look": "Minimal editorial, peach haze, tiny figure, serif numbers and scale notes",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/a7d768f4248e174d7806db9a1c9d3e44b410ec26ab5a8d6782174be1b48d7bda"
+  },
+  {
+   "slug": "violet-flat",
+   "title": "Violet Flat",
+   "look": "Flat vector, violet glow, cell patterns",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/68cb9699af6bbb43228716a882f8ec4c7455cfed28df5307db3f033195517b68"
+  },
+  {
+   "slug": "blueprint-line",
+   "title": "Blueprint Line",
+   "look": "Wireframe blueprint on navy, technical drawing labels",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/e9f13f80853d299c2ba926c1ebd9c13451e287f9dfe45da7d66d6f50a5fc0902"
+  },
+  {
+   "slug": "gold-studio",
+   "title": "Gold Studio",
+   "look": "Dark studio product 3D, polished gold, serif numerals",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/cccf505610fd52e36f5c5f028d176cc96eb9c54bda16baa9e3a382ceb2527326"
+  },
+  {
+   "slug": "pop-desk",
+   "title": "Pop Desk",
+   "look": "Bright flat vector, stationery props, UI cards",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/07b729233f5ee978218eb6c7ff0725426aa5b4359c2ea95d161d0216cb1257c2"
+  },
+  {
+   "slug": "woodblock-wave",
+   "title": "Woodblock Wave",
+   "look": "Japanese woodblock print, indigo sea, paper label plaques",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/327afb74037b3a7f9d9d4ac70a29438604ba23f2e326bfbb70ac8dc134cd9a0b"
+  },
+  {
+   "slug": "ranger-lowpoly",
+   "title": "Ranger Lowpoly",
+   "look": "Low-poly documentary 3D, storm-cloud character, blueprint overlays",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/b5a2252badf37aee6bc5bce3cc83185d30fa8f486937e657822df88fd4552ab4"
+  },
+  {
+   "slug": "signal-room",
+   "title": "Signal Room",
+   "look": "Warm cinematic 3D rooms, teal wave overlays, thin light numerals",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/5dde70ccaeee3292ec55f1b5f93be40a377bd009138bd0bd69e5c4cd5bf8cb8b"
+  },
+  {
+   "slug": "slow-drip",
+   "title": "Slow Drip",
+   "look": "Dark macro liquid, camera REC HUD, warm orange glow",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/d24c1afab3cfc7b26850d1fece57c6619381be88c365706016051206e13464e0"
+  },
+  {
+   "slug": "dusk-anime",
+   "title": "Dusk Anime",
+   "look": "Anime-painted dusk, violet sky, serif numerals",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/22beec032955980fc5fbe858957c4e52182a4a1a61c780ed93defa6008c90cc8"
+  },
+  {
+   "slug": "voxel-city",
+   "title": "Voxel City",
+   "look": "Voxel city, flat infographic callouts, sticker labels",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/2241b7d4de0f7e31775260872b404461c1da0e8a18373010d4b21d633ac695f0"
+  },
+  {
+   "slug": "noir-panels",
+   "title": "Noir Panels",
+   "look": "Black-and-white comic noir, thought bubbles, red accents",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/ac000af6b662cbed4335ea7a0355c698c6dcb9e47f152a86163878a1dcc4b970"
+  },
+  {
+   "slug": "cube-planet",
+   "title": "Cube Planet",
+   "look": "Voxel planet in space, retro game UI, pixel type",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/0a6704a014449595198c9c3a9df690e122ecaa1a0daa10c905f93b53cde7c9f4"
+  },
+  {
+   "slug": "quiet-lowpoly",
+   "title": "Quiet Lowpoly",
+   "look": "Muted low-poly realism, soft daylight interiors",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/4d395224d03e0e3b205620431a5588557a82554bef77736bfa5758026c8cd93d"
+  },
+  {
+   "slug": "swiss-grid",
+   "title": "Swiss Grid",
+   "look": "Swiss minimal graphics, off-white and black, one red-orange accent",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/247dd8b0b340adb4d5d79171656df508d000cd3651d7934da9b9dffcb60cbcda"
+  },
+  {
+   "slug": "night-flat",
+   "title": "Night Flat",
+   "look": "Flat 2D vector, navy night, bold red data callouts",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/8aa9543300ebcb4c3ef9b7c976a5cf889c5c837f97a45b42f30701c6c0cfb2d7"
+  },
+  {
+   "slug": "candy-diner",
+   "title": "Candy Diner",
+   "look": "Glossy toy 3D, retro diner, neon, macro depth of field",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/5568f84cb52ff2daa35feb61a78a3354c069ef09ef042e4daa02832141aac88c"
+  },
+  {
+   "slug": "paper-atlas",
+   "title": "Paper Atlas",
+   "look": "Vintage maps and museum infographics, paper grain, ink and ochre",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/1415a4ecef55083784afb130c11291bb545332e0d7524222845e445bdd4f7bf5"
+  },
+  {
+   "slug": "sitcom-mini",
+   "title": "Sitcom Mini",
+   "look": "Miniature toon 3D, warm apartment sets, chat-UI inserts",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/ee36a05b8f723fe65db50afd28f891fa1683d85371894ee8081b22e66c810c21"
+  },
+  {
+   "slug": "retro-poly-cosmos",
+   "title": "Retro Poly Cosmos",
+   "look": "Low-res 90s console 3D, pixel textures, red RPG dialogue boxes",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/04500e86cc4c74c8b74be1b680d5e8f53522fd0408c3f8d4e1a45f1ed8def72e"
+  },
+  {
+   "slug": "pastel-clay",
+   "title": "Pastel Clay",
+   "look": "Matte clay diorama, soft pastels, chunky 3D numbers",
+   "reference_video": "https://static-public-media.higgsfield.ai/what-if-styles/published/0f453a727c29df5a1c49a021ec445e3ef7ba18dbe290ad001d5062570b0916a5"
+  }
+ ],
+ "katana_presets": [
+  {
+   "slug": "candy-pop",
+   "command": "/katana/candy-pop"
+  },
+  {
+   "slug": "kinetic-tech-edit",
+   "command": "/katana/kinetic-tech-edit"
+  },
+  {
+   "slug": "daytona-drift",
+   "command": "/katana/daytona-drift"
+  },
+  {
+   "slug": "pop-cutout-fashion-edit",
+   "command": "/katana/pop-cutout-fashion-edit"
+  },
+  {
+   "slug": "monolith",
+   "command": "/katana/monolith"
+  },
+  {
+   "slug": "chrome-noir-style-edit",
+   "command": "/katana/chrome-noir-style-edit"
+  },
+  {
+   "slug": "fw26-style-lookbook",
+   "command": "/katana/fw26-style-lookbook"
+  },
+  {
+   "slug": "aura-fast",
+   "command": "/katana/aura-fast"
+  },
+  {
+   "slug": "neon-laser-motion-graphics-edit",
+   "command": "/katana/neon-laser-motion-graphics-edit"
+  },
+  {
+   "slug": "track-day-showcase",
+   "command": "/katana/track-day-showcase"
+  },
+  {
+   "slug": "pop-art-comic-edit",
+   "command": "/katana/pop-art-comic-edit"
+  },
+  {
+   "slug": "higgsfield-katana-kinetic-typography-edit",
+   "command": "/katana/higgsfield-katana-kinetic-typography-edit"
+  },
+  {
+   "slug": "kinetic-graphic-photo-edit",
+   "command": "/katana/kinetic-graphic-photo-edit"
+  },
+  {
+   "slug": "swole-cinema-aesthetic",
+   "command": "/katana/swole-cinema-aesthetic"
+  },
+  {
+   "slug": "high-octane-turbo-sprint",
+   "command": "/katana/high-octane-turbo-sprint"
+  },
+  {
+   "slug": "surreal-collage-vibe",
+   "command": "/katana/surreal-collage-vibe"
+  },
+  {
+   "slug": "noir-crowned-fashion-montage",
+   "command": "/katana/noir-crowned-fashion-montage"
+  },
+  {
+   "slug": "comic",
+   "command": "/katana/comic"
+  },
+  {
+   "slug": "monochrome-glitch-montage",
+   "command": "/katana/monochrome-glitch-montage"
+  },
+  {
+   "slug": "camera-shots",
+   "command": "/katana/camera-shots"
+  },
+  {
+   "slug": "perfume-commercial-style-edit",
+   "command": "/katana/perfume-commercial-style-edit"
+  },
+  {
+   "slug": "neon-monolith",
+   "command": "/katana/neon-monolith"
+  },
+  {
+   "slug": "silhouette-eyes-lips-beat-edit",
+   "command": "/katana/silhouette-eyes-lips-beat-edit"
+  },
+  {
+   "slug": "cinematic-noir-glitch-edit",
+   "command": "/katana/cinematic-noir-glitch-edit"
+  },
+  {
+   "slug": "vintage-cinematic-rap-video",
+   "command": "/katana/vintage-cinematic-rap-video"
+  },
+  {
+   "slug": "black-and-white-boxing-montage",
+   "command": "/katana/black-and-white-boxing-montage"
+  },
+  {
+   "slug": "scrapbook-fashion-montage",
+   "command": "/katana/scrapbook-fashion-montage"
+  },
+  {
+   "slug": "surreal-multi-hand-edit",
+   "command": "/katana/surreal-multi-hand-edit"
+  },
+  {
+   "slug": "epic-rocker-vibes",
+   "command": "/katana/epic-rocker-vibes"
+  },
+  {
+   "slug": "mentality",
+   "command": "/katana/mentality"
+  },
+  {
+   "slug": "gritty-noir-cinematic-montage",
+   "command": "/katana/gritty-noir-cinematic-montage"
+  },
+  {
+   "slug": "y2k-sticker-scrapbook-edit",
+   "command": "/katana/y2k-sticker-scrapbook-edit"
+  },
+  {
+   "slug": "creative-stylized-montage",
+   "command": "/katana/creative-stylized-montage"
+  },
+  {
+   "slug": "fruiteger-aero",
+   "command": "/katana/fruiteger-aero"
+  },
+  {
+   "slug": "clone-squad",
+   "command": "/katana/clone-squad"
+  },
+  {
+   "slug": "creative-collage-runway",
+   "command": "/katana/creative-collage-runway"
+  },
+  {
+   "slug": "newspaper-cover-fashion-edit",
+   "command": "/katana/newspaper-cover-fashion-edit"
+  },
+  {
+   "slug": "outfit-check",
+   "command": "/katana/outfit-check"
+  },
+  {
+   "slug": "futuristic-3d-motion-scan",
+   "command": "/katana/futuristic-3d-motion-scan"
+  },
+  {
+   "slug": "monochrome",
+   "command": "/katana/monochrome"
+  },
+  {
+   "slug": "face-edit-1",
+   "command": "/katana/face-edit-1"
+  },
+  {
+   "slug": "color-palette-outfit-showcase",
+   "command": "/katana/color-palette-outfit-showcase"
+  },
+  {
+   "slug": "glow-groove-pop-edit",
+   "command": "/katana/glow-groove-pop-edit"
+  },
+  {
+   "slug": "gentleman-driver-style",
+   "command": "/katana/gentleman-driver-style"
+  },
+  {
+   "slug": "cinematic-glitch-action",
+   "command": "/katana/cinematic-glitch-action"
+  },
+  {
+   "slug": "superhero-beat-montage",
+   "command": "/katana/superhero-beat-montage"
+  },
+  {
+   "slug": "tiger-eyes",
+   "command": "/katana/tiger-eyes"
+  },
+  {
+   "slug": "kpop-style-dance-montage",
+   "command": "/katana/kpop-style-dance-montage"
+  },
+  {
+   "slug": "urban-elf-aesthetic-edit",
+   "command": "/katana/urban-elf-aesthetic-edit"
+  },
+  {
+   "slug": "monochrome-1-bit-anime",
+   "command": "/katana/monochrome-1-bit-anime"
+  },
+  {
+   "slug": "dark-aura",
+   "command": "/katana/dark-aura"
+  },
+  {
+   "slug": "paper-cutout-fit-check",
+   "command": "/katana/paper-cutout-fit-check"
+  },
+  {
+   "slug": "nocturne-cinematic-fashion-vibe",
+   "command": "/katana/nocturne-cinematic-fashion-vibe"
+  },
+  {
+   "slug": "car-edit",
+   "command": "/katana/car-edit"
+  },
+  {
+   "slug": "purple-grunge-music-video",
+   "command": "/katana/purple-grunge-music-video"
+  },
+  {
+   "slug": "anime-concert-star",
+   "command": "/katana/anime-concert-star"
+  },
+  {
+   "slug": "dark-geometric-animation",
+   "command": "/katana/dark-geometric-animation"
+  },
+  {
+   "slug": "cyberpunk-scan-analysis",
+   "command": "/katana/cyberpunk-scan-analysis"
+  },
+  {
+   "slug": "dark-and-moody",
+   "command": "/katana/dark-and-moody"
+  },
+  {
+   "slug": "dreamy-streetwear",
+   "command": "/katana/dreamy-streetwear"
+  },
+  {
+   "slug": "parisian-luxury-vibe",
+   "command": "/katana/parisian-luxury-vibe"
+  },
+  {
+   "slug": "aesthetic-menu-outfit-swap",
+   "command": "/katana/aesthetic-menu-outfit-swap"
+  },
+  {
+   "slug": "parisian-night-vibe",
+   "command": "/katana/parisian-night-vibe"
+  },
+  {
+   "slug": "xerox-3",
+   "command": "/katana/xerox-3"
+  },
+  {
+   "slug": "drowned-sun-motion-edit",
+   "command": "/katana/drowned-sun-motion-edit"
+  },
+  {
+   "slug": "nocturne",
+   "command": "/katana/nocturne"
+  },
+  {
+   "slug": "edgy-streetstyle-montage",
+   "command": "/katana/edgy-streetstyle-montage"
+  },
+  {
+   "slug": "xerox-2",
+   "command": "/katana/xerox-2"
+  },
+  {
+   "slug": "dramatic-melodrama-vibe",
+   "command": "/katana/dramatic-melodrama-vibe"
+  },
+  {
+   "slug": "painting-flow",
+   "command": "/katana/painting-flow"
+  },
+  {
+   "slug": "y2k-edit",
+   "command": "/katana/y2k-edit"
+  },
+  {
+   "slug": "katana-preset-3myu4q",
+   "command": "/katana/katana-preset-3myu4q"
+  },
+  {
+   "slug": "moody-vintage-film-edit",
+   "command": "/katana/moody-vintage-film-edit"
+  },
+  {
+   "slug": "vhs-dont-forget",
+   "command": "/katana/vhs-dont-forget"
+  },
+  {
+   "slug": "suit-up-basketball-montage",
+   "command": "/katana/suit-up-basketball-montage"
+  },
+  {
+   "slug": "summer-tapes-scrapbook",
+   "command": "/katana/summer-tapes-scrapbook"
+  },
+  {
+   "slug": "cinematic-mystery-noir",
+   "command": "/katana/cinematic-mystery-noir"
+  },
+  {
+   "slug": "mountain-edge-noir",
+   "command": "/katana/mountain-edge-noir"
+  },
+  {
+   "slug": "cinematic-perfume-commercial",
+   "command": "/katana/cinematic-perfume-commercial"
+  },
+  {
+   "slug": "urban-edge-skater-style",
+   "command": "/katana/urban-edge-skater-style"
+  },
+  {
+   "slug": "cinematic-film-look",
+   "command": "/katana/cinematic-film-look"
+  },
+  {
+   "slug": "face-edit-2",
+   "command": "/katana/face-edit-2"
+  },
+  {
+   "slug": "star",
+   "command": "/katana/star"
+  },
+  {
+   "slug": "blue-eyes",
+   "command": "/katana/blue-eyes"
+  },
+  {
+   "slug": "main-character-energy-edit",
+   "command": "/katana/main-character-energy-edit"
+  },
+  {
+   "slug": "greek-island-aesthetic",
+   "command": "/katana/greek-island-aesthetic"
+  },
+  {
+   "slug": "gritty-action-anti-hero-edit",
+   "command": "/katana/gritty-action-anti-hero-edit"
+  },
+  {
+   "slug": "dreamy-idol-aesthetic-montage",
+   "command": "/katana/dreamy-idol-aesthetic-montage"
+  },
+  {
+   "slug": "ufo-specimen-collection",
+   "command": "/katana/ufo-specimen-collection"
+  },
+  {
+   "slug": "frame-dance",
+   "command": "/katana/frame-dance"
+  },
+  {
+   "slug": "tokyo-bloom",
+   "command": "/katana/tokyo-bloom"
+  },
+  {
+   "slug": "cartoon-edit",
+   "command": "/katana/cartoon-edit"
+  },
+  {
+   "slug": "pink-protocol-car-edit",
+   "command": "/katana/pink-protocol-car-edit"
+  },
+  {
+   "slug": "luxury-car-beat-montage",
+   "command": "/katana/luxury-car-beat-montage"
+  },
+  {
+   "slug": "editing-my-gf",
+   "command": "/katana/editing-my-gf"
+  },
+  {
+   "slug": "desert-sunrise-lookbook",
+   "command": "/katana/desert-sunrise-lookbook"
+  },
+  {
+   "slug": "xerox-1",
+   "command": "/katana/xerox-1"
+  },
+  {
+   "slug": "kpop-scrapbook",
+   "command": "/katana/kpop-scrapbook"
+  },
+  {
+   "slug": "retro-aesthetic-lookbook",
+   "command": "/katana/retro-aesthetic-lookbook"
+  },
+  {
+   "slug": "noir-mystery-thriller",
+   "command": "/katana/noir-mystery-thriller"
+  }
+ ],
+ "genjutsu_trending_snapshot": [
+  "Chandelier Lounge Crew",
+  "Motion Transfer",
+  "Convertible Night Ride",
+  "Basketball Slam",
+  "Zombie Street Shuffle",
+  "Overhead Expression",
+  "Vocalist Duo Swap",
+  "Athlete Swap Sprint",
+  "Dual Driver Swap",
+  "Western Roadshow",
+  "Soccer Dribble Master",
+  "Currency Fan Shuffle"
+ ],
+ "genjutsu_trending_note": "لقطة الساعة 10:20 يوم 2026-11-11 (آسيا/الرياض). اللقطة المحفوظة من الجولة الأولى (حوالي 09:56) كان فيها 4 من دول بس: القايمة بتتغير، فاسحبها حية كل مرة. كل بريسيت معاه preview_url عام (mp4) ينفع يتحلل بـ`hf trend commands URL`."
+}

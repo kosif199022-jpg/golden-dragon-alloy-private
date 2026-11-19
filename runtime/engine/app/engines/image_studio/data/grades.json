@@ -1,0 +1,10 @@
+{
+ "_doc": "Looks for image_studio.grade: y = clip(x*gain + lift*(1-x)) ** (1/gamma), then contrast around 0.5, saturation around luma, vignette (0..1), grain (sigma 0..0.05).",
+ "teal_orange": {"ar": "تيل وبرتقالي — سينما هوليوود", "lift": [0.0, 0.015, 0.035], "gamma": [1.04, 1.0, 0.95], "gain": [1.06, 1.0, 0.92], "contrast": 1.12, "saturation": 1.08, "vignette": 0.35, "grain": 0.0},
+ "noir": {"ar": "نوار أبيض وأسود بتباين عالي", "lift": [0.0, 0.0, 0.0], "gamma": [0.95, 0.95, 0.95], "gain": [1.05, 1.05, 1.05], "contrast": 1.35, "saturation": 0.0, "vignette": 0.5, "grain": 0.025},
+ "warm_gold": {"ar": "دهبي دافي — تكريم واحتفال", "lift": [0.03, 0.015, 0.0], "gamma": [1.06, 1.02, 0.94], "gain": [1.08, 1.02, 0.88], "contrast": 1.08, "saturation": 1.05, "vignette": 0.3, "grain": 0.008},
+ "cold_steel": {"ar": "بارد فولاذي — دراما وتشويق", "lift": [0.0, 0.01, 0.03], "gamma": [0.94, 0.98, 1.06], "gain": [0.92, 0.98, 1.08], "contrast": 1.15, "saturation": 0.8, "vignette": 0.4, "grain": 0.01},
+ "archive": {"ar": "أرشيفي باهت بحبيبات فيلم", "lift": [0.06, 0.05, 0.035], "gamma": [1.02, 1.0, 0.96], "gain": [0.96, 0.94, 0.88], "contrast": 0.9, "saturation": 0.7, "vignette": 0.45, "grain": 0.03},
+ "clean_pop": {"ar": "نضيف ومشبّع — إعلانات ومنتجات", "lift": [0.0, 0.0, 0.0], "gamma": [1.02, 1.02, 1.02], "gain": [1.03, 1.03, 1.03], "contrast": 1.06, "saturation": 1.22, "vignette": 0.0, "grain": 0.0},
+ "night_neon": {"ar": "ليلي نيون — ماجنتا وسيان", "lift": [0.02, 0.0, 0.05], "gamma": [1.0, 0.92, 1.05], "gain": [1.05, 0.9, 1.1], "contrast": 1.18, "saturation": 1.25, "vignette": 0.45, "grain": 0.006}
+}

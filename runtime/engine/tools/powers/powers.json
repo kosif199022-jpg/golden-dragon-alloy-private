@@ -1,0 +1,827 @@
+{
+ "kind": "black-dragon/powers",
+ "version": "1990.10.0",
+ "date": "2026-11-13",
+ "_doc": "Every power and connection the Black Dragon can reach, by layer. Read by tools/powers/powers.py (route/map/show/doctor/first) and by tool brain. cost: free = no money (tokens only) | ask = the owner's explicit yes in the chat each time (install, publish, runtime RE, schedules, many agents) | paid = spends credit: exact price from the tool + yes on that price + balance before/after | never = not even after «انشر». where: pc = owner's Windows laptop (Claude Code or the desktop app), cloud = claude.ai / Claude Code cloud chat, both. probe: how `doctor` checks presence (program / path / skill / module / mcp / none). Paths use ~ for the user's home; they are a record of the owner's laptop, not paths that exist in a cloud chat.",
+ "layers": {
+  "claude-code": "قدرات Claude Code نفسه (وكلاء، خلفية، جدولة، بحث، ذاكرة)",
+  "mcp": "خوادم MCP المربوطة بحساب Claude (Higgsfield، Suno، REA، كروم، التحكم في الجهاز، Claude Docs، التنين)",
+  "cloud": "سحابة Higgsfield المجانية (جهاز لينكس جنب اللابتوب)",
+  "engine": "محركات التنين (python -m dragon run …)",
+  "re": "الهندسة العكسية والتحليل (retool 34 أداة، omni، REA)",
+  "program": "برامج الجهاز على الـ PATH",
+  "skill": "مهارات متثبتة على الجهاز برّه الحزمة",
+  "hub": "كتالوجات وسوبر باور",
+  "desktop": "تطبيق التنين الأسود على ويندوز"
+ },
+ "powers": [
+  {
+   "id": "cc-agents",
+   "layer": "claude-code",
+   "ar": "وكلاء مساعدين بالتوازي",
+   "en": "Parallel sub-agents (Agent/Task)",
+   "triggers": "وكلاء وكيل بالتوازي وزع قسم المهمه مساعد helper explore plan parallel delegate subagent agents فريق",
+   "how": "أداة Agent: subagent_type = helper-1 … (أجزاء مستقلة) أو Explore (بحث قراية بس في ملفات كتير) أو Plan (خطة تنفيذ) أو general-purpose. المستقلين في رسالة واحدة عشان يشتغلوا مع بعض، وكل واحد برومبت كامل لأنه مش شايف المحادثة. راجع شغلهم بنفسك.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "Claude Code cloud: نفس الأداة. claude.ai: مفيش وكلاء، اشتغل بالتسلسل."
+  },
+  {
+   "id": "cc-workflow",
+   "layer": "claude-code",
+   "ar": "Workflow: تنسيق عشرات الوكلاء بسكربت",
+   "en": "Workflow orchestration",
+   "triggers": "workflow ورك فلو وكلاء كتير عشرات الوكلاء orchestrate fan out ultracode",
+   "how": "أداة Workflow، بس لو المستخدم كتب «workflow» أو «وكلاء كتير» صراحة. حمّل مهارة workflow-authoring الأول.",
+   "cost": "ask",
+   "where": "pc",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "مش متاح في claude.ai."
+  },
+  {
+   "id": "cc-background",
+   "layer": "claude-code",
+   "ar": "شغل طويل في الخلفية ومتابعته",
+   "en": "Background jobs + Monitor",
+   "triggers": "خلفيه طويل رندر طويل استنى متابعه تابع background monitor long job wait sleep",
+   "how": "Bash/PowerShell بـ run_in_background، وMonitor لمتابعة شرط أو ملف log، وTaskStop للإيقاف. ممنوع sleep للاستنا. في التنين: `dragon.py status` و`last`.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "claude.ai: أوامر قصيرة، والطويل يتقسم أو يروح سحابة Higgsfield بـ background:true."
+  },
+  {
+   "id": "cc-schedule",
+   "layer": "claude-code",
+   "ar": "جدولة مهام متكررة",
+   "en": "Cron / wakeups",
+   "triggers": "جدوله كل يوم كل ساعه فكرني ميعاد متكرر cron schedule loop recurring reminder",
+   "how": "CronCreate / CronList / CronDelete أو ScheduleWakeup. أي جدولة جديدة بموافقة.",
+   "cost": "ask",
+   "where": "pc",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "مهارة schedule (وكلاء سحابة مجدولين) بموافقة."
+  },
+  {
+   "id": "cc-sessions",
+   "layer": "claude-code",
+   "ar": "الكلام مع جلسات Claude Code التانية وتطبيق التنين",
+   "en": "Cross-session messages",
+   "triggers": "جلسه تانيه محادثه تانيه ابعت رساله لجلسه كلم claude تاني sessions sendmessage listagents محادثات التطبيق",
+   "how": "ListAgents ثم SendMessage. والتطبيق: أداة blackdragon_app أو `dragon.py tool machine app status|chats|read|send|ask`.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "مش متاح."
+  },
+  {
+   "id": "cc-web",
+   "layer": "claude-code",
+   "ar": "البحث والقراية من النت",
+   "en": "WebSearch + WebFetch",
+   "triggers": "دور النت ابحث جوجل معلومه سعر خبر حديث مصدر صفحه search web fetch research",
+   "how": "WebSearch بـ mode standard، وextended لو النتيجة ضعيفة أو الموضوع حديث جدًا أو أسعار. WebFetch لقراية صفحة. للميديا ابدأ بـ media-hunter.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "web_search / web_fetch."
+  },
+  {
+   "id": "cc-memory",
+   "layer": "claude-code",
+   "ar": "الذاكرة الدايمة والدروس",
+   "en": "Persistent memory + lessons",
+   "triggers": "افتكر احفظ متنساش اتعلم من غلطك درس تفضيل memory remember lesson",
+   "how": "ذاكرة Claude Code (ملف لكل حقيقة + MEMORY.md)، و`dragon.py tool brain learn \"الدرس\" --domain …`، و`references/LESSONS.md` بتاريخه.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "LESSONS.md جوه الحزمة + اطلب منه يحفظ."
+  },
+  {
+   "id": "cc-toolsearch",
+   "layer": "claude-code",
+   "ar": "تحميل الأدوات المؤجّلة",
+   "en": "ToolSearch for deferred tools",
+   "triggers": "معنديش اداه مش لاقي الاداه deferred toolsearch load tool",
+   "how": "قبل ما تقول «معنديش أداة»: ToolSearch بـ `select:Name1,Name2` أو بكلمات، وحمّل كل اللي هتحتاجه في نداء واحد.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "—"
+  },
+  {
+   "id": "hf-sandbox",
+   "layer": "cloud",
+   "ar": "سحابة Higgsfield المجانية: رندر وترميز وتفريغ على لينكس",
+   "en": "Higgsfield free sandbox (normal / XL)",
+   "triggers": "سحابه هيجز هيجزفيلد ببلاش مجاني sandbox xl رندر علي السحابه وفر الجهاز ترميز تفريغ whisper playwright بيئه نضيفه اختبار كود cloud render offload فرغ على السحابه",
+   "how": "mcp__claude_ai_Higgsfield__sandbox_exec {command, size:\"xl\", background:true}. اتقاس 2026-11-11: العادي 1 معالج/8 جيجا قد الجهاز، وXL 4 معالجات/16 جيجا أسرع 2.2–2.7× في x264. مفيش GPU ولا Blender جاهز. الأمر العادي 120 ث، والخلفية 15 د، والملفات 24 ساعة. الدخول: media_upload ثم PUT ثم media_confirm. الخروج: رابط رفع قبل الأمر و`curl -f -X PUT --upload-file`. balance قبل وبعد. حمّل higgsfield-free وhiggsfield-cloud. (Higgsfield فيه 169 أداة MCP، أغلبها مدفوع.) (Higgsfield MCP: 169 أداة.)",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "Higgsfield"
+   },
+   "skills": [
+    "higgsfield-free",
+    "higgsfield-cloud"
+   ],
+   "cloud_alt": "نفس الأداة لو Higgsfield مربوط في claude.ai."
+  },
+  {
+   "id": "hf-blender",
+   "layer": "cloud",
+   "ar": "رندر Blender (Cycles) على السحابة",
+   "en": "Blender render in the sandbox",
+   "triggers": "بلندر علي السحابه رندر بلندر سحابه cycles blender cloud render hf blender",
+   "how": "مهارة hf-blender-render (`skills/hf-blender-render`) + `dragon.py tool hf-blender plan|pack|check-frames`. تنزيل Blender بموافقة (`HF_BLENDER_ALLOW_DOWNLOAD=YES`).",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "Higgsfield"
+   },
+   "skills": [
+    "hf-blender-render"
+   ],
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "hf-3d-jutsu",
+   "layer": "cloud",
+   "ar": "3D Jutsu: Blender 5.2 مستضاف في Higgsfield",
+   "en": "Higgsfield scene_builder_3d",
+   "triggers": "3d jutsu جوتسو مشهد ثلاثي glb blend scene builder موديل جاهز",
+   "how": "scene_builder_3d_create_project / run_python / query_python / get_glb / get_blend / search_assets (اتقاسوا 0 كريدت). `scene_builder_3d_generate_*` مدفوع. القالب: `dragon.py tool hf blender template`.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "Higgsfield"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "hf-generate",
+   "layer": "mcp",
+   "ar": "توليد Higgsfield المدفوع (صور، فيديو، صوت، تكبير، شيل خلفية، بريسيت، GPU)",
+   "en": "Higgsfield paid generation",
+   "triggers": "ولد توليد بالذكاء الاصطناعي ai kling seedance veo upscale كبر شيل الخلفيه preset بريسيت gpu انفلونسر اعلان generate",
+   "how": "قبل أي أداة: `dragon.py tool hf check TOOL` (exit 3 = مدفوعة) ثم `tool hf ask TOOL --price N --balance B`، وبعدين «موافق» على السعر ده بالظبط. balance قبل وبعد. البديل المجاني الأول: الكود (HTML/Blender/ffmpeg)، أو upscayl-bin وrembg على الجهاز.",
+   "cost": "paid",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "Higgsfield"
+   },
+   "cloud_alt": "نفس القاعدة."
+  },
+  {
+   "id": "hf-website",
+   "layer": "mcp",
+   "ar": "بناء ونشر موقع أو لعبة متصفح على Higgsfield",
+   "en": "Higgsfield website builder",
+   "triggers": "موقع لعبه متصفح انشر الموقع deploy website landing page game",
+   "how": "get_workflow_instructions {workflow:\"website-builder-flow\"} الأول. البناء في sandbox_exec مجاني، والنشر (deploy/publish) بموافقة صريحة.",
+   "cost": "ask",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "Higgsfield"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "hf-trend",
+   "layer": "mcp",
+   "ar": "الترند وتفكيك أي ريل",
+   "en": "Trends + reel teardown",
+   "triggers": "ترند تريند الترند مزيكا ترند فكك ريل حلل ريل مرجع trend trending tiktok music katana",
+   "how": "`dragon.py tool hf trend live|list|find|commands SLUG_OR_URL` + `tiktok_music_trending` و`get_presets source=genjutsu category=genjutsu-trending`. `/katana` الإنتاجي بيصرف: اطلب «تحليل فقط».",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "Higgsfield"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "suno",
+   "layer": "mcp",
+   "ar": "Suno: أغاني وأصوات (مدفوع)",
+   "en": "Suno songs",
+   "triggers": "اغنيه سونو suno لحن موسيقي ألف اغنيه غني stems كلمات اغنيه song music generate",
+   "how": "mcp__claude_ai_suno__*: audio-create / audio-full-song / stems / covers مدفوعين: السعر + «أيوه» وكل تحميل بسؤال لوحده. القراية مجانية: library-list / library-search / account-usage / voices-list. (Suno MCP: 41 أداة.)",
+   "cost": "paid",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "suno"
+   },
+   "cloud_alt": "نفسه لو مربوط."
+  },
+  {
+   "id": "rea-mcp",
+   "layer": "mcp",
+   "ar": "REA: هندسة عكسية لأي ملف أو برنامج أو موقع",
+   "en": "REA MCP / CLI",
+   "triggers": "حلل بعمق هندسه عكسيه exe dll apk electron موقع bundle فيرموير decompile ghidra البرنامج بيكلم مين قارن نسختين reverse",
+   "how": "mcp__rea__* (inspect_artifact، inspect_pe_imports، analyze_javascript_application، analyze_web_bundle، inspect_android_package، compare_*…) أو `rea <command> … --format md`. ابدأ بالسريع، وGhidra (`rea analyze`) لما تحتاج الكود. حمّل rea-ultra. لملفات المستخدم بس، مش لكسر حماية. (229 أداة MCP). (اتقاس 2026-11-12: 229 أداة MCP، rea 6.8.0، Ghidra 12.1.4 وJADX سليمين؛ `rea doctor` بيقول healthy:false بس عشان Hopper/IDA مش متثبتين، ودول اختياريين.)",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "rea"
+   },
+   "skills": [
+    "rea-ultra",
+    "reverse-engineer-anything"
+   ],
+   "cloud_alt": "`dragon.py tool rea-ultra` (خطط بس) أو اطلب الملف على اللابتوب."
+  },
+  {
+   "id": "black-dragon-mcp",
+   "layer": "mcp",
+   "ar": "التنين كأدوات MCP من أي جلسة Claude Code",
+   "en": "black-dragon MCP server",
+   "triggers": "كتالوج التنين محركات التنين من اي جلسه blackdragon mcp catalog engines",
+   "how": "mcp__black-dragon__blackdragon_find / show / run / engines / verify / omni / rea / retool / skill / superpowers / ultra (حمّلهم بـ ToolSearch). (11 أداة.)",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "mcp",
+    "name": "black-dragon"
+   },
+   "cloud_alt": "`python3 scripts/dragon.py find|show|engines`."
+  },
+  {
+   "id": "pc-control",
+   "layer": "mcp",
+   "ar": "التحكم في الكمبيوتر كله (شاشة، ماوس، كيبورد، نوافذ، برامج، صوت، إعدادات)",
+   "en": "Whole-PC control",
+   "triggers": "افتح برنامج اقفل الشاشه الماوس اكتب دوس اضغط الصوت السطوع الحافظه الواي فاي اعدادات نافذه screenshot click type volume brightness clipboard",
+   "how": "mcp__blackdragon__system للحاجات اللي ليها أمر (تشغيل وقفل برامج، عمليات، صوت، سطوع، حافظة، شبكة)، وmcp__blackdragon__computer لأي برنامج ملوش أمر (صورة ← فعل ← تأكيد). من غير التطبيق: `dragon.py tool machine pc ACTION`. القفل والإطفاء والإزالة والخدمات بموافقة. الماوس في الركن الشمال اللي فوق = وقف فورًا. (3 أدوات: computer وbrowser وsystem، والتطبيق هو اللي بيضيفهم.)",
+   "cost": "ask",
+   "where": "pc",
+   "probe": {
+    "type": "session",
+    "path": "~/OneDrive/Desktop/التنين الأسود/apps/dragon_desktop/mcp_control.py",
+    "hint": "التطبيق بيضيف mcp__blackdragon__computer/browser/system للمحادثة لما «التحكم في الجهاز» يتعلّم؛ في Claude Code: ToolSearch \"blackdragon\""
+   },
+   "cloud_alt": "مش متاح من السحابة."
+  },
+  {
+   "id": "chrome",
+   "layer": "mcp",
+   "ar": "كروم الحقيقي بتاع المستخدم (تابات، قراية، ضغط، فورم، سكرينشوت، كونسول، شبكة، GIF)",
+   "en": "Claude in Chrome",
+   "triggers": "كروم المتصفح افتح الموقع صفحه سكرين شوت اضغط علي فورم كونسول طلبات الشبكه سجل gif chrome browser tab page",
+   "how": "mcp__claude-in-chrome__*: tabs_context_mcp الأول، وتاب جديد بـ tabs_create_mcp، وبعدين navigate / read_page / find / computer / form_input / javascript_tool / read_console_messages / read_network_requests / gif_creator. حمّلهم كلهم في نداء ToolSearch واحد، وماتدوسش على حاجة بتفتح alert. بديل: mcp__blackdragon__browser أو محرك chrome. (20 أداة.) (20 أداة، ومش بتظهر في `claude mcp list`.)",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "session",
+    "hint": "إضافة Claude in Chrome جوه Claude Code (مش بتظهر في `claude mcp list`): ToolSearch \"select:mcp__claude-in-chrome__tabs_context_mcp\""
+   },
+   "skills": [
+    "claude-in-chrome"
+   ],
+   "cloud_alt": "محرك cloud_browser («سحاب») أو Playwright في سحابة Higgsfield."
+  },
+  {
+   "id": "claude-docs",
+   "layer": "mcp",
+   "ar": "Claude Docs: مستند حي",
+   "en": "Claude Docs",
+   "triggers": "مستند دوك تقرير حي doc document اكتب مستند",
+   "how": "بس لو المستخدم طلب مستند: batch بهيكل المستند أول نداء، وبعدين guide topic.index.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "Claude Docs"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "mcp-auth",
+   "layer": "mcp",
+   "ar": "خدمات محتاجة تسجيل دخول",
+   "en": "Connectors needing auth",
+   "triggers": "remote desktop commander graphify تسجيل دخول خدمه مش شغاله needs auth connector",
+   "how": "Remote Desktop Commander وgraphify محتاجين تسجيل من صفحة الربط في claude.ai (https://claude.ai/settings/connectors) أو `/mcp`. لحد ما يتسجّلوا، القدرة دي مش متاحة. ماتطلبش أكواد أو توكن.",
+   "cost": "ask",
+   "where": "both",
+   "probe": {
+    "type": "mcp",
+    "name": "remote desktop"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "eng-montage",
+   "layer": "engine",
+   "ar": "مونتاج التنين الكامل",
+   "en": "dragon_montage",
+   "triggers": "مونتاج مونتاتج ريل فوتيج لقطات ستوري بورد montage reel edit footage",
+   "how": "`dragon.py run dragon_montage plan \"…\" --clip a.mp4 [--music m.mp3]` ← ستوري بورد واستنى «موافق» ← `go --job DIR --rounds 3` ← `verify`.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "نفسه (النسخة المدمجة)."
+  },
+  {
+   "id": "eng-cinema",
+   "layer": "engine",
+   "ar": "سينما الفوتيج: فيلم تكريم بأغنية",
+   "en": "cinema / dragon film",
+   "triggers": "فيلم تكريم احتفال بطل اغنيه وطنيه سينمائي ميار tribute cinematic film song",
+   "how": "`dragon.py film spec.json --stills 1.5,7.5` ثم `dragon.py film spec.json`. مهارة black-dragon-cinema.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "skills": [
+    "black-dragon-cinema"
+   ],
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "eng-toon",
+   "layer": "engine",
+   "ar": "toon: فيديو أو صورة لأسلوب أفلام الأنيميشن",
+   "en": "toon (3d / ai3d / hayao / shinkai / paint)",
+   "triggers": "كرتون انمي انيميشن بيكسار ديزني 3d كارتون رسم بورتريه حول الفيديو لكرتون جيبلي cartoon anime toon pixar لكرتون كرتوني",
+   "how": "`python -m dragon run toon image IN OUT --style S [--max-side N]` أو `video IN.mp4 OUT.mp4 --style S [--fps N] [--seconds 3] [--max-side N] [--no-deflicker]`. الأساليب (`run toon styles`): 3d (DCT-Net)، hayao، shinkai، paint، ai3d (SD-Turbo، الأقوى وأبطأ ~20 ث للصورة). كله على المعالج (مفيش GPU NVIDIA): معاينة `--seconds 3` الأول. `setup` بينزّل موديلات (بموافقة). hayao وshinkai رخصتهم غير تجارية. وجوه الحزمة: `dragon.py tool toon doctor|styles`.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "path",
+    "path": "~/OneDrive/Desktop/التنين الأسود"
+   },
+   "cloud_alt": "`tool toon` بالأساليب اللي مش محتاجة موديلات تقيلة، أو ffmpeg/OpenCV في سحابة Higgsfield."
+  },
+  {
+   "id": "eng-talking-head",
+   "layer": "engine",
+   "ar": "ريل متحدث",
+   "en": "talking_head",
+   "triggers": "بودكاست متحدث بيتكلم مقابله قص السكتات talking head podcast interview",
+   "how": "`dragon.py run talking_head --help`.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "eng-web-film",
+   "layer": "engine",
+   "ar": "فيلم موشن كصفحة ويب",
+   "en": "web_film + render.cjs",
+   "triggers": "موشن جرافيك صفحه ويب html انيميشن بالكود تايتل متحرك motion web film kinetic",
+   "how": "`dragon.py run web_film …` و`node app/engines/render/render.cjs --in page.html --out film.mp4 --duration S --strict`. التقيل منه على سحابة Higgsfield (Chromium موجود).",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "program",
+    "name": "node"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "eng-voice",
+   "layer": "engine",
+   "ar": "استوديو الصوت: كلام بتوقيت الكلمات وSRT",
+   "en": "voice_studio",
+   "triggers": "تعليق صوتي فويس اوفر tts كلام srt vtt ترجمه voice over",
+   "how": "`dragon.py run voice_studio --help`، وedge-tts على الجهاز.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "eng-other",
+   "layer": "engine",
+   "ar": "محركات تانية: editorial، shadow_theatre، reel_hooks، kling_director، matrices، cards",
+   "en": "Other engines",
+   "triggers": "مسرح الظل هوك كلينج برومبت kling مصفوفات ارشيفي حبيبات hook shadow theatre matrices editorial",
+   "how": "`dragon.py engines` للقايمة الحية (15 محرك على اللابتوب)، و`dragon.py run <engine> --help`. استثناء: `cards` مابيقبلش `--help` (exit 2): استخدم `run cards stats` (5,361 كارت، 2,901 جاهزين) أو `run cards list`. kling_director بيكتب برومبت بس ومابيصرفش.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "eng-kosif",
+   "layer": "engine",
+   "ar": "KOSIF: تحميل مسرّع بتعدد اتصالات واستكمال",
+   "en": "kosif downloads",
+   "triggers": "نزل حمل تحميل سريع مسرع كمل التحميل داونلود idm download resume",
+   "how": "`dragon.py kosif …` (= run kosif)، أو `python ~/dragon-tools/fast_dl.py URL`، أو aria2c. فيديوهات المنصات: yt-dlp. مهارة kosif-downloads.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "aria2c"
+   },
+   "skills": [
+    "kosif-downloads",
+    "video-grabber"
+   ],
+   "cloud_alt": "curl/aria2 في سحابة Higgsfield (نت مركز بيانات)."
+  },
+  {
+   "id": "eng-chrome",
+   "layer": "engine",
+   "ar": "محرك chrome و«سحاب» (متصفح بيتبث لايف)",
+   "en": "chrome / cloud_browser engines",
+   "triggers": "سحاب متصفح سحابي pdf لصفحه اطبع الصفحه cloud browser",
+   "how": "`dragon.py chrome launch|tabs|snapshot|click|type|shot|pdf …` و`dragon.py sahab start [--open]|status|url|stop`.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "Playwright في سحابة Higgsfield."
+  },
+  {
+   "id": "eng-blender",
+   "layer": "engine",
+   "ar": "Blender في الخلفية على الجهاز",
+   "en": "blender engine / blender-pro",
+   "triggers": "بلندر 3d لوجو ثلاثي منتج رندر تيرن تيبل blender logo product turntable",
+   "how": "`blender -b` (Blender 5.2) أو `dragon.py run blender …` أو `dragon.py tool blender-pro doctor|plan|validate|render --execute`. مهارة blender-pro. الطويل ممكن يروح hf-blender.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "blender"
+   },
+   "skills": [
+    "blender-pro",
+    "creative-studio"
+   ],
+   "cloud_alt": "hf-blender أو 3D Jutsu."
+  },
+  {
+   "id": "teardown",
+   "layer": "engine",
+   "ar": "محاكي 3D لأي ماكينة + فيلم 60 فريم",
+   "en": "teardown simulator",
+   "triggers": "ازاي الماكينه بتشتغل محاكي قطاع تفكيك شرح 3d محرك مكنه teardown cutaway exploded",
+   "how": "مهارة `skills/teardown` (اقرا STYLE_AR.md الأول، واطلب صورة مرجع). أول مرة `npm install` جوه فولدرها. النشر بموافقة.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "skill",
+    "name": "teardown"
+   },
+   "skills": [
+    "teardown"
+   ],
+   "cloud_alt": "نفسه (node في سحابة Higgsfield)."
+  },
+  {
+   "id": "re-triage",
+   "layer": "re",
+   "ar": "retool: فرز سريع لأي ملف + 34 أداة",
+   "en": "retool triage + toolbox",
+   "triggers": "ملف مجهول فحص ملف باكر upx capa floss yara die ilspy jadx webcrack hash triage packer",
+   "how": "`python ~/re-tools/retool.py triage FILE [--deep] [--out DIR]` ← `retool.py list` ← `retool.py run ID …`. أدوات وقت التشغيل (frida، pe-sieve، x64dbg، mitmdump، adb) بموافقة. أو `dragon.py tool re plan|investigate|audit`. اتقاس: 34/34 أداة متثبتة. `rea` 6.8.0، و`rea doctor` بيقول healthy:false عشان Hopper/IDA مش متثبتين (اختياري)؛ Ghidra 12.1.4 وJADX سليمين. (اتقاس: 34 من 34 أداة متثبتة.)",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "path",
+    "path": "~/re-tools/retool.py"
+   },
+   "skills": [
+    "rea-ultra"
+   ],
+   "cloud_alt": "`dragon.py tool re plan FILE` و`tool omni`."
+  },
+  {
+   "id": "re-omni",
+   "layer": "re",
+   "ar": "omni: تصنيف وخطة تحليل لأي هدف",
+   "en": "omni-analyst",
+   "triggers": "ده ايه نوع الملف تصنيف خطه تحليل فرضيات bayes classify probe plan",
+   "how": "`dragon.py tool omni classify|probe|plan TARGET --depth 3|report|hyp|bayes`. مبيشغّلش الهدف ومبيتصلش بالنت.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "skills": [
+    "omni-analyst"
+   ],
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "re-audit",
+   "layer": "re",
+   "ar": "فحص حزمة أو مجلد قبل التثبيت",
+   "en": "Package audit",
+   "triggers": "افحص الحزمه قبل التثبيت امان مفاتيح متسابه curl sh audit secrets",
+   "how": "`dragon.py tool re audit PATH` (+ YARA-X لو موجود) و`dragon.py tool pack inspect FILE`.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "prog-video",
+   "layer": "program",
+   "ar": "برامج الفيديو: ffmpeg، melt، Natron، mkvmerge، scenedetect، auto-editor",
+   "en": "Video programs",
+   "triggers": "ffmpeg ترميز قص دمج مشاهد قطعات scenedetect auto-editor melt kdenlive natron mkv encode",
+   "how": "على الـ PATH بالاسم. ffmpeg 9: `-/filter_complex FILE` بدل `-filter_complex_script`، وscale بـ force_original_aspect_ratio=decrease قبل pad. auto-editor بـ `--margin 0.3sec`.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "ffmpeg"
+   },
+   "cloud_alt": "ffmpeg في الحزمة وفي سحابة Higgsfield."
+  },
+  {
+   "id": "prog-image",
+   "layer": "program",
+   "ar": "برامج الصور: magick، gimp، inkscape، upscayl، krita، darktable، rawtherapee، rembg، exiftool",
+   "en": "Image programs",
+   "triggers": "صوره كبر الصوره شيل الخلفيه raw فوتوشوب svg تحويل صور upscale rembg magick gimp inkscape krita شيل خلفيه remove background",
+   "how": "`upscayl-bin` (تكبير 4×)، `rembg` (شيل الخلفية، بدل remove_background المدفوع)، `magick`، `gimp-console-3.2`، `inkscape`، `kritarunner`، `darktable-cli`، `rawtherapee-cli`، `exiftool`. وPSD من غير فوتوشوب: `dragon.py tool psd`.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "magick"
+   },
+   "cloud_alt": "ImageMagick وPillow في سحابة Higgsfield."
+  },
+  {
+   "id": "prog-audio",
+   "layer": "program",
+   "ar": "برامج الصوت: whisperx، faster-whisper، demucs، deep-filter، edge-tts",
+   "en": "Audio programs",
+   "triggers": "تفريغ ترجمه كلمات فصل الصوت عن الموسيقي نضف الصوت دوشه ضوضاء whisper demucs deep filter tts فرغ فرغلي اسمع الكلام كلامه نص الفيديو subtitles transcribe",
+   "how": "`whisperx` (3.8.6) للتفريغ وتوقيت الكلمات، و`demucs` (فصل)، و`deep-filter` (تنضيف)، و`edge-tts`. faster-whisper مكتبة بايثون بس (مفيش أمر بالاسم ده): `from faster_whisper import WhisperModel`. كله على المعالج. التقيل على سحابة Higgsfield XL (faster-whisper موجود هناك).",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "demucs"
+   },
+   "cloud_alt": "faster-whisper في سحابة Higgsfield."
+  },
+  {
+   "id": "prog-download",
+   "layer": "program",
+   "ar": "تحميل: yt-dlp، aria2c، fast_dl",
+   "en": "Download programs",
+   "triggers": "يوتيوب تيك توك انستجرام فيسبوك نزل الفيديو m3u8 yt-dlp aria2",
+   "how": "`yt-dlp` (بكوكيز المتصفح على الجهاز)، `aria2c`، `python ~/dragon-tools/fast_dl.py URL`. سجّل المصدر في sources.txt.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "yt-dlp"
+   },
+   "cloud_alt": "يوتيوب غالبًا مقفول من السحابة: اطلب الملف."
+  },
+  {
+   "id": "prog-docs",
+   "layer": "program",
+   "ar": "مستندات وأرشيف: pandoc، 7z، jq، rg، gh",
+   "en": "Docs + archives + GitHub",
+   "triggers": "pdf وورد اكسل باوربوينت تحويل مستند ارشيف zip rar github مستودع repo pandoc 7z",
+   "how": "`pandoc` و`7z` و`jq` و`gh` (مسجّل: push ونشر وissues بموافقة). مفيش `rg` على الـ PATH: استخدم أداة Grep. بايثون: python-docx وpython-pptx وopenpyxl و`import pymupdf` (مش fitz). من بايثون نادي `npm.cmd` مش `npm`. مهارات docx/pptx/xlsx/pdf.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "pandoc"
+   },
+   "cloud_alt": "مكتبات بايثون في الحزمة أو السحابة."
+  },
+  {
+   "id": "prog-gpu",
+   "layer": "program",
+   "ar": "موديلات محلية على المعالج (torch CPU، mediapipe، opencv)",
+   "en": "Local models (CPU only)",
+   "triggers": "gpu كارت شاشه موديل محلي torch mediapipe وش تتبع opencv معالج cpu بطيء رام ديسك مساحه",
+   "how": "اللابتوب (Core 5 120U، 16 جيجا) **مفيهوش كارت NVIDIA**: torch 2.8.0+cpu وcuda=False، فكل موديل بيشتغل على المعالج وأبطأ. mediapipe أول import ~35 ث. moviepy قديم 0.2.3 (`from moviepy.editor import`). الديسك C فيه 204 جيجا وD فيه 0.9 جيجا بس. الحاجة اللي محتاجة GPU بجد: اعرض `gpu_*` في Higgsfield (مدفوع) أو قول إنها هتاخد وقت على المعالج.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "module",
+    "name": "torch"
+   },
+   "cloud_alt": "CPU بس."
+  },
+  {
+   "id": "skill-web",
+   "layer": "skill",
+   "ar": "مهارات الويب والتصميم: frontend-design، web-artifacts-builder، webapp-testing، canvas-design، algorithmic-art، theme-factory",
+   "en": "Web/design skills",
+   "triggers": "موقع واجهه تصميم بوستر فن توليدي p5 اختبار موقع playwright ثيم frontend poster generative art",
+   "how": "أداة Skill بالاسم (متثبتة في ~/.claude/skills)، وtheme-factory متضمّنة كمان في skills/.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "skill",
+    "name": "frontend-design"
+   },
+   "cloud_alt": "مهارات claude.ai المدمجة."
+  },
+  {
+   "id": "skill-office",
+   "layer": "skill",
+   "ar": "مستندات Office وPDF",
+   "en": "docx / pptx / xlsx / pdf skills",
+   "triggers": "وورد باوربوينت عرض اكسل جدول pdf docx pptx xlsx",
+   "how": "مهارات anthropic-skills:docx / pptx / xlsx / pdf بأداة Skill.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "skill-build",
+   "layer": "skill",
+   "ar": "بناء مهارات وخوادم MCP",
+   "en": "skill-creator + mcp-builder",
+   "triggers": "اعمل مهاره طور المهاره mcp server خادم اداه جديده skill creator",
+   "how": "anthropic-skills:skill-creator (بناء وقياس مهارة)، وmcp-builder (خادم MCP). التحزيم: `dragon.py tool package`.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "skill",
+    "name": "mcp-builder"
+   },
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "skill-mind",
+   "layer": "skill",
+   "ar": "التفكير والجودة: ultra-mind، dragon-genius، expert-council، montage-arena",
+   "en": "Thinking skills",
+   "triggers": "فكر كويس مساله صعبه قرار راي الخبراء قيم انقد ماتغلطش اتاكد council critique decision",
+   "how": "`dragon.py tool brain \"الطلب\"` أول حاجة، وبعدين skills/ultra-mind وexpert-council وdragon-genius (بوابة `tool genius gate`) وmontage-arena.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "نفسه (متضمّنين)."
+  },
+  {
+   "id": "skill-windows",
+   "layer": "skill",
+   "ar": "أوامر ويندوز من غير مفاجآت",
+   "en": "windows-commands",
+   "triggers": "الامر مش شغال علامات التنصيص العربي باظ powershell exit code parsererror",
+   "how": "`dragon.py tool windows-lint --shell powershell|bash \"COMMAND\"` قبل الأوامر المعقدة. بايثون: `python -X utf8`.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "none"
+   },
+   "cloud_alt": "—"
+  },
+  {
+   "id": "hub-superpowers",
+   "layer": "hub",
+   "ar": "سوبر باور: 212 أداة و5,900 قدرة",
+   "en": "KOSIF Superpowers",
+   "triggers": "سوبر باور اداه جاهزه قدره superpowers hub",
+   "how": "`dragon.py tool sp find \"…\"` (بينادي hub.py الأحدث)، `tool sp doctor`، `tool sp qc FILM.mp4`. تشغيل أداة: `tool sp run ID` (بوابة موافقة). اتقاس: 212 أداة في 12 مجال، 205 جاهزين (7 محتاجين chromium أو typescript). (اتقاس: 212 أداة في 12 مجال، 205 جاهزين؛ 6 محتاجين chromium وواحدة typescript.)",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "path",
+    "path": "~/kosif-tool/.claude/skills/kosif-superpowers/scripts/hub.py"
+   },
+   "cloud_alt": "الكتالوج من `dragon.py find`."
+  },
+  {
+   "id": "hub-catalog",
+   "layer": "hub",
+   "ar": "كتالوج التنين (22 ألف عنصر) وأطلس GitHub",
+   "en": "Dragon catalog + GitHub atlas",
+   "triggers": "فيه اداه ل احسن اداه بديل مجاني مكتبه مستودع catalog find github atlas",
+   "how": "`dragon.py find \"…\"` و`show ID`، و`tool github-atlas find \"…\"` (1000 مستودع، أوفلاين)، و`tool library find \"…\"` (12 حزمة + 105 برومبت).",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "skills": [
+    "github-atlas"
+   ],
+   "cloud_alt": "نفسه."
+  },
+  {
+   "id": "hub-media",
+   "layer": "hub",
+   "ar": "صيّاد الميديا: 615 موقع + 19 مصدر API",
+   "en": "Media Hunter",
+   "triggers": "فوتيج خلفيه stock صور مجانيه hdri ايقونات صور ارشيفيه b-roll footage",
+   "how": "`dragon.py tool hunter hunt|search|sites|get` و`tool hunter615`. على الجهاز كمان المحرك الخارجي `python -I ~/OneDrive/Desktop/تحليل/media_hunter/mh.py`.",
+   "cost": "free",
+   "where": "both",
+   "probe": {
+    "type": "none"
+   },
+   "skills": [
+    "media-hunter"
+   ],
+   "cloud_alt": "`tool hunter` (المصادر اللي من غير مفتاح)."
+  },
+  {
+   "id": "desktop-app",
+   "layer": "desktop",
+   "ar": "تطبيق التنين الأسود: تعديل وبناء",
+   "en": "Desktop app rebuild",
+   "triggers": "التطبيق ميزه في التطبيق صلح التطبيق ابني التطبيق حدث التطبيق app rebuild build طور تطوير زرار زر ضيف خاصيه واجهه التطبيق تطبيق التنين dragon desktop",
+   "how": "الكود في ~/OneDrive/Desktop/التنين الأسود/apps/dragon_desktop (نسخة منه في app/apps/dragon_desktop). نسخة احتياطية في %APPDATA%/BlackDragon/source_backups/<التاريخ> ← تعديل صغير ← `python -m py_compile app.py control.py mcp_control.py voice.py` ← `powershell -ExecutionPolicy Bypass -File build.ps1`. المستخدم بيحدّث بزرار «حدّث دلوقتي».",
+   "cost": "ask",
+   "where": "pc",
+   "probe": {
+    "type": "path",
+    "path": "~/OneDrive/Desktop/التنين الأسود/apps/dragon_desktop/app.py"
+   },
+   "cloud_alt": "عدّل النسخة اللي في الحزمة وسلّمها."
+  },
+  {
+   "id": "skill-krita",
+   "layer": "skill",
+   "ar": "الرسم بالكود جوه Krita: ملف .kra بطبقات قابلة للتعديل، وأنيميشن فريم بفريم",
+   "en": "krita-draw (layered .kra from a JSON scene, Krita timeline animation)",
+   "triggers": "كريتا ارسم بالكود رسمه لوحه طبقات kra رسم اجرائي انيميشن فريم بفريم gif مرسوم بوستر بطبقات شخصيه كرتون krita paint with code procedural illustration layered",
+   "how": "اقرا `engine/skills/krita-draw/SKILL.md`، واكتب مشهد JSON (`references/scene_format.md`)، وبعدين `python -X utf8 engine/skills/krita-draw/scripts/krita_draw.py render scene.json` (بيشغّل `kritarunner` من غير واجهة). الأنيميشن: `scripts/kra_animate.py`. فُرش Krita الأصلية بتوقّع Krita من غير واجهة، فالفرشاة محرك numpy (`scripts/brush.py`).",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "program",
+    "name": "kritarunner"
+   },
+   "skills": [
+    "krita-draw",
+    "paint-studio"
+   ],
+   "cloud_alt": "مفيش Krita على السحابة: PIL/SVG بطبقات PNG، أو paint-studio."
+  },
+  {
+   "id": "skill-golden",
+   "layer": "skill",
+   "ar": "الطائر الذهبي: استوديو 10 برامج سطر أوامر مفتوحة المصدر بأوامرها وبصمة أرشيفها، ومكتبة 154 مكتبة موشن برخصها ونسخ جاهزة من غير نت",
+   "en": "golden-bird (studio of hash-checked open-source CLI programs + motion library catalog with an offline vendor kit)",
+   "triggers": "الطائر الذهبي استوديو البرامج مكتبه موشن مكتبات gsap anime three lottie vendor من غير نت اوفلاين رخصه المكتبه lip sync بق الشخصيه rhubarb handbrake synfig tahoma2d melt whisper-cli oiiotool pencil2d golden bird studio motion library offline kit",
+   "how": "`$R gold lib find \"<كلمات>\"` ثم `show ID` ثم `kit <مجلد الشغل> ID…` (vendor/ + LICENSES.md، وملفات ES module اللي بتتستورد). البرامج: `$R gold studio list|show ID`، والفك `install ID --yes` بموافقة، و`cmd ID args`. البروتوكول: `$R gold protocol`. الدليل: `engine/skills/golden-bird/SKILL.md`.",
+   "cost": "free",
+   "where": "pc",
+   "probe": {
+    "type": "path",
+    "path": "~/OneDrive/Desktop/مهارات"
+   },
+   "skills": [
+    "golden-bird"
+   ],
+   "cloud_alt": "find وshow وprotocol وsync شغالين في أي مكان؛ kit وinstall محتاجين مجلد «مهارات» على اللابتوب. على السحابة: npm install للمكتبة نفسها."
+  }
+ ],
+ "measured": "2026-11-12: references/MACHINE_INVENTORY_20261112.md (helper inventory, every row run on the laptop)"
+}

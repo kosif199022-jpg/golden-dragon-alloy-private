@@ -1,0 +1,20 @@
+{
+  "title": "نموذج تصوري لعنوان عربي في ريل توعوي",
+  "concept_id": "C1",
+  "story_beats": "0-3s سؤال؛ 3-20s كشف فكرة؛ 20-30s استنتاج",
+  "camera": "35mm wide opener, then one macro close-up",
+  "edit_rhythm": "cuts on speech intention, not random transitions",
+  "sound": "quiet room tone with a short soft impact; no licensed music assumed",
+  "typography": "Noto Kufi Arabic or any local licensed Arabic-capable font as transparent RTL PNG",
+  "art_direction": "paper texture and one accent; source imagery not yet selected",
+  "palette": [
+    "#101820",
+    "#F5F5F0",
+    "#E9B44C"
+  ],
+  "constraints": [
+    "Only one accent color",
+    "Do not invent documentary quotes"
+  ],
+  "assets": []
+}

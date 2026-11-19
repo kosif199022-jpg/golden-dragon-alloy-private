@@ -1,0 +1,4732 @@
+[
+ {
+  "name": "Agentchengfeng__chengfeng-videocut-skills",
+  "title": "chengfeng-videocut-skills",
+  "what": "chengfeng-videocut 的公开 **Codex Plugin 安装入口**。软件本体 Runtime / Studio 的源码与发行产物在 [chengfeng-videocut](https://github.com/Agentchengfeng/chengfeng-videocut)。",
+  "commit": "a33b43e08c34",
+  "files": 110,
+  "capped": false,
+  "mb": 2.0,
+  "license": "Apache-2.0",
+  "languages": [
+   "Markdown 56%",
+   "JSON 21%",
+   "HTML 16%",
+   "JavaScript 3%",
+   "YAML 1%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [],
+  "scripts": [],
+  "bin": {
+   "chengfeng-videocut-skills": "bin/install.cjs"
+  },
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "plugins/chengfeng-videocut/skills/chengfeng-check-updates/SKILL.md",
+   "plugins/chengfeng-videocut/skills/chengfeng-cut/SKILL.md",
+   "plugins/chengfeng-videocut/skills/chengfeng-export/SKILL.md",
+   "plugins/chengfeng-videocut/skills/chengfeng-report-bug/SKILL.md",
+   "plugins/chengfeng-videocut/skills/chengfeng-subtitle/SKILL.md",
+   "plugins/chengfeng-videocut/skills/chengfeng-videocut-workbench/SKILL.md",
+   "plugins/chengfeng-videocut/skills/chengfeng-visual/SKILL.md",
+   "plugins/chengfeng-videocut/skills/chengfeng-visual/animation-styles/ian-xiaohei-svg-motion/SKILL.md"
+  ],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\Agentchengfeng__chengfeng-videocut-skills"
+ },
+ {
+  "name": "agmmnn__awesome-blender",
+  "title": "🔮 Add-ons",
+  "what": "- Browse official and community-reviewed extensions on the **[Blender Extensions Platform](https://extensions.blender.org/)** (Blender 4.2+), or check the [built-in add-ons documentation](https://docs.blender.org/manual/en/latest/addons/index.html).",
+  "commit": "95c28297060e",
+  "files": 27,
+  "capped": false,
+  "mb": 0.7,
+  "license": "CC",
+  "languages": [
+   "Markdown 95%",
+   "YAML 3%",
+   "TOML 0%"
+  ],
+  "main_language": "Markdown",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "-",
+  "scanned_from": "~\\dragon-repos\\creative\\agmmnn__awesome-blender"
+ },
+ {
+  "name": "alisaitteke__photoshop-mcp",
+  "title": "Photoshop MCP",
+  "what": "**Languages:** English · [简体中文](README.zh-CN.md) · [Español](README.es.md) · [Deutsch](README.de.md) · [日本語](README.ja.md) · [Türkçe](README.tr.md) · **[Website](https://photoshop-mcp.com/)**",
+  "commit": "ba36d8f2a28e",
+  "files": 464,
+  "capped": false,
+  "mb": 12.7,
+  "license": "MIT",
+  "languages": [
+   "TypeScript 64%",
+   "JSON 15%",
+   "Markdown 11%",
+   "Vue 5%",
+   "YAML 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [
+   "src/index.ts",
+   "src/analytics/index.ts"
+  ],
+  "scripts": [
+   "dev",
+   "dev:ui",
+   "dev:ui:server",
+   "dev:ui:web",
+   "build",
+   "build:preview-app",
+   "build:server",
+   "build:web",
+   "build:site",
+   "start"
+  ],
+  "bin": {
+   "photoshop-mcp": "dist/index.js",
+   "photoshop-mcp-ui": "dist/ui/cli.js",
+   "ui": "dist/ui/cli.js"
+  },
+  "deps_js": [
+   "@ai-sdk/anthropic",
+   "@ai-sdk/google",
+   "@ai-sdk/mcp",
+   "@ai-sdk/openai",
+   "@anthropic-ai/claude-agent-sdk",
+   "@eslint/js",
+   "@hono/node-server",
+   "@modelcontextprotocol/sdk",
+   "@openrouter/ai-sdk-provider",
+   "@types/better-sqlite3",
+   "@types/node",
+   "@typesafe-ai/sdk",
+   "@typescript-eslint/eslint-plugin",
+   "@typescript-eslint/parser",
+   "ai",
+   "better-sqlite3",
+   "concurrently",
+   "eslint",
+   "get-port",
+   "globals",
+   "hono",
+   "open",
+   "prettier",
+   "tsx",
+   "typescript"
+  ],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/photoshop-recipes/SKILL.md",
+   "skills/photoshop-remove-background/SKILL.md"
+  ],
+  "install": [
+   "npx -p @alisaitteke/photoshop-mcp ui"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "src/analytics/rybbit-node.ts",
+    "src/platform/uxp-bridge-client.ts",
+    "src/ui/server.ts",
+    "src/ui/providers/anthropic.ts",
+    "src/ui/providers/custom.ts",
+    "src/ui/providers/google.ts"
+   ],
+   "exec": [
+    "scripts/build-mcpb.ts",
+    "scripts/build-preview-app.mjs",
+    "scripts/generate-hero-image.ts",
+    "scripts/generate-jev-hero-image.ts",
+    "scripts/generate-og-image.ts",
+    "scripts/prepare.mjs"
+   ],
+   "secrets-read": [
+    "scripts/test-ui-auth.ts",
+    "src/ui/server.ts",
+    "src/ui/providers/custom.ts"
+   ],
+   "delete": [
+    "src/platform/detect-cache.ts"
+   ],
+   "telemetry": [
+    "scripts/generate-site-discoverability.ts",
+    "scripts/verify-pack.mjs",
+    "src/analytics/context.ts",
+    "src/analytics/events.ts",
+    "src/analytics/identity.ts",
+    "src/analytics/index.ts"
+   ]
+  },
+  "big_files": [
+   "images/frame_generic_light.png (8 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\alisaitteke__photoshop-mcp"
+ },
+ {
+  "name": "anthropics__skills",
+  "title": "Skills",
+  "what": "> **Note:** This repository contains Anthropic's implementation of skills for Claude. For information about the Agent Skills standard, see [agentskills.io](http://agentskills.io).",
+  "commit": "2c5958ecac7c",
+  "files": 446,
+  "capped": false,
+  "mb": 12.1,
+  "license": "none found",
+  "languages": [
+   "Markdown 72%",
+   "Python 22%",
+   "HTML 2%",
+   "JavaScript 2%",
+   "Shell 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/academy-guide/SKILL.md",
+   "skills/algorithmic-art/SKILL.md",
+   "skills/brand-guidelines/SKILL.md",
+   "skills/canvas-design/SKILL.md",
+   "skills/claude-api/SKILL.md",
+   "skills/discernment-nudge/SKILL.md",
+   "skills/doc-coauthoring/SKILL.md",
+   "skills/docx/SKILL.md",
+   "skills/frontend-design/SKILL.md",
+   "skills/internal-comms/SKILL.md",
+   "skills/mcp-builder/SKILL.md",
+   "skills/pdf/SKILL.md",
+   "skills/pptx/SKILL.md",
+   "skills/skill-creator/SKILL.md",
+   "skills/slack-gif-creator/SKILL.md",
+   "skills/theme-factory/SKILL.md",
+   "skills/web-artifacts-builder/SKILL.md",
+   "skills/webapp-testing/SKILL.md",
+   "skills/xlsx/SKILL.md",
+   "template/SKILL.md"
+  ],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "skills/claude-api/shared/preserved-thinking-migration/drop_block_probe.py",
+    "skills/docx/scripts/office/soffice.py",
+    "skills/pptx/scripts/office/soffice.py",
+    "skills/xlsx/scripts/office/soffice.py"
+   ],
+   "exec": [
+    "skills/algorithmic-art/templates/generator_template.js",
+    "skills/docx/scripts/accept_changes.py",
+    "skills/docx/scripts/office/soffice.py",
+    "skills/docx/scripts/office/validators/redlining.py",
+    "skills/pptx/scripts/thumbnail.py",
+    "skills/pptx/scripts/office/soffice.py"
+   ],
+   "secrets-read": [
+    "skills/claude-api/shared/evals/report/build-report-lite.mjs",
+    "skills/claude-api/shared/evals/report/runner-scaffold.mjs",
+    "skills/claude-api/shared/preserved-thinking-migration/drop_block_probe.py",
+    "skills/skill-creator/scripts/improve_description.py"
+   ],
+   "delete": [
+    "skills/web-artifacts-builder/scripts/bundle-artifact.sh"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\anthropics__skills"
+ },
+ {
+  "name": "arjun988__blender-skills",
+  "title": "Blender Skills",
+  "what": "**94 Specialized Skills for Blender Artists.** **Transform Cursor, Claude Code, Kiro, and Codex into your Senior Technical Art team — not a tutorial bot.**",
+  "commit": "904f095d8f36",
+  "files": 579,
+  "capped": false,
+  "mb": 1.7,
+  "license": "MIT",
+  "languages": [
+   "Markdown 81%",
+   "TypeScript 10%",
+   "JSON 7%",
+   "CSS 0%",
+   "JavaScript 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   ".claude/skills/analog-found-footage-horror/SKILL.md",
+   ".claude/skills/animation/SKILL.md",
+   ".claude/skills/anime-style/SKILL.md",
+   ".claude/skills/apocalypse-worlds/SKILL.md",
+   ".claude/skills/archviz/SKILL.md",
+   ".claude/skills/asset-optimization/SKILL.md",
+   ".claude/skills/biome-worlds/SKILL.md",
+   ".claude/skills/blender-director/SKILL.md",
+   ".claude/skills/blender-modeler/SKILL.md",
+   ".claude/skills/body-horror-style/SKILL.md",
+   ".claude/skills/brutalist-mood/SKILL.md",
+   ".claude/skills/camera-cinematography/SKILL.md",
+   ".claude/skills/cartoon-style/SKILL.md",
+   ".claude/skills/character-archetypes/SKILL.md",
+   ".claude/skills/character-artist/SKILL.md",
+   ".claude/skills/chibi-style/SKILL.md",
+   ".claude/skills/cloth-sim/SKILL.md",
+   ".claude/skills/collision-proxy/SKILL.md",
+   ".claude/skills/comic-book-style/SKILL.md",
+   ".claude/skills/compositing/SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/arjun988/blender-skills.git"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": true,
+   "agents": false,
+   "mcp": true
+  },
+  "risk": {
+   "download-run": [
+    "site/src/app/(docs)/getting-started/page.tsx"
+   ],
+   "telemetry": [
+    "site/src/app/privacy/page.tsx"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\arjun988__blender-skills"
+ },
+ {
+  "name": "auto-editor",
+  "title": "Add 0.2 seconds of padding before and after to make the edit nicer.",
+  "what": "**Auto-Editor** is a command line application for automatically **editing video and audio** by analyzing a variety of methods, most notably audio loudness.",
+  "commit": "eee0fcf7b368",
+  "files": 192,
+  "capped": false,
+  "mb": 36.5,
+  "license": "Unlicense",
+  "languages": [
+   "Markdown 49%",
+   "C 17%",
+   "JavaScript 13%",
+   "YAML 7%",
+   "HTML 4%"
+  ],
+  "main_language": "C",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/auto-editor/SKILL.md",
+   "skills/auto-editor-effects/SKILL.md",
+   "skills/auto-editor-export/SKILL.md",
+   "skills/auto-editor-transcribe/SKILL.md",
+   "skills/auto-editor-transitions/SKILL.md"
+  ],
+  "install": [
+   "npx skills add WyattBlue/auto-editor"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "docs/server.js"
+   ]
+  },
+  "big_files": [
+   "resources/multi-track.mov (21 MB)",
+   "resources/only-video/man-on-green-screen.gif (5 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\auto-editor"
+ },
+ {
+  "name": "bethington__ghidra-mcp",
+  "title": "Ghidra MCP Server",
+  "what": "> If you find this useful, please ⭐ star the repo — it helps others discover it! > > If Ghidra MCP saves you time, consider [sponsoring the project](https://github.com/sponsors/bethington). One-time and recurring support both help fund compatibility updates, production hardening, docs, and new tooling.",
+  "commit": "5f6c416ffe97",
+  "files": 743,
+  "capped": false,
+  "mb": 10.5,
+  "license": "Apache-2.0",
+  "languages": [
+   "Java 55%",
+   "Python 24%",
+   "Markdown 16%",
+   "YAML 1%",
+   "JSON 1%"
+  ],
+  "main_language": "Java",
+  "entry": [
+   "python/bridge_mcp_ghidra/cli.py",
+   "python/bridge_mcp_ghidra/server.py",
+   "python/bridge_mcp_ghidra/__main__.py",
+   "tools/setup/cli.py",
+   "tools/setup/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "mcp"
+  ],
+  "agent_skills": [],
+  "install": [
+   "brew install openjdk@21 maven python ghidra",
+   "docker compose up -d --build",
+   "git clone https://github.com/bethington/ghidra-mcp.git",
+   "pip install -e .",
+   "uv tool install https://github.com/bethington/ghidra-mcp/releases/download/v7.0.0/ghidra_mcp_bridge-7.0.0-py3-"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "python/bridge_mcp_ghidra/debugger.py",
+    "python/bridge_mcp_ghidra/discovery.py",
+    "python/bridge_mcp_ghidra/transport.py",
+    "python/bridge_mcp_ghidra/validation.py",
+    "tests/conftest.py",
+    "tests/run_tests.py"
+   ],
+   "exec": [
+    "tests/conformance/mcp_client.py",
+    "tests/unit/test_benchmark_fixture.py",
+    "tests/unit/test_bridge_utils.py",
+    "tests/unit/test_build_reference_index.py",
+    "tests/unit/test_ci_workflow_triggers.py",
+    "tests/unit/test_facade.py"
+   ],
+   "secrets-read": [
+    "ghidra-mcp-setup.ps1",
+    "python/bridge_mcp_ghidra/cli.py",
+    "tests/unit/test_bridge_cli.py",
+    "tests/unit/test_ghidra_server_health_check.py",
+    "tests/unit/test_no_default_data_egress.py",
+    "tests/unit/test_upgrade_project_language.py"
+   ],
+   "delete": [
+    "ghidra-mcp-setup.ps1",
+    "tests/integration/test_decompile_tree.py",
+    "tools/build_reference_index.py",
+    "tools/setup/ghidra.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\bethington__ghidra-mcp"
+ },
+ {
+  "name": "blender-mcp",
+  "title": "Quickstart",
+  "what": "*formerly `blender-mcp` — the PyPI package is now [`mcp-for-blender`](https://pypi.org/project/mcp-for-blender/).* *Existing setups keep working; no config change is required. [Read more](https://github.com/ahujasid/mcp-for-blender/issues/366)*",
+  "commit": "2e4b0bc29469",
+  "files": 79,
+  "capped": false,
+  "mb": 2.4,
+  "license": "MIT",
+  "languages": [
+   "Python 93%",
+   "Markdown 4%",
+   "HTML 1%",
+   "Shell 0%",
+   "JSON 0%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "main.py",
+   "src/blender_mcp/server.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "httpx",
+   "mcp"
+  ],
+  "agent_skills": [],
+  "install": [
+   "brew install uv",
+   "git clone https://github.com/ahujasid/blender-mcp.git",
+   "winget install --id=astral-sh.uv -e"
+  ],
+  "has": {
+   "docker": true,
+   "tests": true,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "addon.py",
+    "src/blender_mcp/server.py",
+    "src/blender_mcp/telemetry.py",
+    "src/blender_mcp/trajectory.py",
+    "src/blender_mcp/update_cli.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "exec": [
+    "addon.py",
+    "src/blender_mcp/safe_mode.py",
+    "src/blender_mcp/setup_cli.py",
+    "src/blender_mcp/update_cli.py",
+    "src/blender_mcp/bundled/addon.py",
+    "tests/test_addon_autostart.py"
+   ],
+   "download-run": [
+    "install.sh"
+   ],
+   "secrets-read": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py",
+    "tests/test_hunyuan_api_profile.py",
+    "tests/test_image_input_security.py"
+   ],
+   "delete": [
+    "addon.py",
+    "src/blender_mcp/bundled/addon.py"
+   ],
+   "telemetry": [
+    "addon.py",
+    "src/blender_mcp/consent_prompt.py",
+    "src/blender_mcp/context_log.py",
+    "src/blender_mcp/premium_hint.py",
+    "src/blender_mcp/server.py",
+    "src/blender_mcp/telemetry.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\blender-mcp"
+ },
+ {
+  "name": "charlie947__motion-graphics-skills",
+  "title": "Install",
+  "what": "I make launch videos, animated charts and reels without After Effects or a video generator. Claude Code writes the animation as code, draws every frame and renders an MP4. These 15 skills are the workflows I use, with the rules that came out of real rejected drafts.",
+  "commit": "229022ebca76",
+  "files": 35,
+  "capped": false,
+  "mb": 12.9,
+  "license": "MIT",
+  "languages": [
+   "Markdown 94%",
+   "Shell 5%",
+   "JSON 0%"
+  ],
+  "main_language": "Shell",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/animated-chart/SKILL.md",
+   "skills/apple-launch-film/SKILL.md",
+   "skills/brand-intake/SKILL.md",
+   "skills/launch-video/SKILL.md",
+   "skills/loop-cover/SKILL.md",
+   "skills/milestone-reveal/SKILL.md",
+   "skills/model-showdown/SKILL.md",
+   "skills/motion-brief-writer/SKILL.md",
+   "skills/motion-effects/SKILL.md",
+   "skills/motion-prompt-writer/SKILL.md",
+   "skills/newsletter-promo/SKILL.md",
+   "skills/reel-export/SKILL.md",
+   "skills/reference-to-motion/SKILL.md",
+   "skills/title-sequence-3d/SKILL.md",
+   "skills/vox-explainer/SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/charlie947/motion-graphics-skills.git",
+   "npx skills add charlie947/motion-graphics-skills",
+   "npx skills add emilkowalski/skills --skill apple-design"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [
+   "assets/readme/demo-milestone.gif (7 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\charlie947__motion-graphics-skills"
+ },
+ {
+  "name": "clearbluejar__ghidriff",
+  "title": "Ghidriff - Ghidra Binary Diffing Engine",
+  "what": "`ghidriff` provides a command-line binary diffing capability with a fresh take on diffing workflow and results.",
+  "commit": "8e8329ff2c50",
+  "files": 117,
+  "capped": false,
+  "mb": 7.0,
+  "license": "GPL-3.0",
+  "languages": [
+   "Markdown 83%",
+   "Python 14%",
+   "YAML 0%",
+   "JavaScript 0%",
+   "CSS 0%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "ghidriff/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "docker run -it --rm -v $(pwd)/ghidriffs:/ghidriffs ghcr.io/clearbluejar/ghidriff:latest  ghidriffs/clfs.sys.x6",
+   "pip install ghidriff"
+  ],
+  "has": {
+   "docker": true,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "tests/test_diff.py",
+    "tests/test_simple_diff.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\clearbluejar__ghidriff"
+ },
+ {
+  "name": "cut-as-code",
+  "title": "How It Works",
+  "what": "**Cut-as-code** turns video editing into an inspectable, code-driven workflow you can drive with AI coding agents like Claude Code, Codex, and OpenClaw. The agent proposes and records editing decisions as readable files; you review them in browser pages and template galleries, approve the work, and then render the final videos — all free, open source (MIT), and with nothing uploaded to a cloud service.",
+  "commit": "a96c13e6eaa7",
+  "files": 6000,
+  "capped": true,
+  "mb": 233.0,
+  "license": "MIT",
+  "languages": [
+   "JavaScript 57%",
+   "JSON 27%",
+   "HTML 6%",
+   "CSS 3%",
+   "Python 3%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/cut-as-code/SKILL.md",
+   "skills/video-add-b-roll/SKILL.md",
+   "skills/video-add-captions/SKILL.md",
+   "skills/video-add-content-cards/SKILL.md",
+   "skills/video-add-motion-graphics/SKILL.md"
+  ],
+  "install": [
+   "npm install -g clawhub",
+   "npx skills add WhiteTowerAI/cut-as-code"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": true
+  },
+  "risk": {
+   "network": [
+    "runtime/tests/test_plugin_package.py",
+    "skills/video-add-b-roll/scripts/pexels.py",
+    "skills/video-add-motion-graphics/recipes/imported/circular-gallery/CircularGallery.jsx"
+   ],
+   "exec": [
+    "runtime/tests/test_desktop_launcher.py",
+    "runtime/tests/test_hub_projects.py",
+    "runtime/tests/test_plugin_package.py",
+    "runtime/tests/test_protocol_service.py",
+    "skills/video-add-b-roll/scripts/build_review_page.py",
+    "skills/video-add-b-roll/scripts/candidate_analysis.py"
+   ],
+   "secrets-read": [
+    "runtime/tests/test_plugin_package.py",
+    "skills/video-add-motion-graphics/recipes/codrops/KineticImages/hyperframes/source/_runtime/three/addons/loaders/GLTFLoader.js",
+    "skills/video-add-motion-graphics/recipes/codrops/KineticImages/_runtime/three/addons/loaders/GLTFLoader.js"
+   ],
+   "delete": [
+    "scripts/build_plugin_package.ps1",
+    "skills/video-add-b-roll/scripts/build_review_page.py",
+    "skills/video-add-b-roll/scripts/candidate_analysis.py",
+    "skills/video-add-b-roll/scripts/speaker_inset.py",
+    "skills/video-add-captions/scripts/build_caption_review.py",
+    "skills/video-add-captions/scripts/render_style_previews.ps1"
+   ],
+   "telemetry": [
+    "skills/video-add-motion-graphics/recipes/codrops/ColumnScroll/hyperframes/index/hf-recipe.js",
+    "skills/video-add-motion-graphics/recipes/codrops/RepeatingImageTransition/hyperframes/index/hf-adapter.js",
+    "skills/video-add-motion-graphics/recipes/codrops/RotatingOnScrollAnimations/hyperframes/index/hf-recipe.js",
+    "skills/video-add-motion-graphics/recipes/codrops/RotatingOnScrollAnimations/hyperframes/index2/hf-recipe.js",
+    "skills/video-add-motion-graphics/recipes/codrops/RotatingOnScrollAnimations/hyperframes/index4/hf-recipe.js",
+    "skills/video-add-motion-graphics/recipes/codrops/RotatingOnScrollAnimations/hyperframes/index5/hf-recipe.js"
+   ]
+  },
+  "big_files": [
+   "skills/video-add-motion-graphics/recipes/codrops/_review/hyperframes-verification/verification.json (7 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\cut-as-code"
+ },
+ {
+  "name": "Dakkshin__after-effects-mcp",
+  "title": "🎬 After Effects MCP Server",
+  "what": "✨ A Model Context Protocol (MCP) server for Adobe After Effects that enables AI assistants and other applications to control After Effects through a standardized protocol.",
+  "commit": "88d5fbf08b7a",
+  "files": 22,
+  "capped": false,
+  "mb": 0.3,
+  "license": "MIT",
+  "languages": [
+   "JavaScript 51%",
+   "JSON 31%",
+   "TypeScript 13%",
+   "Markdown 3%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [
+   "src/index.ts"
+  ],
+  "scripts": [
+   "build",
+   "start",
+   "install-bridge",
+   "postinstall"
+  ],
+  "bin": null,
+  "deps_js": [
+   "@modelcontextprotocol/sdk",
+   "@types/node",
+   "copyfiles",
+   "esbuild",
+   "node-fetch",
+   "typescript",
+   "zod"
+  ],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "git clone https://github.com/Dakkshin/after-effects-mcp.git",
+   "npm install"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": true
+  },
+  "risk": {
+   "exec": [
+    "install-bridge.js",
+    "src/index.ts",
+    "src/scripts/mcp-bridge-auto.jsx"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\Dakkshin__after-effects-mcp"
+ },
+ {
+  "name": "docsforadobe__Types-for-Adobe",
+  "title": "TypeScript types for Adobe Products",
+  "what": "Repository for typedef files for various Adobe Creative Cloud products.",
+  "commit": "5a69e41e5c5b",
+  "files": 119,
+  "capped": false,
+  "mb": 21.2,
+  "license": "MIT",
+  "languages": [
+   "TypeScript 99%",
+   "JSON 0%",
+   "Markdown 0%",
+   "Shell 0%",
+   "YAML 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [],
+  "scripts": [
+   "test"
+  ],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "npm i types-for-adobe"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "shared/global.d.ts",
+    "shared/JavaScript.d.ts"
+   ],
+   "telemetry": [
+    "Animate/13.0/index.d.ts",
+    "Animate/22.0/index.d.ts",
+    "Audition/2015.2/index.d.ts",
+    "Audition/2017/index.d.ts",
+    "Audition/2018/index.d.ts",
+    "Photoshop/2015.5/index.d.ts"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\docsforadobe__Types-for-Adobe"
+ },
+ {
+  "name": "ECCV2022-RIFE",
+  "title": "Real-Time Intermediate Flow Estimation for Video Frame Interpolation",
+  "what": "**2024.08 - We find that [4.22.lite](https://github.com/hzwer/Practical-RIFE/tree/main?tab=readme-ov-file#model-list) is quite suitable for post-processing of [some diffusion model generated videos](https://drive.google.com/drive/folders/1hSzUn10Era3JCaVz0Z5Eg4wT9R6eJ9U9?usp=sharing).**",
+  "commit": "5d8adbdd40e1",
+  "files": 45,
+  "capped": false,
+  "mb": 4.1,
+  "license": "MIT",
+  "languages": [
+   "Python 88%",
+   "Markdown 8%",
+   "Notebook 2%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "moviepy",
+   "numpy",
+   "opencv-python",
+   "sk-video",
+   "torch",
+   "torchvision",
+   "tqdm"
+  ],
+  "agent_skills": [],
+  "install": [
+   "docker run --rm -it --gpus all -v /dev/dri:/dev/dri -v $PWD:/host rife:latest inference_video --exp=1 --video=",
+   "docker run --rm -it -v $PWD:/host rife:latest inference_img --img img0.png img1.png --exp=4",
+   "docker run --rm -it -v $PWD:/host rife:latest inference_video --exp=1 --video=untitled.mp4 --output=untitled_r",
+   "git clone git@github.com:megvii-research/ECCV2022-RIFE.git"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "inference_img.py",
+    "inference_video.py",
+    "benchmark/ATD12K.py",
+    "benchmark/HD.py",
+    "benchmark/HD_multi_4X.py",
+    "benchmark/MiddleBury_Other.py"
+   ],
+   "delete": [
+    "inference_video.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\ECCV2022-RIFE"
+ },
+ {
+  "name": "EL4CTEO__blender-skills",
+  "title": "Install",
+  "what": "Professional Blender workflows packaged as **Agent Skills** for AI coding agents: Claude Code, Codex, OpenCode, Gemini CLI, GitHub Copilot and Cursor.",
+  "commit": "389f28addc79",
+  "files": 190,
+  "capped": false,
+  "mb": 6.7,
+  "license": "MIT",
+  "languages": [
+   "Python 69%",
+   "Markdown 27%",
+   "HTML 2%",
+   "PowerShell 0%",
+   "Shell 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/blender-addon-development/SKILL.md",
+   "skills/blender-animation/SKILL.md",
+   "skills/blender-asset-qa/SKILL.md",
+   "skills/blender-character-rigging/SKILL.md",
+   "skills/blender-clothing/SKILL.md",
+   "skills/blender-core/SKILL.md",
+   "skills/blender-environment-kits/SKILL.md",
+   "skills/blender-export-pipelines/SKILL.md",
+   "skills/blender-facial-shapekeys/SKILL.md",
+   "skills/blender-game-optimization/SKILL.md",
+   "skills/blender-geometry-nodes/SKILL.md",
+   "skills/blender-hair-grooming/SKILL.md",
+   "skills/blender-hardsurface-modeling/SKILL.md",
+   "skills/blender-lighting-lookdev/SKILL.md",
+   "skills/blender-pbr-materials/SKILL.md",
+   "skills/blender-pipeline-automation/SKILL.md",
+   "skills/blender-rendering/SKILL.md",
+   "skills/blender-retopology-uv/SKILL.md",
+   "skills/blender-scene-setup/SKILL.md",
+   "skills/blender-sculpting/SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/EL4CTEO/blender-skills"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "skills/blender-core/scripts/run_in_blender.py",
+    "tests/test_addon.py",
+    "tests/test_core.py",
+    "tests/test_video.py",
+    "tools/run_tests.py"
+   ],
+   "delete": [
+    "install/install.ps1",
+    "install/install.sh",
+    "tests/test_addon.py"
+   ],
+   "telemetry": [
+    "skills/blender-weather-fx/scripts/surface_weather.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\EL4CTEO__blender-skills"
+ },
+ {
+  "name": "elvarofficial__teardown",
+  "title": "teardown",
+  "what": "A Claude Code skill that turns any machine into a 3D simulator you can take apart.",
+  "commit": "a91262ac1109",
+  "files": 73,
+  "capped": false,
+  "mb": 15.6,
+  "license": "MIT",
+  "languages": [
+   "JavaScript 77%",
+   "Python 13%",
+   "JSON 4%",
+   "Markdown 3%",
+   "CSS 1%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [
+   "sfx/__main__.py"
+  ],
+  "scripts": [
+   "setup",
+   "build"
+  ],
+  "bin": null,
+  "deps_js": [
+   "@fontsource-variable/inter",
+   "@fontsource/jetbrains-mono",
+   "esbuild",
+   "playwright",
+   "three"
+  ],
+  "deps_py": [],
+  "agent_skills": [
+   "SKILL.md"
+  ],
+  "install": [
+   "npm install && npx playwright install chromium",
+   "npx skills add elvarofficial/teardown -g -a claude-code"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "sheet.mjs",
+    "wave.mjs",
+    "sfx/synth.py",
+    "sims/beats.py",
+    "sims/capture.mjs"
+   ],
+   "delete": [
+    "sheet.mjs",
+    "sims/build.mjs",
+    "sims/capture.mjs"
+   ]
+  },
+  "big_files": [
+   "docs/bee.gif (6 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\bd-teardown\\repo"
+ },
+ {
+  "name": "feitangyuan__onetake",
+  "title": "English",
+  "what": "> **Motion films that never cut to the next slide.** A Claude Agent Skill that makes product launch films, teasers and feature demos where every beat grows out of the one before — one continuous take, not a stack of scenes. > **一镜到底的连贯动效。** 做产品发布片、预告片、功能演示：每一个画面都从上一个画面里长出来，是一整条连续的镜头，而不是一张张轮流出场的\"PPT\"。",
+  "commit": "abb6d17279cd",
+  "files": 114,
+  "capped": false,
+  "mb": 118.6,
+  "license": "other",
+  "languages": [
+   "Markdown 44%",
+   "Python 28%",
+   "JavaScript 12%",
+   "HTML 12%",
+   "JSON 1%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/feitangyuan/onetake.git ~/.agents/skills/onetake",
+   "git clone https://github.com/feitangyuan/onetake.git ~/.claude/skills/onetake"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "scripts/analyze_ref.py",
+    "scripts/probe.py",
+    "scripts/record_footage.py",
+    "scripts/render.py",
+    "scripts/verify_promo.py",
+    "scripts/vo_tools.py"
+   ],
+   "delete": [
+    "scripts/analyze_ref.py",
+    "scripts/record_footage.py",
+    "scripts/render.py"
+   ]
+  },
+  "big_files": [
+   "assets/hero.gif (6 MB)",
+   "cases/clawd-desktop-19s/clawd.mp4 (11 MB)",
+   "cases/domino-25s/domino.mp4 (16 MB)",
+   "cases/infra-25s/infra.mp4 (13 MB)",
+   "cases/onetake-launch-30s/onetake-launch.mp4 (19 MB)",
+   "cases/overlap-15s/overlap.mp4 (8 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\feitangyuan__onetake"
+ },
+ {
+  "name": "fosdickio__binary_ninja_mcp",
+  "title": "Binary Ninja MCP",
+  "what": "This repository contains a Binary Ninja plugin, MCP server, and bridge that enables seamless integration of Binary Ninja's capabilities with your favorite LLM client.",
+  "commit": "8c5134ee46e2",
+  "files": 42,
+  "capped": false,
+  "mb": 27.1,
+  "license": "GPL-3.0",
+  "languages": [
+   "Python 58%",
+   "HTML 21%",
+   "JSON 9%",
+   "TypeScript 6%",
+   "Markdown 3%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "bridge/src/index.ts"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "npx -y binary-ninja-mcp"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "bridge/binja_mcp_bridge.py",
+    "bridge/src/client.ts"
+   ],
+   "exec": [
+    "plugin/core/binary_operations.py",
+    "plugin/utils/python_detection.py",
+    "scripts/setup_claude_desktop.py"
+   ]
+  },
+  "big_files": [
+   "images/mcp-demo-rename.gif (25 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\fosdickio__binary_ninja_mcp"
+ },
+ {
+  "name": "frida__frida-tools",
+  "title": "Frida CLI tools",
+  "what": "Currently there is no mechanism to install Fish completions through the setup.py script so if you want to have completions in Fish you will have to install it manually. Unless you've changed your XDG_CONFIG_HOME location, you should just copy the completion file into `~/.config/fish/completions` like so:",
+  "commit": "6bbae44a5df8",
+  "files": 116,
+  "capped": false,
+  "mb": 0.9,
+  "license": "other",
+  "languages": [
+   "Python 46%",
+   "JSON 34%",
+   "TypeScript 18%",
+   "CSS 0%",
+   "TOML 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "colorama",
+   "frida",
+   "prompt-toolkit",
+   "pygments",
+   "websockets"
+  ],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "apps/tracer/src/HandlerEditor.tsx",
+    "frida_tools/repl.py"
+   ],
+   "exec": [
+    "set_dist_version.py",
+    "agents/build.py",
+    "agents/repl/agent.ts",
+    "apps/build.py",
+    "bridges/build.py",
+    "frida_tools/application.py"
+   ],
+   "delete": [
+    "agents/fs/agent.ts"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\frida__frida-tools"
+ },
+ {
+  "name": "HKUDS__ViMax",
+  "title": "🚨 Current Video Generation Limitations:",
+  "what": "https://github.com/user-attachments/assets/5bad46b2-8276-4e1d-9480-3522640744b2",
+  "commit": "fd4b72e7731b",
+  "files": 188,
+  "capped": false,
+  "mb": 4.0,
+  "license": "MIT",
+  "languages": [
+   "Python 45%",
+   "JSON 37%",
+   "TypeScript 8%",
+   "CSS 3%",
+   "JavaScript 2%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "aiohttp",
+   "chardet",
+   "faiss-cpu",
+   "google-genai",
+   "langchain",
+   "langchain-community",
+   "langchain-openai",
+   "moviepy",
+   "openai",
+   "opencv-python",
+   "pillow",
+   "pyyaml",
+   "requests",
+   "scenedetect"
+  ],
+  "agent_skills": [],
+  "install": [
+   "git clone https://github.com/HKUDS/ViMax.git",
+   "npm install"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "tests/test_hang_guards.py",
+    "tests/test_omni_yunwu_video_generator.py",
+    "tests/test_robustness.py",
+    "tools/image_generator_doubao_seedream_yunwu_api.py",
+    "tools/image_generator_openrouter_api.py",
+    "tools/reranker_bge_silicon_api.py"
+   ],
+   "exec": [
+    "agent_runtime/tools.py",
+    "tests/test_hygiene_guards.py",
+    "ui/src/cli.tsx",
+    "web/server.mjs"
+   ],
+   "telemetry": [
+    "agent_runtime/tool_executor.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\HKUDS__ViMax"
+ },
+ {
+  "name": "howseen-ai__claude-motion-design",
+  "title": "claude-motion-design",
+  "what": "A Claude Code skill to make motion design videos **in pure code**: HTML + Playwright + ffmpeg. No After Effects, no Remotion license, no editing app.",
+  "commit": "3d90d349ef3f",
+  "files": 24,
+  "capped": false,
+  "mb": 4.3,
+  "license": "MIT",
+  "languages": [
+   "Markdown 34%",
+   "Python 31%",
+   "HTML 25%",
+   "JavaScript 8%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skill/motion-design/SKILL.md"
+  ],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "examples/howseen-launch/fetch_assets.py",
+    "skill/motion-design/scripts/mcp21_client.py",
+    "skill/motion-design/scripts/mixkit_sfx_search.py",
+    "skill/motion-design/scripts/svgl_logos.py"
+   ],
+   "exec": [
+    "examples/howseen-launch/audio.py",
+    "examples/howseen-launch/render.py",
+    "skill/motion-design/scripts/analyze_song.py",
+    "skill/motion-design/scripts/audio_template.py",
+    "skill/motion-design/scripts/render_template.py",
+    "skill/motion-design/scripts/remake/remake_analyze.py"
+   ],
+   "delete": [
+    "examples/howseen-launch/render.py",
+    "skill/motion-design/scripts/render_template.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\howseen-ai__claude-motion-design"
+ },
+ {
+  "name": "Huanshere__VideoLingo",
+  "title": "Connect the World, Frame by Frame",
+  "what": "VideoLingo combines speech recognition, subtitle translation, segmentation and dubbing in a Streamlit interface. It produces subtitle files and optionally subtitled or dubbed videos. Translation quality depends on the source audio, language and chosen models.",
+  "commit": "01f843492759",
+  "files": 191,
+  "capped": false,
+  "mb": 4.4,
+  "license": "Apache-2.0",
+  "languages": [
+   "Python 51%",
+   "Markdown 15%",
+   "YAML 12%",
+   "JSON 11%",
+   "Notebook 6%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "InquirerPy",
+   "PyYAML",
+   "autocorrect-py",
+   "edge-tts",
+   "fastapi",
+   "g2p-en",
+   "huggingface-hub",
+   "json-repair",
+   "librosa",
+   "mlx-audio",
+   "msgpack",
+   "nagisa",
+   "numba",
+   "numpy",
+   "openai",
+   "opencv-python",
+   "openpyxl",
+   "pandas",
+   "pydub",
+   "pypinyin",
+   "qwen-asr",
+   "requests",
+   "ruamel.yaml",
+   "silero-vad",
+   "soynlp"
+  ],
+  "agent_skills": [],
+  "install": [
+   "docker run -d -p 8501:8501 --gpus all videolingo",
+   "git clone https://github.com/Huanshere/VideoLingo.git && cd VideoLingo"
+  ],
+  "has": {
+   "docker": true,
+   "tests": true,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "launch.py",
+    "core/asr_backend/elevenlabs_asr.py",
+    "core/asr_backend/mai_asr.py",
+    "core/st_utils/sidebar_setting.py",
+    "core/tts_backend/fish_audio_tts.py",
+    "core/tts_backend/gpt_sovits_tts.py"
+   ],
+   "exec": [
+    "installer.py",
+    "launch.py",
+    "runtime_libraries.py",
+    "setup_env.py",
+    "start.py",
+    "core/_10_gen_audio.py"
+   ],
+   "download-run": [
+    "setup_env.py"
+   ],
+   "secrets-read": [
+    "core/_2_asr.py",
+    "core/asr_backend/mai_asr.py",
+    "core/asr_backend/transcription_cache.py",
+    "core/st_utils/tts_settings.py",
+    "tests/test_asr_runtime.py",
+    "tests/test_dependencies.py"
+   ],
+   "delete": [
+    "api.py",
+    "setup_env.py",
+    "core/st_utils/download_video_section.py",
+    "core/utils/delete_retry_dubbing.py",
+    "core/utils/onekeycleanup.py"
+   ],
+   "telemetry": [
+    "tests/test_audio_extract_quality.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\Huanshere__VideoLingo"
+ },
+ {
+  "name": "hyperframes",
+  "title": "Quick Start",
+  "what": "HyperFrames is a free, open-source framework for turning HTML, CSS, media, and seekable animations into deterministic MP4 videos. Use it locally with the CLI, from AI coding agents with skills, or as the rendering core behind hosted authoring workflows.",
+  "commit": "75fe18c621be",
+  "files": 6000,
+  "capped": true,
+  "mb": 817.0,
+  "license": "Apache-2.0",
+  "languages": [
+   "JSON 45%",
+   "HTML 32%",
+   "TypeScript 20%",
+   "JavaScript 0%",
+   "Markdown 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [],
+  "scripts": [
+   "dev",
+   "build",
+   "build:producer",
+   "studio",
+   "build:hyperframes-runtime",
+   "build:hyperframes-runtime:modular",
+   "verify:packed-manifests",
+   "validate:release-channel",
+   "set-version",
+   "release:prepare"
+  ],
+  "bin": null,
+  "deps_js": [
+   "@commitlint/cli",
+   "@commitlint/config-conventional",
+   "@hyperframes/player",
+   "@types/node",
+   "esbuild",
+   "fallow",
+   "happy-dom",
+   "knip",
+   "lefthook",
+   "oxfmt",
+   "oxlint",
+   "picomatch",
+   "tsx",
+   "typescript",
+   "vitest",
+   "yaml"
+  ],
+  "deps_py": [],
+  "agent_skills": [
+   ".agents/skills/captions-overlay/SKILL.md",
+   ".agents/skills/changelog-video/SKILL.md",
+   ".agents/skills/cut-the-curve/SKILL.md",
+   ".agents/skills/motion-doctrine/SKILL.md",
+   ".agents/skills/oversized-cursor/SKILL.md",
+   ".agents/skills/seam-craft/SKILL.md",
+   ".claude/skills/captions-overlay/SKILL.md",
+   ".claude/skills/changelog-video/SKILL.md",
+   ".claude/skills/cut-the-curve/SKILL.md",
+   ".claude/skills/motion-doctrine/SKILL.md",
+   ".claude/skills/oversized-cursor/SKILL.md",
+   ".claude/skills/seam-craft/SKILL.md"
+  ],
+  "install": [
+   "brew install git-lfs",
+   "npx hyperframes add data-chart            # animated chart",
+   "npx hyperframes add flash-through-white   # shader transition",
+   "npx hyperframes add instagram-follow      # social overlay",
+   "npx hyperframes init my-video",
+   "npx hyperframes preview      # preview in browser with live reload",
+   "npx hyperframes render       # render to MP4",
+   "npx skills add heygen-com/hyperframes"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    ".agents/skills/motion-doctrine/scripts/seam-gate.mjs",
+    ".claude/skills/motion-doctrine/scripts/seam-gate.mjs",
+    "docs/snippets/catalog-detail.jsx",
+    "packages/aws-lambda/image/fetch.sh",
+    "packages/aws-lambda/scripts/stage-arm64-image.ts",
+    "packages/cli/scripts/sync-agent-dirs.ts"
+   ],
+   "exec": [
+    ".agents/skills/motion-doctrine/scripts/seam-gate.mjs",
+    ".claude/skills/motion-doctrine/scripts/seam-gate.mjs",
+    ".github/scripts/windows-window-probe.ps1",
+    "packages/aws-lambda/build.mjs",
+    "packages/aws-lambda/image/fetch.test.ts",
+    "packages/aws-lambda/image/smoke-video.mjs"
+   ],
+   "secrets-read": [
+    "examples/aws-lambda/scripts/aws-isolation.test.sh",
+    "examples/aws-lambda/scripts/check-sam-deploy.sh",
+    "examples/aws-lambda/scripts/eval.sh",
+    "examples/aws-lambda/scripts/smoke.sh",
+    "packages/aws-lambda/src/handler.test.ts",
+    "packages/aws-lambda/src/s3Transport.test.ts"
+   ],
+   "delete": [
+    "examples/aws-lambda/scripts/aws-isolation.test.sh",
+    "examples/aws-lambda/scripts/check-sam-deploy.sh",
+    "examples/aws-lambda/scripts/eval.sh",
+    "examples/aws-lambda/scripts/s3-purge.test.sh",
+    "examples/aws-lambda/scripts/smoke.sh",
+    "examples/aws-lambda/scripts/_s3-purge.sh"
+   ],
+   "telemetry": [
+    "docs/download-attribution.js",
+    "packages/cli/vitest.config.ts",
+    "packages/cli/scripts/bench-startup.mjs",
+    "packages/cli/src/cli.agentMode.test.ts",
+    "packages/cli/src/cli.dotEnv.test.ts",
+    "packages/cli/src/cli.lifecycle.test.ts"
+   ]
+  },
+  "big_files": [
+   ".agents/skills/changelog-video/assets/bg-pattern.mp4 (13 MB)",
+   ".agents/skills/changelog-video/assets/bgm.mp3 (5 MB)",
+   ".claude/skills/changelog-video/assets/bg-pattern.mp4 (13 MB)",
+   ".claude/skills/changelog-video/assets/bgm.mp3 (5 MB)",
+   "packages/producer/tests/dogs-captions/output/output.mp4 (101 MB)",
+   "packages/producer/tests/hdr-hlg-audio-windows/output/output.mp4 (8 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\hyperframes"
+ },
+ {
+  "name": "iart-ai__motion-design-skills",
+  "title": "Motion Design Skills",
+  "what": "> Motion design fundamentals, engines, and brand elements as installable skills for AI coding agents — timing, typography, color, composition, After Effects, Remotion, logos, and backgrounds.",
+  "commit": "3c129f769d90",
+  "files": 47,
+  "capped": false,
+  "mb": 4.4,
+  "license": "MIT",
+  "languages": [
+   "Markdown 87%",
+   "HTML 8%",
+   "JavaScript 1%",
+   "Shell 1%",
+   "JSON 0%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/after-effects/SKILL.md",
+   "skills/animation-principles/SKILL.md",
+   "skills/beat-sync-editing/SKILL.md",
+   "skills/color-motion/SKILL.md",
+   "skills/logo-animation/SKILL.md",
+   "skills/motion-art-direction/SKILL.md",
+   "skills/motion-background/SKILL.md",
+   "skills/remotion-video/SKILL.md",
+   "skills/shot-composition/SKILL.md"
+  ],
+  "install": [
+   "npx skills add iart-ai/ad-video-skills",
+   "npx skills add iart-ai/data-animation-skills",
+   "npx skills add iart-ai/ecommerce-video-skills",
+   "npx skills add iart-ai/explainer-video-skills",
+   "npx skills add iart-ai/freelance-motion-skills",
+   "npx skills add iart-ai/kinetic-typography-skills",
+   "npx skills add iart-ai/manim-skills",
+   "npx skills add iart-ai/map-animation-skills"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\iart-ai__motion-design-skills"
+ },
+ {
+  "name": "JuneYaooo__rea-video",
+  "title": "rea-video",
+  "what": "Talking-head, tabletop, AI video, 3D, motion graphics, mixed edits: give it any of them,<br> and it tells you shot by shot how the visuals, styled text, editing and audio were made, then gives you a plan to make one yourself.",
+  "commit": "b32fbbdb074a",
+  "files": 406,
+  "capped": false,
+  "mb": 88.3,
+  "license": "Apache-2.0",
+  "languages": [
+   "Markdown 69%",
+   "Python 26%",
+   "YAML 3%",
+   "JSON 1%",
+   "Shell 0%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "rea_video/cli.py",
+   "rea_video/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "Pillow",
+   "PyYAML",
+   "numpy",
+   "onnxruntime",
+   "opencv-python-headless"
+  ],
+  "agent_skills": [
+   "skills/rea-video/SKILL.md"
+  ],
+  "install": [
+   "brew install ffmpeg            # or: sudo apt install ffmpeg",
+   "git clone https://github.com/JuneYaooo/rea-video && cd rea-video"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": false,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "rea_video/faces.py",
+    "rea_video/overlay.py",
+    "rea_video/stems.py",
+    "rea_video/vlm.py",
+    "tests/test_ocr_lang.py",
+    "tests/test_robustness.py"
+   ],
+   "exec": [
+    "rea_video/cli.py",
+    "rea_video/media.py",
+    "rea_video/remake.py",
+    "rea_video/stems.py",
+    "tests/conftest.py",
+    "tests/test_audio.py"
+   ],
+   "secrets-read": [
+    "rea_video/probe.py"
+   ]
+  },
+  "big_files": [
+   "docs/cases/demo.gif (5 MB)",
+   "docs/cases/remake/juicer.gif (7 MB)",
+   "docs/cases/remake/paper.gif (7 MB)",
+   "docs/cases/videos/ai_daihuo.mp4 (5 MB)",
+   "docs/cases/videos/qing_mv.mp4 (8 MB)",
+   "docs/cases/videos/unboxing.mp4 (7 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\JuneYaooo__rea-video"
+ },
+ {
+  "name": "kajisho5__ffmpeg-skill",
+  "title": "Standalone, and in an ecosystem",
+  "what": "Left half is the input, right half is what the command produced. **[Every before/after demo, with the exact command under each one →](docs/demos.md)** — all of it generated from synthetic footage by `python3 demos/build.py`, so you can rebuild every frame of it yourself.",
+  "commit": "6e42a7924790",
+  "files": 380,
+  "capped": false,
+  "mb": 27.9,
+  "license": "MIT",
+  "languages": [
+   "Python 62%",
+   "Markdown 22%",
+   "JSON 13%",
+   "HTML 0%",
+   "YAML 0%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "mcp/server.py"
+  ],
+  "scripts": [
+   "test",
+   "test:fast",
+   "release-check",
+   "demo",
+   "demo:pipeline",
+   "contract",
+   "doctor"
+  ],
+  "bin": {
+   "ffmpeg-skill": "bin/install.js"
+  },
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "SKILL.md",
+   ".claude/skills/build-artifacts/SKILL.md",
+   ".claude/skills/ci-pipeline-synthesizer/SKILL.md",
+   ".claude/skills/code-review/SKILL.md",
+   ".claude/skills/concurrent-branches/SKILL.md",
+   ".claude/skills/cross-surface-changes/SKILL.md",
+   ".claude/skills/defect-reports/SKILL.md",
+   ".claude/skills/destructive-operations/SKILL.md",
+   ".claude/skills/git-hygiene/SKILL.md",
+   ".claude/skills/github-actions/SKILL.md",
+   ".claude/skills/mcp-server-design/SKILL.md",
+   ".claude/skills/release-management/SKILL.md",
+   ".claude/skills/reproducing-ci-locally/SKILL.md",
+   ".claude/skills/verifying-external-behavior/SKILL.md"
+  ],
+  "install": [
+   "npx ffmpeg-skill",
+   "npx ffmpeg-skill              # Claude Code   → ~/.claude/skills/ffmpeg-skill",
+   "npx ffmpeg-skill --all        # all three",
+   "npx ffmpeg-skill --codex      # Codex         → ~/.agents/skills/ffmpeg-skill (Cursor reads this location too)",
+   "npx ffmpeg-skill --cursor     # Cursor        → ~/.cursor/skills/ffmpeg-skill",
+   "npx ffmpeg-skill --dir ./my-skills",
+   "npx ffmpeg-skill --project    # this project  → ./.claude/skills/ffmpeg-skill",
+   "npx ffmpeg-skill --uninstall  # remove from the selected targets (--codex also clears the older ~/.codex/skill"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "tests/corpus.py",
+    "tests/test_picture.py"
+   ],
+   "exec": [
+    ".github/scripts/resolve_version.py",
+    "bin/install.js",
+    "demos/build.py",
+    "demos/pages_videos.py",
+    "evals/grade_runs_24.py",
+    "evals/write_fixtures.py"
+   ],
+   "delete": [
+    ".github/scripts/build_pages.py",
+    "bin/install.js",
+    "scripts/batch.py",
+    "scripts/render.py",
+    "scripts/_common/asr.py",
+    "scripts/_common/runner.py"
+   ],
+   "telemetry": [
+    "demos/build.py",
+    "scripts/audio.py",
+    "scripts/waveform.py",
+    "tests/test_picture.py",
+    "tests/_fixtures.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\kajisho5__ffmpeg-skill"
+ },
+ {
+  "name": "kumoproductions__mcp-aftereffects",
+  "title": "mcp-aftereffects",
+  "what": "An MCP server that enables AI to control Adobe After Effects.",
+  "commit": "73fea51220c9",
+  "files": 154,
+  "capped": false,
+  "mb": 1.6,
+  "license": "MIT",
+  "languages": [
+   "TypeScript 73%",
+   "JavaScript 10%",
+   "JSON 8%",
+   "Markdown 6%",
+   "YAML 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [
+   "src/index.ts",
+   "src/operations/index.ts",
+   "src/tools/index.ts"
+  ],
+  "scripts": [
+   "build",
+   "start",
+   "dev",
+   "clean",
+   "test",
+   "test:watch",
+   "typecheck",
+   "typecheck:test",
+   "lint",
+   "lint:fix"
+  ],
+  "bin": {
+   "mcp-aftereffects": "dist/index.js"
+  },
+  "deps_js": [
+   "@modelcontextprotocol/sdk",
+   "@types/node",
+   "lefthook",
+   "oxfmt",
+   "oxlint",
+   "rimraf",
+   "typescript",
+   "vitest",
+   "zod"
+  ],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "npx @kumoproductions/mcp-aftereffects install-agent"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "jsx/json2.jsx",
+    "scripts/generate-tools-doc.mjs",
+    "src/operations/instance.ts",
+    "src/transport/dialogs.ts",
+    "src/transport/FileIpcTransport.ts",
+    "tests/harness.ts"
+   ],
+   "delete": [
+    "src/operations/instance.ts",
+    "src/transport/FileIpcTransport.ts",
+    "src/transport/instances.ts",
+    "tests/dialogs.test.ts",
+    "tests/instance-ops.test.ts",
+    "tests/transport-pull.test.ts"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\kumoproductions__mcp-aftereffects"
+ },
+ {
+  "name": "LaurieWired__GhidraMCP",
+  "title": "ghidraMCP",
+  "what": "https://github.com/user-attachments/assets/36080514-f227-44bd-af84-78e29ee1d7f9",
+  "commit": "1e980252087b",
+  "files": 41,
+  "capped": false,
+  "mb": 0.7,
+  "license": "Apache-2.0",
+  "languages": [
+   "Java 48%",
+   "Python 43%",
+   "Markdown 4%",
+   "YAML 1%",
+   "C 1%"
+  ],
+  "main_language": "Java",
+  "entry": [
+   "src/ghidra_mcp/cli.py",
+   "src/ghidra_mcp/server.py",
+   "src/ghidra_mcp/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "mcp",
+   "requests"
+  ],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "tests/test_headless_integration.py"
+   ],
+   "delete": [
+    "src/ghidra_mcp/headless.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\LaurieWired__GhidraMCP"
+ },
+ {
+  "name": "leandromoreira__digital_video_introduction",
+  "title": "Intro",
+  "what": "A gentle introduction to video technology, although it's aimed at software developers / engineers, we want to make it easy **for anyone to learn**. This idea was born during a [mini workshop for newcomers to video technology](https://docs.google.com/presentation/d/17Z31kEkl_NGJ0M66reqr9_uTG6tI5EDDVXpdPKVuIrs/edit#slide=id.p).",
+  "commit": "0698413adb9a",
+  "files": 125,
+  "capped": false,
+  "mb": 14.9,
+  "license": "BSD",
+  "languages": [
+   "Notebook 82%",
+   "Markdown 17%",
+   "Shell 0%"
+  ],
+  "main_language": "Notebook",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "git clone https://github.com/leandromoreira/digital_video_introduction.git"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\leandromoreira__digital_video_introduction"
+ },
+ {
+  "name": "lemomo-ai__lemo-opuscar",
+  "title": "Lemo-Opuscar",
+  "what": "**A toolbox of film styles made in code: <!--n-->66<!--/n--> ready to use, and your own.**<br> Pick a style or make one from scratch, bring your story, and let your coding agent direct.<br> <sub><!--n-->66<!--/n--> 种影片风格，每种都配一支完全用代码做出来的短片 · 🇨🇳 中文用户请看 <a href=\"README.zh-CN.md\">简体中文说明</a></sub>",
+  "commit": "5c05490cc55d",
+  "files": 2481,
+  "capped": false,
+  "mb": 108.0,
+  "license": "MIT",
+  "languages": [
+   "JSON 31%",
+   "JavaScript 31%",
+   "Markdown 11%",
+   "Python 11%",
+   "HTML 7%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [
+   "playwright-core",
+   "three"
+  ],
+  "deps_py": [
+   "fonttools",
+   "numpy",
+   "pillow",
+   "scipy",
+   "soundfile",
+   "soxr"
+  ],
+  "agent_skills": [
+   "plugin/skills/lemo-opuscar/SKILL.md",
+   "tools/directory/SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/lemomo-ai/lemo-opuscar.git"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "styles/archive-lighttable/demo/film.js",
+    "styles/archive-lighttable/demo/tools/fonts.py",
+    "styles/archive-lighttable/demo/tools/sru.py",
+    "styles/art-deco/demo/film.js",
+    "styles/ascii-crt/demo/main.js",
+    "styles/backrooms/demo/main.js"
+   ],
+   "exec": [
+    "core/render/page.mjs",
+    "core/render/slot.mjs",
+    "core/render/video.mjs",
+    "core/tts/tts_zh.py",
+    "styleboard/build.py",
+    "styles/briefing-board/demo/tools/final_asr.py"
+   ],
+   "secrets-read": [
+    "tools/directory.py"
+   ],
+   "delete": [
+    "core/render/slot.mjs",
+    "core/render/video.mjs",
+    "plugin/skills/lemo-opuscar/scripts/setup.sh",
+    "styles/cel-anime-80s/demo/build.sh",
+    "styles/circuit-board/demo/tools/sheet.sh",
+    "styles/countdown/demo/tools/prep.sh"
+   ],
+   "telemetry": [
+    "styles/blueprint/demo/mix.py",
+    "styles/circuit-board/demo/audio.py",
+    "styles/desktop-flythrough/demo/audio/foley.py",
+    "styles/desktop-flythrough/demo/src/camera.js",
+    "styles/ink-wash/demo/music/score.py",
+    "styles/lidar-survey/demo/mix.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\lemomo-ai__lemo-opuscar"
+ },
+ {
+  "name": "Leonxlnx__taste-skill",
+  "title": "Install",
+  "what": "**Taste Skill** (`tasteskill 2.5.1`) is an Agent Skill that makes coding agents build professional company websites at the `figma.com` and `x.ai` level instead of assembling a generic landing page. Every build uses plain copy, one design system, one section per screen, equal left and right edges, real photographs (licensed stand-ins when the client has none), real brand icons and real product UI, a hero entrance and ",
+  "commit": "f6b76575f949",
+  "files": 1663,
+  "capped": false,
+  "mb": 37.4,
+  "license": "MIT",
+  "languages": [
+   "JavaScript 44%",
+   "HTML 20%",
+   "JSON 19%",
+   "CSS 8%",
+   "Markdown 8%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/taste-skill/SKILL.md"
+  ],
+  "install": [
+   "npx skills add https://github.com/Leonxlnx/taste-skill --skill \"design-taste-frontend\"",
+   "npx skills add https://github.com/Leonxlnx/taste-skill-classics --skill \"high-end-visual-design\""
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "skills/taste-skill/assets/system.js",
+    "skills/taste-skill/assets/backgrounds/check.mjs",
+    "skills/taste-skill/assets/components/fx-map/bake.mjs",
+    "skills/taste-skill/assets/components/fx-map/component.js",
+    "skills/taste-skill/assets/diagrams/diagram.js",
+    "skills/taste-skill/assets/effects/pick.js"
+   ],
+   "exec": [
+    "skills/taste-skill/assets/backgrounds/check.mjs",
+    "skills/taste-skill/assets/diagrams/diagram.js",
+    "skills/taste-skill/assets/effects/grid-pulse/effect.js",
+    "skills/taste-skill/assets/layout/check.mjs",
+    "skills/taste-skill/assets/objects/product-render/make-posters.mjs",
+    "skills/taste-skill/assets/scenes/fly-into-the-shape/scene.js"
+   ],
+   "delete": [
+    "install.sh",
+    "skills/taste-skill/assets/backgrounds/check.mjs",
+    "skills/taste-skill/assets/layout/check.mjs",
+    "skills/taste-skill/assets/objects/product-render/make-posters.mjs",
+    "skills/taste-skill/assets/scenes/_demo/shoot.mjs",
+    "skills/taste-skill/scripts/effects.mjs"
+   ],
+   "telemetry": [
+    "skills/taste-skill/assets/components/fx-map/component.js",
+    "skills/taste-skill/assets/effects/dot-terrain/effect.js",
+    "skills/taste-skill/assets/objects/split-reveal/object.js"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\Leonxlnx__taste-skill"
+ },
+ {
+  "name": "LobzyJay__motion-design-with-claude-and-codex",
+  "title": "motion-design-with-claude-&-Gpt",
+  "what": "Agent skills for motion designers working in Blender and After Effects. Built for Claude Code, and they run the same way under GPT-6 Astra in Codex.",
+  "commit": "a4d48c55ccb5",
+  "files": 79,
+  "capped": false,
+  "mb": 4.7,
+  "license": "MIT",
+  "languages": [
+   "Markdown 65%",
+   "YAML 24%",
+   "HTML 8%",
+   "JavaScript 1%",
+   "JSON 0%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/aftereffects-motion/SKILL.md",
+   "skills/blender-motion/SKILL.md",
+   "skills/motion-design/SKILL.md",
+   "skills/motion-design-critique/SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/LobzyJay/motion-design-with-claude.git",
+   "git clone https://github.com/TheLlamainator/after-effects-mcp.git",
+   "npm install"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "skill-tester/server.js"
+   ],
+   "exec": [
+    "skill-tester/server.js"
+   ],
+   "secrets-read": [
+    "skill-tester/server.js"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\LobzyJay__motion-design-with-claude-and-codex"
+ },
+ {
+  "name": "loonghao__photoshop-python-api-mcp-server",
+  "title": "Photoshop MCP Server",
+  "what": "> **⚠️ WINDOWS ONLY**: This server only works on Windows operating systems due to its dependency on Windows-specific COM interfaces.",
+  "commit": "058c11ee6954",
+  "files": 56,
+  "capped": false,
+  "mb": 1.5,
+  "license": "MIT",
+  "languages": [
+   "Python 74%",
+   "YAML 13%",
+   "Markdown 9%",
+   "TOML 1%",
+   "JSON 0%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "photoshop_mcp_server/app.py",
+   "photoshop_mcp_server/server.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "pip install photoshop-mcp-server"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "tests/unit/test_stdio_log_pollution.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\loonghao__photoshop-python-api-mcp-server"
+ },
+ {
+  "name": "lossless-cut",
+  "title": "Table of contents",
+  "what": "LosslessCut aims to be the ultimate cross platform FFmpeg GUI for extremely fast and lossless operations on video, audio, subtitle and other related media files. The main feature is lossless trimming and cutting of video and audio files, which is great for saving space by rough-cutting your large video files taken from a video camera, GoPro, drone, etc. It lets you quickly extract the good parts from your videos and ",
+  "commit": "4c7ab1cb0c9a",
+  "files": 388,
+  "capped": false,
+  "mb": 10.2,
+  "license": "GPL-2.0",
+  "languages": [
+   "JSON 64%",
+   "TypeScript 30%",
+   "Markdown 3%",
+   "CSS 0%",
+   "YAML 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [
+   "src/main/index.ts",
+   "src/preload/index.ts"
+  ],
+  "scripts": [
+   "clean",
+   "start",
+   "dev",
+   "download-ffmpeg-darwin-x64",
+   "download-ffmpeg-darwin-arm64",
+   "download-ffmpeg-linux-x64",
+   "download-ffmpeg-linux-arm64",
+   "download-ffmpeg-win32-x64",
+   "download-ffmpeg-win32-arm64",
+   "build"
+  ],
+  "bin": null,
+  "deps_js": [
+   "@actions/artifact",
+   "@adamscybot/react-leaflet-component-marker",
+   "@dnd-kit/core",
+   "@dnd-kit/modifiers",
+   "@dnd-kit/sortable",
+   "@electron/remote",
+   "@fontsource/open-sans",
+   "@mifi/lint-config",
+   "@radix-ui/colors",
+   "@radix-ui/react-alert-dialog",
+   "@radix-ui/react-checkbox",
+   "@radix-ui/react-dialog",
+   "@radix-ui/react-dropdown-menu",
+   "@radix-ui/react-switch",
+   "@radix-ui/themes",
+   "@tanstack/react-virtual",
+   "@tsconfig/node22",
+   "@tsconfig/strictest",
+   "@tsconfig/vite-react",
+   "@types/canvas-confetti",
+   "@types/color",
+   "@types/css-modules",
+   "@types/express",
+   "@types/leaflet",
+   "@types/lodash"
+  ],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "script/checkReleaseAssets.ts",
+    "script/downloadFfmpeg.ts",
+    "script/featureMedia.ts",
+    "script/storeRelease.ts",
+    "src/main/updateChecker.ts",
+    "website/src/githubStars.ts"
+   ],
+   "exec": [
+    "src/main/ffmpeg.ts",
+    "src/main/progress.ts",
+    "src/renderer/src/edlFormats.ts",
+    "src/renderer/src/ffmpeg.ts",
+    "src/renderer/src/dialogs/index.tsx",
+    "src/renderer/src/hooks/useFrameCapture.ts"
+   ],
+   "secrets-read": [
+    "script/storeRelease.ts",
+    "website/src/githubStars.ts",
+    "website/src/latestRelease.ts"
+   ],
+   "telemetry": [
+    "src/renderer/src/ffmpegParameters.ts",
+    "src/renderer/src/components/Settings.tsx"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\lossless-cut"
+ },
+ {
+  "name": "majidmanzarpour__blender-game-skills",
+  "title": "Blender Game Skills",
+  "what": "The repository is set up to hold several skills. Each one lives in its own folder under [`skills/`](skills/) and installs on its own, so more Blender skills can be added here over time.",
+  "commit": "f0ef29385a03",
+  "files": 18,
+  "capped": false,
+  "mb": 0.2,
+  "license": "MIT",
+  "languages": [
+   "Python 55%",
+   "Markdown 42%",
+   "JSON 1%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/blender-image-to-3d/SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/majidmanzarpour/blender-game-skills.git",
+   "npx skills add majidmanzarpour/blender-game-skills --list",
+   "npx skills add majidmanzarpour/blender-game-skills --skill '*' -g -a claude-code",
+   "npx skills add majidmanzarpour/blender-game-skills --skill blender-image-to-3d -a claude-code",
+   "npx skills add majidmanzarpour/blender-game-skills --skill blender-image-to-3d -g -a claude-code",
+   "npx skills remove blender-image-to-3d",
+   "npx skills update blender-image-to-3d"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\majidmanzarpour__blender-game-skills"
+ },
+ {
+  "name": "mandiant__capa",
+  "title": "example capa output",
+  "what": "capa detects capabilities in executable files. You run it against a PE, ELF, .NET module, shellcode file, or a sandbox report and it tells you what it thinks the program can do. For example, it might suggest that the file is a backdoor, is capable of installing services, or relies on HTTP to communicate.",
+  "commit": "0735bf77c153",
+  "files": 370,
+  "capped": false,
+  "mb": 26.1,
+  "license": "Apache-2.0",
+  "languages": [
+   "Python 72%",
+   "CSS 8%",
+   "JSON 6%",
+   "JavaScript 5%",
+   "Markdown 4%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "capa/main.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "annotated-types",
+   "bump-my-version",
+   "colorama",
+   "cxxfilt",
+   "dncil",
+   "dnfile",
+   "funcy",
+   "humanize",
+   "ida-netnode",
+   "ida-settings",
+   "intervaltree",
+   "ll",
+   "markdown-it-py",
+   "mdurl",
+   "msgpack",
+   "msgspec",
+   "networkx",
+   "pefile",
+   "pip",
+   "protobuf",
+   "pyahocorasick",
+   "pyasn1",
+   "pyasn1-modules",
+   "pycparser",
+   "pydantic"
+  ],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "capa/features/com/classes.py",
+    "scripts/setup-linter-dependencies.py",
+    "web/explorer/src/composables/useRdocLoader.js"
+   ],
+   "exec": [
+    "capa/features/extractors/binja/find_binja_api.py",
+    "capa/features/freeze/__init__.py",
+    "scripts/compare-backends.py",
+    "scripts/profile-time.py",
+    "tests/test_scripts.py",
+    "web/rules/public/js/jquery-3.5.1.slim.min.js"
+   ]
+  },
+  "big_files": [
+   "sigs/2_flare_msvc_atlmfc_32_64.sig (8 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\mandiant__capa"
+ },
+ {
+  "name": "mandiant__capa-rules",
+  "title": "capa rules",
+  "what": "This is the standard collection of rules for [capa](https://github.com/mandiant/capa) - the tool to automatically identify capabilities of programs.",
+  "commit": "ffd03fc584e8",
+  "files": 1071,
+  "capped": false,
+  "mb": 1.0,
+  "license": "Apache-2.0",
+  "languages": [
+   "YAML 92%",
+   "Markdown 6%",
+   "Python 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    ".github/scripts/create_releases.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\mandiant__capa-rules"
+ },
+ {
+  "name": "mandiant__flare-floss",
+  "title": "FLARE Obfuscated String Solver",
+  "what": "The FLARE Obfuscated String Solver (FLOSS, formerly FireEye Labs Obfuscated String Solver) uses advanced static analysis techniques to automatically extract and deobfuscate all strings from malware binaries. You can use it just like `strings.exe` to enhance the basic static analysis of unknown binaries.",
+  "commit": "3f21c8a28f81",
+  "files": 276,
+  "capped": false,
+  "mb": 1.6,
+  "license": "Apache-2.0",
+  "languages": [
+   "Python 66%",
+   "JSON 18%",
+   "Markdown 5%",
+   "TypeScript 4%",
+   "HTML 1%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "floss/cli.py",
+   "floss/main.py",
+   "floss/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "annotated-types",
+   "binary2strings",
+   "black",
+   "cfgv",
+   "click",
+   "colorama",
+   "coverage",
+   "cxxfilt",
+   "distlib",
+   "dncil",
+   "dnfile",
+   "filelock",
+   "funcy",
+   "google-re2",
+   "halo",
+   "identify",
+   "iniconfig",
+   "intervaltree",
+   "isort",
+   "ll",
+   "log-symbols",
+   "markdown-it-py",
+   "mdurl",
+   "msgpack",
+   "msgspec"
+  ],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "floss/language/rust/extract_rust_hashes.py",
+    "scripts/tags/fetch_vt_hashes.py",
+    "viewer/src/App.tsx"
+   ],
+   "exec": [
+    "floss/language/rust/extract_rust_hashes.py",
+    "scripts/analysis/bulk_analyze.py",
+    "scripts/tags/build_oss_db.py",
+    "tests/test_disassembler_scripts.py",
+    "viewer/scripts/generate-version.mjs"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\mandiant__flare-floss"
+ },
+ {
+  "name": "MastroMimmo__claude-photoshop-skill",
+  "title": "Claude Code Photoshop Skill",
+  "what": "A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that lets you control **Adobe Photoshop** directly from your terminal using natural language.",
+  "commit": "9311bb1b42f5",
+  "files": 5,
+  "capped": false,
+  "mb": 0.0,
+  "license": "MIT",
+  "languages": [
+   "Markdown 100%"
+  ],
+  "main_language": "Markdown",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "-",
+  "scanned_from": "~\\dragon-repos\\creative\\MastroMimmo__claude-photoshop-skill"
+ },
+ {
+  "name": "mcp-video",
+  "title": "Table of contents",
+  "what": "> Kinocut is a free, open-source **video editing MCP server** and **AI agent** workflow engine (plus Python client and `kino` CLI) that lets AI agents trim, caption, repurpose, and quality-gate local video media with typed tools and Video Receipts — not invented FFmpeg flags.",
+  "commit": "22c3eebff48e",
+  "files": 2030,
+  "capped": false,
+  "mb": 24.0,
+  "license": "Apache-2.0",
+  "languages": [
+   "Python 67%",
+   "Markdown 16%",
+   "JSON 14%",
+   "YAML 0%",
+   "JavaScript 0%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "kinocut/server.py",
+   "kinocut/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "PyJWT",
+   "anyio",
+   "click",
+   "cryptography",
+   "mcp",
+   "pydantic",
+   "pydantic-settings",
+   "python-multipart",
+   "rich",
+   "starlette"
+  ],
+  "agent_skills": [
+   "plugins/kinocut/skills/kinocut/SKILL.md",
+   "plugins/kinocut/skills/kinocut-repurpose/SKILL.md",
+   "skills/kinocut/SKILL.md",
+   "skills/kinocut-repurpose/SKILL.md",
+   "skills/mcp-video/SKILL.md"
+  ],
+  "install": [
+   "brew install ffmpeg",
+   "brew install ffmpeg   # or apt install ffmpeg",
+   "git clone https://github.com/KyaniteLabs/kinocut.git",
+   "pip install --force-reinstall --no-deps 'kinocut==1.16.5'",
+   "pip install --upgrade 'mcp-video==1.6.20'",
+   "pip install -e \".[dev]\"",
+   "pip install -e .          # or: pip install kinocut",
+   "pip install kinocut"
+  ],
+  "has": {
+   "docker": true,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "kinocut/font_download_worker.py",
+    "kinocut/hyperframes_engine.py",
+    "kinocut/image_engine.py",
+    "kinocut/ai_engine/download.py",
+    "kinocut/ai_engine/upscale.py",
+    "kinocut/multipliers/review_ui.py"
+   ],
+   "exec": [
+    ".github/scripts/check-forbidden-artifacts.py",
+    ".github/scripts/mcpb-ci.py",
+    ".github/scripts/mcpb_process_owner.py",
+    ".github/scripts/windows_collection_ci.py",
+    "docs/research/runtime-allocation/audio-timeline-ci/corrections/native-origin-direct-selection.py",
+    "docs/research/runtime-allocation/audio-timeline-ci/corrections/original-interception-reconstructed.py"
+   ],
+   "secrets-read": [
+    "codesitter_inaugural.py",
+    ".github/scripts/mcpb_process_owner.py",
+    "kinocut/c2pa.py",
+    "kinocut/hyperframes_engine.py",
+    "kinocut/image_engine.py",
+    "kinocut/server_tools_hyperframes.py"
+   ],
+   "delete": [
+    ".github/scripts/mcpb-ci.py",
+    ".github/scripts/mcpb_process_owner.py",
+    ".github/scripts/windows_collection_ci.py",
+    "examples/repurpose_current_tools_demo.py",
+    "kinocut/engine_advanced_mask.py",
+    "kinocut/engine_convert.py"
+   ],
+   "telemetry": [
+    "docs/research/ultraqa/2026-09-30/signal-asr/spectrum.py",
+    "kinocut/doctor.py",
+    "kinocut/engine_glitch.py",
+    "kinocut/errors.py",
+    "kinocut/hyperframes_engine.py",
+    "kinocut/quality_signal_domain.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\mcp-video"
+ },
+ {
+  "name": "mifi__editly",
+  "title": "Features",
+  "what": "**Editly** is a tool and framework for declarative NLE (**non-linear video editing**) using Node.js and ffmpeg. Editly allows you to easily and **programmatically create a video** from a **set of clips, images, audio and titles**, with smooth transitions and music overlaid.",
+  "commit": "dc46674052ea",
+  "files": 100,
+  "capped": false,
+  "mb": 0.2,
+  "license": "MIT",
+  "languages": [
+   "TypeScript 72%",
+   "Markdown 17%",
+   "JavaScript 5%",
+   "YAML 3%",
+   "JSON 1%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [
+   "src/index.ts",
+   "src/api/index.ts",
+   "src/sources/index.ts"
+  ],
+  "scripts": [
+   "build",
+   "prepublishOnly",
+   "test",
+   "lint",
+   "prepare"
+  ],
+  "bin": {
+   "editly": "dist/cli.js"
+  },
+  "deps_js": [
+   "@eslint/js",
+   "@tsconfig/node-lts",
+   "@types/fs-extra",
+   "@types/gl",
+   "@types/gl-shader",
+   "@types/lodash-es",
+   "@types/ndarray",
+   "canvas",
+   "compare-versions",
+   "eslint",
+   "eslint-config-prettier",
+   "execa",
+   "fabric",
+   "file-type",
+   "file-url",
+   "fs-extra",
+   "gl",
+   "gl-buffer",
+   "gl-shader",
+   "gl-texture2d",
+   "gl-transition",
+   "gl-transitions",
+   "husky",
+   "json5",
+   "lint-staged"
+  ],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": true,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\mifi__editly"
+ },
+ {
+  "name": "MoneyPrinterTurbo",
+  "title": "MoneyPrinterTurbo 💸",
+  "what": "只需提供视频<b>主题</b>或<b>关键词</b>，即可自动生成视频脚本、匹配素材、生成字幕和背景音乐，并合成高清短视频。",
+  "commit": "c23535480410",
+  "files": 474,
+  "capped": false,
+  "mb": 214.3,
+  "license": "MIT",
+  "languages": [
+   "Python 79%",
+   "JSON 14%",
+   "Markdown 4%",
+   "TOML 0%",
+   "YAML 0%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "cli.py",
+   "main.py",
+   "app/__main__.py",
+   "docs/local-image-server/server.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "3.13",
+   "PyJWT",
+   "audioop-lts",
+   "av",
+   "azure-cognitiveservices-speech",
+   "dashscope",
+   "edge-tts",
+   "edge_tts",
+   "fastapi",
+   "faster-whisper",
+   "filelock",
+   "google-genai",
+   "imageio-ffmpeg",
+   "khatt",
+   "litellm",
+   "loguru",
+   "moviepy",
+   "openai",
+   "packaging",
+   "pillow",
+   "pydub",
+   "pyjwt",
+   "python-multipart",
+   "pyyaml",
+   "redis"
+  ],
+  "agent_skills": [
+   "docs/skill/SKILL.md"
+  ],
+  "install": [
+   "docker compose -f docker-compose.release.yml up",
+   "git clone https://github.com/harry0703/MoneyPrinterTurbo.git",
+   "pip install -r requirements.txt"
+  ],
+  "has": {
+   "docker": true,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "webui.sh",
+    "app/launcher.py",
+    "app/services/chatgpt_auth.py",
+    "app/services/codex_models.py",
+    "app/services/codex_oauth.py",
+    "app/services/elevenlabs_music.py"
+   ],
+   "exec": [
+    "app/launcher.py",
+    "app/controllers/manager/redis_manager.py",
+    "app/services/bgm.py",
+    "app/services/elevenlabs_music.py",
+    "app/services/llm.py",
+    "app/services/material_upload.py"
+   ],
+   "secrets-read": [
+    "cli.py",
+    "app/asgi.py",
+    "app/services/chatgpt_auth.py",
+    "app/services/chatgpt_oauth.py",
+    "app/services/codex_oauth.py",
+    "app/services/infistar_video.py"
+   ],
+   "delete": [
+    "app/controllers/v1/video.py",
+    "test/services/test_concurrent_task_delete.py",
+    "test/services/test_controller_video.py",
+    "test/services/test_material_openai_image.py",
+    "test/services/test_redis_delete_ownership.py",
+    "test/services/test_task.py"
+   ]
+  },
+  "big_files": [
+   "resource/fonts/MicrosoftYaHeiBold.ttc (17 MB)",
+   "resource/fonts/MicrosoftYaHeiNormal.ttc (20 MB)",
+   "resource/fonts/STHeitiLight.ttc (56 MB)",
+   "resource/fonts/STHeitiMedium.ttc (56 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\MoneyPrinterTurbo"
+ },
+ {
+  "name": "morluto__rea",
+  "title": "REA: Reverse Engineer Anything",
+  "what": "**English** · [简体中文](docs/readme/README_zh.md) · [繁體中文](docs/readme/README_zh-TW.md) · [日本語](docs/readme/README_ja.md) · [한국어](docs/readme/README_ko.md) · [Türkçe](docs/readme/README_tr.md) · [Русский](docs/readme/README_ru.md) · [Tiếng Việt](docs/readme/README_vi.md) · [ไทย](docs/readme/README_th.md) · [Deutsch](docs/readme/README_de.md) · [Español](docs/readme/README_es.md) · [Français](docs/readme/README_fr.md) · ",
+  "commit": "6c1faaed751b",
+  "files": 6000,
+  "capped": true,
+  "mb": 64.4,
+  "license": "MIT",
+  "languages": [
+   "TypeScript 75%",
+   "Markdown 9%",
+   "JSON 7%",
+   "JavaScript 4%",
+   "Python 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [],
+  "scripts": [
+   "release:notes",
+   "deps:check",
+   "pack:build-computer-runtime",
+   "metadata:generate",
+   "metadata:check",
+   "mcp-registry:check",
+   "mcp-catalog:generate",
+   "mcp-catalog:check",
+   "prebuild",
+   "build"
+  ],
+  "bin": {
+   "rea": "scripts/rea.mjs",
+   "rea-agents": "scripts/rea.mjs"
+  },
+  "deps_js": [
+   "@babel/parser",
+   "@babel/types",
+   "@bufbuild/protobuf",
+   "@clack/prompts",
+   "@electron/asar",
+   "@fast-check/vitest",
+   "@jridgewell/trace-mapping",
+   "@lydell/node-pty",
+   "@modelcontextprotocol/client",
+   "@modelcontextprotocol/server",
+   "@msgpack/msgpack",
+   "@stryker-mutator/core",
+   "@stryker-mutator/typescript-checker",
+   "@stryker-mutator/vitest-runner",
+   "@toon-format/toon",
+   "@types/cross-spawn",
+   "@types/node",
+   "@types/semver",
+   "@types/write-file-atomic",
+   "@types/ws",
+   "@vitest/coverage-v8",
+   "@xmldom/xmldom",
+   "@xterm/addon-serialize",
+   "@xterm/headless",
+   "@zip.js/zip.js"
+  ],
+  "deps_py": [],
+  "agent_skills": [
+   ".agents/skills/rea-analysis-optimization/SKILL.md",
+   ".agents/skills/rea-changelog-update/SKILL.md",
+   ".agents/skills/rea-ci-tests-audit/SKILL.md",
+   ".agents/skills/rea-tool-design/SKILL.md",
+   ".agents/skills/reverse-engineer-anything/SKILL.md"
+  ],
+  "install": [
+   "npm install --global rea-agents",
+   "npx -y rea-agents@latest analyze-javascript-application /absolute/path/to/app --json",
+   "npx rea-agents setup",
+   "npx rea-agents@latest setup"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "bridge/hopper_bridge.py",
+    "bridge/cutter/rea_bridge.py",
+    "scripts/audit-website-links.py",
+    "scripts/build-windows-native.mjs",
+    "scripts/test-website.py",
+    "scripts/verify-package-update.mjs"
+   ],
+   "exec": [
+    "bridge/agentenv/capture.py",
+    "bridge/agentenv/test_capture.py",
+    "bridge/native/rea_lldb_tracer.py",
+    "bridge/pwndbg/core_context.py",
+    "bridge/pwndbg/launch.py",
+    "bridge/pwndbg/launch_impl.py"
+   ],
+   "download-run": [
+    "install.sh",
+    "tests/boundary/filesystem/installScript.test.ts"
+   ],
+   "secrets-read": [
+    "bridge/hopper_bridge.py",
+    "bridge/mitmproxy/capture.py",
+    "bridge/mitmproxy/test_capture.py",
+    "scripts/verify-claude-client.mjs",
+    "scripts/verify-commandcode-client.mjs",
+    "scripts/verify-copilot-client.mjs"
+   ],
+   "delete": [
+    "scripts/website_i18n.py",
+    "scripts/verify/firmware/analysis.mjs",
+    "src/application/environment/environmentBundle.test.ts",
+    "src/application/environment/environmentBundle.ts",
+    "tests/boundary/filesystem/jsonOutputOwnership.test.ts",
+    "tests/boundary/filesystem/referenceSourceFailureDetails.test.ts"
+   ],
+   "telemetry": [
+    "scripts/verify-gemini-client.mjs",
+    "scripts/verify-go-binary.mjs",
+    "scripts/verify-grok-client.mjs",
+    "scripts/verify-qwen-client.mjs",
+    "scripts/ci/job-timings.mjs",
+    "scripts/ci/pr-ci-health.mjs"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\morluto__rea"
+ },
+ {
+  "name": "mrexodia__ida-pro-mcp",
+  "title": "IDA Pro MCP",
+  "what": "> [!IMPORTANT] > **I recommend using the [Official Hex-Rays IDA MCP Server](https://github.com/HexRaysSA/ida-mcp) instead!** > > See the [announcement blog post](https://hex-rays.com/blog/hex-rays-ida-mcp-server) for more information.",
+  "commit": "c133c3853faa",
+  "files": 213,
+  "capped": false,
+  "mb": 6.1,
+  "license": "MIT",
+  "languages": [
+   "Python 86%",
+   "Markdown 13%",
+   "JSON 0%",
+   "YAML 0%",
+   "TOML 0%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "src/ida_pro_mcp/server.py",
+   "src/ida_pro_mcp/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "idapro",
+   "tomli-w"
+  ],
+  "agent_skills": [
+   "skills/idapython/SKILL.md"
+  ],
+  "install": [
+   "npx -y @modelcontextprotocol/inspector",
+   "pip install https://github.com/mrexodia/ida-pro-mcp/archive/refs/heads/main.zip"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": true,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "scripts/stress_search_cancellation.py",
+    "src/ida_pro_mcp/idalib_supervisor.py",
+    "src/ida_pro_mcp/server.py",
+    "src/ida_pro_mcp/ida_mcp/tests/mcp_mode.py",
+    "src/ida_pro_mcp/ida_mcp/tests/test_server.py",
+    "src/ida_pro_mcp/ida_mcp/zeromcp/mcp.py"
+   ],
+   "exec": [
+    "scripts/stress_search_cancellation.py",
+    "src/ida_pro_mcp/idalib_supervisor.py",
+    "src/ida_pro_mcp/ida_mcp/api_python.py",
+    "src/ida_pro_mcp/ida_mcp/discovery.py"
+   ],
+   "delete": [
+    "uv-package.sh",
+    "src/ida_pro_mcp/installer.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\mrexodia__ida-pro-mcp"
+ },
+ {
+  "name": "NationalSecurityAgency__ghidra",
+  "title": "Ghidra Software Reverse Engineering Framework",
+  "what": "In support of NSA's Cybersecurity mission, Ghidra was built to solve scaling and teaming problems on complex SRE efforts, and to provide a customizable and extensible SRE research platform. NSA has applied Ghidra SRE capabilities to a variety of problems that involve analyzing malicious code and generating deep insights for SRE analysts who seek a better understanding of potential vulnerabilities in networks and syst",
+  "commit": "e45e5a62fd66",
+  "files": 512,
+  "capped": false,
+  "mb": 7.5,
+  "license": "Apache-2.0",
+  "languages": [
+   "HTML 48%",
+   "Java 34%",
+   "Markdown 13%",
+   "C 1%",
+   "Python 0%"
+  ],
+  "main_language": "Java",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "Ghidra/Features/Base/ghidra_scripts/RunYARAFromGhidra.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\NationalSecurityAgency__ghidra"
+ },
+ {
+  "name": "nexu-io__html-video",
+  "title": "html-video",
+  "what": "> **HTML becomes video — on your laptop.** Bring your local coding agent (Open Design · Windsurf CLI · Trae CLI · Claude Code · Cursor · Codex · Gemini · Grok · Qwen · OpenCode · Copilot · Aider · Hermes · or the Anthropic API). Describe a video, or **paste an article link / GitHub repo**, and the agent turns it into a multi-frame, fully animated video — then renders it to a real MP4 right on your machine. One agent ",
+  "commit": "c414ecc07f79",
+  "files": 280,
+  "capped": false,
+  "mb": 11.9,
+  "license": "Apache-2.0",
+  "languages": [
+   "HTML 81%",
+   "TypeScript 8%",
+   "Markdown 5%",
+   "JavaScript 3%",
+   "YAML 1%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [],
+  "scripts": [
+   "build",
+   "typecheck",
+   "test",
+   "smoke",
+   "format",
+   "lint"
+  ],
+  "bin": null,
+  "deps_js": [
+   "@biomejs/biome",
+   "@remotion/bundler",
+   "@remotion/renderer",
+   "@types/node",
+   "react",
+   "react-dom",
+   "remotion",
+   "typescript"
+  ],
+  "deps_py": [],
+  "agent_skills": [
+   "templates/frame-bold-poster/SKILL.md",
+   "templates/frame-bold-signal/SKILL.md",
+   "templates/frame-build-minimal/SKILL.md",
+   "templates/frame-creative-voltage/SKILL.md",
+   "templates/frame-data-chart-nyt/SKILL.md",
+   "templates/frame-data-rollup/SKILL.md",
+   "templates/frame-electric-studio/SKILL.md",
+   "templates/frame-glitch-title/SKILL.md",
+   "templates/frame-light-leak-cinema/SKILL.md",
+   "templates/frame-liquid-bg-hero/SKILL.md",
+   "templates/frame-logo-outro/SKILL.md",
+   "templates/frame-pentagram-stat/SKILL.md",
+   "templates/frame-takram-organic/SKILL.md",
+   "templates/vfx-text-cursor/SKILL.md"
+  ],
+  "install": [
+   "npx playwright install chromium"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": true,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "packages/cli/src/fetch-source.ts",
+    "packages/cli/src/studio-server.ts",
+    "packages/core/src/minimax.ts",
+    "packages/project-studio/public/app.js",
+    "packages/runtime/src/defs/anthropic-api.ts"
+   ],
+   "exec": [
+    "packages/adapter-hyperframes/src/render.ts",
+    "packages/cli/src/fetch-source.ts",
+    "packages/cli/src/studio-server.ts",
+    "packages/cli/src/commands/doctor.ts",
+    "packages/core/src/project.ts",
+    "packages/project-studio/public/app.js"
+   ],
+   "secrets-read": [
+    "packages/cli/src/media-config.ts",
+    "packages/cli/src/studio-server.ts",
+    "packages/core/src/minimax.ts",
+    "packages/project-studio/public/i18n.js",
+    "packages/runtime/src/defs/anthropic-api.ts"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\nexu-io__html-video"
+ },
+ {
+  "name": "open-edit",
+  "title": "@veedstudio/openedit-cli",
+  "what": "The Open Edit command-line tool: agent-driven video creation and editing, powered by VEED.",
+  "commit": "14dd0d783c93",
+  "files": 275,
+  "capped": false,
+  "mb": 23.1,
+  "license": "Apache-2.0",
+  "languages": [
+   "TypeScript 92%",
+   "Markdown 3%",
+   "HTML 2%",
+   "JSON 0%",
+   "YAML 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [],
+  "scripts": [
+   "build",
+   "test",
+   "test:cli",
+   "typecheck",
+   "typecheck:cli"
+  ],
+  "bin": {
+   "openedit": "cli/dist/cli.js"
+  },
+  "deps_js": [
+   "@types/node",
+   "playwright-core",
+   "tsx",
+   "typescript",
+   "undici"
+  ],
+  "deps_py": [],
+  "agent_skills": [
+   ".claude/skills/open-edit/SKILL.md"
+  ],
+  "install": [
+   "npx @veedstudio/openedit-cli --help",
+   "npx @veedstudio/openedit-cli apply-edl --edl edl.json --out cut.mp4 [--crossfade 40] [--crf 20] [--fit crop|le",
+   "npx @veedstudio/openedit-cli background-removal video.mp4 [--fal|--fast] [--mask-only] [--no-refine] [--out <p",
+   "npx @veedstudio/openedit-cli brief runs/<key>      # prints the brief that applies there",
+   "npx @veedstudio/openedit-cli brief runs/<key> --length 60 --platform tiktok --words \"Doors open at 7\"",
+   "npx @veedstudio/openedit-cli brief runs/<key> --platform \"linkedin 1:1\"",
+   "npx @veedstudio/openedit-cli captions runs/<key>/transcript.json [--out <file>]",
+   "npx @veedstudio/openedit-cli concat-videos [--canvas WxH] [--fit crop|letterbox] <out> <in1> <in2> [...]"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "cli/src/cli.ts",
+    "cli/src/commands/generate.ts",
+    "cli/src/commands/install-ffmpeg.ts",
+    "cli/src/commands/login.ts",
+    "cli/src/commands/render.ts",
+    "cli/src/commands/stills.ts"
+   ],
+   "exec": [
+    "cli/scripts/build.mjs",
+    "cli/src/channels.ts",
+    "cli/src/hdr.ts",
+    "cli/src/open-url.ts",
+    "cli/src/platform.ts",
+    "cli/src/probe.ts"
+   ],
+   "download-run": [
+    "cli/src/platform.ts",
+    "cli/tests/update-notice.test.ts"
+   ],
+   "secrets-read": [
+    "cli/src/proxy.ts",
+    "cli/src/commands/transcribe.ts",
+    "cli/src/commands/whisper.ts",
+    "cli/src/providers/fal.ts",
+    "cli/src/render/server.ts",
+    "cli/src/veed/editor-project.ts"
+   ],
+   "delete": [
+    "cli/src/project-hooks.ts",
+    "cli/src/commands/init.ts",
+    "cli/src/commands/install-ffmpeg.ts",
+    "cli/src/providers/exclusive-files.ts",
+    "cli/src/providers/queue-ledger.ts",
+    "cli/tests/init-package.test.ts"
+   ],
+   "telemetry": [
+    "cli/tests/speech-probe.test.ts"
+   ]
+  },
+  "big_files": [
+   "docs/examples/openedit-launch.webp (14 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\open-edit"
+ },
+ {
+  "name": "OpenMontageInc__OpenMontage",
+  "title": "Start From A Video You Already Love",
+  "what": "**English** | [Português (Brasil)](README_pt-BR.md) | [Español](README_es.md) | [简体中文](README_zh-CN.md)",
+  "commit": "356b5fa92474",
+  "files": 2281,
+  "capped": false,
+  "mb": 90.1,
+  "license": "AGPL-3.0",
+  "languages": [
+   "Markdown 42%",
+   "Python 32%",
+   "JavaScript 8%",
+   "HTML 7%",
+   "JSON 6%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "backlot/server.py",
+   "backlot/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "Pillow",
+   "certifi",
+   "fastapi",
+   "google-auth",
+   "google-genai",
+   "jsonschema",
+   "numpy",
+   "openai",
+   "pydantic",
+   "pythainlp",
+   "python-dotenv",
+   "pyyaml",
+   "requests",
+   "uvicorn",
+   "watchfiles",
+   "websockets"
+  ],
+  "agent_skills": [
+   ".agents/skills/3d-asset-generation/SKILL.md",
+   ".agents/skills/acestep/SKILL.md",
+   ".agents/skills/agents/SKILL.md",
+   ".agents/skills/ai-video-gen/SKILL.md",
+   ".agents/skills/atlas-cloud/SKILL.md",
+   ".agents/skills/avatar-video/SKILL.md",
+   ".agents/skills/azure-speech-to-text/SKILL.md",
+   ".agents/skills/azure-text-to-speech/SKILL.md",
+   ".agents/skills/beautiful-mermaid/SKILL.md",
+   ".agents/skills/bfl-api/SKILL.md",
+   ".agents/skills/canvas-procedural-animation/SKILL.md",
+   ".agents/skills/character-animation-qa/SKILL.md",
+   ".agents/skills/character-rigging/SKILL.md",
+   ".agents/skills/comfyui/SKILL.md",
+   ".agents/skills/create-video/SKILL.md",
+   ".agents/skills/d3-viz/SKILL.md",
+   ".agents/skills/dashscope/SKILL.md",
+   ".agents/skills/doubao-tts/SKILL.md",
+   ".agents/skills/elevenlabs/SKILL.md",
+   ".agents/skills/faceswap/SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/calesthio/OpenMontage.git"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    ".agents/skills/bfl-api/references/code-examples/python-client.py",
+    ".agents/skills/bfl-api/references/code-examples/typescript-client.ts",
+    ".agents/skills/hyperframes-media/scripts/lib/heygen.mjs",
+    ".agents/skills/hyperframes-media/scripts/lib/tts.mjs",
+    ".agents/skills/media-use/scripts/lib/freeze.mjs",
+    ".agents/skills/motion-graphics/categories/maps/bake-basemap.mjs"
+   ],
+   "exec": [
+    "render_demo.py",
+    ".agents/skills/beautiful-mermaid/scripts/render.ts",
+    ".agents/skills/hyperframes-animation/scripts/package-loader.mjs",
+    ".agents/skills/hyperframes-creative/scripts/extract-audio-data.py",
+    ".agents/skills/hyperframes-creative/scripts/package-loader.mjs",
+    ".agents/skills/hyperframes-media/scripts/lib/bgm.mjs"
+   ],
+   "download-run": [
+    "tools/minicut_cli.py"
+   ],
+   "secrets-read": [
+    ".agents/skills/hyperframes-media/scripts/audio.mjs",
+    ".agents/skills/hyperframes-media/scripts/lib/heygen.mjs",
+    ".agents/skills/hyperframes-media/scripts/lib/sfx.mjs",
+    ".agents/skills/hyperframes-media/scripts/lib/tts.mjs",
+    "scripts/kling_official_animated_explainer_e2e.py",
+    "tests/contracts/test_env_example.py"
+   ],
+   "delete": [
+    ".agents/skills/media-use/scripts/lib/probe.mjs",
+    ".agents/skills/remotion-to-hyperframes/assets/test-corpus/run.sh",
+    ".agents/skills/remotion-to-hyperframes/scripts/tests/smoke.sh",
+    ".agents/skills/video-understand/scripts/understand_video.py",
+    ".claude/skills/video-understand/scripts/understand_video.py",
+    "scripts/backlot_screenshot_stage.py"
+   ],
+   "telemetry": [
+    ".agents/skills/hyperframes-creative/scripts/extract-audio-data.py",
+    ".agents/skills/manimce-best-practices/examples/graph_plotting.py",
+    ".agents/skills/manimgl-best-practices/examples/double_slit_interference.py",
+    ".agents/skills/manimgl-best-practices/examples/light_polarization.py",
+    ".agents/skills/manimgl-best-practices/examples/probability_distribution.py",
+    ".agents/skills/manimgl-best-practices/examples/radial_wave_visualization.py"
+   ]
+  },
+  "big_files": [
+   ".agents/skills/hyperframes-animation/examples/assets/background-tech-data-flow.mp4 (17 MB)",
+   ".agents/skills/hyperframes-animation/examples/assets/hyperframes-showcase-hypecard.mp4 (21 MB)",
+   "assets/signal-from-tomorrow-demo.mp4 (21 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\OpenMontageInc__OpenMontage"
+ },
+ {
+  "name": "PeterL1n__RobustVideoMatting",
+  "title": "Robust Video Matting (RVM)",
+  "what": "Official repository for the paper [Robust High-Resolution Video Matting with Temporal Guidance](https://peterl1n.github.io/RobustVideoMatting/). RVM is specifically designed for robust human video matting. Unlike existing neural models that process frames as independent images, RVM uses a recurrent neural network to process videos with temporal memory. RVM can perform matting in real-time on any videos without additi",
+  "commit": "53d74c682673",
+  "files": 44,
+  "capped": false,
+  "mb": 4.8,
+  "license": "GPL-3.0",
+  "languages": [
+   "Python 70%",
+   "Markdown 29%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "pip install -r requirements_inference.txt"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "inference.py",
+    "inference_speed_test.py",
+    "train.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\PeterL1n__RobustVideoMatting"
+ },
+ {
+  "name": "rizinorg__cutter",
+  "title": "Cutter",
+  "what": "Cutter is a free and open-source reverse engineering platform powered by [rizin](https://github.com/rizinorg/rizin). It aims at being an advanced and customizable reverse engineering platform while keeping the user experience in mind. Cutter is created by reverse engineers for reverse engineers.",
+  "commit": "e1f94ecc5502",
+  "files": 852,
+  "capped": false,
+  "mb": 5.4,
+  "license": "GPL-3.0",
+  "languages": [
+   "C++ 72%",
+   "C 21%",
+   "YAML 1%",
+   "Shell 1%",
+   "CSS 1%"
+  ],
+  "main_language": "C++",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "scripts/update_deps.py"
+   ],
+   "exec": [
+    "scripts/clang-format.py",
+    "scripts/clang-tidy.py",
+    "scripts/update_deps.py",
+    "src/python/reg_qtres_importer.py"
+   ],
+   "secrets-read": [
+    "scripts/macos_sign.sh"
+   ],
+   "delete": [
+    ".github/actions/build-linux-old/entrypoint.sh",
+    "scripts/appimage_embed_python.sh",
+    "scripts/deploy_docs.sh",
+    "scripts/jsdec.sh",
+    "scripts/rz-frida.sh",
+    "scripts/rz-libswift.sh"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\rizinorg__cutter"
+ },
+ {
+  "name": "RobLe3__cc-blender-skill",
+  "title": "cc-blender-skill",
+  "what": "A portable agent skill pack that lets Codex, Claude Code, and compatible skill hosts use Blender like a senior 3D artist through natural language.",
+  "commit": "a2634b588e80",
+  "files": 195,
+  "capped": false,
+  "mb": 1.8,
+  "license": "MIT",
+  "languages": [
+   "Markdown 82%",
+   "Python 14%",
+   "JSON 3%",
+   "YAML 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "Pillow",
+   "black",
+   "flake8",
+   "mypy",
+   "numpy",
+   "opencv-python",
+   "pytest",
+   "pytest-cov",
+   "scipy",
+   "sphinx",
+   "sphinx-rtd-theme"
+  ],
+  "agent_skills": [
+   "plugin/skills/animation-quality-gate/SKILL.md",
+   "plugin/skills/atlas-uv-fitting/SKILL.md",
+   "plugin/skills/blender-animation/SKILL.md",
+   "plugin/skills/blender-cameras/SKILL.md",
+   "plugin/skills/blender-export/SKILL.md",
+   "plugin/skills/blender-lighting/SKILL.md",
+   "plugin/skills/blender-materials/SKILL.md",
+   "plugin/skills/blender-modeling/SKILL.md",
+   "plugin/skills/blender-pro-workflow/SKILL.md",
+   "plugin/skills/blender-rendering/SKILL.md",
+   "plugin/skills/blender-skill-harmonizer/SKILL.md",
+   "plugin/skills/blender-uv-texturing/SKILL.md",
+   "plugin/skills/closed-surface-uv-coverage/SKILL.md",
+   "plugin/skills/contour-to-mesh/SKILL.md",
+   "plugin/skills/fit-repair-optimizer/SKILL.md",
+   "plugin/skills/landmark-fit-repair/SKILL.md",
+   "plugin/skills/mascot-logo-reconstruction/SKILL.md",
+   "plugin/skills/multiview-constraint-solver/SKILL.md",
+   "plugin/skills/multiview-fit-loop/SKILL.md",
+   "plugin/skills/orbital-hud-motion/SKILL.md"
+  ],
+  "install": [
+   "git clone git@github.com:RobLe3/cc-blender-skill.git"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "tests/mcp_test_instance.py"
+   ],
+   "exec": [
+    "tests/core_recipe_regressions.py",
+    "tests/test_reference_helpers.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\RobLe3__cc-blender-skill"
+ },
+ {
+  "name": "sam2",
+  "title": "SAM 2: Segment Anything in Images and Videos",
+  "what": "**Segment Anything Model 2 (SAM 2)** is a foundation model towards solving promptable visual segmentation in images and videos. We extend SAM to video by considering images as a video with a single frame. The model design is a simple transformer architecture with streaming memory for real-time video processing. We build a model-in-the-loop data engine, which improves model and data via user interaction, to collect [*",
+  "commit": "2b90b9f5ceec",
+  "files": 570,
+  "capped": false,
+  "mb": 220.6,
+  "license": "Apache-2.0",
+  "languages": [
+   "Notebook 93%",
+   "Python 2%",
+   "JSON 2%",
+   "TypeScript 2%",
+   "Markdown 0%"
+  ],
+  "main_language": "Notebook",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "git clone https://github.com/facebookresearch/sam2.git && cd sam2",
+   "pip install -e \".[notebooks]\"",
+   "pip install -e ."
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "demo/frontend/src/common/components/options/ShareUtils.ts",
+    "demo/frontend/src/common/components/session/useCloseSessionBeforeUnload.ts",
+    "demo/frontend/src/common/components/video/effects/ReplaceGLEffect.ts",
+    "demo/frontend/src/common/tracker/SAM2Model.ts",
+    "demo/frontend/src/common/utils/FileUtils.ts",
+    "demo/frontend/src/graphql/fetchGraphQL.ts"
+   ],
+   "exec": [
+    "demo/backend/server/data/loader.py",
+    "demo/backend/server/data/transcoder.py",
+    "demo/frontend/src/common/components/video/editor/VideoEditorUtils.ts",
+    "sam2/build_sam.py",
+    "training/trainer.py"
+   ],
+   "secrets-read": [
+    "demo/backend/server/app.py",
+    "demo/frontend/src/common/components/session/useCloseSessionBeforeUnload.ts",
+    "demo/frontend/src/common/components/video/VideoWorkerContext.ts",
+    "demo/frontend/src/graphql/fetchGraphQL.ts"
+   ]
+  },
+  "big_files": [
+   "checkpoints/sam2.1_hiera_tiny.pt (156 MB)",
+   "notebooks/automatic_mask_generator_example.ipynb (8 MB)",
+   "notebooks/image_predictor_example.ipynb (9 MB)",
+   "notebooks/video_predictor_example.ipynb (10 MB)",
+   "sav_dataset/example/sav_000001.mp4 (6 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\sam2"
+ },
+ {
+  "name": "silero-vad",
+  "title": "silero-vad",
+  "what": "**Silero VAD** - pre-trained enterprise-grade [Voice Activity Detector](https://en.wikipedia.org/wiki/Voice_activity_detection) (also see our [STT models](https://github.com/snakers4/silero-models)).",
+  "commit": "066409f3d9db",
+  "files": 119,
+  "capped": false,
+  "mb": 36.7,
+  "license": "MIT",
+  "languages": [
+   "Python 32%",
+   "C++ 14%",
+   "Markdown 13%",
+   "Java 11%",
+   "C 9%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "packaging",
+   "torch"
+  ],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "examples/onnx_sequence/export.py",
+    "src/silero_vad/utils_vad.py",
+    "tests/test_optional_deps.py",
+    "tuning/utils.py"
+   ],
+   "telemetry": [
+    "examples/openvino/verify.py"
+   ]
+  },
+  "big_files": [
+   "examples/c++/aepyx.wav (5 MB)",
+   "examples/cpp_libtorch/aepyx.wav (5 MB)",
+   "examples/cpp_libtorch_deprecated/aepyx.wav (5 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\silero-vad"
+ },
+ {
+  "name": "skills",
+  "title": "Remotion Agent Skills",
+  "what": "Remotion maintains a list of [Agent Skills](https://agentskills.io/home) that define best practices for working in Remotion projects.",
+  "commit": "a2824c67f8b4",
+  "files": 299,
+  "capped": false,
+  "mb": 2.4,
+  "license": "none found",
+  "languages": [
+   "JSON 61%",
+   "Markdown 30%",
+   "TypeScript 5%",
+   "JavaScript 2%",
+   "YAML 0%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [],
+  "scripts": [
+   "dev"
+  ],
+  "bin": null,
+  "deps_js": [
+   "@remotion/bundler",
+   "@remotion/cli",
+   "@remotion/eslint-config-internal",
+   "@remotion/google-fonts",
+   "@remotion/lottie",
+   "@remotion/shapes",
+   "@remotion/three",
+   "eslint",
+   "react",
+   "react-dom",
+   "remotion",
+   "typescript"
+  ],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/remotion-best-practices/SKILL.md",
+   "skills/remotion-captions/SKILL.md",
+   "skills/remotion-create/SKILL.md",
+   "skills/remotion-docs/SKILL.md",
+   "skills/remotion-interactivity/SKILL.md",
+   "skills/remotion-license/SKILL.md",
+   "skills/remotion-maps/SKILL.md",
+   "skills/remotion-markup/SKILL.md",
+   "skills/remotion-multimedia/SKILL.md",
+   "skills/remotion-render/SKILL.md",
+   "skills/remotion-saas/SKILL.md",
+   "skills/remotion-studio/SKILL.md",
+   "skills/remotion-upgrade/SKILL.md"
+  ],
+  "install": [
+   "npx skills add remotion-dev/skills"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "telemetry": [
+    "skills/remotion-best-practices/remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs",
+    "skills/remotion-best-practices/remotion-markup/remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs",
+    "skills/remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs",
+    "skills/remotion-markup/remotion-maps/techniques/cesium/scripts/prep-cesium-path.mjs"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\skills"
+ },
+ {
+  "name": "sunxiayi__make-blender-education-video-skill",
+  "title": "Make Blender Education Video",
+  "what": "An installable Codex and Claude Code skill for creating fact-checked English cinematic educational videos in Blender.",
+  "commit": "8fcc2095d0b5",
+  "files": 25,
+  "capped": false,
+  "mb": 0.6,
+  "license": "MIT",
+  "languages": [
+   "Markdown 46%",
+   "Python 46%",
+   "JSON 6%",
+   "YAML 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/make-blender-education-video/SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/sunxiayi/make-blender-education-video-skill.git \\"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "skills/make-blender-education-video/scripts/assemble_picture.py",
+    "skills/make-blender-education-video/scripts/compose_tutorial.py",
+    "skills/make-blender-education-video/scripts/verify_output.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\sunxiayi__make-blender-education-video-skill"
+ },
+ {
+  "name": "trailofbits__skills",
+  "title": "Trail of Bits Skills Marketplace",
+  "what": "Trail of Bits skills and plugins for AI-assisted security analysis, testing, and development. Install this marketplace in Claude Code or Codex, or import it into your ChatGPT workspace marketplace.",
+  "commit": "e4dd0bb5b155",
+  "files": 1607,
+  "capped": false,
+  "mb": 9.7,
+  "license": "CC",
+  "languages": [
+   "Markdown 48%",
+   "Python 32%",
+   "JavaScript 8%",
+   "Shell 4%",
+   "JSON 2%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "plugins/agentic-actions-auditor/skills/agentic-actions-auditor/SKILL.md",
+   "plugins/audit-context-building/skills/audit-context-building/SKILL.md",
+   "plugins/building-secure-contracts/skills/algorand-vulnerability-scanner/SKILL.md",
+   "plugins/building-secure-contracts/skills/audit-prep-assistant/SKILL.md",
+   "plugins/building-secure-contracts/skills/cairo-vulnerability-scanner/SKILL.md",
+   "plugins/building-secure-contracts/skills/code-maturity-assessor/SKILL.md",
+   "plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner/SKILL.md",
+   "plugins/building-secure-contracts/skills/guidelines-advisor/SKILL.md",
+   "plugins/building-secure-contracts/skills/secure-workflow-guide/SKILL.md",
+   "plugins/building-secure-contracts/skills/solana-vulnerability-scanner/SKILL.md",
+   "plugins/building-secure-contracts/skills/substrate-vulnerability-scanner/SKILL.md",
+   "plugins/building-secure-contracts/skills/token-integration-analyzer/SKILL.md",
+   "plugins/building-secure-contracts/skills/ton-vulnerability-scanner/SKILL.md",
+   "plugins/burpsuite-project-parser/skills/burpsuite-project-parser/SKILL.md",
+   "plugins/c-review/skills/c-review/SKILL.md",
+   "plugins/chrome-mcp-troubleshooting/skills/chrome-mcp-troubleshooting/SKILL.md",
+   "plugins/code-improver/skills/code-improver/SKILL.md",
+   "plugins/code-improver/skills/pr-improver/SKILL.md",
+   "plugins/code-improver/skills/skill-improver/SKILL.md",
+   "plugins/code-improver/tests/fixtures/pr-review-toolkit/skills/review-pr/SKILL.md"
+  ],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/scripts/sources.py"
+   ],
+   "exec": [
+    ".github/scripts/check_claude_loadability.py",
+    ".github/scripts/check_codex_loadability.py",
+    ".github/scripts/codex_review.py",
+    ".github/scripts/validate_plugin_metadata.py",
+    "plugins/c-review/tests/test_assemble_findings.py",
+    "plugins/c-review/tests/test_enumerate_units.py"
+   ],
+   "secrets-read": [
+    ".github/scripts/codex_review.py",
+    "plugins/firebase-apk-scanner/skills/firebase-apk-scanner/scanner.sh",
+    "plugins/insecure-defaults/tests/harness.js",
+    "plugins/insecure-defaults/workflows/audit.js",
+    "plugins/mutation-testing/tests/smoke-test.sh",
+    "plugins/mutation-testing/tests/test_validate_report.py"
+   ],
+   "delete": [
+    ".github/scripts/validate_plugin_metadata.py",
+    "plugins/burpsuite-project-parser/tests/run_search_tests.sh",
+    "plugins/code-improver/evals/ablation/run.sh",
+    "plugins/code-improver/workflows/improve.js",
+    "plugins/devcontainer-setup/skills/devcontainer-setup/resources/install.sh",
+    "plugins/dimensional-analysis/tests/smoke-test.sh"
+   ],
+   "telemetry": [
+    "plugins/static-analysis/skills/codeql/scripts/test_check_db_quality.py",
+    "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/scripts/collect.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\trailofbits__skills"
+ },
+ {
+  "name": "video-edit-skill",
+  "title": "Video Edit",
+  "what": "Film your talking-head clips on your phone, drop them in a folder, type `/video-edit`, and Claude turns them into a finished Instagram reel. It picks your best take of every line, cuts the dead air, cuts you out of the background so words can sit behind your head, and applies a designed look with captions, motion graphics and sound. You never open an editor: you watch the result, say what you want changed, and it re-",
+  "commit": "3f01f2ebad12",
+  "files": 43,
+  "capped": false,
+  "mb": 0.6,
+  "license": "none found",
+  "languages": [
+   "Python 54%",
+   "HTML 25%",
+   "Markdown 18%",
+   "CSS 0%",
+   "Shell 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/tenfoldmarc/video-edit-skill \"$HOME/.claude/skills/video-edit\""
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "scripts/setup.py"
+   ],
+   "exec": [
+    "assets/template/build.py",
+    "scripts/assemble.py",
+    "scripts/check_cuts.py",
+    "scripts/cutout.py",
+    "scripts/headpos.py",
+    "scripts/ingest.py"
+   ],
+   "telemetry": [
+    "scripts/skillenv.py",
+    "tests/test_platform.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\video-edit-skill"
+ },
+ {
+  "name": "video-use",
+  "title": "video-use",
+  "what": "Introducing **video-use** — edit videos with Claude Code. 100% open source.",
+  "commit": "43cfc5668335",
+  "files": 36,
+  "capped": false,
+  "mb": 0.8,
+  "license": "MIT",
+  "languages": [
+   "Markdown 56%",
+   "Python 35%",
+   "HTML 7%",
+   "Shell 0%",
+   "TOML 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "librosa",
+   "matplotlib",
+   "numpy",
+   "pillow",
+   "requests"
+  ],
+  "agent_skills": [
+   "SKILL.md",
+   "skills/manim-video/SKILL.md"
+  ],
+  "install": [
+   "brew install ffmpeg             # required",
+   "brew install yt-dlp             # optional, for downloading online sources",
+   "git clone https://github.com/browser-use/video-use ~/Developer/video-use"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "helpers/transcribe.py"
+   ],
+   "exec": [
+    "helpers/grade.py",
+    "helpers/render.py",
+    "helpers/timeline_view.py",
+    "helpers/transcribe.py",
+    "tests/test_render_fps.py",
+    "tests/test_render_orientation.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\video-use"
+ },
+ {
+  "name": "viettranx__3dviz-pro-max",
+  "title": "What it is",
+  "what": "A standalone agent skill for creative 3D visualization: shape the world, model its rules, make it interactive, and check what actually appears on screen. It ships a ten-step workflow, a searchable catalog of recipes and reusable knowledge, runnable Three.js templates and kits, and a capture helper so the agent inspects the frames it rendered instead of describing them. Factual explanations need sources; animated deco",
+  "commit": "d077e0e68915",
+  "files": 2112,
+  "capped": false,
+  "mb": 85.9,
+  "license": "MIT",
+  "languages": [
+   "JSON 64%",
+   "JavaScript 16%",
+   "Markdown 9%",
+   "Python 4%",
+   "YAML 1%"
+  ],
+  "main_language": "JavaScript",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [
+   "skills/3dviz-pro-max/SKILL.md"
+  ],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "examples/shared/asset-base.js",
+    "examples/shared/art-science/anatomy-assets.js",
+    "examples/shared/art-science/scenes/heart.js",
+    "site/scripts/brand-wordmark.py",
+    "site/scripts/social-assets.py",
+    "tests/test_capture.py"
+   ],
+   "exec": [
+    "scripts/evidence_validation.py",
+    "scripts/kit-proof.py",
+    "scripts/kit_proof_harness.py",
+    "scripts/package.py",
+    "scripts/showcase.py",
+    "site/scripts/site-media.py"
+   ],
+   "delete": [
+    "scripts/kit_proof_harness.py",
+    "scripts/showcase.py",
+    "site/scripts/bundle-examples.sh",
+    "tests/test_knowledge.py"
+   ],
+   "telemetry": [
+    "evals/skill-behavior/before-after-2026-09/with-skill-run2/src/village/lanterns.js",
+    "evals/skill-behavior/before-after-2026-09/with-skill-run3/src/kits/nature/tree-conifer.js",
+    "evals/skill-behavior/before-after-2026-09/with-skill-run3/src/kits/nature/tree-round.js",
+    "evals/skill-behavior/before-after-2026-09/with-skill-run4/src/kits/kit-surface-draw.js",
+    "evals/skill-behavior/before-after-2026-09/with-skill-run4/src/kits/nature/tree-conifer.js",
+    "evals/skill-behavior/before-after-2026-09/with-skill-run4/src/kits/nature/tree-round.js"
+   ]
+  },
+  "big_files": [
+   "docs/demos/harness-village.gif (7 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\creative\\viettranx__3dviz-pro-max"
+ },
+ {
+  "name": "Vincentwei1021__video-shotcraft",
+  "title": "video-shotcraft",
+  "what": "**English** | [中文](README_CN.md) | [日本語](README_JA.md) | [Русский](README_RU.md)",
+  "commit": "1266a3ec4831",
+  "files": 1218,
+  "capped": false,
+  "mb": 53.5,
+  "license": "Apache-2.0",
+  "languages": [
+   "TypeScript 45%",
+   "JSON 25%",
+   "Markdown 20%",
+   "JavaScript 2%",
+   "Python 2%"
+  ],
+  "main_language": "TypeScript",
+  "entry": [
+   "template/src/index.ts"
+  ],
+  "scripts": [
+   "test",
+   "test:watch"
+  ],
+  "bin": null,
+  "deps_js": [
+   "vitest"
+  ],
+  "deps_py": [],
+  "agent_skills": [
+   "SKILL.md"
+  ],
+  "install": [
+   "git clone https://github.com/Vincentwei1021/video-shotcraft.git",
+   "npx skills add Vincentwei1021/video-shotcraft"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "assets/scripts/sfx-source.py",
+    "gallery/app.js",
+    "gallery/showcase.js",
+    "publish/test_upload_post.py",
+    "publish/upload_post.py",
+    "workbench/scripts/open.mjs"
+   ],
+   "exec": [
+    ".github/scripts/showcase-publish.py",
+    "assets/scripts/build-readme-cover.mjs",
+    "assets/scripts/sfx-source.py",
+    "assets/scripts/smoke-render-demos.py",
+    "gallery/assemble-media.py",
+    "jianying-export/mac_draft.py"
+   ],
+   "secrets-read": [
+    ".github/scripts/showcase-publish.py"
+   ],
+   "delete": [
+    "jianying-export/mac_draft.py",
+    "jianying-export/windows_draft.py",
+    "shot-polish/tsc-demos.sh",
+    "workbench/scripts/gen-index.mjs",
+    "workbench/scripts/open.mjs",
+    "workbench/scripts/test-platform.mjs"
+   ],
+   "telemetry": [
+    "assets/lib/helpers/motion.ts",
+    "assets/lib/helpers/shake.ts",
+    "assets/lib/helpers/__tests__/helpers.test.ts",
+    "demos/_legacy/ui-entrance/platform-hinge-rise/PlatformHingeRise.tsx",
+    "gallery/translations.js"
+   ]
+  },
+  "big_files": [
+   "assets/audio/bgm/bgm-tech-house.mp3 (9 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\Vincentwei1021__video-shotcraft"
+ },
+ {
+  "name": "whisperX",
+  "title": "Recall.ai - Meeting Transcription API",
+  "what": "If you’re looking for a transcription API for meetings, consider checking out [Recall.ai's Meeting Transcription API](https://www.recall.ai/product/meeting-transcription-api?utm_source=github&utm_medium=sponsorship&utm_campaign=mbain-whisperx), an API that works with Zoom, Google Meet, Microsoft Teams, and more. Recall.ai diarizes by pulling the speaker data and separate audio streams from the meeting platforms, whic",
+  "commit": "5d3678b85356",
+  "files": 35,
+  "capped": false,
+  "mb": 18.7,
+  "license": "BSD",
+  "languages": [
+   "Python 84%",
+   "Markdown 11%",
+   "YAML 1%",
+   "TOML 1%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "whisperx/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "and",
+   "ctranslate2",
+   "darwin",
+   "faster-whisper",
+   "huggingface-hub",
+   "linux",
+   "nltk",
+   "numpy",
+   "omegaconf",
+   "or",
+   "pandas",
+   "pyannote-audio",
+   "torch",
+   "torchcodec",
+   "torchvision",
+   "transformers",
+   "triton",
+   "win32",
+   "x86_64"
+  ],
+  "agent_skills": [],
+  "install": [
+   "git clone https://github.com/m-bain/whisperX.git",
+   "pip install \"whisperx[fast]\"",
+   "pip install whisperx"
+  ],
+  "has": {
+   "docker": false,
+   "tests": true,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "whisperx/audio.py"
+   ]
+  },
+  "big_files": [
+   "whisperx/assets/pytorch_model.bin (18 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\whisperX"
+ },
+ {
+  "name": "wtsxDev__reverse-engineering",
+  "title": "Reverse Engineering resources",
+  "what": "- [Awesome Reversing](#awesome-reversing) - [Books](#books) - [Courses](#courses) - [Practice](#practice) - [Hex Editors](#hex-editors) - [Binary Format](#binary-format) - [Disassemblers](#disassemblers) - [Binary Analysis](#binary-analysis) - [Bytecode Analysis](#bytecode-analysis) - [Import Reconstruction](#import-reconstruction) - [Dynamic Analysis](#dynamic-analysis) - [Debugging](#debugging) - [Mac Decrypt](#mac",
+  "commit": "b25498551c6d",
+  "files": 5,
+  "capped": false,
+  "mb": 0.0,
+  "license": "none found",
+  "languages": [
+   "Markdown 88%",
+   "JSON 9%",
+   "YAML 1%"
+  ],
+  "main_language": "Markdown",
+  "entry": [],
+  "scripts": [
+   "test"
+  ],
+  "bin": null,
+  "deps_js": [
+   "remark",
+   "remark-cli",
+   "remark-lint",
+   "remark-lint-alphabetize-lists",
+   "remark-lint-are-links-valid-alive",
+   "remark-lint-are-links-valid-duplicate",
+   "remark-preset-lint-recommended"
+  ],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "-",
+  "scanned_from": "~\\dragon-repos\\re\\wtsxDev__reverse-engineering"
+ },
+ {
+  "name": "YaoFANGUK__video-subtitle-remover",
+  "title": "项目简介",
+  "what": "Video-subtitle-remover (VSR) 是一款基于AI技术，将视频中的硬字幕去除的软件。 主要实现了以下功能： - **无损分辨率**将视频中的硬字幕去除，生成去除字幕后的文件 - 通过超强AI算法模型，对去除字幕文本的区域进行填充（非相邻像素填充与马赛克去除） - 提取原视频字幕，可配合：[video-subtitle-extractor (VSE)](https://github.com/YaoFANGUK/video-subtitle-extractor) - 支持自定义字幕位置，仅去除定义位置中的字幕（传入位置） - 支持全视频自动去除所有文本（不传入位置） - 支持多选图片批量去除水印文本",
+  "commit": "e109b9ddc1d0",
+  "files": 184,
+  "capped": false,
+  "mb": 1011.1,
+  "license": "Apache-2.0",
+  "languages": [
+   "Python 58%",
+   "JSON 39%",
+   "YAML 1%",
+   "Markdown 1%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "backend/main.py",
+   "backend/scenedetect/__main__.py"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "Pillow",
+   "av",
+   "darkdetect",
+   "einops",
+   "filesplit",
+   "je-showinfilemanager",
+   "matplotlib",
+   "numpy",
+   "opencv-python",
+   "paddleocr",
+   "pyside6-fluent-widgets",
+   "requests",
+   "scikit-image",
+   "scipy",
+   "tqdm"
+  ],
+  "agent_skills": [],
+  "install": [
+   "brew install python@3.12",
+   "docker run -it --name vsr --gpus all eritpchy/video-subtitle-remover:1.4.0-cpu python backend/main.py -i test/",
+   "docker run -it --name vsr --gpus all eritpchy/video-subtitle-remover:1.4.0-cuda11.8 python backend/main.py -i ",
+   "docker run -it --name vsr --gpus all eritpchy/video-subtitle-remover:1.4.0-cuda12.6 python backend/main.py -i ",
+   "docker run -it --name vsr --gpus all eritpchy/video-subtitle-remover:1.4.0-cuda12.8 python backend/main.py -i ",
+   "docker run -it --name vsr --gpus all eritpchy/video-subtitle-remover:1.4.0-directml python backend/main.py -i ",
+   "pip install -r requirements.txt",
+   "pip install onnxruntime-gpu==1.20.1 --index-url https://aiinfra.pkgs.visualstudio.com/PublicPackages/_packagin"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": true,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "backend/tools/version_service.py"
+   ],
+   "exec": [
+    "gui.py",
+    "backend/main.py",
+    "backend/inpaint/lama_inpaint.py",
+    "backend/inpaint/propainter_inpaint.py",
+    "backend/inpaint/sttn_auto_inpaint.py",
+    "backend/inpaint/sttn_det_inpaint.py"
+   ]
+  },
+  "big_files": [
+   "backend/ffmpeg/linux_x64/ffmpeg (77 MB)",
+   "backend/ffmpeg/macos/ffmpeg (77 MB)",
+   "backend/ffmpeg/win_x64/ffmpeg_1.exe (50 MB)",
+   "backend/ffmpeg/win_x64/ffmpeg_2.exe (50 MB)",
+   "backend/ffmpeg/win_x64/ffmpeg_3.exe (14 MB)",
+   "backend/models/big-lama/big-lama_1.pt (50 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\YaoFANGUK__video-subtitle-remover"
+ },
+ {
+  "name": "zhouxiaoka__autoclip",
+  "title": "AutoClip",
+  "what": "开源，在你的电脑上剪辑与渲染。贴一个链接，选好平台，生成 <b>视频、封面和发布文案</b>，<br> 适配抖音、小红书、TikTok、Reels、YouTube Shorts、B 站与 YouTube。<br> 软件免费，云端模型按量计费；需要调整时可进入编辑器。",
+  "commit": "cd8e6bed18d8",
+  "files": 1891,
+  "capped": false,
+  "mb": 82.2,
+  "license": "MIT",
+  "languages": [
+   "Python 53%",
+   "JSON 19%",
+   "Markdown 13%",
+   "TypeScript 9%",
+   "CSS 1%"
+  ],
+  "main_language": "Python",
+  "entry": [
+   "backend/cli.py",
+   "backend/main.py",
+   "backend/eval/__main__.py",
+   "mcpb/src/server.py",
+   "scripts/provider_e2e/__main__.py",
+   "src-tauri/src/main.rs"
+  ],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "Pillow",
+   "aiofiles",
+   "aiohttp",
+   "alembic",
+   "celery",
+   "cryptography",
+   "dashscope",
+   "fastapi",
+   "google-genai",
+   "mcp",
+   "openai",
+   "passlib",
+   "psutil",
+   "pydantic",
+   "pydantic-settings",
+   "pysrt",
+   "pytest",
+   "pytest-cov",
+   "pytest-mock",
+   "python-jose",
+   "python-multipart",
+   "pytz",
+   "qrcode",
+   "redis",
+   "requests"
+  ],
+  "agent_skills": [
+   "skills/autoclip/SKILL.md",
+   "skills/product-board/SKILL.md"
+  ],
+  "install": [
+   "docker compose run --rm --no-deps --user root --entrypoint sh autoclip -c 'chown -R autoclip:autoclip /app/dat",
+   "docker compose up -d",
+   "docker compose up -d --build",
+   "git clone https://github.com/zhouxiaoka/autoclip.git",
+   "npx skills add zhouxiaoka/autoclip"
+  ],
+  "has": {
+   "docker": true,
+   "tests": false,
+   "ci": true,
+   "claude": true,
+   "agents": true,
+   "mcp": false
+  },
+  "risk": {
+   "network": [
+    "artifacts/game-ads/run-20260921/seed_review.py",
+    "backend/desktop_main.py",
+    "backend/api/v1/bilibili.py",
+    "backend/api/v1/offline.py",
+    "backend/api/v1/settings.py",
+    "backend/api/v1/upload.py"
+   ],
+   "exec": [
+    "backend/desktop_main.py",
+    "backend/api/v1/youtube.py",
+    "backend/core/failure_attribution.py",
+    "backend/core/failure_codes.py",
+    "backend/core/project_cancellation.py",
+    "backend/core/sentry_setup.py"
+   ],
+   "download-run": [
+    "scripts/tests/test_prepare_windows_python_crt.ps1"
+   ],
+   "secrets-read": [
+    "backend/app_factory.py",
+    "backend/core/desktop_config.py",
+    "backend/core/error_middleware.py",
+    "backend/core/image_providers.py",
+    "backend/core/llm_manager.py",
+    "backend/core/log_redaction.py"
+   ],
+   "delete": [
+    "backend/core/project_cancellation.py",
+    "backend/services/packaging_runtime.py",
+    "backend/services/path_manager.py",
+    "backend/services/project_orphan_cleanup.py",
+    "backend/services/publish_export.py",
+    "backend/services/sensevoice_runtime.py"
+   ],
+   "telemetry": [
+    "backend/app_factory.py",
+    "backend/cli.py",
+    "backend/mcp_server.py",
+    "backend/api/v1/settings.py",
+    "backend/api/v1/speech_recognition.py",
+    "backend/api/v1/studio.py"
+   ]
+  },
+  "big_files": [
+   "backend/assets/example/source.mp4 (17 MB)",
+   "backend/assets/fonts/NotoSansSC-Medium.ttf (11 MB)",
+   "backend/assets/fonts/NotoSansSC.ttf (18 MB)"
+  ],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\zhouxiaoka__autoclip"
+ },
+ {
+  "name": "zinja-coder__apktool-mcp-server",
+  "title": "apktool-mcp-server (Part of Zin's Reverse Engineering MCP Suite)",
+  "what": "⚡ Fully automated MCP server built on top of apktool to analyze Android APKs using LLMs like Claude — uncover vulnerabilities, parse manifests, and reverse engineer effortlessly.",
+  "commit": "12bb33134af9",
+  "files": 19,
+  "capped": false,
+  "mb": 1.7,
+  "license": "Apache-2.0",
+  "languages": [
+   "Python 67%",
+   "Markdown 22%",
+   "Shell 9%",
+   "TOML 0%",
+   "YAML 0%"
+  ],
+  "main_language": "Python",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [
+   "fastmcp",
+   "logging"
+  ],
+  "agent_skills": [],
+  "install": [
+   "uv pip install httpx fastmcp"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {
+   "exec": [
+    "apktool_mcp_server.py"
+   ],
+   "delete": [
+    "apktool_mcp_server.py"
+   ]
+  },
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\zinja-coder__apktool-mcp-server"
+ },
+ {
+  "name": "zinja-coder__jadx-ai-mcp",
+  "title": "JADX-AI-MCP (Part of Zin MCP Suite)",
+  "what": "⚡ Fully automated MCP server + JADX plugin built to communicate with LLM through MCP to analyze Android APKs using LLMs like Claude — uncover vulnerabilities, analyze APK, and reverse engineer effortlessly.",
+  "commit": "9f4fce6f4990",
+  "files": 64,
+  "capped": false,
+  "mb": 7.5,
+  "license": "Apache-2.0",
+  "languages": [
+   "Java 72%",
+   "Markdown 26%",
+   "YAML 0%"
+  ],
+  "main_language": "Java",
+  "entry": [],
+  "scripts": [],
+  "bin": null,
+  "deps_js": [],
+  "deps_py": [],
+  "agent_skills": [],
+  "install": [
+   "uv pip install httpx fastmcp",
+   "uv tool install git+https://github.com/zinja-coder/jadx-mcp-server"
+  ],
+  "has": {
+   "docker": false,
+   "tests": false,
+   "ci": false,
+   "claude": false,
+   "agents": false,
+   "mcp": false
+  },
+  "risk": {},
+  "big_files": [],
+  "windows": "يشتغل مباشرة غالبًا (Python/Node)",
+  "scanned_from": "~\\dragon-repos\\re\\zinja-coder__jadx-ai-mcp"
+ }
+]

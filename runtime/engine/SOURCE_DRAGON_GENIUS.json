@@ -1,0 +1,23 @@
+{
+  "schema": "black-dragon.source.v1017",
+  "skill": "dragon-genius",
+  "origin": "owner-created skill from the Black Dragon sessions (analysis of 100 GitHub repos: thinking/agents/memory + montage/audio/animation)",
+  "bundled_path": "skills/dragon-genius",
+  "files": {
+    "evals/evals.json": "ef61c694b9a71f5eaa8cafc6e30a83459ea880707914a140c4ecbaaef8ecfdef",
+    "references/agent-ops.md": "fd37fd38fbf562453a899eafed05bfd74a1d534dabf1bf60e0453f1cd5bfc791",
+    "references/lessons.md": "ba0d12afc9d6f00063af902abd4cfbecf514cc15951483d10b63a846f7fe219d",
+    "references/montage-craft.md": "256d22403db5934aac6b2b45134c2d1426300223054b47a4cc9af214539cc461",
+    "references/sources.md": "81a8487fbc944b8b10f050a80cd291c841bf6c53e28607593ad5b8f47096918c",
+    "scripts/media_gate.py": "cb6810f4a45449fa39e2ae917f537cc2e60fb86a93b008ddfdc48002d0ee46ab",
+    "scripts/transcript_qa.py": "571cba73d8828aa955363b485dac19fb99a5caff1315ec8d314c21ca942003f5",
+    "SKILL.md": "ff0732c118549988150f0aed5fd6a6b464d7ca2bacf7c2cc00c7652c2ad2788b"
+  },
+  "actions": [
+    "bundled verbatim under skills/dragon-genius",
+    "added guarded bridge tool tools/genius/bridge.py (doctor/gate/qa) wrapping media_gate.py + transcript_qa.py",
+    "registered own_tools card 'genius' + capabilities entrypoint + NEEDS ffprobe",
+    "added test_v1017_merge.py"
+  ],
+  "license_notice": "Created within this project at the owner's request. No third-party code redistributed."
+}

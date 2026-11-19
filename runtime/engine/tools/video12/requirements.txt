@@ -1,0 +1,5 @@
+# Optional, heavy ML/video packages. Installed only in tools/video12/.venv by explicit consent.
+# Python 3.10+ required; Manim may require Cairo/Pango packages. WhisperX may need CUDA/GPU.
+manim
+whisperx
+auto-editor

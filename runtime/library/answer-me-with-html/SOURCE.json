@@ -1,0 +1,12 @@
+{
+ "repo": "https://github.com/QingYunA/answer-me-with-html",
+ "stars_on_2026-11-14": 6322,
+ "license": "mit",
+ "commit": "edccab0",
+ "path_in_repo": "skills/answer-me-with-html/",
+ "review_before_running": [
+  "exec",
+  "network"
+ ],
+ "note": "copied unchanged with its LICENSE (v2.18.0); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

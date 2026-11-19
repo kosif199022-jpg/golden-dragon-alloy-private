@@ -1,0 +1,60 @@
+{
+ "file": "C:/Users/cinde/tiktok_clone/output/ma_tlaqinash_remake.mp4",
+ "duration_s": 41.933,
+ "size_mb": 77.44,
+ "audio": true,
+ "width": 1920,
+ "height": 1080,
+ "fps": 30.0,
+ "vcodec": "h264",
+ "pix_fmt": "yuv420p",
+ "aspect": "16:9",
+ "acodec": "aac",
+ "sample_rate": 44100,
+ "channels": 2,
+ "cuts": [],
+ "soft_transition_candidates": [
+  [
+   11.05,
+   0.288
+  ],
+  [
+   18.25,
+   0.342
+  ]
+ ],
+ "shot_boundaries": [
+  [
+   11.05,
+   "soft?"
+  ],
+  [
+   18.25,
+   "soft?"
+  ]
+ ],
+ "shot_count": 3,
+ "asl_s": 13.98,
+ "first_cut_s": 11.05,
+ "longest_shot_s": 23.68,
+ "shortest_shot_s": 7.2,
+ "cuts_in_first_3s": 0,
+ "black_segments": [],
+ "cuts_per_10s": [
+  0,
+  2,
+  0,
+  0,
+  0
+ ],
+ "lufs_i": -13.6,
+ "lra": 2.2,
+ "true_peak_db": -2.9,
+ "silences": [],
+ "first_sound_s": 0.0,
+ "flags": [
+  "أطول لقطة 23.68 ث = أكتر من نص الفيديو",
+  "الانتقالات الناعمة (soft?) مرشّحة بس: اتأكد بشيت الفريمات، وممكن يفوته انتقال بين لقطتين ألوانهم قريبة"
+ ],
+ "sheet": "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\arena\\20261111-153954-تحويل-ريمكس-وما-تلاقيناش-لريل-9\\evidence\\ma_tlaqinash_remake_sheet.png"
+}

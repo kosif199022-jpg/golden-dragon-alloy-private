@@ -1,0 +1,98 @@
+{
+  "task": "DEMO ONLY: review a synthetic edit sequence",
+  "domain": "editing",
+  "size": 5,
+  "demo_only": true,
+  "round1": [
+    {
+      "seat_id": "seat-1",
+      "lens": "story-emotion",
+      "position": "DEMO hypothesis seat 1; requires real material before using",
+      "observations": [
+        {
+          "claim": "Illustrative concern 1 in fabricated footage",
+          "locator": "DEMO 10:00 (not a real observed timecode)",
+          "action": "Check creative criterion 1 on the actual footage"
+        }
+      ],
+      "confidence": 0.2
+    },
+    {
+      "seat_id": "seat-2",
+      "lens": "rhythm-continuity",
+      "position": "DEMO hypothesis seat 2; requires real material before using",
+      "observations": [
+        {
+          "claim": "Illustrative concern 2 in fabricated footage",
+          "locator": "DEMO 11:00 (not a real observed timecode)",
+          "action": "Check creative criterion 2 on the actual footage"
+        }
+      ],
+      "confidence": 0.2
+    },
+    {
+      "seat_id": "seat-3",
+      "lens": "audience",
+      "position": "DEMO hypothesis seat 3; requires real material before using",
+      "observations": [
+        {
+          "claim": "Illustrative concern 3 in fabricated footage",
+          "locator": "DEMO 12:00 (not a real observed timecode)",
+          "action": "Check creative criterion 3 on the actual footage"
+        }
+      ],
+      "confidence": 0.2
+    },
+    {
+      "seat_id": "seat-4",
+      "lens": "red-team",
+      "position": "DEMO hypothesis seat 4; requires real material before using",
+      "observations": [
+        {
+          "claim": "Illustrative concern 4 in fabricated footage",
+          "locator": "DEMO 13:00 (not a real observed timecode)",
+          "action": "Check creative criterion 4 on the actual footage"
+        }
+      ],
+      "confidence": 0.2
+    },
+    {
+      "seat_id": "seat-5",
+      "lens": "feasibility",
+      "position": "DEMO hypothesis seat 5; requires real material before using",
+      "observations": [
+        {
+          "claim": "Illustrative concern 5 in fabricated footage",
+          "locator": "DEMO 14:00 (not a real observed timecode)",
+          "action": "Check creative criterion 5 on the actual footage"
+        }
+      ],
+      "confidence": 0.2
+    }
+  ],
+  "debates": [
+    {
+      "topic": "pace versus comprehension",
+      "steelman_a": "slower cuts can protect readability",
+      "steelman_b": "faster cuts can create energy",
+      "discriminator": "compare real A/B cut versions"
+    }
+  ],
+  "red_team": {
+    "premortem": "Reviewer may confuse declared timecodes with observed footage"
+  },
+  "verdict": {
+    "decision": "DEMO ONLY: inspect actual material first",
+    "reasoning": "No real input material for this example",
+    "strongest_dissent": "Fast cuts may be necessary for the intended music",
+    "actions": [
+      "Read real media and produce measured frame/timing evidence"
+    ]
+  },
+  "evidence": [
+    {
+      "kind": "declared-reference",
+      "citation": "DEMO packet is not evidence from an actual clip"
+    }
+  ]
+}

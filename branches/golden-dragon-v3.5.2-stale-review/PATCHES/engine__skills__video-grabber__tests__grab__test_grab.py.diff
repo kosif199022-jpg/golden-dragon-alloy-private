@@ -1,0 +1,91 @@
+diff --git a/engine/skills/video-grabber/tests/grab/test_grab.py b/engine/skills/video-grabber/tests/grab/test_grab.py
+index 1eb292b..f8240f1 100644
+--- a/engine/skills/video-grabber/tests/grab/test_grab.py
++++ b/engine/skills/video-grabber/tests/grab/test_grab.py
+@@ -86,6 +86,14 @@ def _fake_file(tmp_path, name="v.mp4"):
+     return f
+ 
+ 
++@pytest.fixture(autouse=True)
++def no_real_update(monkeypatch):
++    """Unit tests must never pip-install: the yt-dlp version and the upgrade itself are faked."""
++    grab._refresh_state["done"] = False
++    monkeypatch.setattr(grab, "ytdlp_version", lambda: "")
++    monkeypatch.setattr(grab, "_upgrade_ytdlp", lambda: None)  # never a real pip run
++
++
+ @pytest.fixture
+ def no_probe(monkeypatch):
+     monkeypatch.setattr(grab, "probe_direct", lambda *a, **k: False)
+@@ -192,3 +200,71 @@ def test_real_helper6_modules_import():
+     assert hasattr(gbm.GhostBrowser, "sniff")
+     pool = pp.ProxyPool.from_sources(file=str(SCRIPTS / "__nonexistent__.txt"), env=False, tor=False, free=False, check=False)
+     assert pool.next() is None  # empty pool -> direct
++
++
++# ---------------------------------------------------------------- yt-dlp auto-update
++def test_ytdlp_age_days():
++    import datetime as dt
++    today = dt.date(2026, 11, 16)
++    assert grab.ytdlp_age_days("2026.11.02", today) == 14
++    assert grab.ytdlp_age_days("2025.06.30.123456", today) == 504
++    assert grab.ytdlp_age_days("", today) is None
++    assert grab.ytdlp_age_days("nightly", today) is None
++
++
++def _versions(monkeypatch, seq):
++    it = iter(seq)
++    last = {"v": seq[-1]}
++    def ver():
++        try:
++            last["v"] = next(it)
++        except StopIteration:
++            pass
++        return last["v"]
++    monkeypatch.setattr(grab, "ytdlp_version", ver)
++
++
++def test_failure_updates_once_and_retries(tmp_path, monkeypatch, no_probe):
++    f = _fake_file(tmp_path)
++    calls, upgrades = [], []
++    _versions(monkeypatch, ["2026.11.10", "2026.11.10", "2026.11.15"])  # fresh (no stale refresh) -> old -> new
++    monkeypatch.setattr(grab, "_upgrade_ytdlp", lambda: upgrades.append(1))
++
++    def fake_try(url, a, out, proxy, **kw):
++        calls.append(proxy)
++        if len(calls) == 1:
++            return {"kind": "failed", "files": [], "error": "Unable to extract shortcode"}
++        return {"kind": "ok", "files": [f], "error": ""}
++
++    monkeypatch.setattr(grab, "try_ytdlp", fake_try)
++    monkeypatch.delenv("VG_NO_AUTOUPDATE", raising=False)
++    monkeypatch.delenv("KOSIF_NO_AUTOINSTALL", raising=False)
++    r = grab.grab_one("http://site/v", args("--proxy", "none", "--no-browser"), tmp_path, {})
++    assert r["ok"] and len(calls) == 2 and upgrades == [1]
++    assert [x["step"] for x in r["attempts"]] == ["yt-dlp", "yt-dlp after update"]
++
++
++def test_no_retry_when_version_unchanged_or_disabled(tmp_path, monkeypatch, no_probe):
++    calls, upgrades = [], []
++    monkeypatch.setattr(grab, "ytdlp_version", lambda: "2026.11.10")
++    monkeypatch.setattr(grab, "_upgrade_ytdlp", lambda: upgrades.append(1))
++    monkeypatch.setattr(grab, "try_ytdlp", lambda *a, **k: calls.append(1) or {"kind": "failed", "files": [], "error": "x"})
++    monkeypatch.setattr(grab, "sniff", lambda *a, **k: None)
++    grab.grab_one("http://site/v", args("--proxy", "none", "--no-browser"), tmp_path, {})
++    assert len(calls) == 1 and len(upgrades) <= 1
++    grab._refresh_state["done"] = False
++    upgrades.clear()
++    grab.grab_one("http://site/v", args("--proxy", "none", "--no-browser", "--no-auto-update"), tmp_path, {})
++    assert upgrades == []
++
++
++def test_stale_copy_is_refreshed_before_first_try(tmp_path, monkeypatch, no_probe):
++    f = _fake_file(tmp_path)
++    upgrades = []
++    _versions(monkeypatch, ["2025.01.01", "2025.01.01", "2026.11.15"])
++    monkeypatch.setattr(grab, "_upgrade_ytdlp", lambda: upgrades.append(1))
++    monkeypatch.setattr(grab, "try_ytdlp", lambda *a, **k: {"kind": "ok", "files": [f], "error": ""})
++    monkeypatch.delenv("VG_NO_AUTOUPDATE", raising=False)
++    monkeypatch.delenv("KOSIF_NO_AUTOINSTALL", raising=False)
++    r = grab.grab_one("http://site/v", args("--proxy", "none"), tmp_path, {})
++    assert r["ok"] and upgrades == [1]

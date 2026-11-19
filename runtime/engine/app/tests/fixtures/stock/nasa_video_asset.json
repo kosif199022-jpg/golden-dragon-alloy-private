@@ -1,0 +1,20 @@
+{
+ "collection": {
+  "version": "1.0",
+  "href": "https://images-api.nasa.gov/asset/DRAGON_TEST_VERTICAL_NILE",
+  "items": [
+   {
+    "href": "http://images-assets.nasa.gov/video/DRAGON_TEST_VERTICAL_NILE/DRAGON_TEST_VERTICAL_NILE~orig.mp4"
+   },
+   {
+    "href": "http://images-assets.nasa.gov/video/DRAGON_TEST_VERTICAL_NILE/DRAGON_TEST_VERTICAL_NILE~preview.mp4"
+   },
+   {
+    "href": "http://images-assets.nasa.gov/video/DRAGON_TEST_VERTICAL_NILE/DRAGON_TEST_VERTICAL_NILE~thumb.jpg"
+   },
+   {
+    "href": "http://images-assets.nasa.gov/video/DRAGON_TEST_VERTICAL_NILE/metadata.json"
+   }
+  ]
+ }
+}

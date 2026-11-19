@@ -1,0 +1,28 @@
+PASS download rc
+PASS url cut before arabic comma
+PASS wrong number re-asks
+PASS .ts download kept (V34 deleted it)
+PASS no .part piece moved
+PASS job folder cleaned
+PASS history line
+PASS second copy gets unique name
+PASS old failed list kept
+PASS new failure appended
+PASS retry of failed list rewrites it
+PASS safe h264 remux
+PASS safe mpeg2 -> mpeg4 fallback (no libx264)
+PASS no tmp left in Downloads
+PASS no tmp left in .cinema
+PASS studio rc
+PASS compress output exists
+PASS compress within 1 MB
+PASS cover jpg
+PASS trim fast
+PASS INT exit code 130
+PASS partial output removed
+PASS lab job removed
+PASS source kept
+PASS picker shows Studio folder
+PASS picker hides tmp
+harness: 26 passed, 0 failed
+harness rc=0

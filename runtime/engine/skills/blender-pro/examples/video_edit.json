@@ -1,0 +1,14 @@
+{
+  "scene": {},
+  "steps": [
+    {"op": "vse_setup", "from_clip": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/clipA.mp4", "resolution": [960, 540]},
+    {"op": "add_movie", "filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/clipA.mp4", "name": "A", "start": 1, "trim_in": 0.0, "trim_out": 3.0, "channel": 3, "audio_channel": 1},
+    {"op": "add_movie", "filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/clipB.mp4", "name": "B", "start": 100, "trim_in": 0.5, "trim_out": 3.5, "channel": 4, "audio_channel": 2},
+    {"op": "transition", "a": "A", "b": "B", "type": "CROSS", "duration": 1.0},
+    {"op": "color_grade", "target": "A", "contrast": 10, "saturation": 1.2},
+    {"op": "add_text", "text": "التنين الأسود - Black Dragon", "name": "Title", "start": 10, "duration": 2.5, "position": [0.5, 0.12], "size": 54, "box": true, "fade_in": 0.4, "fade_out": 0.4},
+    {"op": "add_audio", "filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/music.mp3", "name": "music", "start": 1, "duration": 5.0, "volume": 0.15, "fade_in": 0.5, "fade_out": 1.0, "channel": 7},
+    {"op": "vse_list"}
+  ],
+  "render": {"filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/video_edit.mp4", "quality": "HIGH"}
+}

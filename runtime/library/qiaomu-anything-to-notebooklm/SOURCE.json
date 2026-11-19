@@ -1,0 +1,11 @@
+{
+ "repo": "https://github.com/joeseesun/qiaomu-anything-to-notebooklm",
+ "stars_on_2026-11-12": 6498,
+ "license": "mit",
+ "path_in_repo": "skills-hub/joeseesun__qiaomu-anything-to-notebooklm",
+ "review_before_running": [
+  "exec",
+  "network"
+ ],
+ "note": "copied unchanged; SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

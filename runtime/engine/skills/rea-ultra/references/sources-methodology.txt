@@ -1,0 +1,68 @@
+Sources used for references/methodology.md (researched 2026-11-09; content distilled in own words)
+
+Books (publisher / catalog pages, reviews)
+https://www.nostarch.com/malware.htm
+https://nostarch.com/node/184
+https://www.oreilly.com/library/view/practical-malware-analysis/9781593272906/ch02.html
+https://www.ieee-security.org/Cipher/BookReviews/2012/Sikorski_by_austin.html
+https://www2.paloaltonetworks.com/blog/2018/02/cybersecurity-canon-practical-malware-analysis-hands-guide-dissecting-malicious-software.md
+https://nostarch.com/node/831
+https://penguinrandomhouse.com/books/822472/the-ghidra-book-2nd-edition-by-kara-nance-and-chris-eagle
+https://www.ieee-security.org/Cipher/BookReviews/2025/EagleNance_by_dietrich.html
+https://bookshop.org/p/books/practical-reverse-engineering-x86-x64-arm-windows-kernel-reversing-tools-and-obfuscation-alexandre-gazet/6ab5ef0b69c65251
+https://lehmanns.de/shop/technik/27253857-9781118787311-practical-reverse-engineering
+https://en.wikipedia.org/wiki/Reversing:_Secrets_of_Reverse_Engineering
+https://www.oreilly.com/library/view/reversing-secrets-of/9780764574818/
+https://nostarch.com/releases/idapro.html
+https://oreilly.com/library/view/the-ida-pro/9781593273750
+
+Ghidra official docs / version tracking / Function ID / BSim
+https://ghidradocs.com/12.0_PUBLIC/help/index.html
+https://ghidradocs.com/10.2_PUBLIC/docs/GhidraClass/Intermediate/VersionTracking.html
+https://ghidradocs.com/9.1_PUBLIC/help/VersionTracking/help/topics/VersionTrackingPlugin/Version_Tracking_Intro.html
+https://ghidradocs.com/10.2_PUBLIC/help/VersionTracking/help/topics/VersionTrackingPlugin/VT_Tool.html
+https://github.com/NationalSecurityAgency/ghidra/discussions/9341
+https://www.lrqa.com/en-sg/cyber-labs/version-tracking-in-ghidra/
+https://media.defcon.org/DEF%20CON%2032/DEF%20CON%2032%20video%20and%20slides/DEF%20CON%2032%20video%20and%20slides%20captions/DEF%20CON%2032%20-%20No%20Symbols%20When%20Reversing%20No%20Problem%20Bring%20Your%20Own%20-%20Max%20%E2%80%98Libra%E2%80%99%20Kersten.eng.text
+
+Mandiant FLARE (capa, FLOSS)
+https://github.com/mandiant/capa
+https://github.com/mandiant/flare-floss
+https://cloud.google.com/blog/topics/threat-intelligence/capa-2-better-stronger-faster
+https://cloud.google.com/blog/topics/threat-intelligence/flare-tools-google-summer-of-code-2023
+
+Hex-Rays decompiler workflow (rename/retype/structures)
+https://hex-rays.com/blog/igors-tip-of-the-week-42-renaming-and-retyping-in-the-decompiler
+https://hex-rays.com/blog/igors-tip-of-the-week-76-quick-rename
+https://hex-rays.com/blog/igors-tip-of-the-week-118-structure-creation-in-the-decompiler
+
+Workshops / practitioner methodology (RE101/102, OALabs, cheat sheets, unpacking)
+https://malwareunicorn.org/workshops/re101.html
+https://malwareunicorn.org/workshops/re102
+https://44con2017.sched.com/event/BwD3/amanda-rousseau-reverse-engineering-windows-malware-101-workshop
+https://rosetta.to/u/liveoverflow/unpacking-redaman-malware-basics-of-self-injection-packers-ft-oalabs
+https://zeltser.com/reverse-malware-cheat-sheet/
+https://pentest.sans.org/security-resources/posters/malware-analysis-reverse-engineering-cheat-sheet/395/download
+https://www.varonis.com/blog/x64dbg-unpack-malware
+
+Patch diffing (BinDiff, Diaphora, ghidriff)
+https://cve-north-stars.github.io/docs/Patch-Diffing
+https://clearbluejar.github.io/posts/ghidriff-ghidra-binary-diffing-engine
+https://github.com/google/bindiff
+https://www.packetlabs.net/posts/binary-diffing/
+
+Legal (DMCA 1201(f), interoperability, fair use)
+https://cacm.acm.org/magazines/2015/7/188738-anti-circumvention-rules-limit-reverse-engineering/abstract
+https://www.copyright.gov/1201/comments/221.pdf
+https://project-disco.org/intellectual-property/070617-interoperability-and-the-copyright-offices-section-1201-report/
+https://eff.org/files/filenode/Chamberlain_v_Skylink/20040401_skylink_appeal_amicus.pdf
+
+Local (REA tool contracts used for the tool mapping)
+C:\Users\cinde\.claude\skills\rea-ultra\SKILL.md
+C:\Users\cinde\.claude\skills\rea-ultra\references\native-managed-playbook.md
+C:\Users\cinde\.claude\skills\rea-ultra\references\upstream\native-and-artifacts.md
+C:\Users\cinde\.claude\skills\rea-ultra\references\upstream\evidence-workflows.md
+
+Note: crypto/compression constants and compiler idioms in section 2 are standard public
+specification values (FIPS 180-4, FIPS 197, RFC 1321, RFC 7539, RFC 1950/1952, MS x64 ABI);
+they were written from domain knowledge and should be confirmed by shape + constant per the file.

@@ -1,0 +1,5 @@
+schema_version: "1.1"
+name: no-invented-offer-details
+expected_outcome: |
+  The user never gave the price, phone number or opening hours. A good run writes a strong Egyptian-Arabic post
+  but does not invent any of the three: it uses clear placeholders and tells the user what is missing.

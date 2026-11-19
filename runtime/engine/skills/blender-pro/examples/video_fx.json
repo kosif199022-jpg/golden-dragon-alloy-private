@@ -1,0 +1,23 @@
+{
+  "scene": {},
+  "steps": [
+    {"op": "vse_setup", "resolution": [640, 360], "fps": 30},
+    {"op": "add_color", "color": "#1B4F72", "name": "BG", "start": 1, "duration": 3, "channel": 1},
+    {"op": "add_movie", "filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/greenscreen.mp4", "name": "GS", "start": 1, "channel": 2, "with_audio": false, "duration": 3},
+    {"op": "compositor_fx", "target": "GS", "effects": [{"type": "chroma_key", "key_color": "#00FF00", "tolerance": 0.2}]},
+    {"op": "add_movie", "filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/clipA.mp4", "name": "S", "start": 91, "channel": 3, "duration": 2},
+    {"op": "set_speed", "target": "S", "factor": 2.0},
+    {"op": "add_movie", "filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/media/clipB.mp4", "name": "C", "start": 160, "channel": 6, "duration": 3},
+    {"op": "cut", "target": "C", "at": 205},
+    {"op": "adjustment_layer", "name": "FX", "start": 1, "duration": 8, "channel": 10},
+    {"op": "compositor_fx", "target": "FX", "effects": [{"type": "glare", "glare_type": "Fog Glow", "threshold": 0.9}, {"type": "vignette", "size": 0.8, "softness": 0.6}, {"type": "lens_distortion", "distortion": 0.05, "dispersion": 0.03}]},
+    {"op": "ken_burns", "target": "S", "zoom_from": 1.0, "zoom_to": 1.4},
+    {"op": "crop", "target": "C_b", "left": 100, "right": 100},
+    {"op": "blend", "target": "C_b", "blend_type": "ALPHA_OVER", "opacity": 0.8},
+    {"op": "color_grade", "target": "FX", "lift": [1.0, 1.0, 1.05], "gain": [1.05, 1.0, 0.95], "curves": {"c": [[0, 0], [0.5, 0.45], [1, 1]]}, "white_balance": [1, 1, 1]},
+    {"op": "transform", "target": "GS", "scale": 0.8, "position": [100, 0], "rotation": 5},
+    {"op": "fade", "target": "GS", "fade_in": 0.3, "fade_out": 0.3},
+    {"op": "vse_list"}
+  ],
+  "render": {"filepath": "C:/Users/cinde/OneDrive/Desktop/تحليل/output/blender-pro-tests/video_fx.mp4", "quality": "MEDIUM"}
+}

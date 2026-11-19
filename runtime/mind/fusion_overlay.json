@@ -1,0 +1,59 @@
+{
+ "_doc": "v3.4.0: recipes the skill adds on top of apps/golden-dragon/app/fusion (that data is generated on the owner's laptop by the app's forge and is not edited by hand). scripts/rd_fusion.py loads this file after the base data. Every id a step names must exist in the fusion index; rd.py selftest checks it.",
+ "recipes": [
+  {
+   "id": "skill-self-develop",
+   "title_ar": "تطوير التنين نفسه (المهارة والعقل والمستودع)",
+   "when": [
+    "طوّر التنين نفسه",
+    "زوّد مميزات المستودع بتاع المهارة",
+    "طوّر تفكير التنين وذكائه",
+    "حدّث مهارة التنين الذهبي بكل اللي وصلناله",
+    "improve the dragon skill, its thinking and its repo"
+   ],
+   "tags": ["التنين", "تفكيره", "ذكائه", "المستودع", "مميزات", "المهاره", "العقل", "dragon", "repo", "thinking", "self-improve"],
+   "deliver_ar": "commit محلي في المستودع (VERSION وCHANGELOG وRD_MAP وmanifests) وselftest ok وzip جنبه؛ والرفع أو التثبيت بكلمة صريحة بس",
+   "steps": [
+    {
+     "do_ar": "اعرف الفرق بالقياس: المستودع ضد المتثبت ضد اللي على الجهاز",
+     "read": ["skill:golden-dragon", "skill:planning-mind"],
+     "use": ["cmd:rd-doctor", "cmd:rd-skills"],
+     "gate_ar": "قايمة الناقص والأقدم بالـ hash مش بتاريخ الملف، وأي نسخة في المستودع اتعدّلت عشان تشتغل في أي مكان ماتتكتبش فوقها"
+    },
+    {
+     "do_ar": "صلّح وطوّر بأصغر تغيير، وكل تصليح معاه اختبار",
+     "read": ["skill:systematic-debugging", "skill:strict-api"],
+     "use": ["cmd:rd-selftest"],
+     "gate_ar": "الاختبار الجديد بيفشل من غير التصليح وبيعدّي بيه"
+    },
+    {
+     "do_ar": "التفكير: البروتوكول والناقد وأسئلة العلماء",
+     "read": ["skill:ultra-mind", "skill:expert-council"],
+     "use": ["cmd:rd-think", "cmd:rd-mind"],
+     "gate_ar": "rd.py fuse brief وrd.py check شغالين، وأسئلة الناقد اتجاوبت بدليل من الرد"
+    },
+    {
+     "do_ar": "بوابة الإصدار",
+     "read": ["skill:release-check", "skill:shipping-across-surfaces"],
+     "use": ["cmd:rd-selftest", "cmd:rd-docs"],
+     "gate_ar": "VERSION وCHANGELOG وmake_map وmanifests، وselftest ok، والراوتر مش أقل من الأرضية"
+    },
+    {
+     "do_ar": "سلّم من غير رفع",
+     "read": ["skill:guarding-destructive-operations", "skill:finishing-a-development-branch"],
+     "use": ["cmd:rd-consent"],
+     "gate_ar": "commit محلي وzip، والـ push أو التثبيت بعد كلمة صريحة للفعل ده"
+    }
+   ],
+   "approvals_ar": [
+    "الرفع على GitHub أو التثبيت على الجهاز: كلمة صريحة من صاحب الشغل للفعل ده بالظبط («كمل» مش موافقة)"
+   ]
+  }
+ ],
+ "rd_map": {
+  "self-improve": ["skill-self-develop", "app-self-develop", "new-skill"]
+ },
+ "task_type": {
+  "skill-self-develop": "plan"
+ }
+}

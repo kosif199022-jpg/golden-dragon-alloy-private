@@ -1,0 +1,130 @@
+{
+ "same_term_seen_in_even_examples_of_other_playbooks": {
+  "app-dev": {
+   "البرنامج": {
+    "clone-own-tool": [
+     "old:44",
+     "old:100",
+     "fresh:138"
+    ],
+    "self-improve": [
+     "fresh:156"
+    ],
+    "status": [
+     "fresh:34"
+    ]
+   },
+   "امكانيه": {
+    "clone-own-tool": [
+     "fresh:194"
+    ]
+   }
+  },
+  "status": {
+   "لسه": {
+    "app-dev": [
+     "fresh:30",
+     "fresh:52"
+    ]
+   }
+  },
+  "self-improve": {
+   "سوبر باور": {
+    "reel-montage": [
+     "fresh:110"
+    ]
+   }
+  },
+  "re-repo": {
+   "مستودعات": {
+    "deep-research": [
+     "old:10"
+    ]
+   },
+   "المستودعات": {
+    "deep-research": [
+     "old:10"
+    ]
+   },
+   "جيت هاب": {
+    "none": [
+     "fresh:58"
+    ],
+    "deep-research": [
+     "old:10"
+    ],
+    "build-skill": [
+     "old:24"
+    ]
+   },
+   "مستودعات جيت": {
+    "deep-research": [
+     "old:10"
+    ]
+   }
+  },
+  "build-skill": {
+   "طور مهاره": {
+    "re-repo": [
+     "old:6"
+    ],
+    "nature-palette": [
+     "fresh:162"
+    ]
+   }
+  },
+  "site-style": {
+   "اقترح تطوير": {
+    "re-site": [
+     "fresh:208"
+    ]
+   }
+  },
+  "deep-research": {
+   "روابط": {
+    "self-improve": [
+     "old:18"
+    ]
+   }
+  },
+  "app-to-skill": {
+   "حوله": {
+    "web-build": [
+     "old:58"
+    ]
+   }
+  },
+  "toon": {
+   "ديزني": {
+    "blender-3d": [
+     "old:78"
+    ]
+   },
+   "لديزني": {
+    "blender-3d": [
+     "old:78"
+    ]
+   }
+  }
+ },
+ "variants_without_direct_even_evidence": {
+  "re-repo": [
+   "جيتهاب"
+  ],
+  "toon": [
+   "disney"
+  ],
+  "re-file": [
+   "سيرفر",
+   "سيرفرات",
+   "السيرفرات",
+   "server"
+  ]
+ },
+ "dropped_already_in_own_triggers": {
+  "app-to-skill": [
+   "وحوله",
+   "مهاره كلاود"
+  ]
+ }
+}

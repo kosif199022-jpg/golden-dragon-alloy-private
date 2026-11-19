@@ -1,0 +1,366 @@
+{
+ "title": "ميار 1 - واحدة من 40 مليون",
+ "duration": 46,
+ "fps": 30,
+ "fx": {
+  "grain": 0.06,
+  "vignette": 0.55,
+  "fadeIn": 0.8,
+  "fadeOut": 1.6
+ },
+ "audio": {
+  "song": "song1_ahlef.wav",
+  "start": 22.4,
+  "fadeIn": 1.5,
+  "fadeOut": 3.0
+ },
+ "shots": [
+  {
+   "type": "stars",
+   "d": 7.4,
+   "converge": true,
+   "convergeAt": 4.6,
+   "convergeDur": 2.6
+  },
+  {
+   "src": "DfEs8ddsRXH",
+   "in": 2.3,
+   "d": 3.4,
+   "crop": {
+    "z": 1.45,
+    "cx": 0.12,
+    "cy": 0.62
+   },
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.12
+   },
+   "tr": {
+    "type": "cut",
+    "d": 0.2
+   }
+  },
+  {
+   "src": "DfEs8ddsRXH",
+   "in": 6.6,
+   "d": 3.2,
+   "crop": {
+    "z": 1.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.1,
+    "y1": -0.02
+   },
+   "tr": {
+    "type": "iris",
+    "d": 0.6
+   }
+  },
+  {
+   "src": "DfHn7AVMiS_",
+   "in": 0.2,
+   "d": 4.2,
+   "speed": 0.85,
+   "crop": {
+    "z": 1.35,
+    "cx": 0.25,
+    "cy": 0.1
+   },
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.07
+   },
+   "tr": {
+    "type": "iris",
+    "d": 0.8
+   }
+  },
+  {
+   "src": "DfHn7AVMiS_",
+   "in": 5.2,
+   "d": 3.4,
+   "crop": {
+    "z": 1.35,
+    "cx": 0.2,
+    "cy": 0.2
+   },
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.06
+   },
+   "tr": {
+    "type": "iris",
+    "d": 0.6
+   }
+  },
+  {
+   "src": "DfUjvJ9y9UQ",
+   "in": 12.0,
+   "d": 3.0,
+   "crop": {
+    "z": 1.0,
+    "cx": 0.47,
+    "cy": 0.5
+   },
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.08,
+    "x1": 0.02
+   },
+   "tr": {
+    "type": "zoom",
+    "d": 0.5
+   }
+  },
+  {
+   "src": "DfEs8ddsRXH",
+   "in": 13.2,
+   "d": 3.0,
+   "crop": {
+    "z": 1.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.08
+   },
+   "tr": {
+    "type": "cut",
+    "d": 0.2
+   }
+  },
+  {
+   "src": "DfUjvJ9y9UQ",
+   "in": 34.0,
+   "d": 2.6,
+   "crop": {
+    "z": 1.0,
+    "cx": 0.45,
+    "cy": 0.5
+   },
+   "lut": "03_GoldenHour",
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.06
+   },
+   "tr": {
+    "type": "flag",
+    "d": 0.7
+   }
+  },
+  {
+   "src": "DfUjvJ9y9UQ",
+   "in": 47.5,
+   "d": 3.6,
+   "crop": {
+    "z": 1.15,
+    "cx": 0.5,
+    "cy": 0.35
+   },
+   "lut": "03_GoldenHour",
+   "kb": {
+    "s0": 1.02,
+    "s1": 1.1
+   },
+   "tr": {
+    "type": "iris",
+    "d": 0.6
+   }
+  },
+  {
+   "src": "DfUjvJ9y9UQ",
+   "in": 106.0,
+   "d": 3.0,
+   "crop": {
+    "z": 1.0,
+    "cx": 0.5,
+    "cy": 0.5
+   },
+   "lut": "03_GoldenHour",
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.15
+   },
+   "tr": {
+    "type": "iris",
+    "d": 0.7
+   }
+  },
+  {
+   "src": "DfUjvJ9y9UQ",
+   "in": 40.2,
+   "d": 3.0,
+   "crop": {
+    "z": 1.1,
+    "cx": 0.5,
+    "cy": 0.2
+   },
+   "lut": "03_GoldenHour",
+   "kb": {
+    "s0": 1.0,
+    "s1": 1.08,
+    "y1": 0.02
+   },
+   "tr": {
+    "type": "iris",
+    "d": 0.6
+   }
+  },
+  {
+   "type": "end",
+   "d": 6.2,
+   "tr": {
+    "type": "iris",
+    "d": 1.0
+   }
+  }
+ ],
+ "flashes": [
+  {
+   "t": 7.4,
+   "d": 0.35,
+   "a": 1.0
+  }
+ ],
+ "leaks": [],
+ "texts": [
+  {
+   "t": 0.9,
+   "d": 3.9,
+   "anim": "counter",
+   "to": 40000000,
+   "count": 2.8,
+   "font": "cairo",
+   "size": 150,
+   "y": 0.42,
+   "gold": true,
+   "glow": "rgba(232,181,74,0.55)"
+  },
+  {
+   "t": 2.2,
+   "d": 2.6,
+   "anim": "rise",
+   "text": "طالب وطالبة",
+   "font": "messiri",
+   "size": 70,
+   "y": 0.505,
+   "color": "#F4EBD9"
+  },
+  {
+   "t": 3.6,
+   "d": 1.2,
+   "anim": "rise",
+   "text": "من ٦٠ دولة",
+   "font": "messiri",
+   "size": 62,
+   "y": 0.555,
+   "color": "#F4EBD9"
+  },
+  {
+   "t": 5.4,
+   "d": 1.9,
+   "anim": "big",
+   "text": "واحدة بس",
+   "font": "ruqaa",
+   "size": 150,
+   "y": 0.62,
+   "gold": true,
+   "glow": "rgba(255,217,138,0.7)"
+  },
+  {
+   "t": 11.0,
+   "d": 3.7,
+   "anim": "big",
+   "text": "ميار عثمان",
+   "font": "ruqaa",
+   "size": 230,
+   "y": 0.72,
+   "gold": true,
+   "glow": "rgba(232,181,74,0.6)",
+   "scrim": 0.55
+  },
+  {
+   "t": 15.0,
+   "d": 3.0,
+   "anim": "rise",
+   "text": "بطلة تحدي القراءة العربي",
+   "font": "cairo",
+   "size": 74,
+   "y": 0.7,
+   "color": "#ffffff",
+   "scrim": 0.5
+  },
+  {
+   "t": 18.6,
+   "d": 2.8,
+   "anim": "rise",
+   "text": "الدورة العاشرة • دبي",
+   "font": "messiri",
+   "size": 60,
+   "y": 0.7,
+   "color": "#F4EBD9",
+   "scrim": 0.45
+  },
+  {
+   "t": 22.0,
+   "d": 2.4,
+   "anim": "wipe",
+   "text": "١١ سنة… ورفعت اسم مصر",
+   "font": "cairo",
+   "size": 72,
+   "y": 0.7,
+   "color": "#ffffff",
+   "scrim": 0.5
+  },
+  {
+   "t": 27.9,
+   "d": 2.2,
+   "anim": "rise",
+   "text": "القاهرة • ٤ نوفمبر",
+   "font": "messiri",
+   "size": 66,
+   "y": 0.7,
+   "color": "#FFD98A",
+   "scrim": 0.75
+  },
+  {
+   "t": 34.2,
+   "d": 2.6,
+   "anim": "big",
+   "text": "نوط الامتياز",
+   "font": "ruqaa",
+   "size": 170,
+   "y": 0.72,
+   "gold": true,
+   "glow": "rgba(232,181,74,0.6)",
+   "scrim": 0.5
+  },
+  {
+   "t": 40.3,
+   "d": 5.7,
+   "anim": "big",
+   "text": "ميار عثمان",
+   "font": "ruqaa",
+   "size": 210,
+   "y": 0.44,
+   "gold": true,
+   "glow": "rgba(232,181,74,0.6)",
+   "out": false
+  },
+  {
+   "t": 41.3,
+   "d": 4.7,
+   "anim": "rise",
+   "text": "بنت مصر",
+   "font": "messiri",
+   "size": 82,
+   "y": 0.53,
+   "color": "#F4EBD9",
+   "out": false
+  }
+ ]
+}

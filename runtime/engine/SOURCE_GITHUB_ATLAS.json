@@ -1,0 +1,14 @@
+{
+  "schema": "black-dragon.source-github-atlas.v1",
+  "basis": "github-atlas.zip (user-provided); identical atlas.jsonl present within dragon-research.rar",
+  "bundle_source_sha256": "0279582cf997519b163d49c8b1b1506b95ef9a51fbd42f729366f3640a4ba63d",
+  "dragon_research_sha256": "574a7b63185b6e4760fb2aadecb19adddeed014c34d8a13cce4f5f4c896685e5",
+  "atlas_sha256": "4317bebf05d8cb0199d9b665c92ef968843857c9628fef7e60b845d9efbd656c",
+  "records": 1000,
+  "unique_repositories": 1000,
+  "category_count": 22,
+  "policy_blocked_count": 8,
+  "policy_consent_count": 30,
+  "provenance": "User archives dated 2026-11-11; offline snapshot only. Stars, licenses and installs may be stale or incomplete.",
+  "test_scope": "Offline metadata checks only. No repo code, install commands, API or network activity was run."
+}

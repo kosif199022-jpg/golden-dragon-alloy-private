@@ -1,0 +1,51 @@
+{
+  "schema": "v10-user-supplied-input-manifest",
+  "input_files": [
+    {
+      "file": "omar-hasan-kling-cinematic-director.skill",
+      "sha256": "80cbfb610a6c7315c45fd0403ff6860ed3d1cf72edb5b3ad61c65e7ca3748b0d",
+      "bytes": 13462
+    },
+    {
+      "file": "‎⁨بروتوكول-الفيديو-الإلزامي_md⁩.md",
+      "sha256": "362ca85d888d77936aa707aff2645e759c6771fb538272319a8a1373994652d7",
+      "bytes": 10150
+    },
+    {
+      "file": "‎⁨برومبت-التنين-الأسود-للنسخ⁩.md",
+      "sha256": "bbfcaf56196db00f9f086dd27280f162f3b26074c311dbdf492a2e05555bd6f5",
+      "bytes": 4273
+    },
+    {
+      "file": "‎⁨التنين الأسود المشكلة والحل (للمبرمج)⁩(1).pdf",
+      "sha256": "ed8706541cb8101a6208ebacd72602735eed05d24368ff92da10ac9dc3bf5bbd",
+      "bytes": 234300
+    },
+    {
+      "file": "black-dragon-v1.3-superpowers-merged(1).zip",
+      "sha256": "90527f8846cc34666326b0550483704a60f21068719495e6b5322799b318f9be",
+      "bytes": 14147696
+    },
+    {
+      "file": "77ad2e1b-8914-453e-8048-4382e8f2f89b.zip",
+      "sha256": "c244f3597c0ff31167ac387983053c69d6440b7647967f23182e038c098dc37d",
+      "bytes": 69377074
+    },
+    {
+      "file": "PASTE_PROTOCOL_BLACK_DRAGON_md.md",
+      "sha256": "b9f4928bcfe3552d7b5840777cd1b9180e51c89d8759c0365f06e48134a6e672",
+      "bytes": 14294
+    },
+    {
+      "file": "mayar_links.md",
+      "sha256": "2aa40111be50955c5e691f1c5ffdb3e56a39621b373c4181f3dda0c480cd5b15",
+      "bytes": 19013
+    },
+    {
+      "file": "Safari(2).pdf",
+      "sha256": "83926ba2051ce10c222fdc38bc79c5efc710d8e35ac1d6d2a22864648e462486",
+      "bytes": 11078464
+    }
+  ],
+  "originals_included": false
+}

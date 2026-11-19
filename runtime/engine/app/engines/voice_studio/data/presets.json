@@ -1,0 +1,29 @@
+{
+ "note": "Voice Studio presets: default voices, engine order, install lines ({piper_dir} and {piper_voice} are filled in), codecs, doctor texts.",
+ "voicestudio_url": "http://localhost:3900",
+ "voicestudio_voice": "alloy",
+ "edge_default": {"ar": "ar-EG-SalmaNeural", "en": "en-US-AvaMultilingualNeural"},
+ "piper_default": "ar_JO-kareem-medium",
+ "piper_dir": "~/.cache/kosif/piper",
+ "speak_order": ["voicestudio", "edge", "piper"],
+ "transcribe_order": ["voicestudio", "whisper"],
+ "install": {
+  "edge": "pip install edge-tts",
+  "piper": "pip install piper-tts && python3 -m piper.download_voices --download-dir {piper_dir} {piper_voice}",
+  "whisper": "pip install faster-whisper",
+  "voicestudio": "install the app from github.com/debpalash/VoiceStudio/releases (or: curl -fsSL https://voicestudio.sh/install | sh), open it, then rerun doctor",
+  "ffmpeg": "apt-get install ffmpeg  (macOS: brew install ffmpeg)"
+ },
+ "codecs": {".mp3": ["-c:a", "libmp3lame", "-b:a", "192k"], ".m4a": ["-c:a", "aac", "-b:a", "192k"],
+            ".ogg": ["-c:a", "libopus", "-b:a", "96k"], ".wav": ["-c:a", "pcm_s16le"]},
+ "verify": {"min_duration_s": 0.05, "min_mean_db": -70},
+ "can": {
+  "voicestudio": "speak, clone, design, transcribe, dub (646 languages)",
+  "edge": "speak (Egyptian ar-EG voices, word timings; online, no key)",
+  "piper": "speak offline on CPU",
+  "whisper": "transcribe offline with word timings",
+  "ffmpeg": "verify, convert"
+ },
+ "no_clone": "unavailable here (needs a running VoiceStudio, or Higgsfield create_voice with the user's yes)",
+ "receipt_kind": "kosif.voice.receipt.v1"
+}

@@ -1,0 +1,19 @@
+{
+  "skill": "windows-commands",
+  "cases": [
+    {"id": 1, "shell": "powershell", "prompt": "شغّل في PowerShell: python -c 'import json; print(json.dumps({\"a\": 1}))'", "should_trigger": true,
+     "expect": ["predicts the inner double quotes are stripped (PS002)", "rewrites with \\\" or single quotes inside, or a .py file / Invoke-NativeExact"]},
+    {"id": 2, "shell": "powershell", "prompt": "الأمر ده طلّع exit 255 بس الخرج سليم: rea list-strings x.exe | Select-Object -First 50", "should_trigger": true,
+     "expect": ["explains Select-Object -First kills the native program ($LASTEXITCODE=-1)", "suggests -Last / Out-String / file"]},
+    {"id": 3, "shell": "bash", "prompt": "اكتب ملف SKILL.md طوله 12 ألف حرف بـ cat > file <<'EOF'", "should_trigger": true,
+     "expect": ["refuses the heredoc route: MSYS2 truncates -c at 8,186 chars, silently for heredocs", "uses the Write tool"]},
+    {"id": 4, "shell": "powershell", "prompt": "Get-Content notes.txt بيطلع Ø§Ù„Ø¹Ø±Ø¨ÙŠ", "should_trigger": true,
+     "expect": ["Get-Content -Encoding UTF8", "explains BOM-less UTF-8 read as 1252"]},
+    {"id": 5, "shell": "bash", "prompt": "اقفل البرنامج: taskkill /F /IM BlackDragon.exe", "should_trigger": true,
+     "expect": ["flags MSYS path conversion of /F and /IM (SH001)", "MSYS_NO_PATHCONV=1 or PowerShell tool"]},
+    {"id": 6, "shell": "powershell", "prompt": "robocopy src dst /E رجّع exit 1، يعني فشل؟", "should_trigger": true,
+     "expect": ["no: 0-7 success, 1 = files copied; failure only >= 8"]},
+    {"id": 7, "shell": "any", "prompt": "ازيك", "should_trigger": false, "expect": ["no linter call"]},
+    {"id": 8, "shell": "bash", "prompt": "ls -la ~/Desktop", "should_trigger": false, "expect": ["just runs it; trivial command"]}
+  ]
+}

@@ -1,0 +1,300 @@
+[
+ {
+  "kind": "skill-version",
+  "name": "hf-blender-render",
+  "kept": "engine/skills/hf-blender-render/SKILL.md",
+  "superseded": [
+   "engine/resources/hf-blender-render/SKILL.md"
+  ],
+  "rule": "newest last-commit wins; ties -> longer text; older kept as superseded"
+ },
+ {
+  "kind": "lesson-near-duplicate",
+  "kept": "lesson:s09",
+  "merged": "lesson:s09-2",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-1-1",
+  "merged": "rule:wd-1",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-1-2",
+  "merged": "rule:wd-2",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-1-3",
+  "merged": "rule:wd-3",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-2-1",
+  "merged": "rule:wd-4",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-2-2",
+  "merged": "rule:wd-5",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-2-3",
+  "merged": "rule:wd-6",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-2-4",
+  "merged": "rule:wd-7",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-3-1",
+  "merged": "rule:wd-8",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-3-2",
+  "merged": "rule:wd-9",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-3-3",
+  "merged": "rule:wd-10",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-4-1",
+  "merged": "rule:wd-11",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-4-2",
+  "merged": "rule:wd-12",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-4-3",
+  "merged": "rule:wd-13",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-5-1",
+  "merged": "rule:wd-14",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-5-2",
+  "merged": "rule:wd-15",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-5-3",
+  "merged": "rule:wd-16",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-5-4",
+  "merged": "rule:wd-17",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-5-5",
+  "merged": "rule:wd-18",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-5-6",
+  "merged": "rule:wd-19",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-6-1",
+  "merged": "rule:wd-20",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-6-2",
+  "merged": "rule:wd-21",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-6-3",
+  "merged": "rule:wd-22",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-7-1",
+  "merged": "rule:wd-23",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-7-2",
+  "merged": "rule:wd-24",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-7-3",
+  "merged": "rule:wd-25",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-7-4",
+  "merged": "rule:wd-26",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-7-5",
+  "merged": "rule:wd-27",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-8-1",
+  "merged": "rule:wd-28",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-8-2",
+  "merged": "rule:wd-29",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-8-3",
+  "merged": "rule:wd-30",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-8-4",
+  "merged": "rule:wd-31",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-8-5",
+  "merged": "rule:wd-32",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-9-1",
+  "merged": "rule:wd-33",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-9-2",
+  "merged": "rule:wd-34",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-9-3",
+  "merged": "rule:wd-35",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-9-4",
+  "merged": "rule:wd-36",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-10-1",
+  "merged": "rule:wd-37",
+  "similarity": 0.913
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-10-2",
+  "merged": "rule:wd-38",
+  "similarity": 1.0
+ },
+ {
+  "kind": "rule-near-duplicate",
+  "kept": "rule:rd-10-3",
+  "merged": "rule:wd-39",
+  "similarity": 1.0
+ },
+ {
+  "kind": "branch-newer",
+  "path": ".agents/skills/golden-dragon-fusion/SKILL.md",
+  "kept": "skill:golden-dragon-fusion@branches/feature-golden-dragon-fusion-share",
+  "superseded": "skill:golden-dragon-fusion",
+  "rule": "branch commit newer than main's last commit for the same path"
+ },
+ {
+  "kind": "branch-newer",
+  "path": ".agents/skills/golden-dragon-fusion/references/combined.md",
+  "kept": "doc:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/combined.md",
+  "superseded": "doc:.agents/skills/golden-dragon-fusion/references/combined.md",
+  "rule": "branch commit newer than main's last commit for the same path"
+ },
+ {
+  "kind": "branch-newer",
+  "path": ".agents/skills/golden-dragon-fusion/references/working-method.md",
+  "kept": "doc:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/working-method.md",
+  "superseded": "doc:.agents/skills/golden-dragon-fusion/references/working-method.md",
+  "rule": "branch commit newer than main's last commit for the same path"
+ },
+ {
+  "kind": "branch-newer",
+  "path": ".agents/skills/golden-dragon-fusion/scripts/distil.py",
+  "kept": "script:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/distil.py",
+  "superseded": "script:.agents/skills/golden-dragon-fusion/scripts/distil.py",
+  "rule": "branch commit newer than main's last commit for the same path"
+ },
+ {
+  "kind": "branch-newer",
+  "path": ".agents/skills/golden-dragon-fusion/scripts/fusion.py",
+  "kept": "script:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/fusion.py",
+  "superseded": "script:.agents/skills/golden-dragon-fusion/scripts/fusion.py",
+  "rule": "branch commit newer than main's last commit for the same path"
+ },
+ {
+  "kind": "branch-newer",
+  "path": ".agents/skills/golden-dragon-fusion/scripts/render_vertical.py",
+  "kept": "script:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/render_vertical.py",
+  "superseded": "script:.agents/skills/golden-dragon-fusion/scripts/render_vertical.py",
+  "rule": "branch commit newer than main's last commit for the same path"
+ },
+ {
+  "kind": "branch-newer",
+  "path": ".agents/skills/golden-dragon-fusion/scripts/request.py",
+  "kept": "script:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/request.py",
+  "superseded": "script:.agents/skills/golden-dragon-fusion/scripts/request.py",
+  "rule": "branch commit newer than main's last commit for the same path"
+ }
+]

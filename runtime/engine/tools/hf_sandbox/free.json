@@ -1,0 +1,305 @@
+{
+ "schema": "black-dragon.hf-free.v1990",
+ "as_of": "2026-11-11",
+ "method": "measured = نُفّذ فعليًا و balance قبل/بعد متطابق (347.88) ولا قيد جديد في transactions. official = نص تعليمات Higgsfield يقول بلا كريدت ولم يُجرَّب هنا. القياسات اتعملت على جولتين يوم 2026-11-11 والتانية أعادت فحص أرقام الأولى. ليس ضمانًا: Higgsfield قد يغيّر التسعير، فاعمل balance قبل وبعد أي شغل كبير.",
+ "balance_before": 347.88,
+ "balance_after": 347.88,
+ "status_legend": {
+  "measured": "مجاني مُقاس",
+  "official": "مجاني بنص رسمي، غير مجرَّب",
+  "one_paid_step": "مجاني ما عدا خطوة واحدة",
+  "unknown": "غير معروف = اعتبره مدفوعًا",
+  "paid": "مدفوع"
+ },
+ "items": [
+  {
+   "id": "sandbox",
+   "area": "render",
+   "name": "Sandbox Linux (sandbox_exec)",
+   "how": "sandbox_exec command=... [background:true] [size:xl]",
+   "status": "measured",
+   "evidence": "ساعات تشغيل 2026-11-11 والرصيد ثابت 347.88؛ لا قيد في transactions",
+   "limits": "Standard مقاس: 2 vCPU / 8 GiB / بدون GPU؛ foreground ≤120 ث، background ≤15 د؛ /home/user يبقى 24 س. XL: لم تُقَس مواصفاته ولا تكلفته في هذه الجلسة"
+  },
+  {
+   "id": "katana-analysis",
+   "area": "trend",
+   "name": "تحليل Katana (DNA لأي ريل)",
+   "how": "hf trend commands SLUG|URL  ← sandbox_exec",
+   "status": "measured",
+   "evidence": "ريل 50 ث: fetch+analyze+energy+beats+cutsync+keyframes في 78 ث (5 قطعات، 106.35 BPM، 89 beat، 27 صفحة فريمات). ريل 60 ث (ink-gold): 38 لقطة، 142 beat، 64 حدث طاقة، 183 كلمة، 32 صفحة؛ رصيد ثابت",
+   "limits": "التحليل فقط. أي /katana إنتاجي يصرف كريدت بدون سؤال. لا OCR ولا تعرف على اسم الخط. cutsync بيطبع نسبة الصدفة: قارن بيها قبل ما تقول «القطع على البيت»"
+  },
+  {
+   "id": "whisper",
+   "area": "audio",
+   "name": "تفريغ بتوقيت الكلمة (faster-whisper)",
+   "how": "python3 $HF_WORKFLOWS/katana/scripts/audio.py words W",
+   "status": "measured",
+   "evidence": "50 ث صوت بموديل small int8 في 23 ث؛ large-v3 محفوظ مسبقًا",
+   "limits": "CPU فقط"
+  },
+  {
+   "id": "color-grade",
+   "area": "look",
+   "name": "تلوين سينمائي 20 لوك + LUT",
+   "how": "python3 $HF_WORKFLOWS/color-grade/scripts/grade.py IMG --look the-matrix | video.py CLIP --look X",
+   "status": "measured",
+   "evidence": "grade.py --look the-matrix خرج f-graded.jpg، exit 0",
+   "limits": "أوامر *-grade-hf و *-hf (إضاءة) شيء آخر: Seedance مدفوع"
+  },
+  {
+   "id": "higgsedit",
+   "area": "render",
+   "name": "higgsedit: موشن ورسم بالكود بدون متصفح",
+   "how": "hf higgsedit  ← القالب، ثم higgsedit build edit.js",
+   "status": "measured",
+   "evidence": "540x960: 72 فريم في ثانية واحدة (حوالي 11 ms للفريم). 1080x1920 / 30 fps: 90 فريم بـ24.4 ms للفريم (build في ثانيتين)، h264 yuv420p؛ doctor = ready",
+   "limits": "النص العربي يختفي بالخط الافتراضي: لازم fontFamily يدعم العربي (DejaVu Sans موجود) و direction:'rtl'"
+  },
+  {
+   "id": "jutsu",
+   "area": "3d",
+   "name": "3D Jutsu: Blender 5.2 مستضاف (بناء + رندر + GLB/.blend)",
+   "how": "hf blender template  ← scene_builder_3d_create_project → query_python → run_python → get_artifact → show_scene",
+   "status": "measured",
+   "evidence": "مشروع + مشهد 5 عناصر + رندر EEVEE 540x960 في 41 ث؛ خرج blend 629 KB و glb 31 KB و PNG؛ رصيد ثابت",
+   "limits": "≈5 د لكل عملية، كود ≤256 KiB، بدون نت، موديلات من الكتالوج فقط، Area lights لا تُصدَّر. scene_builder_3d_generate_angles/video مدفوعة"
+  },
+  {
+   "id": "matchcut",
+   "area": "motion",
+   "name": "تطبيق Match Cut + Tracelab (28 قالب موشن)",
+   "how": "hf apps  ← apps_describe ثم apps_invoke",
+   "status": "measured",
+   "evidence": "create_typewriter «KOSIF BLACK DRAGON» → MP4 720x1278، 3.5 ث؛ رصيد ثابت",
+   "limits": "مقاس على create_typewriter فقط. باقي الـ27 action: balance قبل/بعد أول مرة"
+  },
+  {
+   "id": "tiktok-trend",
+   "area": "trend",
+   "name": "ترند موسيقى تيك توك التجارية",
+   "how": "tiktok_accounts (connector_id) ثم tiktok_music_trending connector_id=… country_code=EG|SA date_range=7DAY limit=10",
+   "status": "measured",
+   "evidence": "اتقاس مرتين: SA/7DAY ثم EG/7DAY، كل مرة 100 تراك بروابط استماع؛ الحساب active؛ رصيد ثابت",
+   "limits": "للسماع والاختيار بس: التراك بيتركّب من ودجت النشر في تيك توك (DIRECT_POST) والنشر ممنوع من التنين. مفيش بحث بالكلمة. ممنوع تنزيل التراك من الـCDN بتزوير Referer أو User-Agent: اترفض يوم القياس كتحايل على فحص البوتات؛ شبكة البيت تتاخد من ملف صوت يبعته هو"
+  },
+  {
+   "id": "presets-trend",
+   "area": "trend",
+   "name": "معارض الترند: Genjutsu trending/new، Viral، Katana، What-If، Shorts",
+   "how": "get_presets source=genjutsu category=genjutsu-trending",
+   "status": "measured",
+   "evidence": "اتقاس مرتين: 12 بريسيت trending كل مرة (القايمة اتغيّرت بين القياسين). كل بريسيت معاه فيديو معاينة عام؛ HEAD = 200 video/mp4",
+   "limits": "التصفح لا يأذن بـ execute_preset (مدفوع). فيديو المعاينة يتحلل ببلاش بـ`hf trend commands URL`؛ نقل الحركة نفسه (Genjutsu) مدفوع"
+  },
+  {
+   "id": "whatif-refs",
+   "area": "trend",
+   "name": "56 فيديو مرجعي عام لأساليب What-If",
+   "how": "hf trend list / hf trend commands SLUG",
+   "status": "measured",
+   "evidence": "56/56 رابط = HTTP 200 من الـsandbox (اتعاد الفحص في الجولة التانية)",
+   "limits": "للتحليل فقط: ممنوع نقل لقطات أو موسيقى أو نص المرجع"
+  },
+  {
+   "id": "upload",
+   "area": "delivery",
+   "name": "رفع وتسليم (media_upload + PUT + media_confirm)",
+   "how": "media_upload → curl PUT داخل sandbox → media_confirm",
+   "status": "measured",
+   "evidence": "رفع MP4 = HTTP 200 وتأكيد؛ رصيد ثابت",
+   "limits": ""
+  },
+  {
+   "id": "get-cost",
+   "area": "budget",
+   "name": "معرفة السعر بدون تنفيذ (get_cost:true)",
+   "how": "generate_image/video params.get_cost=true",
+   "status": "measured",
+   "evidence": "gpt_image_2_6 = 0.25 كريدت، No job submitted",
+   "limits": "بدون get_cost النداء نفسه يصرف"
+  },
+  {
+   "id": "read-tools",
+   "area": "browse",
+   "name": "قراءة وتصفح: balance, transactions, models_explore, list_voices, apps_search/describe, get_workflow_instructions, get_preset_instructions",
+   "how": "—",
+   "status": "measured",
+   "evidence": "كلها نُفذت 2026-11-11 بدون قيد",
+   "limits": ""
+  },
+  {
+   "id": "captions",
+   "area": "reel",
+   "name": "/captions كابشن كلمة بكلمة (spotlight/cascade/classic)",
+   "how": "get_workflow_instructions workflow=reel-effects ثم effect captions",
+   "status": "official",
+   "evidence": "نص التعليمات: needs no paid generation, renders in sandbox_exec at no credit cost",
+   "limits": "لم يُجرَّب هنا (يحتاج مقطع متكلم)"
+  },
+  {
+   "id": "tier-list",
+   "area": "reel",
+   "name": "/tier-list لوحة تصنيف حية",
+   "how": "reel-effects effect tier-list",
+   "status": "official",
+   "evidence": "نص التعليمات: no credit cost",
+   "limits": "لم يُجرَّب هنا"
+  },
+  {
+   "id": "local-workflows",
+   "area": "render",
+   "name": "سكربتات $HF_WORKFLOWS المحلية: video-montage, narration, thumbnail-generation, ugc capture, shorts-studio render, deliver.py, sfx (338 CC0)",
+   "how": "hf workflows",
+   "status": "official",
+   "evidence": "اعتمادياتها مثبتة؛ راجع tool hf workflows",
+   "limits": "الخطوات التي تنادي generate_* مدفوعة"
+  },
+  {
+   "id": "text-behind",
+   "area": "reel",
+   "name": "/text-behind نص خلف الرأس",
+   "how": "reel-effects effect text-behind",
+   "status": "one_paid_step",
+   "evidence": "التعليمات: remove_background هي الخطوة المدفوعة الوحيدة",
+   "limits": "بديل محلي U2-Net يحتاج تنزيل موديل"
+  },
+  {
+   "id": "content-factory",
+   "area": "reel",
+   "name": "/content-factory فيديو What-If مرسوم بالكود",
+   "how": "/content-factory TOPIC",
+   "status": "one_paid_step",
+   "evidence": "التعليمات: The only paid call is the voiceover (ElevenLabs)",
+   "limits": "بديل مجاني: صوت صاحب المشروع أو كابشن فقط"
+  },
+  {
+   "id": "video-analysis",
+   "area": "trend",
+   "name": "video_analysis_create / virality_predictor",
+   "how": "—",
+   "status": "unknown",
+   "evidence": "لم تُقَس؛ لا سعر منشور",
+   "limits": "تحتاج «موافق» صريح + balance قبل/بعد"
+  },
+  {
+   "id": "xl",
+   "area": "render",
+   "name": "Sandbox XL",
+   "how": "sandbox_exec size:xl",
+   "status": "unknown",
+   "evidence": "قياس 2026-11-10 القديم (4 CPU/16 GB، بدون خصم) لم يُعَد يوم 11-11",
+   "limits": "اعتبره غير مؤكد"
+  },
+  {
+   "id": "grade-hf",
+   "area": "look",
+   "name": "أوامر *-grade-hf و *-hf",
+   "how": "—",
+   "status": "paid",
+   "evidence": "التعليمات: Seedance 2.5 video edit (paid)",
+   "limits": "استخدم color-grade المحلي"
+  },
+  {
+   "id": "generation",
+   "area": "gen",
+   "name": "كل التوليد: صور/فيديو/صوت/3D من صورة، upscale، remove_background، Genjutsu، scene_builder_3d_generate_*",
+   "how": "—",
+   "status": "paid",
+   "evidence": "Unlim غير متاح للحساب (available:false) يوم 2026-11-11",
+   "limits": "سعر + «موافق» كل مرة"
+  },
+  {
+   "id": "free-allowances",
+   "area": "gen",
+   "name": "توليد ببلاش: use_unlim / use_free_gens / تجربة 3 أيام",
+   "how": "models_explore action=list unlim=true ← بُص على unlim.available",
+   "status": "unknown",
+   "evidence": "unlim.available=false للحساب (خطة Ultra) يوم 2026-11-11. Higgsfield أعلنت على X تجربة 3 أيام Unlimited في الـMCP كعرض محدود بشروط",
+   "limits": "`use_unlim` و`use_free_gens` يتبعتوا بطلبه الصريح بس، والـbackend هو اللي يحكم. رفض الطلب المجاني مايتحولش لكريدت من غير «موافق». مفيش فتح تجربة ولا اشتراك من التنين"
+  },
+  {
+   "id": "reel-fx-free",
+   "area": "reel",
+   "name": "مؤثرات ريل بلا كريدت: /grade-wipe، /glass-graph، /katana-file-scroll، /katana-ig-follow، /katana-reel-cards، /katana-cool-girl",
+   "how": "get_workflow_instructions workflow=reel-effects ثم اسم المؤثر",
+   "status": "official",
+   "evidence": "نص تعليمات كل أمر (اتقرا 2026-11-11): needs no paid generation, everything renders in sandbox_exec at no credit cost",
+   "limits": "لم تُجرَّب هنا (محتاجة مقطع متكلم). الأرقام والهاندلز والملفات من صاحب الشغل بس، مفيش اختراع"
+  },
+  {
+   "id": "reel-fx-matte",
+   "area": "reel",
+   "name": "مؤثرات ريل بخطوة مدفوعة واحدة: /freeze-frame، /katana-bold، /over-the-shoulder، /katana-app-window، /katana-orbit، /katana-cool-dude",
+   "how": "reel-effects ثم اسم المؤثر",
+   "status": "one_paid_step",
+   "evidence": "نص التعليمات (اتقرا 2026-11-11): person matte من remove_background هي الخطوة المدفوعة الوحيدة؛ /katana-cool-dude بيشتغل من غير الماسك بس الأوضة مابتضلّمش",
+   "limits": "بديل محلي `effects.py matte` (U2-Net) غير مُقاس ومحتاج تنزيل موديل. remove_background بسعر و«موافق»"
+  },
+  {
+   "id": "jutsu-assets",
+   "area": "3d",
+   "name": "كتالوج 3D Jutsu: 994 موديل GLB جاهز (أثاث، عربيات، مباني، طبيعة، لافتات، props)",
+   "how": "scene_builder_3d_search_assets projectId=… search=… ثم scene_builder_3d_import_asset بنفس importArguments",
+   "status": "measured",
+   "evidence": "search_assets رجّع total=994 يوم 2026-11-11 والرصيد ثابت 347.88",
+   "limits": "المُقاس هو البحث بس؛ import_asset لم يُجرَّب: balance قبل وبعد أول مرة. موديلات الكتالوج فقط، ومفيش استيراد ملف من عنده"
+  },
+  {
+   "id": "jutsu-video",
+   "area": "3d",
+   "name": "رندر أنيميشن MP4 جوه 3D Jutsu",
+   "how": "render.image_settings.media_type='VIDEO' ثم FFMPEG/MPEG4/H264",
+   "status": "unknown",
+   "evidence": "تجربة 2026-11-11: 48 فريم EEVEE 540x960 فضلت running أكتر من 7 دقايق ومارجّعتش نتيجة وقت المتابعة؛ الرصيد ثابت",
+   "limits": "اعتبره غير مثبت: استخدم stills من Jutsu وحرّكها في higgsedit/ffmpeg، أو جرّب فريمات أقل"
+  },
+  {
+   "id": "use-blender",
+   "area": "3d",
+   "name": "/use-blender: Blender المحلي على جهازه عن طريق MCP (fnf-blender-mcp@latest)",
+   "how": "على جهازه في Claude Code → Local: `higgsfield mcp, /use-blender`",
+   "status": "official",
+   "evidence": "نص التعليمات (اتقرا 2026-11-11): عملية Blender في الخلفية من غير add-on ولا حساب سحابة؛ أدوات bl_*",
+   "limits": "مابيشتغلش من السحابة ولا من sandbox_exec. تثبيت على جهازه = «موافق» منه. لم يُجرَّب هنا. ومعاه أوامر Blender المحلية: /scene-builder، /cartoon-shaders، /exploded-view، /destruction-studio"
+  }
+ ],
+ "matchcut_app": {
+  "app_id": "3a69aa1d-8456-4705-92b5-b0616b03e642",
+  "manifest_revision": "v3",
+  "poll": "get_render render_id",
+  "actions": [
+   "list_render_modes",
+   "create_render",
+   "create_tracelab",
+   "create_facecut",
+   "create_searchcut",
+   "create_logocut",
+   "create_notebook",
+   "create_notereel",
+   "create_productcut",
+   "create_stickercut",
+   "create_spherecut",
+   "create_lenscut",
+   "create_scrapboard",
+   "create_wordstack",
+   "create_typewriter",
+   "create_commentcut",
+   "create_crt",
+   "create_retropop",
+   "create_nightvision",
+   "create_crtglitch",
+   "create_thermal",
+   "create_black_hot",
+   "create_white_hot",
+   "create_rainbow_thermal",
+   "create_glitch",
+   "create_vhs",
+   "create_nokia",
+   "get_render"
+  ],
+  "measured_action": "create_typewriter",
+  "note": "manifest_revision قد يتغير: نادِ apps_describe أولًا"
+ }
+}

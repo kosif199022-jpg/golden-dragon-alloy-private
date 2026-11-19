@@ -1,0 +1,22 @@
+{
+  "schema": "black-dragon.source.v1017",
+  "skill": "omni-analyst",
+  "origin": "owner-created universal-analysis skill from the Black Dragon sessions (routes detailed RE to rea-ultra, general reasoning to ultra-mind)",
+  "bundled_path": "skills/omni-analyst",
+  "files": {
+    "evals/evals.json": "1c6ad78b539158a9430cc2d870ac783152b32bae7d0d0ca0b9ffbe79d216fc9c",
+    "references/pitfalls.md": "93f83ae227c410345aef461818cf4644fed44c82035950da59809ce0788fdd8b",
+    "references/playbooks.md": "225279ecbfb491a293d86120ab5653cb17b6648c28f215d99f8116d373e3c49b",
+    "references/theories.md": "31303aa9450f3ca77dbb32fbc09a28aecf67737b94fdb517db9043a149a7f787",
+    "scripts/omni.py": "d1ee1481e8864b974c19b2f5630a3e581c6f92c6206e4df59a8d1e38548ceb95",
+    "SKILL.md": "c00809f812b980357f1985e75a6c30cf6556a6677f13577bcd598098a9fc9a81"
+  },
+  "actions": [
+    "bundled under skills/omni-analyst",
+    "sanitized hard-coded owner paths in scripts/omni.py, references/playbooks.md, evals/evals.json to env-resolved (%USERPROFILE% / Path.home(), overridable via OMNI_RETOOL / OMNI_DRAGON_DIR / DRAGON_HOME)",
+    "added guarded bridge tool tools/omni/bridge.py (doctor/classify/probe/plan/report/hyp/bayes)",
+    "registered own_tools card 'omni' + capabilities entrypoint (stdlib-only, no NEEDS)",
+    "added test_v1017_merge.py"
+  ],
+  "license_notice": "Created within this project at the owner's request. Never runs the target or the network."
+}

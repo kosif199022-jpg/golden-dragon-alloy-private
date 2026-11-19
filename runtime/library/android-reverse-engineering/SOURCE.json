@@ -1,0 +1,11 @@
+{
+ "repo": "https://github.com/SimoneAvogadro/android-reverse-engineering-skill",
+ "stars_on_2026-11-12": 8703,
+ "license": "apache-2.0",
+ "path_in_repo": "skills-hub/SimoneAvogadro__android-reverse-engineering-skill/plugins/android-reverse-engineering/skills/android-reverse-engineering",
+ "review_before_running": [
+  "exec",
+  "network"
+ ],
+ "note": "copied unchanged; SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

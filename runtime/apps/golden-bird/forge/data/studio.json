@@ -1,0 +1,223 @@
+{
+ "generated": "2026-11-14 10:58:52",
+ "home": "%USERPROFILE%\\GoldenBird\\studio",
+ "programs": [
+  {
+   "id": "rhubarb",
+   "name": "Rhubarb Lip Sync",
+   "version": "1.14.0",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Rhubarb\\Rhubarb-Lip-Sync-1.14.0-Windows.zip",
+   "archive_sha256": "62fa416a8d5e382a3828ee4bef358ce520d0b4cabdeaea75a7ac266d098d1fe3",
+   "exe": "Rhubarb-Lip-Sync-1.14.0-Windows/rhubarb.exe",
+   "license": "MIT (LICENSE.md: 'Rhubarb Lip Sync is released under the MIT license'; deps MIT/BSD/Boost)",
+   "signed": "no (Authenticode NotSigned)",
+   "cli_usage": "README.adoc: rhubarb [options] <input file> (input must be the LAST argument; WAVE or Ogg Vorbis). Options: -r/--recognizer pocketSphinx|phonetic (default pocketSphinx), -f/--exportFormat tsv|xml|json|dat (default tsv), -d/--dialogFile <path>, --extendedShapes <string> (default GHX), -o/--output <file> (else stdout), --datFrameRate <n> (default 24), --datUsePrestonBlair, -q/--quiet, --machineReadable (JSON status on stderr), --consoleLevel <level>, --logFile <path>, --logLevel <level>, --threads <n>, --version, -h/--help. Same 14 option names confirmed in the binary: Ghidra string xrefs all land in FUN_140020190 (TCLAP CmdLine setup); binary help text says 'The input file. Must be a sound file in WAVE format.'",
+   "examples": [
+    "rhubarb -o out.tsv voice.wav",
+    "rhubarb -f json -o mouth.json -d dialog.txt voice.wav",
+    "rhubarb -r phonetic -f json -o mouth.json voice_ar.wav",
+    "rhubarb -f dat --datFrameRate 30 --datUsePrestonBlair -o mouth.dat voice.wav",
+    "rhubarb --machineReadable -q -f json -o mouth.json voice.wav"
+   ],
+   "use_ar": "قلب الـ lip-sync في الطائر الذهبي: ناخد الصوت (التعليق أو الدوبلاج)، نحوّله WAV بـ ffmpeg، ونشغّل rhubarb بـ -r phonetic للعربي (pocketSphinx إنجليزي بس) ونطلّع JSON فيه توقيت أشكال البُق A–H/X، وبعدها نركّبها على شخصية كرتون في Blender/Glaxnimate/Tahoma2D أو على طبقات موشن. --machineReadable بيدينا progress JSON على stderr نعرضه في الواجهة.",
+   "deps": "Imports only kernel32.dll + shell32.dll (static CRT, no DLLs needed). MUST keep the res\\sphinx\\ folder next to rhubarb.exe (acoustic-model\\*, cmudict-en-us.dict, en-us.lm.bin, en-us-phone.lm.bin) — from archive layout.",
+   "evidence": "README: src\\bin\\rhubarb\\README.adoc lines 120-243; LICENSE.md; Ghidra (rea analyze + MCP xrefs): 'exportFormat'@0x14013ae38->0x140021e4b, 'recognizer'@0x14013ae68->0x140021f3d, 'output'@0x14013ab40->0x1400204f3, 'dialogFile'@0x14013ad68->0x140021904, all inside FUN_140020190 (0x140020190-0x1400227f4); decompiled: re_raw\\ghidra_rhubarb_FUN_140020190.c; imports: re_raw\\rzbin_libs_rhubarb.txt; layout: re_raw\\ls_rhubarb.txt",
+   "cautions": "حوّل الصوت لـ WAV الأول (نص المساعدة جوه الملف بيقول WAVE). للعربي `-r phonetic` (pocketSphinx إنجليزي بس). مجلد `res\\sphinx` لازم يفضل جنب rhubarb.exe."
+  },
+  {
+   "id": "tcomposer",
+   "name": "Tahoma2D tcomposer (headless scene renderer)",
+   "version": "Tahoma2D portable build 2026-09-01 (no version resource)",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Tahoma2D\\Tahoma2D-portable-win.zip",
+   "archive_sha256": "50dafb36ba12535239a447e10bc6939aff477a071e56c958a401c8ca6c22b05a",
+   "exe": "Tahoma2D/tcomposer.exe",
+   "license": "BSD 3-Clause (Tahoma2D\\tahomastuff\\doc\\LICENSE\\LICENSE.txt; OpenToonz/dwango BSD)",
+   "signed": "no (Authenticode NotSigned); ships tcomposer.pdb (D:\\a\\tahoma2d\\tahoma2d\\toonz\\build\\RelWithDebInfo\\tcomposer.pdb)",
+   "cli_usage": "From option strings in the binary (TCli UsageLine): tcomposer <srcName> [-o dstName] [-range from to | -frame fr] [-step n] [-shrink n] [-multimedia n] [-renderkeysonly n] [-rendertofolders n] [-nthreads n] [-maxtilesize n] [-farm data] [-id n] [-tmsg val(internal)]. '-range from to | -frame fr' text lives in tnzbase.dll (RangeQualifier imported). -nthreads accepts words like single/half (bad-input message 'Qualifier nthreads'), -maxtilesize none/small/medium/large. Default output name '$scenename.tif'. Writes tcomposer.log.",
+   "examples": [
+    "tcomposer.exe \"C:\\proj\\scenes\\shot01.tnz\"",
+    "tcomposer.exe \"C:\\proj\\scenes\\shot01.tnz\" -o \"C:\\out\\shot01.tif\" -range 1 48",
+    "tcomposer.exe \"C:\\proj\\scenes\\shot01.tnz\" -o \"C:\\out\\shot01.tif\" -step 2 -shrink 2 -nthreads half"
+   ],
+   "use_ar": "نرندر مشاهد Tahoma2D (أنيميشن 2D مرسوم) من غير ما نفتح البرنامج: الطائر الذهبي يجهّز المشهد أو المستخدم يعمله، وبعدين tcomposer يطلّع فريمات/فيديو للمونتاج. -shrink 2 للبروفة السريعة، و-range لجزء معين.",
+   "deps": "Must run from inside the Tahoma2D folder: tnzbase.dll, tnzcore.dll, toonzlib.dll, toonzqt.dll, image.dll, sound.dll, tfarm.dll, colorfx.dll, Qt5Core/Qt5Gui/Qt5Widgets..., VC++ runtime (vcruntime140*.dll, msvcp140.dll), tahomastuff\\ (profiles/config; TAHOMA2DROOT), ffmpeg\\ffmpeg.exe for movie formats.",
+   "evidence": "re_raw\\strings\\tcomposer.txt lines 1755-1830 ('-o dstName','-step n','-shrink n','-multimedia n','-renderkeysonly n','-rendertofolders n','-farm data','-id n','-nthreads n','-maxtilesize n','-tmsg val'); re_raw\\strings\\tnzbase.txt:13167 '-range from to | -frame fr'; rizin+PDB: main@0x14000c690 references '-o dstName' (re_raw\\rizin_tcomposer.txt); imports re_raw\\rzbin_libs_tcomposer.txt; capa re_raw\\capa_tcomposer.txt",
+   "cautions": "`-nthreads single|half` مؤكدين من الملف. `-range from to` و`-frame fr` نصهم في tnzbase.dll.",
+   "unpack_as": "tahoma2d"
+  },
+  {
+   "id": "tconverter",
+   "name": "Tahoma2D tconverter (level/image converter)",
+   "version": "Tahoma2D portable build 2026-09-01 (no version resource)",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Tahoma2D\\Tahoma2D-portable-win.zip",
+   "archive_sha256": "50dafb36ba12535239a447e10bc6939aff477a071e56c958a401c8ca6c22b05a",
+   "exe": "Tahoma2D/tconverter.exe",
+   "license": "BSD 3-Clause (Tahoma2D LICENSE.txt)",
+   "signed": "no (Authenticode NotSigned); ships tconverter.pdb",
+   "cli_usage": "From binary strings: tconverter <srcName> <dstName> [-s sceneName] [-w width] [-range from to | -frame fr]. '-w width' (Image width) recovered by FLOSS as a stack string; RangeQualifier imported from tnzbase.dll. If dstName exists it asks 'do you want to replace it? [Y/N]' on the console.",
+   "examples": [
+    "tconverter.exe \"C:\\proj\\drawings\\A.pli\" \"C:\\out\\A.png\" -w 1080",
+    "tconverter.exe \"C:\\proj\\drawings\\A.tlv\" \"C:\\out\\A.png\" -range 1 24",
+    "tconverter.exe \"C:\\proj\\drawings\\A.pli\" \"C:\\out\\A.png\" -s \"C:\\proj\\scenes\\shot01.tnz\""
+   ],
+   "use_ar": "نحوّل رسومات Tahoma2D/OpenToonz (pli/tlv) لصور PNG عادية نستخدمها في الموشن أو نرفعها لأي محرر. مهم: امسح ملف الوجهة قبل التشغيل أو ابعت Y على stdin، لأنه بيسأل [Y/N] لو الملف موجود وممكن يعلّق العملية.",
+   "deps": "Same Tahoma2D folder DLLs: tnzbase.dll, tnzcore.dll, toonzlib.dll, image.dll, Qt5Core.dll, VC++ runtime; tahomastuff\\ for scene/palette config.",
+   "evidence": "re_raw\\strings\\tconverter.txt lines 484-503 (srcName, dstName, '-s sceneName', 'Image width', 'do you want to replace it? [Y/N]'); FLOSS stack strings: 'Name', '-w width' (re_raw\\floss_tconverter_nonstatic.txt); imports ??0RangeQualifier@TCli@@ (strings line 566); tnzbase.txt:13167",
+   "cautions": "بيسأل [Y/N] لو ملف الوجهة موجود، فبيفضل مستني: امسح الوجهة أو غيّر اسمها قبل التشغيل.",
+   "unpack_as": "tahoma2d"
+  },
+  {
+   "id": "handbrakecli",
+   "name": "HandBrakeCLI",
+   "version": "1.11.2 (2026060700)",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\HandBrakeCLI\\HandBrakeCLI-1.11.2-win-x86_64.zip",
+   "archive_sha256": "80bfe8d5f5d11cc3ef76b834add3ed4e82dee6523ffeb435c283f88b1a21f09d",
+   "exe": "HandBrakeCLI.exe",
+   "license": "GPLv2 (doc\\LICENSE: 'a compiled HandBrake build is licensed under GPLv2'; doc\\COPYING)",
+   "signed": "no (Authenticode NotSigned)",
+   "cli_usage": "Help text embedded in binary: 'Usage: HandBrakeCLI [options] -i <source> -o <destination>'. Key options: -Z/--preset <name>, -z/--preset-list, --preset-import-file, --json, -i/--input, -t/--title, --start-at/--stop-at <seconds:N|frames:N|pts:N>, -o/--output, -f/--format, -O/--optimize (MP4 fast start), -e/--encoder (x264, x265, svt_av1, qsv_h264, nvenc_h264, vce_h264, mf_h264 ...), --encoder-preset, -q/--quality, -b/--vb, --multi-pass, -r/--rate, -E/--aencoder (av_aac ...), -B/--ab, -a/--audio, -6/--mixdown, -w/--width, -l/--height, --crop-mode, --non-anamorphic, --rotate, --srt-file/--srt-codeset (default latin1!)/--srt-lang/--srt-burn, --ssa-file/--ssa-burn, --enable-hw-decoding nvdec|qsv. Built-in presets include 'Fast 1080p30', 'Very Fast 1080p30', 'Creator 1080p60', 'Social 25 MB 30 Seconds 1080p60'.",
+   "examples": [
+    "HandBrakeCLI -i in.mov -o out.mp4 -Z \"Fast 1080p30\" -O",
+    "HandBrakeCLI -i in.mp4 -o reel.mp4 -e x264 -q 20 --encoder-preset medium -E av_aac -B 160 -O -w 1080 -l 1920",
+    "HandBrakeCLI -i in.mp4 -o clip.mp4 -Z \"Fast 1080p30\" --start-at seconds:10 --stop-at seconds:15",
+    "HandBrakeCLI -i in.mp4 -o subbed.mp4 -Z \"Fast 1080p30\" --srt-file ar.srt --srt-codeset UTF-8 --srt-lang ara --srt-burn",
+    "HandBrakeCLI -z"
+   ],
+   "use_ar": "التصدير النهائي والضغط: نطلّع الريلز MP4 بـ -O (faststart) وجودة ثابتة، ونقص مقاطع بـ --start-at/--stop-at، ونحرق ترجمة عربي بـ --srt-burn مع --srt-codeset UTF-8 (لو نسيناها هيقرأها latin1 والعربي يبوظ). --json عشان نقرأ التقدم في الواجهة.",
+   "deps": "Single self-contained exe (no DLLs in archive). Imports only Windows system DLLs (ws2_32, kernel32, advapi32, gdi32, shell32, userenv, ntdll, api-ms-win-crt-*).",
+   "evidence": "re_raw\\handbrakecli_usage_from_binary.txt (488 lines carved from re_raw\\strings\\handbrakecli.txt:789045+); version string 'HandBrake 1.11.2 (2026060700)' line 789588; preset JSON 'PresetName' lines 798103+; doc\\LICENSE; DiE: PE64 Unknown compiler; YARA GB_PE_NetworkAPI (imports ws2_32.dll)",
+   "cautions": "مع ترجمة عربي لازم `--srt-codeset UTF-8` (الافتراضي latin1 فالحروف بتبوظ)."
+  },
+  {
+   "id": "synfig",
+   "name": "Synfig CLI renderer (synfig.exe)",
+   "version": "1.5.5 (build 2026.03.15)",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Synfig\\SynfigStudio-1.5.5-2026.03.15-win64-79bf7.zip",
+   "archive_sha256": "f8e62c860216ed733be092147779df2aa5afdeee34ad9da5736f99ed96550fe0",
+   "exe": "bin/synfig.exe",
+   "license": "GPL-3.0 (license\\license-synfigstudio-master, license\\license-synfigcore-master)",
+   "signed": "no (Authenticode NotSigned)",
+   "cli_usage": "Binary strings: 'Usage: synfig [options] ([sif file] [specific options])'. Long option names visible as strings: --target (Default: PNG), --width, --height, --threads, --input-file, --output-file, --renderer, --sequence-separator, --canvas, --time (single frame, e.g. \"0s 6f\"), --begin-time/--start-time, --end-time, --dpi-x, --dpi-y, --repeats, --verbose, --quiet, --benchmarks, --extract-alpha, --append, --canvas-info, --canvases, --video-codec, --video-bitrate, --importers, --layers, --layer-info, --modules, --renderers, --target-video-codecs, --valuenodes, --version, --help. Help texts exist for span ('diagonal size of image window'), antialias, frame rate and dpi, but their option names are <4 chars or not adjacent (likely --span, --antialias, --fps, --dpi — inference). Short aliases (-t -o -w -h -T -q -v) are single-char and not visible as strings (inference).",
+   "examples": [
+    "synfig scene.sifz --target png --output-file frame.png --width 1080 --height 1920 --time \"0s\"",
+    "synfig scene.sifz --target png --output-file frames\\f.png --begin-time 0s --end-time 2s",
+    "synfig scene.sifz --target ffmpeg --video-codec libx264 --video-bitrate 8000 --output-file out.mp4",
+    "synfig scene.sifz --canvas-info all",
+    "synfig --target-video-codecs"
+   ],
+   "use_ar": "رندر أنيميشن Synfig (vector/bones) بالترمنال: الطائر الذهبي يقدر يولّد ملف .sif (XML) لعنوان أو شعار متحرك ويطلّعه PNG sequence أو MP4 بمقاس 1080x1920 للريلز، و--canvas-info يقرأ مدة وأبعاد المشهد قبل الرندر.",
+   "deps": "Run from Synfig's bin\\ with its DLLs: libsynfig-0.dll, libglib-2.0-0.dll, libglibmm-2.4-1.dll, libgiomm-2.4-1.dll, libintl-8.dll, libstdc++-6.dll, libgcc_s_seh-1.dll (+157 DLLs in archive); etc\\synfig_modules.cfg + module DLLs for targets (png/ffmpeg).",
+   "evidence": "re_raw\\strings\\synfig.txt lines 1673-1900 (usage line, option names and help text, codec list libx264/libvpx-vp9...), version '1.5.5'; imports re_raw\\rzbin_libs_synfig.txt; layout re_raw\\ls_synfig.txt (etc\\synfig_modules.cfg); triage re_raw\\triage_synfig.json (no URLs)",
+   "cautions": "استخدم أسماء الخيارات الطويلة (المختصرة زي -t -o -w استنتاج ~85%). اعرض الفورمات بـ `--target-video-codecs` أول مرة."
+  },
+  {
+   "id": "melt",
+   "name": "MLT melt (Shotcut engine CLI)",
+   "version": "MLT 7.41.0 (Shotcut 26.9.27)",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Shotcut_portable\\shotcut-win64-26.9.27.zip",
+   "archive_sha256": "1f8c50ce7b125a2f0dcb60777b358e86baf03b8515982612b6adae10a83d93a5",
+   "exe": "Shotcut/melt.exe",
+   "license": "Shotcut COPYING.txt = GPLv3; MLT itself is LGPL-2.1 upstream (not stated in archive — inference)",
+   "signed": "yes — Authenticode Valid, signer CN=Meltytech, LLC (Oceanside, California, US)",
+   "cli_usage": "Help text embedded in binary: 'Usage: melt [options] [producer [name=value]* ]+' with -attach/-attach-cut/-attach-track/-attach-clip filter, -audio-track, -blank frames, -chain, -consumer id[:arg] [name=value]*, -filter, -group, -join, -link, -loglevel, -mix length, -mixer transition, -null-track, -profile name, -progress, -progress2, -query (consumers|filters|links|producers|transitions|profiles|presets|formats|audio_codecs|video_codecs), -quiet, -remove, -repeat, -repository path, -serialise [file], -silent, -split, -swap, -track, -transition, -verbose, -timings, -version, -video-track. Env MLT_PROFILE.",
+   "examples": [
+    "melt clip1.mp4 clip2.mp4 -consumer avformat:out.mp4 vcodec=libx264 acodec=aac",
+    "melt -profile vertical_hd_30 in.mp4 -consumer avformat:reel.mp4 vcodec=libx264 acodec=aac",
+    "melt a.mp4 b.mp4 -mix 25 -mixer luma -consumer avformat:xfade.mp4",
+    "melt project.mlt -consumer avformat:render.mp4 -progress2",
+    "melt -query \"consumer\"=avformat"
+   ],
+   "use_ar": "محرك مونتاج حقيقي بالترمنال: نرندر مشاريع Shotcut (.mlt) أو نبني تايملاين بسيط (قص، ترانزشن -mix، فلاتر) من غير واجهة. بروفايل vertical_hd_30 موجود جاهز للريلز 9:16، و-progress2 بيدّي سطر تقدم نعرضه.",
+   "deps": "Must run inside the Shotcut folder: libmlt-7.dll, SDL2.dll, libwinpthread-1.dll (+ libstdc++/libgcc), lib\\mlt\\*.dll modules (e.g. libmltavformat.dll), share\\mlt\\profiles (vertical_hd_30/60, atsc_1080p_30 ...) and share\\mlt\\presets.",
+   "evidence": "re_raw\\strings\\melt.txt lines 622-730 (usage text, '%s 7.41.0', MLT_PROFILE); imports re_raw\\rzbin_libs_melt.txt; signature re_raw\\authenticode_ps.txt + re_raw\\pe_facts.json; profiles from re_raw\\ls_shotcut.txt; capa re_raw\\capa_melt.txt (accept command line args, write file, RWX memory = MinGW pseudo-reloc)",
+   "cautions": "بروفايل `vertical_hd_30` و`vertical_hd_60` موجودين للريلز 9:16.",
+   "unpack_as": "shotcut"
+  },
+  {
+   "id": "whisper-cli",
+   "name": "whisper.cpp whisper-cli (bundled with Shotcut)",
+   "version": "whisper.cpp build shipped with Shotcut 26.9.27 (no version string found)",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Shotcut_portable\\shotcut-win64-26.9.27.zip",
+   "archive_sha256": "1f8c50ce7b125a2f0dcb60777b358e86baf03b8515982612b6adae10a83d93a5",
+   "exe": "Shotcut/whisper-cli.exe",
+   "license": "MIT upstream whisper.cpp (no whisper license file in archive; Shotcut COPYING.txt GPLv3 covers the bundle) — inference",
+   "signed": "yes — Authenticode Valid, signer CN=Meltytech, LLC",
+   "cli_usage": "Help text embedded in binary: 'usage: whisper-cli [options] file0 file1 ...', 'supported audio formats: flac, mp3, ogg, wav'. Options: -t/--threads, -p/--processors, -ot/--offset-t ms, -d/--duration ms, -ml/--max-len, -sow/--split-on-word, -bo, -bs/--beam-size, -tr/--translate, -di, -otxt, -ovtt, -osrt, -olrc, -owts, -ocsv, -oj, -ojf, -of FNAME (no extension), -np, -pp/--print-progress, -nt, -l LANG ('auto'), -dl, --prompt, -m FNAME (model; default models/ggml-base.en.bin), -f FNAME, -ng/--no-gpu, -fa/-nfa, -sns, --vad, -vm FNAME, -vt ... ",
+   "examples": [
+    "whisper-cli -m ggml-small.bin -f voice.wav -l ar -osrt -of out\\voice",
+    "whisper-cli -m ggml-base.bin -f voice.mp3 -l auto -oj -ojf -of out\\voice",
+    "whisper-cli -m ggml-small.bin -f voice.wav -l ar -ml 1 -sow -osrt -of out\\words",
+    "whisper-cli -m ggml-base.bin -f voice.wav -dl"
+   ],
+   "use_ar": "تفريغ الصوت لترجمة SRT/VTT/JSON أوفلاين بالعربي (-l ar) عشان كابشن الريلز والقص على الكلام. مافيش أي موديل جوه الأرشيف: لازم ننزّل موديل multilingual (مثلاً ggml-small.bin أو ggml-base.bin من نفس روابط huggingface اللي في whispermodel.qml)؛ الموديل الافتراضي ggml-base.en.bin إنجليزي بس وهيتجاهل -l ar.",
+   "deps": "Imports libwhisper.dll, ggml.dll, libstdc++-6.dll, libgcc_s_seh-1.dll, msvcrt.dll, kernel32.dll; next to it in Shotcut\\: ggml-base.dll, ggml-cpu.dll, ggml-vulkan.dll, ggml-blas.dll (backends loaded at runtime — inference). Needs a separate ggml-*.bin model file (none bundled).",
+   "evidence": "re_raw\\strings\\whisper-cli.txt lines 10648-10716 (usage), 10649 (audio formats), 10854 default model; REA inspect-pe-imports re_raw\\rea_imports_whisper.json; models list + URLs in src\\bin\\shotcut\\whispermodel.qml; no *.bin model in re_raw\\ls_shotcut.txt; signature re_raw\\authenticode_ps.txt",
+   "cautions": "مفيش أي موديل جوه Shotcut، والافتراضي `models/ggml-base.en.bin` إنجليزي بس: نزّل موديل ggml متعدد اللغات (روابطه في whispermodel.qml) ومرّره بـ `-m`، وللعربي `-l ar`.",
+   "unpack_as": "shotcut"
+  },
+  {
+   "id": "oiiotool",
+   "name": "OpenImageIO oiiotool (bundled with Gaffer)",
+   "version": "OpenImageIO 3.0.6.1",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Gaffer\\gaffer-1.7.7.0-windows.zip",
+   "archive_sha256": "95a7283213f1f208abe4862bb0b1b13d85269050d3df780713a2094110bc681e",
+   "exe": "gaffer-1.7.7.0-windows/bin/oiiotool.exe",
+   "license": "Apache-2.0 upstream OpenImageIO (not stated in archive — inference); Gaffer LICENSE is BSD-3",
+   "signed": "no (Authenticode NotSigned); Gaffer zip sha256 matches expected.sha (95a72832...681e)",
+   "cli_usage": "Binary strings: 'oiiotool -- simple image processing operations / OpenImageIO 3.0.6.1'. Options include -i FILENAME, -o FILENAME, -d TYPE, --compression NAME, --quality N, --info, --stats, --hash, --diff, --threads N, --frames FRAMERANGE, --framepadding, --create GEOM NCHANS, --pattern NAME GEOM NCHANS, --crop/--cut GEOM, --paste +X+Y, --mosaic WxH, --over, --resize GEOM, --resample GEOM, --fit GEOM, --rotate DEG, --rotate90/180/270, --flip, --flop, --ch CHANLIST, --chnames, --text TEXT, --fill GEOM, --colorconvert SRC DST, --tocolorspace CS, --ociodisplay, --premult/--unpremult, --saturate, --contrast, --colormap, --autocc, --parallel-frames, --wildcardon/off.",
+   "examples": [
+    "oiiotool --info -v in.exr",
+    "oiiotool in.png --resize 1080x1920 -o out.png",
+    "oiiotool in.png --fit 1080x1920 -o fit.png",
+    "oiiotool fg.png bg.png --over -o comp.png",
+    "oiiotool in.exr --colorconvert linear sRGB -o out.png"
+   ],
+   "use_ar": "مكتبة صور احترافية بالترمنال: تحويل EXR/رندرات 3D لـ PNG بلون صح (--colorconvert)، تغيير مقاس للـ 9:16 (--fit)، تركيب طبقة فوق طبقة (--over)، وفحص صورة (--info/--stats) قبل المونتاج. مفيد جداً مع رندرات Blender/Gaffer.",
+   "deps": "Run with Gaffer bin\\ on PATH or from it: OpenImageIO.dll, OpenImageIO_Util.dll, OpenEXR.dll, OpenColorIO_2_4.dll (+ other bin\\ DLLs), VC++ runtime (vcruntime140*.dll).",
+   "evidence": "re_raw\\oiiotool_options_from_binary.txt (452 lines carved from re_raw\\strings\\oiiotool.txt:12349+); imports re_raw\\rzbin_libs_oiiotool.txt; DLL locations re_raw\\ls_gaffer.txt; triage re_raw\\triage_oiiotool.json (only openimageio.org URLs)",
+   "cautions": "OpenImageIO 3.0.6.1: تحويل صور EXR/HDR/PNG وتغيير مقاس وتركيب من سطر الأوامر.",
+   "unpack_as": "gaffer"
+  },
+  {
+   "id": "gaffer-mcp",
+   "name": "Gaffer 'mcp' app (MCP stdio server)",
+   "version": "Gaffer 1.7.7.0",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Gaffer\\gaffer-1.7.7.0-windows.zip",
+   "archive_sha256": "95a7283213f1f208abe4862bb0b1b13d85269050d3df780713a2094110bc681e",
+   "exe": "gaffer-1.7.7.0-windows/bin/gaffer.cmd",
+   "license": "BSD-3-Clause (gaffer-1.7.7.0-windows\\LICENSE; header in apps\\mcp\\mcp-1.py, Cinesite VFX 2026)",
+   "signed": "no (gaffer.exe NotSigned)",
+   "cli_usage": "Docs (doc\\...\\CommandLineReference\\mcp.md.txt) + apps\\mcp\\mcp-1.py: gaffer mcp [-scripts a.gfr b.gfr ...] [-threads N] [-profileFileName f] [-ignoreScriptLoadErrors] [-help]. 'scripts' is flagless (positional). Speaks MCP over stdio (JSON-RPC 2.0; protocolVersions 2025-03-26, 2025-06-18, 2025-11-25; methods initialize/ping/tools/list/tools/call). Stdout reserved for MCP (fd1 redirected to stderr). Registered tools: executePython (Gaffer\\MCP\\Tool.py), captureImage (GafferImage\\_MCP.py), captureEditor (GafferUI\\_MCP.py, GUI only). Exits when client closes stdin.",
+   "examples": [
+    "\"C:\\Gaffer\\gaffer-1.7.7.0-windows\\bin\\gaffer.cmd\" mcp",
+    "\"C:\\Gaffer\\gaffer-1.7.7.0-windows\\bin\\gaffer.cmd\" mcp shot01.gfr",
+    "\"C:\\Gaffer\\gaffer-1.7.7.0-windows\\bin\\gaffer.cmd\" mcp -threads -2 shot01.gfr shot02.gfr"
+   ],
+   "use_ar": "الطائر الذهبي يقدر يشغّل Gaffer كسيرفر MCP جوه نفسه (stdio) ويكلّم Claude بيه: يبني/يعدّل مشهد lookdev ورندر 3D، وcaptureImage بيرجّع PNG من أي node نعرضه للمستخدم. تحذير: executePython = تحكم كامل بالبايثون، فنستخدمه بس على سكربتات المستخدم الموثوقة ومن غير صلاحيات زيادة.",
+   "deps": "Whole Gaffer tree (≈51k files): bin\\python.exe, python311.dll, tbbmalloc_proxy.dll, boost_python311.dll, python\\Gaffer\\MCP\\*.py, apps\\mcp\\, IECore etc. gaffer.cmd sets PYTHONHOME and PATH=%PYTHONHOME%\\bin.",
+   "evidence": "src\\bin\\gaffer\\gaffer-1.7.7.0-windows\\apps\\mcp\\mcp-1.py; ...\\doc\\gaffer\\html\\_sources\\Reference\\CommandLineReference\\mcp.md.txt; python\\Gaffer\\MCP\\Server.py lines 143-216; pydisasm re_raw\\pydisasm_gaffer_mcp1.txt (pyc source_size 5206 = .py size, mtime 2026-11-12); rea inspect-python-pyc re_raw\\rea_pyc_gaffer_mcp1.json; bin\\gaffer.cmd",
+   "cautions": "سيرفر MCP على stdio. أداة executePython فيه = تحكم كامل في Gaffer وبايثون، فشغّله بسكربتات .gfr موثوقة بس.",
+   "unpack_as": "gaffer"
+  },
+  {
+   "id": "pencil2d",
+   "name": "Pencil2D",
+   "version": "0.7.2",
+   "archive": "C:\\Users\\cinde\\OneDrive\\Desktop\\مهارات\\برامج\\Pencil2D\\pencil2d-win64-v0.7.2.zip",
+   "archive_sha256": "c8d3044a0ab42b39cb2ac29c84d7d83a511dfe71d96d89a45b9c3dd82910be7c",
+   "exe": "Pencil2D/pencil2d.exe",
+   "license": "GPL-2.0 (About text in binary: 'Distributed under the GNU General Public License, version 2'; no LICENSE file in archive)",
+   "signed": "yes — Authenticode Valid, signer CN=Open Source Developer CHIA-WEN CHANG (TW)",
+   "cli_usage": "Qt command-line help strings in binary: positional 'input' (Path to the input pencil file); 'export' <output_path> ('Render the file to <output_path>'); 'export-sequence'; 'camera' <layer_name>; 'width' <integer>; 'height' <integer>; 'start' <frame>; 'end' <frame|last|last-sound>; 'transparency'. Warnings: unsupported format -> PNG; transparency not supported in movie files. Short '-o' alias for --export is upstream convention (inference).",
+   "examples": [
+    "pencil2d.exe anim.pclx --export out.mp4 --width 1080 --height 1920 --start 1 --end last",
+    "pencil2d.exe anim.pclx --export-sequence frames\\f.png --transparency",
+    "pencil2d.exe anim.pclx --export out.gif --camera \"Camera Layer\""
+   ],
+   "use_ar": "نصدّر أنيميشن مرسوم بإيد المستخدم في Pencil2D (.pclx) لفيديو أو PNG شفاف من غير ما نفتحه، ونحطه في المونتاج أو فوق فيديو كـ overlay. --end last-sound بيقفل على آخر صوت.",
+   "deps": "Next to exe: Qt5Core/Gui/Widgets/Multimedia/Network/Xml/Svg DLLs, d3dcompiler_47.dll, platforms\\, audio\\, iconengines\\ plugins, VC++ runtime; plugins\\ffmpeg.exe REQUIRED for movie export (mp4/gif). vc_redist.x64.exe shipped in archive.",
+   "evidence": "re_raw\\strings\\pencil2d.txt lines 15426-15460 (option names/help), 15220 (GPLv2); version resource v0.7.2 (re_raw\\pe_facts.json); layout re_raw\\ls_pencil.txt (plugins\\ffmpeg.exe); signature re_raw\\authenticode_ps.txt; imports re_raw\\rzbin_libs_pencil2d.txt",
+   "cautions": "برنامج بواجهة (GUI subsystem): ممكن الخرج مايظهرش في الكونسول. جرّب `--export` على عيّنة صغيرة الأول."
+  }
+ ]
+}

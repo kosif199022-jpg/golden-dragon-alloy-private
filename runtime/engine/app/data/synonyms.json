@@ -1,0 +1,567 @@
+{
+ "_doc": "Arabic/Egyptian words (already normalised by dragon/arabic.py) -> English search terms added to the query.",
+ "بلندر": [
+  "blender"
+ ],
+ "بليندر": [
+  "blender"
+ ],
+ "فوتوشوب": [
+  "photoshop"
+ ],
+ "فتوشوب": [
+  "photoshop"
+ ],
+ "افتر": [
+  "after",
+  "aftereffects"
+ ],
+ "افكت": [
+  "effects"
+ ],
+ "افكتس": [
+  "effects"
+ ],
+ "اليستريتور": [
+  "illustrator"
+ ],
+ "بريمير": [
+  "premiere"
+ ],
+ "كاب": [
+  "capcut"
+ ],
+ "كت": [
+  "capcut"
+ ],
+ "ريموشن": [
+  "remotion"
+ ],
+ "موشن": [
+  "motion"
+ ],
+ "مونتاج": [
+  "montage",
+  "edit"
+ ],
+ "ثلاثي": [
+  "3d"
+ ],
+ "ابعاد": [
+  "3d"
+ ],
+ "مجسم": [
+  "3d",
+  "model"
+ ],
+ "رندر": [
+  "render"
+ ],
+ "لوجو": [
+  "logo"
+ ],
+ "شعار": [
+  "logo"
+ ],
+ "خلفيه": [
+  "background"
+ ],
+ "تلوين": [
+  "color",
+  "grade"
+ ],
+ "ترجمه": [
+  "subtitles",
+  "captions"
+ ],
+ "صوت": [
+  "audio",
+  "voice"
+ ],
+ "اغنيه": [
+  "song",
+  "music"
+ ],
+ "ريلز": [
+  "reels"
+ ],
+ "ريل": [
+  "reel"
+ ],
+ "صوره": [
+  "image",
+  "photo"
+ ],
+ "صور": [
+  "image",
+  "photo"
+ ],
+ "فيديو": [
+  "video"
+ ],
+ "انيميشن": [
+  "animation"
+ ],
+ "تحريك": [
+  "animation"
+ ],
+ "اضاءه": [
+  "lighting"
+ ],
+ "خامات": [
+  "texture",
+  "hdri"
+ ],
+ "منتج": [
+  "product"
+ ],
+ "كابشن": [
+  "captions",
+  "subtitles"
+ ],
+ "كابشنز": [
+  "captions"
+ ],
+ "سب": [
+  "subtitles"
+ ],
+ "ترجمات": [
+  "subtitles",
+  "captions"
+ ],
+ "تفريغ": [
+  "transcribe",
+  "transcription"
+ ],
+ "تفريغه": [
+  "transcribe"
+ ],
+ "تعليق": [
+  "voiceover",
+  "narration"
+ ],
+ "فويس": [
+  "voice",
+  "voiceover"
+ ],
+ "دبلجه": [
+  "dubbing",
+  "voice"
+ ],
+ "تنضيف": [
+  "denoise",
+  "clean"
+ ],
+ "دوشه": [
+  "noise",
+  "denoise"
+ ],
+ "زن": [
+  "noise",
+  "hum"
+ ],
+ "موسيقي": [
+  "music"
+ ],
+ "مزيكا": [
+  "music"
+ ],
+ "بيت": [
+  "beat"
+ ],
+ "ايقاع": [
+  "rhythm",
+  "beat"
+ ],
+ "مكساج": [
+  "mix",
+  "mixing"
+ ],
+ "تقطيع": [
+  "cut",
+  "trim"
+ ],
+ "قص": [
+  "cut",
+  "trim"
+ ],
+ "سكتات": [
+  "silence"
+ ],
+ "سكوت": [
+  "silence"
+ ],
+ "انتقالات": [
+  "transitions"
+ ],
+ "ترانزيشن": [
+  "transition"
+ ],
+ "كلر": [
+  "color",
+  "grade"
+ ],
+ "جريد": [
+  "grade",
+  "color"
+ ],
+ "لوك": [
+  "look",
+  "grade"
+ ],
+ "فلتر": [
+  "filter",
+  "look"
+ ],
+ "تكبير": [
+  "upscale",
+  "enhance"
+ ],
+ "توضيح": [
+  "enhance",
+  "sharpen"
+ ],
+ "جوده": [
+  "quality",
+  "upscale"
+ ],
+ "عزل": [
+  "cutout",
+  "background",
+  "remove"
+ ],
+ "شيل": [
+  "remove"
+ ],
+ "غلاف": [
+  "cover",
+  "thumbnail"
+ ],
+ "ثمنيل": [
+  "thumbnail"
+ ],
+ "صوره مصغره": [
+  "thumbnail"
+ ],
+ "بوستر": [
+  "poster"
+ ],
+ "خط": [
+  "font",
+  "typography"
+ ],
+ "خطوط": [
+  "fonts",
+  "typography"
+ ],
+ "كتابه": [
+  "text",
+  "typography"
+ ],
+ "عنوان": [
+  "title"
+ ],
+ "تايتل": [
+  "title"
+ ],
+ "تيك": [
+  "tiktok"
+ ],
+ "توك": [
+  "tiktok"
+ ],
+ "يوتيوب": [
+  "youtube"
+ ],
+ "انستا": [
+  "instagram"
+ ],
+ "شورتس": [
+  "shorts"
+ ],
+ "تحميل": [
+  "download"
+ ],
+ "نزل": [
+  "download"
+ ],
+ "تنزيل": [
+  "download"
+ ],
+ "ستوك": [
+  "stock",
+  "media"
+ ],
+ "كرتون": [
+  "cartoon",
+  "animation"
+ ],
+ "رسوم": [
+  "animation",
+  "illustration"
+ ],
+ "شخصيه": [
+  "character"
+ ],
+ "ريج": [
+  "rig",
+  "rigging"
+ ],
+ "كاميرا": [
+  "camera"
+ ],
+ "حركه": [
+  "motion",
+  "movement"
+ ],
+ "زووم": [
+  "zoom"
+ ],
+ "تتبع": [
+  "tracking"
+ ],
+ "ماسك": [
+  "mask"
+ ],
+ "اعلان": [
+  "ad",
+  "commercial"
+ ],
+ "برومو": [
+  "promo",
+  "trailer"
+ ],
+ "تريلر": [
+  "trailer"
+ ],
+ "فيلم": [
+  "film"
+ ],
+ "سينمائي": [
+  "cinematic",
+  "visual",
+  "forge"
+ ],
+ "هوك": [
+  "hook"
+ ],
+ "سكريبت": [
+  "script"
+ ],
+ "ستوري": [
+  "storyboard"
+ ],
+ "بورد": [
+  "storyboard"
+ ],
+ "مقابله": [
+  "interview",
+  "talking"
+ ],
+ "بودكاست": [
+  "podcast"
+ ],
+ "متحدث": [
+  "talking",
+  "speaker"
+ ],
+ "وش": [
+  "face"
+ ],
+ "وجه": [
+  "face"
+ ],
+ "جسم": [
+  "pose",
+  "body"
+ ],
+ "سوشيال": [
+  "social"
+ ],
+ "منيو": [
+  "menu"
+ ],
+ "انفوجراف": [
+  "infographic",
+  "chart"
+ ],
+ "جراف": [
+  "chart",
+  "graph"
+ ],
+ "خريطه": [
+  "map"
+ ],
+ "جزيئات": [
+  "particles"
+ ],
+ "دخان": [
+  "smoke",
+  "fluid"
+ ],
+ "نار": [
+  "fire"
+ ],
+ "مياه": [
+  "water",
+  "fluid"
+ ],
+ "فيزيا": [
+  "physics"
+ ],
+ "انكسكيب": [
+  "inkscape",
+  "svg"
+ ],
+ "جيمب": [
+  "gimp"
+ ],
+ "كريتا": [
+  "krita"
+ ],
+ "كدنلايف": [
+  "kdenlive",
+  "melt"
+ ],
+ "دافنشي": [
+  "davinci",
+  "resolve"
+ ],
+ "صياد": [
+  "media",
+  "hunter",
+  "stock"
+ ],
+ "فوتيج": [
+  "footage",
+  "stock",
+  "media"
+ ],
+ "برول": [
+  "broll",
+  "stock"
+ ],
+ "لقطات": [
+  "footage",
+  "stock",
+  "video"
+ ],
+ "ارشفية": [
+  "archive",
+  "historical"
+ ],
+ "هدر": [
+  "hdri",
+  "hdr"
+ ],
+ "ايقونات": [
+  "icons",
+  "iconify"
+ ],
+ "متحف": [
+  "museum",
+  "art",
+  "collection"
+ ],
+ "خلفيات": [
+  "wallpaper",
+  "background"
+ ],
+ "هندسة عكسية": [
+  "rea",
+  "binary",
+  "reverse",
+  "engineering",
+  "artifact"
+ ],
+ "حلل برنامج": [
+  "rea",
+  "binary",
+  "triage"
+ ],
+ "فك برنامج": [
+  "rea",
+  "decompile",
+  "binary"
+ ],
+ "تفكيك": [
+  "reverse",
+  "artifact"
+ ],
+ "تطبيق اندرويد": [
+  "android",
+  "apk",
+  "jadx"
+ ],
+ "ملف تنفيذي": [
+  "binary",
+  "exe",
+  "pe"
+ ],
+ "تحليل امان": [
+  "security",
+  "audit",
+  "rea"
+ ],
+ "تحليل باينري": [
+  "binary",
+  "rea"
+ ],
+ "غيدرا": [
+  "ghidra",
+  "decompile"
+ ],
+ "جادكس": [
+  "jadx",
+  "apk"
+ ],
+ "إلكترون": [
+  "electron",
+  "asar",
+  "javascript"
+ ],
+ "ملفات البرامج": [
+  "artifact",
+  "binary",
+  "rea"
+ ],
+ "مطر": [
+  "rain",
+  "atmosphere",
+  "visual",
+  "forge"
+ ],
+ "شبورة": [
+  "fog",
+  "atmosphere",
+  "visual",
+  "forge"
+ ],
+ "ضباب": [
+  "fog",
+  "atmosphere",
+  "visual",
+  "forge"
+ ],
+ "ثلج": [
+  "snow",
+  "visual",
+  "forge"
+ ],
+ "تأثيرات": [
+  "effects",
+  "fx",
+  "visual",
+  "forge"
+ ],
+ "برومبت": [
+  "prompt",
+  "visual",
+  "forge"
+ ],
+ "جو": [
+  "atmosphere",
+  "visual",
+  "forge"
+ ]
+}

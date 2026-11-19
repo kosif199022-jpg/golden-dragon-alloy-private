@@ -1,0 +1,6 @@
+{
+  "_comment": "title_card preset smoke test (Arabic subtitle).",
+  "scene": {"resolution": "1080p", "fps": 24, "duration": 3, "engine": "EEVEE", "samples": 32},
+  "steps": [{"op": "title_card", "title": "BLENDER PRO", "subtitle": "قوة بلندر من سطر واحد", "palette": "royal", "font": "segoeuib", "subtitle_font": "arialbd"}],
+  "render": {"type": "still", "out": "title_f60.png", "frame": 60}
+}

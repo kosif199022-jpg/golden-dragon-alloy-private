@@ -1,0 +1,224 @@
+[
+ {
+  "id": "reel-montage",
+  "domain": "video",
+  "ar": "ريل أو فيلم 9:16 من فوتيج وأغنية",
+  "en": "9:16 reel from footage and a song"
+ },
+ {
+  "id": "lyric-quran",
+  "domain": "audio",
+  "ar": "فيلم كلمات أغنية أو دعاء أو تلاوة",
+  "en": "lyric film / dua / Quran clip"
+ },
+ {
+  "id": "motion-code",
+  "domain": "motion",
+  "ar": "موشن جرافيك بالكود (HTML أو SVG ← فيديو)",
+  "en": "code-built motion graphics rendered to video"
+ },
+ {
+  "id": "machine-sim",
+  "domain": "3d",
+  "ar": "محاكي 3D لماكينة + فيلم 60 فريم",
+  "en": "interactive 3D machine simulator + film (teardown)"
+ },
+ {
+  "id": "image-identity",
+  "domain": "design",
+  "ar": "صورة ← ألوان ← هوية وموشن",
+  "en": "image to palette, brand identity and motion language"
+ },
+ {
+  "id": "blender-3d",
+  "domain": "3d",
+  "ar": "Blender: لوجو أو منتج أو مشهد 3D",
+  "en": "Blender 3D logo, product shot, scene, render"
+ },
+ {
+  "id": "toon",
+  "domain": "video",
+  "ar": "تحويل فيديو أو صورة لكرتون أو أنمي",
+  "en": "video or photo to cartoon / anime look"
+ },
+ {
+  "id": "voice",
+  "domain": "audio",
+  "ar": "صوت: تعليق، تفريغ، تنضيف، فصل موسيقى",
+  "en": "voice-over, transcription, cleanup, stem separation"
+ },
+ {
+  "id": "download",
+  "domain": "sources",
+  "ar": "تحميل فيديو أو ملف أو خامات",
+  "en": "download a video, file or stock media"
+ },
+ {
+  "id": "trend",
+  "domain": "research",
+  "ar": "تحليل الترند وتفكيك ريل",
+  "en": "trend analysis and reel breakdown"
+ },
+ {
+  "id": "re-file",
+  "domain": "re",
+  "ar": "هندسة عكسية لملف أو برنامج",
+  "en": "reverse engineer a file, binary or installed program"
+ },
+ {
+  "id": "re-site",
+  "domain": "re",
+  "ar": "تحليل موقع أو تطبيق ويب",
+  "en": "analyse a website or web app (structure, bundles, API calls)"
+ },
+ {
+  "id": "re-repo",
+  "domain": "re",
+  "ar": "تحليل مستودع GitHub وتحويله لقدرة",
+  "en": "analyse a GitHub repo and turn it into a capability or skill"
+ },
+ {
+  "id": "re-apk",
+  "domain": "re",
+  "ar": "تحليل تطبيق أندرويد (APK)",
+  "en": "analyse an Android APK"
+ },
+ {
+  "id": "audit-install",
+  "domain": "re",
+  "ar": "فحص حزمة أو مهارة قبل التثبيت",
+  "en": "audit a package, skill or zip before installing"
+ },
+ {
+  "id": "build-skill",
+  "domain": "meta",
+  "ar": "بناء مهارة جديدة أو تحويل ملف لمهارة",
+  "en": "build a new skill, or turn a file/workflow into a saved skill"
+ },
+ {
+  "id": "pc-task",
+  "domain": "pc",
+  "ar": "مهمة على الكمبيوتر نفسه (برامج، إعدادات، شاشة)",
+  "en": "operate the PC: apps, settings, windows, screen"
+ },
+ {
+  "id": "chrome-task",
+  "domain": "web",
+  "ar": "مهمة في كروم بتاع المستخدم",
+  "en": "do something in the user's real Chrome"
+ },
+ {
+  "id": "cloud-render",
+  "domain": "cloud",
+  "ar": "شغل تقيل على سحابة Higgsfield المجانية",
+  "en": "offload heavy render / encode / transcription to the free Higgsfield sandbox"
+ },
+ {
+  "id": "paid-gen",
+  "domain": "money",
+  "ar": "توليد مدفوع (Higgsfield، Kling، Suno)",
+  "en": "paid AI generation gate"
+ },
+ {
+  "id": "docs-office",
+  "domain": "docs",
+  "ar": "مستندات: Word، PDF، PowerPoint، Excel",
+  "en": "documents and spreadsheets"
+ },
+ {
+  "id": "web-build",
+  "domain": "web",
+  "ar": "بناء موقع أو صفحة أو تطبيق ويب",
+  "en": "build a website, landing page, web app or artifact"
+ },
+ {
+  "id": "deep-research",
+  "domain": "research",
+  "ar": "بحث عميق من النت بمصادر",
+  "en": "deep web research with sources"
+ },
+ {
+  "id": "app-dev",
+  "domain": "app",
+  "ar": "تطوير تطبيق التنين على ويندوز",
+  "en": "develop, build, install and test the Black Dragon desktop app"
+ },
+ {
+  "id": "ship",
+  "domain": "meta",
+  "ar": "تحزيم وتسليم نسخة (zip)",
+  "en": "package and ship a version"
+ },
+ {
+  "id": "design-static",
+  "domain": "design",
+  "ar": "تصميم ثابت: بوستر، ثامنيل، رسم، تعديل صورة",
+  "en": "static design: poster, thumbnail, drawing, photo edit"
+ },
+ {
+  "id": "think-hard",
+  "domain": "mind",
+  "ar": "قرار صعب أو مشكلة معقدة أو نقد شغل",
+  "en": "hard decision, complex problem, critique"
+ },
+ {
+  "id": "self-improve",
+  "domain": "meta",
+  "ar": "التعلّم الذاتي وتطوير التنين نفسه",
+  "en": "self-learning loop and upgrading the dragon itself"
+ },
+ {
+  "id": "reconcile",
+  "domain": "accounting",
+  "ar": "مطابقة كشوف حسابات وحوالات",
+  "en": "reconcile statements, transfers and invoices"
+ },
+ {
+  "id": "excel-pro",
+  "domain": "accounting",
+  "ar": "ملف Excel متطور أو تقرير مالي",
+  "en": "advanced Excel workbook or financial report"
+ },
+ {
+  "id": "app-to-skill",
+  "domain": "re",
+  "ar": "تحليل تطبيق أو مجلد وتحويله لمهارة Claude",
+  "en": "analyse an app or folder and turn it into a Claude skill with a tool protocol"
+ },
+ {
+  "id": "site-style",
+  "domain": "design",
+  "ar": "استخراج أسلوب موقع (خطوط، ألوان، انتقالات) وتطبيقه",
+  "en": "extract a site's design language and apply it to the owner's site"
+ },
+ {
+  "id": "clone-own-tool",
+  "domain": "app",
+  "ar": "بناء تطبيق أو أداة بتاعته (مشغّل، تحميل، متصفح، أندرويد)",
+  "en": "build the owner's own app or tool (player, downloader, browser, Android)"
+ },
+ {
+  "id": "status",
+  "domain": "meta",
+  "ar": "فين الملف؟ خلصت؟ عملت إيه؟",
+  "en": "where is the file, are you done, what did you change"
+ },
+ {
+  "id": "nature-palette",
+  "domain": "design",
+  "ar": "باليتة ألوان من صورة طائر أو حيوان أو أي حاجة",
+  "en": "color palette from a bird, animal or object photo"
+ },
+ {
+  "id": "shadow-puppet",
+  "domain": "video",
+  "ar": "فيلم مسرح ظل بدمى مفصّلة: أشخاص بالظلال بحركة عرائسي احترافية على ستارة منوّرة",
+  "en": "shadow-puppet theatre film: articulated rod puppets of people on a backlit screen"
+ },
+ {
+  "id": "draw-math",
+  "domain": "math",
+  "ar": "حسابات رياضية للرسم والتحريك: نسب الجسم، مسافات، وصول الذراع/الرجل، كاميرا ومنظور، طول الظل، توقيت الحركة",
+  "en": "drawing/animation math: body proportions, distances, IK reach, camera framing, perspective, shadow length, motion timing"
+ }
+]

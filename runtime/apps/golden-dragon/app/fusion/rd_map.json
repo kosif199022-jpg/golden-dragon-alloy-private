@@ -1,0 +1,135 @@
+{
+ "reel-montage": [
+  "reel-footage-song",
+  "talking-head-reel"
+ ],
+ "lyric-quran": [
+  "lyrics-film",
+  "arabic-captions",
+  "reel-footage-song"
+ ],
+ "motion-code": [
+  "motion-html-film",
+  "logo-intro",
+  "data-chart"
+ ],
+ "machine-sim": [
+  "machine-teardown"
+ ],
+ "image-identity": [
+  "image-design"
+ ],
+ "blender-3d": [
+  "blender-3d-shot"
+ ],
+ "toon": [
+  "cartoon-look"
+ ],
+ "voice": [
+  "voice-over",
+  "arabic-captions",
+  "song-music"
+ ],
+ "download": [
+  "download-media"
+ ],
+ "trend": [
+  "social-analytics",
+  "instagram",
+  "youtube"
+ ],
+ "re-file": [
+  "reverse-engineer"
+ ],
+ "re-site": [
+  "reverse-engineer",
+  "web-app"
+ ],
+ "re-repo": [
+  "github-repos",
+  "reverse-engineer",
+  "new-skill"
+ ],
+ "re-apk": [
+  "reverse-android"
+ ],
+ "audit-install": [
+  "reverse-engineer"
+ ],
+ "build-skill": [
+  "new-skill"
+ ],
+ "pc-task": [
+  "pc-browser-control"
+ ],
+ "chrome-task": [
+  "pc-browser-control"
+ ],
+ "cloud-render": [
+  "heavy-cloud"
+ ],
+ "paid-gen": [
+  "paid-generation"
+ ],
+ "docs-office": [
+  "office-docs"
+ ],
+ "web-build": [
+  "web-app"
+ ],
+ "deep-research": [
+  "deep-research",
+  "media-hunt"
+ ],
+ "app-dev": [
+  "app-self-develop"
+ ],
+ "ship": [
+  "ship-package",
+  "app-self-develop"
+ ],
+ "design-static": [
+  "image-design"
+ ],
+ "think-hard": [
+  "hard-decision",
+  "prompt-writing"
+ ],
+ "self-improve": [
+  "app-self-develop",
+  "new-skill"
+ ],
+ "reconcile": [
+  "reconcile-statements"
+ ],
+ "excel-pro": [
+  "office-docs",
+  "reconcile-statements"
+ ],
+ "app-to-skill": [
+  "new-skill"
+ ],
+ "site-style": [
+  "web-app",
+  "image-design"
+ ],
+ "clone-own-tool": [
+  "own-tool-build",
+  "web-app",
+  "app-self-develop"
+ ],
+ "status": [
+  "status-check"
+ ],
+ "nature-palette": [
+  "image-design"
+ ],
+ "shadow-puppet": [
+  "shadow-theatre-film"
+ ],
+ "draw-math": [
+  "math-explainer"
+ ],
+ "character-memory": [],
+ "none": []
+}

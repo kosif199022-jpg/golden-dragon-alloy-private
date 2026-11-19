@@ -1,0 +1,157 @@
+{
+ "runs": [
+  {
+   "time": "2026-11-15 10:09:45",
+   "group": "main",
+   "dry_run": false,
+   "done": [
+    {
+     "file": "black-dragon/scripts/dragon.py",
+     "patterns": [
+      "dragon_candidates"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\black-dragon\\scripts\\dragon.py"
+    },
+    {
+     "file": "white-dragon/engine/scripts/dragon.py",
+     "patterns": [
+      "dragon_candidates"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\white-dragon\\engine\\scripts\\dragon.py"
+    },
+    {
+     "file": "black-dragon/tools/fonts/fonts.py",
+     "patterns": [
+      "fonts_candidates"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\black-dragon\\tools\\fonts\\fonts.py"
+    },
+    {
+     "file": "white-dragon/engine/tools/fonts/fonts.py",
+     "patterns": [
+      "fonts_candidates"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\white-dragon\\engine\\tools\\fonts\\fonts.py"
+    },
+    {
+     "file": "black-dragon/tools/machine/machine.py",
+     "patterns": [
+      "machine_src"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\black-dragon\\tools\\machine\\machine.py"
+    },
+    {
+     "file": "white-dragon/engine/tools/machine/machine.py",
+     "patterns": [
+      "machine_src"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\white-dragon\\engine\\tools\\machine\\machine.py"
+    },
+    {
+     "file": "absolute-creativity/scripts/font_lab.py",
+     "patterns": [
+      "font_lab"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\absolute-creativity\\scripts\\font_lab.py"
+    },
+    {
+     "file": "white-dragon/scripts/wd.py",
+     "patterns": [
+      "owner_check",
+      "health_list"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\white-dragon\\scripts\\wd.py"
+    },
+    {
+     "file": "creative-studio/SKILL.md",
+     "patterns": [
+      "md_creative_studio"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\creative-studio\\SKILL.md"
+    },
+    {
+     "file": "kosif-downloads/SKILL.md",
+     "patterns": [
+      "md_kosif"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\kosif-downloads\\SKILL.md"
+    },
+    {
+     "file": "black-dragon/SKILL.md",
+     "patterns": [
+      "md_black_dragon"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\black-dragon\\SKILL.md"
+    }
+   ],
+   "skipped": [],
+   "errors": []
+  },
+  {
+   "time": "2026-11-15 10:09:45",
+   "group": "main",
+   "dry_run": false,
+   "done": [],
+   "skipped": [
+    "black-dragon/scripts/dragon.py: dragon_candidates (اتعمل قبل كده)",
+    "white-dragon/engine/scripts/dragon.py: dragon_candidates (اتعمل قبل كده)",
+    "black-dragon/tools/fonts/fonts.py: fonts_candidates (اتعمل قبل كده)",
+    "white-dragon/engine/tools/fonts/fonts.py: fonts_candidates (اتعمل قبل كده)",
+    "black-dragon/tools/machine/machine.py: machine_src (اتعمل قبل كده)",
+    "white-dragon/engine/tools/machine/machine.py: machine_src (اتعمل قبل كده)",
+    "absolute-creativity/scripts/font_lab.py: font_lab (اتعمل قبل كده)",
+    "white-dragon/scripts/wd.py: owner_check (اتعمل قبل كده)",
+    "white-dragon/scripts/wd.py: health_list (اتعمل قبل كده)",
+    "creative-studio/SKILL.md: md_creative_studio (اتعمل قبل كده)",
+    "kosif-downloads/SKILL.md: md_kosif (اتعمل قبل كده)",
+    "black-dragon/SKILL.md: md_black_dragon (اتعمل قبل كده)"
+   ],
+   "errors": []
+  },
+  {
+   "time": "2026-11-15 10:36:29",
+   "group": "red-dragon",
+   "dry_run": false,
+   "done": [
+    {
+     "file": "red-dragon/scripts/rd.py",
+     "patterns": [
+      "owner_check",
+      "health_list"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\red-dragon\\scripts\\rd.py"
+    },
+    {
+     "file": "red-dragon/scripts/rd_chats.py",
+     "patterns": [
+      "owner_check"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\red-dragon\\scripts\\rd_chats.py"
+    },
+    {
+     "file": "red-dragon/engine/scripts/dragon.py",
+     "patterns": [
+      "dragon_candidates"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\red-dragon\\engine\\scripts\\dragon.py"
+    },
+    {
+     "file": "red-dragon/engine/tools/fonts/fonts.py",
+     "patterns": [
+      "fonts_candidates"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\red-dragon\\engine\\tools\\fonts\\fonts.py"
+    },
+    {
+     "file": "red-dragon/engine/tools/machine/machine.py",
+     "patterns": [
+      "machine_src"
+     ],
+     "backup": "%USERPROFILE%\\.claude\\skills_backup\\2026-11-15-moved-paths\\red-dragon\\engine\\tools\\machine\\machine.py"
+    }
+   ],
+   "skipped": [],
+   "errors": []
+  }
+ ]
+}

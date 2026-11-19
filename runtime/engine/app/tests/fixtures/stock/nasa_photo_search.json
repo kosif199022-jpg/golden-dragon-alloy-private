@@ -1,0 +1,34 @@
+{
+ "collection": {
+  "version": "1.0",
+  "items": [
+   {
+    "href": "https://images-assets.nasa.gov/image/DRAGON_TEST_DUNES/collection.json",
+    "data": [
+     {
+      "nasa_id": "DRAGON_TEST_DUNES",
+      "title": "Synthetic dunes from orbit (test record)",
+      "media_type": "image",
+      "center": "GSFC"
+     }
+    ],
+    "links": [
+     {
+      "href": "https://images-assets.nasa.gov/image/DRAGON_TEST_DUNES/DRAGON_TEST_DUNES~orig.png",
+      "rel": "canonical",
+      "render": "image",
+      "width": 4,
+      "height": 8
+     },
+     {
+      "href": "https://images-assets.nasa.gov/image/DRAGON_TEST_DUNES/DRAGON_TEST_DUNES~medium.png",
+      "rel": "alternate",
+      "render": "image",
+      "width": 2,
+      "height": 4
+     }
+    ]
+   }
+  ]
+ }
+}

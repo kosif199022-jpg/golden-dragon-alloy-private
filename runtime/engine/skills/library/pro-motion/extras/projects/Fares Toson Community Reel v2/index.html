@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Fares Toson Community Reel v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@500;600;700&family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mp4-muxer@5.1.3/build/mp4-muxer.js"></script>
+<style>
+  html, body { margin: 0; background: #050505; color: #e9ede4; font-family: sans-serif; }
+  #wrap { display: flex; gap: 16px; padding: 12px; align-items: flex-start; }
+  #out { height: 92vh; aspect-ratio: 9/16; background: #000; }
+  #ui { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  button { padding: 8px 14px; font-size: 14px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="out" width="1080" height="1920"></canvas>
+  <div id="ui">
+    <button id="play">Play</button>
+    <button id="render">Render MP4</button>
+    <input id="scrub" type="range" min="0" value="0">
+    <div id="status">loading…</div>
+  </div>
+</div>
+<script>
+// ================= settings =================
+const W = 1080, H = 1920, FPS = 30, DUR = 8, FRAMES = FPS * DUR, SUB = 5; // SUB = motion-blur subframes (180° shutter)
+const OUT_NAME = 'Fares_Toson_Community_Reel_v2.mp4';
+const C = { cream: '#FAF8EC', ink: '#151515', card: '#121212', lime: '#C3F25F', glow: 'rgba(150,255,90,0.9)', gray: '#8E8B7E', line: '#D7D3C1', dark: '#060B02', red: '#FF5A5A' };
+const AR = '"Noto Kufi Arabic"', CAP = '"IBM Plex Sans Arabic"', SERIF = '"DM Serif Display"', EN = 'Montserrat';
+
+const out = document.getElementById('out'), octx = out.getContext('2d');
+const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+const ctx = cv.getContext('2d');
+
+// ================= Fares graphs + ease (pro-motion skill) =================
+const G = {
+  sharpEnd: [1, 0.35], sharpMid: [0.7, 0.75], sharpStartHard: [0.0001, 1], sharpStartSoft: [0.32, 1], sharpEndHard: [1, 0.0001],
+};
+function aeEase(o, i, p) {
+  if (p <= 0) return 0; if (p >= 1) return 1;
+  let lo = 0, hi = 1;
+  for (let k = 0; k < 40; k++) { const t = (lo + hi) / 2; const x = 3 * (1 - t) * (1 - t) * t * o + 3 * (1 - t) * t * t * (1 - i) + t * t * t; if (x < p) lo = t; else hi = t; }
+  const t = (lo + hi) / 2; return 3 * (1 - t) * t * t + t * t * t;
+}
+const ease = (f, f0, f1, g) => aeEase(g[0], g[1], (f - f0) / (f1 - f0));
+const anim = (f, a, b, f0, f1, g) => a + (b - a) * ease(f, f0, f1, g);
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const isAr = s => /[؀-ۿ]/.test(s);
+
+// ================= camera rig: every move is one null, keys overlap (الأوفرلابنج) =================
+const CAMERA = { zoom: 1866.7, base: [540, 960, -666.7] };
+const NULLS = [
+  { name: 'N1 pull back',  axis: 'z', d: -1200, f0: 36,  f1: 86,  g: G.sharpStartHard },  // opening: sharp start
+  { name: 'N3 A -> B',     axis: 'x', d: -1290, f0: 74,  f1: 130, g: [0.747, 0.793] },     // sharp middle
+  { name: 'N4 B -> C',     axis: 'x', d: -1470, f0: 118, f1: 170, g: [0.727, 0.822] },     // sharp middle
+  { name: 'N8 push in',    axis: 'z', d: 350,   f0: 160, f1: 200, g: G.sharpEndHard },    // ending: slam on the cut
+];
+function camAt(f) {
+  const c = CAMERA.base.slice();
+  for (const n of NULLS) c['xyz'.indexOf(n.axis)] += n.d * ease(f, n.f0, n.f1, n.g);
+  return c;
+}
+function peakFrame(n) {
+  let best = -1, at = n.f0;
+  for (let f = n.f0; f < n.f1; f += 0.25) { const v = Math.abs(ease(f + 0.25, n.f0, n.f1, n.g) - ease(f, n.f0, n.f1, n.g)); if (v > best) { best = v; at = f; } }
+  return Math.round(at);
+}
+function project(cam, x, y, z) { const s = CAMERA.zoom / (z - cam[2]); return { x: W / 2 + (x - cam[0]) * s, y: H / 2 + (y - cam[1]) * s, s }; }
+// 3D layer: draw(s) works in layer pixels around (0,0); s = projected scale (for shadows/glow in device px)
+function layer3D(cam, x, y, z, rotZ, draw, o = {}) {
+  if (z - cam[2] <= 1) return;
+  const p = project(cam, x, y, z);
+  ctx.save();
+  if (o.alpha != null) ctx.globalAlpha *= o.alpha;
+  if (o.blur) ctx.filter = `blur(${o.blur.toFixed(1)}px)`;
+  ctx.translate(p.x, p.y); ctx.scale(p.s * (o.scale || 1), p.s * (o.scale || 1)); ctx.rotate(rotZ * Math.PI / 180);
+  draw(p.s * (o.scale || 1));
+  ctx.restore();
+}
+const dof = z => Math.min(12, Math.abs(z) * 0.03); // depth of field: blur by distance from focus plane z=0
+
+// ================= drawing helpers =================
+function txt(str, x, y, o = {}) {
+  const size = o.size || 60, weight = o.weight || 800, family = o.family || (isAr(str) ? AR : EN);
+  ctx.save();
+  ctx.direction = isAr(str) ? 'rtl' : 'ltr'; ctx.textAlign = o.align || 'center'; ctx.textBaseline = 'middle';
+  ctx.font = `${o.italic ? 'italic ' : ''}${weight} ${size}px ${family}`;
+  if (o.maxW) { let s = size; while (ctx.measureText(str).width > o.maxW && s > 10) { s -= 2; ctx.font = `${o.italic ? 'italic ' : ''}${weight} ${s}px ${family}`; } }
+  ctx.fillStyle = o.color || C.ink;
+  if (o.glow) { ctx.shadowColor = o.glow; ctx.shadowBlur = (o.glowBlur || 40) * (o.sc || 1); ctx.fillText(str, x, y); ctx.shadowBlur = (o.glowBlur || 40) * 0.35 * (o.sc || 1); }
+  ctx.fillText(str, x, y);
+  const w = ctx.measureText(str).width;
+  ctx.restore();
+  return w;
+}
+function measure(str, size, weight, family, italic) { ctx.save(); ctx.font = `${italic ? 'italic ' : ''}${weight} ${size}px ${family}`; const w = ctx.measureText(str).width; ctx.restore(); return w; }
+function rr(x, y, w, h, r) { ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+function softShadow(s, a = 0.16) { ctx.shadowColor = `rgba(0,0,0,${a})`; ctx.shadowBlur = 60 * s; ctx.shadowOffsetY = 28 * s; }
+function noShadow() { ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0; }
+function check(cx, cy, r, p) {
+  if (p <= 0) return;
+  ctx.save(); ctx.fillStyle = C.lime; ctx.beginPath(); ctx.arc(cx, cy, r * clamp(p * 1.6), 0, Math.PI * 2); ctx.fill();
+  const q = clamp((p - 0.3) / 0.7); if (q > 0) {
+    ctx.strokeStyle = C.dark; ctx.lineWidth = r * 0.24; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const a = [-0.42, 0.02], b = [-0.12, 0.32], c = [0.45, -0.3], L1 = 1, L2 = 1.9, d = q * (L1 + L2);
+    ctx.beginPath(); ctx.moveTo(cx + a[0] * r, cy + a[1] * r);
+    if (d <= L1) ctx.lineTo(cx + lerp(a[0], b[0], d / L1) * r, cy + lerp(a[1], b[1], d / L1) * r);
+    else { ctx.lineTo(cx + b[0] * r, cy + b[1] * r); const k = (d - L1) / L2; ctx.lineTo(cx + lerp(b[0], c[0], k) * r, cy + lerp(b[1], c[1], k) * r); }
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+function cursorShape() {
+  ctx.beginPath(); const P = [[0, 0], [0, 46], [12, 35], [21, 54], [29, 50], [20, 32], [35, 32]];
+  P.forEach(([x, y], i) => i ? ctx.lineTo(x * 1.7, y * 1.7) : ctx.moveTo(x * 1.7, y * 1.7)); ctx.closePath();
+  ctx.fillStyle = '#fff'; ctx.fill(); ctx.lineWidth = 5; ctx.strokeStyle = '#111'; ctx.lineJoin = 'round'; ctx.stroke();
+}
+
+// ================= assets =================
+const photo = new Image(); photo.src = 'footage/fares.jpg';
+const FACE = { x: 530, y: 780 }; // face center of the A-roll frame (photo cover-fit to 1080x1920)
+let grain = [];
+function makeGrain() {
+  for (let k = 0; k < 3; k++) {
+    const g = document.createElement('canvas'); g.width = 540; g.height = 960;
+    const gx = g.getContext('2d'), id = gx.createImageData(540, 960);
+    for (let i = 0; i < id.data.length; i += 4) { const v = Math.random() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 255; }
+    gx.putImageData(id, 0, 0); grain.push(g);
+  }
+}
+
+// ================= A-roll (Fares photo, dark room look) =================
+function drawPhotoFrame() { // photo cover-fit into the 1080x1920 frame (A-roll coordinates)
+  const s = Math.max(W / photo.width, H / photo.height); const w = photo.width * s, h = photo.height * s;
+  ctx.drawImage(photo, (W - w) / 2, (H - h) / 2, w, h);
+}
+function aroll(scale, blur) {
+  ctx.save();
+  if (blur > 0.2) ctx.filter = `blur(${blur.toFixed(1)}px)`;
+  ctx.translate(FACE.x, FACE.y); ctx.scale(scale, scale); ctx.translate(-FACE.x, -FACE.y);
+  drawPhotoFrame();
+  ctx.restore();
+  ctx.fillStyle = 'rgba(0,0,0,0.16)'; ctx.fillRect(0, 0, W, H);
+  const g = ctx.createLinearGradient(0, 950, 0, H);
+  g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(0.45, 'rgba(0,0,0,0.72)'); g.addColorStop(1, 'rgba(0,0,0,0.92)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const v = ctx.createRadialGradient(W / 2, H * 0.42, H * 0.28, W / 2, H * 0.5, H * 0.78);
+  v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.55)');
+  ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
+}
+// Caption line: words appear one by one (blur + fade + rise), laid out right-to-left like Fares' subtitles
+function captionLine(f, y, words, o) {
+  const size = o.size, weight = o.weight || 700, family = o.family || CAP, gap = size * 0.32;
+  const ws = words.map(w => measure(w.t, size, weight, w.family || family, w.italic));
+  const total = ws.reduce((a, b) => a + b, 0) + gap * (words.length - 1);
+  let xr = W / 2 + total / 2;
+  words.forEach((w, i) => {
+    const p = ease(f, w.f, w.f + 7, G.sharpStartHard);
+    const outP = o.outF != null ? ease(f, o.outF, o.outF + 6, G.sharpStartSoft) : 0;
+    if (p > 0 && outP < 1) {
+      ctx.save();
+      ctx.globalAlpha *= clamp(p * 1.6) * (1 - outP);
+      const bl = 12 * (1 - p) + 14 * outP; if (bl > 0.3) ctx.filter = `blur(${bl.toFixed(1)}px)`;
+      const cx = xr - ws[i] / 2, sc = 1.1 - 0.1 * p;
+      ctx.translate(cx, y + 18 * (1 - p)); ctx.scale(sc, sc);
+      txt(w.t, 0, 0, { size, weight, family: w.family || family, italic: w.italic, color: w.color || '#fff', glow: w.glow || 'rgba(255,255,255,0.45)', glowBlur: w.glowBlur || 18 });
+      ctx.restore();
+    }
+    xr -= ws[i] + gap;
+  });
+}
+
+// ================= cream 3D world =================
+const SA = 36, SB = peakFrame(NULLS[1]), SC = peakFrame(NULLS[2]); // each section's elements start at the camera move's peak
+const AV = { x: 540, y: 790, z: 0, r: 215, k: 0.68 };                 // avatar circle (content scale vs A-roll)
+
+function worldBg() {
+  ctx.fillStyle = C.cream; ctx.fillRect(0, 0, W, H);
+  const g = ctx.createRadialGradient(W / 2, H * 0.42, 0, W / 2, H * 0.42, H * 0.7);
+  g.addColorStop(0, 'rgba(255,255,255,0.75)'); g.addColorStop(1, 'rgba(232,228,206,0.6)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+}
+function avatarContent(r) { // A-roll frame scaled by AV.k around the face, clipped to circle (layer space, centered)
+  ctx.save(); ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.clip();
+  ctx.scale(AV.k, AV.k); ctx.translate(-FACE.x, -FACE.y); drawPhotoFrame();
+  ctx.restore();
+}
+// element pop (Fares' element animation): rises + Z rotation back to 0 with "sharp start (hard)"
+const pop = (f, f0, dist = 200, rot = 13, dur = 40) => ({ y: anim(f, dist, 0, f0, f0 + dur, G.sharpStartHard), r: anim(f, rot, 0, f0, f0 + dur, G.sharpStartHard), a: clamp((f - f0) / 3) });
+
+function sectionA(f, cam) {
+  // orbit rings + tiles
+  const ringP = ease(f, SA + 2, SA + 32, G.sharpStartHard);
+  [345, 490].forEach((R, i) => layer3D(cam, AV.x, AV.y, 40 + i * 30, 0, () => {
+    ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, 0, R, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * ringP); ctx.stroke();
+    for (let d = 0; d < 3; d++) { const a = (f / 30) * (i ? -0.35 : 0.5) + d * 2.1 + i; ctx.fillStyle = '#9b988a'; ctx.globalAlpha = ringP; ctx.beginPath(); ctx.arc(Math.cos(a) * R, Math.sin(a) * R, 7, 0, Math.PI * 2); ctx.fill(); }
+  }));
+  const TILES = [{ R: 345, a0: -40, z: -180, t: 'play' }, { R: 490, a0: 205, z: 260, t: 'AE' }, { R: 490, a0: 25, z: 200, t: '3D' }, { R: 345, a0: 145, z: -120, t: 'play' }, { R: 490, a0: 115, z: 330, t: 'C4D' }];
+  TILES.forEach((T, i) => {
+    const sp = ease(f, SA + 8 + i * 3, SA + 38 + i * 3, G.sharpStartHard); if (sp <= 0) return;
+    const a = (T.a0 + (f / 30) * 16) * Math.PI / 180;
+    layer3D(cam, AV.x + Math.cos(a) * T.R, AV.y + Math.sin(a) * T.R, T.z, anim(f, 25, 0, SA + 8 + i * 3, SA + 48, G.sharpStartHard), s => {
+      ctx.save(); ctx.scale(sp, sp); softShadow(s, 0.2);
+      ctx.fillStyle = C.card; rr(-52, -52, 104, 104, 26); ctx.fill(); noShadow();
+      if (T.t === 'play') { ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(-14, -20); ctx.lineTo(22, 0); ctx.lineTo(-14, 20); ctx.closePath(); ctx.fill(); }
+      else txt(T.t, 0, 2, { size: 30, weight: 900, family: EN, color: C.lime });
+      ctx.restore();
+    }, { blur: dof(T.z) });
+  });
+  // avatar + lime ring
+  if (f >= 48) layer3D(cam, AV.x, AV.y, AV.z, 0, s => { softShadow(s, 0.25); ctx.fillStyle = '#000'; ctx.beginPath(); ctx.arc(0, 0, AV.r, 0, Math.PI * 2); ctx.fill(); noShadow(); avatarContent(AV.r); });
+  const ringA = ease(f, 44, 74, G.sharpStartHard);
+  if (ringA > 0) layer3D(cam, AV.x, AV.y, -2, 0, s => { ctx.strokeStyle = C.lime; ctx.lineWidth = 10; ctx.shadowColor = C.glow; ctx.shadowBlur = 24 * s; ctx.beginPath(); ctx.arc(0, 0, AV.r + 16, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * ringA); ctx.stroke(); });
+  // stat chips (count up)
+  const STATS = [{ n: 43, l: 'ساعة محتوى', x: 255, y: 450, z: -80 }, { n: 28, l: 'درس تطبيقي', x: 830, y: 585, z: 90 }, { n: 784, l: 'مشترك', x: 255, y: 1075, z: 40 }];
+  STATS.forEach((S, i) => {
+    const f0 = SA + 10 + i * 6, P = pop(f, f0, 160, i % 2 ? -14 : 14); if (P.a <= 0) return;
+    layer3D(cam, S.x, S.y + P.y, S.z, P.r, s => {
+      softShadow(s, 0.22); ctx.fillStyle = C.card; rr(-180, -76, 360, 152, 76); ctx.fill(); noShadow();
+      const v = Math.round(S.n * ease(f, f0, f0 + 30, G.sharpStartSoft));
+      txt(v + '+', 0, -20, { size: 62, weight: 900, family: EN, color: C.lime });
+      txt(S.l, 0, 38, { size: 32, weight: 700, color: '#fff' });
+    }, { alpha: P.a, blur: dof(S.z) });
+  });
+  // title
+  const t1 = pop(f, SA + 16, 120, 0, 36), t2 = pop(f, SA + 20, 120, 0, 36), t3 = pop(f, SA + 26, 100, 0, 36);
+  if (t1.a > 0) layer3D(cam, 540, 1300 + t1.y, 0, 0, () => txt('Fares Toson', 0, 0, { size: 132, weight: 400, family: SERIF, color: C.ink }), { alpha: t1.a });
+  if (t2.a > 0) layer3D(cam, 540, 1425 + t2.y, 0, 0, () => {
+    const hl = ease(f, SA + 26, SA + 56, G.sharpStartHard), w = 470;
+    ctx.fillStyle = C.lime; ctx.fillRect(w / 2 - w * hl, -46, w * hl, 92);
+    txt('Community', 0, 4, { size: 108, weight: 400, family: SERIF, italic: true, color: C.ink });
+  }, { alpha: t2.a });
+  if (t3.a > 0) layer3D(cam, 540, 1545 + t3.y, 0, 0, () => txt('أكبر مكتبة عربية لتعليم المونتاج', 0, 0, { size: 42, weight: 700, color: C.gray }), { alpha: t3.a });
+}
+
+const COURSES = [['التأسيس', '8h 22m'], ['التحريك', '3h 41m'], ['Cinematic Motion', '14h 11m'], ['Documentary', '7h 17m'], ['UI Style', '5h 56m'], ['الستايل العقاري', '2h 24m']];
+function sectionB(f, cam) {
+  const X = -750;
+  const h1 = pop(f, SB, 140, 0, 36), h2 = pop(f, SB + 4, 120, 0, 36);
+  if (h1.a > 0) layer3D(cam, X, 400 + h1.y, 0, 0, () => txt('8 Courses', 0, 0, { size: 120, weight: 400, family: SERIF, color: C.ink }), { alpha: h1.a });
+  if (h2.a > 0) layer3D(cam, X, 500 + h2.y, 0, 0, () => txt('جوه الكوميونيتي + محتوى جديد كل شهر', 0, 0, { size: 38, weight: 700, color: C.gray }), { alpha: h2.a });
+  COURSES.forEach(([name, dur], i) => {
+    const col = i % 2, row = Math.floor(i / 2), z = (i % 3 - 1) * 70;
+    const cx = X + (col === 0 ? 228 : -228), cy = 720 + row * 262;
+    const P = pop(f, SB + 4 + i * 3, 220, col ? -12 : 12); if (P.a <= 0) return;
+    layer3D(cam, cx, cy + P.y, z, P.r + (col ? -2.5 : 2.5) * (1 - 0), s => {
+      softShadow(s, 0.24); ctx.fillStyle = C.card; rr(-208, -112, 416, 224, 30); ctx.fill(); noShadow();
+      ctx.fillStyle = C.lime; rr(58, -86, 128, 34, 17); ctx.fill();
+      txt('3D EDITING', 122, -68, { size: 15, weight: 800, family: EN, color: C.dark });
+      txt(name, 180, 6, { size: isAr(name) ? 44 : 40, weight: isAr(name) ? 800 : 400, family: isAr(name) ? AR : SERIF, color: '#fff', align: 'right', maxW: 360 });
+      txt(dur, -180, 70, { size: 28, weight: 700, family: EN, color: C.lime, align: 'left' });
+      ctx.fillStyle = 'rgba(255,255,255,0.12)'; ctx.beginPath(); ctx.arc(150, 70, 24, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(143, 59); ctx.lineTo(161, 70); ctx.lineTo(143, 81); ctx.closePath(); ctx.fill();
+    }, { alpha: P.a, blur: dof(z) });
+  });
+  const P = pop(f, SB + 24, 220, 8); if (P.a > 0) layer3D(cam, X, 1500 + P.y, 0, P.r, s => {
+    softShadow(s, 0.24); ctx.fillStyle = C.card; rr(-436, -76, 872, 152, 34); ctx.fill(); noShadow();
+    txt('تحويل مهارتك لفلوس', 400, -14, { size: 44, weight: 800, color: '#fff', align: 'right' });
+    txt('تسويق + التعامل مع العميل', 400, 38, { size: 28, weight: 700, color: C.lime, align: 'right' });
+    txt('2h 54m', -400, 0, { size: 30, weight: 700, family: EN, color: C.lime, align: 'left' });
+  }, { alpha: P.a });
+}
+
+const FEATURES = ['ملفات مشاريع الأفتر إيفكت مع كل شرح', 'تواصل مباشر مع فارس طول الشهر', 'ملحقاتي المدفوعة وبتتجدد كل شهر', 'تسويق وبناء اسمك كـ Video Editor'];
+const BTN = { x: -2220, y: 1440, w: 640, h: 140 };
+function sectionC(f, cam) {
+  const X = -2220;
+  const P = pop(f, SC, 220, 10);
+  if (P.a > 0) layer3D(cam, X, 700 + P.y, 0, P.r, s => {
+    softShadow(s, 0.18); ctx.fillStyle = '#fff'; rr(-450, -300, 900, 600, 44); ctx.fill(); noShadow();
+    ctx.save(); ctx.beginPath(); ctx.arc(375, -218, 36, 0, Math.PI * 2); ctx.clip(); ctx.translate(375, -218); ctx.scale(0.12, 0.12); ctx.translate(-FACE.x, -FACE.y); drawPhotoFrame(); ctx.restore();
+    txt('معاك في الاشتراك', 318, -218, { size: 44, weight: 900, color: C.ink, align: 'right' });
+    ctx.fillStyle = '#EEECE2'; ctx.fillRect(-400, -158, 800, 3);
+    FEATURES.forEach((ft, i) => {
+      const f0 = SC + 6 + i * 4, q = ease(f, f0, f0 + 24, G.sharpStartHard), yy = -82 + i * 108;
+      check(370, yy, 26, ease(f, f0, f0 + 18, G.sharpStartHard));
+      ctx.save(); ctx.globalAlpha *= clamp(q * 2); ctx.translate(60 * (1 - q), 0);
+      txt(ft, 320, yy + 4, { size: 36, weight: 700, color: C.ink, align: 'right', maxW: 700 });
+      ctx.restore();
+    });
+  }, { alpha: P.a });
+  const Pp = pop(f, SC + 12, 180, -8);
+  if (Pp.a > 0) layer3D(cam, X, 1165 + Pp.y, 0, Pp.r, () => {
+    const w = txt('1000', 60, 0, { size: 150, weight: 900, family: EN, color: C.ink });
+    txt('جنيه / شهر', 60 - w / 2 - 24, 14, { size: 44, weight: 800, color: C.ink, align: 'right' });
+    const w2 = txt('1500', 60 + w / 2 + 30, 18, { size: 44, weight: 800, family: EN, color: C.gray, align: 'left' });
+    const k = ease(f, SC + 26, SC + 40, G.sharpStartHard); ctx.fillStyle = C.red; ctx.fillRect(60 + w / 2 + 24, 16, (w2 + 12) * k, 5);
+  }, { alpha: Pp.a });
+  // subscribe button: pops, gets clicked, then expands to fill the screen (sharp end slam into the cut)
+  const Pb = pop(f, SC + 18, 160, 6);
+  if (Pb.a > 0) {
+    const press = f >= 176 && f < 186 ? 1 - 0.08 * Math.sin(clamp((f - 176) / 10) * Math.PI) : 1;
+    const grow = ease(f, 181, 199, G.sharpEndHard);
+    layer3D(cam, BTN.x, BTN.y + Pb.y, -4, Pb.r, s => {
+      const w = BTN.w * press * (1 + grow * 4), h = BTN.h * press * (1 + grow * 34), r = Math.min(h, BTN.h * press) / 2 * (1 - grow) + 10 * grow;
+      ctx.shadowColor = 'rgba(160,230,60,0.55)'; ctx.shadowBlur = 50 * s; ctx.fillStyle = C.lime; rr(-w / 2, -h / 2, w, h, r); ctx.fill(); noShadow();
+      ctx.globalAlpha *= 1 - clamp(grow * 3);
+      txt('اشترك الآن', 0, 4, { size: 56 * press, weight: 900, color: C.dark });
+    }, { alpha: Pb.a });
+    // click ripple
+    const rp = ease(f, 177, 192, G.sharpStartHard);
+    if (rp > 0 && rp < 1) layer3D(cam, BTN.x + 150, BTN.y + 10, -6, 0, () => { ctx.strokeStyle = `rgba(20,20,20,${0.5 * (1 - rp)})`; ctx.lineWidth = 6; ctx.beginPath(); ctx.arc(0, 0, 30 + 110 * rp, 0, Math.PI * 2); ctx.stroke(); });
+  }
+  // cursor (Fares' UI interaction): glides in, clicks the button
+  if (f >= 160 && f < 190) {
+    const m = ease(f, 160, 175, G.sharpStartSoft), press = f >= 176 && f < 182 ? 0.88 : 1;
+    layer3D(cam, lerp(X + 520, BTN.x + 150, m), lerp(1950, BTN.y + 10, m), -8, -8, () => { ctx.scale(press, press); cursorShape(); }, { alpha: 1 - clamp((f - 186) / 4) });
+  }
+}
+
+function drawWorld(f) {
+  const cam = camAt(f);
+  worldBg();
+  sectionA(f, cam); sectionB(f, cam); sectionC(f, cam);
+  return cam;
+}
+
+// ================= timeline =================
+function render(f) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.filter = 'none'; noShadow();
+  ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+
+  // --- S1: A-roll hook (0 -> 1.1s)
+  if (f < 32) {
+    aroll(anim(f, 1.12, 1, 0, 45, G.sharpStartHard), 0);
+    captionLine(f, 1170, [{ t: 'لو', f: 2 }, { t: 'عايز', f: 6 }, { t: 'تحترف', f: 10 }], { size: 66, outF: 27 });
+    captionLine(f, 1300, [{ t: '3D Editing', f: 15, family: SERIF, italic: true, color: C.lime, glow: C.glow, glowBlur: 46 }], { size: 132, weight: 400, outF: 27 });
+  }
+  // --- cream 3D world (with morph in from the A-roll circle)
+  if (f >= 32 && f < 201) {
+    const cam = drawWorld(f);
+    if (f < 48) { // T1: A-roll shrinks into the avatar circle
+      const p = ease(f, 32, 48, G.sharpMid), a = project(cam, AV.x, AV.y, AV.z);
+      const R = lerp(1250, AV.r * a.s, p), k = lerp(1, AV.k * a.s, p), cx = lerp(FACE.x, a.x, p), cy = lerp(FACE.y, a.y, p);
+      ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.clip();
+      ctx.translate(cx, cy); ctx.scale(k, k); ctx.translate(-FACE.x, -FACE.y); aroll(1, 0); ctx.restore();
+    }
+  }
+  // --- T2 + CTA: A-roll back (defocus-in from the lime button), captions
+  if (f >= 200) {
+    aroll(anim(f, 1.1, 1, 200, 240, G.sharpStartHard), 16 * (1 - ease(f, 200, 210, G.sharpStartHard)));
+    const lime = 1 - clamp((f - 200) / 5); if (lime > 0) { ctx.fillStyle = `rgba(195,242,95,${lime})`; ctx.fillRect(0, 0, W, H); }
+    captionLine(f, 1150, [{ t: 'اشترك', f: 203 }, { t: 'من', f: 208 }], { size: 66 });
+    captionLine(f, 1280, [{ t: 'farestoson.com', f: 212, family: SERIF, color: C.lime, glow: C.glow, glowBlur: 46 }], { size: 116, weight: 400 });
+    // "1000 جنيه بـــس" — kashida stretch on the green word + lime underline drawing
+    const n = Math.round(anim(f, 1, 7, 226, 236, G.sharpStartHard));
+    const bs = 'بـ' + 'ـ'.repeat(n) + 'س';
+    captionLine(f, 1410, [{ t: '1000 جنيه', f: 221 }, { t: bs, f: 226, color: C.lime, glow: C.glow, glowBlur: 30 }], { size: 60 });
+    const u = ease(f, 228, 238, G.sharpStartHard);
+    if (u > 0) {
+      const wA = measure('1000 جنيه', 60, 700, CAP), wB = measure(bs, 60, 700, CAP), gap = 60 * 0.32, total = wA + wB + gap;
+      const xl = W / 2 - total / 2; ctx.save(); ctx.shadowColor = C.glow; ctx.shadowBlur = 18; ctx.fillStyle = C.lime;
+      ctx.fillRect(xl + wB * (1 - u), 1452, wB * u, 6); ctx.restore();
+    }
+  }
+  // grain
+  ctx.save(); ctx.globalAlpha = f < 32 || f >= 200 ? 0.07 : 0.035; ctx.globalCompositeOperation = 'overlay';
+  ctx.drawImage(grain[((Math.floor(f) % grain.length) + grain.length) % grain.length], 0, 0, W, H); ctx.restore();
+}
+
+// motion blur: average SUB subframes across a 180° shutter
+function renderMB(f) {
+  octx.setTransform(1, 0, 0, 1, 0, 0); octx.globalAlpha = 1;
+  for (let k = 0; k < SUB; k++) {
+    render(f - 0.25 + 0.5 * (k + 0.5) / SUB);
+    octx.globalAlpha = 1 / (k + 1); octx.drawImage(cv, 0, 0);
+  }
+  octx.globalAlpha = 1;
+}
+
+// ================= preview + render =================
+const status = document.getElementById('status'), scrub = document.getElementById('scrub');
+scrub.max = FRAMES - 1;
+let playing = false, startAt = 0;
+function loop(now) { if (!playing) return; const f = Math.floor((now - startAt) / 1000 * FPS) % FRAMES; render(f); octx.drawImage(cv, 0, 0); scrub.value = f; requestAnimationFrame(loop); }
+document.getElementById('play').onclick = () => { playing = !playing; if (playing) { startAt = performance.now() - scrub.value / FPS * 1000; requestAnimationFrame(loop); } };
+scrub.oninput = () => { playing = false; renderMB(+scrub.value); status.textContent = 'frame ' + scrub.value; };
+
+async function renderMp4() {
+  playing = false;
+  const config = { codec: 'avc1.640032', width: W, height: H, bitrate: 16e6, framerate: FPS };
+  if (!(await VideoEncoder.isConfigSupported(config)).supported) { status.textContent = 'H.264 not supported'; return 'unsupported'; }
+  const muxer = new Mp4Muxer.Muxer({ target: new Mp4Muxer.ArrayBufferTarget(), video: { codec: 'avc', width: W, height: H, frameRate: FPS }, fastStart: 'in-memory' });
+  let err = null;
+  const enc = new VideoEncoder({ output: (chunk, meta) => muxer.addVideoChunk(chunk, meta), error: e => { err = e; } });
+  enc.configure(config);
+  for (let i = 0; i < FRAMES; i++) {
+    renderMB(i);
+    const vf = new VideoFrame(out, { timestamp: Math.round(i * 1e6 / FPS), duration: Math.round(1e6 / FPS) });
+    enc.encode(vf, { keyFrame: i % FPS === 0 }); vf.close();
+    while (enc.encodeQueueSize > 8) await new Promise(r => setTimeout(r, 5));
+    if (i % 10 === 0) { status.textContent = `encoding ${i}/${FRAMES}`; await new Promise(r => setTimeout(r, 0)); }
+  }
+  await enc.flush(); muxer.finalize();
+  if (err) { status.textContent = 'error ' + err; return 'error ' + err; }
+  const buf = muxer.target.buffer;
+  const r = await fetch('/save?name=' + encodeURIComponent(OUT_NAME), { method: 'POST', body: buf });
+  status.textContent = 'saved ' + (buf.byteLength / 1e6).toFixed(1) + 'MB ' + (await r.text());
+  return status.textContent;
+}
+document.getElementById('render').onclick = renderMp4;
+
+window.sheet = frames => {
+  let sh = document.getElementById('sheet');
+  if (!sh) { sh = document.createElement('canvas'); sh.id = 'sheet'; document.body.appendChild(sh); }
+  sh.style.cssText = 'position:fixed;left:0;top:0;width:100vw;height:auto;aspect-ratio:auto;z-index:9;background:#000';
+  sh.width = frames.length * 540; sh.height = 960;
+  const g = sh.getContext('2d');
+  frames.forEach((f, i) => { renderMB(f); g.drawImage(out, i * 540, 0, 540, 960); });
+  return 'ok';
+};
+
+(async () => {
+  makeGrain();
+  await Promise.all([
+    document.fonts.load(`900 100px ${AR}`), document.fonts.load(`800 100px ${AR}`), document.fonts.load(`700 100px ${AR}`),
+    document.fonts.load(`700 100px ${CAP}`), document.fonts.load(`400 100px ${SERIF}`), document.fonts.load(`italic 400 100px ${SERIF}`),
+    document.fonts.load(`900 100px ${EN}`), document.fonts.load(`800 100px ${EN}`), document.fonts.load(`700 100px ${EN}`),
+    new Promise(r => { if (photo.complete) r(); else photo.onload = r; }),
+  ]);
+  const q = new URLSearchParams(location.search).get('f');
+  renderMB(q ? +q : 20);
+  status.textContent = `ready (SB=${SB}, SC=${SC})`;
+  window.ready = true;
+})();
+</script>
+</body>
+</html>

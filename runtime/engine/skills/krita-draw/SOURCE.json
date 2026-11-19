@@ -1,0 +1,21 @@
+{
+ "schema": "red-dragon.source.v1",
+ "origin": "the owner's own skill, built 2026-11-13 on the owner's laptop by reverse-engineering Krita 5.3.4 (kritarunner + libkis); Krita is GPL-3.0, the skill code is original",
+ "archive": {
+  "name": "krita-draw.rar",
+  "sha256": "7a151d10b2e13c5a9a2cd770ba6547b24d1e9e39523cde2f8e75674e3a58e682",
+  "files": 19,
+  "note": "identical (line-ending-insensitive) to the installed ~/.claude/skills/krita-draw on 2026-11-13"
+ },
+ "repo_changes": [
+  "SKILL.md: owner-specific absolute path -> %USERPROFILE%; note on running from this repo",
+  ".blackdragon.json left out (install marker, not content)",
+  "scripts/krita_draw.py v2.10.1: _watch() closes kritarunner 15 s after the job's finish marker instead of waiting out --timeout",
+  "scripts/test_watch.py: offline test of _watch with fake processes (no Krita needed)"
+ ],
+ "verified_2026_11_13": {
+  "examples/night_desert": "ok, krita_exit 0, 10.8 s (repo copy, warm)",
+  "examples/heart_beat": "ok, 16 frames, mp4 h264 720x720 12 fps + gif + kra + png, 42 s",
+  "cold_first_launch": "131 s; one earlier run stayed alive 300 s after saving (the reason for _watch)"
+ }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Golden Dragon whiteboard",
+  "colors": {
+    "bg": "#F4F1E8",
+    "accent": "#26729B",
+    "ink": "#242424"
+  },
+  "timeline": {
+    "duration": 15,
+    "music": {
+      "source": "synth"
+    },
+    "formats": [
+      "9x16",
+      "16x9"
+    ],
+    "fps": 60,
+    "bpm": 100
+  },
+  "voiceover": {
+    "provider": "none"
+  },
+  "brand": {
+    "product": "Golden Dragon"
+  },
+  "notes": [
+    "Reveal strokes in drawing order. Give each diagram time to read before moving the camera."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "title":"The Last Book",
+  "character":"a curious young adult reader",
+  "location":"a quiet old library with warm practical lighting",
+  "goal":"retrieve an important handwritten note",
+  "obstacle":"the library lights fail as the closing bell sounds",
+  "reversal":"the hidden note was inside the book the hero already carried",
+  "value_before":"uncertain and anxious",
+  "value_after":"calm and resourceful",
+  "duration_s":45,
+  "aspect":"9:16",
+  "flash":false
+}

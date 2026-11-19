@@ -1,0 +1,7 @@
+{
+  "duration": 2.0,
+  "fps": 30,
+  "cuts": [
+    {"time": 1.0, "confidence": 0.94}
+  ]
+}

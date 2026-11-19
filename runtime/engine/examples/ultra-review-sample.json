@@ -1,0 +1,26 @@
+{
+  "task": "Should we replace a working monolith with microservices?",
+  "domain": "decision",
+  "level": "L2",
+  "hypotheses": [
+    {
+      "id": "A",
+      "approach": "Keep monolith and fix measured bottleneck",
+      "discriminator": "measure performance and incident rate"
+    },
+    {
+      "id": "B",
+      "approach": "Extract only one service",
+      "discriminator": "run narrow migration experiment"
+    }
+  ],
+  "selected": "A",
+  "falsifier": "A measured bottleneck that cannot be fixed safely without separation",
+  "outside_view": "Compare costs and incident rates from similar size teams",
+  "checks": [
+    {
+      "kind": "external-reference",
+      "reference": "collect independent incident-rate evidence; not yet verified"
+    }
+  ]
+}

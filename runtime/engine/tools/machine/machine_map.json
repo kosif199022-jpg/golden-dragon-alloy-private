@@ -1,0 +1,967 @@
+{
+ "schema": "black-dragon.machine-map.v1",
+ "scanned": "2026-11-11T16:10:37",
+ "host_os": "Windows-11-10.0.26300-SP0",
+ "home": "C:\\Users\\cinde",
+ "python": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+ "items": [
+  {
+   "id": "ffmpeg",
+   "cat": "video",
+   "what": "قص وتجميع وترميز الفيديو والصوت",
+   "call": "ffmpeg",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Links\\ffmpeg.EXE",
+   "example": "ffmpeg -i in.mp4 -c:v libx264 -crf 17 out.mp4"
+  },
+  {
+   "id": "ffprobe",
+   "cat": "video",
+   "what": "قياس الفيديو والصوت (مدة، أبعاد، فريمات)",
+   "call": "ffprobe",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Links\\ffprobe.EXE",
+   "example": "ffprobe -v error -show_streams in.mp4"
+  },
+  {
+   "id": "blender",
+   "cat": "3d",
+   "what": "Blender: تصميم ورندر 3D في الخلفية",
+   "call": "blender",
+   "path": "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.EXE",
+   "example": "blender -b scene.blend -P script.py"
+  },
+  {
+   "id": "melt",
+   "cat": "video",
+   "what": "محرك Kdenlive/MLT للمونتاج من سطر الأوامر",
+   "call": "melt",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Kdenlive\\bin\\melt.EXE",
+   "example": "melt in.mp4 -consumer avformat:out.mp4"
+  },
+  {
+   "id": "kdenlive",
+   "cat": "video",
+   "what": "Kdenlive: مونتاج بواجهة",
+   "call": "kdenlive",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Kdenlive\\bin\\kdenlive.EXE",
+   "example": ""
+  },
+  {
+   "id": "natron",
+   "cat": "video",
+   "what": "Natron: كومبوزيتنج ورندر",
+   "call": "NatronRenderer",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Natron\\bin\\NatronRenderer.EXE",
+   "example": "NatronRenderer project.ntp"
+  },
+  {
+   "id": "mkvmerge",
+   "cat": "video",
+   "what": "دمج وفصل مسارات MKV",
+   "call": "mkvmerge",
+   "path": "C:\\Program Files\\MKVToolNix\\mkvmerge.EXE",
+   "example": "mkvmerge -o out.mkv in.mp4"
+  },
+  {
+   "id": "scenedetect",
+   "cat": "video",
+   "what": "كشف القطعات في الفيديو",
+   "call": "scenedetect",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\scenedetect.EXE",
+   "example": "scenedetect -i in.mp4 detect-adaptive list-scenes"
+  },
+  {
+   "id": "auto-editor",
+   "cat": "video",
+   "what": "قص السكتات تلقائي",
+   "call": "auto-editor",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\auto-editor.EXE",
+   "example": "auto-editor in.mp4 --margin 0.2sec"
+  },
+  {
+   "id": "handbrake",
+   "cat": "video",
+   "what": "HandBrake: ترميز",
+   "call": "HandBrakeCLI",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "obs",
+   "cat": "video",
+   "what": "OBS: تسجيل الشاشة",
+   "call": "obs64",
+   "path": "C:\\Program Files\\obs-studio\\bin\\64bit\\obs64.EXE",
+   "example": ""
+  },
+  {
+   "id": "magick",
+   "cat": "image",
+   "what": "ImageMagick: تحويل وتعديل الصور",
+   "call": "magick",
+   "path": "C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI\\magick.EXE",
+   "example": "magick in.png -resize 1080x1920 out.jpg"
+  },
+  {
+   "id": "gimp",
+   "cat": "image",
+   "what": "GIMP في الخلفية",
+   "call": "gimp-console-3.2",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\GIMP 3\\bin\\gimp-console-3.2.EXE",
+   "example": "gimp-console-3.2 -i -b \"(…)\""
+  },
+  {
+   "id": "inkscape",
+   "cat": "image",
+   "what": "Inkscape: فيكتور وSVG",
+   "call": "inkscape",
+   "path": "C:\\Program Files\\Inkscape\\bin\\inkscape.COM",
+   "example": "inkscape in.svg --export-type=png"
+  },
+  {
+   "id": "upscayl",
+   "cat": "image",
+   "what": "تكبير الصور 4× بالذكاء الاصطناعي",
+   "call": "upscayl-bin",
+   "path": "C:\\Program Files\\Upscayl\\resources\\bin\\upscayl-bin.EXE",
+   "example": "upscayl-bin -i in.png -o out.png -s 4"
+  },
+  {
+   "id": "krita",
+   "cat": "image",
+   "what": "Krita في الخلفية",
+   "call": "kritarunner",
+   "path": "C:\\Program Files\\Krita (x64)\\bin\\kritarunner.COM",
+   "example": ""
+  },
+  {
+   "id": "darktable",
+   "cat": "image",
+   "what": "darktable: تحميض RAW",
+   "call": "darktable-cli",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\darktable\\bin\\darktable-cli.EXE",
+   "example": "darktable-cli in.raw out.jpg"
+  },
+  {
+   "id": "rawtherapee",
+   "cat": "image",
+   "what": "RawTherapee: تحميض RAW",
+   "call": "rawtherapee-cli",
+   "path": "C:\\Program Files\\RawTherapee\\5.13\\rawtherapee-cli.EXE",
+   "example": "rawtherapee-cli -o out.jpg -c in.raw"
+  },
+  {
+   "id": "rembg",
+   "cat": "image",
+   "what": "شيل الخلفية من الصور",
+   "call": "rembg",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\rembg.EXE",
+   "example": "rembg i in.png out.png"
+  },
+  {
+   "id": "exiftool",
+   "cat": "image",
+   "what": "قراية وتعديل بيانات الملفات (EXIF)",
+   "call": "exiftool",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\ExifTool\\exiftool.EXE",
+   "example": "exiftool file.jpg"
+  },
+  {
+   "id": "paint",
+   "cat": "image",
+   "what": "الرسام (Windows Paint)",
+   "call": "mspaint",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WindowsApps\\mspaint.EXE",
+   "example": ""
+  },
+  {
+   "id": "whisperx",
+   "cat": "audio",
+   "what": "تفريغ بتوقيت الكلمات",
+   "call": "whisperx",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\whisperx.EXE",
+   "example": "whisperx audio.wav --language ar"
+  },
+  {
+   "id": "faster-whisper",
+   "cat": "audio",
+   "what": "تفريغ سريع",
+   "call": "faster-whisper",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "demucs",
+   "cat": "audio",
+   "what": "فصل الصوت عن الموسيقى",
+   "call": "demucs",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\demucs.EXE",
+   "example": "demucs --two-stems=vocals song.mp3"
+  },
+  {
+   "id": "deep-filter",
+   "cat": "audio",
+   "what": "تنضيف الصوت من الدوشة",
+   "call": "deep-filter",
+   "path": "C:\\Users\\cinde\\dragon-tools\\bin\\deep-filter.EXE",
+   "example": "deep-filter in.wav -o outdir"
+  },
+  {
+   "id": "edge-tts",
+   "cat": "audio",
+   "what": "تحويل نص لصوت (أصوات مايكروسوفت)",
+   "call": "edge-tts",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\edge-tts.EXE",
+   "example": "edge-tts --voice ar-EG-SalmaNeural --text \"…\" --write-media out.mp3"
+  },
+  {
+   "id": "sox",
+   "cat": "audio",
+   "what": "معالجة صوت",
+   "call": "sox",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "audacity",
+   "cat": "audio",
+   "what": "Audacity: تحرير صوت بواجهة",
+   "call": "audacity",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "yt-dlp",
+   "cat": "download",
+   "what": "تحميل فيديو من يوتيوب وتيك توك وانستجرام وغيرهم",
+   "call": "yt-dlp",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\yt-dlp.EXE",
+   "example": "yt-dlp -f bv*+ba/b URL"
+  },
+  {
+   "id": "aria2c",
+   "cat": "download",
+   "what": "تحميل مسرّع بتعدد اتصالات",
+   "call": "aria2c",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\aria2.aria2_Microsoft.Winget.Source_8wekyb3d8bbwe\\aria2-1.37.0-win-64bit-build1\\aria2c.EXE",
+   "example": "aria2c -x16 -s16 URL"
+  },
+  {
+   "id": "gallery-dl",
+   "cat": "download",
+   "what": "تحميل ألبومات صور",
+   "call": "gallery-dl",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "curl",
+   "cat": "download",
+   "what": "طلبات HTTP وتحميل",
+   "call": "curl",
+   "path": "C:\\Program Files\\Git\\ucrt64\\bin\\curl.EXE",
+   "example": ""
+  },
+  {
+   "id": "pandoc",
+   "cat": "docs",
+   "what": "تحويل المستندات (Word/Markdown/HTML/PDF)",
+   "call": "pandoc",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Pandoc\\pandoc.EXE",
+   "example": "pandoc in.docx -o out.md"
+  },
+  {
+   "id": "7z",
+   "cat": "docs",
+   "what": "ضغط وفك كل الأرشيفات",
+   "call": "7z",
+   "path": "C:\\Program Files\\7-Zip\\7z.EXE",
+   "example": "7z x archive.zip -oout"
+  },
+  {
+   "id": "jq",
+   "cat": "docs",
+   "what": "قراية وتعديل JSON",
+   "call": "jq",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe\\jq.EXE",
+   "example": "jq . file.json"
+  },
+  {
+   "id": "rg",
+   "cat": "docs",
+   "what": "بحث سريع جوه الملفات (ripgrep)",
+   "call": "rg",
+   "path": null,
+   "example": "rg \"كلمة\" folder"
+  },
+  {
+   "id": "tesseract",
+   "cat": "docs",
+   "what": "قراية النص من الصور (OCR)",
+   "call": "tesseract",
+   "path": "C:\\Program Files\\Tesseract-OCR\\tesseract.EXE",
+   "example": "tesseract in.png out -l ara"
+  },
+  {
+   "id": "libreoffice",
+   "cat": "docs",
+   "what": "LibreOffice في الخلفية (تحويل Office لـ PDF)",
+   "call": "soffice",
+   "path": null,
+   "example": "soffice --headless --convert-to pdf in.docx"
+  },
+  {
+   "id": "python",
+   "cat": "dev",
+   "what": "بايثون الأساسي على الجهاز",
+   "call": "python",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\Python\\Python312\\python.EXE",
+   "example": "python -X utf8 script.py"
+  },
+  {
+   "id": "node",
+   "cat": "dev",
+   "what": "Node.js",
+   "call": "node",
+   "path": "C:\\Program Files\\nodejs\\node.EXE",
+   "example": ""
+  },
+  {
+   "id": "npm",
+   "cat": "dev",
+   "what": "مدير حزم Node",
+   "call": "npm",
+   "path": "C:\\Program Files\\nodejs\\npm.CMD",
+   "example": ""
+  },
+  {
+   "id": "git",
+   "cat": "dev",
+   "what": "Git",
+   "call": "git",
+   "path": "C:\\Program Files\\Git\\ucrt64\\bin\\git.EXE",
+   "example": ""
+  },
+  {
+   "id": "gh",
+   "cat": "dev",
+   "what": "GitHub CLI (المستخدم مسجّل بيها)",
+   "call": "gh",
+   "path": "C:\\Program Files\\GitHub CLI\\gh.EXE",
+   "example": "gh repo list --limit 50"
+  },
+  {
+   "id": "winget",
+   "cat": "dev",
+   "what": "مثبّت برامج ويندوز",
+   "call": "winget",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WindowsApps\\winget.EXE",
+   "example": "winget install -e --id <ID>  (بموافقة المستخدم)"
+  },
+  {
+   "id": "vscode",
+   "cat": "dev",
+   "what": "VS Code",
+   "call": "code",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "uv",
+   "cat": "dev",
+   "what": "uv: مدير بيئات بايثون",
+   "call": "uv",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "dotnet",
+   "cat": "dev",
+   "what": ".NET SDK",
+   "call": "dotnet",
+   "path": "C:\\Program Files\\dotnet\\dotnet.EXE",
+   "example": ""
+  },
+  {
+   "id": "java",
+   "cat": "dev",
+   "what": "Java (JDK)",
+   "call": "java",
+   "path": "C:\\Users\\cinde\\re-tools\\jdk\\jdk-21.0.13+9\\bin\\java.EXE",
+   "example": ""
+  },
+  {
+   "id": "powershell",
+   "cat": "dev",
+   "what": "PowerShell",
+   "call": "powershell",
+   "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.EXE",
+   "example": ""
+  },
+  {
+   "id": "claude",
+   "cat": "ai",
+   "what": "Claude Code CLI",
+   "call": "claude",
+   "path": "C:\\Users\\cinde\\AppData\\Roaming\\npm\\claude.CMD",
+   "example": "claude -p \"…\""
+  },
+  {
+   "id": "codex",
+   "cat": "ai",
+   "what": "OpenAI Codex CLI (اشتراك ChatGPT)",
+   "call": "codex",
+   "path": "C:\\Users\\cinde\\AppData\\Roaming\\npm\\codex.CMD",
+   "example": ""
+  },
+  {
+   "id": "gemini",
+   "cat": "ai",
+   "what": "Gemini CLI",
+   "call": "gemini",
+   "path": "C:\\Users\\cinde\\AppData\\Roaming\\npm\\gemini.CMD",
+   "example": ""
+  },
+  {
+   "id": "ollama",
+   "cat": "ai",
+   "what": "Ollama: موديلات محلية",
+   "call": "ollama",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "chrome",
+   "cat": "browser",
+   "what": "Google Chrome",
+   "call": "chrome",
+   "path": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.EXE",
+   "example": ""
+  },
+  {
+   "id": "edge",
+   "cat": "browser",
+   "what": "Microsoft Edge",
+   "call": "msedge",
+   "path": "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.EXE",
+   "example": ""
+  },
+  {
+   "id": "firefox",
+   "cat": "browser",
+   "what": "Firefox",
+   "call": "firefox",
+   "path": "C:\\Program Files\\Mozilla Firefox\\firefox.EXE",
+   "example": ""
+  },
+  {
+   "id": "dragon-app",
+   "cat": "dragon",
+   "what": "تطبيق التنين الأسود (ويندوز)",
+   "call": "",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\BlackDragon\\BlackDragon.exe",
+   "example": "start \"\" \"C:\\Users\\cinde\\AppData\\Local\\BlackDragon\\BlackDragon.exe\""
+  },
+  {
+   "id": "dragon-repo",
+   "cat": "dragon",
+   "what": "مستودع التنين الأسود (المحركات والكتالوج)",
+   "call": "",
+   "path": "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود",
+   "example": "cd C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود; python -m dragon find \"…\""
+  },
+  {
+   "id": "dragon-app-source",
+   "cat": "dragon",
+   "what": "كود تطبيق التنين (app.py، control.py، الواجهة)",
+   "call": "",
+   "path": "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود\\apps\\dragon_desktop",
+   "example": ""
+  },
+  {
+   "id": "dragon-mcp",
+   "cat": "dragon",
+   "what": "خادم MCP بتاع التنين (أدوات blackdragon_*)",
+   "call": "",
+   "path": "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود\\apps\\dragon_desktop\\mcp_dragon.py",
+   "example": ""
+  },
+  {
+   "id": "dragon-app-data",
+   "cat": "dragon",
+   "what": "بيانات التطبيق: المحادثات والإعدادات",
+   "call": "",
+   "path": "C:\\Users\\cinde\\AppData\\Roaming\\BlackDragon",
+   "example": ""
+  },
+  {
+   "id": "skills-dir",
+   "cat": "dragon",
+   "what": "كل مهارات Claude المتثبتة",
+   "call": "",
+   "path": "C:\\Users\\cinde\\.claude\\skills",
+   "example": ""
+  },
+  {
+   "id": "montage-dir",
+   "cat": "dragon",
+   "what": "مجلد المونتاج",
+   "call": "",
+   "path": null,
+   "example": ""
+  },
+  {
+   "id": "kosif-tool",
+   "cat": "dragon",
+   "what": "مستودع KOSIF (سوبر باور 212 أداة)",
+   "call": "",
+   "path": "C:\\Users\\cinde\\kosif-tool",
+   "example": ""
+  },
+  {
+   "id": "superpowers-hub",
+   "cat": "dragon",
+   "what": "باب سوبر باور",
+   "call": "",
+   "path": "C:\\Users\\cinde\\kosif-tool\\.claude\\skills\\kosif-superpowers\\scripts\\hub.py",
+   "example": "python C:\\Users\\cinde\\kosif-tool\\.claude\\skills\\kosif-superpowers\\scripts\\hub.py find \"…\""
+  },
+  {
+   "id": "dragon-tools",
+   "cat": "dragon",
+   "what": "أدوات مساعدة (fast_dl.py وغيره)",
+   "call": "",
+   "path": "C:\\Users\\cinde\\dragon-tools",
+   "example": ""
+  },
+  {
+   "id": "fast-dl",
+   "cat": "download",
+   "what": "تحميل سريع",
+   "call": "",
+   "path": "C:\\Users\\cinde\\dragon-tools\\fast_dl.py",
+   "example": "python C:\\Users\\cinde\\dragon-tools\\fast_dl.py URL"
+  },
+  {
+   "id": "dragon-repos",
+   "cat": "dragon",
+   "what": "مستودعات المونتاج المحمّلة (video-use، hyperframes، whisperX…)",
+   "call": "",
+   "path": "C:\\Users\\cinde\\dragon-repos",
+   "example": ""
+  },
+  {
+   "id": "re-tools",
+   "cat": "re",
+   "what": "صندوق أدوات الهندسة العكسية",
+   "call": "",
+   "path": "C:\\Users\\cinde\\re-tools",
+   "example": ""
+  },
+  {
+   "id": "retool",
+   "cat": "re",
+   "what": "باب صندوق الهندسة العكسية",
+   "call": "",
+   "path": "C:\\Users\\cinde\\re-tools\\retool.py",
+   "example": "python C:\\Users\\cinde\\re-tools\\retool.py triage FILE --deep"
+  },
+  {
+   "id": "omni",
+   "cat": "re",
+   "what": "المحلل الشامل: تعرّف وخطة تحليل لأي هدف",
+   "call": "",
+   "path": "C:\\Users\\cinde\\.claude\\skills\\omni-analyst\\scripts\\omni.py",
+   "example": "python -X utf8 C:\\Users\\cinde\\.claude\\skills\\omni-analyst\\scripts\\omni.py classify TARGET"
+  },
+  {
+   "id": "rea-digest",
+   "cat": "re",
+   "what": "تلخيص نواتج REA الكبيرة",
+   "call": "",
+   "path": "C:\\Users\\cinde\\.claude\\skills\\rea-ultra\\scripts\\rea_digest.py",
+   "example": "python C:\\Users\\cinde\\.claude\\skills\\rea-ultra\\scripts\\rea_digest.py FILE --grep كلمة"
+  },
+  {
+   "id": "antigravity",
+   "cat": "ai",
+   "what": "Google Antigravity",
+   "call": "",
+   "path": "C:\\Users\\cinde\\AppData\\Local\\Programs\\antigravity\\Antigravity.exe",
+   "example": ""
+  },
+  {
+   "id": "claude-desktop",
+   "cat": "ai",
+   "what": "تطبيق Claude لسطح المكتب",
+   "call": "",
+   "path": "shell:AppsFolder\\Claude_pzs8sxrjxfjjc!Claude",
+   "example": ""
+  },
+  {
+   "id": "re:die",
+   "cat": "re",
+   "what": "Detect It Easy (diec) (تعرّف): بيعرف نوع الملف، والكومبايلر، والباكر أو الحماية (UPX، Themida، ‎.NET، PyInstaller…)",
+   "call": "retool run die",
+   "path": "C:\\Users\\cinde\\re-tools\\die\\diec.exe",
+   "example": "run die -j file.exe",
+   "gui": false
+  },
+  {
+   "id": "re:capa",
+   "cat": "re",
+   "what": "capa (قدرات): بيطلّع قدرات البرنامج من الكود: شبكة، ملفات، تشفير، حقن، تخفّي… مع ربطها بـ MITRE ATT&CK",
+   "call": "retool run capa",
+   "path": "C:\\Users\\cinde\\re-tools\\capa\\capa.exe",
+   "example": "run capa -r <rules> file.exe",
+   "gui": false
+  },
+  {
+   "id": "re:floss",
+   "cat": "re",
+   "what": "FLOSS (نصوص): بيطلّع النصوص المخفية والمتشفرة (stack strings و decoded strings) اللي strings العادية مش بتشوفها",
+   "call": "retool run floss",
+   "path": "C:\\Users\\cinde\\re-tools\\floss\\floss.exe",
+   "example": "run floss --no static file.exe",
+   "gui": false
+  },
+  {
+   "id": "re:yara",
+   "cat": "re",
+   "what": "YARA (قواعد): بيدوّر في الملفات بقواعد أنماط (توقيعات)",
+   "call": "retool run yara",
+   "path": "C:\\Users\\cinde\\re-tools\\yara\\yara64.exe",
+   "example": "run yara rules.yar file",
+   "gui": false
+  },
+  {
+   "id": "re:yara-x",
+   "cat": "re",
+   "what": "YARA-X (yr) (قواعد): النسخة الجديدة الأسرع من YARA",
+   "call": "retool run yara-x",
+   "path": "C:\\Users\\cinde\\re-tools\\yara-x\\yr.exe",
+   "example": "run yara-x scan rules.yar file",
+   "gui": false
+  },
+  {
+   "id": "re:upx",
+   "cat": "re",
+   "what": "UPX (فك ضغط): بيفك ضغط الملفات المضغوطة بـ UPX عشان تتحلل (‎-d) أو يختبرها (‎-t)",
+   "call": "retool run upx",
+   "path": "C:\\Users\\cinde\\re-tools\\upx\\upx-5.3.0-win64\\upx.exe",
+   "example": "run upx -d -o unpacked.exe packed.exe",
+   "gui": false
+  },
+  {
+   "id": "re:pe-sieve",
+   "cat": "re",
+   "what": "PE-sieve (ذاكرة): بيفحص عملية شغالة ويطلّع أي كود محقون أو متبدّل في الذاكرة (unpacking من الذاكرة)",
+   "call": "retool run pe-sieve",
+   "path": "C:\\Users\\cinde\\re-tools\\pe-sieve\\pe-sieve.exe",
+   "example": "run pe-sieve /pid 1234 /dir out",
+   "gui": false
+  },
+  {
+   "id": "re:ilspy",
+   "cat": "re",
+   "what": "ILSpy (ilspycmd) (.NET): بيرجّع كود C# من ملفات ‎.NET (exe/dll)",
+   "call": "retool run ilspy",
+   "path": "C:\\Users\\cinde\\re-tools\\ilspycmd\\.store\\ilspycmd\\11.2.0.10050\\ilspycmd.win-x64\\11.2.0.10050\\tools\\any\\win-x64\\ilspycmd.exe",
+   "example": "run ilspy -p -o outdir app.dll",
+   "gui": false
+  },
+  {
+   "id": "re:pyinstxtractor",
+   "cat": "re",
+   "what": "pyinstxtractor-ng (Python): بيفك برامج بايثون المتغلّفة بـ PyInstaller ويطلّع ملفات ‎.pyc",
+   "call": "retool run pyinstxtractor",
+   "path": "C:\\Users\\cinde\\re-tools\\pyinstxtractor-ng\\pyinstxtractor-ng.exe",
+   "example": "run pyinstxtractor app.exe",
+   "gui": false
+  },
+  {
+   "id": "re:pydisasm",
+   "cat": "re",
+   "what": "xdis (pydisasm) (Python): بيعرض بايت كود ملفات ‎.pyc لأي نسخة بايثون",
+   "call": "retool run pydisasm",
+   "path": "C:\\Users\\cinde\\re-tools\\pyre\\venv\\Scripts\\pydisasm.exe",
+   "example": "run pydisasm file.pyc",
+   "gui": false
+  },
+  {
+   "id": "re:rizin",
+   "cat": "re",
+   "what": "Rizin (ديس أسمبلر): إطار تحليل وديس أسمبلي من الترمنال (بديل radare2)",
+   "call": "retool run rizin",
+   "path": "C:\\Users\\cinde\\re-tools\\rizin\\rizin-win-installer-vs2019_static-64\\bin\\rizin.exe",
+   "example": "run rizin -q -c \"aaa;afl\" file.exe",
+   "gui": false
+  },
+  {
+   "id": "re:rz-bin",
+   "cat": "re",
+   "what": "rz-bin (ديس أسمبلر): معلومات الملف التنفيذي: الأقسام، الاستيراد، التصدير، النصوص",
+   "call": "retool run rz-bin",
+   "path": "C:\\Users\\cinde\\re-tools\\rizin\\rizin-win-installer-vs2019_static-64\\bin\\rz-bin.exe",
+   "example": "run rz-bin -I file.exe",
+   "gui": false
+  },
+  {
+   "id": "re:rz-diff",
+   "cat": "re",
+   "what": "rz-diff (مقارنة): مقارنة ملفين تنفيذيين",
+   "call": "retool run rz-diff",
+   "path": "C:\\Users\\cinde\\re-tools\\rizin\\rizin-win-installer-vs2019_static-64\\bin\\rz-diff.exe",
+   "example": "run rz-diff -t bytes a.exe b.exe",
+   "gui": false
+  },
+  {
+   "id": "re:ghidra",
+   "cat": "re",
+   "what": "Ghidra headless (ديكومبايلر): ديكومبايلر NSA: تحليل كامل من غير واجهة (الأسهل عن طريق rea analyze/decompile)",
+   "call": "retool run ghidra",
+   "path": "C:\\Users\\cinde\\re-tools\\ghidra\\ghidra_12.1.4_PUBLIC\\support\\analyzeHeadless.bat",
+   "example": "run ghidra <projDir> <projName> -import file.exe",
+   "gui": false
+  },
+  {
+   "id": "re:jadx",
+   "cat": "re",
+   "what": "JADX (أندرويد): بيرجّع كود Java من APK/DEX",
+   "call": "retool run jadx",
+   "path": "C:\\Users\\cinde\\re-tools\\jadx\\bin\\jadx.bat",
+   "example": "run jadx -d out app.apk",
+   "gui": false
+  },
+  {
+   "id": "re:apktool",
+   "cat": "re",
+   "what": "Apktool (أندرويد): بيفك موارد الـ APK وملف AndroidManifest والـ smali",
+   "call": "retool run apktool",
+   "path": "C:\\Users\\cinde\\re-tools\\apktool\\apktool.bat",
+   "example": "run apktool d app.apk -o out",
+   "gui": false
+  },
+  {
+   "id": "re:adb",
+   "cat": "re",
+   "what": "adb (أندرويد): التحكم في موبايل أندرويد متوصّل: سحب تطبيقات، logcat",
+   "call": "retool run adb",
+   "path": "C:\\Users\\cinde\\re-tools\\platform-tools\\platform-tools\\adb.exe",
+   "example": "run adb devices",
+   "gui": false
+  },
+  {
+   "id": "re:apkleaks",
+   "cat": "re",
+   "what": "APKLeaks (أندرويد): بيدوّر جوه الـ APK على روابط و endpoints ومفاتيح متسابة",
+   "call": "retool run apkleaks",
+   "path": "C:\\Users\\cinde\\re-tools\\pylibs\\venv\\Scripts\\apkleaks.exe",
+   "example": "run apkleaks -f app.apk",
+   "gui": false
+  },
+  {
+   "id": "re:androguard",
+   "cat": "re",
+   "what": "Androguard (أندرويد): تحليل APK/DEX من بايثون والترمنال",
+   "call": "retool run androguard",
+   "path": "C:\\Users\\cinde\\re-tools\\pylibs\\venv\\Scripts\\androguard.exe",
+   "example": "run androguard axml app.apk",
+   "gui": false
+  },
+  {
+   "id": "re:frida",
+   "cat": "re",
+   "what": "Frida (وقت التشغيل): مراقبة وتعديل سلوك برنامج وهو شغال (hooks)",
+   "call": "retool run frida",
+   "path": "C:\\Users\\cinde\\re-tools\\frida\\venv\\Scripts\\frida.exe",
+   "example": "run frida-ps",
+   "gui": false
+  },
+  {
+   "id": "re:frida-ps",
+   "cat": "re",
+   "what": "frida-ps (وقت التشغيل): قايمة العمليات اللي Frida يقدر يدخلها",
+   "call": "retool run frida-ps",
+   "path": "C:\\Users\\cinde\\re-tools\\frida\\venv\\Scripts\\frida-ps.exe",
+   "example": "run frida-ps",
+   "gui": false
+  },
+  {
+   "id": "re:frida-trace",
+   "cat": "re",
+   "what": "frida-trace (وقت التشغيل): تتبع استدعاءات دوال معينة في برنامج شغال",
+   "call": "retool run frida-trace",
+   "path": "C:\\Users\\cinde\\re-tools\\frida\\venv\\Scripts\\frida-trace.exe",
+   "example": "run frida-trace -i \"recv*\" -p 1234",
+   "gui": false
+  },
+  {
+   "id": "re:tshark",
+   "cat": "re",
+   "what": "tshark (Wireshark) (شبكة): قراءة وتحليل ملفات pcap والتقاط الترافيك",
+   "call": "retool run tshark",
+   "path": "C:\\Users\\cinde\\re-tools\\wireshark\\App\\Wireshark\\tshark.exe",
+   "example": "run tshark -r cap.pcap -q -z conv,ip",
+   "gui": false
+  },
+  {
+   "id": "re:mitmdump",
+   "cat": "re",
+   "what": "mitmproxy (mitmdump) (شبكة): بروكسي بيسجّل طلبات HTTP/HTTPS اللي برنامجك أو موبايلك بيبعتها",
+   "call": "retool run mitmdump",
+   "path": "C:\\Users\\cinde\\re-tools\\mitmproxy\\venv\\Scripts\\mitmdump.exe",
+   "example": "run mitmdump -w flows.mitm",
+   "gui": false
+  },
+  {
+   "id": "re:webcrack",
+   "cat": "re",
+   "what": "webcrack (جافاسكربت): بيفك تشويش (obfuscation) وتجميع webpack/browserify لملفات JS ويرجّعها مقروءة",
+   "call": "retool run webcrack",
+   "path": "C:\\Users\\cinde\\re-tools\\webcrack\\node_modules\\webcrack\\dist\\cli.js",
+   "example": "run webcrack bundle.js -o out",
+   "gui": false
+  },
+  {
+   "id": "re:wasm2wat",
+   "cat": "re",
+   "what": "WABT wasm2wat (WASM): بيحوّل WebAssembly لنص مقروء",
+   "call": "retool run wasm2wat",
+   "path": "C:\\Users\\cinde\\re-tools\\wabt\\wabt-1.0.42\\bin\\wasm2wat.exe",
+   "example": "run wasm2wat mod.wasm -o mod.wat",
+   "gui": false
+  },
+  {
+   "id": "re:wasm-objdump",
+   "cat": "re",
+   "what": "WABT wasm-objdump (WASM): تفاصيل ملف WASM: الدوال والاستيراد والتصدير",
+   "call": "retool run wasm-objdump",
+   "path": "C:\\Users\\cinde\\re-tools\\wabt\\wabt-1.0.42\\bin\\wasm-objdump.exe",
+   "example": "run wasm-objdump -x mod.wasm",
+   "gui": false
+  },
+  {
+   "id": "re:pylibs",
+   "cat": "re",
+   "what": "Python RE libs (مكتبات): بايثون فيه LIEF و capstone و unicorn و pefile و dnfile و androguard و oletools و pyelftools لسكربتات التحليل",
+   "call": "retool run pylibs",
+   "path": "C:\\Users\\cinde\\re-tools\\pylibs\\venv\\Scripts\\python.exe",
+   "example": "run pylibs script.py",
+   "gui": false
+  },
+  {
+   "id": "re:olevba",
+   "cat": "re",
+   "what": "oletools (olevba) (مستندات): بيطلّع ويحلل الماكرو من ملفات Office",
+   "call": "retool run olevba",
+   "path": "C:\\Users\\cinde\\re-tools\\pylibs\\venv\\Scripts\\olevba.exe",
+   "example": "run olevba doc.docm",
+   "gui": false
+  },
+  {
+   "id": "re:x64dbg",
+   "cat": "re",
+   "what": "x64dbg (ديباجر (واجهة)): ديباجر ويندوز بواجهة رسومية لتتبع البرنامج خطوة خطوة",
+   "call": "retool run x64dbg",
+   "path": "C:\\Users\\cinde\\re-tools\\x64dbg\\release\\x96dbg.exe",
+   "example": "run x64dbg",
+   "gui": true
+  },
+  {
+   "id": "re:imhex",
+   "cat": "re",
+   "what": "ImHex (هيكس (واجهة)): محرر هيكس للمحللين: أنماط، مقارنة، إنتروبي",
+   "call": "retool run imhex",
+   "path": "C:\\Users\\cinde\\re-tools\\imhex\\imhex-gui.exe",
+   "example": "run imhex file.bin",
+   "gui": true
+  },
+  {
+   "id": "re:ilspy-gui",
+   "cat": "re",
+   "what": "ILSpy (واجهة) (.NET): واجهة ILSpy الرسومية",
+   "call": "retool run ilspy-gui",
+   "path": "C:\\Users\\cinde\\re-tools\\ilspy\\ILSpy.exe",
+   "example": "run ilspy-gui app.dll",
+   "gui": false
+  },
+  {
+   "id": "re:die-gui",
+   "cat": "re",
+   "what": "Detect It Easy (واجهة) (تعرّف): واجهة DiE الرسومية",
+   "call": "retool run die-gui",
+   "path": "C:\\Users\\cinde\\re-tools\\die\\die.exe",
+   "example": "run die-gui file.exe",
+   "gui": false
+  },
+  {
+   "id": "re:rea",
+   "cat": "re",
+   "what": "REA 6.8 (شامل): المحلل الشامل: exe/.NET/Electron/مواقع/APK/فيرموير + Ghidra + وقت التشغيل",
+   "call": "retool run rea",
+   "path": "C:\\Users\\cinde\\AppData\\Roaming\\npm\\rea.CMD",
+   "example": "rea analyze file.exe --format md",
+   "gui": false
+  }
+ ],
+ "path_dirs": [
+  "C:\\Program Files\\Blender Foundation\\Blender 5.2",
+  "C:\\Program Files\\MKVToolNix",
+  "C:\\Program Files\\Inkscape\\bin",
+  "C:\\Users\\cinde\\AppData\\Local\\Programs\\GIMP 3\\bin",
+  "C:\\Program Files\\Upscayl\\resources\\bin",
+  "C:\\Users\\cinde\\AppData\\Local\\Programs\\Kdenlive\\bin",
+  "C:\\Users\\cinde\\AppData\\Local\\Programs\\Natron\\bin",
+  "C:\\Program Files\\Krita (x64)\\bin",
+  "C:\\Users\\cinde\\AppData\\Local\\Programs\\darktable\\bin",
+  "C:\\Program Files\\RawTherapee\\5.13",
+  "C:\\Program Files\\7-Zip",
+  "C:\\Users\\cinde\\AppData\\Local\\Pandoc",
+  "C:\\Users\\cinde\\dragon-tools",
+  "C:\\Users\\cinde\\dragon-tools\\bin",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Links",
+  "C:\\Program Files\\Google\\Chrome\\Application",
+  "C:\\Program Files (x86)\\Microsoft\\Edge\\Application",
+  "C:\\Program Files\\Mozilla Firefox",
+  "C:\\Program Files\\Tesseract-OCR",
+  "C:\\Program Files\\obs-studio\\bin\\64bit",
+  "C:\\Program Files\\HandBrake",
+  "C:\\Users\\cinde\\AppData\\Roaming\\npm",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\aria2.aria2_Microsoft.Winget.Source_8wekyb3d8bbwe\\aria2-1.37.0-win-64bit-build1",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\ch.LosslessCut_Microsoft.Winget.Source_8wekyb3d8bbwe",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\ch.LosslessCut_Microsoft.Winget.Source_8wekyb3d8bbwe\\resources",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\DenoLand.Deno_Microsoft.Winget.Source_8wekyb3d8bbwe",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.2-full_build\\bin",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\MediaArea.MediaInfo_Microsoft.Winget.Source_8wekyb3d8bbwe",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe\\fd-v10.5.0-x86_64-pc-windows-msvc",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\SQLite.SQLite_Microsoft.Winget.Source_8wekyb3d8bbwe",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\yt-dlp.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-N-127043-g5a54fcf75e-win64-gpl\\bin",
+  "C:\\Users\\cinde\\AppData\\Local\\Microsoft\\WinGet\\Packages\\yt-dlp.yt-dlp_Microsoft.Winget.Source_8wekyb3d8bbwe",
+  "C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI"
+ ],
+ "pylibs": {
+  "numpy": true,
+  "cv2": true,
+  "mediapipe": true,
+  "librosa": true,
+  "moviepy": true,
+  "PIL": true,
+  "torch": true,
+  "playwright": true,
+  "pptx": true,
+  "docx": true,
+  "openpyxl": true,
+  "pymupdf": true,
+  "pydub": true,
+  "soundfile": true,
+  "pyloudnorm": true,
+  "faster_whisper": true,
+  "scenedetect": true,
+  "rembg": true,
+  "arabic_reshaper": true,
+  "bidi": true,
+  "requests": true,
+  "yt_dlp": true
+ }
+}

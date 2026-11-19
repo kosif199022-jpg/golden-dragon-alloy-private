@@ -1,0 +1,10 @@
+{
+ "repo": "https://github.com/daymade/claude-code-skills",
+ "stars_on_2026-11-12": 1524,
+ "license": "mit",
+ "path_in_repo": "skills-hub/daymade__claude-code-skills/cloudflare-troubleshooting",
+ "review_before_running": [
+  "network"
+ ],
+ "note": "copied unchanged; SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

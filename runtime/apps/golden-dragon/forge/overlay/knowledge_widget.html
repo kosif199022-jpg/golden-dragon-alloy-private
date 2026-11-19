@@ -1,0 +1,74 @@
+<!-- Knowledge integration: verified, read-only knowledge. Content is rendered as text only. -->
+<style>
+#gdkLaunch{position:fixed;left:18px;bottom:18px;z-index:1090;display:flex;align-items:center;gap:8px;
+padding:10px 15px;background:#203d51;color:#fff;border:1px solid #7292a0;border-radius:13px;
+box-shadow:0 4px 20px #0005;font:600 14px system-ui;cursor:pointer}
+#gdkPane{position:fixed;left:18px;bottom:72px;width:min(440px,calc(100vw - 36px));height:min(580px,calc(100vh - 115px));
+background:#f9f7f1;color:#202c34;z-index:1100;border:1px solid #d3cdbb;border-radius:18px;
+box-shadow:0 15px 50px #0006;display:none;flex-direction:column;overflow:hidden;font:14px system-ui}
+#gdkPane.open{display:flex}
+#gdkPane .gdHead{padding:13px 16px;background:#203d51;color:white;display:flex;justify-content:space-between}
+#gdkPane .gdHead button{background:transparent;border:0;color:white;cursor:pointer;font-size:20px}
+#gdkPane .gdSearch{padding:14px;display:flex;gap:8px}
+#gdkPane input{flex:1;min-width:0;border:1px solid #bac3c7;border-radius:9px;padding:11px;background:#fff;color:#202c34}
+#gdkPane .gdGo{background:#203d51;color:white;border:0;padding:10px 14px;border-radius:9px;cursor:pointer}
+#gdkMessage{padding:0 14px;color:#5d6670;font-size:12px}
+#gdkResults{overflow:auto;padding:10px 14px 18px;flex:1}
+#gdkResults article{border:1px solid #d8d5ca;border-radius:12px;background:#fff;margin:0 0 10px;padding:12px}
+#gdkResults p{margin:0 0 7px;white-space:pre-wrap;line-height:1.6;overflow-wrap:anywhere}
+#gdkResults small{color:#596674;display:block;overflow-wrap:anywhere}
+</style>
+<div id="gdkRoot" dir="rtl">
+<button type="button" id="gdkLaunch" title="بحث في المعرفة الموحّدة">🧠 معرفة التنين</button>
+<div id="gdkPane" role="dialog" aria-label="بحث المعرفة" aria-modal="false">
+  <div class="gdHead"><strong>معرفة التنين الموحّدة</strong><button id="gdkClose" type="button" aria-label="إغلاق">×</button></div>
+  <div class="gdSearch"><input id="gdkInput" type="search" placeholder="ابحث في المهارات والمراجع" aria-label="سؤال البحث"/>
+  <button type="button" class="gdGo" id="gdkGo">ابحث</button></div>
+  <div id="gdkMessage" role="status" aria-live="polite">المعرفة للقراءة والاستشهاد، وليست تعليمات للتنفيذ.</div>
+  <div id="gdkResults"></div>
+</div>
+</div>
+<script>
+(function(){
+  const byId=(id)=>document.getElementById(id);
+  const pane=byId('gdkPane'),input=byId('gdkInput'),results=byId('gdkResults'),msg=byId('gdkMessage');
+  byId('gdkLaunch').addEventListener('click',()=>{
+    pane.classList.toggle('open');
+    if(pane.classList.contains('open')){input.focus();loadStatus();}
+  });
+  byId('gdkClose').addEventListener('click',()=>pane.classList.remove('open'));
+  window.addEventListener('keydown',(event)=>{
+    if(event.key==='Escape' && pane.classList.contains('open'))pane.classList.remove('open');
+  });
+  async function loadStatus(){
+    if(!window.pywebview || !pywebview.api)return;
+    try{
+      const s=await pywebview.api.knowledge_status();
+      msg.textContent=s.ok ? 'المخزن جاهز: '+s.counts.active.toLocaleString()+' سجل نشط. البحث مرجعي فقط.'
+                           : 'المخزن غير متاح: '+(s.why||'يرجى مراجعة حزمة المعرفة.');
+    }catch(error){msg.textContent='تعذّر فحص المعرفة: '+String(error).slice(0,150);}
+  }
+  async function lookup(){
+    const q=input.value.trim();
+    if(!q)return;
+    results.replaceChildren();
+    msg.textContent='جارٍ البحث في قاعدة المعرفة المحلية...';
+    try{
+      const answer=await pywebview.api.knowledge_search(q,6);
+      if(!answer || !answer.ok){msg.textContent=(answer&&answer.why)||'البحث غير متاح';return;}
+      msg.textContent='عُثر على '+answer.matches.length+' نتيجة. النصوص للقراءة فقط.';
+      for(const hit of answer.matches){
+        const card=document.createElement('article');
+        const text=document.createElement('p');
+        text.textContent=hit.text||'';
+        const cite=document.createElement('small');
+        cite.textContent='المصادر: '+(hit.sources||[]).map(s=>s.path||'غير معروف').join(' | ');
+        card.append(text,cite);
+        results.append(card);
+      }
+    }catch(error){msg.textContent='تعذر البحث: '+String(error).slice(0,150);}
+  }
+  byId('gdkGo').addEventListener('click',lookup);
+  input.addEventListener('keydown',e=>{if(e.key==='Enter')lookup()});
+})();
+</script>

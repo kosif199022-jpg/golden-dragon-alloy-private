@@ -1,0 +1,12 @@
+{
+  "registered_groups": 7,
+  "resolved_groups": 6,
+  "unresolved_groups": [
+    "برامج الاستوديو المتفكوكة"
+  ],
+  "distinct_roots_after_overlap": 4,
+  "ripgrep_exit": 0,
+  "searches": 122498,
+  "files_with_terms": 19994,
+  "bytes_searched": 1469082901
+}

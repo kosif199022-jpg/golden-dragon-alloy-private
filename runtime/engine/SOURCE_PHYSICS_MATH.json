@@ -1,0 +1,16 @@
+{
+  "schema": "black-dragon.source.v109",
+  "source_archive": "physics-math(1).zip",
+  "source_archive_sha256": "eae7e48f66a3347324a606636ded29602820d0ad5c37d9b48e6f2b4010bd4361",
+  "upstream_script_sha256": "4ee467be64812c6af8bacf19ae41e6f2a2c5ebd017444e53c86c2eed55dbe0c8",
+  "patched_script_sha256": "c661fdb11782365591a123d1cf748e1553319f39737b7495d3e12f388632ce0a",
+  "upstream_skill_sha256": "fed933dd2ff8c1ee25ab1daa96e4c55c9add1cd01cd0e8ee3f2edff96eeed66c",
+  "actions": [
+    "added guarded CLI adapter",
+    "bounded AST calculator instead of eval",
+    "exclusive keyframe outputs",
+    "input limits and local receipt verification",
+    "integrated registry and tests"
+  ],
+  "license_notice": "No explicit source license detected in supplied files. Source packaged at user request; verify reuse rights before redistribution."
+}

@@ -1,0 +1,11 @@
+{
+ "repo": "https://github.com/heydamir/unslop",
+ "stars_on_2026-11-12": 14812,
+ "license": "cc-by-4.0",
+ "path_in_repo": "skills-hub/heydamir__unslop/skills/unslop",
+ "review_before_running": [
+  "exec",
+  "network"
+ ],
+ "note": "copied unchanged; SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

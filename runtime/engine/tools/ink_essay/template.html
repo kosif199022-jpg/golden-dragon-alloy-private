@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<style>@font-face{font-family:Almarai;src:url(fonts/Almarai-Bold.ttf)}html,body{margin:0;background:#f2f0e7;overflow:hidden}canvas{display:block}</style>
+</head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// «الدائرة» — minimal ink-line essay (style card ST11 «حبر على ورق»): cream paper, one dark ink line, a pencil,
+// tiny technical labels, the narration as a quiet caption. Everything is drawn as the voice says it.
+const W=1080,H=1920,DUR=57.425,cv=document.getElementById('c'),g=cv.getContext('2d');
+const PAPER='#f2f0e7',INK='#1d1d1b',GREY='#8b8a84',CX=540,CY=860;
+const cl=x=>Math.max(0,Math.min(1,x)),seg=(t,a,b)=>cl((t-a)/(b-a)),lerp=(a,b,k)=>a+(b-a)*k;
+const eo=k=>1-Math.pow(1-k,3),eio=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+function rng(s){return()=>{s=(s*16807)%2147483647;return s/2147483647}}
+// a human circle: radius wobbles, a small drift, does not quite close
+function human(seed,amp=1){const R=rng(seed),h=[];for(let k=2;k<7;k++)h.push([k,(R()-.5)*0.035*amp/k*2,R()*6.28]);return{h,start:-1.75+R()*.3,gap:0.10+R()*0.08,drift:(R()-.5)*0.05,jit:seed}}
+function hp(c,a,r){let m=1;for(const[k,am,ph]of c.h)m+=am*Math.sin(k*a+ph);const n=Math.sin(a*37+c.jit)*0.004+Math.sin(a*91+c.jit*2)*0.003;return r*(m+n)*(1+c.drift*(a-c.start)/6.28)}
+function drawHuman(c,x,y,r,prog,lw=4,col=INK){if(prog<=0)return null;const span=(6.283-c.gap)*prog;g.strokeStyle=col;g.lineWidth=lw;g.lineCap='round';g.lineJoin='round';g.beginPath();let px,py;
+  for(let i=0;i<=200;i++){const a=c.start+span*i/200,rr=hp(c,a,r);px=x+Math.cos(a)*rr;py=y+Math.sin(a)*rr;i?g.lineTo(px,py):g.moveTo(px,py)}g.stroke();
+  // ink grain: a second faint pass slightly offset
+  g.globalAlpha=.25;g.lineWidth=lw*.5;g.beginPath();for(let i=0;i<=200;i++){const a=c.start+span*i/200,rr=hp(c,a,r)+1.5;const qx=x+Math.cos(a)*rr,qy=y+Math.sin(a)*rr;i?g.lineTo(qx,qy):g.moveTo(qx,qy)}g.stroke();g.globalAlpha=1;return[px,py]}
+function pencil(x,y,k=1){if(k<=0)return;g.save();g.globalAlpha=k;g.translate(x,y);g.rotate(-0.62);
+  g.fillStyle='#d8d5c9';g.fillRect(-8,-300,16,268);g.strokeStyle='#9c998e';g.lineWidth=2;g.strokeRect(-8,-300,16,268);
+  g.fillStyle='#c9b48a';g.beginPath();g.moveTo(-8,-32);g.lineTo(8,-32);g.lineTo(0,0);g.fill();g.fillStyle=INK;g.beginPath();g.moveTo(-3,-9);g.lineTo(3,-9);g.lineTo(0,0);g.fill();g.restore()}
+function perfect(x,y,r,prog,lw=4){if(prog<=0)return;g.strokeStyle='#2c3138';g.lineWidth=lw;g.beginPath();g.arc(x,y,r,-Math.PI/2,-Math.PI/2+6.283*prog);g.stroke()}
+function label(txt,x,y,size=26,col=GREY,a=1,font='Almarai'){if(a<=0)return;g.save();g.globalAlpha=a;g.font=`700 ${size}px ${font}`;g.fillStyle=col;g.textAlign='center';g.direction='rtl';g.textBaseline='middle';g.fillText(txt,x,y);g.restore()}
+function lbl(txt,x,y,size,a){if(a<=0)return;g.save();g.globalAlpha=a;g.font=`${size}px Georgia, serif`;g.fillStyle=GREY;g.textAlign='center';g.direction='ltr';g.textBaseline='middle';g.fillText(txt,x,y);g.restore()}
+function brackets(x,y,s,a){if(a<=0)return;g.save();g.globalAlpha=a;g.strokeStyle=GREY;g.lineWidth=2;for(const[sx,sy]of[[-1,-1],[1,-1],[1,1],[-1,1]]){g.beginPath();g.moveTo(x+sx*s,y+sy*(s-30));g.lineTo(x+sx*s,y+sy*s);g.lineTo(x+sx*(s-30),y+sy*s);g.stroke()}g.restore()}
+function bust(x,y,s,prog,col=INK){ // neck and shoulders, drawn outward from the head
+  if(prog<=0)return;g.strokeStyle=col;g.lineWidth=3.5;g.lineCap='round';for(const d of[-1,1]){g.beginPath();g.moveTo(x+d*28*s,y+70*s);
+    const p=[[x+d*28*s,y+70*s],[x+d*30*s,y+150*s],[x+d*40*s,y+175*s],[x+d*150*s,y+215*s],[x+d*180*s,y+290*s],[x+d*185*s,y+420*s]];
+    const n=1+Math.floor((p.length-1)*prog),f=((p.length-1)*prog)%1;for(let i=1;i<n;i++)g.lineTo(p[i][0],p[i][1]);
+    if(n<p.length){const a=p[n-1],b=p[n];g.lineTo(lerp(a[0],b[0],f),lerp(a[1],b[1],f))}g.stroke()}}
+const C0=human(7),C1=human(19,1.4),RING=[...Array(8)].map((_,i)=>human(40+i*13,2));
+const LINES=[[0,4.26,'هذا ما يحدث حين تطلب','من إنسان أن يرسم دائرة'],[4.26,8.48,'وهذا ما يحدث حين','تطلب ذلك من الحاسوب'],[8.48,11.02,'الحاسوب يتقنها كل مرة',''],
+ [11.02,13.76,'الدائرة نفسها، مليون مرة',''],[13.76,16.08,'لكن انظر إلى هذه',''],[16.08,19.18,'متعرجة، لأن يدك ارتجفت',''],
+ [19.18,23.26,'وغير متوازنة،','لأنك تفكر بشيء آخر'],[23.26,26.92,'ولم تنغلق تماماً','لأنك استعجلت النهاية'],[26.92,31.58,'لن يرسم أحد في العالم','هذه الدائرة ذاتها مجدداً'],
+ [31.58,33.84,'ولا أنت، إن أعدتها',''],[33.84,36.12,'وهذا ما يميز البشر',''],[36.12,38.72,'قيمتنا ليست في مثاليتنا',''],[38.72,41.1,'بل في أننا لسنا كذلك',''],
+ [41.1,44.74,'كل عيب دليل على','أن إنساناً كان هنا'],[44.74,47.5,'الآلة تقلّد ما تصنعه',''],[47.5,50.42,'لكنها تعجز عن نسخ دافعك',''],
+ [50.42,52.4,'فتوقّف عن طلب الكمال',''],[52.4,54.82,'المثالي يمكن استبداله',''],[54.82,57.425,'أما أنت، فلا','']];
+function caption(t){for(const[a,b,l1,l2]of LINES){const k=Math.min(seg(t,a,a+.3),1-seg(t,b-.25,b));if(k<=0)continue;
+  g.save();g.globalAlpha=k;g.font='700 48px Almarai';g.fillStyle='#2b2b29';g.textAlign='center';g.direction='rtl';g.textBaseline='middle';
+  g.fillText(l1,540,1500);if(l2)g.fillText(l2,540,1566);g.restore()}}
+async function render(t){
+  g.fillStyle=PAPER;g.fillRect(0,0,W,H);
+  // paper tooth (deterministic specks)
+  const R=rng(3);g.fillStyle='rgba(90,85,70,.10)';for(let i=0;i<220;i++)g.fillRect(R()*W,R()*H,1+R()*2,1+R()*2);
+  // ---- act 1: human vs computer (0 - 11)
+  if(t<11.02){
+    const move=eio(seg(t,4.3,5.3)),hx=lerp(CX,300,move),hr=lerp(170,105,move);
+    const tip=drawHuman(C0,hx,CY,hr,eio(seg(t,0.3,3.6)));if(t<4.2&&tip)pencil(tip[0],tip[1],1-seg(t,3.6,4.1));
+    label('إنسان',hx,CY+hr+48,26,GREY,seg(t,2.8,3.4));
+    if(t>4.6){const px=780,pr=105;const k=eio(seg(t,5.2,6.6));g.strokeStyle=GREY;g.lineWidth=1.5;
+      g.beginPath();g.moveTo(px,CY);g.lineTo(px+Math.cos(-1.57+6.283*k)*pr,CY+Math.sin(-1.57+6.283*k)*pr);g.stroke();
+      g.beginPath();g.moveTo(px-14,CY);g.lineTo(px+14,CY);g.moveTo(px,CY-14);g.lineTo(px,CY+14);g.stroke();
+      perfect(px,CY,pr,k,4);label('حاسوب',px,CY-pr-44,26,GREY,seg(t,6.2,6.8));lbl('x² + y² = r²',px,CY+pr+50,30,seg(t,6.6,7.3))}
+  }
+  // ---- act 2: a million perfect circles (11 - 13.76)
+  else if(t<13.76){const lt=t-11.02,n=Math.min(60,Math.floor(1+Math.pow(lt/2.6,2.2)*60)),cols=Math.ceil(Math.sqrt(n)),cell=640/cols;
+    for(let i=0;i<n;i++){const r=Math.floor(i/cols),c=i%cols;perfect(220+cell*(c+.5),CY-320+cell*(r+.5),cell*0.38,1,Math.max(1,3.5-cols*.12))}
+    const cnt=Math.floor(Math.pow(10,lerp(0,6,eio(seg(lt,0.2,2.5)))));lbl(cnt.toLocaleString('en-US'),540,CY+380,40,1)}
+  // ---- act 3: look at this one (13.76 - 26.92)
+  else if(t<26.92){const zoom=eio(seg(t,13.76,14.6));drawHuman(C0,CX,CY,lerp(105,230,zoom),1,5);brackets(CX,CY,lerp(200,290,zoom),seg(t,14.2,14.8)*(1-seg(t,16,16.4)));
+    if(t>16.08&&t<19.18||t>=19.18){const k=seg(t,16.3,17.6);g.strokeStyle=GREY;g.lineWidth=1.6;for(let i=0;i<48*k;i++){const a=C0.start+i*0.13,r1=hp(C0,a,230)+8,r2=r1+10+Math.abs(Math.sin(i*3.1))*18;
+      g.beginPath();g.moveTo(CX+Math.cos(a)*r1,CY+Math.sin(a)*r1);g.lineTo(CX+Math.cos(a)*r2,CY+Math.sin(a)*r2);g.stroke()}
+      if(t<19.18){g.strokeStyle=INK;g.lineWidth=2.5;g.beginPath();for(let x=0;x<=540*seg(t,16.6,18.6);x+=4){const y=CY+330+Math.sin(x/9)*6*Math.sin(x/37)+Math.sin(x*1.7)*2;x?g.lineTo(270+x,y):g.moveTo(270+x,y)}g.stroke();lbl('± 0.8 mm',830,CY+330,24,seg(t,17.6,18.2))}}
+    if(t>=19.18){const k=eio(seg(t,19.4,20.6));g.strokeStyle=GREY;g.lineWidth=1.5;g.setLineDash([8,8]);g.beginPath();g.moveTo(CX-260*k,CY);g.lineTo(CX+260*k,CY);g.moveTo(CX,CY-260*k);g.lineTo(CX,CY+260*k);g.stroke();g.setLineDash([]);
+      lbl('r = 231',CX+150,CY-26,24,seg(t,20.6,21.1));lbl('r = 224',CX-150,CY-26,24,seg(t,21.2,21.7));lbl('r = 236',CX+44,CY-150,24,seg(t,21.8,22.3))}
+    if(t>=23.26){const k=eio(seg(t,23.4,24.4));const ga=C0.start-C0.gap*.5,gx=CX+Math.cos(ga)*235,gy=CY+Math.sin(ga)*235;brackets(gx,gy,lerp(0,60,k),k);lbl('gap',gx+80,gy-40,24,seg(t,24.3,24.8))}}
+  // ---- act 4: no one will draw this circle again (26.92 - 33.84)
+  else if(t<33.84){const k=eio(seg(t,26.92,27.8));drawHuman(C0,CX,CY,lerp(230,110,k),1,4);
+    g.strokeStyle=GREY;g.lineWidth=1.3;g.beginPath();g.arc(CX,CY,lerp(230,300,k),0,6.283);g.stroke();
+    RING.forEach((c,i)=>{const a=-1.57+i*6.283/8,p=seg(t,27.6+i*0.35,28.6+i*0.35);drawHuman(c,CX+Math.cos(a)*205,CY+Math.sin(a)*205,38,p,3)});
+    if(t>31.58){const tip=drawHuman(C1,CX,CY,118,eio(seg(t,31.7,33.4)),4,'#5b5a55');if(tip&&t<33.5)pencil(tip[0],tip[1],1)}}
+  // ---- act 5: what makes us human (33.84 - 44.74)
+  else if(t<44.74){const k=eio(seg(t,33.84,34.6)),hy=lerp(CY,620,k);drawHuman(C0,CX,hy,lerp(110,62,k),1,4);bust(CX,hy,1,eio(seg(t,34.2,35.6)));
+    if(t>36.12&&t<41.1){perfect(CX,hy,62,seg(t,36.3,37),2);lbl('100%',CX+140,hy-10,26,seg(t,36.8,37.2)*(1-seg(t,38.6,39)))}
+    if(t>=41.1){const p=seg(t,41.3,43.6);g.strokeStyle='#7a5a3a';g.lineWidth=2.2;g.beginPath();for(let i=0;i<=500*p;i++){const a=i*0.21,r=(i/500)*58*(.6+.4*Math.sin(i*.07));const x=CX+Math.cos(a)*r,y=hy+Math.sin(a)*r;i?g.lineTo(x,y):g.moveTo(x,y)}g.stroke()}}
+  // ---- act 6: the machine copies, but not the motive (44.74 - end)
+  else{const sh=eio(seg(t,44.74,45.6)),lx=lerp(CX,340,sh),rx=740,hy=620;
+    g.fillStyle='#8a6a4a';g.beginPath();g.arc(lx,hy,58,0,6.283);g.fill();drawHuman(C0,lx,hy,62,1,4);bust(lx,hy,1,1);
+    const ck=eio(seg(t,45.3,46.6));if(ck>0&&t<54.82){g.globalAlpha=ck*(1-seg(t,52.4,54.6));g.fillStyle='#9aa3ad';g.beginPath();g.arc(rx,hy,58,0,6.283);g.fill();perfect(rx,hy,62,1,3);bust(rx,hy,1,1,'#555a60');
+      g.strokeStyle=GREY;g.lineWidth=1.2;g.setLineDash([6,8]);g.beginPath();g.moveTo(lx+80,hy);g.lineTo(rx-80,hy);g.stroke();g.setLineDash([]);g.globalAlpha=1}
+    // the motive: a small dark point in the chest, pulsing; the copy has none
+    if(t>47.5){const pk=seg(t,47.6,48.2),pul=1+0.25*Math.sin(t*5);g.fillStyle=INK;g.beginPath();g.arc(lx-10,hy+250,7*pk*pul,0,6.283);g.fill();
+      g.strokeStyle='rgba(29,29,27,.35)';g.lineWidth=1.5;g.beginPath();g.arc(lx-10,hy+250,22*pk*pul,0,6.283);g.stroke();
+      if(t<52.4){g.globalAlpha=seg(t,48.4,49);g.strokeStyle=GREY;g.lineWidth=1.5;g.beginPath();g.arc(rx-10,hy+250,22,0,6.283);g.stroke();lbl('?',rx-10,hy+250,30,1);g.globalAlpha=1}}
+    if(t>52.4&&t<54.82){brackets(rx,hy+150,lerp(60,200,eio(seg(t,52.5,53.3))),seg(t,52.5,53)*(1-seg(t,54.2,54.8)))}
+    if(t>=54.82){const k=eio(seg(t,54.82,55.6)),cx=lerp(340,CX,k);g.fillStyle=PAPER;g.fillRect(0,300,W,800);
+      g.fillStyle='#8a6a4a';g.beginPath();g.arc(cx,hy,58,0,6.283);g.fill();drawHuman(C0,cx,hy,62,1,4);bust(cx,hy,1,1);g.fillStyle=INK;g.beginPath();g.arc(cx-10,hy+250,8,0,6.283);g.fill();
+      for(let i=0;i<3;i++){const p=((t-54.9)*.5+i/3)%1;g.strokeStyle=`rgba(29,29,27,${.4*(1-p)})`;g.lineWidth=1.5;g.beginPath();g.arc(cx,hy,70+p*170,0,6.283);g.stroke()}
+      g.strokeStyle='rgba(29,29,27,.35)';g.lineWidth=1;g.beginPath();g.moveTo(cx-400*k,hy);g.lineTo(cx-90,hy);g.moveTo(cx+90,hy);g.lineTo(cx+400*k,hy);g.stroke()}}
+  caption(t);
+  // owner credit (last 3 s) and watermark, ink on paper
+  const ck=cl((t-(DUR-3))/0.4);if(ck>0){label('مونتاج وإخراج Mahmoud Elkosif',540,1700,36,'#2b2b29',ck);label('تابعني على فيسبوك',540,1750,28,GREY,ck)}
+  g.save();g.font='700 22px Almarai';g.direction='ltr';g.textAlign='left';g.fillStyle='rgba(43,43,41,.45)';g.fillText('© Mahmoud Elkosif',40,1890);g.restore();
+}
+document.fonts.load('700 40px Almarai').then(async()=>{await render(0);window.__kosifReady=true});
+window.__kosif={duration:DUR,seek:async t=>{await render(t)}};
+</script></body></html>

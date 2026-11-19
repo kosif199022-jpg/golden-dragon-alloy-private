@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ad-copy-agency-skill · AI ad copywriting skill for Claude Code</title>
+<meta name="description" content="Open-source Claude Code skill for AI ad copywriting. Planner, creative director, three creative teams and client review run as separate agents, following a real ad agency workflow to write and fact-check headlines.">
+<meta name="keywords" content="AI copywriting, ad copy generator, headline generator, Claude Code skill, Claude skills, multi-agent, advertising agency, creative brief">
+<link rel="canonical" href="https://5hyuns.github.io/ad-copy-agency-skill/">
+<link rel="alternate" hreflang="en" href="https://5hyuns.github.io/ad-copy-agency-skill/">
+<link rel="alternate" hreflang="ko" href="https://5hyuns.github.io/ad-copy-agency-skill/ko/">
+<link rel="alternate" hreflang="x-default" href="https://5hyuns.github.io/ad-copy-agency-skill/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ad-copy-agency-skill · AI copywriting that works like an ad agency">
+<meta property="og:description" content="Open-source Claude Code skill for AI ad copywriting. Planner, creative director, three creative teams and client review run as separate agents, following a real ad agency workflow to write and fact-check headlines.">
+<meta property="og:url" content="https://5hyuns.github.io/ad-copy-agency-skill/">
+<meta property="og:image" content="https://5hyuns.github.io/ad-copy-agency-skill/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareSourceCode", "name": "ad-copy-agency-skill (copy-masters)", "description": "Open-source Claude Code skill for AI ad copywriting. Planner, creative director, three creative teams and client review run as separate agents, following a real ad agency workflow to write and fact-check headlines.", "codeRepository": "https://github.com/5hyuns/ad-copy-agency-skill", "url": "https://5hyuns.github.io/ad-copy-agency-skill/", "programmingLanguage": ["Markdown", "Python"], "runtimePlatform": "Claude Code", "license": "https://opensource.org/licenses/MIT", "inLanguage": ["en", "ko"], "keywords": "AI copywriting, ad copy generator, headline generator, Claude Code skill, Claude skills, multi-agent, advertising agency workflow, creative brief, copywriting AI", "author": {"@type": "Person", "name": "5hyuns", "url": "https://github.com/5hyuns"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 한 기둥 문서. CD의 빨간 펜 자국이 유일한 강조색이고, 나머지는 잉크와 종이 */
+:root {
+  --bg: #f6f6f3; --surface: #ffffff; --ink: #1c1f26; --muted: #5f6470; --line: #dedfda;
+  --pen: #c23a2b; --pen-soft: #f7e3df; --keep: #2f6b4f; --keep-soft: #e2efe7; --code-bg: #eeefeb;
+  --display: "Hahmlet", "Nanum Myeongjo", serif;
+  --body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #15171c; --surface: #1c1f26; --ink: #e7e8ea; --muted: #a0a5b0; --line: #2d313a;
+  --pen: #f07a6a; --pen-soft: #3b211e; --keep: #8fd0ae; --keep-soft: #1c3229; --code-bg: #23262e; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #15171c; --surface: #1c1f26; --ink: #e7e8ea; --muted: #a0a5b0; --line: #2d313a;
+  --pen: #f07a6a; --pen-soft: #3b211e; --keep: #8fd0ae; --keep-soft: #1c3229; --code-bg: #23262e; color-scheme: dark }
+* { box-sizing: border-box }
+html { -webkit-text-size-adjust: 100% }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.7 var(--body); padding-inline: 16px; padding-block: 40px 80px }
+.wrap { max-width: 860px; margin: 0 auto; display: grid; gap: 64px }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.3 }
+h1 { font-size: clamp(2rem, 6vw, 3rem) }
+h2 { font-size: 1.5rem }
+h3 { font-size: 1.05rem }
+p { margin: 0; max-width: 65ch }
+a { color: var(--pen) }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--pen); outline-offset: 2px }
+.eyebrow { font-size: .75rem; letter-spacing: .1em; color: var(--muted); font-weight: 600 }
+.stack { display: grid; gap: 16px; min-width: 0 }
+.muted { color: var(--muted) }
+nav.top { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 16px; font-size: .85rem }
+nav.top a { color: var(--muted); text-decoration: none }
+nav.top a:hover { color: var(--ink) }
+.lede { font-size: 1.1rem }
+code, pre { font-family: var(--mono); font-size: .86rem }
+:not(pre) > code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px }
+.cmd { display: flex; gap: 8px; align-items: stretch; min-width: 0 }
+.cmd pre { flex: 1; min-width: 0; margin: 0; background: var(--code-bg); border-radius: 6px; padding: 12px 14px; overflow-x: auto }
+.cmd button { font: inherit; font-size: .8rem; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; padding: 0 12px; cursor: pointer; white-space: nowrap }
+pre.block { margin: 0; background: var(--code-bg); border-radius: 6px; padding: 14px; overflow-x: auto; line-height: 1.6 }
+/* 깔때기: 실제 시연의 줄 수, 99를 100%로 */
+.funnel { display: grid; gap: 6px }
+.frow { display: grid; grid-template-columns: 8.5em 1fr 2.5em; gap: 10px; align-items: center; font-size: .85rem }
+.bar { height: 10px; background: var(--ink); border-radius: 2px; min-width: 3px }
+.frow:last-child .bar { background: var(--pen) }
+.n { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600 }
+/* 단계 */
+ol.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: s }
+ol.steps li { display: grid; grid-template-columns: 2.4em minmax(0, 1fr); gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); counter-increment: s }
+ol.steps li::before { content: counter(s); font-family: var(--display); font-size: 1.3rem; font-weight: 700; color: var(--muted); line-height: 1.3 }
+ol.steps .role { font-weight: 600 }
+ol.steps .out { font-family: var(--mono); font-size: .78rem; color: var(--muted) }
+ol.steps p { font-size: .93rem }
+/* CD 빨간 펜 */
+.sheet { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 8px 20px }
+.ln { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); align-items: baseline }
+.ln:last-child { border-bottom: 0 }
+.ln .t { font-family: var(--display); font-size: 1.05rem; font-weight: 500 }
+.ln.cut .t { text-decoration: line-through; text-decoration-color: var(--pen); text-decoration-thickness: 2px; color: var(--muted) }
+.ln .mark { font-size: .75rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; white-space: nowrap }
+.ln.cut .mark { color: var(--pen); background: var(--pen-soft) }
+.ln.keep .mark { color: var(--keep); background: var(--keep-soft) }
+.ln .r { grid-column: 1 / -1; font-size: .82rem; color: var(--pen); font-style: italic }
+.ln.keep .r { color: var(--keep) }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface) }
+table { border-collapse: collapse; width: 100%; font-size: .88rem }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top }
+tr:last-child td { border-bottom: 0 }
+th { font-size: .72rem; color: var(--muted); letter-spacing: .05em; font-weight: 600; white-space: nowrap }
+td:first-child { white-space: nowrap; font-weight: 500 }
+.demo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 24px }
+@media (max-width: 640px) { .demo { grid-template-columns: 1fr } }
+.demo .q { font-family: var(--display); font-size: 1.4rem; font-weight: 700; line-height: 1.45 }
+.btn { display: inline-block; text-decoration: none; background: var(--ink); color: var(--bg); padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: .9rem; width: fit-content }
+ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; max-width: 65ch }
+footer { font-size: .8rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="top" aria-label="Sections">
+  <span class="eyebrow">AD-COPY-AGENCY-SKILL · copy-masters v5</span>
+  <span style="display:flex;gap:16px;flex-wrap:wrap">
+    <a href="#install">Install</a><a href="#usage">Usage</a><a href="#demo">Demo</a><a href="#limits">Limits</a>
+    <a href="https://github.com/5hyuns/ad-copy-agency-skill">GitHub</a>
+    <a href="ko/" lang="ko">한국어</a>
+  </span>
+</nav>
+
+<header class="stack">
+  <h1>An AI copywriting skill that works like an ad agency</h1>
+  <p class="lede">Good ads rarely come from one person writing one good sentence. A planner reframes the brief, a creative director reviews it, several creative teams write a lot of lines, the CD cuts them down more than once, and the client picks. This Claude Code skill runs that workflow with one AI agent per role and hands you a headline, two alternates and a record of how they got there.</p>
+  <div class="cmd">
+    <pre id="add">/plugin marketplace add 5hyuns/ad-copy-agency-skill</pre>
+    <button type="button" data-copy="add">Copy</button>
+  </div>
+  <div class="cmd">
+    <pre id="inst">/plugin install copy-masters@ad-copy-agency-skill</pre>
+    <button type="button" data-copy="inst">Copy</button>
+  </div>
+  <div class="funnel" aria-label="Line counts in the English run">
+    <div class="frow"><span>3 teams, round 1</span><div class="bar" style="width:100%"></div><span class="n">99</span></div>
+    <div class="frow"><span>CD round 1 keeps</span><div class="bar" style="width:13.1%"></div><span class="n">13</span></div>
+    <div class="frow"><span>CD round 2 pool</span><div class="bar" style="width:58.6%"></div><span class="n">58</span></div>
+    <div class="frow"><span>CD shortlist</span><div class="bar" style="width:6.1%"></div><span class="n">6</span></div>
+    <div class="frow"><span>Client's final</span><div class="bar" style="width:1%"></div><span class="n">1</span></div>
+  </div>
+  <p class="muted" style="font-size:.85rem">Line counts from one English run on a fictional US smart dog bowl. The round 2 pool adds rewritten lines, defended lines and approved customer quotes to the 13 survivors. It writes English copy for the US market and Korean copy for the Korean market.</p>
+</header>
+
+<section class="stack" aria-labelledby="flow">
+  <span class="eyebrow">WORKFLOW</span>
+  <h2 id="flow">Ten steps, a different agent for each role</h2>
+  <p>Roles never see each other's reasoning, only the files the previous step left behind. Teams never pick their own lines, and the CD judges lines with the team names hidden. In Turnbull &amp; Wheeler's study of London agencies, only two of 24 steps produced ideas; the rest were about agreeing on the problem and checking the work. This skill spends most of its steps the same way.</p>
+  <ol class="steps">
+    <li><div><span class="role">Client brief</span> <span class="out">01-client-brief.md</span><p>The inputs, written down as given, with no interpretation.</p></div></li>
+    <li><div><span class="role">Raw material</span> <span class="out">02-raw.md</span><p>Product facts, what real people wrote, and competitor copy, collected verbatim with sources.</p></div></li>
+    <li><div><span class="role">Planner</span> <span class="out">03-creative-brief.md</span><p>Reframes the task as "what this ad must say" by changing the audience, changing the kind of problem, or finding the empty spot competitors leave. Points to the one scene or quote the reframe rests on.</p></div></li>
+    <li><div><span class="role">Creative surgery</span> <span class="out">04-surgery.md</span><p>The CD reviews the brief before any team sees it. If it goes back, the planner revises once.</p></div></li>
+    <li><div><span class="role">Three creative teams, in sequence</span> <span class="out">05-team-A/B/C.md</span><p>Each team opens 3 to 5 routes and writes 33 lines. Later teams are told which routes are already taken and look elsewhere.</p></div></li>
+    <li><div><span class="role">CD review, round 1</span> <span class="out">06-cd-review-1.md</span><p>Criteria first, then a keep or kill on every line, with a short reason for each kill. 3 to 5 routes survive with feedback.</p></div></li>
+    <li><div><span class="role">Rework and defense</span> <span class="out">07-team-A/B/C.md</span><p>Teams rewrite their surviving routes and may defend one killed line. Approved customer quotes enter the pool verbatim.</p></div></li>
+    <li><div><span class="role">CD review, round 2</span> <span class="out">08-cd-review-2.md</span><p>Rules on each defense and shortlists about five lines for the client.</p></div></li>
+    <li><div><span class="role">Client review</span> <span class="out">09-client-review.md</span><p>Fact and advertising-law check first, then one final line and two alternates. Unverified facts are flagged for the client to confirm.</p></div></li>
+    <li><div><span class="role">Handoff</span> <span class="out">10-final.md · 10-process-check.md</span><p>The path each chosen line took, and a table checking that every step ran as the agency workflow expects.</p></div></li>
+  </ol>
+</section>
+
+<section class="stack" aria-labelledby="pen">
+  <span class="eyebrow">FROM CD ROUND 1</span>
+  <h2 id="pen">Every line gets a verdict and a reason</h2>
+  <p>Real verdicts from the English run. The CD does not pick by taste or by counting pros and cons; it checks each line against criteria written down before reading. Length is never a reason.</p>
+  <div class="sheet">
+    <div class="ln keep"><span class="t">He looks up. There's more.</span><span class="mark">keep</span><span class="r">A scene only this product can produce: the fast eater looks up at a bowl he thinks is finished and finds more.</span></div>
+    <div class="ln keep"><span class="t">The gulp is the cue.</span><span class="mark">keep</span><span class="r">Turns the problem into the switch, from the dog's side.</span></div>
+    <div class="ln cut"><span class="t">Kibble on a drip.</span><span class="mark">kill</span><span class="r">"Drip" reads as medical.</span></div>
+    <div class="ln cut"><span class="t">The end of dinner keeps not arriving.</span><span class="mark">kill</span><span class="r">Reads as a meal that never ends.</span></div>
+    <div class="ln cut"><span class="t">You can stop doling out dinner by the handful.</span><span class="mark">kill</span><span class="r">Owners portioning by hand is not in the material.</span></div>
+  </div>
+</section>
+
+<section class="stack" id="install" aria-labelledby="h-install">
+  <span class="eyebrow">INSTALL</span>
+  <h2 id="h-install">Two commands inside Claude Code</h2>
+  <p>Install it as a plugin from this repository. Start a new session (or run <code>/reload-plugins</code>) and the skill is <code>/copy-masters:copy-masters</code>. Update with <code>/plugin marketplace update ad-copy-agency-skill</code>.</p>
+  <div class="cmd"><pre id="p1">/plugin marketplace add 5hyuns/ad-copy-agency-skill</pre><button type="button" data-copy="p1">Copy</button></div>
+  <div class="cmd"><pre id="p2">/plugin install copy-masters@ad-copy-agency-skill</pre><button type="button" data-copy="p2">Copy</button></div>
+  <h3>Or clone it into a skills folder</h3>
+  <p>Put it in your user skills folder to use it everywhere, or in a project's <code>.claude/skills/</code> to use it there only. Keep the folder name <code>copy-masters</code>; the skill is then <code>/copy-masters</code> and you update with <code>git pull</code>.</p>
+  <h3>All projects (macOS · Linux · Git Bash)</h3>
+  <div class="cmd"><pre id="c1">git clone https://github.com/5hyuns/ad-copy-agency-skill.git ~/.claude/skills/copy-masters</pre><button type="button" data-copy="c1">Copy</button></div>
+  <h3>All projects (Windows PowerShell)</h3>
+  <div class="cmd"><pre id="c2">git clone https://github.com/5hyuns/ad-copy-agency-skill.git "$HOME\.claude\skills\copy-masters"</pre><button type="button" data-copy="c2">Copy</button></div>
+  <h3>One project</h3>
+  <div class="cmd"><pre id="c3">git clone https://github.com/5hyuns/ad-copy-agency-skill.git .claude/skills/copy-masters</pre><button type="button" data-copy="c3">Copy</button></div>
+  <p class="muted" style="font-size:.9rem">Requires Claude Code and Python 3 (the helper scripts use only the standard library). Raw material collection uses a web search tool when one is available and falls back to your own material. Start a new session and <code>copy-masters</code> appears in the skill list.</p>
+</section>
+
+<section class="stack" id="usage" aria-labelledby="h-usage">
+  <span class="eyebrow">USAGE</span>
+  <h2 id="h-usage">Tell it what, for whom, and where it runs</h2>
+  <p>Call it with the slash command or just ask for ad copy or headlines. If a required input is missing it asks first; it never guesses the mode, channel or target. Set <code>Copy language: en</code> for English copy (the default is Korean); the market then defaults to <code>us</code>, so the client checks against US channel specs and FTC rules.</p>
+  <pre class="block">/copy-masters:copy-masters
+Subject: SlowBowl, a smart dog bowl that releases kibble in small portions when it notices a dog gulping
+Business goal: more first orders from Instagram ads
+Target: US dog owners, 25 to 45, whose dog eats too fast
+Mode: performance
+Channel: social feed
+Brand: Tumbleweed Pets
+Must-haves: not a veterinary medical device; no health claims
+Your material: ./material.md
+Copy language: en</pre>
+  <div class="tbl"><table>
+    <thead><tr><th>Input</th><th>Required</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Subject</td><td>yes</td><td>What is being advertised</td></tr>
+      <tr><td>Business goal</td><td>yes</td><td>One short line</td></tr>
+      <tr><td>Target</td><td>yes</td><td>Who the ad speaks to</td></tr>
+      <tr><td>Mode</td><td>yes</td><td><code>performance</code> (clicks, conversions) or <code>brand</code> (memory, attitude)</td></tr>
+      <tr><td>Channel</td><td>yes</td><td><code>social feed</code>, <code>search ads</code>, <code>landing page</code> or <code>video script</code></td></tr>
+      <tr><td>Brand</td><td>yes</td><td>Names the output folder and learning log</td></tr>
+      <tr><td>Product truth</td><td>no</td><td>What the company itself says is the core of the product</td></tr>
+      <tr><td>Must-haves</td><td>no</td><td>What must or must not appear, tone rules</td></tr>
+      <tr><td>Industry</td><td>no</td><td>Adds industry-specific regulation checks</td></tr>
+      <tr><td>Your material</td><td>no</td><td>Decks, reviews, interviews. Approved customer quotes reach the shortlist verbatim</td></tr>
+      <tr><td>Copy language</td><td>no</td><td><code>en</code> for English copy; Korean if not set</td></tr>
+      <tr><td>Market</td><td>no</td><td><code>us</code> or <code>kr</code>: whose channel specs and ad law the client checks against. Follows the copy language if not set</td></tr>
+    </tbody>
+  </table></div>
+  <h3>Output</h3>
+  <p>One file per step under <code>copy-runs/&lt;brand&gt;/&lt;date&gt;-&lt;topic&gt;/</code> in your working directory. At the end you get the final line and two alternates, the planner's reframe, line counts per step, any lines the fact check caught, and the facts the client still needs to confirm.</p>
+  <h3>Time and cost</h3>
+  <p>The Korean demo run used 13 sub-agents and took about 20 minutes, about 1.04M sub-agent tokens in total. It suits work where you want to follow the process or where fact checking matters more than speed.</p>
+</section>
+
+<section class="stack" id="demo" aria-labelledby="h-demo">
+  <span class="eyebrow">DEMO</span>
+  <h2 id="h-demo">One full run on a fictional smart dog bowl</h2>
+  <div class="demo">
+    <div class="stack">
+      <span class="eyebrow">CLIENT'S FINAL</span>
+      <span class="q">“Two of you listening at dinner. Only one of you can hold the kibble back.”</span>
+      <span class="muted" style="font-size:.85rem">Alternates: "He can't inhale what isn't in the bowl yet." and "He doesn't have to change. The bowl does."</span>
+    </div>
+    <div class="stack">
+      <p style="font-size:.93rem">The planner changed the kind of problem: owners already know to slow their dog down, and every bowl they know does it with an obstacle in a full bowl. The evidence was one review from an owner still listening for chewing at dinner. The CD sent the first brief back once. Three teams wrote 99 lines from 15 routes. A full line-by-line record exists for a Korean run.</p>
+      <a class="btn" href="demo/">Open the Korean run record</a>
+    </div>
+  </div>
+</section>
+
+<section class="stack" id="limits" aria-labelledby="h-limits">
+  <span class="eyebrow">LIMITS</span>
+  <h2 id="h-limits">No evidence it beats a single prompt</h2>
+  <ul class="plain">
+    <li>Compared head to head with a single prompt given the same raw material, the skill's final lines won 0.37 of the time on average. Treat its output as about as good as, or worse than, one well-written prompt.</li>
+    <li>The reason to use it is the process. You can follow each step, and the brief check and client review catch factual errors a single prompt repeated across runs, such as unsupported claims or edited customer quotes.</li>
+    <li>The CD and the client are the same model. Research suggests model judges match people poorly on originality and surprise, and re-running the same pool can change the final line.</li>
+    <li>English copy has been tested once, on one fictional US product. The run worked end to end, but its three picks won 0.39 of blind comparisons against two single-prompt runs. The client's longest pick lost every pair while an alternate was the second strongest line. Given the same shortlist nine more times, the client picked that 43-character alternate every time (0.67 against the single-prompt lines), so 0.39 leans on one pick. Lines grow longer at team rework, not at the CD's shortlist. The US checklist did catch a customer quote under the FTC's typical-results rule (16 CFR 255.2).</li>
+    <li>It produces headlines. Visuals, subheads and body copy are out of scope.</li>
+    <li>Its only material is web sources and what you give it. Reframes that come from product demos, focus groups or a remark in a meeting room are out of reach.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>The name copy-masters comes from versions 1 to 4, which imitated the methods of famous copywriters (Ogilvy, Bernbach, Taniyama, Jung Chul). Version 5 dropped that design and follows the agency workflow instead. The design draws on production records of 25 well-known campaigns and on Turnbull &amp; Wheeler's research on London agencies. MIT License. <a href="https://github.com/5hyuns/ad-copy-agency-skill">Source on GitHub</a></p>
+</footer>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var el = document.getElementById(b.dataset.copy), text = el.textContent;
+    function done(ok) { b.textContent = ok ? 'Copied' : 'Selected'; setTimeout(function () { b.textContent = 'Copy'; }, 1500); }
+    function select() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); done(false); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done(true); }, select); else select();
+  });
+});
+</script>
+</body>
+</html>

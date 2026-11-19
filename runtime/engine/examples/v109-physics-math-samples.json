@@ -1,0 +1,156 @@
+{
+  "schema": "black-dragon.physics-math.samples.v1",
+  "basis": "idealized local computations; not measured sensor data or rendered media",
+  "commands": {
+    "fall_20m_30fps": {
+      "height_m": 20.0,
+      "time_s": 2.0196199771025523,
+      "impact_speed_m_s": 19.805706248452744,
+      "impact_speed_km_h": 71.30054249442988,
+      "frames": 60.58859931307657,
+      "fps": 30.0,
+      "gravity": 9.80665,
+      "note": "vacuum; real objects slow down with air drag (use --drag)"
+    },
+    "camera_full_frame_50mm": {
+      "focal_mm": 50.0,
+      "sensor_mm": [
+        36,
+        24
+      ],
+      "hfov_deg": 39.597752709049864,
+      "vfov_deg": 26.991466561591622,
+      "dfov_deg": 46.79300334396557,
+      "crop_factor": 0.9999996462499373,
+      "ff_equiv_focal_mm": 49.99998231249687,
+      "frame_width_at_distance_m": 2.16,
+      "frame_height_at_distance_m": 1.44
+    },
+    "beat_cuts_120bpm_30fps_4s": {
+      "bpm": 120.0,
+      "seconds_per_beat": 0.5,
+      "frames_per_beat": 15.0,
+      "seconds_per_bar": 2.0,
+      "fps": 30.0,
+      "beats": [
+        {
+          "beat": 1,
+          "bar": 1,
+          "t": 0.0,
+          "frame": 0,
+          "timecode": "00:00:00:00"
+        },
+        {
+          "beat": 2,
+          "bar": 1,
+          "t": 0.5,
+          "frame": 15,
+          "timecode": "00:00:00:15"
+        },
+        {
+          "beat": 3,
+          "bar": 1,
+          "t": 1.0,
+          "frame": 30,
+          "timecode": "00:00:01:00"
+        },
+        {
+          "beat": 4,
+          "bar": 1,
+          "t": 1.5,
+          "frame": 45,
+          "timecode": "00:00:01:15"
+        },
+        {
+          "beat": 5,
+          "bar": 2,
+          "t": 2.0,
+          "frame": 60,
+          "timecode": "00:00:02:00"
+        },
+        {
+          "beat": 6,
+          "bar": 2,
+          "t": 2.5,
+          "frame": 75,
+          "timecode": "00:00:02:15"
+        },
+        {
+          "beat": 7,
+          "bar": 2,
+          "t": 3.0,
+          "frame": 90,
+          "timecode": "00:00:03:00"
+        },
+        {
+          "beat": 8,
+          "bar": 2,
+          "t": 3.5,
+          "frame": 105,
+          "timecode": "00:00:03:15"
+        },
+        {
+          "beat": 9,
+          "bar": 3,
+          "t": 4.0,
+          "frame": 120,
+          "timecode": "00:00:04:00"
+        }
+      ]
+    },
+    "frame_16to9_to_9to16": {
+      "src": "1920x1080",
+      "dst": "1080x1920",
+      "src_aspect": "16:9",
+      "src_ratio": 1.7777777777777777,
+      "dst_ratio": 0.5625,
+      "fit": {
+        "scale": 0.5625,
+        "size": [
+          1080.0,
+          607.5
+        ],
+        "pad": [
+          0.0,
+          656.25
+        ],
+        "ffmpeg": "scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2"
+      },
+      "fill": {
+        "scale": 1.7777777777777777,
+        "size": [
+          3413.333333333333,
+          1920.0
+        ],
+        "crop_in_source": {
+          "w": 607.5,
+          "h": 1080.0,
+          "x": 656.25,
+          "y": 0.0
+        },
+        "kept_percent_of_source": 31.640625,
+        "ffmpeg": "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920"
+      },
+      "safe_zones_dst": {
+        "action_safe_90": [
+          54.0,
+          96.0,
+          1026.0,
+          1824.0
+        ],
+        "title_safe_80": [
+          108.0,
+          192.0,
+          972.0,
+          1728.0
+        ],
+        "reels_ui_safe": {
+          "top_px": 211.2,
+          "bottom_px": 403.2,
+          "right_px": 140.4,
+          "note": "keep text out of these margins (TikTok/Reels UI)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,333 @@
+{
+ "as_of": "2026-11-11",
+ "rule": "free = balance unchanged before/after AND no transactions row, on the dates given. Higgsfield can change billing: run balance before and after every big job. Anything not 'free' needs the owner's explicit yes with the price, every time.",
+ "paid_hints": [
+  "generate",
+  "upscale",
+  "remove_background",
+  "reframe",
+  "dubbing",
+  "outpaint",
+  "relight",
+  "motion_control",
+  "voice_change",
+  "create_voice",
+  "execute_preset",
+  "ads_studio_generate",
+  "ai_influencer_generate",
+  "video_analysis_create",
+  "virality_predictor",
+  "scene_builder_3d_generate",
+  "build_ai_influencer",
+  "deploy",
+  "publish",
+  "participate"
+ ],
+ "tools": [
+  {
+   "name": "sandbox_exec",
+   "class": "free",
+   "evidence": "2026-11-11: standard (3 allocations) + xl (2 allocations), ~40 calls incl. 15-min-class background jobs; balance 347.88 before/after, last transaction 2026-11-10"
+  },
+  {
+   "name": "media_upload",
+   "class": "free",
+   "evidence": "2026-11-11: 11 presigned URLs (files + videos), balance 347.88 before/after, no transaction row"
+  },
+  {
+   "name": "media_confirm",
+   "class": "free",
+   "evidence": "2026-11-11: type=file x4 and type=video x5 confirmed, no transaction row"
+  },
+  {
+   "name": "balance",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "transactions",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "show_plans_and_credits",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "get_workflow_instructions",
+   "class": "free",
+   "evidence": "read-only; the bundle scripts run inside the free sandbox"
+  },
+  {
+   "name": "get_workflow_bundle_file",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "get_preset_instructions",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "get_presets",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11: twice, no debit (browsing never authorizes execute_preset)"
+  },
+  {
+   "name": "models_explore",
+   "class": "free",
+   "evidence": "read-only (black-dragon 2026-11-10)"
+  },
+  {
+   "name": "list_voices",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "show_medias",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "show_generations",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "show_generation_by_ids",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "jobs_wait",
+   "class": "free",
+   "evidence": "read-only polling"
+  },
+  {
+   "name": "job_display",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "apps_search",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "apps_describe",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "tiktok_music_trending",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11: SA and EG 7DAY, 100 tracks each, no debit"
+  },
+  {
+   "name": "tiktok_accounts",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "list_projects",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "get_project",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "list_project_assets",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "list_folders",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "get_folder",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "search_folders",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "get_preferences",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "list_workspaces",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "list_websites",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "list_website_categories",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "website_status",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "video_analysis_status",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "video_analysis_jobs",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "ads_studio_quote",
+   "class": "free",
+   "evidence": "price quote only, no execution"
+  },
+  {
+   "name": "ai_influencer_prepare",
+   "class": "free",
+   "evidence": "returns design and price without generation (server instructions)"
+  },
+  {
+   "name": "scene_builder_3d_create_project",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11: hosted Blender 5.2 project, balance 347.88 before/after"
+  },
+  {
+   "name": "scene_builder_3d_run_python",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11: scene build + EEVEE 540x960 still in 41 s, no debit"
+  },
+  {
+   "name": "scene_builder_3d_query_python",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11"
+  },
+  {
+   "name": "scene_builder_3d_show_scene",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11"
+  },
+  {
+   "name": "scene_builder_3d_get_glb",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11: GLB 31 KB"
+  },
+  {
+   "name": "scene_builder_3d_get_blend",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11: .blend 629 KB"
+  },
+  {
+   "name": "scene_builder_3d_search_assets",
+   "class": "free",
+   "evidence": "black-dragon v1990 2026-11-11: 994-model catalog search; import not measured"
+  },
+  {
+   "name": "scene_builder_3d_get_operation",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "scene_builder_3d_get_artifact",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "scene_builder_3d_list_projects",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "scene_builder_3d_get_project",
+   "class": "free",
+   "evidence": "read-only"
+  },
+  {
+   "name": "media_import_url",
+   "class": "unknown",
+   "evidence": "never measured; treat as paid until balance before/after proves otherwise"
+  },
+  {
+   "name": "apps_invoke",
+   "class": "unknown",
+   "evidence": "only Match Cut create_typewriter measured at 0 (2026-11-11); other actions unmeasured"
+  },
+  {
+   "name": "video_analysis_create",
+   "class": "unknown",
+   "evidence": "unmeasured"
+  },
+  {
+   "name": "virality_predictor",
+   "class": "unknown",
+   "evidence": "unmeasured"
+  },
+  {
+   "name": "create_website",
+   "class": "unknown",
+   "evidence": "unmeasured; deploy/publish may cost"
+  },
+  {
+   "name": "generate_image",
+   "class": "paid",
+   "evidence": "GPT Image 2.6 -2.75 credits (transactions 2026-11-10)"
+  },
+  {
+   "name": "generate_video",
+   "class": "paid",
+   "evidence": "Seedance 2.0 Mini -2 credits each (transactions 2026-11-10)"
+  },
+  {
+   "name": "generate_audio",
+   "class": "paid",
+   "evidence": "generation"
+  },
+  {
+   "name": "upscale_image",
+   "class": "paid",
+   "evidence": "generation"
+  },
+  {
+   "name": "upscale_video",
+   "class": "paid",
+   "evidence": "generation"
+  },
+  {
+   "name": "remove_background",
+   "class": "paid",
+   "evidence": "generation"
+  },
+  {
+   "name": "execute_preset",
+   "class": "paid",
+   "evidence": "generation"
+  },
+  {
+   "name": "scene_builder_3d_generate_video",
+   "class": "paid",
+   "evidence": "generation"
+  },
+  {
+   "name": "scene_builder_3d_generate_angles",
+   "class": "paid",
+   "evidence": "generation"
+  }
+ ]
+}

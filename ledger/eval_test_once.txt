@@ -1,0 +1,10 @@
+fresh set · split=test · n=112 · rd v3.5.4 · k=2.0 w=0.5   (top1 exact / acceptable / in top 3)
+  rd     59% / 72% / 80%
+  kb     69% / 76% / 79%
+  kb+u   69% / 75% / 78%
+  blend  61% / 74% / 86%
+  — only requests that have a road (n=108):
+    rd     57% / 71% / 80%
+    kb     71% / 79% / 81%
+    kb+u   71% / 78% / 81%
+    blend  59% / 73% / 85%

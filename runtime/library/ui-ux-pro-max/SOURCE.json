@@ -1,0 +1,11 @@
+{
+ "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+ "stars_on_2026-11-14": 149474,
+ "license": "mit",
+ "commit": "d643997",
+ "path_in_repo": ".claude/skills/ui-ux-pro-max",
+ "review_before_running": [
+  "network"
+ ],
+ "note": "copied unchanged with its LICENSE (v2.17.0); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

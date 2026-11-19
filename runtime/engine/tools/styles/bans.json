@@ -1,0 +1,10 @@
+{
+ "_doc": "Words that must never be drawn on screen in the owner's films (references/LESSONS.md «ممنوع على الشاشة»). build_style.py --check fails on any of them. Add a row when the owner bans a word.",
+ "banned": [
+  {"text": "الشوربجي", "why": "اسمها على الشاشة «ميار عثمان»؛ «الشوربجي» في الهاشتاجات بس"},
+  {"text": "وزير الطيران", "why": "مفيش مصدر"},
+  {"text": "وزيرة الإعلام المصرية", "why": "مش لقب ليها؛ بس مع «حلمها القادم.. بإذن الله»"},
+  {"text": "المحافظ كرّمها", "why": "«هنّاها» بس: التكريم مش متأكد"},
+  {"text": "المحافظ كرمها", "why": "«هنّاها» بس: التكريم مش متأكد"}
+ ]
+}

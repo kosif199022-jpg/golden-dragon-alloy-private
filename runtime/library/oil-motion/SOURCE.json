@@ -1,0 +1,9 @@
+{
+ "repo": "https://github.com/oil-oil/oil-motion",
+ "stars_on_2026-11-14": 2908,
+ "license": "mit",
+ "commit": "07e31f2",
+ "path_in_repo": "SKILL.md,references,agents",
+ "review_before_running": [],
+ "note": "copied unchanged with its LICENSE (v2.18.0) — only these files, not the whole repo; SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

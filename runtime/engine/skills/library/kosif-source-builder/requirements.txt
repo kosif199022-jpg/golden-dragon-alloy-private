@@ -1,0 +1,2 @@
+# This KOSIF launcher uses only Python standard library.
+# Additional model libraries belong to each upstream repo and are NOT installed here.

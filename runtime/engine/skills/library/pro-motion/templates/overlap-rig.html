@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Overlap Rig</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700;800;900&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mp4-muxer@5.1.3/build/mp4-muxer.js"></script>
+<style>
+  html, body { margin: 0; background: #050505; color: #e9ede4; font-family: sans-serif; }
+  #wrap { display: flex; gap: 16px; padding: 12px; align-items: flex-start; }
+  #c { height: 92vh; aspect-ratio: 9/16; background: #000; }
+  #ui { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  button { padding: 8px 14px; font-size: 14px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="c" width="1080" height="1920"></canvas>
+  <div id="ui">
+    <button id="play">Play</button>
+    <button id="render">Render MP4</button>
+    <input id="scrub" type="range" min="0" value="0">
+    <div id="status">loading…</div>
+  </div>
+</div>
+<script>
+// ================= settings =================
+const W = 1080, H = 1920, FPS = 30, DUR = 4, FRAMES = Math.round(FPS * DUR);
+const OUT_NAME = 'video.mp4';
+const C = { bg: '#0a0a0a', accent: '#c3f25f', text: '#e9ede4', card: '#151911', dark: '#060b02' };
+const AR = '"Noto Kufi Arabic"', EN = 'Montserrat';
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+
+// ================= Fares graphs: [Out, In] influence (see SKILL.md) =================
+const G = {
+  sharpEnd: [1, 0.35],            // حاد في الآخر
+  sharpMid: [0.7, 0.75],          // حاد في النص
+  sharpStartHard: [0.0001, 1],    // حاد في الأول (قوي)
+  sharpStartSoft: [0.32, 1],      // حاد في الأول (متوسط)
+  sharpEndHard: [1, 0.0001],      // حاد في الآخر (قوي)
+};
+// AE-style ease: Out/In = influence (0..1), speed 0 at both keys. p = time progress, returns value progress.
+function aeEase(out, inf, p) {
+  if (p <= 0) return 0; if (p >= 1) return 1;
+  let lo = 0, hi = 1;
+  for (let k = 0; k < 40; k++) {
+    const t = (lo + hi) / 2;
+    const x = 3 * (1 - t) * (1 - t) * t * out + 3 * (1 - t) * t * t * (1 - inf) + t * t * t;
+    if (x < p) lo = t; else hi = t;
+  }
+  const t = (lo + hi) / 2;
+  return 3 * (1 - t) * t * t + t * t * t;
+}
+// Two-key property: value at frame f going a -> b between frames f0..f1 with graph g.
+const anim = (f, a, b, f0, f1, g) => a + (b - a) * aeEase(g[0], g[1], (f - f0) / (f1 - f0));
+
+// ================= camera rig (overlapping) =================
+// AE one-node camera: sits at (W/2, H/2, -zoom) and looks down +Z, so a layer at z=0 shows at 100%.
+// The camera never moves by itself: every move is one null, camera position = base + sum of null offsets.
+const CAMERA = { zoom: 1866.7, base: [540 + 544, 960, -1866.7] };
+// Fares' reference rig (comp "فيديو 1"): next null starts while the previous is in its slow tail (83–95% done).
+const NULLS = [
+  { name: 'Null 1', axis: 'x', d: -544,  f0: 0,  f1: 40,  g: [0.0001, 1] },     // opening: sharp start
+  { name: 'Null 3', axis: 'x', d: -1290, f0: 20, f1: 73,  g: [0.747, 0.793] },  // section 1 -> 2: sharp middle
+  { name: 'Null 4', axis: 'x', d: -1470, f0: 60, f1: 109, g: [0.727, 0.822] },  // section 2 -> 3: sharp middle
+  { name: 'Null 8', axis: 'x', d: -447,  f0: 89, f1: 119, g: [1, 0.0001] },     // ending: sharp end slam on last frame
+];
+function camAt(f) {
+  const c = CAMERA.base.slice();
+  for (const n of NULLS) c['xyz'.indexOf(n.axis)] += n.d * aeEase(n.g[0], n.g[1], (f - n.f0) / (n.f1 - n.f0));
+  return c;
+}
+// Frame where a null moves fastest (section elements start around here so camera and elements settle together).
+function peakFrame(n) {
+  let best = -1, at = n.f0;
+  for (let f = n.f0; f < n.f1; f += 0.25) {
+    const v = Math.abs(aeEase(n.g[0], n.g[1], (f + 0.25 - n.f0) / (n.f1 - n.f0)) - aeEase(n.g[0], n.g[1], (f - n.f0) / (n.f1 - n.f0)));
+    if (v > best) { best = v; at = f; }
+  }
+  return Math.round(at);
+}
+// Draw a 3D layer at world (x, y, z) with Z rotation (degrees, clockwise like AE). draw() works in layer pixels around (0, 0).
+function layer3D(cam, x, y, z, rotZ, draw) {
+  const dz = z - cam[2]; if (dz <= 1) return;
+  const s = CAMERA.zoom / dz;
+  ctx.save();
+  ctx.translate(W / 2 + (x - cam[0]) * s, H / 2 + (y - cam[1]) * s);
+  ctx.scale(s, s); ctx.rotate(rotZ * Math.PI / 180);
+  draw();
+  ctx.restore();
+}
+
+// ================= drawing helpers =================
+const isAr = s => /[؀-ۿ]/.test(s);
+function text(str, x, y, o = {}) {
+  const size = o.size || 80, weight = o.weight || 900, family = o.family || (isAr(str) ? AR : EN);
+  ctx.save();
+  ctx.direction = isAr(str) ? 'rtl' : 'ltr'; ctx.textAlign = o.align || 'center'; ctx.textBaseline = 'middle';
+  ctx.font = `${weight} ${size}px ${family}`; ctx.fillStyle = o.color || C.text;
+  ctx.fillText(str, x, y);
+  ctx.restore();
+}
+
+// ================= scene (replace with the real content) =================
+// Sections sit where the camera slows down after each move: 540, 540-1290, 540-1290-1470.
+const SECTIONS = [
+  { x: 540,   title: 'القسم الأول',  start: 0 },
+  { x: -750,  title: 'القسم التاني', start: peakFrame(NULLS[1]) },
+  { x: -2220, title: 'القسم التالت', start: peakFrame(NULLS[2]) },
+];
+function render(f) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  const cam = camAt(f);
+  SECTIONS.forEach(s => {
+    // element: rises + rotates back to 0 with "sharp start (hard)", 40 frames
+    const rise = anim(f, 200, 0, s.start, s.start + 40, G.sharpStartHard);
+    const rot = anim(f, 13, 0, s.start, s.start + 40, G.sharpStartHard);
+    layer3D(cam, s.x, 1150 + rise, 0, rot, () => {
+      ctx.fillStyle = C.card; ctx.beginPath(); ctx.roundRect(-330, -230, 660, 460, 40); ctx.fill();
+      ctx.strokeStyle = 'rgba(195,242,95,0.35)'; ctx.lineWidth = 4; ctx.stroke();
+    });
+    // highlight: trim-paths style End 0 -> 100% in 30 frames, same graph
+    const end = anim(f, 0, 1, s.start, s.start + 30, G.sharpStartHard);
+    layer3D(cam, s.x, 700, 0, 0, () => {
+      ctx.fillStyle = C.accent; ctx.fillRect(330 - 660 * end, -70, 660 * end, 140);
+      text(s.title, 0, 6, { size: 100, color: end > 0.5 ? C.dark : C.text });
+    });
+  });
+}
+
+// ================= preview + render =================
+const status = document.getElementById('status'), scrub = document.getElementById('scrub');
+scrub.max = FRAMES - 1;
+let playing = false, startAt = 0;
+function loop(now) {
+  if (!playing) return;
+  const f = Math.floor((now - startAt) / 1000 * FPS) % FRAMES; render(f); scrub.value = f;
+  requestAnimationFrame(loop);
+}
+document.getElementById('play').onclick = () => { playing = !playing; if (playing) { startAt = performance.now() - scrub.value / FPS * 1000; requestAnimationFrame(loop); } };
+scrub.oninput = () => { playing = false; render(+scrub.value); status.textContent = 'frame ' + scrub.value; };
+
+async function renderMp4() {
+  playing = false;
+  const config = { codec: 'avc1.640032', width: W, height: H, bitrate: 14e6, framerate: FPS };
+  if (!(await VideoEncoder.isConfigSupported(config)).supported) { status.textContent = 'H.264 not supported'; return 'unsupported'; }
+  const muxer = new Mp4Muxer.Muxer({ target: new Mp4Muxer.ArrayBufferTarget(), video: { codec: 'avc', width: W, height: H, frameRate: FPS }, fastStart: 'in-memory' });
+  let err = null;
+  const enc = new VideoEncoder({ output: (chunk, meta) => muxer.addVideoChunk(chunk, meta), error: e => { err = e; } });
+  enc.configure(config);
+  for (let i = 0; i < FRAMES; i++) {
+    render(i);
+    const vf = new VideoFrame(cv, { timestamp: Math.round(i * 1e6 / FPS), duration: Math.round(1e6 / FPS) });
+    enc.encode(vf, { keyFrame: i % FPS === 0 }); vf.close();
+    while (enc.encodeQueueSize > 8) await new Promise(r => setTimeout(r, 5));
+    if (i % 10 === 0) { status.textContent = `encoding ${i}/${FRAMES}`; await new Promise(r => setTimeout(r, 0)); }
+  }
+  await enc.flush(); muxer.finalize();
+  if (err) { status.textContent = 'error ' + err; return 'error ' + err; }
+  const buf = muxer.target.buffer;
+  const r = await fetch('/save?name=' + encodeURIComponent(OUT_NAME), { method: 'POST', body: buf });
+  status.textContent = 'saved ' + (buf.byteLength / 1e6).toFixed(1) + 'MB ' + (await r.text());
+  return status.textContent;
+}
+document.getElementById('render').onclick = renderMp4;
+
+// Contact sheet for review: sheet([0, 30, 60]) draws those frames side by side on top of the page.
+window.sheet = frames => {
+  let sh = document.getElementById('sheet');
+  if (!sh) { sh = document.createElement('canvas'); sh.id = 'sheet'; document.body.appendChild(sh); }
+  sh.style.cssText = 'position:fixed;left:0;top:0;width:100vw;height:auto;aspect-ratio:auto;z-index:9;background:#000';
+  sh.width = frames.length * 540; sh.height = 960;
+  const g = sh.getContext('2d');
+  frames.forEach((f, i) => { render(f); g.drawImage(cv, i * 540, 0, 540, 960); });
+  return 'ok';
+};
+
+(async () => {
+  await Promise.all([document.fonts.load(`900 100px ${AR}`), document.fonts.load(`700 100px ${AR}`), document.fonts.load(`900 100px ${EN}`)]);
+  const q = new URLSearchParams(location.search).get('f');
+  render(q ? +q : 0);
+  status.textContent = 'ready';
+  window.ready = true;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+"schema": "rr.cutsync/1",
+"bpm": 141.8,
+"summary": {
+"cuts": 37,
+"tol_frames": 2.0,
+"on_beat_share": 0.486,
+"on_onset_share": 0.838,
+"on_strong_share": 0.27,
+"on_low_share": 0.73,
+"on_downbeat_share": 0.027,
+"on_8th_share": 0.838,
+"on_16th_share": 1.0,
+"median_onset_offset_frames": -0.1,
+"cut_lead_frames": 0.1
+},
+"verdict": "onset-locked"
+}

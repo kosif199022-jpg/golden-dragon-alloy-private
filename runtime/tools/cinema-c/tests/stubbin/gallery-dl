@@ -1,0 +1,19 @@
+#!/bin/sh
+# offline gallery-dl stub: writes 2 photos, 1 video and a metadata file into -D DIR.
+dir=''; url=''
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --version) echo 1.99.0-stub; exit 0 ;;
+    -D|--cookies|--retries) [ "$1" = -D ] && dir=$2; shift 2; continue ;;
+    http*) url=$1 ;;
+  esac
+  shift
+done
+echo "stub gallery-dl: $url" >> "${STUB_LOG:-/dev/null}"
+case "$url" in *empty*) exit 1 ;; esac
+mkdir -p "$dir"
+printf 'JPEG1' > "$dir/post_1.jpg"
+printf 'JPEG2' > "$dir/post_2.webp"
+cp "$STUB_MEDIA" "$dir/post_3.mp4"
+printf '{}' > "$dir/post.json"
+exit 0

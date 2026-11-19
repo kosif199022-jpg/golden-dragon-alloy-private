@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>Fares Toson Community Reel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@500;700;800;900&family=Montserrat:wght@600;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mp4-muxer@5.1.3/build/mp4-muxer.js"></script>
+<style>
+  html, body { margin: 0; background: #050505; color: #e9ede4; font-family: sans-serif; }
+  #wrap { display: flex; gap: 16px; padding: 12px; align-items: flex-start; }
+  canvas { height: 92vh; aspect-ratio: 9/16; background: #000; }
+  #ui { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  button { padding: 8px 14px; font-size: 14px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="c" width="1080" height="1920"></canvas>
+  <div id="ui">
+    <button id="play">Play</button>
+    <button id="render">Render MP4</button>
+    <input id="scrub" type="range" min="0" max="239" value="0">
+    <div id="status">loading…</div>
+  </div>
+</div>
+<script>
+const W = 1080, H = 1920, FPS = 30, DUR = 8, FRAMES = FPS * DUR;
+const C = { bg: '#0a0a0a', lime: '#c3f25f', text: '#e9ede4', muted: '#9ea397', card: '#131710', dark: '#060b02' };
+const AR = '"Noto Kufi Arabic"', EN = 'Montserrat';
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+
+// ---------- helpers ----------
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const outExpo = p => p >= 1 ? 1 : 1 - Math.pow(2, -10 * p);
+const outCubic = p => 1 - Math.pow(1 - p, 3);
+const inCubic = p => p * p * p;
+const outBack = p => { const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); };
+const isAr = s => /[؀-ۿ]/.test(s);
+
+function text(str, x, y, o = {}) {
+  const size = o.size || 60, weight = o.weight || 800, family = o.family || (isAr(str) ? AR : EN);
+  ctx.save();
+  ctx.globalAlpha *= o.alpha == null ? 1 : o.alpha;
+  ctx.direction = isAr(str) ? 'rtl' : 'ltr';
+  ctx.textAlign = o.align || 'center';
+  ctx.textBaseline = 'middle';
+  let s = size;
+  ctx.font = `${weight} ${s}px ${family}`;
+  if (o.maxW) { while (ctx.measureText(str).width > o.maxW && s > 10) { s -= 2; ctx.font = `${weight} ${s}px ${family}`; } }
+  if (o.glow) { ctx.shadowColor = o.glow; ctx.shadowBlur = o.glowBlur || 40; }
+  ctx.fillStyle = o.color || C.text;
+  ctx.fillText(str, x, y);
+  const w = ctx.measureText(str).width;
+  ctx.restore();
+  return w;
+}
+function rrect(x, y, w, h, r) {
+  ctx.beginPath(); ctx.roundRect(x, y, w, h, r);
+}
+// animated word/line: slide up + fade + slight scale, starting at t0
+function reveal(t, t0, dur, fn, dist = 70) {
+  const p = prog(t, t0, t0 + dur); if (p <= 0) return;
+  const e = outExpo(p);
+  ctx.save(); ctx.globalAlpha *= clamp(p * 2.2); ctx.translate(0, (1 - e) * dist);
+  fn(e); ctx.restore();
+}
+
+// ---------- assets ----------
+const photo = new Image(); photo.src = 'footage/fares.jpg';
+const grain = [];
+function makeGrain() {
+  for (let k = 0; k < 4; k++) {
+    const g = document.createElement('canvas'); g.width = 540; g.height = 960;
+    const gx = g.getContext('2d'), id = gx.createImageData(540, 960);
+    for (let i = 0; i < id.data.length; i += 4) { const v = Math.random() * 255; id.data[i] = id.data[i + 1] = id.data[i + 2] = v; id.data[i + 3] = 255; }
+    gx.putImageData(id, 0, 0); grain.push(g);
+  }
+}
+
+function drawPhotoCover(scale, ox = 0, oy = 0, darken = 0) {
+  const s = Math.max(W / photo.width, H / photo.height) * scale;
+  const w = photo.width * s, h = photo.height * s;
+  ctx.drawImage(photo, (W - w) / 2 + ox, (H - h) / 2 + oy, w, h);
+  if (darken) { ctx.fillStyle = `rgba(0,0,0,${darken})`; ctx.fillRect(0, 0, W, H); }
+}
+function darkBg(t, glowY = 700) {
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  // lime glow
+  const g = ctx.createRadialGradient(W / 2, glowY, 0, W / 2, glowY, 900);
+  g.addColorStop(0, 'rgba(195,242,95,0.16)'); g.addColorStop(1, 'rgba(195,242,95,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  // grid drifting
+  ctx.save(); ctx.strokeStyle = 'rgba(195,242,95,0.05)'; ctx.lineWidth = 2;
+  const step = 108, off = (t * 40) % step;
+  for (let x = -step; x < W + step; x += step) { ctx.beginPath(); ctx.moveTo(x + off, 0); ctx.lineTo(x + off, H); ctx.stroke(); }
+  for (let y = -step; y < H + step; y += step) { ctx.beginPath(); ctx.moveTo(0, y + off); ctx.lineTo(W, y + off); ctx.stroke(); }
+  ctx.restore();
+}
+function topTag(alpha = 1) {
+  ctx.save(); ctx.globalAlpha *= alpha; ctx.letterSpacing = '8px';
+  text('FARES TOSON COMMUNITY', W / 2, 170, { size: 30, weight: 800, family: EN, color: C.muted });
+  ctx.restore();
+}
+function check(cx, cy, r, p) {
+  ctx.save(); ctx.fillStyle = C.lime; ctx.beginPath(); ctx.arc(cx, cy, r * outBack(p), 0, Math.PI * 2); ctx.fill();
+  if (p > 0.3) {
+    const q = outCubic(prog(p, 0.3, 1));
+    ctx.strokeStyle = C.dark; ctx.lineWidth = r * 0.22; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const pts = [[-0.42, 0.02], [-0.12, 0.32], [0.45, -0.3]];
+    ctx.beginPath(); ctx.moveTo(cx + pts[0][0] * r, cy + pts[0][1] * r);
+    const L1 = 1, L2 = 1.9, tot = L1 + L2, d = q * tot;
+    if (d <= L1) { const k = d / L1; ctx.lineTo(cx + (pts[0][0] + (pts[1][0] - pts[0][0]) * k) * r, cy + (pts[0][1] + (pts[1][1] - pts[0][1]) * k) * r); }
+    else { ctx.lineTo(cx + pts[1][0] * r, cy + pts[1][1] * r); const k = (d - L1) / L2; ctx.lineTo(cx + (pts[1][0] + (pts[2][0] - pts[1][0]) * k) * r, cy + (pts[1][1] + (pts[2][1] - pts[1][1]) * k) * r); }
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+// ---------- scenes (t = local seconds) ----------
+function sceneHook(t) {
+  const punch = outExpo(prog(t, 0, 0.5));
+  drawPhotoCover(1.32 - 0.22 * punch + 0.05 * t, 0, -60);
+  // bottom fade for text
+  const g = ctx.createLinearGradient(0, 900, 0, H);
+  g.addColorStop(0, 'rgba(10,10,10,0)'); g.addColorStop(0.55, 'rgba(10,10,10,0.88)'); g.addColorStop(1, 'rgba(10,10,10,1)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const tg = ctx.createLinearGradient(0, 0, 0, 380);
+  tg.addColorStop(0, 'rgba(10,10,10,0.75)'); tg.addColorStop(1, 'rgba(10,10,10,0)');
+  ctx.fillStyle = tg; ctx.fillRect(0, 0, W, 380);
+
+  // pill
+  reveal(t, 0.25, 0.6, () => {
+    ctx.font = `800 40px ${AR}`; const label = 'تعلم ستايلات الـ 3D باحترافية';
+    const w = ctx.measureText(label).width + 80;
+    ctx.fillStyle = C.lime; rrect(W / 2 - w / 2, 1180, w, 84, 42); ctx.fill();
+    text(label, W / 2, 1224, { size: 40, weight: 800, color: C.dark });
+  }, 40);
+  reveal(t, 0.4, 0.7, () => text('فارس توسون', W / 2, 1400, { size: 150, weight: 900, color: C.text, maxW: 940 }), 90);
+  reveal(t, 0.55, 0.7, () => text('كوميونيتي', W / 2, 1580, { size: 170, weight: 900, color: C.lime, glow: 'rgba(195,242,95,0.55)', glowBlur: 50 }), 90);
+  // underline sweep
+  const u = outExpo(prog(t, 0.85, 1.4));
+  if (u > 0) { ctx.fillStyle = C.lime; ctx.fillRect(W / 2 - 260 * u, 1690, 520 * u, 8); }
+}
+
+function sceneStats(t) {
+  darkBg(t, 760); topTag(clamp(t * 4));
+  reveal(t, 0.05, 0.6, () => text('أكبر مكتبة عربية', W / 2, 400, { size: 96, weight: 900 }));
+  reveal(t, 0.12, 0.6, () => text('لتعليم المونتاج', W / 2, 530, { size: 96, weight: 900, color: C.lime }));
+  const stats = [[43, 'ساعة محتوى مرئي'], [28, 'درس تطبيقي'], [784, 'مشترك']];
+  stats.forEach(([n, label], i) => {
+    const t0 = 0.25 + i * 0.12, y = 790 + i * 300;
+    reveal(t, t0, 0.6, () => {
+      const v = Math.round(n * outCubic(prog(t, t0, t0 + 0.9)));
+      text(v + '+', W / 2, y, { size: 170, weight: 900, family: EN, color: C.lime, glow: 'rgba(195,242,95,0.35)' });
+      text(label, W / 2, y + 120, { size: 54, weight: 700, color: C.text });
+    }, 60);
+    if (i < 2) {
+      const d = outExpo(prog(t, t0 + 0.2, t0 + 0.8));
+      ctx.fillStyle = 'rgba(195,242,95,0.25)'; ctx.fillRect(W / 2 - 200 * d, y + 205, 400 * d, 3);
+    }
+  });
+}
+
+const COURSES = [
+  ['التأسيس', '8h 22m'], ['التحريك', '3h 41m'], ['Cinematic Motion Design', '14h 11m'], ['Documentary style', '7h 17m'],
+  ['UI style', '5h 56m'], ['الستايل العقاري', '2h 24m'], ['إزاي تسوق لنفسك', '2h 04m'], ['التعامل مع العميل', '50m'],
+];
+function sceneCourses(t) {
+  darkBg(t, 900); topTag();
+  reveal(t, 0.05, 0.6, () => text('هتتعلم إيه جوه؟', W / 2, 330, { size: 104, weight: 900 }));
+  reveal(t, 0.12, 0.6, () => text('8 كورسات + محتوى جديد كل شهر', W / 2, 450, { size: 46, weight: 700, color: C.lime }));
+  const x0 = 80, cw = 920, ch = 116, gap = 20, y0 = 540;
+  COURSES.forEach(([name, dur], i) => {
+    const t0 = 0.2 + i * 0.07, p = prog(t, t0, t0 + 0.55); if (p <= 0) return;
+    const e = outExpo(p), y = y0 + i * (ch + gap), ox = (1 - e) * 1100;
+    ctx.save(); ctx.translate(ox, 0); ctx.globalAlpha *= clamp(p * 3);
+    ctx.fillStyle = C.card; rrect(x0, y, cw, ch, 26); ctx.fill();
+    ctx.strokeStyle = i < 6 ? 'rgba(195,242,95,0.28)' : 'rgba(233,237,228,0.18)'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = C.lime; rrect(x0 + cw - 10, y + 26, 10, ch - 52, 5); ctx.fill();
+    text(String(i + 1).padStart(2, '0'), x0 + cw - 40, y + ch / 2 + 2, { size: 40, weight: 900, family: EN, color: C.lime, align: 'right' });
+    text(name, x0 + cw - 120, y + ch / 2 + (isAr(name) ? 4 : 2), { size: isAr(name) ? 48 : 44, weight: 800, align: 'right', maxW: 560 });
+    text(dur, x0 + 40, y + ch / 2 + 2, { size: 34, weight: 600, family: EN, color: C.muted, align: 'left' });
+    ctx.restore();
+  });
+}
+
+const FEATURES = ['ملفات مشاريع الأفتر إيفكت مع كل شرح', 'تواصل مباشر مع فارس طول الشهر', 'ملحقاتي المدفوعة وبتتجدد كل شهر', 'تسويق وبناء اسمك كـ Video Editor'];
+function sceneFeatures(t) {
+  darkBg(t, 1000); topTag();
+  reveal(t, 0.05, 0.6, () => text('ومش بس كده', W / 2, 470, { size: 120, weight: 900 }));
+  const u = outExpo(prog(t, 0.25, 0.7));
+  ctx.fillStyle = C.lime; ctx.fillRect(W / 2 - 180 * u, 575, 360 * u, 8);
+  FEATURES.forEach((f, i) => {
+    const t0 = 0.2 + i * 0.11, y = 790 + i * 190;
+    const p = prog(t, t0, t0 + 0.5); if (p <= 0) return;
+    const e = outExpo(p);
+    ctx.save(); ctx.globalAlpha *= clamp(p * 2.5); ctx.translate((1 - e) * 120, 0);
+    ctx.fillStyle = 'rgba(19,23,16,0.9)'; rrect(70, y - 72, 940, 144, 30); ctx.fill();
+    ctx.strokeStyle = 'rgba(195,242,95,0.2)'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.restore();
+    check(940, y, 40, prog(t, t0 + 0.05, t0 + 0.45));
+    ctx.save(); ctx.globalAlpha *= clamp(p * 2.5); ctx.translate((1 - e) * 120, 0);
+    text(f, 870, y + 4, { size: 50, weight: 800, align: 'right', maxW: 760 });
+    ctx.restore();
+  });
+}
+
+function sceneCTA(t) {
+  darkBg(t, 600); topTag();
+  // avatar
+  const a = outBack(prog(t, 0.0, 0.6)), cx = W / 2, cy = 560, r = 230 * a;
+  if (r > 1) {
+    ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.clip();
+    const s = (2 * r) / photo.width * 1.08; const w = photo.width * s, h = photo.height * s;
+    ctx.drawImage(photo, cx - w / 2, cy - h * 0.37, w, h); ctx.restore();
+    ctx.save(); ctx.strokeStyle = C.lime; ctx.lineWidth = 10; ctx.shadowColor = 'rgba(195,242,95,0.7)'; ctx.shadowBlur = 30;
+    const sweep = outExpo(prog(t, 0.1, 0.9));
+    ctx.beginPath(); ctx.arc(cx, cy, r + 18, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * sweep); ctx.stroke(); ctx.restore();
+  }
+  reveal(t, 0.15, 0.6, () => text('اشترك دلوقتي', W / 2, 920, { size: 116, weight: 900 }));
+  reveal(t, 0.25, 0.6, () => {
+    const w = text('1000', W / 2 + 120, 1110, { size: 190, weight: 900, family: EN, color: C.lime, glow: 'rgba(195,242,95,0.4)' });
+    text('جنيه', W / 2 - w / 2 - 20 + 120 - 30, 1125, { size: 64, weight: 900, align: 'right' });
+  });
+  reveal(t, 0.32, 0.6, () => {
+    text('في الشهر بدل', W / 2 + 70, 1260, { size: 46, weight: 700, color: C.muted });
+    const w = text('1500', W / 2 - 200, 1262, { size: 46, weight: 800, family: EN, color: C.muted });
+    const k = outExpo(prog(t, 0.6, 0.9));
+    ctx.fillStyle = '#ff5a5a'; ctx.fillRect(W / 2 - 200 - w / 2 - 6, 1258, (w + 12) * k, 5);
+  });
+  const pp = prog(t, 0.4, 0.9);
+  if (pp > 0) {
+    const s = outBack(pp) * (1 + 0.025 * Math.sin(Math.max(0, t - 0.9) * 9));
+    ctx.save(); ctx.translate(W / 2, 1460); ctx.scale(s, s);
+    ctx.shadowColor = 'rgba(195,242,95,0.6)'; ctx.shadowBlur = 50;
+    ctx.fillStyle = C.lime; rrect(-370, -72, 740, 144, 72); ctx.fill(); ctx.shadowBlur = 0;
+    text('farestoson.com', 0, 2, { size: 66, weight: 900, family: EN, color: C.dark });
+    ctx.restore();
+  }
+}
+
+// ---------- timeline ----------
+const SCENES = [
+  { fn: sceneHook, start: 0.0, end: 1.8 },
+  { fn: sceneStats, start: 1.8, end: 3.4 },
+  { fn: sceneCourses, start: 3.4, end: 5.4 },
+  { fn: sceneFeatures, start: 5.4, end: 6.6 },
+  { fn: sceneCTA, start: 6.6, end: 8.0 },
+];
+const TR = 0.32; // push transition length
+
+function render(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+  ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
+  SCENES.forEach((s, i) => {
+    const next = SCENES[i + 1];
+    const visStart = i === 0 ? 0 : s.start, visEnd = next ? s.end + TR : DUR;
+    if (t < visStart || t >= visEnd) return;
+    ctx.save();
+    if (i > 0 && t < s.start + TR) { // incoming: slide up from bottom
+      const e = outExpo(prog(t, s.start, s.start + TR));
+      ctx.translate(0, (1 - e) * H);
+    }
+    if (next && t >= s.end) { // outgoing: drift up + darken
+      const e = outCubic(prog(t, s.end, s.end + TR));
+      ctx.translate(0, -e * 420); ctx.scale(1 - 0.06 * e, 1 - 0.06 * e);
+    }
+    s.fn(t - s.start + (i > 0 ? 0 : 0));
+    if (next && t >= s.end) { ctx.fillStyle = `rgba(0,0,0,${0.7 * prog(t, s.end, s.end + TR)})`; ctx.fillRect(-W, -H, W * 3, H * 3); }
+    ctx.restore();
+  });
+  // vignette
+  const v = ctx.createRadialGradient(W / 2, H / 2, H * 0.3, W / 2, H / 2, H * 0.75);
+  v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.55)');
+  ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
+  // grain
+  const f = Math.floor(t * FPS);
+  ctx.save(); ctx.globalAlpha = 0.07; ctx.globalCompositeOperation = 'overlay';
+  ctx.drawImage(grain[f % grain.length], 0, 0, W, H); ctx.restore();
+  // fade out last 0.15s? keep hold, tiny fade from black at start
+  if (t < 0.12) { ctx.fillStyle = `rgba(0,0,0,${1 - t / 0.12})`; ctx.fillRect(0, 0, W, H); }
+}
+
+// ---------- preview + render ----------
+const status = document.getElementById('status'), scrub = document.getElementById('scrub');
+let playing = false, startAt = 0;
+function loop(now) {
+  if (!playing) return;
+  const t = ((now - startAt) / 1000) % DUR; render(t); scrub.value = Math.floor(t * FPS);
+  requestAnimationFrame(loop);
+}
+document.getElementById('play').onclick = () => { playing = !playing; if (playing) { startAt = performance.now() - scrub.value / FPS * 1000; requestAnimationFrame(loop); } };
+scrub.oninput = () => { playing = false; render(scrub.value / FPS); status.textContent = 't=' + (scrub.value / FPS).toFixed(2); };
+
+async function renderMp4() {
+  playing = false;
+  const config = { codec: 'avc1.640032', width: W, height: H, bitrate: 14e6, framerate: FPS };
+  const sup = await VideoEncoder.isConfigSupported(config);
+  if (!sup.supported) { status.textContent = 'H.264 not supported'; return 'unsupported'; }
+  const muxer = new Mp4Muxer.Muxer({ target: new Mp4Muxer.ArrayBufferTarget(), video: { codec: 'avc', width: W, height: H, frameRate: FPS }, fastStart: 'in-memory' });
+  let err = null;
+  const enc = new VideoEncoder({ output: (chunk, meta) => muxer.addVideoChunk(chunk, meta), error: e => { err = e; } });
+  enc.configure(config);
+  for (let i = 0; i < FRAMES; i++) {
+    render(i / FPS);
+    const vf = new VideoFrame(cv, { timestamp: Math.round(i * 1e6 / FPS), duration: Math.round(1e6 / FPS) });
+    enc.encode(vf, { keyFrame: i % FPS === 0 }); vf.close();
+    while (enc.encodeQueueSize > 8) await new Promise(r => setTimeout(r, 5));
+    if (i % 10 === 0) { status.textContent = `encoding ${i}/${FRAMES}`; await new Promise(r => setTimeout(r, 0)); }
+  }
+  await enc.flush(); muxer.finalize();
+  if (err) { status.textContent = 'error ' + err; return 'error ' + err; }
+  const buf = muxer.target.buffer;
+  const r = await fetch('/save?name=Fares_Toson_Community_Reel.mp4', { method: 'POST', body: buf });
+  status.textContent = 'saved ' + (buf.byteLength / 1e6).toFixed(1) + 'MB ' + (await r.text());
+  return status.textContent;
+}
+document.getElementById('render').onclick = renderMp4;
+
+(async () => {
+  makeGrain();
+  await Promise.all([
+    document.fonts.load(`900 100px ${AR}`), document.fonts.load(`800 100px ${AR}`), document.fonts.load(`700 100px ${AR}`),
+    document.fonts.load(`900 100px ${EN}`), document.fonts.load(`800 100px ${EN}`), document.fonts.load(`600 100px ${EN}`),
+    new Promise(r => { if (photo.complete) r(); else photo.onload = r; }),
+  ]);
+  const q = new URLSearchParams(location.search).get('t');
+  render(q ? parseFloat(q) : 0.9);
+  status.textContent = 'ready';
+  window.ready = true;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Real measurements from Katana analyze_ref.py / energy.py / audio.py on the Higgsfield sandbox, 2026-11-11, public What-If reference `ink-gold` (60 s, 24 fps, 1440 frames). Only numbers are kept: no frames, no audio, and the spoken words are replaced by placeholders. beats.json keeps the grid (phase + n*period) for all 142 beats; the other ~30 keys of the real file are dropped.

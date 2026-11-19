@@ -1,0 +1,9 @@
+{
+ "repo": "https://github.com/heygen-com/hyperframes (archive hyperframes-main.zip, 0.9.43)",
+ "license": "apache-2.0",
+ "archive": "%USERPROFILE%\\OneDrive\\Desktop\\مهارات\\hyperframes-main.zip",
+ "path_in_repo": ".claude/skills/cut-the-curve",
+ "review_before_running": [],
+ "approved_by_owner": "2026-11-14",
+ "note2": "SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

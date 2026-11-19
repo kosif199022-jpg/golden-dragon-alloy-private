@@ -1,0 +1,9 @@
+{
+ "repo": "https://github.com/vercel-labs/skills",
+ "stars_on_2026-11-14": 39363,
+ "license": "mit",
+ "commit": "b716f9d",
+ "path_in_repo": "skills/find-skills",
+ "review_before_running": [],
+ "note": "copied unchanged with its LICENSE (v2.17.0); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

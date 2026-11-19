@@ -1,0 +1,12 @@
+{
+  "name": "living-site-tools",
+  "version": "3.1.0",
+  "private": true,
+  "description": "Browser helper for the Living Site skill (shots.js). Run `npm install` once.",
+  "scripts": {
+    "postinstall": "node -e \"console.log('living-site tools: ready. Chrome/Chromium must be installed, or set CHROME_PATH.')\""
+  },
+  "dependencies": {
+    "puppeteer-core": "^23.0.0"
+  }
+}

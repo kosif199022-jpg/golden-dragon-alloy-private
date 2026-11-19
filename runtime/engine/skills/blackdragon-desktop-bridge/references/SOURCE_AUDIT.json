@@ -1,0 +1,26 @@
+{
+  "source_archive": "BlackDragon(2).rar",
+  "archive_sha256": "a5ddce168e2d54666439afb26fa9d6d0f18c337ea3d4ac4832a0f026904624e0",
+  "entries": 4891,
+  "files": 3711,
+  "source_code_inspected": [
+    "_internal/mcp_control.py",
+    "_internal/voice.py",
+    "_internal/chrome_extension/background.js",
+    "_internal/ui/index.html"
+  ],
+  "existing_components_same_sha256": [
+    "mcp_control.py",
+    "voice.py",
+    "chrome_extension/background.js",
+    "chrome_extension/manifest.json",
+    "chrome_extension/popup.js"
+  ],
+  "changed_ui": true,
+  "private_data_excluded": [
+    "chrome/profile/**",
+    "sahab/profile/**",
+    "server.log"
+  ],
+  "validation": "Static inspect + CLI tests; no Windows runtime execution, no network calls, no archive executable"
+}

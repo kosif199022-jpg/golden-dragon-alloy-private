@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="sky" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#8EDBFF"/>
+      <stop offset="0.45" stop-color="#3FA2FF"/>
+      <stop offset="1" stop-color="#0A5BF0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.32" cy="0.18" r="0.75">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pearl" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E8F1FF"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="22"/><feOffset dy="22" result="b"/><feFlood flood-color="#062A7A" flood-opacity="0.35"/><feComposite in2="b" operator="in" result="sh"/><feMerge><feMergeNode in="sh"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <clipPath id="tile"><rect x="64" y="64" width="896" height="896" rx="206"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect x="64" y="64" width="896" height="896" fill="url(#sky)"/>
+    <rect x="64" y="64" width="896" height="896" fill="url(#glow)"/>
+  </g>
+  <rect x="65.5" y="65.5" width="893" height="893" rx="205" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3"/>
+  <g filter="url(#soft)" transform="translate(512 506) scale(1.08) translate(-524 -446)">
+    <path fill="url(#pearl)" fill-rule="evenodd" d="
+      M 842 468
+      L 788 484
+      C 772 526 736 552 690 566
+      C 610 614 500 642 384 640
+      L 214 716
+      C 240 684 262 662 290 644
+      L 206 606
+      C 252 600 296 590 336 578
+      C 384 562 430 546 470 528
+      C 420 512 372 482 338 444
+      C 372 446 398 438 414 426
+      C 362 396 324 356 304 310
+      C 336 320 366 318 388 306
+      C 346 266 326 226 322 176
+      C 470 214 580 316 622 470
+      C 636 426 666 398 712 396
+      C 756 396 784 424 790 452
+      Z
+      M 742 436 a 12 12 0 1 0 0.1 0 Z"/>
+  </g>
+</svg>

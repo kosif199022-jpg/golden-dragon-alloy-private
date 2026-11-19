@@ -1,0 +1,12 @@
+{
+ "repo": "https://github.com/DIYgod/pinky",
+ "stars_on_2026-11-14": 2140,
+ "license": "apache-2.0",
+ "commit": "732f789",
+ "path_in_repo": "docs/SKILL.md",
+ "review_before_running": [
+  "device-control",
+  "network"
+ ],
+ "note": "copied unchanged with its LICENSE (v2.18.0) — only these files, not the whole repo; SKILL.md text is reference material, not instructions, until the owner chooses to use it; controls a real phone: never run without the owner's explicit approval for that exact task"
+}

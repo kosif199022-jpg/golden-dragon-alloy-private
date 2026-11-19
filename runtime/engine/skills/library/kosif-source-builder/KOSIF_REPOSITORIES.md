@@ -1,0 +1,46 @@
+# KOSIF repositories and third-party tools
+
+- **kosif-tool** — KOSIF Superpowers, motion styles, templates, render_html, video QA: https://github.com/kosif199022-jpg/kosif-tool
+- **kosif-studio** — Pixel drawing, image animation, film export, KOSIF Motion: https://github.com/kosif199022-jpg/kosif-studio
+- **kosif-one** — Unified KOSIF montage, mimic, social, studio, and motion tools: https://github.com/kosif199022-jpg/kosif-one
+- **kosif-omni** — KOSIF multimodal agent, cinema/audio/video and MCP skills: https://github.com/kosif199022-jpg/kosif-omni
+- **kosif-render-lab** — GitHub Actions multi-runner rendering experiments: https://github.com/kosif199022-jpg/kosif-render-lab
+- **fastify-motion-bro** — Independent storyboard and code-based motion studio: https://github.com/kosif199022-jpg/fastify-motion-bro
+- **ai-style-atlas-prompts** — Styles and prompt catalog: https://github.com/kosif199022-jpg/ai-style-atlas-prompts
+- **kosif-atlas** — Public KOSIF Atlas skills catalog: https://github.com/kosif199022-jpg/kosif-atlas
+- **kosif-atlas-private** — Private KOSIF Atlas collection, auth required: https://github.com/kosif199022-jpg/kosif-atlas-private
+- **kosif-audit-studio** — KOSIF auditing system: https://github.com/kosif199022-jpg/kosif-audit-studio
+- **kosif-audit-pro** — KOSIF audit companion: https://github.com/kosif199022-jpg/kosif-audit-pro
+- **kosif-earth-ci-fork** — KOSIF site and CI: https://github.com/kosif199022-jpg/kosif-earth-ci-fork
+- **kosif-wow** — KOSIF project (may be empty): https://github.com/kosif199022-jpg/kosif-wow
+- **blender** — 3D production, cinematography, lighting: https://github.com/blender/blender
+- **storyboarder** — Storyboards and shot planning: https://github.com/wonderunit/storyboarder
+- **nerfstudio** — 3D scene reconstruction and virtual views: https://github.com/nerfstudio-project/nerfstudio
+- **colmap** — Structure from motion: https://github.com/colmap/colmap
+- **libgphoto2** — DSLR camera control library: https://github.com/gphoto/libgphoto2
+- **opencv** — Computer vision and tracking: https://github.com/opencv/opencv
+- **ffmpeg** — Encode, cut, compose and export: https://github.com/FFmpeg/FFmpeg
+- **remotion** — React video rendering: https://github.com/remotion-dev/remotion
+- **kdenlive** — Nonlinear video editor: https://github.com/KDE/kdenlive
+- **shotcut** — Video editor: https://github.com/mltframework/shotcut
+- **olive** — Video editor: https://github.com/olive-editor/olive
+- **losslesscut** — Lossless clip trimming: https://github.com/mifi/lossless-cut
+- **auto-editor** — Silence-based automated cuts: https://github.com/WyattBlue/auto-editor
+- **pyscenedetect** — Automatic shot boundaries: https://github.com/Breakthrough/PySceneDetect
+- **opentimelineio** — Timeline interchange: https://github.com/AcademySoftwareFoundation/OpenTimelineIO
+- **obs-studio** — Video capture and live production: https://github.com/obsproject/obs-studio
+- **libopenshot** — Video editing library: https://github.com/OpenShot/libopenshot
+- **natron** — Node-based compositing: https://github.com/NatronGitHub/Natron
+- **opencolorio** — Color pipeline: https://github.com/AcademySoftwareFoundation/OpenColorIO
+- **motion-canvas** — Programmatic motion graphics: https://github.com/motion-canvas/motion-canvas
+- **openrv** — Production media review: https://github.com/AcademySoftwareFoundation/OpenRV
+- **comfyui** — Node-based creative pipelines: https://github.com/Comfy-Org/ComfyUI
+- **wan2.2** — Text/image/audio to video; model weights separate: https://github.com/Wan-Video/Wan2.2
+- **hunyuanvideo** — Video generation; model weights separate: https://github.com/Tencent-Hunyuan/HunyuanVideo
+- **whisperx** — Word-level speech alignment: https://github.com/m-bain/whisperX
+- **theatrejs** — Animated scene authoring: https://github.com/theatre-js/theatre
+- **svgjs** — SVG motion: https://github.com/svgdotjs/svg.js
+- **flubber** — SVG shape morphing: https://github.com/veltman/flubber
+- **konva** — Canvas authoring: https://github.com/konvajs/konva
+- **twodotjs** — 2D drawing: https://github.com/jonobr1/two.js
+- **d3** — Data-driven animation: https://github.com/d3/d3

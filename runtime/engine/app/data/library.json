@@ -1,0 +1,1010 @@
+{
+ "schema": "black-dragon.library.v1",
+ "version": "1990.10.0",
+ "generated": "2026-11-10",
+ "note": "Packs and prompt files supplied by the owner on 2026-11-10 and bundled verbatim. status=bundled means the files are here, not that anything was run.",
+ "packs": [
+  {
+   "id": "ai-motion-graphics",
+   "name": "ai-motion-graphics",
+   "area": "motion",
+   "ar": "موشن جرافيك وإكسبلينر بالكود (Python + ffmpeg): Vox عمودي، 2D كرتون من فويس أوفر، فوكسل 3D، ميوزك فيديو كرتون، وساوند ديزاين.",
+   "en": "Motion graphics, animated explainers and sound design for videos, rendered in code (Python + ffmpeg). Styles: Editorial Explainer (Vox-style vertical shorts), AI Film FX (graphics inside AI-generated scenes), 2D Animated Explainer (cartoon explainer from a voiceover), 3D Voxel Animation (block-world zooms), Cartoon Music Video (hand-painted cartoon music video synced to a song). Use for captions, callouts, counters, charts, split screens, tracked graphics, pause trimming, SFX, explainer animations, 'animate this' or 'make motion graphics'.",
+   "overlap": "جديد · أقرب أداة في التنين: tool motion",
+   "entry": "skills/library/ai-motion-graphics/SKILL.md",
+   "skill_files": [
+    "skills/library/ai-motion-graphics/SKILL.md"
+   ],
+   "files": 43,
+   "bytes": 1164584,
+   "source_archive": "ai-motion-graphics.zip",
+   "source_archive_sha256": "43834e9043e912411169fc69bca086dde87a6ea86de4503609f1286b70594399"
+  },
+  {
+   "id": "arabic-minimal-reels",
+   "name": "arabic-minimal-reels",
+   "area": "reels",
+   "ar": "ريل 9:16 مينيمال من توكينج هيد عربي: جملة قصيرة، كلمة واحدة كبيرة، خطوط زرقا، لوحات، ورجوع للوش. ومعاه برومبتات references/prompts/minimal-prompts.txt.",
+   "en": "Edit a raw Arabic talking-head clip into a 9:16 reel in a minimal style - short line, one big key word, blue lines, paintings, flat canvases, returning to the face often. Use when the user asks for a minimal reel, \"ريل بستايل minimal\", \"اعمل ريل بهالستايل\", or asks which scene a line should get. Also explains how to build your own reference library. Not for long-form YouTube.",
+   "overlap": "جديد · يكمّل: dragon run talking_head",
+   "entry": "skills/library/arabic-minimal-reels/SKILL.md",
+   "skill_files": [
+    "skills/library/arabic-minimal-reels/SKILL.md"
+   ],
+   "files": 5,
+   "bytes": 38859,
+   "source_archive": "arabic-minimal-reels.zip",
+   "source_archive_sha256": "dfdcc0ccae6ce04940968acda4e8faa4d8d0e9e0d1ea6de677caf57ee5118ab7"
+  },
+  {
+   "id": "editorial-film-edit",
+   "name": "editorial-film-edit",
+   "area": "montage",
+   "ar": "مونتاج أرشيفي إديتوريال: نص متحرك، جرين، bloom، ماسكات، سبليت مع المقدّم. هنا ملفات JS/CSS المرجعية الأصلية.",
+   "en": "Edit footage in an archival editorial style with bundled video and photo references, kinetic text, film grain, bloom, masks and presenter splits. Use for new edits and final visual revisions.",
+   "overlap": "الملخّص كان موجود: references/skills/editorial-film-edit.md · دي الملفات الأصلية كاملة",
+   "entry": "skills/library/editorial-film-edit/SKILL.md",
+   "skill_files": [
+    "skills/library/editorial-film-edit/SKILL.md"
+   ],
+   "files": 8,
+   "bytes": 66230,
+   "source_archive": "editorial-film-edit.zip",
+   "source_archive_sha256": "08f477e689c20e2ba2e71da764ef6c2e70ae01264a77006994e9b84aa161f5b6"
+  },
+  {
+   "id": "faceless-shorts",
+   "name": "faceless-shorts",
+   "area": "shorts",
+   "ar": "شورتس من غير وش بالكود وبصوت AI محلي ببلاش وكابشن على الكلمة. 6 ستايلات: Deep Dive 3D، Night File 3D، Inside Out، Stick Story، Paper Atlas، Tall Tale.",
+   "en": "Make narrated faceless YouTube Shorts / TikToks / Reels fully in code on the user's computer, with a free local AI voice and word-synced captions, $0. Six styles - Deep Dive 3D (Zack D. Films-like 3D \"what happens if\" body/science explainers), Night File 3D (unsolved mysteries, true crime), Inside Out (flat 2D x-ray explainers), Stick Story (stick-figure \"what would you do if\" survival steps), Paper Atlas (history in cut paper with maps), Tall Tale 3D (funny true stories with flat 2D cartoon people in a sunny 3D world, one-word captions). Use whenever someone wants a faceless short, a what-if or what-happens-if explainer, a Zack D. Films style video, a mystery or true-crime short, a stick-figure story, a history short, a funny true story or storytime cartoon short, or a video in one of these styles, even from just a topic. Can also upload the finished short to the user's YouTube channel through Zapier when they ask.",
+   "overlap": "جديد · أقرب أدوات: tool stickman و cartoon",
+   "entry": "skills/library/faceless-shorts/SKILL.md",
+   "skill_files": [
+    "skills/library/faceless-shorts/SKILL.md"
+   ],
+   "files": 187,
+   "bytes": 16736685,
+   "source_archive": "faceless-shorts.zip",
+   "source_archive_sha256": "162711eb2842941fed837261bd5a77d7f702222060d7c83a568691e3aebd19e5"
+  },
+  {
+   "id": "growkaz-stickman",
+   "name": "make-2d-video",
+   "area": "shorts",
+   "ar": "بلاجن GrowKaz: فيديو ستيكمان سينمائي من فويس أوفر (ريم لايت، 2.5D، كلوز أب، فريز فريم، داتا أوفرلاي، لقطات 3D). 5 مهارات: new-video، make-2d-video، render-video، video-sound، video-styles.",
+   "en": "This skill should be used when the user wants a narrated animated video in the GrowKaz Stickman style (cinematic stick figures with rim light, moody 2.5D sets, giant face close-ups, freeze-frames, data overlays, blueprint diagrams and low-poly 3D shots), e.g. \"make a 2D video from this voiceover\", \"animate my script\", \"turn this narration into a stick figure video\", \"make a What If video\", \"create an animated explainer from my audio\", or \"do the whole video\". It runs the full pipeline: install, timestamps (Whisper), story breakdown, style choice, scene building, rendering, music, SFX and final MP4 in 16:9 or 9:16 at 720p to 4K.",
+   "overlap": "الملخّص كان موجود: references/skills/stickman-studio.md و tool stickman · دي الكِت الأصلية كاملة",
+   "entry": "skills/library/growkaz-stickman/skills/make-2d-video/SKILL.md",
+   "skill_files": [
+    "skills/library/growkaz-stickman/skills/make-2d-video/SKILL.md",
+    "skills/library/growkaz-stickman/skills/new-video/SKILL.md",
+    "skills/library/growkaz-stickman/skills/render-video/SKILL.md",
+    "skills/library/growkaz-stickman/skills/video-sound/SKILL.md",
+    "skills/library/growkaz-stickman/skills/video-styles/SKILL.md"
+   ],
+   "files": 43,
+   "bytes": 268694,
+   "source_archive": "GrowKaz_Stickman.plugin",
+   "source_archive_sha256": "086c6c07232b3e7b313e7296ca3d6264b4c0c2441315715ea387fc58a899682a"
+  },
+  {
+   "id": "living-site",
+   "name": "living-site",
+   "area": "web",
+   "ar": "موقع حي بتلت مستويات: Spline 3D حي، صور وفيلم سكرول من Higgsfield، موشن جرافيك بالكود. بيبدأ من موقع مرجعي وفيه بوابة فحص.",
+   "en": "Build a living website in three levels. Level 1 live 3D (Spline), Level 2 generated images and a scroll film (Higgsfield), Level 3 living motion graphics drawn in code by Claude. Starts from a real reference site copied faithfully, then layers the three levels on top, then gates it. Trigger on /living-site, \"living website\", \"3D website\", \"website with Spline and Higgsfield\", \"add motion graphics to my site\", \"make my site come alive\".",
+   "overlap": "كان مذكور بالاسم بس · دي أول مرة المصدر كله يبقى جوه التنين. أي توليد Higgsfield يمشي على قاعدة الكريدت (tool hf check/ask)",
+   "entry": "skills/library/living-site/SKILL.md",
+   "skill_files": [
+    "skills/library/living-site/SKILL.md"
+   ],
+   "files": 29,
+   "bytes": 205709,
+   "source_archive": "living-site.zip",
+   "source_archive_sha256": "58c7dd9e1cfa9503c958efb37d7f201840db328d4826b2c0ef570dec337ca781"
+  },
+  {
+   "id": "motion-reel",
+   "name": "motion-reel",
+   "area": "motion",
+   "ar": "ريل إطلاق منتج على البيت من رابط المنتج: أصول البراند الحقيقية، ستايل جايد، beat grid، شوت ليست، فيلم seek(t) بسبرينج، 3 جولات نقد، رندر H.264 بموسيقى وSFX بمقاسات 16:9 و1:1 و4:5 و9:16.",
+   "en": "Produce a beat-synced product launch reel / showreel / promo video in code. The pipeline captures a product URL's real brand assets, writes a style guide, measures the beat grid, and gets a shotlist approved. It then builds a deterministic seek(t) film with springs, runs 3+ scored critique rounds to 8+, and renders H.264 with synthesized music, SFX and optional Fish Audio voiceover in 16:9, 1:1, 4:5 and 9:16. Use when the user asks for a launch video, product reel, motion reel, showreel, promo, sizzle or social ad for a product or URL, or says \"motion-reel\".",
+   "overlap": "جديد · يكمّل: kosif-web-film و saas-animation",
+   "entry": "skills/library/motion-reel/.claude/skills/motion-reel/SKILL.md",
+   "skill_files": [
+    "skills/library/motion-reel/.claude/skills/motion-reel/SKILL.md"
+   ],
+   "files": 55,
+   "bytes": 2349200,
+   "source_archive": "motion-reel-kit.zip",
+   "source_archive_sha256": "cea63ee500497e265399bf58d975b124b5f7926fd25040dbafda8e3e76035bdc"
+  },
+  {
+   "id": "saas-animation",
+   "name": "saas-animation",
+   "area": "motion",
+   "ar": "أنيميشن SaaS/منتج/براند 8–20 ثانية بالكود ورندر 4K من غير مولدات AI: ستوري بورد، كاميرا واحدة مستمرة، UI حقيقي في 3D، Blender.",
+   "en": "Make short, high-end SaaS, app, product and brand animations (about 8–20s) with Claude, built as code and rendered to 4K video, without any AI video or image generator. Covers storyboards, one continuous camera, shots that transform into each other, real app UI in 3D space, puppet-animated illustrations, photoreal product shots in Blender, flat black and white silhouette looks, blending an ad into real footage, sound design, music prompts and voiceovers. Use this whenever someone asks for a SaaS animation, motion ad, spec ad, product launch video, app promo, logo animation, 3D product shot, \"a video for\" a brand or product, or wants notes applied to one of these, even if they never say \"motion graphics\".",
+   "overlap": "الملخّص كان موجود: references/skills/saas-animation.md · دي السكربتات والقوالب الأصلية",
+   "entry": "skills/library/saas-animation/saas-animation/SKILL.md",
+   "skill_files": [
+    "skills/library/saas-animation/saas-animation/SKILL.md"
+   ],
+   "files": 25,
+   "bytes": 109660,
+   "source_archive": "saas-animation.skill",
+   "source_archive_sha256": "b1c99cf6b37f9679e0f140bc8eb0fd657726f2289c50778c5dac594254f00baf"
+  },
+  {
+   "id": "talking-head-reels",
+   "name": "talking-head-reels",
+   "area": "reels",
+   "ar": "ريل إديتوريال من فيديو شخص بيتكلم: قص السكتات، Anton + Didot، أحمر/أبيض/أبيض وأسود، B-roll على الكلام، سبليت سكرين، جرين، صوت -14 LUFS.",
+   "en": "Turn a talking-head recording into a finished vertical 9:16 Instagram Reel / TikTok / YouTube Short in a bold editorial style - tightened pauses, kinetic Anton + Didot typography, a red / white / black-and-white palette, B-roll inserts that illustrate exactly what is being said, split screens with the speaker, camera-move transitions, film grain, voice mastered to -14 LUFS. Everything is rendered by code (Python + ffmpeg/libass) - no After Effects or other editing app needed; footage can be generated with Higgsfield (Seedance). Use this skill whenever someone wants to edit, cut, animate or \"make a reel\" out of a video of a person speaking to camera, add motion text or B-roll to a speaking video, or match the style of an existing reel made with it - even if they never say \"EDL\", \"render\" or \"talking head\".",
+   "overlap": "المحرك موجود: dragon run talking_head و references/skills/talking-head-reels.md · دي النسخة الأصلية كاملة",
+   "entry": "skills/library/talking-head-reels/SKILL.md",
+   "skill_files": [
+    "skills/library/talking-head-reels/SKILL.md"
+   ],
+   "files": 28,
+   "bytes": 951413,
+   "source_archive": "talking-head-reels.zip",
+   "source_archive_sha256": "f74ef7321cf0ec0ef8db041559534cbae82733a0793a3a3726d34f9272049f3f"
+  },
+  {
+   "id": "pro-motion",
+   "name": "pro-motion",
+   "area": "motion",
+   "ar": "برو موشن (أسلوب فارس): الأوفرلابنج — ليرز 3D وكاميرا مربوطة في null، جرافات وتركات، توليد بالكود أو جوه After Effects، وتحليل فيديو مرجعي. في extras/ بانل After Effects والمشاريع المثال.",
+   "en": "برو موشن — أسلوب فارس في التحريك (الأوفرلابنج: ليرز 3D + كاميرا مربوطة في نلاط) وجرافاته وتركاته، وإزاي تعمل الفيديو يا جنريت بالكود يا جوه After Effects. استخدمها في أي فيديو أو أنيميشن أو موشن بتعمله (ريلز، فيديو طولي، إعلان، تيتلز، ترانزيشن)، ولما المستخدم يعلّمك تركة جديدة أو يقول \"احفظ التركة دي\"، ولما يطلب تحلل فيديو أو بروجكت مرجعي.",
+   "overlap": "جديد · يكمّل: creative-studio (After Effects)",
+   "entry": "skills/library/pro-motion/SKILL.md",
+   "skill_files": [
+    "skills/library/pro-motion/SKILL.md"
+   ],
+   "files": 23,
+   "bytes": 308373,
+   "source_archive": "Fares_Motion.zip",
+   "source_archive_sha256": "c5e63fef6114e9a451c90d043d9caf4a2f2c2e0f8f24798ebd7d6d9808d358f5"
+  },
+  {
+   "id": "omar-hasan-kling-cinematic-director",
+   "name": "omar-hasan-kling-cinematic-director",
+   "area": "ai-video",
+   "ar": "مخرج أفلام قصيرة لـ Kling 4: 10 أفكار، يسأل عن المدة، برومبتات أصول Nano Banana، ستوري بورد 3×3، وبرومبتات Kling (30 ث للمشهد).",
+   "en": "Cinematic short-film director for Kling 4 - pitches 10 film ideas, asks duration, then gives Nano Banana asset prompts, a 3x3 storyboard prompt and final Kling 4 prompts (max 30s per scene).",
+   "overlap": "الملخّص كان موجود: references/V10_KLING_CINEMA.md · ده SKILL.md الأصلي. التوليد المدفوع بموافقة صريحة",
+   "entry": "skills/library/omar-hasan-kling-cinematic-director/SKILL.md",
+   "skill_files": [
+    "skills/library/omar-hasan-kling-cinematic-director/SKILL.md"
+   ],
+   "files": 1,
+   "bytes": 30142,
+   "source_archive": "omar-hasan-kling-cinematic-director.skill",
+   "source_archive_sha256": "80cbfb610a6c7315c45fd0403ff6860ed3d1cf72edb5b3ad61c65e7ca3748b0d"
+  },
+  {
+   "id": "kosif-source-builder",
+   "name": "kosif-source-builder",
+   "area": "kosif",
+   "ar": "حقيبة KOSIF: kosif.py (فهرس، فحص بيئة، ستوري بورد، رندر ffmpeg، تجميع مقاطع) وفهرس المستودعات. أوامر install --execute بتنزّل مستودعات: بموافقة المستخدم بس.",
+   "en": "KOSIF toolkit: kosif.py (catalog, doctor, storyboard, ffmpeg render, concat, reports) + repository index.",
+   "overlap": "جديد كمصدر · يكمّل: tool repo و tool fusion",
+   "entry": "skills/library/kosif-source-builder/README_AR.md",
+   "skill_files": [],
+   "files": 25,
+   "bytes": 84059,
+   "source_archive": "KOSIF_SOURCE_BUILDER.zip",
+   "source_archive_sha256": "d10811d194d5ca262db60e7a82c8803e692d7b8c5c10d902e63fd14059d946c6"
+  }
+ ],
+ "prompt_files": [
+  {
+   "id": "hady",
+   "file": "references/prompts/hady-raie-prompt-library.md",
+   "title": "مكتبة برومبتات هادي راعي (مستند Claude Docs، اتصدّر Markdown يوم 2026-11-10)",
+   "origin": "Claude Docs: مكتبة برومبتات هادي راعي",
+   "lines": 2945,
+   "bytes": 202015,
+   "sha256": "b1562be95126de6447a6501d675059ec9259316a92c345527303508c39b8e8c9"
+  },
+  {
+   "id": "minimal",
+   "file": "references/prompts/minimal-prompts.txt",
+   "title": "برومبتات ستايل minimal (مع arabic-minimal-reels)",
+   "origin": "skills-library.zip",
+   "lines": 47,
+   "bytes": 2683,
+   "sha256": "7045579476399954ccb867e9b0275655c853ff667fc7a09f3bfdad28ff113176"
+  },
+  {
+   "id": "usip",
+   "file": "references/prompts/USIP_PORTABLE_v5_6.md",
+   "title": "USIP Portable v5.6: بروتوكول KOSIF (L0–L3، بطاقة طلب، خطط A/B/C، الصدق والإذن، التحقق والتعافي)",
+   "origin": "skills-library-3.zip",
+   "lines": 659,
+   "bytes": 135214,
+   "sha256": "097c291e57f9dcb9012caad4422be235b989e361ec446a6ab8bdd812dc6dd53f"
+  },
+  {
+   "id": "atlas",
+   "file": "references/prompts/ai-style-atlas-prompts-FULL.txt",
+   "title": "AI Style Atlas (Futurepedia): 86 ستايل بصري لفيديوهات الشرح، لكل واحد برومبته كامل",
+   "origin": "skills-library-3.zip",
+   "lines": 104032,
+   "bytes": 7744177,
+   "sha256": "a1107ac0a11917e95f3b5984ed5858e4cc5c45615c9926f7d0955c17c5669cad"
+  }
+ ],
+ "prompts": [
+  {
+   "id": "h01",
+   "file": "hady",
+   "section": "برومبتات الصور",
+   "title": "ثامنيل 3D توون بعنوان عربي",
+   "start": 34,
+   "end": 39
+  },
+  {
+   "id": "h02",
+   "file": "hady",
+   "section": "برومبتات الصور",
+   "title": "كاركتر شيت — 3 أقسام (فرونت + باك + بورتريه)",
+   "start": 40,
+   "end": 59
+  },
+  {
+   "id": "h03",
+   "file": "hady",
+   "section": "برومبتات الصور",
+   "title": "منظور متعدد من أي شخصية (4 أعمدة)",
+   "start": 60,
+   "end": 74
+  },
+  {
+   "id": "h04",
+   "file": "hady",
+   "section": "برومبتات الصور",
+   "title": "Product Reference Sheet (أي منتج)",
+   "start": 75,
+   "end": 111
+  },
+  {
+   "id": "h05",
+   "file": "hady",
+   "section": "برومبتات الصور",
+   "title": "مجموعة برومبتات متنوعة",
+   "start": 112,
+   "end": 212
+  },
+  {
+   "id": "h06",
+   "file": "hady",
+   "section": "أنظمة برومبتات الفيديو",
+   "title": "Google Flow / Veo (Gemini Omni Flash) Video Prompt Generator",
+   "start": 217,
+   "end": 275
+  },
+  {
+   "id": "h07",
+   "file": "hady",
+   "section": "أنظمة برومبتات الفيديو",
+   "title": "Seedance 2.0 — Scene Architect",
+   "start": 276,
+   "end": 455
+  },
+  {
+   "id": "h08",
+   "file": "hady",
+   "section": "أنظمة برومبتات الفيديو",
+   "title": "Seedance 2.5 Prompter v1.1",
+   "start": 456,
+   "end": 729
+  },
+  {
+   "id": "h09",
+   "file": "hady",
+   "section": "أنظمة القصص والستوري بورد",
+   "title": "Time Travel Vlog Master System v.01 (الجزء 1 من 2)",
+   "start": 734,
+   "end": 873
+  },
+  {
+   "id": "h10",
+   "file": "hady",
+   "section": "أنظمة القصص والستوري بورد",
+   "title": "Time Travel Vlog Master System v.01 (الجزء 2 من 2)",
+   "start": 874,
+   "end": 1081
+  },
+  {
+   "id": "h11",
+   "file": "hady",
+   "section": "أنظمة القصص والستوري بورد",
+   "title": "Storyboard Prompt Builder V1 (الجزء 1 من 2)",
+   "start": 1082,
+   "end": 1382
+  },
+  {
+   "id": "h12",
+   "file": "hady",
+   "section": "أنظمة القصص والستوري بورد",
+   "title": "Storyboard Prompt Builder V1 (الجزء 2 من 2)",
+   "start": 1383,
+   "end": 1670
+  },
+  {
+   "id": "h13",
+   "file": "hady",
+   "section": "أنظمة القصص والستوري بورد",
+   "title": "Storyboard Prompt Builder (النسخة الأصلية) — الفروق عن V1 بس",
+   "start": 1671,
+   "end": 1690
+  },
+  {
+   "id": "h14",
+   "file": "hady",
+   "section": "أنظمة القصص والستوري بورد",
+   "title": "Slice of Life by Hady Raie v1",
+   "start": 1691,
+   "end": 2163
+  },
+  {
+   "id": "h15",
+   "file": "hady",
+   "section": "Zack D Films",
+   "title": "النسخة اليدوية (Manual)",
+   "start": 2168,
+   "end": 2396
+  },
+  {
+   "id": "h16",
+   "file": "hady",
+   "section": "Zack D Films",
+   "title": "نسخة الأوتوميشن (Higgsfield MCP)",
+   "start": 2397,
+   "end": 2627
+  },
+  {
+   "id": "h17",
+   "file": "hady",
+   "section": "أنظمة أخرى",
+   "title": "Mechanical Toy Generator (نسخة هادي راعي)",
+   "start": 2630,
+   "end": 2812
+  },
+  {
+   "id": "h18",
+   "file": "hady",
+   "section": "أنظمة أخرى",
+   "title": "Interactive 3D Website Prompt Wizard",
+   "start": 2813,
+   "end": 2862
+  },
+  {
+   "id": "h19",
+   "file": "hady",
+   "section": "حزم السكيلز والأدوات (الدفعة التانية)",
+   "title": "برومبتات ستايل Minimal (مع arabic-minimal-reels)",
+   "start": 2882,
+   "end": 2933
+  },
+  {
+   "id": "a01",
+   "file": "atlas",
+   "section": "Popular Explainer Looks",
+   "title": "Flat-Vector Science",
+   "slug": "flat-space"
+  },
+  {
+   "id": "a02",
+   "file": "atlas",
+   "section": "Painterly",
+   "title": "Watercolor Wash",
+   "slug": "watercolor"
+  },
+  {
+   "id": "a03",
+   "file": "atlas",
+   "section": "Paper & Craft",
+   "title": "Shadow Puppet Theatre",
+   "slug": "shadow-puppet"
+  },
+  {
+   "id": "a04",
+   "file": "atlas",
+   "section": "Hand-Drawn",
+   "title": "Whiteboard Explainer",
+   "slug": "whiteboard"
+  },
+  {
+   "id": "a05",
+   "file": "atlas",
+   "section": "Cosmic & Psychedelic",
+   "title": "Psychedelic Poster",
+   "slug": "psychedelic"
+  },
+  {
+   "id": "a06",
+   "file": "atlas",
+   "section": "Popular Explainer Looks",
+   "title": "Tech Glow Explainer",
+   "slug": "tech-glow"
+  },
+  {
+   "id": "a07",
+   "file": "atlas",
+   "section": "Popular Explainer Looks",
+   "title": "Papercraft Models",
+   "slug": "papercraft"
+  },
+  {
+   "id": "a08",
+   "file": "atlas",
+   "section": "Light & Imaging",
+   "title": "1940s Film Noir",
+   "slug": "film-noir"
+  },
+  {
+   "id": "a09",
+   "file": "atlas",
+   "section": "Popular Explainer Looks",
+   "title": "Manim-Style Math",
+   "slug": "math-anim"
+  },
+  {
+   "id": "a10",
+   "file": "atlas",
+   "section": "Illustration",
+   "title": "Illuminated Manuscript",
+   "slug": "illuminated"
+  },
+  {
+   "id": "a11",
+   "file": "atlas",
+   "section": "Popular Explainer Looks",
+   "title": "Editorial Essay Collage",
+   "slug": "editorial-collage"
+  },
+  {
+   "id": "a12",
+   "file": "atlas",
+   "section": "Light & Imaging",
+   "title": "Bioluminescent Deep Sea",
+   "slug": "deep-sea"
+  },
+  {
+   "id": "a13",
+   "file": "atlas",
+   "section": "Popular Explainer Looks",
+   "title": "Product Launch Reveal",
+   "slug": "product-launch"
+  },
+  {
+   "id": "a14",
+   "file": "atlas",
+   "section": "Print",
+   "title": "Halftone Pop Panel",
+   "slug": "halftone-pop"
+  },
+  {
+   "id": "a15",
+   "file": "atlas",
+   "section": "Dimensional",
+   "title": "Isometric Pastel",
+   "slug": "isometric"
+  },
+  {
+   "id": "a16",
+   "file": "atlas",
+   "section": "Retro Digital",
+   "title": "Oscilloscope Vector Art",
+   "slug": "oscilloscope"
+  },
+  {
+   "id": "a17",
+   "file": "atlas",
+   "section": "Print",
+   "title": "Risograph Zine",
+   "slug": "risograph"
+  },
+  {
+   "id": "a18",
+   "file": "atlas",
+   "section": "Paper & Craft",
+   "title": "Claymation Set",
+   "slug": "claymation"
+  },
+  {
+   "id": "a19",
+   "file": "atlas",
+   "section": "Light & Imaging",
+   "title": "Neon Sign at Night",
+   "slug": "neon-sign"
+  },
+  {
+   "id": "a20",
+   "file": "atlas",
+   "section": "Popular Explainer Looks",
+   "title": "Kawaii Anime",
+   "slug": "kawaii"
+  },
+  {
+   "id": "a21",
+   "file": "atlas",
+   "section": "Art & Design Movements",
+   "title": "Ukiyo-e Woodblock",
+   "slug": "ukiyo-e"
+  },
+  {
+   "id": "a22",
+   "file": "atlas",
+   "section": "Retro Digital",
+   "title": "16-Bit Pixel Odyssey",
+   "slug": "pixel-16bit"
+  },
+  {
+   "id": "a23",
+   "file": "atlas",
+   "section": "Hand-Drawn",
+   "title": "Chalkboard Lesson",
+   "slug": "chalkboard"
+  },
+  {
+   "id": "a24",
+   "file": "atlas",
+   "section": "Paper & Craft",
+   "title": "Cut-Paper Diorama",
+   "slug": "cut-paper"
+  },
+  {
+   "id": "a25",
+   "file": "atlas",
+   "section": "Painterly",
+   "title": "Cathedral Glass",
+   "slug": "stained-glass"
+  },
+  {
+   "id": "a26",
+   "file": "atlas",
+   "section": "Data & Information",
+   "title": "Editorial Chart",
+   "slug": "editorial-chart"
+  },
+  {
+   "id": "a27",
+   "file": "atlas",
+   "section": "Retro UI & Neon",
+   "title": "Synthwave Outrun",
+   "slug": "synthwave"
+  },
+  {
+   "id": "a28",
+   "file": "atlas",
+   "section": "Paper & Craft",
+   "title": "Origami Studio",
+   "slug": "origami"
+  },
+  {
+   "id": "a29",
+   "file": "atlas",
+   "section": "Print",
+   "title": "Linocut Relief Print",
+   "slug": "linocut"
+  },
+  {
+   "id": "a30",
+   "file": "atlas",
+   "section": "Light & Imaging",
+   "title": "Holographic Foil Card",
+   "slug": "holographic-foil"
+  },
+  {
+   "id": "a31",
+   "file": "atlas",
+   "section": "Dimensional",
+   "title": "Voxel Diorama",
+   "slug": "voxel"
+  },
+  {
+   "id": "a32",
+   "file": "atlas",
+   "section": "Painterly",
+   "title": "Sumi-e Ink Wash",
+   "slug": "sumi-e"
+  },
+  {
+   "id": "a33",
+   "file": "atlas",
+   "section": "Hand-Drawn",
+   "title": "Etch A Sketch Toy",
+   "slug": "etch-sketch"
+  },
+  {
+   "id": "a34",
+   "file": "atlas",
+   "section": "Cosmic & Psychedelic",
+   "title": "Cosmic Star Chart",
+   "slug": "cosmic"
+  },
+  {
+   "id": "a35",
+   "file": "atlas",
+   "section": "Paper & Craft",
+   "title": "Punk Zine Collage",
+   "slug": "collage-zine"
+  },
+  {
+   "id": "a36",
+   "file": "atlas",
+   "section": "Light & Imaging",
+   "title": "Thermal Camera",
+   "slug": "thermal-camera"
+  },
+  {
+   "id": "a37",
+   "file": "atlas",
+   "section": "Hand-Drawn",
+   "title": "Engineering Blueprint",
+   "slug": "blueprint"
+  },
+  {
+   "id": "a38",
+   "file": "atlas",
+   "section": "Painterly",
+   "title": "Impasto Night",
+   "slug": "impasto-oil"
+  },
+  {
+   "id": "a39",
+   "file": "atlas",
+   "section": "Retro UI & Neon",
+   "title": "Win95 Desktop",
+   "slug": "win95"
+  },
+  {
+   "id": "a40",
+   "file": "atlas",
+   "section": "Dimensional",
+   "title": "Low-Poly Faceted",
+   "slug": "low-poly"
+  },
+  {
+   "id": "a41",
+   "file": "atlas",
+   "section": "Illustration",
+   "title": "Manga Page",
+   "slug": "manga-panel"
+  },
+  {
+   "id": "a42",
+   "file": "atlas",
+   "section": "Print",
+   "title": "Wood Type Letterpress",
+   "slug": "letterpress"
+  },
+  {
+   "id": "a43",
+   "file": "atlas",
+   "section": "Light & Imaging",
+   "title": "Light Painting",
+   "slug": "light-painting"
+  },
+  {
+   "id": "a44",
+   "file": "atlas",
+   "section": "Paper & Craft",
+   "title": "Felt & Patchwork",
+   "slug": "felt-quilt"
+  },
+  {
+   "id": "a45",
+   "file": "atlas",
+   "section": "Retro Digital",
+   "title": "Phosphor Terminal",
+   "slug": "crt-terminal"
+  },
+  {
+   "id": "a46",
+   "file": "atlas",
+   "section": "Dimensional",
+   "title": "Glassmorphism UI",
+   "slug": "glassmorphism"
+  },
+  {
+   "id": "a47",
+   "file": "atlas",
+   "section": "Illustration",
+   "title": "Tarot Card",
+   "slug": "tarot-card"
+  },
+  {
+   "id": "a48",
+   "file": "atlas",
+   "section": "Data & Information",
+   "title": "Transit Map",
+   "slug": "transit-map"
+  },
+  {
+   "id": "a49",
+   "file": "atlas",
+   "section": "Painterly",
+   "title": "Gouache Travel Poster",
+   "slug": "gouache-poster"
+  },
+  {
+   "id": "a50",
+   "file": "atlas",
+   "section": "Hand-Drawn",
+   "title": "Napkin Sketch",
+   "slug": "napkin-sketch"
+  },
+  {
+   "id": "a51",
+   "file": "atlas",
+   "section": "Art & Design Movements",
+   "title": "Art Deco Foil",
+   "slug": "art-deco"
+  },
+  {
+   "id": "a52",
+   "file": "atlas",
+   "section": "Light & Imaging",
+   "title": "Radiograph on Lightbox",
+   "slug": "x-ray"
+  },
+  {
+   "id": "a53",
+   "file": "atlas",
+   "section": "Retro UI & Neon",
+   "title": "Vaporwave",
+   "slug": "vaporwave"
+  },
+  {
+   "id": "a54",
+   "file": "atlas",
+   "section": "Generative & Type",
+   "title": "Ebru Paper Marbling",
+   "slug": "paper-marbling"
+  },
+  {
+   "id": "a55",
+   "file": "atlas",
+   "section": "Data & Information",
+   "title": "ISOTYPE Pictograms",
+   "slug": "isotype"
+  },
+  {
+   "id": "a56",
+   "file": "atlas",
+   "section": "Dimensional",
+   "title": "Soft 3D Clay",
+   "slug": "soft-3d"
+  },
+  {
+   "id": "a57",
+   "file": "atlas",
+   "section": "Paper & Craft",
+   "title": "Cross-Stitch Sampler",
+   "slug": "cross-stitch"
+  },
+  {
+   "id": "a58",
+   "file": "atlas",
+   "section": "Art & Design Movements",
+   "title": "Constructivist Propaganda",
+   "slug": "constructivist"
+  },
+  {
+   "id": "a59",
+   "file": "atlas",
+   "section": "Retro Digital",
+   "title": "Pocket Monochrome",
+   "slug": "gameboy"
+  },
+  {
+   "id": "a60",
+   "file": "atlas",
+   "section": "Illustration",
+   "title": "Botanical Plate",
+   "slug": "botanical-plate"
+  },
+  {
+   "id": "a61",
+   "file": "atlas",
+   "section": "Generative & Type",
+   "title": "Kinetic Type",
+   "slug": "kinetic-type"
+  },
+  {
+   "id": "a62",
+   "file": "atlas",
+   "section": "Illustration",
+   "title": "Byzantine Mosaic",
+   "slug": "mosaic"
+  },
+  {
+   "id": "a63",
+   "file": "atlas",
+   "section": "Retro UI & Neon",
+   "title": "Y2K Liquid Chrome",
+   "slug": "y2k-chrome"
+  },
+  {
+   "id": "a64",
+   "file": "atlas",
+   "section": "Illustration",
+   "title": "Sticky-Note Wall",
+   "slug": "sticky-notes"
+  },
+  {
+   "id": "a65",
+   "file": "atlas",
+   "section": "Print",
+   "title": "Vintage Newsprint",
+   "slug": "newsprint"
+  },
+  {
+   "id": "a66",
+   "file": "atlas",
+   "section": "Dimensional",
+   "title": "Hidden-Line Wireframe",
+   "slug": "wireframe-terrain"
+  },
+  {
+   "id": "a67",
+   "file": "atlas",
+   "section": "Art & Design Movements",
+   "title": "Memphis Group",
+   "slug": "memphis"
+  },
+  {
+   "id": "a68",
+   "file": "atlas",
+   "section": "Hand-Drawn",
+   "title": "Ballpoint Notebook",
+   "slug": "ballpoint-notebook"
+  },
+  {
+   "id": "a69",
+   "file": "atlas",
+   "section": "Generative & Type",
+   "title": "Op Art Sphere",
+   "slug": "op-art"
+  },
+  {
+   "id": "a70",
+   "file": "atlas",
+   "section": "Data & Information",
+   "title": "Topographic Survey",
+   "slug": "topographic"
+  },
+  {
+   "id": "a71",
+   "file": "atlas",
+   "section": "Painterly",
+   "title": "Pointillist Afternoon",
+   "slug": "pointillism"
+  },
+  {
+   "id": "a72",
+   "file": "atlas",
+   "section": "Retro Digital",
+   "title": "Vector Arcade 1980",
+   "slug": "vector-arcade"
+  },
+  {
+   "id": "a73",
+   "file": "atlas",
+   "section": "Illustration",
+   "title": "Patent Drawing",
+   "slug": "patent-drawing"
+  },
+  {
+   "id": "a74",
+   "file": "atlas",
+   "section": "Art & Design Movements",
+   "title": "Bauhaus Poster",
+   "slug": "bauhaus"
+  },
+  {
+   "id": "a75",
+   "file": "atlas",
+   "section": "Retro UI & Neon",
+   "title": "Bitmap Paint Doodle",
+   "slug": "ms-paint"
+  },
+  {
+   "id": "a76",
+   "file": "atlas",
+   "section": "Generative & Type",
+   "title": "Nail & Thread String Art",
+   "slug": "string-art"
+  },
+  {
+   "id": "a77",
+   "file": "atlas",
+   "section": "Data & Information",
+   "title": "Ridgeline",
+   "slug": "ridgeline"
+  },
+  {
+   "id": "a78",
+   "file": "atlas",
+   "section": "Hand-Drawn",
+   "title": "Sketchbook Graphite",
+   "slug": "sketchbook-pencil"
+  },
+  {
+   "id": "a79",
+   "file": "atlas",
+   "section": "Retro UI & Neon",
+   "title": "Teletext Page",
+   "slug": "teletext"
+  },
+  {
+   "id": "a80",
+   "file": "atlas",
+   "section": "Print",
+   "title": "Silkscreen Grid",
+   "slug": "screenprint-grid"
+  },
+  {
+   "id": "a81",
+   "file": "atlas",
+   "section": "Generative & Type",
+   "title": "Guilloché Security Print",
+   "slug": "spirograph"
+  },
+  {
+   "id": "a82",
+   "file": "atlas",
+   "section": "Retro Digital",
+   "title": "ASCII Demoscene",
+   "slug": "ascii-render"
+  },
+  {
+   "id": "a83",
+   "file": "atlas",
+   "section": "Art & Design Movements",
+   "title": "International Typographic Style",
+   "slug": "swiss-grid"
+  },
+  {
+   "id": "a84",
+   "file": "atlas",
+   "section": "Data & Information",
+   "title": "Flow Field",
+   "slug": "flow-field"
+  },
+  {
+   "id": "a85",
+   "file": "atlas",
+   "section": "Retro Digital",
+   "title": "MacPaint 1984",
+   "slug": "mac-1bit"
+  },
+  {
+   "id": "a86",
+   "file": "atlas",
+   "section": "Generative & Type",
+   "title": "Multi-scale Truchet",
+   "slug": "truchet"
+  }
+ ],
+ "not_bundled": [
+  {
+   "name": "FigmaAutoLayoutExcercise.fig",
+   "why": "ملف تمرين Figma (12.9MB) بيتفتح من Figma بس، مفيش كود يقراه."
+  },
+  {
+   "name": "black-dragon v10.1.0 / v10.2.0 / v10.4.0 / v10.10.0",
+   "why": "نسخ أقدم، كل اللي فيها جوه v10.16.1 اللي النسخة دي مبنية عليها."
+  },
+  {
+   "name": "media-hunter SKILL.md",
+   "why": "نفس الملف المسجّل في SOURCE_INTEGRITY.json من v10.2 (نفس SHA-256)، والمهارة جوه skills/media-hunter و tool hunter."
+  }
+ ]
+}

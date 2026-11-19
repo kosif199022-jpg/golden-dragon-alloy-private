@@ -1,0 +1,70 @@
+{
+  "title": "إعلان قهوة مصرية في ليلة ممطرة في وسط البلد",
+  "brief": "إعلان قهوة مصرية في ليلة ممطرة في وسط البلد",
+  "kind": "video",
+  "ratio": "9:16",
+  "medium": "cinematic photograph",
+  "look": {
+    "palette": "",
+    "lighting": "warm tungsten glow from the café window as the key, cool blue ambient from the street, wet reflections",
+    "lens": "35mm lens, f/1.8",
+    "atmosphere": "neon_rain_night",
+    "style": "cinematic film look, fine grain, soft halation",
+    "color": "amber and deep teal palette",
+    "anchors": "a small white ceramic cup with a thin gold rim, dark Egyptian coffee with a light foam"
+  },
+  "shots": [
+    {
+      "id": 1,
+      "purpose": "establishing",
+      "subject": "an old downtown Cairo café on a rainy night",
+      "action": "glowing warmly between dark buildings",
+      "setting": "a narrow street with Art Deco facades",
+      "time": "",
+      "atmosphere": "",
+      "lighting": "",
+      "camera": {
+        "framing": "wide shot",
+        "angle": "low angle"
+      },
+      "composition": "café window on the right third, empty wet street leading to it",
+      "style": "",
+      "color": "",
+      "text": "قهوة الليل",
+      "avoid": [],
+      "motion": "rain falls steadily and a passer-by with an umbrella slowly walks past the window",
+      "camera_move": "slow push in toward the window",
+      "duration": 5,
+      "sound": "",
+      "negative": "",
+      "fx": "",
+      "anchors": ""
+    },
+    {
+      "id": 2,
+      "purpose": "hero",
+      "subject": "the coffee cup on a marble table by the rainy window",
+      "action": "steam rising from the cup",
+      "setting": "",
+      "time": "",
+      "atmosphere": "steam, raindrops run down the window glass behind the cup",
+      "lighting": "",
+      "camera": {
+        "framing": "close-up",
+        "angle": "eye level",
+        "lens": "100mm macro lens, f/2.8"
+      },
+      "composition": "cup centered, raindrops on the glass behind it out of focus",
+      "style": "",
+      "color": "",
+      "text": "",
+      "avoid": [],
+      "motion": "steam curls slowly upward while raindrops run down the window glass",
+      "camera_move": "slow orbit around the cup",
+      "duration": 5,
+      "sound": "",
+      "negative": "",
+      "fx": ""
+    }
+  ]
+}

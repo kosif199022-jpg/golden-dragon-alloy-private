@@ -1,0 +1,12 @@
+{
+ "schema": "red-dragon.source.v1",
+ "origin": "original wrapper code (scripts/hypit_rd.py) around the published npm package @hypit/hypit; no Hypit source is vendored",
+ "upstream": {"repo": "https://github.com/hypit-ai/hypit", "commit": "6bacce093695ccc2bde5aa5d7de230e9682ffa79", "npm": "@hypit/hypit@0.3.2",
+   "license": "Apache-2.0 with conditions: no multi-tenant hosting, no commercial redistribution, keep Hypit name/logo in its CLI and reports"},
+ "verified_2026_11_14": {
+  "setup": "ok, 0.3.2",
+  "example semantic-composition": "ok, 30 s (sparse clone + tsc + npm install --ignore-scripts)",
+  "plan chat.svrun": "3 requests, all local, no Provider charge",
+  "render chat.svrun": "ok, 19 s, mp4 h264+aac 540x960 30fps 8.000 s; frame grid checked by eye"
+ }
+}

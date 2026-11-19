@@ -1,0 +1,27 @@
+{
+  "_comment": "Arabic gold logo reveal (5 s): letters rise right-to-left, light sweep glint, floating gold dust, glossy floor reflection, slow push-in, bloom. Swap engine to CYCLES for the final if time allows.",
+  "scene": {
+    "resolution": "1080p",
+    "fps": 30,
+    "duration": 5,
+    "engine": "EEVEE",
+    "samples": 64,
+    "motion_blur": true,
+    "color": {"view_transform": "AgX", "look": "Punchy"}
+  },
+  "steps": [
+    {"op": "logo_reveal",
+     "text": "التنين الأسود",
+     "subtitle": "BLACK DRAGON STUDIO",
+     "font": "arialbd",
+     "subtitle_font": "segoeuib",
+     "material": "gold",
+     "style": "rise",
+     "reveal_frames": 34,
+     "size": 1.0,
+     "extrude": 0.16,
+     "bevel": 0.024}
+  ],
+  "render": {"type": "animation", "out": "arabic_gold_logo.mp4"},
+  "save_blend": "arabic_gold_logo.blend"
+}

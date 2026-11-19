@@ -1,0 +1,5002 @@
+{
+"codecrafters-io/build-your-own-x": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"sindresorhus/awesome": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"public-apis/public-apis": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"freeCodeCamp/freeCodeCamp": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"morluto/rea": {
+"release_downloads_recent100": 0,
+"releases": 39,
+"latest_release": "rea-agents-6.8.0"
+},
+"EbookFoundation/free-programming-books": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"openclaw/openclaw": {
+"release_downloads_recent100": 1318336,
+"releases": 100,
+"latest_release": "v2026.11.3"
+},
+"donnemartin/system-design-primer": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nilbuild/developer-roadmap": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "4.0"
+},
+"jwasham/coding-interview-university": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"awesome-selfhosted/awesome-selfhosted": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "1.0.0"
+},
+"vinta/awesome-python": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"mattpocock/skills": {
+"release_downloads_recent100": 0,
+"releases": 10,
+"latest_release": "v1.3.2"
+},
+"obra/superpowers": {
+"release_downloads_recent100": 0,
+"releases": 17,
+"latest_release": "v7.0.2"
+},
+"affaan-m/ECC": {
+"release_downloads_recent100": 100025,
+"releases": 19,
+"latest_release": "v2.2.3"
+},
+"practical-tutorials/project-based-learning": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"deepseek-ai/deepseek-harness": {
+"release_downloads_recent100": 0,
+"releases": 37,
+"latest_release": "dsh-v0.2.2-rc.1"
+},
+"996icu/996.ICU": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"NousResearch/hermes-agent": {
+"release_downloads_recent100": 28178,
+"releases": 48,
+"latest_release": "v0.23.1"
+},
+"trimstray/the-book-of-secret-knowledge": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"torvalds/linux": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"react/react": {
+"release_downloads_recent100": 2331230,
+"releases": 100,
+"latest_release": "v19.3.1"
+},
+"multica-ai/andrej-karpathy-skills": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"TheAlgorithms/Python": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"anomalyco/opencode": {
+"release_downloads_recent100": 100892136,
+"releases": 100,
+"latest_release": "v2.2.7"
+},
+"vuejs/vue": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.7.16"
+},
+"ossu/computer-science": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"n8n-io/n8n": {
+"release_downloads_recent100": 6697,
+"releases": 100,
+"latest_release": "n8n@1.123.93"
+},
+"DigitalPlatDev/FreeDomain": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"yt-dlp/yt-dlp": {
+"release_downloads_recent100": 240558529,
+"releases": 100,
+"latest_release": "2026.10.26"
+},
+"tensorflow/tensorflow": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.22.0-rc0"
+},
+"firecrawl/firecrawl": {
+"release_downloads_recent100": 0,
+"releases": 35,
+"latest_release": "v2.11.0"
+},
+"massgravel/Microsoft-Activation-Scripts": {
+"release_downloads_recent100": 1429853,
+"releases": 32,
+"latest_release": "3.13"
+},
+"trekhleb/javascript-algorithms": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"microsoft/vscode": {
+"release_downloads_recent100": 833,
+"releases": 100,
+"latest_release": "1.145.3"
+},
+"microsoft/markitdown": {
+"release_downloads_recent100": 0,
+"releases": 24,
+"latest_release": "v0.1.9"
+},
+"ultraworkers/claw-code": {
+"release_downloads_recent100": 3124,
+"releases": 11,
+"latest_release": "v0.1.13"
+},
+"avelino/awesome-go": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"anthropics/skills": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ohmyzsh/ohmyzsh": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"DietrichGebert/ponytail": {
+"release_downloads_recent100": 0,
+"releases": 30,
+"latest_release": "v5.3.3"
+},
+"521xueweihan/HelloGitHub": {
+"release_downloads_recent100": 4128,
+"releases": 71,
+"latest_release": "vol.127"
+},
+"Significant-Gravitas/AutoGPT": {
+"release_downloads_recent100": 2,
+"releases": 100,
+"latest_release": "preview-seed-fixture"
+},
+"jackfrued/Python-100-Days": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ollama/ollama": {
+"release_downloads_recent100": 106995429,
+"releases": 100,
+"latest_release": "v0.40.17-rc0"
+},
+"CyC2018/CS-Notes": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"getify/You-Dont-Know-JS": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"flutter/flutter": {
+"release_downloads_recent100": 0,
+"releases": 7,
+"latest_release": "3.19.0-0.1.pre"
+},
+"f/prompts.chat": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"github/gitignore": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"twbs/bootstrap": {
+"release_downloads_recent100": 65066805,
+"releases": 94,
+"latest_release": "v5.3.8"
+},
+"huggingface/transformers": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.22.2"
+},
+"msitarzewski/agency-agents": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"AUTOMATIC1111/stable-diffusion-webui": {
+"release_downloads_recent100": 5940930,
+"releases": 27,
+"latest_release": "v1.10.1"
+},
+"jlevy/the-art-of-command-line": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"langgenius/dify": {
+"release_downloads_recent100": 28159,
+"releases": 100,
+"latest_release": "1.19.0"
+},
+"Snailclimb/JavaGuide": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"open-webui/open-webui": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v0.13.3"
+},
+"clash-verge-rev/clash-verge-rev": {
+"release_downloads_recent100": 53022313,
+"releases": 75,
+"latest_release": "v2.5.10"
+},
+"langflow-ai/langflow": {
+"release_downloads_recent100": 226850,
+"releases": 100,
+"latest_release": "v1.13.2"
+},
+"anthropics/claude-code": {
+"release_downloads_recent100": 1565110,
+"releases": 100,
+"latest_release": "v2.1.322"
+},
+"Genymobile/scrcpy": {
+"release_downloads_recent100": 31002922,
+"releases": 54,
+"latest_release": "v5.0.1"
+},
+"farion1231/cc-switch": {
+"release_downloads_recent100": 22909301,
+"releases": 85,
+"latest_release": "v4.0.29"
+},
+"langchain-ai/langchain": {
+"release_downloads_recent100": 3033,
+"releases": 100,
+"latest_release": "langchain==1.4.10"
+},
+"github/spec-kit": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.4.0"
+},
+"airbnb/javascript": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nextlevelbuilder/ui-ux-pro-max-skill": {
+"release_downloads_recent100": 8557,
+"releases": 41,
+"latest_release": "v2.15.0"
+},
+"Comfy-Org/ComfyUI": {
+"release_downloads_recent100": 6138593,
+"releases": 100,
+"latest_release": "v0.45.0"
+},
+"Graphify-Labs/graphify": {
+"release_downloads_recent100": 9988,
+"releases": 100,
+"latest_release": "v0.9.106"
+},
+"x1xhlol/system-prompts-and-models-of-ai-tools": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Shubhamsaboo/awesome-llm-apps": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"iptv-org/iptv": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"vercel/next.js": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v16.5.0-canary.47"
+},
+"yangshun/tech-interview-handbook": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ripienaar/free-for-dev": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"harry0703/MoneyPrinterTurbo": {
+"release_downloads_recent100": 174820,
+"releases": 23,
+"latest_release": "v1.3.10"
+},
+"ytdl-org/youtube-dl": {
+"release_downloads_recent100": 62820824,
+"releases": 100,
+"latest_release": "2021.12.17"
+},
+"garrytan/gstack": {
+"release_downloads_recent100": 0,
+"releases": 7,
+"latest_release": "v1.99.0.0"
+},
+"microsoft/PowerToys": {
+"release_downloads_recent100": 144285749,
+"releases": 100,
+"latest_release": "v0.103.3131"
+},
+"golang/go": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"labuladong/fucking-algorithm": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"excalidraw/excalidraw": {
+"release_downloads_recent100": 32225,
+"releases": 15,
+"latest_release": "v0.18.1"
+},
+"openai/codex": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ggml-org/llama.cpp": {
+"release_downloads_recent100": 491405,
+"releases": 100,
+"latest_release": "b12283"
+},
+"krahets/hello-algo": {
+"release_downloads_recent100": 544095,
+"releases": 10,
+"latest_release": "1.3.0"
+},
+"Chalarangelo/30-seconds-of-code": {
+"release_downloads_recent100": 0,
+"releases": 12,
+"latest_release": "v14.0.0"
+},
+"kubernetes/kubernetes": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.38.0-beta.0"
+},
+"rustdesk/rustdesk": {
+"release_downloads_recent100": 82165986,
+"releases": 42,
+"latest_release": "1.5.3"
+},
+"shadcn-ui/ui": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "shadcn@4.23.0"
+},
+"react/react-native": {
+"release_downloads_recent100": 6736756,
+"releases": 100,
+"latest_release": "v0.89.0-rc.1"
+},
+"VoltAgent/awesome-design-md": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Hack-with-Github/Awesome-Hacking": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"electron/electron": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nodejs/node": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v27.0.0-alpha.0.0.0"
+},
+"microsoft/generative-ai-for-beginners": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"TauricResearch/TradingAgents": {
+"release_downloads_recent100": 3664,
+"releases": 15,
+"latest_release": "v0.7.1"
+},
+"rust-lang/rust": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "1.99.1"
+},
+"stablyai/orca": {
+"release_downloads_recent100": 154306667,
+"releases": 100,
+"latest_release": "v1.4.256"
+},
+"earendil-works/pi": {
+"release_downloads_recent100": 1184771,
+"releases": 100,
+"latest_release": "v1.5.2"
+},
+"browser-use/browser-use": {
+"release_downloads_recent100": 3643,
+"releases": 100,
+"latest_release": "1.0.2"
+},
+"2dust/v2rayN": {
+"release_downloads_recent100": 20802437,
+"releases": 100,
+"latest_release": "7.25.6"
+},
+"godotengine/godot": {
+"release_downloads_recent100": 23352830,
+"releases": 73,
+"latest_release": "3.6.3-stable"
+},
+"justjavac/free-programming-books-zh_CN": {
+"release_downloads_recent100": 0,
+"releases": 3,
+"latest_release": "3.0"
+},
+"JuliusBrussee/caveman": {
+"release_downloads_recent100": 908655,
+"releases": 56,
+"latest_release": "v4.1.0"
+},
+"immich-app/immich": {
+"release_downloads_recent100": 4899083,
+"releases": 100,
+"latest_release": "v3.4.0"
+},
+"jaywcjlove/awesome-mac": {
+"release_downloads_recent100": 0,
+"releases": 15,
+"latest_release": "v2.1.0"
+},
+"mrdoob/three.js": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "r187"
+},
+"thedotmack/claude-mem": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v15.17.0"
+},
+"addyosmani/agent-skills": {
+"release_downloads_recent100": 0,
+"releases": 17,
+"latest_release": "0.6.15"
+},
+"supabase/supabase": {
+"release_downloads_recent100": 0,
+"releases": 30,
+"latest_release": "v1.26.08"
+},
+"d3/d3": {
+"release_downloads_recent100": 874643,
+"releases": 100,
+"latest_release": "v7.9.2"
+},
+"Leonxlnx/taste-skill": {
+"release_downloads_recent100": 1184,
+"releases": 9,
+"latest_release": "v2.5.1"
+},
+"paperclipai/paperclip": {
+"release_downloads_recent100": 4187,
+"releases": 31,
+"latest_release": "v2026.1106.0"
+},
+"tauri-apps/tauri": {
+"release_downloads_recent100": 90865,
+"releases": 100,
+"latest_release": "tauri-v3.0.0-alpha.6"
+},
+"openai/whisper": {
+"release_downloads_recent100": 0,
+"releases": 13,
+"latest_release": "v20250625"
+},
+"microsoft/TypeScript": {
+"release_downloads_recent100": 87318,
+"releases": 100,
+"latest_release": "vscode-typescript/v1.0.2"
+},
+"papers-we-love/papers-we-love": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Panniantong/Agent-Reach": {
+"release_downloads_recent100": 98030,
+"releases": 9,
+"latest_release": "v1.6.1"
+},
+"fatedier/frp": {
+"release_downloads_recent100": 15445408,
+"releases": 100,
+"latest_release": "v0.72.0"
+},
+"sherlock-project/sherlock": {
+"release_downloads_recent100": 0,
+"releases": 3,
+"latest_release": "v0.16.2"
+},
+"axios/axios": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.21.1"
+},
+"denoland/deno": {
+"release_downloads_recent100": 47796973,
+"releases": 100,
+"latest_release": "v2.9.8"
+},
+"google-gemini/gemini-cli": {
+"release_downloads_recent100": 19921,
+"releases": 100,
+"latest_release": "v0.69.0-preview.0"
+},
+"rasbt/LLMs-from-scratch": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ruanyf/weekly": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"pbakaus/impeccable": {
+"release_downloads_recent100": 4400424,
+"releases": 100,
+"latest_release": "skill-v4.8.2"
+},
+"debpalash/VoiceStudio": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nexu-io/open-design": {
+"release_downloads_recent100": 1147170,
+"releases": 43,
+"latest_release": "open-design-v0.27.1"
+},
+"goldbergyoni/nodebestpractices": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"microsoft/terminal": {
+"release_downloads_recent100": 39981158,
+"releases": 100,
+"latest_release": "v1.26.3133.0"
+},
+"pytorch/pytorch": {
+"release_downloads_recent100": 351718,
+"releases": 71,
+"latest_release": "v2.15.0"
+},
+"deepseek-ai/DeepSeek-V3": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v1.0.0"
+},
+"fastapi/fastapi": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "0.162.4"
+},
+"ruvnet/RuView": {
+"release_downloads_recent100": 7850,
+"releases": 100,
+"latest_release": "v3664"
+},
+"Anduin2017/HowToCook": {
+"release_downloads_recent100": 6228,
+"releases": 5,
+"latest_release": "1.6.0"
+},
+"neovim/neovim": {
+"release_downloads_recent100": 14729578,
+"releases": 56,
+"latest_release": "nightly"
+},
+"react/create-react-app": {
+"release_downloads_recent100": 0,
+"releases": 83,
+"latest_release": "v5.0.1"
+},
+"angular/angular": {
+"release_downloads_recent100": 248,
+"releases": 100,
+"latest_release": "v22.2.5"
+},
+"D4Vinci/Scrapling": {
+"release_downloads_recent100": 0,
+"releases": 55,
+"latest_release": "v0.5.1"
+},
+"mtdvio/every-programmer-should-know": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ant-design/ant-design": {
+"release_downloads_recent100": 4897,
+"releases": 100,
+"latest_release": "6.7.0"
+},
+"microsoft/playwright": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.65.0"
+},
+"karpathy/autoresearch": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"NationalSecurityAgency/ghidra": {
+"release_downloads_recent100": 6781238,
+"releases": 57,
+"latest_release": "Ghidra_12.2_build"
+},
+"mui/material-ui": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v10.0.0-alpha.0"
+},
+"tailwindlabs/tailwindcss": {
+"release_downloads_recent100": 18873670,
+"releases": 100,
+"latest_release": "v4.3.5"
+},
+"florinpop17/app-ideas": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"localsend/localsend": {
+"release_downloads_recent100": 16034713,
+"releases": 27,
+"latest_release": "v1.18.2"
+},
+"OpenCut-app/OpenCut": {
+"release_downloads_recent100": 2171,
+"releases": 4,
+"latest_release": "ffmpeg-8.1.3-1"
+},
+"hacksider/Deep-Live-Cam": {
+"release_downloads_recent100": 0,
+"releases": 15,
+"latest_release": "2.8"
+},
+"nvbn/thefuck": {
+"release_downloads_recent100": 0,
+"releases": 17,
+"latest_release": "3.32"
+},
+"punkpeye/awesome-mcp-servers": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"microsoft/Web-Dev-For-Beginners": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"oven-sh/bun": {
+"release_downloads_recent100": 151451325,
+"releases": 100,
+"latest_release": "bun-v1.4.4"
+},
+"vllm-project/vllm": {
+"release_downloads_recent100": 5195417,
+"releases": 100,
+"latest_release": "v0.33.0rc3"
+},
+"3b1b/manim": {
+"release_downloads_recent100": 4496,
+"releases": 13,
+"latest_release": "v1.7.2"
+},
+"Stirling-Tools/Stirling-PDF": {
+"release_downloads_recent100": 2543488,
+"releases": 100,
+"latest_release": "v3.3.0"
+},
+"puppeteer/puppeteer": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "puppeteer-v25.17.0"
+},
+"nvm-sh/nvm": {
+"release_downloads_recent100": 0,
+"releases": 76,
+"latest_release": "v0.41.0"
+},
+"odysseus-dev/odysseus": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"tt-a1i/archify": {
+"release_downloads_recent100": 42060,
+"releases": 24,
+"latest_release": "archify-dsh-v1.1.0"
+},
+"iluwatar/java-design-patterns": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"zed-industries/zed": {
+"release_downloads_recent100": 15364368,
+"releases": 100,
+"latest_release": "v1.28.0-pre"
+},
+"ryanmcdermott/clean-code-javascript": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"infiniflow/ragflow": {
+"release_downloads_recent100": 14931,
+"releases": 60,
+"latest_release": "nightly"
+},
+"louislam/uptime-kuma": {
+"release_downloads_recent100": 928633,
+"releases": 100,
+"latest_release": "2.5.9"
+},
+"OpenHands/OpenHands": {
+"release_downloads_recent100": 36251,
+"releases": 100,
+"latest_release": "v1.38.0"
+},
+"PaddlePaddle/PaddleOCR": {
+"release_downloads_recent100": 2059792,
+"releases": 33,
+"latest_release": "v3.7.0"
+},
+"home-assistant/core": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "2026.11.1"
+},
+"microsoft/ML-For-Beginners": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"deepseek-ai/DeepSeek-R1": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v1.0.0"
+},
+"Egonex-AI/Understand-Anything": {
+"release_downloads_recent100": 20798,
+"releases": 8,
+"latest_release": "v2.9.0"
+},
+"modelcontextprotocol/servers": {
+"release_downloads_recent100": 0,
+"releases": 34,
+"latest_release": "v2.4.0"
+},
+"astral-sh/uv": {
+"release_downloads_recent100": 741316675,
+"releases": 100,
+"latest_release": "0.13.7"
+},
+"django/django": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"opencv/opencv": {
+"release_downloads_recent100": 4984286,
+"releases": 70,
+"latest_release": "5.1.0"
+},
+"storybookjs/storybook": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v10.6.7"
+},
+"MunGell/awesome-for-beginners": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ByteByteGoHq/system-design-101": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"mermaid-js/mermaid": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "mermaid@12.3.0"
+},
+"bitcoin/bitcoin": {
+"release_downloads_recent100": 0,
+"releases": 72,
+"latest_release": "v32.1"
+},
+"koala73/worldmonitor": {
+"release_downloads_recent100": 280118,
+"releases": 52,
+"latest_release": "v2.11.8"
+},
+"gohugoio/hugo": {
+"release_downloads_recent100": 36113812,
+"releases": 100,
+"latest_release": "v0.169.0"
+},
+"syncthing/syncthing": {
+"release_downloads_recent100": 26532660,
+"releases": 100,
+"latest_release": "v2.1.7"
+},
+"PanJiaChen/vue-element-admin": {
+"release_downloads_recent100": 0,
+"releases": 49,
+"latest_release": "4.4.0"
+},
+"gin-gonic/gin": {
+"release_downloads_recent100": 0,
+"releases": 29,
+"latest_release": "v1.12.0"
+},
+"ChatGPTNextWeb/NextChat": {
+"release_downloads_recent100": 703837,
+"releases": 77,
+"latest_release": "v2.16.1"
+},
+"sveltejs/svelte": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "svelte@5.57.3"
+},
+"unclecode/crawl4ai": {
+"release_downloads_recent100": 0,
+"releases": 23,
+"latest_release": "v0.9.5"
+},
+"bregman-arie/devops-exercises": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"datawhalechina/hello-agents": {
+"release_downloads_recent100": 38776,
+"releases": 3,
+"latest_release": "V1.0.3"
+},
+"cheaper-inference/OmniRoute": {
+"release_downloads_recent100": 525529,
+"releases": 100,
+"latest_release": "v3.8.53"
+},
+"rtk-ai/rtk": {
+"release_downloads_recent100": 896973,
+"releases": 100,
+"latest_release": "dev-1.2.1-rc.628"
+},
+"DopplerHQ/awesome-interview-questions": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"laravel/laravel": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v13.11.0"
+},
+"666ghj/MiroFish": {
+"release_downloads_recent100": 0,
+"releases": 3,
+"latest_release": "v0.1.2"
+},
+"bytedance/deer-flow": {
+"release_downloads_recent100": 0,
+"releases": 3,
+"latest_release": "v2.2.0"
+},
+"mlabonne/llm-course": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"macrozheng/mall": {
+"release_downloads_recent100": 0,
+"releases": 3,
+"latest_release": "v1.0.3"
+},
+"lobehub/lobehub": {
+"release_downloads_recent100": 26992,
+"releases": 100,
+"latest_release": "v0.0.0-nightly.pr22794.38995"
+},
+"Developer-Y/cs-video-courses": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"fighting41love/funNLP": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"realworld-apps/realworld": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"TapXWorld/ChinaTextbook": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"junegunn/fzf": {
+"release_downloads_recent100": 15322356,
+"releases": 87,
+"latest_release": "v0.75.0"
+},
+"vitejs/vite": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v8.3.8"
+},
+"jesseduffield/lazygit": {
+"release_downloads_recent100": 3707444,
+"releases": 100,
+"latest_release": "v0.66.3"
+},
+"opendatalab/MinerU": {
+"release_downloads_recent100": 13903,
+"releases": 100,
+"latest_release": "mineru-4.2.0-released"
+},
+"animate-css/animate.css": {
+"release_downloads_recent100": 0,
+"releases": 22,
+"latest_release": "v4.1.1"
+},
+"swisskyrepo/PayloadsAllTheThings": {
+"release_downloads_recent100": 0,
+"releases": 5,
+"latest_release": "4.2"
+},
+"d2l-ai/d2l-zh": {
+"release_downloads_recent100": 57680,
+"releases": 16,
+"latest_release": "v2.0.0"
+},
+"heygen-com/hyperframes": {
+"release_downloads_recent100": 8791,
+"releases": 100,
+"latest_release": "v0.9.33"
+},
+"tonsky/FiraCode": {
+"release_downloads_recent100": 5490448,
+"releases": 29,
+"latest_release": "6.2"
+},
+"Z4nzu/hackingtool": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"spring-projects/spring-boot": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.2.0-RC2"
+},
+"career-ops-hq/career-ops": {
+"release_downloads_recent100": 708,
+"releases": 61,
+"latest_release": "web-v0.18.0"
+},
+"ruvnet/ruflo": {
+"release_downloads_recent100": 14,
+"releases": 100,
+"latest_release": "v3.75.3"
+},
+"netdata/netdata": {
+"release_downloads_recent100": 5423098,
+"releases": 100,
+"latest_release": "v2.12.3"
+},
+"abi/screenshot-to-code": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"hoppscotch/hoppscotch": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "2026.10.1"
+},
+"ventoy/Ventoy": {
+"release_downloads_recent100": 17211891,
+"releases": 100,
+"latest_release": "v1.1.18"
+},
+"shareAI-lab/learn-claude-code": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"awesomedata/awesome-public-datasets": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v20230903"
+},
+"dair-ai/Prompt-Engineering-Guide": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"anuraghazra/github-readme-stats": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"coder/code-server": {
+"release_downloads_recent100": 7189531,
+"releases": 100,
+"latest_release": "v4.145.2"
+},
+"OpenMontageInc/OpenMontage": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"microsoft/ai-agents-for-beginners": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"headroomlabs-ai/headroom": {
+"release_downloads_recent100": 16511,
+"releases": 100,
+"latest_release": "v0.44.0"
+},
+"obsproject/obs-studio": {
+"release_downloads_recent100": 14955270,
+"releases": 100,
+"latest_release": "33.0.1"
+},
+"unslothai/unsloth": {
+"release_downloads_recent100": 5511933,
+"releases": 86,
+"latest_release": "v0.1.916-beta"
+},
+"ComposioHQ/awesome-claude-skills": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"doocs/advanced-java": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v2.0"
+},
+"caddyserver/caddy": {
+"release_downloads_recent100": 13078345,
+"releases": 100,
+"latest_release": "v2.11.9"
+},
+"AppFlowy-IO/AppFlowy": {
+"release_downloads_recent100": 6837734,
+"releases": 100,
+"latest_release": "0.15.0"
+},
+"elastic/elasticsearch": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v8.19.25"
+},
+"storytold/photocraft": {
+"release_downloads_recent100": 4711276,
+"releases": 25,
+"latest_release": "v0.22.0"
+},
+"Asabeneh/30-Days-Of-Python": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"rohitg00/ai-engineering-from-scratch": {
+"release_downloads_recent100": 80158,
+"releases": 11,
+"latest_release": "v2026.11.2"
+},
+"python/cpython": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"grafana/grafana": {
+"release_downloads_recent100": 34905,
+"releases": 100,
+"latest_release": "v13.3.1"
+},
+"tensorflow/models": {
+"release_downloads_recent100": 0,
+"releases": 51,
+"latest_release": "v2.20.0"
+},
+"tesseract-ocr/tesseract": {
+"release_downloads_recent100": 4597938,
+"releases": 37,
+"latest_release": "5.5.4"
+},
+"redis/redis": {
+"release_downloads_recent100": 10269,
+"releases": 100,
+"latest_release": "8.12-rc2"
+},
+"colbymchenry/codegraph": {
+"release_downloads_recent100": 1065728,
+"releases": 33,
+"latest_release": "v1.6.2"
+},
+"nomic-ai/gpt4all": {
+"release_downloads_recent100": 240349,
+"releases": 38,
+"latest_release": "v3.10.0"
+},
+"ocornut/imgui": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.93.0"
+},
+"openai/openai-cookbook": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"FortAwesome/Font-Awesome": {
+"release_downloads_recent100": 1762031,
+"releases": 65,
+"latest_release": "7.3.1"
+},
+"nestjs/nest": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v12.4.1"
+},
+"MisterBooo/LeetCodeAnimation": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"PKUFlyingPig/cs-self-learning": {
+"release_downloads_recent100": 0,
+"releases": 5,
+"latest_release": "v1.2.0"
+},
+"chrislgarry/Apollo-11": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"sdmg15/Best-websites-a-programmer-should-visit": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"hiyouga/LlamaFactory": {
+"release_downloads_recent100": 5445,
+"releases": 36,
+"latest_release": "v0.9.5"
+},
+"hugohe3/ppt-master": {
+"release_downloads_recent100": 214386,
+"releases": 39,
+"latest_release": "v6.9.0"
+},
+"typicode/json-server": {
+"release_downloads_recent100": 0,
+"releases": 49,
+"latest_release": "v1.0.0-beta.15"
+},
+"binhnguyennus/awesome-scalability": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"apache/superset": {
+"release_downloads_recent100": 6135377,
+"releases": 100,
+"latest_release": "7.0.0rc2"
+},
+"Eugeny/tabby": {
+"release_downloads_recent100": 16878280,
+"releases": 100,
+"latest_release": "v1.0.238"
+},
+"openbq-org/OpenBB": {
+"release_downloads_recent100": 177344,
+"releases": 58,
+"latest_release": "openbb-v5.0.0"
+},
+"enaqx/awesome-react": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"pallets/flask": {
+"release_downloads_recent100": 14295,
+"releases": 38,
+"latest_release": "3.1.3"
+},
+"usestrix/strix": {
+"release_downloads_recent100": 183693,
+"releases": 31,
+"latest_release": "v1.7.1"
+},
+"eternity4719/HowToLiveBetter": {
+"release_downloads_recent100": 8696,
+"releases": 1,
+"latest_release": "epub-latest"
+},
+"josephmisiti/awesome-machine-learning": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"thedaviddias/Front-End-Checklist": {
+"release_downloads_recent100": 0,
+"releases": 2,
+"latest_release": "v2.0"
+},
+"danielmiessler/SecLists": {
+"release_downloads_recent100": 0,
+"releases": 31,
+"latest_release": "2026.2"
+},
+"tw93/Mole": {
+"release_downloads_recent100": 633345,
+"releases": 100,
+"latest_release": "V1.71.0"
+},
+"Fission-AI/OpenSpec": {
+"release_downloads_recent100": 46004,
+"releases": 58,
+"latest_release": "v1.17.0"
+},
+"juliangarnier/anime": {
+"release_downloads_recent100": 140,
+"releases": 37,
+"latest_release": "v4.5.0"
+},
+"toeverything/AFFiNE": {
+"release_downloads_recent100": 5010534,
+"releases": 99,
+"latest_release": "v2026.11.10-canary.905"
+},
+"fffaraz/awesome-cpp": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"twitter/the-algorithm": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"unionlabs/union": {
+"release_downloads_recent100": 8020,
+"releases": 100,
+"latest_release": "bundle-union-testnet-10/v1.3.0-rc4"
+},
+"CompVis/stable-diffusion": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"vuejs/awesome-vue": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"strapi/strapi": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.61.0"
+},
+"prakhar1989/awesome-courses": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nektos/act": {
+"release_downloads_recent100": 9022926,
+"releases": 100,
+"latest_release": "v0.2.97"
+},
+"hakimel/reveal.js": {
+"release_downloads_recent100": 0,
+"releases": 52,
+"latest_release": "6.0.2"
+},
+"moby/moby": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "docker-v29.10.0-rc.1"
+},
+"remotion-dev/remotion": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.0.542"
+},
+"protocolbuffers/protobuf": {
+"release_downloads_recent100": 193206549,
+"releases": 100,
+"latest_release": "v37.0-rc2"
+},
+"binary-husky/gpt_academic": {
+"release_downloads_recent100": 74080,
+"releases": 32,
+"latest_release": "version3.91"
+},
+"cline/cline": {
+"release_downloads_recent100": 466943,
+"releases": 100,
+"latest_release": "v4.1.26"
+},
+"ansible/ansible": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.22.0"
+},
+"daytonaio/daytona": {
+"release_downloads_recent100": 131737,
+"releases": 100,
+"latest_release": "v0.190.0"
+},
+"FoundationAgents/MetaGPT": {
+"release_downloads_recent100": 748,
+"releases": 22,
+"latest_release": "v0.8.2"
+},
+"asgeirtj/system_prompts_leaks": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ai-job-search-dev/ai-job-search": {
+"release_downloads_recent100": 0,
+"releases": 13,
+"latest_release": "v1.7.5"
+},
+"NanmiCoder/MediaCrawler": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"code-yeongyu/oh-my-openagent": {
+"release_downloads_recent100": 55994,
+"releases": 100,
+"latest_release": "v5.1.69"
+},
+"microsoft/AI-For-Beginners": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"dani-garcia/vaultwarden": {
+"release_downloads_recent100": 0,
+"releases": 89,
+"latest_release": "1.37.5"
+},
+"swiftlang/swift": {
+"release_downloads_recent100": 0,
+"releases": 73,
+"latest_release": "swift-6.4.2-RELEASE"
+},
+"docling-project/docling": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.150.0"
+},
+"byoungd/up": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"BurntSushi/ripgrep": {
+"release_downloads_recent100": 72855135,
+"releases": 75,
+"latest_release": "15.2.0"
+},
+"ZhuLinsen/daily_stock_analysis": {
+"release_downloads_recent100": 123098,
+"releases": 38,
+"latest_release": "v3.34.0"
+},
+"cloudflare/security-audit-skill": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"expressjs/express": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.3.0"
+},
+"gorhill/uBlock": {
+"release_downloads_recent100": 3333788,
+"releases": 99,
+"latest_release": "1.76.1b0"
+},
+"Ebony-Vinyl/dsh-our-free-model": {
+"release_downloads_recent100": 92647,
+"releases": 16,
+"latest_release": "v2.8.3"
+},
+"shanraisshan/claude-code-best-practice": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"openinterpreter/openinterpreter": {
+"release_downloads_recent100": 153083,
+"releases": 78,
+"latest_release": "rust-v0.0.61"
+},
+"mem0ai/mem0": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.2.1"
+},
+"Alishahryar1/free-claude-code": {
+"release_downloads_recent100": 23715,
+"releases": 100,
+"latest_release": "v6.19.6"
+},
+"base/node": {
+"release_downloads_recent100": 0,
+"releases": 86,
+"latest_release": "v1.2.0"
+},
+"Mintplex-Labs/anything-llm": {
+"release_downloads_recent100": 646040,
+"releases": 39,
+"latest_release": "v1.19.0"
+},
+"scikit-learn/scikit-learn": {
+"release_downloads_recent100": 1151,
+"releases": 51,
+"latest_release": "1.9.1"
+},
+"chartjs/Chart.js": {
+"release_downloads_recent100": 29854848,
+"releases": 100,
+"latest_release": "v4.6.1"
+},
+"labmlai/annotated_deep_learning_paper_implementations": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"apache/echarts": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "6.1.0"
+},
+"blader/humanizer": {
+"release_downloads_recent100": 5343,
+"releases": 7,
+"latest_release": "v4.0.0"
+},
+"prometheus/prometheus": {
+"release_downloads_recent100": 29164644,
+"releases": 100,
+"latest_release": "v3.16.0"
+},
+"sindresorhus/awesome-nodejs": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"bradtraversy/design-resources-for-developers": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"mvanhorn/last30days-skill": {
+"release_downloads_recent100": 23076,
+"releases": 64,
+"latest_release": "v3.36.0"
+},
+"LadybirdBrowser/ladybird": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"xtekky/gpt4free": {
+"release_downloads_recent100": 25552,
+"releases": 100,
+"latest_release": "v8.9.2"
+},
+"FFmpeg/FFmpeg": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"TheAlgorithms/Java": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"meta/docusaurus": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v3.10.2"
+},
+"leonardomso/33-js-concepts": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"cathrynlavery/diagram-design": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"alacritty/alacritty": {
+"release_downloads_recent100": 2938655,
+"releases": 100,
+"latest_release": "v0.17.0"
+},
+"kelseyhightower/nocode": {
+"release_downloads_recent100": 7537,
+"releases": 1,
+"latest_release": "1.0.0"
+},
+"webpack/webpack": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.112.2"
+},
+"warpdotdev/warp": {
+"release_downloads_recent100": 0,
+"releases": 55,
+"latest_release": "v0.2026.06.09.19.54.dev_00"
+},
+"coollabsio/coolify": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.7.5"
+},
+"ChrisTitusTech/winutil": {
+"release_downloads_recent100": 23539570,
+"releases": 48,
+"latest_release": "26.10.28"
+},
+"2dust/v2rayNG": {
+"release_downloads_recent100": 18812552,
+"releases": 100,
+"latest_release": "2.3.15"
+},
+"kdn251/interviews": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"traefik/traefik": {
+"release_downloads_recent100": 1000782,
+"releases": 100,
+"latest_release": "v3.8.0-rc.2"
+},
+"nocodb/nocodb": {
+"release_downloads_recent100": 165043,
+"releases": 100,
+"latest_release": "2026.10.1"
+},
+"scrapy/scrapy": {
+"release_downloads_recent100": 0,
+"releases": 55,
+"latest_release": "2.20.0"
+},
+"lydiahallie/javascript-questions": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ryanoasis/nerd-fonts": {
+"release_downloads_recent100": 47368401,
+"releases": 40,
+"latest_release": "v3.5.1"
+},
+"localstack/localstack": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.14.0"
+},
+"jingyaogong/minimind": {
+"release_downloads_recent100": 0,
+"releases": 2,
+"latest_release": "v2"
+},
+"RVC-Boss/GPT-SoVITS": {
+"release_downloads_recent100": 0,
+"releases": 4,
+"latest_release": "20250606v2pro"
+},
+"rust-lang/rustlings": {
+"release_downloads_recent100": 0,
+"releases": 46,
+"latest_release": "v6.5.0"
+},
+"virattt/ai-hedge-fund": {
+"release_downloads_recent100": 0,
+"releases": 24,
+"latest_release": "v2.7.2"
+},
+"karpathy/nanoGPT": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"termux/termux-app": {
+"release_downloads_recent100": 11190997,
+"releases": 95,
+"latest_release": "v0.119.0-beta.3"
+},
+"upstash/context7": {
+"release_downloads_recent100": 576,
+"releases": 100,
+"latest_release": "mcpb-v4.6.0"
+},
+"keras-team/keras": {
+"release_downloads_recent100": 0,
+"releases": 93,
+"latest_release": "v3.15.1"
+},
+"usememos/memos": {
+"release_downloads_recent100": 71025,
+"releases": 100,
+"latest_release": "26.11.0"
+},
+"git/git": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"bilawalsidhu/gods-eye-view": {
+"release_downloads_recent100": 0,
+"releases": 5,
+"latest_release": "v0.3.0"
+},
+"tldr-pages/tldr": {
+"release_downloads_recent100": 29756,
+"releases": 6,
+"latest_release": "v2.3"
+},
+"gsd-build/get-shit-done": {
+"release_downloads_recent100": 69,
+"releases": 78,
+"latest_release": "v1.43.0-rc2"
+},
+"commaai/openpilot": {
+"release_downloads_recent100": 0,
+"releases": 64,
+"latest_release": "v0.11.2"
+},
+"ghostty-org/ghostty": {
+"release_downloads_recent100": 33,
+"releases": 1,
+"latest_release": "tip"
+},
+"jgraph/drawio-desktop": {
+"release_downloads_recent100": 119204865,
+"releases": 100,
+"latest_release": "v32.6.10"
+},
+"topjohnwu/Magisk": {
+"release_downloads_recent100": 167347335,
+"releases": 100,
+"latest_release": "v31.1"
+},
+"withastro/astro": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "astro@7.4.9"
+},
+"marktext/marktext": {
+"release_downloads_recent100": 3787721,
+"releases": 60,
+"latest_release": "v0.24.0-rc.1"
+},
+"sansan0/TrendRadar": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ultralytics/ultralytics": {
+"release_downloads_recent100": 1314,
+"releases": 100,
+"latest_release": "v8.4.210"
+},
+"socketio/socket.io": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "engine.io-client@6.6.8"
+},
+"tw93/Pake": {
+"release_downloads_recent100": 625771,
+"releases": 58,
+"latest_release": "V3.18.0"
+},
+"BerriAI/litellm": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.106.8"
+},
+"resume/resume.github.com": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"youngyangyang04/leetcode-master": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"chen08209/FlClash": {
+"release_downloads_recent100": 18823780,
+"releases": 100,
+"latest_release": "v0.9.3"
+},
+"Raphire/Win11Debloat": {
+"release_downloads_recent100": 4203774,
+"releases": 39,
+"latest_release": "2026.10.30"
+},
+"makeplane/plane": {
+"release_downloads_recent100": 323469,
+"releases": 68,
+"latest_release": "v1.5.0-rc1"
+},
+"penpot/penpot": {
+"release_downloads_recent100": 0,
+"releases": 95,
+"latest_release": "2.19.0"
+},
+"1c7/chinese-independent-developer": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"pathwaycom/pathway": {
+"release_downloads_recent100": 3566,
+"releases": 89,
+"latest_release": "v0.32.1"
+},
+"Solido/awesome-flutter": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"pi-hole/pi-hole": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v6.5"
+},
+"microsoft/autogen": {
+"release_downloads_recent100": 0,
+"releases": 98,
+"latest_release": "python-v0.7.5"
+},
+"pocketbase/pocketbase": {
+"release_downloads_recent100": 1852813,
+"releases": 100,
+"latest_release": "v0.40.6"
+},
+"reduxjs/redux": {
+"release_downloads_recent100": 0,
+"releases": 78,
+"latest_release": "v5.0.1"
+},
+"FuelLabs/sway": {
+"release_downloads_recent100": 1036450,
+"releases": 100,
+"latest_release": "v0.72.1"
+},
+"sharkdp/bat": {
+"release_downloads_recent100": 4112582,
+"releases": 43,
+"latest_release": "v0.26.1"
+},
+"lodash/lodash": {
+"release_downloads_recent100": 0,
+"releases": 4,
+"latest_release": "4.18.1"
+},
+"minio/minio": {
+"release_downloads_recent100": 27982338,
+"releases": 100,
+"latest_release": "RELEASE.2025-10-15T17-29-55Z"
+},
+"nuxt/nuxt": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.6.4"
+},
+"rclone/rclone": {
+"release_downloads_recent100": 10943980,
+"releases": 100,
+"latest_release": "v1.76.0"
+},
+"xingshaocheng/architect-awesome": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"h5bp/Front-end-Developer-Interview-Questions": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ayghri/i-have-adhd": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v0.4.1"
+},
+"twentyhq/twenty": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "twenty/v2.57.1"
+},
+"crewAIInc/crewAI": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "1.15.39"
+},
+"atom/atom": {
+"release_downloads_recent100": 10432001,
+"releases": 100,
+"latest_release": "v1.61.0-beta0"
+},
+"starship/starship": {
+"release_downloads_recent100": 9082672,
+"releases": 100,
+"latest_release": "v1.27.0"
+},
+"MemPalace/mempalace": {
+"release_downloads_recent100": 2005,
+"releases": 19,
+"latest_release": "v3.11.0"
+},
+"rust-unofficial/awesome-rust": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"karpathy/nanochat": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"jamiepine/voicebox": {
+"release_downloads_recent100": 3492370,
+"releases": 25,
+"latest_release": "v0.5.0"
+},
+"vectorize-io/hindsight": {
+"release_downloads_recent100": 71464,
+"releases": 76,
+"latest_release": "v1.2.1"
+},
+"spring-projects/spring-framework": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v7.1.0-RC2"
+},
+"tiimgreen/github-cheat-sheet": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"adam-p/markdown-here": {
+"release_downloads_recent100": 13472,
+"releases": 17,
+"latest_release": "v2.16.0"
+},
+"CorentinJ/Real-Time-Voice-Cloning": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Lordog/dive-into-llms": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v1"
+},
+"jquery/jquery": {
+"release_downloads_recent100": 0,
+"releases": 13,
+"latest_release": "4.0.0"
+},
+"FiloSottile/mkcert": {
+"release_downloads_recent100": 24207613,
+"releases": 14,
+"latest_release": "v1.4.4"
+},
+"meilisearch/meilisearch": {
+"release_downloads_recent100": 663603,
+"releases": 100,
+"latest_release": "v1.56.2"
+},
+"coreyhaines31/marketingskills": {
+"release_downloads_recent100": 70643,
+"releases": 100,
+"latest_release": "v2.14.10"
+},
+"meta-llama/llama": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"shadowsocks/shadowsocks-windows": {
+"release_downloads_recent100": 144809739,
+"releases": 55,
+"latest_release": "4.4.1.0"
+},
+"jellyfin/jellyfin": {
+"release_downloads_recent100": 32657,
+"releases": 100,
+"latest_release": "v12.4"
+},
+"rails/rails": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v8.1.4.1"
+},
+"go-gitea/gitea": {
+"release_downloads_recent100": 1705121,
+"releases": 100,
+"latest_release": "v28.3.0"
+},
+"FoundationAgents/OpenManus": {
+"release_downloads_recent100": 0,
+"releases": 3,
+"latest_release": "v0.3.0"
+},
+"pmndrs/zustand": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.1.0"
+},
+"pathwaycom/serviette": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v0.1.8"
+},
+"HKUDS/CLI-Anything": {
+"release_downloads_recent100": 0,
+"releases": 3,
+"latest_release": "v0.4.0"
+},
+"angular/angular.js": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"wasabeef/awesome-android-ui": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ultralytics/yolov5": {
+"release_downloads_recent100": 135229462,
+"releases": 10,
+"latest_release": "v7.0"
+},
+"router-for-me/CLIProxyAPI": {
+"release_downloads_recent100": 667589,
+"releases": 100,
+"latest_release": "v8.0.66"
+},
+"agalwood/Motrix": {
+"release_downloads_recent100": 23242110,
+"releases": 66,
+"latest_release": "v2.4.1"
+},
+"HKUDS/DeepTutor": {
+"release_downloads_recent100": 18650,
+"releases": 90,
+"latest_release": "v1.7.2"
+},
+"appwrite/appwrite": {
+"release_downloads_recent100": 3494,
+"releases": 100,
+"latest_release": "2.7.1"
+},
+"Textualize/rich": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v15.0.0"
+},
+"hesreallyhim/awesome-claude-code": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"bojieli/ai-agent-book": {
+"release_downloads_recent100": 79527,
+"releases": 1,
+"latest_release": "latest"
+},
+"scutan90/DeepLearning-500-questions": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"h5bp/html5-boilerplate": {
+"release_downloads_recent100": 3194095,
+"releases": 34,
+"latest_release": "v9.0.1"
+},
+"zylon-ai/private-gpt": {
+"release_downloads_recent100": 807,
+"releases": 14,
+"latest_release": "v1.0.1"
+},
+"deepfakes/faceswap": {
+"release_downloads_recent100": 141090,
+"releases": 5,
+"latest_release": "v3.0.0"
+},
+"Zie619/n8n-workflows": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "dmca-compliance-2025-08-14"
+},
+"laurent22/joplin": {
+"release_downloads_recent100": 9454894,
+"releases": 100,
+"latest_release": "v3.7.22"
+},
+"typst/typst": {
+"release_downloads_recent100": 5901375,
+"releases": 30,
+"latest_release": "v0.15.1"
+},
+"microsoft/VibeVoice": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ageitgey/face_recognition": {
+"release_downloads_recent100": 1473,
+"releases": 2,
+"latest_release": "v1.2.2"
+},
+"soimort/you-get": {
+"release_downloads_recent100": 406628,
+"releases": 100,
+"latest_release": "v0.4.1743"
+},
+"firstcontributions/first-contributions": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"K-Dense-AI/scientific-agent-skills": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.72.0"
+},
+"FuelLabs/fuel-core": {
+"release_downloads_recent100": 1126393,
+"releases": 100,
+"latest_release": "v0.48.4"
+},
+"freqtrade/freqtrade": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "2026.10"
+},
+"golang-standards/project-layout": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"remix-run/react-router": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "react-router@8.5.1"
+},
+"bannedbook/fanqiang": {
+"release_downloads_recent100": 31355,
+"releases": 3,
+"latest_release": "FQNews-v1.3.8"
+},
+"aaif-goose/goose": {
+"release_downloads_recent100": 2194583,
+"releases": 100,
+"latest_release": "v1.59.0"
+},
+"Imbad0202/academic-research-skills": {
+"release_downloads_recent100": 0,
+"releases": 51,
+"latest_release": "v3.24.2"
+},
+"Gathin23/cleanyourtv": {
+"release_downloads_recent100": 0,
+"releases": 12,
+"latest_release": "v3.4.0"
+},
+"PowerShell/PowerShell": {
+"release_downloads_recent100": 121414805,
+"releases": 100,
+"latest_release": "v7.7.0"
+},
+"pingdotgg/t3code": {
+"release_downloads_recent100": 16799265,
+"releases": 100,
+"latest_release": "v0.1.9-nightly.20261111.4501"
+},
+"emilkowalski/skills": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"gatsbyjs/gatsby": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "gatsby@5.16.1"
+},
+"WerWolv/ImHex": {
+"release_downloads_recent100": 1551248,
+"releases": 82,
+"latest_release": "nightly"
+},
+"TryGhost/Ghost": {
+"release_downloads_recent100": 2161,
+"releases": 100,
+"latest_release": "v6.76.0"
+},
+"azl397985856/leetcode": {
+"release_downloads_recent100": 0,
+"releases": 40,
+"latest_release": "v0.39"
+},
+"odoo/odoo": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"multica-ai/multica": {
+"release_downloads_recent100": 12840933,
+"releases": 100,
+"latest_release": "v0.8.2"
+},
+"ngosang/trackerslist": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"FlowiseAI/Flowise": {
+"release_downloads_recent100": 0,
+"releases": 85,
+"latest_release": "flowise@3.1.4"
+},
+"romkatv/powerlevel10k": {
+"release_downloads_recent100": 7275,
+"releases": 33,
+"latest_release": "v1.20.0"
+},
+"lyswhut/lx-music-desktop": {
+"release_downloads_recent100": 44595177,
+"releases": 100,
+"latest_release": "v2.12.6"
+},
+"bmad-code-org/BMAD-METHOD": {
+"release_downloads_recent100": 1141,
+"releases": 44,
+"latest_release": "v6.12.4"
+},
+"facebookresearch/segment-anything": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ChromeDevTools/chrome-devtools-mcp": {
+"release_downloads_recent100": 0,
+"releases": 64,
+"latest_release": "chrome-devtools-mcp-v1.12.0"
+},
+"ggml-org/whisper.cpp": {
+"release_downloads_recent100": 1726543,
+"releases": 45,
+"latest_release": "v1.9.5"
+},
+"AntonOsika/gpt-engineer": {
+"release_downloads_recent100": 0,
+"releases": 21,
+"latest_release": "v0.3.1"
+},
+"vuejs/core": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v3.5.45"
+},
+"psf/requests": {
+"release_downloads_recent100": 47945,
+"releases": 19,
+"latest_release": "v2.34.2"
+},
+"wagoodman/dive": {
+"release_downloads_recent100": 2642614,
+"releases": 28,
+"latest_release": "v0.13.1"
+},
+"lencx/ChatGPT": {
+"release_downloads_recent100": 6287204,
+"releases": 34,
+"latest_release": "v1.1.0"
+},
+"anthropics/claude-cookbooks": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"google/material-design-icons": {
+"release_downloads_recent100": 1155943,
+"releases": 16,
+"latest_release": "4.0.0"
+},
+"chinese-poetry/chinese-poetry": {
+"release_downloads_recent100": 6329,
+"releases": 1,
+"latest_release": "v0.1"
+},
+"maybe-finance/maybe": {
+"release_downloads_recent100": 0,
+"releases": 28,
+"latest_release": "v0.6.0"
+},
+"dockur/windows": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v6.06"
+},
+"mozilla/pdf.js": {
+"release_downloads_recent100": 4494743,
+"releases": 91,
+"latest_release": "v6.5.438"
+},
+"ElemeFE/element": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.15.14"
+},
+"vsouza/awesome-ios": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"lllyasviel/Fooocus": {
+"release_downloads_recent100": 2679376,
+"releases": 21,
+"latest_release": "v2.5.5"
+},
+"VoltAgent/awesome-openclaw-skills": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"JetBrains/kotlin": {
+"release_downloads_recent100": 34561444,
+"releases": 100,
+"latest_release": "v2.5.0-Beta2"
+},
+"necolas/normalize.css": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"expo/expo": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "uri-scheme@2.3.2"
+},
+"CherryHQ/cherry-studio": {
+"release_downloads_recent100": 30126864,
+"releases": 100,
+"latest_release": "v2.2.0"
+},
+"jesseduffield/lazydocker": {
+"release_downloads_recent100": 2159794,
+"releases": 47,
+"latest_release": "v0.25.2"
+},
+"dkhamsing/open-source-ios-apps": {
+"release_downloads_recent100": 96,
+"releases": 39,
+"latest_release": "3.3.2"
+},
+"poteto/hiring-without-whiteboards": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Yuan1z0825/nature-skills": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"boykopovar/AnyPS5": {
+"release_downloads_recent100": 212084,
+"releases": 5,
+"latest_release": "v0.1.4"
+},
+"sickcodes/Docker-OSX": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"run-llama/llama_index": {
+"release_downloads_recent100": 1955,
+"releases": 100,
+"latest_release": "v0.14.25"
+},
+"Nutlope/hallmark": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ionic-team/ionic-framework": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v9.0.10"
+},
+"etcd-io/etcd": {
+"release_downloads_recent100": 18979793,
+"releases": 100,
+"latest_release": "v3.7.3"
+},
+"prettier/prettier": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "3.9.10"
+},
+"dbeaver/dbeaver": {
+"release_downloads_recent100": 45916140,
+"releases": 100,
+"latest_release": "26.2.4"
+},
+"xai-org/grok-1": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"elder-plinius/CL4R1T4S": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"upscayl/upscayl": {
+"release_downloads_recent100": 84639185,
+"releases": 29,
+"latest_release": "v2.15.0"
+},
+"Avik-Jain/100-Days-Of-ML-Code": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"google/guava": {
+"release_downloads_recent100": 40946,
+"releases": 62,
+"latest_release": "v33.8.0"
+},
+"jekyll/jekyll": {
+"release_downloads_recent100": 1647,
+"releases": 100,
+"latest_release": "v4.4.1"
+},
+"skylot/jadx": {
+"release_downloads_recent100": 6888754,
+"releases": 35,
+"latest_release": "v1.5.6"
+},
+"QuantumNous/new-api": {
+"release_downloads_recent100": 186870,
+"releases": 100,
+"latest_release": "v1.0.0-rc.49"
+},
+"DavidHDev/react-bits": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"charlax/professional-programming": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"KeygraphHQ/shannon": {
+"release_downloads_recent100": 0,
+"releases": 29,
+"latest_release": "v3.5.0"
+},
+"kepano/obsidian-skills": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"roboflow/supervision": {
+"release_downloads_recent100": 1217,
+"releases": 56,
+"latest_release": "0.31.6"
+},
+"ethereum/go-ethereum": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.17.10"
+},
+"DefinitelyTyped/DefinitelyTyped": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "0.1.450"
+},
+"tldraw/tldraw": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.6.0"
+},
+"serhii-londar/open-source-mac-os-apps": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"moeru-ai/airi": {
+"release_downloads_recent100": 690194,
+"releases": 94,
+"latest_release": "v0.15.2"
+},
+"astral-sh/ruff": {
+"release_downloads_recent100": 35161546,
+"releases": 100,
+"latest_release": "0.17.4"
+},
+"justjavac/wechat-miniapp-radar": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"apple/container": {
+"release_downloads_recent100": 241884,
+"releases": 27,
+"latest_release": "1.7.1"
+},
+"chenglou/pretext": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v1.0.0"
+},
+"cypress-io/cypress": {
+"release_downloads_recent100": 1196,
+"releases": 100,
+"latest_release": "v16.3.0"
+},
+"Semantic-Org/Semantic-UI": {
+"release_downloads_recent100": 4170,
+"releases": 100,
+"latest_release": "2.5.0"
+},
+"nlohmann/json": {
+"release_downloads_recent100": 40168485,
+"releases": 45,
+"latest_release": "v3.12.0"
+},
+"ClickHouse/ClickHouse": {
+"release_downloads_recent100": 316664,
+"releases": 100,
+"latest_release": "v26.10.2.103-stable"
+},
+"team-spotube/spotube": {
+"release_downloads_recent100": 5488780,
+"releases": 46,
+"latest_release": "v6.0.0"
+},
+"kelseyhightower/kubernetes-the-hard-way": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"pandas-dev/pandas": {
+"release_downloads_recent100": 4386392,
+"releases": 100,
+"latest_release": "v3.1.1"
+},
+"TanStack/query": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "release-2026-11-06-2304"
+},
+"lukasz-madon/awesome-remote-job": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"mastodon/mastodon": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.0.0-beta.1"
+},
+"huginn/huginn": {
+"release_downloads_recent100": 0,
+"releases": 14,
+"latest_release": "v2026.11.09"
+},
+"AlistGo/alist": {
+"release_downloads_recent100": 4889080,
+"releases": 100,
+"latest_release": "v3.66.0"
+},
+"jakevdp/PythonDataScienceHandbook": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"tashfeenahmed/freellmapi": {
+"release_downloads_recent100": 586047,
+"releases": 76,
+"latest_release": "v0.16.24"
+},
+"Homebrew/brew": {
+"release_downloads_recent100": 2348704,
+"releases": 100,
+"latest_release": "7.0.13"
+},
+"mudler/LocalAI": {
+"release_downloads_recent100": 210438,
+"releases": 100,
+"latest_release": "v4.12.1"
+},
+"x64dbg/x64dbg": {
+"release_downloads_recent100": 380322,
+"releases": 6,
+"latest_release": "2026.05.27"
+},
+"metabase/metabase": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v0.65.3"
+},
+"tmux/tmux": {
+"release_downloads_recent100": 5357144,
+"releases": 45,
+"latest_release": "3.8"
+},
+"microsoft/qlib": {
+"release_downloads_recent100": 1606,
+"releases": 24,
+"latest_release": "v0.9.8"
+},
+"hashicorp/terraform": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.17.1"
+},
+"herdrdev/herdr": {
+"release_downloads_recent100": 2100587,
+"releases": 98,
+"latest_release": "v0.9.5"
+},
+"Aider-AI/aider": {
+"release_downloads_recent100": 0,
+"releases": 93,
+"latest_release": "v0.86.0"
+},
+"jgthms/bulma": {
+"release_downloads_recent100": 952122,
+"releases": 22,
+"latest_release": "1.0.4"
+},
+"HKUDS/nanobot": {
+"release_downloads_recent100": 3198,
+"releases": 22,
+"latest_release": "v0.4.1"
+},
+"GokuMohandas/Made-With-ML": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v1.1.0"
+},
+"calcom/cal.diy": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v6.2.0"
+},
+"NARKOZ/hacker-scripts": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"JustVugg/colibri": {
+"release_downloads_recent100": 114869,
+"releases": 21,
+"latest_release": "v2.1.0"
+},
+"alibaba/open-code-review": {
+"release_downloads_recent100": 342161,
+"releases": 100,
+"latest_release": "v1.13.7"
+},
+"DovAmir/awesome-design-patterns": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"MHSanaei/3x-ui": {
+"release_downloads_recent100": 10304379,
+"releases": 100,
+"latest_release": "dev-latest"
+},
+"bevyengine/bevy": {
+"release_downloads_recent100": 0,
+"releases": 62,
+"latest_release": "v0.20.1"
+},
+"bigskysoftware/htmx": {
+"release_downloads_recent100": 39459,
+"releases": 37,
+"latest_release": "v4.0.1"
+},
+"sickn33/agentic-awesome-skills": {
+"release_downloads_recent100": 202,
+"releases": 100,
+"latest_release": "v20.7.0"
+},
+"akullpp/awesome-java": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"algorithm-visualizer/algorithm-visualizer": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"vercel-labs/agent-browser": {
+"release_downloads_recent100": 657298,
+"releases": 100,
+"latest_release": "v0.42.0"
+},
+"slidevjs/slidev": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v53.1.0"
+},
+"JuliaLang/julia": {
+"release_downloads_recent100": 163870,
+"releases": 100,
+"latest_release": "v1.10.13"
+},
+"nilbuild/design-patterns-for-humans": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"brillout/awesome-react-components": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"pixijs/pixijs": {
+"release_downloads_recent100": 48562,
+"releases": 100,
+"latest_release": "v8.22.0"
+},
+"iamkun/dayjs": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.11.23"
+},
+"hiroi-sora/Umi-OCR": {
+"release_downloads_recent100": 647700,
+"releases": 31,
+"latest_release": "v2.1.5"
+},
+"type-challenges/type-challenges": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"DeusData/codebase-memory-mcp": {
+"release_downloads_recent100": 1915490,
+"releases": 49,
+"latest_release": "v0.12.1"
+},
+"jeecgboot/JeecgBoot": {
+"release_downloads_recent100": 0,
+"releases": 67,
+"latest_release": "v3.9.6"
+},
+"GitHubDaily/GitHubDaily": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"abhigyanpatwari/GitNexus": {
+"release_downloads_recent100": 793,
+"releases": 100,
+"latest_release": "v1.6.13-rc.219"
+},
+"SimplifyJobs/Summer2027-Internships": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"usebruno/bruno": {
+"release_downloads_recent100": 75828813,
+"releases": 100,
+"latest_release": "v4.3.0"
+},
+"exo-explore/exo": {
+"release_downloads_recent100": 6704,
+"releases": 16,
+"latest_release": "v1.0.71"
+},
+"nvm-windows/nvm": {
+"release_downloads_recent100": 19426665,
+"releases": 51,
+"latest_release": "v2.1.0-beta.12"
+},
+"ReactiveX/RxJava": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.0.0-alpha-21"
+},
+"karan/Projects": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"discourse/discourse": {
+"release_downloads_recent100": 2819,
+"releases": 1,
+"latest_release": "_gh-attach-assets"
+},
+"paperless-ngx/paperless-ngx": {
+"release_downloads_recent100": 368164,
+"releases": 100,
+"latest_release": "v3.4.2"
+},
+"acmesh-official/acme.sh": {
+"release_downloads_recent100": 0,
+"releases": 50,
+"latest_release": "3.1.6"
+},
+"gogs/gogs": {
+"release_downloads_recent100": 423595,
+"releases": 98,
+"latest_release": "latest-commit-build"
+},
+"zhayujie/CowAgent": {
+"release_downloads_recent100": 2656,
+"releases": 86,
+"latest_release": "2.2.2"
+},
+"moment/moment": {
+"release_downloads_recent100": 0,
+"releases": 2,
+"latest_release": "2.31.0"
+},
+"dypsilon/frontend-dev-bookmarks": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v.1.0"
+},
+"oobabooga/textgen": {
+"release_downloads_recent100": 314527,
+"releases": 100,
+"latest_release": "v4.9"
+},
+"minimaxir/big-list-of-naughty-strings": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"prisma/orm": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v8.0.0-rc.23"
+},
+"shiyu-coder/Kronos": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"apache/airflow": {
+"release_downloads_recent100": 89485,
+"releases": 100,
+"latest_release": "3.4.0"
+},
+"slab/quill": {
+"release_downloads_recent100": 531205,
+"releases": 95,
+"latest_release": "v2.0.3"
+},
+"9001/copyparty": {
+"release_downloads_recent100": 556882,
+"releases": 100,
+"latest_release": "v1.20.26"
+},
+"gedoor/legado": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"siyuan-note/siyuan": {
+"release_downloads_recent100": 547258,
+"releases": 100,
+"latest_release": "v3.8.10"
+},
+"lysine-dev/okhttp": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"iina/iina": {
+"release_downloads_recent100": 1466027,
+"releases": 55,
+"latest_release": "v1.5.1"
+},
+"typescript-cheatsheets/react": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Asabeneh/30-Days-Of-JavaScript": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"microsoft/monaco-editor": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v0.58.0-dev-20261109"
+},
+"cli/cli": {
+"release_downloads_recent100": 109898357,
+"releases": 100,
+"latest_release": "v2.103.3"
+},
+"LibreChat-AI/LibreChat": {
+"release_downloads_recent100": 1071,
+"releases": 99,
+"latest_release": "v0.8.9-rc1"
+},
+"helix-editor/helix": {
+"release_downloads_recent100": 750859,
+"releases": 30,
+"latest_release": "25.07.1"
+},
+"serverless/serverless": {
+"release_downloads_recent100": 120904,
+"releases": 100,
+"latest_release": "sf-core@4.46.0"
+},
+"DIYgod/RSSHub": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2026.11.11-8624.e58c57e"
+},
+"luongnv89/claude-howto": {
+"release_downloads_recent100": 2496,
+"releases": 10,
+"latest_release": "v2.1.160"
+},
+"v2ray/v2ray-core": {
+"release_downloads_recent100": 11407837,
+"releases": 100,
+"latest_release": "v4.31.0"
+},
+"jgm/pandoc": {
+"release_downloads_recent100": 44295426,
+"releases": 100,
+"latest_release": "3.13"
+},
+"zhongyang219/TrafficMonitor": {
+"release_downloads_recent100": 4626361,
+"releases": 27,
+"latest_release": "V1.86"
+},
+"karanpratapsingh/system-design": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"mitmproxy/mitmproxy": {
+"release_downloads_recent100": 227827,
+"releases": 83,
+"latest_release": "v12.3.1"
+},
+"anthropics/claude-plugins-official": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"DataTalksClub/data-engineering-zoomcamp": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"omacom/omarchy": {
+"release_downloads_recent100": 0,
+"releases": 72,
+"latest_release": "v4.5.0"
+},
+"docker/awesome-compose": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"AstrBotDevs/AstrBot": {
+"release_downloads_recent100": 153555,
+"releases": 100,
+"latest_release": "v4.29.4"
+},
+"LeCoupa/awesome-cheatsheets": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"milvus-io/milvus": {
+"release_downloads_recent100": 323577,
+"releases": 100,
+"latest_release": "v2.6.27"
+},
+"files-community/Files": {
+"release_downloads_recent100": 56388,
+"releases": 100,
+"latest_release": "v4.3"
+},
+"RocketChat/Rocket.Chat": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "9.0.0"
+},
+"vnpy/vnpy": {
+"release_downloads_recent100": 0,
+"releases": 68,
+"latest_release": "4.5.0"
+},
+"streamlit/streamlit": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "1.67.0"
+},
+"fastapi/full-stack-fastapi-template": {
+"release_downloads_recent100": 0,
+"releases": 15,
+"latest_release": "0.12.0"
+},
+"coqui-ai/TTS": {
+"release_downloads_recent100": 7020562,
+"releases": 98,
+"latest_release": "v0.22.0"
+},
+"ziishaned/learn-regex": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"imputnet/cobalt": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"mifi/lossless-cut": {
+"release_downloads_recent100": 6937297,
+"releases": 100,
+"latest_release": "v3.70.2"
+},
+"Leaflet/Leaflet": {
+"release_downloads_recent100": 165967,
+"releases": 37,
+"latest_release": "v2.0.0-beta.3"
+},
+"android/architecture-samples": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"google/zx": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "8.8.5"
+},
+"Wei-Shaw/sub2api": {
+"release_downloads_recent100": 1378797,
+"releases": 65,
+"latest_release": "v0.2.21"
+},
+"chatanywhere/GPT_API_free": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"payloadcms/payload": {
+"release_downloads_recent100": 62,
+"releases": 100,
+"latest_release": "v4.0.0-beta.8"
+},
+"juspay/hyperswitch": {
+"release_downloads_recent100": 121,
+"releases": 100,
+"latest_release": "v1.129.0"
+},
+"getsentry/sentry": {
+"release_downloads_recent100": 3628,
+"releases": 100,
+"latest_release": "26.10.1"
+},
+"zen-browser/desktop": {
+"release_downloads_recent100": 25155727,
+"releases": 100,
+"latest_release": "1.24.1b"
+},
+"ColorlibHQ/AdminLTE": {
+"release_downloads_recent100": 76022,
+"releases": 100,
+"latest_release": "v4.10.1"
+},
+"charmbracelet/bubbletea": {
+"release_downloads_recent100": 0,
+"releases": 83,
+"latest_release": "v2.1.1"
+},
+"janhq/jan": {
+"release_downloads_recent100": 7338506,
+"releases": 100,
+"latest_release": "v0.8.8"
+},
+"reactive-resume/reactive-resume": {
+"release_downloads_recent100": 1639,
+"releases": 100,
+"latest_release": "v6.1.0"
+},
+"juanfont/headscale": {
+"release_downloads_recent100": 684346,
+"releases": 100,
+"latest_release": "v0.29.7"
+},
+"logseq/logseq": {
+"release_downloads_recent100": 95541885,
+"releases": 100,
+"latest_release": "nightly"
+},
+"jestjs/jest": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v30.5.2"
+},
+"isocpp/CppCoreGuidelines": {
+"release_downloads_recent100": 0,
+"releases": 4,
+"latest_release": "v0.8"
+},
+"grpc/grpc": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.81.2"
+},
+"pyenv/pyenv": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.8.15"
+},
+"sharkdp/fd": {
+"release_downloads_recent100": 12378735,
+"releases": 47,
+"latest_release": "v10.5.2"
+},
+"DataExpert-io/data-engineer-handbook": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"GitSquared/edex-ui": {
+"release_downloads_recent100": 1772127,
+"releases": 29,
+"latest_release": "v2.2.8"
+},
+"sudheerj/reactjs-interview-questions": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"react-hook-form/react-hook-form": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v8.0.0-beta.5"
+},
+"spf13/cobra": {
+"release_downloads_recent100": 0,
+"releases": 27,
+"latest_release": "v1.10.2"
+},
+"ccxt/ccxt": {
+"release_downloads_recent100": 82,
+"releases": 100,
+"latest_release": "v4.5.92"
+},
+"meteor/meteor": {
+"release_downloads_recent100": 0,
+"releases": 22,
+"latest_release": "release/METEOR@3.6"
+},
+"langchain-ai/langgraph": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "sdk==0.4.14"
+},
+"NaiboWang/EasySpider": {
+"release_downloads_recent100": 265100,
+"releases": 11,
+"latest_release": "v0.6.5"
+},
+"ifixai-ai/iFixAi": {
+"release_downloads_recent100": 0,
+"releases": 23,
+"latest_release": "v4.3.0"
+},
+"vercel/hyper": {
+"release_downloads_recent100": 57182417,
+"releases": 88,
+"latest_release": "v4.0.0-canary.5"
+},
+"danielmiessler/Fabric": {
+"release_downloads_recent100": 31277,
+"releases": 100,
+"latest_release": "v1.4.568"
+},
+"AykutSarac/jsoncrack.com": {
+"release_downloads_recent100": 0,
+"releases": 23,
+"latest_release": "v5.0.0"
+},
+"gkd-kit/gkd": {
+"release_downloads_recent100": 659267,
+"releases": 82,
+"latest_release": "v1.13.0"
+},
+"apache/spark": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"zhaoxuya520/reverse-skill": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v1.0.1"
+},
+"Kong/kong": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "3.9.4"
+},
+"zbezj/HEU_KMS_Activator": {
+"release_downloads_recent100": 4120326,
+"releases": 54,
+"latest_release": "64.0.0"
+},
+"colinhacks/zod": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.6.7"
+},
+"ray-project/ray": {
+"release_downloads_recent100": 280,
+"releases": 100,
+"latest_release": "ray-2.60.0"
+},
+"HeyPuter/puter": {
+"release_downloads_recent100": 0,
+"releases": 28,
+"latest_release": "26.11"
+},
+"babel/babel": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v7.29.13"
+},
+"gradio-app/gradio": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "gradio@7.0.0-dev.0"
+},
+"parcel-bundler/parcel": {
+"release_downloads_recent100": 0,
+"releases": 52,
+"latest_release": "v2.16.4"
+},
+"yangshun/front-end-interview-handbook": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"streamich/react-use": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v17.6.1"
+},
+"lysine-dev/retrofit": {
+"release_downloads_recent100": 0,
+"releases": 4,
+"latest_release": "3.0.0"
+},
+"astaxie/build-web-application-with-golang": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"aymericdamien/TensorFlow-Examples": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Light-City/CPlusPlusThings": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"aria2/aria2": {
+"release_downloads_recent100": 10158543,
+"releases": 24,
+"latest_release": "release-1.37.0"
+},
+"curl/curl": {
+"release_downloads_recent100": 18885375,
+"releases": 99,
+"latest_release": "curl-8_23_0"
+},
+"alex/what-happens-when": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"sxyazi/yazi": {
+"release_downloads_recent100": 795238,
+"releases": 33,
+"latest_release": "nightly"
+},
+"Unitech/pm2": {
+"release_downloads_recent100": 47,
+"releases": 100,
+"latest_release": "v7.1.2"
+},
+"deepspeedai/DeepSpeed": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v0.19.9"
+},
+"exelban/stats": {
+"release_downloads_recent100": 12609407,
+"releases": 100,
+"latest_release": "v3.0.26"
+},
+"freefq/free": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ziglang/zig": {
+"release_downloads_recent100": 85452,
+"releases": 21,
+"latest_release": "0.15.1"
+},
+"THU-MAIC/OpenMAIC": {
+"release_downloads_recent100": 0,
+"releases": 28,
+"latest_release": "v1.5.0-rc.1"
+},
+"SunshineStream/Sunshine": {
+"release_downloads_recent100": 8229904,
+"releases": 48,
+"latest_release": "v2026.1111.1438"
+},
+"ashishps1/awesome-system-design-resources": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Crosstalk-Solutions/project-nomad": {
+"release_downloads_recent100": 0,
+"releases": 81,
+"latest_release": "v1.35.1"
+},
+"agno-agi/agno": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v3.1.12"
+},
+"faif/python-patterns": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Niko1221/Strata": {
+"release_downloads_recent100": 3323722,
+"releases": 67,
+"latest_release": "v0.2.13"
+},
+"duckdb/duckdb": {
+"release_downloads_recent100": 10512900,
+"releases": 65,
+"latest_release": "v2.0.0"
+},
+"FuelLabs/fuels-rs": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v0.77.0"
+},
+"FuelLabs/fuels-ts": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v0.103.0"
+},
+"XTLS/Xray-core": {
+"release_downloads_recent100": 41529220,
+"releases": 100,
+"latest_release": "v26.11.9"
+},
+"saadeghi/daisyui": {
+"release_downloads_recent100": 183918,
+"releases": 100,
+"latest_release": "v5.7.50"
+},
+"mingrammer/diagrams": {
+"release_downloads_recent100": 0,
+"releases": 46,
+"latest_release": "v0.25.1"
+},
+"tinyhumansai/openhuman": {
+"release_downloads_recent100": 2741648,
+"releases": 63,
+"latest_release": "v0.64.15"
+},
+"666ghj/BettaFish": {
+"release_downloads_recent100": 0,
+"releases": 6,
+"latest_release": "v3.0.0"
+},
+"apachecn/ailearning": {
+"release_downloads_recent100": 0,
+"releases": 2,
+"latest_release": "v2.0"
+},
+"k88hudson/git-flight-rules": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ManimCommunity/manim": {
+"release_downloads_recent100": 11855,
+"releases": 36,
+"latest_release": "v0.22.1"
+},
+"wshobson/agents": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Alamofire/Alamofire": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "5.12.2"
+},
+"fastlane/fastlane": {
+"release_downloads_recent100": 3312,
+"releases": 100,
+"latest_release": "2.241.2"
+},
+"GyulyVGC/sniffnet": {
+"release_downloads_recent100": 569700,
+"releases": 18,
+"latest_release": "v1.5.1"
+},
+"LC044/WeChatMsg": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"chatboxai/chatbox": {
+"release_downloads_recent100": 518884,
+"releases": 67,
+"latest_release": "v1.24.3"
+},
+"OpenBMB/VoxCPM": {
+"release_downloads_recent100": 0,
+"releases": 14,
+"latest_release": "2.0.3"
+},
+"psf/black": {
+"release_downloads_recent100": 252512,
+"releases": 57,
+"latest_release": "26.10.1"
+},
+"lyogavin/airllm": {
+"release_downloads_recent100": 0,
+"releases": 6,
+"latest_release": "v4.0.0"
+},
+"Predidit/Kazumi": {
+"release_downloads_recent100": 7048149,
+"releases": 100,
+"latest_release": "2.4.3"
+},
+"tabler/tabler": {
+"release_downloads_recent100": 0,
+"releases": 60,
+"latest_release": "@tabler/core@1.7.4"
+},
+"volcengine/OpenViking": {
+"release_downloads_recent100": 525,
+"releases": 100,
+"latest_release": "v0.5.4.1"
+},
+"nolimits4web/swiper": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v14.4.0"
+},
+"chubin/cheat.sh": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"lfnovo/open-notebook": {
+"release_downloads_recent100": 0,
+"releases": 44,
+"latest_release": "v1.15.1"
+},
+"goabstract/Awesome-Design-Tools": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"lightpanda-io/browser": {
+"release_downloads_recent100": 186233,
+"releases": 26,
+"latest_release": "1.0.3"
+},
+"hexojs/hexo": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v8.1.2"
+},
+"php/php-src": {
+"release_downloads_recent100": 0,
+"releases": 70,
+"latest_release": "php-8.5.12"
+},
+"patchy631/ai-engineering-hub": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"dylanaraps/pure-bash-bible": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"dcloudio/uni-app": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"apache/dubbo": {
+"release_downloads_recent100": 564,
+"releases": 100,
+"latest_release": "3.3.7"
+},
+"microsoft/BitNet": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"qbittorrent/qBittorrent": {
+"release_downloads_recent100": 467485,
+"releases": 8,
+"latest_release": "release-5.3.0"
+},
+"yarnpkg/yarn": {
+"release_downloads_recent100": 267187657,
+"releases": 100,
+"latest_release": "v1.22.22"
+},
+"hpcaitech/ColossalAI": {
+"release_downloads_recent100": 0,
+"releases": 50,
+"latest_release": "v0.5.0"
+},
+"llvm/llvm-project": {
+"release_downloads_recent100": 37030887,
+"releases": 100,
+"latest_release": "llvmorg-23.1.5"
+},
+"facebookresearch/faiss": {
+"release_downloads_recent100": 0,
+"releases": 30,
+"latest_release": "v1.16.0"
+},
+"QSCTech/zju-icicles": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"gitroomhq/postiz-app": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.25.3"
+},
+"vim/vim": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"outline/outline": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.12.0"
+},
+"appsmithorg/appsmith": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.6.0"
+},
+"ToolJet/ToolJet": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v3.21.94-beta"
+},
+"anthropics/financial-services": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"CorentinTh/it-tools": {
+"release_downloads_recent100": 18389,
+"releases": 10,
+"latest_release": "v2024.10.22-7ca5933"
+},
+"codewhale-hq/Codewhale": {
+"release_downloads_recent100": 1364212,
+"releases": 100,
+"latest_release": "v0.10.2"
+},
+"frappe/erpnext": {
+"release_downloads_recent100": 8951,
+"releases": 100,
+"latest_release": "v16.54.0"
+},
+"linshenkx/prompt-optimizer": {
+"release_downloads_recent100": 465432,
+"releases": 62,
+"latest_release": "v2.15.2"
+},
+"PatrickJS/awesome-cursorrules": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nwjs/nw.js": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"remoteintech/remote-jobs": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nushell/nushell": {
+"release_downloads_recent100": 8078713,
+"releases": 100,
+"latest_release": "0.117.0"
+},
+"styled-components/styled-components": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "styled-components@7.0.0-prerelease-20261110053101"
+},
+"vuetifyjs/vuetify": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.3.3"
+},
+"github/awesome-copilot": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"bailicangdu/vue2-elm": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ShareX/ShareX": {
+"release_downloads_recent100": 34502420,
+"releases": 95,
+"latest_release": "v22.4.0"
+},
+"schollz/croc": {
+"release_downloads_recent100": 1326365,
+"releases": 100,
+"latest_release": "v11.6.5"
+},
+"aseprite/aseprite": {
+"release_downloads_recent100": 807695,
+"releases": 100,
+"latest_release": "v1.3.18.6"
+},
+"zai-org/ChatGLM-6B": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"datalab-to/marker": {
+"release_downloads_recent100": 0,
+"releases": 73,
+"latest_release": "v2.1.0"
+},
+"trpc/trpc": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v11.28.0"
+},
+"Yeachan-Heo/oh-my-claudecode": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.8.4"
+},
+"PostHog/posthog": {
+"release_downloads_recent100": 636,
+"releases": 100,
+"latest_release": "desktop-v0.61.994"
+},
+"pingcap/tidb": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v8.5.8"
+},
+"chakra-ui/chakra-ui": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "@chakra-ui/react@3.38.0"
+},
+"phaserjs/phaser": {
+"release_downloads_recent100": 396392,
+"releases": 100,
+"latest_release": "v4.2.1"
+},
+"bradtraversy/50projects50days": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"HKUDS/LightRAG": {
+"release_downloads_recent100": 0,
+"releases": 83,
+"latest_release": "v1.5.7"
+},
+"hyprwm/Hyprland": {
+"release_downloads_recent100": 996930,
+"releases": 100,
+"latest_release": "v0.57.2"
+},
+"TeamNewPipe/NewPipe": {
+"release_downloads_recent100": 18825510,
+"releases": 100,
+"latest_release": "v0.29.3"
+},
+"storytold/artcraft": {
+"release_downloads_recent100": 1236280,
+"releases": 29,
+"latest_release": "artcraft-v0.41.1"
+},
+"ajeetdsouza/zoxide": {
+"release_downloads_recent100": 2362287,
+"releases": 38,
+"latest_release": "v0.10.0"
+},
+"photoprism/photoprism": {
+"release_downloads_recent100": 25728,
+"releases": 86,
+"latest_release": "261029-963b58c50"
+},
+"wg/wrk": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"VectifyAI/PageIndex": {
+"release_downloads_recent100": 1176,
+"releases": 32,
+"latest_release": "v0.5.3"
+},
+"YunaiV/ruoyi-vue-pro": {
+"release_downloads_recent100": 0,
+"releases": 75,
+"latest_release": "v2026.10(jdk8/11)"
+},
+"koalaman/shellcheck": {
+"release_downloads_recent100": 67802499,
+"releases": 30,
+"latest_release": "v0.11.0"
+},
+"novuhq/novu": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "@novu/framework@v2.14.0"
+},
+"pola-rs/polars": {
+"release_downloads_recent100": 31529,
+"releases": 100,
+"latest_release": "py-2.1.0"
+},
+"drawdb-io/drawdb": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v1.9.0"
+},
+"soxoj/maigret": {
+"release_downloads_recent100": 20564,
+"releases": 29,
+"latest_release": "nightly-main"
+},
+"gofiber/fiber": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v3.7.0"
+},
+"vadimdemedes/ink": {
+"release_downloads_recent100": 0,
+"releases": 82,
+"latest_release": "v8.0.0"
+},
+"p-e-w/heretic": {
+"release_downloads_recent100": 9303,
+"releases": 7,
+"latest_release": "v2.1.0"
+},
+"halo-dev/halo": {
+"release_downloads_recent100": 37549,
+"releases": 100,
+"latest_release": "v2.27.2"
+},
+"videojs/video.js": {
+"release_downloads_recent100": 271,
+"releases": 100,
+"latest_release": "video.js@10.3.0"
+},
+"Kong/insomnia": {
+"release_downloads_recent100": 48906647,
+"releases": 100,
+"latest_release": "core@13.4.0"
+},
+"evanw/esbuild": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v0.28.2"
+},
+"umami-software/umami": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v3.4.1"
+},
+"google-research/bert": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"siddharthvaddem/openscreen": {
+"release_downloads_recent100": 180859,
+"releases": 13,
+"latest_release": "v1.5.0"
+},
+"2noise/ChatTTS": {
+"release_downloads_recent100": 0,
+"releases": 7,
+"latest_release": "v0.2.5"
+},
+"go-gorm/gorm": {
+"release_downloads_recent100": 0,
+"releases": 12,
+"latest_release": "v1.31.2"
+},
+"SagerNet/sing-box": {
+"release_downloads_recent100": 15113915,
+"releases": 100,
+"latest_release": "v1.15.0-alpha.13"
+},
+"mindsdb/mindshub": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v26.1.0"
+},
+"google/styleguide": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"deepseek-ai/awesome-deepseek-integration": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"google/googletest": {
+"release_downloads_recent100": 14199943,
+"releases": 12,
+"latest_release": "v1.18.0"
+},
+"DioxusLabs/dioxus": {
+"release_downloads_recent100": 453775,
+"releases": 44,
+"latest_release": "v0.8.0-alpha.3"
+},
+"ashishpatel26/500-AI-Agents-Projects": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"The-Vibe-Company/quivr": {
+"release_downloads_recent100": 1602,
+"releases": 100,
+"latest_release": "v2.0.2"
+},
+"ZuodaoTech/everyone-can-use-english": {
+"release_downloads_recent100": 72970,
+"releases": 48,
+"latest_release": "v0.7.9"
+},
+"freeCodeCamp/devdocs": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"chatwoot/chatwoot": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.19.1"
+},
+"floodsung/Deep-Learning-Papers-Reading-Roadmap": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"bytedance/UI-TARS-desktop": {
+"release_downloads_recent100": 392926,
+"releases": 39,
+"latest_release": "v0.3.1"
+},
+"mattermost/mattermost": {
+"release_downloads_recent100": 3857,
+"releases": 100,
+"latest_release": "v12.1.0-rc4"
+},
+"lm-sys/FastChat": {
+"release_downloads_recent100": 0,
+"releases": 14,
+"latest_release": "v0.2.36"
+},
+"google/leveldb": {
+"release_downloads_recent100": 0,
+"releases": 21,
+"latest_release": "1.23"
+},
+"rapid7/metasploit-framework": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"spacedriveapp/spacedrive": {
+"release_downloads_recent100": 793936,
+"releases": 29,
+"latest_release": "nightly"
+},
+"microsoft/playwright-mcp": {
+"release_downloads_recent100": 95489,
+"releases": 75,
+"latest_release": "v0.0.85"
+},
+"searxng/searxng": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"hehonghui/awesome-english-ebooks": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"suno-ai/bark": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"hmjz100/LinkSwift": {
+"release_downloads_recent100": 1915347,
+"releases": 64,
+"latest_release": "v1.1.3"
+},
+"google/langextract": {
+"release_downloads_recent100": 0,
+"releases": 21,
+"latest_release": "v1.7.2"
+},
+"RSSNext/Folo": {
+"release_downloads_recent100": 28535517,
+"releases": 100,
+"latest_release": "mobile/v0.6.2"
+},
+"aquasecurity/trivy": {
+"release_downloads_recent100": 66883012,
+"releases": 96,
+"latest_release": "v0.76.2"
+},
+"anthropics/prompt-eng-interactive-tutorial": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"huiyadanli/RevokeMsgPatcher": {
+"release_downloads_recent100": 1753841,
+"releases": 22,
+"latest_release": "2.2"
+},
+"RVC-Project/Retrieval-based-Voice-Conversion-WebUI": {
+"release_downloads_recent100": 67620,
+"releases": 8,
+"latest_release": "2.3.260718"
+},
+"google-research/google-research": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ueberdosis/tiptap": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v3.33.1"
+},
+"lapce/lapce": {
+"release_downloads_recent100": 737102,
+"releases": 35,
+"latest_release": "nightly"
+},
+"stanfordnlp/dspy": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "3.5.0"
+},
+"preactjs/preact": {
+"release_downloads_recent100": 4070,
+"releases": 100,
+"latest_release": "11.2.0"
+},
+"JCodesMore/ai-website-cloner-template": {
+"release_downloads_recent100": 0,
+"releases": 10,
+"latest_release": "v0.6.1"
+},
+"xyflow/xyflow": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "@xyflow/system@0.0.84"
+},
+"ant-design/ant-design-pro": {
+"release_downloads_recent100": 0,
+"releases": 34,
+"latest_release": "v6.0.3"
+},
+"kilimchoi/engineering-blogs": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"sqlmapproject/sqlmap": {
+"release_downloads_recent100": 0,
+"releases": 11,
+"latest_release": "1.10"
+},
+"gto76/python-cheatsheet": {
+"release_downloads_recent100": 286,
+"releases": 1,
+"latest_release": "jul-2026"
+},
+"vercel-labs/skills": {
+"release_downloads_recent100": 0,
+"releases": 55,
+"latest_release": "v1.8.1"
+},
+"tailscale/tailscale": {
+"release_downloads_recent100": 490,
+"releases": 100,
+"latest_release": "v1.104.6"
+},
+"AlexsJones/llmfit": {
+"release_downloads_recent100": 405256,
+"releases": 100,
+"latest_release": "v1.1.20"
+},
+"harness/harness": {
+"release_downloads_recent100": 0,
+"releases": 59,
+"latest_release": "v2.28.2"
+},
+"TriliumNext/Trilium": {
+"release_downloads_recent100": 766831,
+"releases": 100,
+"latest_release": "v0.107.0"
+},
+"naptha/tesseract.js": {
+"release_downloads_recent100": 0,
+"releases": 57,
+"latest_release": "v7.0.0"
+},
+"portainer/portainer": {
+"release_downloads_recent100": 156394,
+"releases": 100,
+"latest_release": "2.45.3"
+},
+"Dogfalo/materialize": {
+"release_downloads_recent100": 1416188,
+"releases": 41,
+"latest_release": "1.0.0"
+},
+"sgl-project/sglang": {
+"release_downloads_recent100": 0,
+"releases": 64,
+"latest_release": "v0.5.23"
+},
+"chatchat-space/Langchain-Chatchat": {
+"release_downloads_recent100": 0,
+"releases": 31,
+"latest_release": "v0.3.1"
+},
+"docker/compose": {
+"release_downloads_recent100": 145268318,
+"releases": 100,
+"latest_release": "v5.7.0"
+},
+"httpie/cli": {
+"release_downloads_recent100": 12763,
+"releases": 47,
+"latest_release": "3.2.4"
+},
+"directus/directus": {
+"release_downloads_recent100": 2354,
+"releases": 100,
+"latest_release": "v12.6.1"
+},
+"CopilotKit/CopilotKit": {
+"release_downloads_recent100": 91,
+"releases": 100,
+"latest_release": "v1.86.0"
+},
+"can1357/oh-my-pi": {
+"release_downloads_recent100": 1658589,
+"releases": 100,
+"latest_release": "v18.18.8"
+},
+"dotnet/aspnetcore": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v9.0.23"
+},
+"istio/istio": {
+"release_downloads_recent100": 6014833,
+"releases": 100,
+"latest_release": "1.32.0"
+},
+"servo/servo": {
+"release_downloads_recent100": 60751,
+"releases": 18,
+"latest_release": "v0.8.0"
+},
+"Dokploy/dokploy": {
+"release_downloads_recent100": 822146,
+"releases": 100,
+"latest_release": "v0.31.0"
+},
+"cjpais/Handy": {
+"release_downloads_recent100": 6631217,
+"releases": 67,
+"latest_release": "v0.10.0"
+},
+"PDFMathTranslate/PDFMathTranslate": {
+"release_downloads_recent100": 147998,
+"releases": 24,
+"latest_release": "v1.9.11"
+},
+"AdguardTeam/AdGuardHome": {
+"release_downloads_recent100": 4312457,
+"releases": 100,
+"latest_release": "v1.0.0-b.2"
+},
+"pbatard/rufus": {
+"release_downloads_recent100": 273700332,
+"releases": 91,
+"latest_release": "v4.16_BETA"
+},
+"huihut/interview": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"maboloshi/github-chinese": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"myshell-ai/OpenVoice": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"Donchitos/Claude-Code-Game-Studios": {
+"release_downloads_recent100": 0,
+"releases": 11,
+"latest_release": "v1.3.0"
+},
+"PhilJay/MPAndroidChart": {
+"release_downloads_recent100": 68486,
+"releases": 48,
+"latest_release": "v4.0.1"
+},
+"ItzCrazyKns/Vane": {
+"release_downloads_recent100": 0,
+"releases": 34,
+"latest_release": "v1.12.2"
+},
+"impress/impress.js": {
+"release_downloads_recent100": 0,
+"releases": 15,
+"latest_release": "v2.0.0"
+},
+"glanceapp/glance": {
+"release_downloads_recent100": 81326,
+"releases": 37,
+"latest_release": "v0.8.8"
+},
+"fengdu78/Coursera-ML-AndrewNg-Notes": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"khoj-ai/khoj": {
+"release_downloads_recent100": 108803,
+"releases": 100,
+"latest_release": "2.0.0-beta.28"
+},
+"vlang/v": {
+"release_downloads_recent100": 348824,
+"releases": 100,
+"latest_release": "0.5.2"
+},
+"musistudio/claude-code-router": {
+"release_downloads_recent100": 161954,
+"releases": 27,
+"latest_release": "v3.1.3"
+},
+"PKUanonym/REKCARC-TSC-UHT": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"mpv-player/mpv": {
+"release_downloads_recent100": 198178,
+"releases": 90,
+"latest_release": "v0.42.0"
+},
+"microsoft/Data-Science-For-Beginners": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"alchaincyf/nuwa-skill": {
+"release_downloads_recent100": 0,
+"releases": 3,
+"latest_release": "v2.0.1"
+},
+"HKUDS/Vibe-Trading": {
+"release_downloads_recent100": 613,
+"releases": 16,
+"latest_release": "v0.1.19"
+},
+"mouredev/Hello-Python": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"exacity/deeplearningbook-chinese": {
+"release_downloads_recent100": 496238,
+"releases": 7,
+"latest_release": "v0.5-beta"
+},
+"firecracker-microvm/firecracker": {
+"release_downloads_recent100": 2572425,
+"releases": 93,
+"latest_release": "v1.18.0"
+},
+"alebcay/awesome-shell": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"keycloak/keycloak": {
+"release_downloads_recent100": 5000597,
+"releases": 100,
+"latest_release": "nightly"
+},
+"FreeCodeCampChina/freecodecamp.cn": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"NervJS/taro": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.3.2"
+},
+"ashishpatel26/500-AI-Machine-learning-Deep-learning-Computer-vision-NLP-Projects-with-code": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"TencentARC/GFPGAN": {
+"release_downloads_recent100": 14746140,
+"releases": 8,
+"latest_release": "v1.3.8"
+},
+"denysdovhan/wtfjs": {
+"release_downloads_recent100": 0,
+"releases": 25,
+"latest_release": "v1.22.8"
+},
+"google-ai-edge/mediapipe": {
+"release_downloads_recent100": 0,
+"releases": 71,
+"latest_release": "v1.2.2"
+},
+"Textualize/textual": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v8.2.8"
+},
+"IceWhaleTech/CasaOS": {
+"release_downloads_recent100": 1909203,
+"releases": 97,
+"latest_release": "v0.4.17-alpha1"
+},
+"alibaba/arthas": {
+"release_downloads_recent100": 604576,
+"releases": 79,
+"latest_release": "arthas-all-4.3.5"
+},
+"agentscope-ai/QwenPaw": {
+"release_downloads_recent100": 70202,
+"releases": 100,
+"latest_release": "v2.3.0-beta.4"
+},
+"virgiliojr94/book-to-skill": {
+"release_downloads_recent100": 0,
+"releases": 5,
+"latest_release": "v1.4.0"
+},
+"karpathy/LLM101n": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nextcloud/server": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v35.0.3rc2"
+},
+"xinntao/Real-ESRGAN": {
+"release_downloads_recent100": 25861586,
+"releases": 10,
+"latest_release": "v0.3.0"
+},
+"1Panel-dev/1Panel": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.4.2"
+},
+"songquanpeng/one-api": {
+"release_downloads_recent100": 88129,
+"releases": 55,
+"latest_release": "v0.6.10"
+},
+"fastify/fastify": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v6.0.0-alpha.6"
+},
+"blakeblackshear/frigate": {
+"release_downloads_recent100": 0,
+"releases": 81,
+"latest_release": "v0.18.2"
+},
+"LAION-AI/Open-Assistant": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v0.0.4-alpha2"
+},
+"eugenp/tutorials": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"markedjs/marked": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v18.2.0"
+},
+"langfuse/langfuse": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v4.78.0"
+},
+"huggingface/pytorch-image-models": {
+"release_downloads_recent100": 10894086,
+"releases": 81,
+"latest_release": "v1.0.31"
+},
+"GorvGoyl/Clone-Wars": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"0voice/interview_internal_reference": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"openai/gym": {
+"release_downloads_recent100": 0,
+"releases": 19,
+"latest_release": "0.26.2"
+},
+"jaywcjlove/linux-command": {
+"release_downloads_recent100": 9340,
+"releases": 32,
+"latest_release": "v1.22.0"
+},
+"veggiemonk/awesome-docker": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v0.8"
+},
+"medusajs/medusa": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.22.6"
+},
+"Tencent/WeKnora": {
+"release_downloads_recent100": 0,
+"releases": 42,
+"latest_release": "v0.9.0"
+},
+"restic/restic": {
+"release_downloads_recent100": 37193074,
+"releases": 51,
+"latest_release": "v0.19.1"
+},
+"satwikkansal/wtfpython": {
+"release_downloads_recent100": 0,
+"releases": 2,
+"latest_release": "v3.0.0"
+},
+"permissionlesstech/bitchat": {
+"release_downloads_recent100": 970,
+"releases": 21,
+"latest_release": "v1.8.0"
+},
+"VoltAgent/awesome-agent-skills": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"pnpm/pnpm": {
+"release_downloads_recent100": 8057518,
+"releases": 100,
+"latest_release": "v12.19.0"
+},
+"wailsapp/wails": {
+"release_downloads_recent100": 114,
+"releases": 100,
+"latest_release": "v3.2.0-nightly.20261103"
+},
+"AobingJava/JavaFamily": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"block/buzz": {
+"release_downloads_recent100": 1114987,
+"releases": 100,
+"latest_release": "desktop-v0.5.28"
+},
+"DayuanJiang/next-ai-draw-io": {
+"release_downloads_recent100": 163115,
+"releases": 20,
+"latest_release": "v0.5.1"
+},
+"babysor/MockingBird": {
+"release_downloads_recent100": 0,
+"releases": 1,
+"latest_release": "v0.0.1"
+},
+"shadowsocks/shadowsocks-android": {
+"release_downloads_recent100": 6573622,
+"releases": 100,
+"latest_release": "v5.3.5-nightly"
+},
+"utmapp/UTM": {
+"release_downloads_recent100": 16432053,
+"releases": 100,
+"latest_release": "v5.0.8"
+},
+"doocs/leetcode": {
+"release_downloads_recent100": 0,
+"releases": 21,
+"latest_release": "v0.3.0"
+},
+"typeorm/typeorm": {
+"release_downloads_recent100": 0,
+"releases": 47,
+"latest_release": "1.1.2"
+},
+"date-fns/date-fns": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v5.0.0-alpha.0"
+},
+"casey/just": {
+"release_downloads_recent100": 69469989,
+"releases": 100,
+"latest_release": "1.59.0"
+},
+"microsoft/graphrag": {
+"release_downloads_recent100": 0,
+"releases": 44,
+"latest_release": "v3.3.0"
+},
+"jax-ml/jax": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "jax-v0.12.0.1"
+},
+"hankcs/HanLP": {
+"release_downloads_recent100": 239043,
+"releases": 62,
+"latest_release": "v2.1.1"
+},
+"hashicorp/vault": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v2.2.1"
+},
+"webadderallorg/Recordly": {
+"release_downloads_recent100": 1920645,
+"releases": 48,
+"latest_release": "v1.4.0"
+},
+"open-guides/og-aws": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"continuedev/continue": {
+"release_downloads_recent100": 48282,
+"releases": 100,
+"latest_release": "v2.1.0-vscode"
+},
+"formulahendry/955.WLB": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"inkonchain/docs": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"inkonchain/node": {
+"release_downloads_recent100": 0,
+"releases": 6,
+"latest_release": "v2.0.0"
+},
+"gchq/CyberChef": {
+"release_downloads_recent100": 690130,
+"releases": 100,
+"latest_release": "v11.5.0"
+},
+"solidjs/solid": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "solid-js@2.0.0-rc.21"
+},
+"SheetJS/sheetjs": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"inkonchain/ink-kit": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"drizzle-team/drizzle-orm": {
+"release_downloads_recent100": 992,
+"releases": 100,
+"latest_release": "v1.0.0-rc.5"
+},
+"reworkd/AgentGPT": {
+"release_downloads_recent100": 0,
+"releases": 12,
+"latest_release": "v.1.0.0"
+},
+"zsh-users/zsh-autosuggestions": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"yuliskov/SmartTube": {
+"release_downloads_recent100": 3663705,
+"releases": 100,
+"latest_release": "32.71"
+},
+"esengine/DeepSeek-Reasonix": {
+"release_downloads_recent100": 174079,
+"releases": 100,
+"latest_release": "v2.60.0"
+},
+"carbon-app/carbon": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "4.9.10"
+},
+"geekxh/hello-algorithm": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"ryanhanwu/How-To-Ask-Questions-The-Smart-Way": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"jqlang/jq": {
+"release_downloads_recent100": 312676271,
+"releases": 16,
+"latest_release": "jq-1.8.2"
+},
+"alan2207/bulletproof-react": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"geekan/HowToLiveLonger": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"lerna/lerna": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v10.1.2"
+},
+"jdx/mise": {
+"release_downloads_recent100": 63495505,
+"releases": 100,
+"latest_release": "v2026.11.6"
+},
+"refinedev/refine": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "@refinedev/core@5.0.12"
+},
+"seaweedfs/seaweedfs": {
+"release_downloads_recent100": 817565,
+"releases": 100,
+"latest_release": "4.53"
+},
+"Flowseal/zapret-discord-youtube": {
+"release_downloads_recent100": 26352711,
+"releases": 49,
+"latest_release": "1.10.4"
+},
+"zellij-org/zellij": {
+"release_downloads_recent100": 1670247,
+"releases": 71,
+"latest_release": "v0.45.1"
+},
+"slatedocs/slate": {
+"release_downloads_recent100": 0,
+"releases": 28,
+"latest_release": "v2.13.1"
+},
+"rustfs/rustfs": {
+"release_downloads_recent100": 318582,
+"releases": 100,
+"latest_release": "1.0.5"
+},
+"mukul975/Anthropic-Cybersecurity-Skills": {
+"release_downloads_recent100": 0,
+"releases": 4,
+"latest_release": "v1.3.0"
+},
+"filebrowser/filebrowser": {
+"release_downloads_recent100": 2277911,
+"releases": 100,
+"latest_release": "v2.63.23"
+},
+"junegunn/vim-plug": {
+"release_downloads_recent100": 1586,
+"releases": 9,
+"latest_release": "0.15.0"
+},
+"agentscope-ai/agentscope": {
+"release_downloads_recent100": 56,
+"releases": 51,
+"latest_release": "v2.0.11"
+},
+"airbnb/lottie-android": {
+"release_downloads_recent100": 1218,
+"releases": 63,
+"latest_release": "v6.7.1"
+},
+"Leey21/awesome-ai-research-writing": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"kuchin/awesome-cto": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"dgtlmoon/changedetection.io": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "0.70.3"
+},
+"jondot/awesome-react-native": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"XingangPan/DragGAN": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"freestylefly/awesome-gpt-image-2": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"koajs/koa": {
+"release_downloads_recent100": 0,
+"releases": 19,
+"latest_release": "v3.3.0"
+},
+"anywhere-labs/dsh-desktop": {
+"release_downloads_recent100": 289787,
+"releases": 43,
+"latest_release": "v2.0.22-next"
+},
+"MetaCubeX/mihomo": {
+"release_downloads_recent100": 16253379,
+"releases": 66,
+"latest_release": "v1.19.34"
+},
+"awesome-foss/awesome-sysadmin": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"kovidgoyal/kitty": {
+"release_downloads_recent100": 3929876,
+"releases": 100,
+"latest_release": "nightly"
+},
+"raysan5/raylib": {
+"release_downloads_recent100": 852778,
+"releases": 26,
+"latest_release": "6.2"
+},
+"opentofu/manifesto": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"SillyTavern/SillyTavern": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "1.19.0"
+},
+"qdrant/qdrant": {
+"release_downloads_recent100": 1232874,
+"releases": 100,
+"latest_release": "v1.20.0"
+},
+"geekcomputers/Python": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"binwiederhier/ntfy": {
+"release_downloads_recent100": 284061,
+"releases": 100,
+"latest_release": "v2.37.2"
+},
+"lissy93/web-check": {
+"release_downloads_recent100": 1312,
+"releases": 5,
+"latest_release": "2.4.0"
+},
+"anthropics/knowledge-work-plugins": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"google-research/timesfm": {
+"release_downloads_recent100": 0,
+"releases": 5,
+"latest_release": "v3.0.0"
+},
+"typicode/husky": {
+"release_downloads_recent100": 0,
+"releases": 80,
+"latest_release": "v9.1.7"
+},
+"NandhaKishorM/laya": {
+"release_downloads_recent100": 2450,
+"releases": 64,
+"latest_release": "v0.4.31"
+},
+"alvarotrigo/fullPage.js": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "4.0.41"
+},
+"FreeCAD/FreeCAD": {
+"release_downloads_recent100": 11515074,
+"releases": 100,
+"latest_release": "weekly-2026.11.11"
+},
+"aristocratos/btop": {
+"release_downloads_recent100": 1636827,
+"releases": 56,
+"latest_release": "v1.4.8"
+},
+"ocrmypdf/OCRmyPDF": {
+"release_downloads_recent100": 22281,
+"releases": 68,
+"latest_release": "v17.14.1"
+},
+"sahat/hackathon-starter": {
+"release_downloads_recent100": 0,
+"releases": 18,
+"latest_release": "10.0.0"
+},
+"fxsjy/jieba": {
+"release_downloads_recent100": 0,
+"releases": 9,
+"latest_release": "v0.42.1"
+},
+"nativefier/nativefier": {
+"release_downloads_recent100": 0,
+"releases": 99,
+"latest_release": "v52.0.0"
+},
+"netty/netty": {
+"release_downloads_recent100": 1453,
+"releases": 20,
+"latest_release": "netty-4.2.20.Final"
+},
+"qarmin/czkawka": {
+"release_downloads_recent100": 1697811,
+"releases": 43,
+"latest_release": "12.0.2"
+},
+"motiondivision/motion": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"openai/codex-plugin-cc": {
+"release_downloads_recent100": 0,
+"releases": 7,
+"latest_release": "v1.0.6"
+},
+"sorrycc/awesome-javascript": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"bumptech/glide": {
+"release_downloads_recent100": 182360,
+"releases": 59,
+"latest_release": "v5.0.9"
+},
+"laravel/framework": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v13.42.0"
+},
+"unknwon/the-way-to-go_ZH_CN": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"nothings/stb": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"facebookresearch/detectron2": {
+"release_downloads_recent100": 0,
+"releases": 10,
+"latest_release": "v0.6"
+},
+"derailed/k9s": {
+"release_downloads_recent100": 15441013,
+"releases": 100,
+"latest_release": "v0.51.0"
+},
+"liquidslr/leetcode-company-wise-problems": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"huggingface/diffusers": {
+"release_downloads_recent100": 0,
+"releases": 96,
+"latest_release": "v0.42.1"
+},
+"TheAlgorithms/C-Plus-Plus": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"datawhalechina/happy-llm": {
+"release_downloads_recent100": 33511,
+"releases": 3,
+"latest_release": "v1.0.2"
+},
+"qishibo/AnotherRedisDesktopManager": {
+"release_downloads_recent100": 21790037,
+"releases": 55,
+"latest_release": "v1.7.4"
+},
+"backstage/backstage": {
+"release_downloads_recent100": 0,
+"releases": 100,
+"latest_release": "v1.57.0-next.2"
+},
+"v2fly/v2ray-core": {
+"release_downloads_recent100": 29369793,
+"releases": 100,
+"latest_release": "v5.56.0"
+},
+"huggingface/agents-course": {
+"release_downloads_recent100": 0,
+"releases": 0,
+"latest_release": null
+},
+"OpenBMB/ChatDev": {
+"release_downloads_recent100": 258,
+"releases": 12,
+"latest_release": "v2.2.0"
+},
+"MonitorControl/MonitorControl": {
+"release_downloads_recent100": 1946470,
+"releases": 27,
+"latest_release": "v4.4.0"
+},
+"balena-io/etcher": {
+"release_downloads_recent100": 71734064,
+"releases": 100,
+"latest_release": "v2.1.9"
+}
+}

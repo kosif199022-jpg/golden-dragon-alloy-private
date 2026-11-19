@@ -1,0 +1,467 @@
+{
+ "cards": 5361,
+ "status": {
+  "not_ported": 1901,
+  "data": 2901,
+  "gap": 559
+ },
+ "runnable_coverage": {
+  "runnable_cards": 4802,
+  "data_pct": 60.4,
+  "custom_pct": 0.0,
+  "not_ported_pct": 39.6
+ },
+ "by_corpus": {
+  "runner": 3692,
+  "program": 1669
+ },
+ "not_ported_reasons": {
+  "needs helper(s) that reach repo paths/scripts/browsers": 645,
+  "calls a repo script, node or a browser": 535,
+  "imports a module outside the whitelist": 217,
+  "bespoke code": 162,
+  "registered dynamically by the old runner; not statically resolvable": 141,
+  "uses a module outside the whitelist": 107,
+  "runs a program other than ffmpeg/ffprobe/node": 92,
+  "closure": 2
+ },
+ "families": {
+  "3d-spatial": {
+   "not_ported": 14,
+   "gap": 3
+  },
+  "agent-orchestration": {
+   "not_ported": 10,
+   "data": 42,
+   "gap": 2
+  },
+  "ai-generation": {
+   "not_ported": 3,
+   "data": 69,
+   "gap": 22
+  },
+  "api-testing": {
+   "not_ported": 4,
+   "data": 3
+  },
+  "app-feature-transfer": {
+   "data": 47,
+   "not_ported": 18,
+   "gap": 6
+  },
+  "apps-artifacts": {
+   "not_ported": 12,
+   "data": 9,
+   "gap": 4
+  },
+  "arabic-language": {
+   "data": 5,
+   "not_ported": 3,
+   "gap": 4
+  },
+  "atlas-build": {
+   "not_ported": 26,
+   "data": 31,
+   "gap": 3
+  },
+  "atlas-code": {
+   "not_ported": 112,
+   "data": 207,
+   "gap": 12
+  },
+  "atlas-craft": {
+   "data": 26
+  },
+  "atlas-data": {
+   "not_ported": 11,
+   "data": 50,
+   "gap": 1
+  },
+  "atlas-docs": {
+   "not_ported": 10,
+   "data": 50
+  },
+  "atlas-media": {
+   "not_ported": 4,
+   "data": 20,
+   "gap": 6
+  },
+  "atlas-mind": {
+   "not_ported": 3,
+   "data": 78,
+   "gap": 1
+  },
+  "atlas-research": {
+   "not_ported": 1,
+   "data": 9,
+   "gap": 1
+  },
+  "atlas-strategy": {
+   "not_ported": 1,
+   "data": 106,
+   "gap": 1
+  },
+  "audio-sync-captions": {
+   "not_ported": 41,
+   "data": 12,
+   "gap": 3
+  },
+  "brand-logo-identity": {
+   "not_ported": 3,
+   "data": 37,
+   "gap": 3
+  },
+  "camera-composition-layout": {
+   "not_ported": 268,
+   "data": 146,
+   "gap": 9
+  },
+  "characters-rigs": {
+   "not_ported": 7,
+   "gap": 4
+  },
+  "charts-data-infographic": {
+   "data": 98,
+   "not_ported": 5,
+   "gap": 1
+  },
+  "code-engineering": {
+   "not_ported": 11,
+   "data": 14
+  },
+  "color-palette-grading": {
+   "data": 80,
+   "not_ported": 4,
+   "gap": 1
+  },
+  "creativity-engine": {
+   "not_ported": 1
+  },
+  "data-analysis": {
+   "not_ported": 27,
+   "data": 11,
+   "gap": 1
+  },
+  "diagrams-explainers-code": {
+   "not_ported": 2,
+   "data": 5,
+   "gap": 2
+  },
+  "documents-office": {
+   "not_ported": 27,
+   "data": 3,
+   "gap": 4
+  },
+  "easing-timing-rhythm": {
+   "data": 66,
+   "not_ported": 34
+  },
+  "engines-render-pipeline": {
+   "not_ported": 245,
+   "data": 127,
+   "gap": 56
+  },
+  "formats-platforms": {
+   "not_ported": 20,
+   "data": 43,
+   "gap": 3
+  },
+  "hand-drawn-draw-on": {
+   "not_ported": 16,
+   "data": 45,
+   "gap": 3
+  },
+  "knowledge-graph": {
+   "not_ported": 9,
+   "data": 7,
+   "gap": 5
+  },
+  "light-glow-bloom": {
+   "data": 71,
+   "not_ported": 9,
+   "gap": 4
+  },
+  "maps-geo": {
+   "not_ported": 12,
+   "data": 1,
+   "gap": 2
+  },
+  "media-image-audio": {
+   "not_ported": 14,
+   "data": 17,
+   "gap": 7
+  },
+  "mental-models": {
+   "data": 63
+  },
+  "music-beat-sound": {
+   "data": 178,
+   "not_ported": 115,
+   "gap": 10
+  },
+  "other": {
+   "data": 16,
+   "not_ported": 4,
+   "gap": 5
+  },
+  "particles-fluids-physics": {
+   "data": 64,
+   "not_ported": 9,
+   "gap": 2
+  },
+  "photo-video-footage": {
+   "not_ported": 10,
+   "data": 56,
+   "gap": 1
+  },
+  "pixel-retro-stylized": {
+   "data": 26,
+   "not_ported": 5
+  },
+  "planning-execution": {
+   "data": 12
+  },
+  "playbooks": {
+   "not_ported": 19
+  },
+  "powers": {
+   "gap": 84
+  },
+  "prompt-craft": {
+   "data": 29,
+   "not_ported": 3
+  },
+  "protocols": {
+   "not_ported": 43,
+   "gap": 3
+  },
+  "qa-verification": {
+   "not_ported": 59,
+   "data": 21,
+   "gap": 4
+  },
+  "runnable-tools": {
+   "not_ported": 7,
+   "gap": 1
+  },
+  "security-safety": {
+   "data": 15,
+   "not_ported": 8
+  },
+  "self-discovery": {
+   "not_ported": 12,
+   "data": 1,
+   "gap": 5
+  },
+  "shapes-morph-geometry": {
+   "not_ported": 16,
+   "data": 81
+  },
+  "skills": {
+   "not_ported": 207,
+   "data": 186,
+   "gap": 58
+  },
+  "software-investigation": {
+   "data": 58,
+   "not_ported": 14,
+   "gap": 186
+  },
+  "story-direction-ideas": {
+   "data": 91,
+   "not_ported": 1
+  },
+  "strategy-finance": {
+   "not_ported": 4,
+   "data": 14
+  },
+  "texture-material": {
+   "data": 85,
+   "not_ported": 6,
+   "gap": 4
+  },
+  "transitions-cuts": {
+   "data": 148,
+   "not_ported": 325,
+   "gap": 1
+  },
+  "typography-arabic": {
+   "data": 78,
+   "not_ported": 11,
+   "gap": 1
+  },
+  "typography-latin": {
+   "data": 85,
+   "not_ported": 8,
+   "gap": 1
+  },
+  "ui-product-device": {
+   "not_ported": 8,
+   "gap": 2
+  },
+  "verification-evals": {
+   "not_ported": 1,
+   "data": 1
+  },
+  "video-download": {
+   "not_ported": 1
+  },
+  "voice-tts": {
+   "data": 33,
+   "not_ported": 6,
+   "gap": 11
+  },
+  "web-research": {
+   "not_ported": 8,
+   "data": 12,
+   "gap": 6
+  },
+  "writing-humanizer": {
+   "data": 13,
+   "not_ported": 4
+  }
+ },
+ "distribution": {
+  "fixtures": {
+   "write_video": 260,
+   "canvas": 195,
+   "solid": 110,
+   "write_wav": 89,
+   "scene_a": 77,
+   "scene_b": 66,
+   "lavfi:testsrc2": 46,
+   "tone": 44,
+   "speechlike": 32,
+   "lavfi:color": 31,
+   "lavfi:sine": 30,
+   "Counter": 27,
+   "music_bed": 26,
+   "noise": 25,
+   "drum_loop": 23,
+   "color_clip": 15,
+   "test_clip": 14,
+   "_value_noise": 14,
+   "loops": 13,
+   "kick": 13,
+   "gradient": 12,
+   "perf_counter": 12,
+   "cut_video": 11,
+   "bed": 9,
+   "scene_c": 9,
+   "texture": 9,
+   "canvas_img": 9,
+   "tone_wav": 8,
+   "frame_index_frames": 8,
+   "beat_fixture": 7,
+   "shot_scenes": 7,
+   "fid_plate": 7,
+   "clicks": 6,
+   "song_fixture": 6,
+   "bed_drop": 6,
+   "_k3_fixture": 6,
+   "scene": 5,
+   "lavfi:f'color": 5,
+   "grad": 4,
+   "voice_bed": 4
+  },
+  "measures": {
+   "read_video": 187,
+   "probe": 134,
+   "frames": 134,
+   "decode": 82,
+   "mad": 82,
+   "luma": 74,
+   "centroid": 59,
+   "vstream": 55,
+   "read_wav": 53,
+   "load_any": 49,
+   "_luma": 48,
+   "onsets": 40,
+   "contrast": 38,
+   "cut_frames": 32,
+   "seg_db": 31,
+   "nframes": 28,
+   "ebur": 27,
+   "peak_db": 23,
+   "band_db": 22,
+   "ink_bbox": 20,
+   "duration": 20,
+   "count_frames": 20,
+   "narrow_db": 18,
+   "peak_hz": 17,
+   "envelope": 16,
+   "bandpass": 14,
+   "color_mask": 13,
+   "b64decode": 12,
+   "loudnorm2": 12,
+   "dbfs": 11,
+   "wcentroid": 10,
+   "frames_of": 10,
+   "rms": 9,
+   "_contrast": 9,
+   "probe_v": 9,
+   "_frames_for": 9,
+   "frame_index_frames": 8,
+   "frames_from": 8,
+   "decode_frames": 8,
+   "red_centroid": 7
+  },
+  "engines": {
+   "ffmpeg": 649,
+   "PIL": 547,
+   "repo-script": 292,
+   "node": 144,
+   "browser": 118,
+   "cv2": 51,
+   "yaml": 28,
+   "duckdb": 7,
+   "librosa": 4,
+   "ortools": 3,
+   "pulp": 2
+  },
+  "filters": {
+   "scale": 58,
+   "format": 44,
+   "fps": 27,
+   "volume": 21,
+   "overlay": 19,
+   "crop": 16,
+   "setpts": 14,
+   "loudnorm": 11,
+   "highpass": 10,
+   "afade": 9,
+   "alimiter": 8,
+   "concat": 8,
+   "eq": 7,
+   "select": 7,
+   "equalizer": 6,
+   "trim": 6,
+   "silencedetect": 5,
+   "atempo": 5,
+   "amix": 5,
+   "tile": 5,
+   "drawbox": 4,
+   "pad": 4,
+   "aresample": 4,
+   "acompressor": 4,
+   "sidechaincompress": 4,
+   "adelay": 4,
+   "apad": 4,
+   "setsar": 4,
+   "xfade": 4,
+   "PrimaryColour": 4,
+   "palettegen": 4,
+   "unsharp": 4,
+   "silenceremove": 3,
+   "boxblur": 3,
+   "bandreject": 3,
+   "atrim": 3,
+   "noise": 3,
+   "rgbashift": 3,
+   "afftdn": 3,
+   "subtitles": 3
+  },
+  "checks_per_card": 3.46,
+  "cards_with_negative_control": 2531
+ }
+}

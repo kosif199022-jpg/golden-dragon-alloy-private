@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "التنين الذهبي: تحكم كروم",
+  "short_name": "التنين الذهبي",
+  "version": "1.4.0",
+  "description": "Connects Chrome to the Golden Dragon desktop app on this computer so its assistant can open, read and operate pages you allow.",
+  "permissions": ["tabs", "scripting", "storage", "alarms", "offscreen", "tabGroups", "debugger"],
+  "host_permissions": ["<all_urls>", "http://127.0.0.1:47851/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "التنين الذهبي", "default_popup": "popup.html", "default_icon": { "128": "icon128.png" } },
+  "icons": { "128": "icon128.png" }
+}

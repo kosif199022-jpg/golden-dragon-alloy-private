@@ -1,0 +1,22 @@
+{
+  "_comment": "Seamless 360 turntable (loops perfectly) of a sculpted iridescent orb on a marble plinth. Rotation is linear + cyclic so frame_end -> frame_start has no jump.",
+  "scene": {
+    "resolution": [1080, 1080],
+    "fps": 30,
+    "frame_start": 1,
+    "frame_end": 120,
+    "engine": "EEVEE",
+    "samples": 64,
+    "color": {"view_transform": "AgX", "look": "Medium High Contrast"}
+  },
+  "steps": [
+    {"op": "add_primitive", "type": "ico_sphere", "name": "Orb", "size": 1.6, "subdivisions": 6, "smooth": true},
+    {"op": "displace", "target": "Orb", "strength": 0.18, "texture": {"type": "STUCCI", "noise_scale": 0.55}},
+    {"op": "subdivision", "target": "Orb", "levels": 1, "render_levels": 2},
+    {"op": "material", "name": "OrbMat", "preset": "iridescent", "target": "Orb"},
+    {"op": "turntable_scene", "subject": "Orb", "theme": "cool", "size": 1.8, "angle": 20, "elevation": 0.25, "margin": 1.25},
+    {"op": "noise", "target": "Camera_Aim", "data_path": "location", "strength": 0.01, "scale": 60}
+  ],
+  "render": {"type": "animation", "out": "turntable.mp4"},
+  "save_blend": "turntable.blend"
+}

@@ -1,0 +1,36 @@
+{
+ "schema": "kosif.editorial.edl.v1",
+ "title": "Editorial example",
+ "meta": {"width": 270, "height": 480, "fps": 30, "duration": 2.0, "capY": 360,
+          "fx": {"vignette": 0.3, "grainSize": 1.15},
+          "typeDefaults": {"motion": {"drift": [0, -0.02]}, "halo": true}},
+ "media": {"presenter": {"generate": "testsrc2=s=320x568:d=2:r=30", "path": "media/presenter.mp4"},
+           "insert": {"generate": "mandelbrot=s=480x480,trim=end_frame=1", "path": "media/insert.png"}},
+ "shots": [
+  {"t0": 0, "t1": 0.8, "kind": "presenter", "source": {"type": "video", "media": "presenter"},
+   "camera": {"zoom": [[0, 1], [0.8, 1.12, "sineInOut"]], "cy": 0.45}, "fx": {"grade": "doc", "grainOut": 0.01}},
+  {"t0": 0.8, "t1": 1.4, "kind": "insert", "source": {"type": "image", "media": "insert"},
+   "camera": {"zoom": [[0.8, 1.3], [1.4, 1.05, "expoOut"]]},
+   "fx": {"grade": "bw", "film": 1, "age": 0.6, "bloom": 0.8, "grainIns": 0.06, "dust": 1, "flash": [[0.8, 0.9], [0.9, 0, "cubicOut"]]}},
+  {"t0": 1.4, "t1": 2.0, "kind": "insert", "capY": 400,
+   "split": {"dir": "h", "at": 0.5, "entry": {"duration": 0.4},
+             "a": {"kind": "presenter", "source": {"type": "video", "media": "presenter", "in": 1.4}, "camera": {"cx": 0.5}},
+             "b": {"kind": "insert", "source": {"type": "image", "media": "insert"}, "camera": {"zoom": 1.6, "cx": 0.3}}},
+   "fx": {"grade": "film", "film": 1, "bloom": 0.6, "grainIns": 0.05}}
+ ],
+ "captions": {"size": 22, "chunks": [
+  {"t0": 0.05, "t1": 1.2, "lines": [[0, 1], [2, 3]], "words": [
+   {"w": "Black", "t0": 0.1, "t1": 0.3}, {"w": "Dragon", "t0": 0.3, "t1": 0.55, "accent": true},
+   {"w": "archival", "t0": 0.55, "t1": 0.8}, {"w": "edit", "t0": 0.8, "t1": 1.1}]},
+  {"t0": 1.2, "t1": 2.0, "lines": [[0, 1]], "words": [
+   {"w": "التنين", "t0": 1.25, "t1": 1.5}, {"w": "الأسود", "t0": 1.5, "t1": 1.9, "accent": true}]}
+ ]},
+ "type": [
+  {"id": "archive", "style": "heavy", "text": "ARCHIVE", "t0": 0.85, "t1": 1.4, "x": 135, "y": 90, "size": 46, "enter": "slam", "exit": "blur"},
+  {"id": "year", "style": "number", "text": "0", "countTo": 1969, "countSuffix": "", "countDur": 0.4, "t0": 1.45, "t1": 2.0,
+   "x": 150, "y": 120, "size": 54, "enter": "soft", "sub": "the first print", "motion": null},
+  {"id": "src", "style": "typewriter", "text": "SOURCE: KOSIF", "t0": 0.1, "t1": 0.8, "x": 20, "y": 30, "size": 14, "align": "left", "enter": "type", "cps": 30},
+  {"id": "quote", "style": "display_serif", "text": "a *soft* look", "t0": 0.3, "t1": 0.8, "x": 135, "y": 200, "size": 30, "enter": "blur", "exit": "drift",
+   "words": [{"w": "a", "t": 0.3}, {"w": "soft", "t": 0.42, "it": true}, {"w": "look", "t": 0.55}], "wordMotion": "soft"}
+ ]
+}

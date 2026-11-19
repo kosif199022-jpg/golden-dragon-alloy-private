@@ -1,0 +1,6 @@
+{
+  "events": [
+    {"time": 0.15, "type": "flash", "intensity": 0.75},
+    {"time": 1.25, "type": "shake", "intensity": 0.45}
+  ]
+}

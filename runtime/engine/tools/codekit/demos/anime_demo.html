@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>codekit demo: anime</title>
+<style>
+html,body{margin:0;background:#0b0d12;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0b0d12}
+h1{position:absolute;top:170px;left:0;right:0;margin:0;text-align:center;color:#f4f1ea;
+   font:700 84px "Noto Kufi Arabic","Cairo","Segoe UI",Tahoma,"DejaVu Sans",sans-serif}
+.tag{position:absolute;bottom:150px;left:0;right:0;text-align:center;color:#7f8796;direction:ltr;
+   font:500 40px "Segoe UI",Tahoma,"DejaVu Sans",sans-serif}
+.bars{position:absolute;left:0;right:0;top:760px;height:520px;display:flex;justify-content:center;align-items:flex-end;gap:36px;direction:ltr}
+.bar{width:110px;border-radius:18px 18px 0 0;background:#e0b354;transform-origin:50% 100%}
+#dot{position:absolute;left:490px;top:1400px;width:100px;height:100px;border-radius:24px;background:#e2574c}
+</style>
+</head>
+<body>
+<div id="stage"><h1>{{TITLE}}</h1>
+<div class="bars"><div class="bar" style="height:220px"></div><div class="bar" style="height:360px"></div><div class="bar" style="height:500px"></div><div class="bar" style="height:300px;background:#7fd1c8"></div><div class="bar" style="height:420px"></div></div>
+<div id="dot"></div><div class="tag">anime.js · seek-driven</div></div>
+<script src="./anime.umd.min.js"></script>
+<script>
+// The timeline never plays by itself: the renderer asks for time t and we seek to it.
+const D = 3;
+const tl = anime.createTimeline({autoplay: false, defaults: {ease: 'outExpo'}});
+tl.add('h1', {opacity: [0, 1], translateY: [70, 0], duration: 700}, 0)
+  .add('.bar', {scaleY: [0, 1], duration: 900, delay: anime.stagger(120)}, 200)
+  .add('#dot', {translateX: [-380, 380], rotate: [0, 360], duration: 1700, ease: 'inOutQuad'}, 600)
+  .add('.bar', {translateY: [0, -90], duration: 600, delay: anime.stagger(80)}, 2000);
+function draw(t) { tl.seek(Math.max(0, Math.min(D, t)) * 1000); }
+window.__kosif = {duration: D, seek: async t => { draw(t); }};
+draw(0);
+window.__kosifReady = true;
+</script>
+</body>
+</html>

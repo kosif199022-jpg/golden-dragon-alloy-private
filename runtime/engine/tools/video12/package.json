@@ -1,0 +1,15 @@
+{
+  "name": "@kosif/black-dragon-video12",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Optional 12-video-tool adapters for Black Dragon; install locally only with approval",
+  "engines": {"node": ">=22"},
+  "scripts": {"doctor": "python3 video12.py doctor"},
+  "dependencies": {
+    "remotion": "*", "@remotion/cli": "*", "hyperframes": "*",
+    "@motion-canvas/core": "*", "@motion-canvas/2d": "*", "@motion-canvas/vite-plugin": "*",
+    "three": "*", "roughjs": "*", "gsap": "*", "animejs": "*", "@mojs/core": "*",
+    "@ffmpeg-installer/ffmpeg": "*", "@ffprobe-installer/ffprobe": "*"
+  }
+}

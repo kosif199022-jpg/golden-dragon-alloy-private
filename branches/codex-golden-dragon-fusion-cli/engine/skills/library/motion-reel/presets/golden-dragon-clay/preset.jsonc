@@ -1,0 +1,29 @@
+{
+  "name": "Golden Dragon clay",
+  "colors": {
+    "bg": "#402A28",
+    "accent": "#F69465",
+    "ink": "#FFF2D7"
+  },
+  "timeline": {
+    "duration": 15,
+    "music": {
+      "source": "synth"
+    },
+    "formats": [
+      "9x16",
+      "16x9"
+    ],
+    "fps": 60,
+    "bpm": 96
+  },
+  "voiceover": {
+    "provider": "none"
+  },
+  "brand": {
+    "product": "Golden Dragon"
+  },
+  "notes": [
+    "Use textured clay assets and stepped poses on twos. Hold silhouettes between actions."
+  ]
+}

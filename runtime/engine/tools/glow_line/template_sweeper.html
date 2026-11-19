@@ -1,0 +1,72 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>@font-face{font-family:Almarai;src:url(fonts/Almarai-Bold.ttf)}html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style>
+</head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// «تنضيف العقل» v2 — measured from the reference frame (1080x1920): sketchy multi-stroke head, swept hair strokes,
+// cobwebs with bright hubs, a hollow golden outlined worker with a cap and a solid-bristle broom, crumpled paper rubble.
+const W=1080,H=1920,DUR=15.164,cv=document.getElementById('c'),g=cv.getContext('2d');
+const cl=x=>Math.max(0,Math.min(1,x)),seg=(t,a,b)=>cl((t-a)/(b-a)),lerp=(a,b,k)=>a+(b-a)*k,eio=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2,eo=k=>1-Math.pow(1-k,3);
+function rng(s){return()=>{s=(s*16807)%2147483647;return s/2147483647}}
+const P=(x,y)=>[x*1.5,y*1.5+200];                       // points read off the 720-wide crop of the reference
+const BACK=[[95,925],[150,740],[190,640],[165,560],[120,470],[95,380],[90,300],[110,230],[160,170],[240,130]].map(p=>P(...p));
+const FACE=[[588,215],[590,300],[572,400],[600,450],[640,515],[625,545],[600,550],[608,580],[596,600],[604,622],[585,660],[590,690],[560,735],[500,750],[445,765],[425,800],[410,860],[400,900],[420,950]].map(p=>P(...p));
+function splinePath(pts,jx,jy){g.beginPath();for(let i=0;i<pts.length-1;i++){const p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+  if(!i)g.moveTo(p1[0]+jx(i),p1[1]+jy(i));g.bezierCurveTo(p1[0]+(p2[0]-p0[0])/6+jx(i),p1[1]+(p2[1]-p0[1])/6+jy(i),p2[0]-(p3[0]-p1[0])/6+jx(i+1),p2[1]-(p3[1]-p1[1])/6+jy(i+1),p2[0]+jx(i+1),p2[1]+jy(i+1))}g.stroke()}
+function sketch(pts,seed,n=6,w=1.7){const R=rng(seed);g.lineCap='round';for(let s=0;s<n;s++){const J=pts.map(()=>[(R()-.5)*17,(R()-.5)*17]);g.strokeStyle=`rgba(232,232,238,${s?0.62:0.9})`;g.lineWidth=s?w*.8:w+.5;splinePath(pts,i=>s?J[i][0]:0,i=>s?J[i][1]:0)}}
+const HAIR=(()=>{const R=rng(31),a=[];for(let i=0;i<46;i++){const band=R()<.3;if(band){const y=130+R()*45,x0=175+R()*120;a.push([P(x0,y+R()*10),P(x0+150+R()*60,y-6+R()*12),P(470+R()*140,y-10+R()*26),R()])}
+    else{const x0=100+R()*120,y0=330-R()*150,x1=470+R()*140,y1=85+R()*130;a.push([P(x0,y0),P((x0+x1)/2-30+R()*40,Math.min(y0,y1)-40-R()*70),P(x1,y1),R()])}}return a})();
+function hair(){for(const[a,c,b,r]of HAIR){g.strokeStyle=`rgba(232,232,238,${0.3+r*0.45})`;g.lineWidth=0.9+r*1.0;g.beginPath();g.moveTo(a[0],a[1]);g.quadraticCurveTo(c[0],c[1],b[0],b[1]);g.stroke()}}
+// ---- cobwebs
+const WEBS=[[322,548,165,8.9],[652,515,175,10.6]];
+function webs(t){for(const[cx,cy,r,t0]of WEBS){const al=1-seg(t,t0,t0+1.8);if(al>0){const R=rng(cx);g.lineWidth=1.2;const spokes=[];for(let i=0;i<16;i++){const a=i*6.283/16+R()*.2,rr=r*(0.75+R()*.5);spokes.push([a,rr]);g.strokeStyle=`rgba(225,225,232,${.5*al})`;g.beginPath();g.moveTo(cx,cy);g.lineTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*.7);g.stroke()}
+      for(let k=1;k<=6;k++){g.strokeStyle=`rgba(225,225,232,${.38*al})`;g.beginPath();spokes.forEach(([a,rr],i)=>{const q=rr*k/6.5,x=cx+Math.cos(a)*q,y=cy+Math.sin(a)*q*.7;if(!i)g.moveTo(x,y);else{const pa=spokes[i-1][0],pq=spokes[i-1][1]*k/6.5,mx=cx+Math.cos((a+pa)/2)*(q+pq)/2*.9,my=cy+Math.sin((a+pa)/2)*(q+pq)/2*.9*.7;g.quadraticCurveTo(mx,my,x,y)}});g.stroke()}
+      const gl=g.createRadialGradient(cx,cy,0,cx,cy,34);gl.addColorStop(0,`rgba(255,255,255,${.95*al})`);gl.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gl;g.fillRect(cx-34,cy-34,68,68)}
+    const fl=Math.sin(Math.PI*seg(t,t0-.15,t0+.9));if(fl>0){const gl=g.createRadialGradient(cx,cy,0,cx,cy,120);gl.addColorStop(0,`rgba(255,255,255,${.8*fl})`);gl.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gl;g.fillRect(cx-120,cy-120,240,240)}}}
+const DUST=(()=>{const R=rng(57),a=[];for(let i=0;i<90;i++){const w=i%2;a.push({w,dx:(R()-.5)*240,dy:(R()-.5)*90,t:WEBS[w][3]+R()*2.2,v:90+R()*160,r:1.5+R()*3,sw:R()*6.28})}return a})();
+function dust(t){for(const d of DUST){const u=t-d.t;if(u<0)continue;const[cx,cy]=WEBS[d.w];let x=cx+d.dx+Math.sin(u*2+d.sw)*10,y=cy+d.dy+u*d.v+u*u*70;if(y>1180)x=lerp(x,560,seg(y,1180,1330));const al=1-seg(y,1700,1900);if(al<=0)continue;
+  g.fillStyle=`rgba(238,238,243,${.8*al})`;g.beginPath();g.arc(x,y,d.r,0,6.283);g.fill()}}
+// ---- crumpled paper rubble on the floor (y=1272), swept to the neck opening (x~560) and dropped
+const FLOOR=1272,HOLE=560;
+const ROCKS=(()=>{const R=rng(13),a=[];for(let i=0;i<24;i++){const x=315+R()*520;a.push({x,y:FLOOR-10-R()*R()*120,r:10+R()*13,t:0.7+Math.abs(x-560)/260*1.6+R()*4.2,sh:R()*6.28,vx:(R()-.5)*60})}return a})();
+function paper(x,y,r,rot,al,sh){if(al<=0)return;g.save();g.globalAlpha=al;g.translate(x,y);g.rotate(rot);const n=9,pts=[];for(let k=0;k<n;k++){const a=k*6.283/n,rr=r*(0.72+0.3*Math.sin(sh*3+k*2.3));pts.push([Math.cos(a)*rr,Math.sin(a)*rr])}
+  const gr=g.createLinearGradient(-r,-r,r,r);gr.addColorStop(0,'#d9d9de');gr.addColorStop(.5,'#8c8c93');gr.addColorStop(1,'#4b4b52');g.beginPath();pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.closePath();g.fillStyle=gr;g.fill();
+  g.strokeStyle='rgba(245,245,248,.9)';g.lineWidth=1.4;g.stroke();g.strokeStyle='rgba(30,30,34,.7)';g.lineWidth=1.2;for(let k=0;k<4;k++){g.beginPath();g.moveTo(pts[k][0]*.9,pts[k][1]*.9);g.lineTo(pts[(k+4)%n][0]*.25,pts[(k+3)%n][1]*.3);g.stroke()}g.restore()}
+const SCRIB=(()=>{const R=rng(71),a=[];for(let i=0;i<16;i++){const x=320+R()*500,y=FLOOR-4+R()*40,pts=[];let px=x,py=y;for(let k=0;k<26;k++){px+=(R()-.5)*52;py+=(R()-.5)*20;pts.push([px,py])}a.push([pts,0.8+R()*5.4])}return a})();
+function floor(t){for(const[pts,tt]of SCRIB){const al=1-seg(t,tt,tt+1.2);if(al<=0)continue;g.strokeStyle=`rgba(200,200,208,${.42*al})`;g.lineWidth=1.2;g.beginPath();pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.stroke()}
+  g.strokeStyle='rgba(215,215,222,.45)';g.lineWidth=1.3;for(const o of[0,5,-4]){g.beginPath();g.moveTo(330,FLOOR+8+o);g.quadraticCurveTo(560,FLOOR+16+o,830,FLOOR+6+o);g.stroke()}
+  for(const k of ROCKS){const d=t-k.t;if(d<0){paper(k.x,k.y,k.r,k.sh,1,k.sh);continue}const sl=eo(cl(d/0.8)),x=lerp(k.x,HOLE+k.vx*.4,sl),fall=Math.max(0,d-0.6),y=lerp(k.y,FLOOR+10,sl)+fall*fall*520+fall*60;paper(x+k.vx*fall,y,k.r,k.sh+d*5,1-seg(y,1700,1900),k.sh)}}
+// ---- the worker: hollow golden outline (thick gold stroke, then black stroke inside), cap, solid-bristle broom
+const GOLD='#ffc02e';
+function worker(t){const up=eio(seg(t,7.0,8.4)),done=seg(t,13.0,13.7);
+  const fx=548+Math.sin(t*1.05)*150*(1-seg(t,5.9,6.9)),ux=lerp(430,640,eio(seg(t,8.6,12.2)));
+  const x=lerp(lerp(fx,ux,up),560,done),y=lerp(FLOOR,640,up),h=132,sw=Math.sin(t*6.2)*(1-done),dir=up<.5?(Math.cos(t*1.05)>=0?1:-1):1,high=up>.5?1:0;
+  const lean=lerp(0.34,0.1,high)*(1-done),hipX=-h*.06,hipY=-h*.47,shX=hipX+Math.sin(lean)*h*.36,shY=hipY-Math.cos(lean)*h*.36,hdX=shX+Math.sin(lean)*h*.13,hdY=shY-h*.14;
+  const handX=shX+h*.30+sw*h*.08,handY=lerp(shY+h*.24,shY-h*.2,high*(1-done)),ang=lerp(lerp(0.62+sw*.3,-1.95+sw*.35,high),-1.5708,done);
+  const bones=[[[-h*.2,0],[hipX,hipY]],[[h*.16,0],[hipX,hipY]],[[hipX,hipY],[shX,shY]],[[shX,shY],[handX,handY]],[[shX,shY],[handX-h*.12,handY+h*.13]]];
+  g.save();g.translate(x,y);g.scale(dir,1);g.lineCap='round';g.lineJoin='round';
+  const pass=(col,w,blur)=>{g.strokeStyle=col;g.fillStyle=col;g.lineWidth=w;g.shadowColor='rgba(255,150,20,.9)';g.shadowBlur=blur;for(const[a,b]of bones){g.beginPath();g.moveTo(a[0],a[1]);g.lineTo(b[0],b[1]);g.stroke()}
+    g.beginPath();g.arc(hdX,hdY,h*.085+w/2-9,0,6.283);g.fill();
+    g.beginPath();g.moveTo(-h*.3,0);g.lineTo(-h*.12,0);g.moveTo(h*.08,0);g.lineTo(h*.27,0);g.stroke()};
+  pass(GOLD,21,14);g.shadowBlur=0;pass('#000',15,0);
+  // cap: dome line + brim, drawn as gold line
+  g.strokeStyle=GOLD;g.lineWidth=3.5;g.shadowColor='rgba(255,150,20,.9)';g.shadowBlur=8;g.beginPath();g.arc(hdX,hdY-h*.02,h*.1,Math.PI*1.05,Math.PI*1.95);g.stroke();g.beginPath();g.moveTo(hdX-h*.1,hdY-h*.035);g.lineTo(hdX+h*.2,hdY-h*.04);g.stroke();
+  // broom
+  const L=h*.74,tx=handX-Math.cos(ang)*h*.34,ty=handY-Math.sin(ang)*h*.34,bx=handX+Math.cos(ang)*L,by=handY+Math.sin(ang)*L;
+  g.lineWidth=4;g.beginPath();g.moveTo(tx,ty);g.lineTo(bx,by);g.stroke();
+  const nx=-Math.sin(ang),ny=Math.cos(ang),bl=h*.3;g.fillStyle=GOLD;g.beginPath();g.moveTo(bx+nx*h*.05,by+ny*h*.05);g.lineTo(bx+Math.cos(ang)*bl+nx*h*.2,by+Math.sin(ang)*bl+ny*h*.2);
+  g.quadraticCurveTo(bx+Math.cos(ang)*bl*1.15,by+Math.sin(ang)*bl*1.15,bx+Math.cos(ang)*bl-nx*h*.2,by+Math.sin(ang)*bl-ny*h*.2);g.lineTo(bx-nx*h*.05,by-ny*h*.05);g.closePath();g.fill();
+  g.shadowBlur=0;g.strokeStyle='rgba(120,70,0,.7)';g.lineWidth=1.5;for(let i=-2;i<=2;i++){g.beginPath();g.moveTo(bx+nx*i*h*.02,by+ny*i*h*.02);g.lineTo(bx+Math.cos(ang)*bl*.95+nx*i*h*.075,by+Math.sin(ang)*bl*.95+ny*i*h*.075);g.stroke()}
+  g.restore()}
+function sparkle(t){const k=seg(t,13.3,14.3);if(k<=0)return;const x=560,y=1860,p=Math.sin(Math.PI*Math.min(1,k*.85))+.25*k;const gl=g.createRadialGradient(x,y,0,x,y,170);gl.addColorStop(0,`rgba(255,255,255,${.9*p})`);gl.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gl;g.fillRect(x-170,y-170,340,340);
+  g.strokeStyle=`rgba(255,255,255,${.7*p})`;g.lineWidth=2;for(let i=0;i<14;i++){const a=-Math.PI/2+(i-6.5)*.2;g.beginPath();g.moveTo(x+Math.cos(a)*20,y+Math.sin(a)*20);g.lineTo(x+Math.cos(a)*(60+k*120*(0.6+0.4*Math.sin(i*2.3))),y+Math.sin(a)*(60+k*120));g.stroke()}}
+async function render(t){
+  g.fillStyle='#000';g.fillRect(0,0,W,H);
+  webs(t);hair();sketch(BACK,5);sketch(FACE,9);dust(t);floor(t);worker(t);sparkle(t);
+  const ck=seg(t,DUR-3,DUR-2.5);if(ck>0){g.save();g.globalAlpha=ck;g.textAlign='center';g.direction='rtl';g.fillStyle='#f3ead2';g.font='700 38px Almarai';g.fillText('مونتاج وإخراج Mahmoud Elkosif',540,1015);
+    g.font='700 28px Almarai';g.fillStyle='#bfb59a';g.fillText('تابعني على فيسبوك',540,1066);g.restore()}
+  g.save();g.font='700 22px Almarai';g.direction='ltr';g.textAlign='left';g.fillStyle='rgba(255,255,255,.4)';g.fillText('© Mahmoud Elkosif',40,1890);g.restore();
+}
+document.fonts.load('700 40px Almarai').then(async()=>{await render(0);window.__kosifReady=true});
+window.__kosif={duration:DUR,seek:async t=>{await render(t)}};
+</script></body></html>

@@ -1,0 +1,30 @@
+{
+  "name": "Golden Dragon kinetic-type",
+  "colors": {
+    "bg": "#151515",
+    "accent": "#FF6544",
+    "ink": "#FFFFFF"
+  },
+  "timeline": {
+    "duration": 15,
+    "music": {
+      "source": "synth"
+    },
+    "formats": [
+      "9x16",
+      "16x9"
+    ],
+    "fps": 60,
+    "bpm": 144
+  },
+  "voiceover": {
+    "provider": "none"
+  },
+  "brand": {
+    "product": "Golden Dragon",
+    "hook": "كل كلمة حركة"
+  },
+  "notes": [
+    "Reveal one Arabic phrase per beat group. Shape words as complete RTL runs."
+  ]
+}

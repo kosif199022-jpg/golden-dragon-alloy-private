@@ -1,0 +1,48 @@
+{
+  "_doc": {
+    "about": "nil: slow and warm, letterbox, warm grade, eased dissolves (the «بنت النيل» look, 2026-11-08). Replace every path with a real file; paths are relative to this spec's folder.",
+    "style": "which engine draws the film: nil | beat | wall | medal | chapters | clean",
+    "name": "file name of the final film (DIR/<name>.mp4); Arabic is fine",
+    "duration": "film length in seconds; the render has exactly round(duration * fps) frames",
+    "fps": "frames per second (owner standard: 30)",
+    "watermark": "persistent text bottom left (the owner's: © Mahmoud Elkosif)",
+    "credit": "1-2 lines shown on the end card (the owner's credit and follow line)",
+    "song": "path = the song file; start = second of the song the film starts on; fade_in / fade_out in seconds; mixed to -14 LUFS into mix.m4a",
+    "leak": "true adds the warm light-leak sweep to every dissolve (off: the owner removed sun / light-leak washes on 2026-11-01)",
+    "shots[].src": "a video or a still image",
+    "shots[].ss": "in-point in the source, seconds",
+    "shots[].start / end": "where the shot sits in the film, seconds",
+    "shots[].focus": "[x, y] fractions of the box: the point the 9:16 crop is centred on (a face); default [0.5, 0.42]",
+    "shots[].box": "[x, y, w, h] in source pixels: the part of the picture that may be used (cuts burnt captions, logos)",
+    "shots[].zoom": "1 = the largest 9:16 crop inside the box; 1.3 = a closer punch",
+    "shots[].speed": "1 = real time; 0.5-0.8 = slow motion for key moments (setpts)",
+    "shots[].broll": "true for aerials / library shots",
+    "title": "gold Ruqaa title over the opening shot, start..end seconds",
+    "lines": "her words, revealed word by word (Tajawal 62 at y 1620); per line: font, size, gold, y",
+    "end": "end card: at = when it starts, title = gold Ruqaa name; the credit follows 1 s later"
+  },
+  "style": "nil",
+  "name": "بنت النيل",
+  "duration": 30.0,
+  "fps": 30,
+  "watermark": "© Mahmoud Elkosif",
+  "credit": ["مونتاج وإخراج Mahmoud Elkosif", "تابعني على فيسبوك"],
+  "song": {"path": "music/song.m4a", "start": 0.0, "fade_in": 0.3, "fade_out": 2.5},
+  "leak": false,
+  "shots": [
+    {"src": "broll/nile_aerial.mp4", "ss": 0, "start": 0.0, "end": 4.5, "broll": true},
+    {"src": "clips/stage.mp4", "ss": 13.0, "start": 4.5, "end": 8.5, "focus": [0.43, 0.42], "speed": 0.8},
+    {"src": "clips/announcement.mp4", "ss": 71.8, "start": 8.5, "end": 12.0, "focus": [0.5, 0.55]},
+    {"src": "clips/announcement.mp4", "ss": 76.3, "start": 12.0, "end": 16.5, "focus": [0.4, 0.5], "speed": 0.5},
+    {"src": "clips/crowning.mp4", "ss": 0.15, "start": 16.5, "end": 20.0, "focus": [0.4, 0.45], "box": [0, 0, 1080, 1560], "speed": 0.8},
+    {"src": "clips/homecoming.mp4", "ss": 8.0, "start": 20.0, "end": 26.5, "focus": [0.5, 0.45], "speed": 0.8},
+    {"src": "broll/gold_detail.mp4", "ss": 0, "start": 26.5, "end": 30.0, "broll": true}
+  ],
+  "title": {"text": "بنت النيل", "start": 0.9, "end": 4.4},
+  "lines": [
+    {"text": "المركز الأول، مصر", "start": 9.2, "end": 11.9},
+    {"text": "سجدتُ لله شكراً", "start": 13.0, "end": 16.3},
+    {"text": "من بلدها، إلى قلوب العرب", "start": 20.8, "end": 25.6}
+  ],
+  "end": {"at": 26.8, "title": "اسمها هنا"}
+}

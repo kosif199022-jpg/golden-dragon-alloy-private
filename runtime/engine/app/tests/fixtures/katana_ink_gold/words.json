@@ -1,0 +1,48 @@
+{
+"schema": "rr.words/1",
+"note": "timings are real; the reference's wording is replaced by placeholders on purpose",
+"words": [
+{
+"word": "w1",
+"start": 0.0,
+"end": 0.26,
+"prob": 0.695,
+"seg": 0
+},
+{
+"word": "w2",
+"start": 0.26,
+"end": 0.46,
+"prob": 0.928,
+"seg": 0
+},
+{
+"word": "w3",
+"start": 0.46,
+"end": 0.62,
+"prob": 0.993,
+"seg": 0
+},
+{
+"word": "w4",
+"start": 0.62,
+"end": 0.74,
+"prob": 0.983,
+"seg": 0
+},
+{
+"word": "w5",
+"start": 0.74,
+"end": 1.0,
+"prob": 0.919,
+"seg": 0
+},
+{
+"word": "w6",
+"start": 1.3,
+"end": 1.56,
+"prob": 0.956,
+"seg": 0
+}
+]
+}

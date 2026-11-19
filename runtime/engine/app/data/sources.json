@@ -1,0 +1,36 @@
+{
+ "skill_roots": [
+  {
+   "source": "kosif-tool",
+   "path": "~/kosif-own/kosif-tool",
+   "depth": 7
+  },
+  {
+   "source": "100-superskills",
+   "path": "~/kosif-own/100-superskills",
+   "depth": 4
+  },
+  {
+   "source": "kosif-atlas",
+   "path": "~/kosif-own/kosif-atlas",
+   "depth": 6
+  },
+  {
+   "source": "fastify-motion-bro",
+   "path": "~/kosif-own/fastify-motion-bro",
+   "depth": 4
+  },
+  {
+   "source": "installed",
+   "path": "~/.claude/skills",
+   "depth": 2
+  },
+  {
+   "source": "dragon-repos",
+   "path": "~/dragon-repos",
+   "depth": 6
+  }
+ ],
+ "tools_json": "~/kosif-own/kosif-tool/.claude/skills/kosif-superpowers/data/tools.json",
+ "micro_index": "~/kosif-own/kosif-tool/.claude/skills/kosif-superpowers/data/micro_index.json"
+}

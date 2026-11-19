@@ -1,0 +1,38 @@
+{
+  "_doc": {
+    "about": "medal: one shape carries the film (the saas-animation manner, «ميار عثمان», 2026-11-06). A gold medal drops on a red field and grows into the first shot; every later shot grows out of the one before; at end.at the frame shrinks back into the medal. Send the owner a numbered storyboard first and wait for his yes.",
+    "shots[0]": "the first shot grows out of the medal at its start (the medal drops and squashes before that: start it at about 2.5 s)",
+    "shots[].move": "how the shot arrives: iris (a circle opens from the centre), flip (the frame closes into a card that flips edge-on; flips must end with a flood), flood (the card floods gold and grows to fill the frame)",
+    "shots[].at": "the move's time when it should differ from the shot's start (e.g. an iris a little before the cut)",
+    "shots[].fill": "iris colour: ink, field or a CSS colour (irises alternate ink / field by default)",
+    "title": "the name under the medal at the start (Tajawal 78, word by word)",
+    "lines": "one line per shot, lower centre over a soft shade (Tajawal 64)",
+    "end": "at = when the frame shrinks back into the medal (0.7 s); title under the medal; credit 1.4 s after the medal lands",
+    "field / ink / medal_text": "the field colour (#b5121b), the card colour (#0b0b10) and the medal's figure (١)",
+    "other fields": "same as examples/nil.json"
+  },
+  "style": "medal",
+  "name": "medal film",
+  "duration": 27.0,
+  "watermark": "© Mahmoud Elkosif",
+  "credit": ["مونتاج وإخراج Mahmoud Elkosif", "تابعني على فيسبوك"],
+  "song": {"path": "music/song.m4a", "start": 262.0, "fade_in": 0.8, "fade_out": 2.5},
+  "field": "#b5121b",
+  "medal_text": "١",
+  "shots": [
+    {"src": "clips/stage.mp4", "ss": 12.8, "start": 2.5, "end": 6.5, "focus": [0.43, 0.42]},
+    {"src": "clips/announcement.mp4", "ss": 71.8, "start": 6.5, "end": 10.0, "focus": [0.5, 0.55], "move": "iris"},
+    {"src": "clips/announcement.mp4", "ss": 76.3, "start": 10.0, "end": 13.5, "focus": [0.4, 0.5], "speed": 0.55, "move": "flip"},
+    {"src": "clips/crowning.mp4", "ss": 3.4, "start": 13.5, "end": 16.5, "focus": [0.42, 0.45], "speed": 0.9, "move": "flip", "at": 13.35},
+    {"src": "clips/street.mp4", "ss": 8.7, "start": 16.5, "end": 20.0, "focus": [0.5, 0.5], "move": "flood"},
+    {"src": "clips/reception.mp4", "ss": 68.6, "start": 20.0, "end": 23.4, "focus": [0.45, 0.45], "speed": 0.8, "move": "iris", "at": 19.8}
+  ],
+  "title": {"text": "اسمها هنا"},
+  "lines": [
+    {"text": "الرقم واحد، ليس مجرد مركز", "start": 3.5, "end": 6.35},
+    {"text": "المركز الأول، مصر", "start": 7.4, "end": 9.75},
+    {"text": "سجدتُ لله شكراً", "start": 10.5, "end": 13.2},
+    {"text": "في ضيافة الرئيس", "start": 20.7, "end": 22.8}
+  ],
+  "end": {"at": 22.9, "title": "سطر النهاية تحت الميدالية"}
+}

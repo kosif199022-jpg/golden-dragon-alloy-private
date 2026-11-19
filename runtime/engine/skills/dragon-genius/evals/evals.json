@@ -1,0 +1,12 @@
+{
+  "skill": "dragon-genius",
+  "cases": [
+    {"prompt": "خلّصت رندر الريل ده OUT.mp4، اتأكد إنه جاهز للنشر على انستجرام", "expect": ["runs scripts/media_gate.py with --aspect 9:16 --lufs -14 --tp -1", "reports VERIFIED/FAILED per check with measured values", "does not say 'done' if verdict is FAIL"]},
+    {"prompt": "الترجمة اللي طلعت من whisperX مش متزامنة مع الكلام", "expect": ["runs scripts/transcript_qa.py on the JSON", "checks that whisperx.align was used (raw segment times can be seconds off)", "spot-checks words at exact frames"]},
+    {"prompt": "اعمل تعليق صوتي عربي بصوت رخيم للفيديو ده", "expect": ["picks VoxCPM2 (Arabic) over ChatTTS/CosyVoice (no Arabic)", "measures TTS duration and fits the picture to the audio", "asks for consent before cloning a real person's voice", "listens / ASR round-trip for diacritics"]},
+    {"prompt": "قص الفيديو من 00:01:12.4 لحد 00:01:30 بالظبط", "expect": ["re-encodes for a frame-exact cut instead of -c copy", "copies the source out of OneDrive before cutting", "writes to output/ without overwriting the original"]},
+    {"prompt": "حلل 30 ملف كود واعرف ليه البرنامج بيقع", "expect": ["delegates noisy reading to subagents writing files", "captures exact error before retrying", "separates verified / inferred / unknown in the answer"]},
+    {"prompt": "إزيك؟", "expect": ["stays quiet: no G-LOOP, short reply"], "type": "stays-quiet"},
+    {"prompt": "كام ساعة في اليوم؟", "expect": ["stays quiet: L0 direct answer"], "type": "stays-quiet"}
+  ]
+}

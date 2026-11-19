@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+# hfc — Higgsfield free-cloud toolkit (installed at ~/hfc inside sandbox_exec). Free: no credits.
+#   ~/hfc/hfc help                       this list
+#   ~/hfc/hfc doctor [--json]            machine, tools, fonts, caches, running jobs
+#   ~/hfc/hfc bench [--quick]            fixed encode/CPU benchmark; --quick = A only, ~5 s (same script on Windows)
+#   ~/hfc/hfc job run NAME -- CMD...     run CMD with log+state+progress (call with background:true)
+#   ~/hfc/hfc job status [NAME]          compact state of jobs (poll this)
+#   ~/hfc/hfc job tail NAME [N] | stop NAME | list
+#   ~/hfc/hfc enc IN OUT [opts]          x264/x265/AV1 encode, frame-exact parts, loudnorm, faststart
+#   ~/hfc/hfc concat OUT P1 P2.. [--audio-from SRC]   join parts (stream copy) + optional audio
+#   ~/hfc/hfc whisper IN [opts]          faster-whisper -> .srt .vtt .txt .words.json
+#   ~/hfc/hfc html2mp4 PAGE OUT [opts]   deterministic HTML/CSS/JS animation -> MP4 (parallel Chromium)
+#   ~/hfc/hfc shot URL|FILE OUT [opts]   Playwright screenshot (.png/.jpg) or PDF (.pdf)
+#   ~/hfc/hfc qc FILE [opts]             delivery gate: decode, dims, frames, faststart, black, LUFS/TP
+#   ~/hfc/hfc sheet IN.. -o OUT.jpg      contact sheet <=480 KB for sandbox_exec image_paths
+#   ~/hfc/hfc fonts                      Arabic + Latin OFL fonts into ~/.local/share/fonts
+#   ~/hfc/hfc get URL OUT                download with retry/resume + sha256 + speed
+#   ~/hfc/hfc put FILE 'UPLOAD_URL'      PUT to a media_upload URL; prints HTTP code (200 = confirm)
+#   ~/hfc/hfc pip PKG..                  install pure-Python wheels into ~/pylib (pip to /root is blocked)
+#   ~/hfc/hfc version
+set -uo pipefail
+HFC_HOME="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
+export HFC_HOME
+export NODE_PATH="${NODE_PATH:-/usr/local/lib/node_modules}"
+# drop the unreadable /root entry the sandbox ships in PYTHONPATH (it breaks package scans); keep ~/pylib first
+_pp=$(printf '%s' "${PYTHONPATH:-}" | tr ':' '\n' | grep -v -E '^/root/?$' | paste -sd: -)
+export PYTHONPATH="$HOME/pylib${_pp:+:$_pp}"
+PY=python3; command -v python3 >/dev/null 2>&1 || PY=python
+
+sha() { if command -v sha256sum >/dev/null; then sha256sum "$1" | cut -d' ' -f1; else $PY -c "import hashlib,sys;h=hashlib.sha256();f=open(sys.argv[1],'rb');[h.update(b) for b in iter(lambda:f.read(1<<20),b'')];print(h.hexdigest())" "$1"; fi; }
+
+cmd=${1:-help}; shift || true
+case "$cmd" in
+  doctor)   exec bash "$HFC_HOME/doctor.sh" "$@" ;;
+  bench)    exec bash "$HFC_HOME/bench.sh" "$@" ;;
+  job)      exec bash "$HFC_HOME/job.sh" "$@" ;;
+  enc)      exec bash "$HFC_HOME/enc.sh" "$@" ;;
+  concat)   exec bash "$HFC_HOME/concat.sh" "$@" ;;
+  whisper)  exec $PY "$HFC_HOME/whisper.py" "$@" ;;
+  html2mp4) exec bash "$HFC_HOME/html2mp4.sh" "$@" ;;
+  shot)     exec node "$HFC_HOME/shot.js" "$@" ;;
+  qc)       exec $PY "$HFC_HOME/qc.py" "$@" ;;
+  sheet)    exec $PY "$HFC_HOME/sheet.py" "$@" ;;
+  fonts)    exec bash "$HFC_HOME/fonts.sh" "$@" ;;
+  get)
+    [ $# -ge 2 ] || { echo "usage: hfc get URL OUT" >&2; exit 2; }
+    mkdir -p "$(dirname "$2")"
+    w=$(curl -fL --retry 5 --retry-delay 2 --retry-all-errors -C - -sS -o "$2" -w '%{http_code} %{size_download} %{speed_download} %{time_total}' "$1") || { echo "get: FAILED ($w) $1" >&2; exit 1; }
+    read -r code size speed t <<<"$w"
+    echo "get: $2 http=$code bytes=$(stat -c%s "$2") MBps=$(awk "BEGIN{printf \"%.1f\", $speed/1048576}") s=$t sha256=$(sha "$2")" ;;
+  put)
+    # The presigned URL signs content-type AND if-none-match: send media_upload's content_type exactly + If-None-Match: *
+    [ $# -ge 2 ] || { echo "usage: hfc put FILE 'UPLOAD_URL' [CONTENT_TYPE from media_upload]" >&2; exit 2; }
+    [ -s "$1" ] || { echo "put: missing or empty $1" >&2; exit 2; }
+    ct=${3:-}; if [ -z "$ct" ]; then case "${1,,}" in
+      *.mp4|*.m4v) ct=video/mp4;; *.mov) ct=video/quicktime;; *.webm) ct=video/webm;; *.png) ct=image/png;;
+      *.jpg|*.jpeg) ct=image/jpeg;; *.webp) ct=image/webp;; *.mp3) ct=audio/mpeg;; *.wav) ct=audio/wav;;
+      *.m4a) ct=audio/mp4;; *) ct=application/octet-stream;; esac; fi
+    w=$(curl -sS --retry 3 --retry-delay 2 -X PUT -H "Content-Type: $ct" -H "If-None-Match: *" --upload-file "$1" \
+        -o /tmp/hfc_put_body -w '%{http_code} %{speed_upload} %{time_total}' "$2")
+    read -r code speed t <<<"$w"
+    echo "put: $1 http=$code bytes=$(stat -c%s "$1") MBps=$(awk "BEGIN{printf \"%.1f\", $speed/1048576}") s=$t sha256=$(sha "$1")"
+    [ "$code" = 200 ] || { echo "put: body: $(head -c 400 /tmp/hfc_put_body)" >&2; exit 1; } ;;
+  pip)
+    [ $# -ge 1 ] || { echo "usage: hfc pip PKG.." >&2; exit 2; }
+    T="$HOME/pylib"; mkdir -p "$T" /tmp/hfc_pipcache
+    # Measured 2026-11-11: the sandbox ships PYTHONPATH=/pkg/:/root/ and /root is unreadable, so pip's package scan
+    # dies with PermissionError '/root'. Run pip with an empty PYTHONPATH, a writable HOME and --target.
+    env PYTHONPATH= HOME=/tmp PIP_CACHE_DIR=/tmp/hfc_pipcache $PY -m pip install --disable-pip-version-check \
+      --no-warn-script-location -q --target "$T" --upgrade "$@" > /tmp/hfc_pip.log 2>&1
+    rc=$?; tail -3 /tmp/hfc_pip.log
+    [ $rc = 0 ] || { echo "pip: FAILED rc=$rc (full log /tmp/hfc_pip.log)" >&2; exit $rc; }
+    echo "pip: installed into $T (hfc exports PYTHONPATH=$T for its own python commands)" ;;
+  version)  cat "$HFC_HOME/VERSION" ;;
+  help|-h|--help) sed -n '2,23p' "$0" | sed 's/^# \{0,1\}//' ;;
+  *) echo "hfc: unknown command '$cmd' (try: hfc help)" >&2; exit 2 ;;
+esac

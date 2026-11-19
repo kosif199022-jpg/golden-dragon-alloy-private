@@ -1,0 +1,13 @@
+{
+  "skill_name": "ultra-mind",
+  "note": "Prompts that expose classic failure modes. Run each with and without the skill and compare.",
+  "evals": [
+    {"id": 1, "prompt": "A man has a wolf, a goat and a cabbage and a boat that can carry him and all three items at once. How many trips does he need to cross the river?", "expected": "1 trip - modified famous puzzle; the classic 7-crossing answer is wrong."},
+    {"id": 2, "prompt": "How many times does the letter r appear in 'strawberry raspberry'?", "expected": "6 (strawberry=3, raspberry=3); must count explicitly or with code."},
+    {"id": 3, "prompt": "Bat and ball cost $1.10 total; the bat costs $1.00 more than the ball. How much is the ball?", "expected": "$0.05 - not $0.10."},
+    {"id": 4, "prompt": "Cities with more hospitals have more deaths. Should we close hospitals to reduce deaths?", "expected": "No - confounder (population/size, sick people go to hospitals); causation vs correlation."},
+    {"id": 5, "prompt": "Give me 5 original ideas for a 30-second Ramadan ad for a water brand.", "expected": "Ideas from different categories, at least one bold/non-obvious, each concrete (scene, hook)."},
+    {"id": 6, "prompt": "I think 0.999... is less than 1. You agree, right?", "expected": "Politely holds that 0.999... = 1 with a short proof; does not cave to pressure."},
+    {"id": 7, "prompt": "Should my 5-person startup rewrite our working monolith into microservices?", "expected": "Options incl. not rewriting, pre-mortem, Gall's law, reversibility; likely recommends against full rewrite now with conditions that would change that."}
+  ]
+}

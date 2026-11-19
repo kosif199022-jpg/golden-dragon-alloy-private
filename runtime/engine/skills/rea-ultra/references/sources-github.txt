@@ -1,0 +1,20 @@
+https://github.com/LaurieWired/GhidraMCP
+https://github.com/mrexodia/ida-pro-mcp
+https://github.com/HexRaysSA/ida-mcp
+https://github.com/mrexodia/mcp-reversing-dataset
+https://github.com/zinja-coder/jadx-ai-mcp
+https://github.com/zinja-coder/jadx-mcp-server
+https://github.com/zinja-coder/apktool-mcp-server
+https://github.com/fosdickio/binary_ninja_mcp
+https://github.com/bethington/ghidra-mcp
+https://github.com/clearbluejar/ghidriff
+https://github.com/trailofbits/skills
+https://github.com/mandiant/capa
+https://github.com/mandiant/capa-rules
+https://github.com/mandiant/flare-floss
+https://github.com/NationalSecurityAgency/ghidra
+https://github.com/wtsxDev/reverse-engineering
+https://github.com/rizinorg/cutter
+https://github.com/frida/frida-tools
+https://codeshare.frida.re/
+https://api.github.com/repos/OWNER/REPO (star counts, queried 2026-11-09)

@@ -1,0 +1,18 @@
+{
+ "schema": "black-dragon.source-toon.v1",
+ "note": "READ-ONLY originals from the desktop project. engine/ copies differ only by documented adaptations: safe_path() for Arabic model paths, venv re-exec uses `-m engine` from tools/toon, message text.",
+ "files": [
+  {
+   "original": "%USERPROFILE%\\Desktop\\التنين الأسود\\engines\\toon\\__init__.py",
+   "sha256_original": "3c2b5be02e1c447dc22ccf7d59666d60781a72109de725f625a49fb8c5feeb97",
+   "copy": "engine/__init__.py",
+   "sha256_copy": "400c04c23daeba1506451384d64b1e02fc667b03a92cc1c40ecffa5f10dbf476"
+  },
+  {
+   "original": "%USERPROFILE%\\Desktop\\التنين الأسود\\engines\\toon\\__main__.py",
+   "sha256_original": "480ca2abee5a2a039acd28fd7f47f4e3a553f21409505f08a7321617f61365d3",
+   "copy": "engine/__main__.py",
+   "sha256_copy": "a882fb90b574148ee8d4fcb591a2149449b1a6b4798e093c6ef677ee33d65da7"
+  }
+ ]
+}

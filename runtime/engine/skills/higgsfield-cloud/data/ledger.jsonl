@@ -1,0 +1,1 @@
+{"at": "2026-11-11 20:30", "before": 347.88, "after": 347.88, "delta": 0.0, "note": "build+test session: standard x3 allocs, XL x2 allocs, 11 presigned uploads, whisper large-v3/small, html2mp4 x2, hybrid split/join, pip; last transaction still 2026-11-10T16:38"}

@@ -1,0 +1,9 @@
+{
+ "repo": "https://github.com/Graphify-Labs/graphify",
+ "stars_on_2026-11-14": 147697,
+ "license": "apache-2.0 OR mit",
+ "commit": "52cb282",
+ "path_in_repo": "graphify/skills/claude  (+ graphify/skill.md as SKILL.md)",
+ "review_before_running": [],
+ "note": "copied unchanged with its LICENSE (v2.17.0); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

@@ -1,0 +1,10 @@
+{
+ "repo": "https://github.com/Kimeur/motion-launch-videos",
+ "stars_on_2026-11-12": 13,
+ "license": "mit",
+ "path_in_repo": "skills-hub/Kimeur__motion-launch-videos/plugins/motion-launch-videos/skills/motion-photo",
+ "review_before_running": [
+  "exec"
+ ],
+ "note": "copied unchanged; SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

@@ -1,0 +1,29 @@
+{
+  "name": "Golden Dragon cinematic",
+  "colors": {
+    "bg": "#131419",
+    "accent": "#C79C55",
+    "ink": "#EEE6D4"
+  },
+  "timeline": {
+    "duration": 15,
+    "music": {
+      "source": "synth"
+    },
+    "formats": [
+      "9x16",
+      "16x9"
+    ],
+    "fps": 60,
+    "bpm": 84
+  },
+  "voiceover": {
+    "provider": "none"
+  },
+  "brand": {
+    "product": "Golden Dragon"
+  },
+  "notes": [
+    "Hold the opening wide shot for two bars. Cut on motion and resolve on a quiet close-up."
+  ]
+}

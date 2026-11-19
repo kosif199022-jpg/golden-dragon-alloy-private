@@ -1,0 +1,89 @@
+{
+ "scene": {},
+ "steps": [
+  {
+   "op": "gp_canvas",
+   "width": 16,
+   "resolution": [
+    960,
+    540
+   ],
+   "fps": 30,
+   "frame_start": 1,
+   "frame_end": 100,
+   "background": "#FDF6E3",
+   "name": "WriteOn"
+  },
+  {
+   "op": "draw_text_outline",
+   "text": "Black Dragon",
+   "size": 2.2,
+   "position": [
+    0,
+    1.4
+   ],
+   "color": "#1B2631",
+   "radius": 0.05,
+   "jitter": 0.01
+  },
+  {
+   "op": "draw_text_outline",
+   "text": "التنين الأسود",
+   "size": 1.8,
+   "position": [
+    0,
+    -1.2
+   ],
+   "color": "#922B21",
+   "radius": 0.05,
+   "order": "rtl"
+  },
+  {
+   "op": "draw_shape",
+   "shape": "bezier",
+   "points": [
+    [
+     -6,
+     -2.9
+    ],
+    [
+     -3,
+     -3.6
+    ],
+    [
+     3,
+     -2.2
+    ],
+    [
+     6,
+     -2.9
+    ]
+   ],
+   "radius": 0.06,
+   "color": "#B7950B",
+   "taper": 0.3,
+   "jitter": 0.02
+  },
+  {
+   "op": "animate_draw_on",
+   "start": 1,
+   "end": 75,
+   "mode": "SEQUENTIAL",
+   "transition": "GROW"
+  },
+  {
+   "op": "gp_effects",
+   "effects": [
+    {
+     "type": "noise",
+     "factor": 0.15,
+     "step": 3
+    }
+   ]
+  }
+ ],
+ "render": {
+  "kind": "animation",
+  "filepath": "draw_writeon.mp4"
+ }
+}

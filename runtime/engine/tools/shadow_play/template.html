@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Naskh;src:url(fonts/NotoNaskhArabic-700.ttf)}
+@font-face{font-family:Ruqaa;src:url(fonts/ArefRuqaa-Bold.ttf)}
+@font-face{font-family:Tajawal;src:url(fonts/Tajawal-Bold.ttf)}
+html,body{margin:0;background:#2a1a10;overflow:hidden}canvas{display:block}
+</style></head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// «عارف بعد البعد بمدة» — shadow-play motion graphic (style card ST10 «أسلوب الظلال»).
+// One warm wall, one hanging bulb that sways; every lyric line is acted by shadow puppets on the wall.
+// Shadows are cast from the bulb: they slide opposite to its swing and grow/soften with distance. No faces ever.
+const W=1080,H=1920,DUR=45.211,cv=document.getElementById('c');let g=cv.getContext('2d');
+const cl=x=>Math.max(0,Math.min(1,x)),seg=(t,a,b)=>cl((t-a)/(b-a)),lerp=(a,b,k)=>a+(b-a)*k;
+const eo=k=>1-Math.pow(1-k,3),eio=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+function rng(s){return()=>{s=(s*16807)%2147483647;return s/2147483647}}
+const FLOOR=1500,SH='rgba(28,14,6,0.86)';
+// plaster texture, baked once (deterministic)
+const TEX=(()=>{const c=document.createElement('canvas');c.width=540;c.height=960;const x=c.getContext('2d'),R=rng(4);
+  for(let i=0;i<9000;i++){const v=R();x.fillStyle=`rgba(${v<.5?0:255},${v<.5?0:230},${v<.5?0:200},${0.02+R()*0.05})`;x.fillRect(R()*540,R()*960,1+R()*3,1+R()*3)}
+  for(let i=0;i<40;i++){x.strokeStyle=`rgba(60,30,10,${0.03+R()*0.05})`;x.lineWidth=1;x.beginPath();let px=R()*540,py=R()*960;x.moveTo(px,py);for(let k=0;k<6;k++){px+=R()*40-20;py+=R()*30;x.lineTo(px,py)}x.stroke()}return c})();
+let SW=0,BX=540; // bulb swing (radians) and bulb x, set per frame
+function wall(t,cool=0){
+  BX=540+Math.sin(SW)*160;const BY=170+Math.cos(SW)*160;
+  g.fillStyle='#3b2416';g.fillRect(0,0,W,H);
+  const r=g.createRadialGradient(BX,BY+60,30,BX,BY+260,1250);r.addColorStop(0,'#f6d39a');r.addColorStop(.35,'#d79b5a');r.addColorStop(.75,'#7a4a28');r.addColorStop(1,'#3a2214');
+  g.fillStyle=r;g.fillRect(0,0,W,FLOOR);
+  g.globalAlpha=.9;g.drawImage(TEX,0,0,W,FLOOR);g.globalAlpha=1;
+  if(cool>0){g.fillStyle=`rgba(40,70,120,${0.35*cool})`;g.fillRect(0,0,W,FLOOR)}
+  // floor
+  const f=g.createLinearGradient(0,FLOOR,0,H);f.addColorStop(0,'#5a3519');f.addColorStop(1,'#24140a');g.fillStyle=f;g.fillRect(0,FLOOR,W,H-FLOOR);
+  const fl=g.createRadialGradient(BX,FLOOR+40,10,BX,FLOOR+40,600);fl.addColorStop(0,'rgba(255,200,130,.35)');fl.addColorStop(1,'rgba(255,200,130,0)');g.fillStyle=fl;g.fillRect(0,FLOOR,W,H-FLOOR);
+  g.fillStyle='rgba(20,10,4,.5)';g.fillRect(0,FLOOR-6,W,8);
+  // cord + bulb (the light source is in frame)
+  g.strokeStyle='#1b0f07';g.lineWidth=4;g.beginPath();g.moveTo(540,0);g.lineTo(BX,BY);g.stroke();
+  g.fillStyle='#2a1a0e';g.fillRect(BX-12,BY-8,24,26);
+  const b=g.createRadialGradient(BX,BY+40,2,BX,BY+40,46);b.addColorStop(0,'#fffbe8');b.addColorStop(.6,'#ffe7a8');b.addColorStop(1,'rgba(255,200,110,0)');g.fillStyle=b;g.beginPath();g.arc(BX,BY+40,46,0,6.283);g.fill();
+}
+// cast: a shadow at wall position x moves opposite to the bulb and softens with its "distance" d (0 near wall .. 1 near bulb)
+function cast(x,d=.3){return x-(BX-540)*(0.6+d)}
+const OFF=document.createElement('canvas');OFF.width=W;OFF.height=H;const og=OFF.getContext('2d');
+function shadow(fn,d=.3,blur=4){ // draw solid on an offscreen layer, then lay it on the wall once: overlaps never darken
+  og.setTransform(1,0,0,1,0,0);og.clearRect(0,0,W,H);const keep=g;g=og;g.save();g.fillStyle='#1c0e06';g.strokeStyle='#1c0e06';fn();g.restore();g=keep;
+  g.save();g.globalAlpha=0.86;g.filter=`blur(${blur+d*8}px)`;g.drawImage(OFF,0,0);g.restore()}
+
+// ---------- puppets (feet on the floor line, height ~ h)
+function taper(x1,y1,x2,y2,w1,w2){const a=Math.atan2(y2-y1,x2-x1)+Math.PI/2,c=Math.cos(a),d=Math.sin(a);g.beginPath();g.moveTo(x1+c*w1/2,y1+d*w1/2);g.lineTo(x2+c*w2/2,y2+d*w2/2);g.lineTo(x2-c*w2/2,y2-d*w2/2);g.lineTo(x1-c*w1/2,y1-d*w1/2);g.fill();g.beginPath();g.arc(x1,y1,w1/2,0,6.283);g.arc(x2,y2,w2/2,0,6.283);g.fill()}
+function legP(x,hip,a,s,fy){const kx=x+Math.sin(a)*150*s,ky=hip+Math.cos(a)*150*s,bend=Math.max(0,-a)*0.9,fx=kx+Math.sin(a-bend)*150*s,fy2=Math.min(fy-8*s,ky+Math.cos(a-bend)*150*s);
+  taper(x,hip,kx,ky,52*s,36*s);taper(kx,ky,fx,fy2,34*s,24*s);g.beginPath();g.ellipse(fx+16*s,fy2+4*s,30*s,12*s,0,0,6.283);g.fill()}
+function manS(x,h,walk=0,lean=0,face=1,armUp=0,fy=FLOOR){ // face 1 = facing right; smooth tapered limbs, coat, neck
+  const s=h/600,y=fy,hip=y-300*s,sh=y-500*s,hd=y-566*s;g.save();g.translate(x,0);g.scale(face,1);
+  const a=Math.sin(walk)*0.45;legP(-10*s,hip,a,s,y);legP(10*s,hip,-a,s,y);
+  g.beginPath();g.moveTo(-20*s+lean,sh-14*s);g.quadraticCurveTo(-66*s+lean,sh-8*s,-64*s+lean,sh+34*s);g.quadraticCurveTo(-52*s,hip-60*s,-50*s,hip+28*s);
+  g.lineTo(50*s,hip+28*s);g.quadraticCurveTo(54*s,hip-60*s,64*s+lean,sh+34*s);g.quadraticCurveTo(66*s+lean,sh-8*s,20*s+lean,sh-14*s);g.closePath();g.fill();
+  const sw=a*0.8;taper(-50*s+lean,sh+20*s,-50*s+lean+Math.sin(-sw-armUp*.3)*105*s,sh+20*s+Math.cos(-sw-armUp*.3)*105*s,34*s,28*s);
+  const ex=-50*s+lean+Math.sin(-sw-armUp*.3)*105*s,ey=sh+20*s+Math.cos(-sw-armUp*.3)*105*s;taper(ex,ey,ex+Math.sin(-sw*.6-armUp*.6)*100*s,ey+Math.cos(-sw*.6-armUp*.6)*100*s,28*s,22*s);
+  const fx=50*s+lean+Math.sin(sw+armUp)*105*s,fy1=sh+20*s+Math.cos(sw+armUp)*105*s;taper(50*s+lean,sh+20*s,fx,fy1,34*s,28*s);
+  const hx=fx+Math.sin(sw*.6+armUp*1.6)*100*s,hy=fy1+Math.cos(sw*.6+armUp*1.6)*100*s;taper(fx,fy1,hx,hy,28*s,22*s);g.beginPath();g.arc(hx,hy,16*s,0,6.283);g.fill();
+  taper(lean*.9,sh-10*s,lean,hd+30*s,30*s,28*s);g.beginPath();g.ellipse(lean*1.1+4*s,hd,40*s,48*s,0.1,0,6.283);g.fill();
+  g.beginPath();g.ellipse(lean*1.1+36*s,hd+10*s,10*s,8*s,0,0,6.283);g.fill();g.restore()}
+function limb(x,y,a,L){g.beginPath();g.moveTo(x,y);g.lineTo(x+Math.sin(a)*L,y+Math.cos(a)*L);g.stroke()}
+function womanS(x,h,walk=0,face=-1,fy=FLOOR){ // long-sleeved, full-length dress, covered hair
+  const s=h/600,y=fy,sh=y-470*s,hd=y-530*s;g.save();g.translate(x,0);g.scale(face,1);
+  const a=Math.sin(walk)*0.25;g.beginPath();g.moveTo(-40*s,sh-6*s);g.quadraticCurveTo(-58*s,sh+20*s,-46*s,y-300*s);g.quadraticCurveTo(-90*s,y-120*s,(-112+a*70)*s,y-4*s);g.lineTo((118+a*70)*s,y-4*s);g.quadraticCurveTo(90*s,y-120*s,46*s,y-300*s);g.quadraticCurveTo(58*s,sh+20*s,40*s,sh-6*s);g.closePath();g.fill();
+  taper(-40*s,sh+16*s,-46*s+Math.sin(-a-.12)*200*s,sh+16*s+Math.cos(-a-.12)*200*s,30*s,22*s);taper(40*s,sh+16*s,46*s+Math.sin(a+.12)*200*s,sh+16*s+Math.cos(a+.12)*200*s,30*s,22*s);
+  g.beginPath();g.ellipse(4*s,hd,46*s,54*s,0,0,6.283);g.fill();g.beginPath();g.moveTo(-48*s,hd);g.quadraticCurveTo(-74*s,hd+80*s,-40*s,sh+24*s);g.lineTo(44*s,sh+24*s);g.quadraticCurveTo(70*s,hd+70*s,50*s,hd);g.fill();g.restore()}
+function heart(x,y,s){g.beginPath();g.moveTo(x,y+s*.3);g.bezierCurveTo(x,y,x-s*.5,y-s*.05,x-s*.5,y+s*.3);g.bezierCurveTo(x-s*.5,y+s*.62,x,y+s*.8,x,y+s);g.bezierCurveTo(x,y+s*.8,x+s*.5,y+s*.62,x+s*.5,y+s*.3);g.bezierCurveTo(x+s*.5,y-s*.05,x,y,x,y+s*.3);g.fill()}
+
+// ---------- lyric line (white, quiet, under the shadows like the reel)
+function lyric(txt,t,a,b,y=1640,size=74){const k=seg(t,a,a+.35),o=1-seg(t,b-.3,b);const al=Math.min(k,o);if(al<=0)return;
+  g.save();g.globalAlpha=al;g.font=`700 ${size}px Naskh`;g.textAlign='center';g.direction='rtl';g.textBaseline='middle';
+  g.lineJoin='round';g.lineWidth=10;g.strokeStyle='rgba(20,8,2,.85)';g.strokeText(txt,540,y+(1-eo(k))*18);g.fillStyle='#fff6ea';g.fillText(txt,540,y+(1-eo(k))*18);g.restore()}
+
+const L=[[0,3.4,'عارف بعد البُعد بمدّة'],[3.46,6.0,'كان جوّايا كلام ..'],[6.0,9.7,'بس خلاص اللي بيننا تهدّى'],[9.7,11.98,'ولا ليه فايدة ملام'],
+ [11.98,15.6,'عارف كنت بحارب فيها'],[15.66,18.5,'كل ليلة أشواقي'],[18.5,21.3,'وبلوم قلبي عليك كل ليلة'],[21.32,24.0,'إزّاي ليك باقي ؟'],
+ [24.0,27.8,'واجري لصورتك ومبتردش'],[27.8,30.78,'إيه سبب فراقي ..؟؟'],[30.78,34.8,'ومشيت ولا ودّعتش حتى'],[34.8,39.2,'ولا قلت سلام ..']];
+const BR=(()=>{const R=rng(9),a=[];for(let r=0;r<9;r++)for(let c=0;c<3;c++)a.push({r,c,d:R()*1.2,spin:(R()-.5)*3,dx:(R()-.5)*120});return a})();
+function scene(t){
+  const i=L.findIndex(l=>t>=l[0]&&t<l[1]+(l===L[L.length-1]?0:0.04));const lt=i<0?0:t-L[i][0];
+  switch(i){
+  case 0:{ // the distance: he on the left, she tiny far right, the gap widens
+    const gap=lerp(0,140,eo(seg(t,0,3)));shadow(()=>{manS(cast(300-gap*.4,.35),640,0,0,1);womanS(cast(800+gap,.1),560,0,-1)},.3);break}
+  case 1:{ // words inside him: letters rise from his chest and dissolve
+    shadow(()=>{manS(cast(360,.35),640,0,0,1);womanS(cast(940,.1),560,0,-1);
+      g.font='700 64px Naskh';g.textAlign='center';const w='كلام';for(let k=0;k<7;k++){const p=cl((lt-k*.3)/1.8);if(p<=0||p>=1)continue;
+        g.globalAlpha=1-p;g.fillText(w[k%4],cast(400+k*28,.35)+Math.sin(p*6+k)*20,FLOOR-560-p*420)}},.3);break}
+  case 2:{ // the wall between them is demolished brick by brick
+    shadow(()=>{manS(cast(300,.35),640,0,0,1);womanS(cast(860,.1),560,0,-1);
+      for(const b of BR){const fall=Math.max(0,lt-1.4-b.d*1.4)*0.75;const x=cast(520+b.c*60+(b.r%2)*30,.2)+b.dx*Math.min(fall,1)*.3,y=FLOOR-80-b.r*62+fall*fall*900;
+        if(y>FLOOR-20&&fall>0)continue;g.save();g.translate(x,y);g.rotate(b.spin*fall);g.fillRect(-27,-26,54,52);g.restore()}},.2);break}
+  case 3:{ // no use blaming: he turns away, head down
+    const k=eo(seg(lt,0,1.2));shadow(()=>{manS(cast(360-k*60,.35),640,lt*2.4*(k<1?1:0),-k*18,k>.5?-1:1);womanS(cast(860+k*40,.1),560,0,-1)},.3);break}
+  case 4:{ // fighting it: he leans into a storm, coat flapping, gusts of shadow streaks
+    shadow(()=>{manS(cast(420,.4),660,lt*1.6,22,1,.4);for(let k=0;k<14;k++){const p=((lt*1.4+k/14)%1);g.globalAlpha=.6*(1-Math.abs(p-.5)*2);
+      g.save();g.translate(cast(1100-p*1300,.5),260+k*85);g.rotate(0.35);g.fillRect(0,0,90+(k%3)*50,5);g.restore()}},.35,3);break}
+  case 5:{ // longing every night: cool moonlight window cross on the wall, he sits under it
+    shadow(()=>{const wx=cast(560,.05);g.globalAlpha=1;manS(cast(380,.35),600,0,6,1)},.3);
+    g.save();g.globalCompositeOperation='screen';const wx=cast(840,.05)+60;g.fillStyle='rgba(150,180,230,.30)';g.beginPath();g.moveTo(wx-150,560);g.lineTo(wx+120,560);g.lineTo(wx+160,1040);g.lineTo(wx-110,1040);g.fill();
+    g.fillStyle='rgba(30,20,10,.55)';g.fillRect(wx-8,560,16,480);g.fillRect(wx-140,790,300,14);g.restore();break}
+  case 6:{ // blaming his heart: he holds a beating heart shadow
+    const beat=1+0.12*Math.max(0,Math.sin(lt*7));shadow(()=>{manS(cast(470,.4),660,0,0,1,0.9);heart(cast(650,.45),FLOOR-590,115*beat)},.35);break}
+  case 7:{ // how are you still mine? a giant question mark drifts over him
+    const k=eo(seg(lt,0,.8));shadow(()=>{manS(cast(330,.35),620,0,-8,1);g.font='700 520px Naskh';g.textAlign='center';g.globalAlpha=k;g.fillText('؟',cast(720,.15),FLOOR-260+(1-k)*80)},.25);break}
+  case 8:{ // he runs to her picture, it never comes closer
+    shadow(()=>{const fx=cast(800+lt*20,.1);g.lineWidth=18;g.strokeRect(fx-130,520,260,340);g.save();g.beginPath();g.rect(fx-130,520,260,340);g.clip();
+      womanS(fx,300,0,-1,872);g.restore();
+      manS(cast(260+Math.min(lt,2)*90,.35),640,lt*9,10,1,.2)},.3);break}
+  case 9:{ // why did we part: back to back, walking apart
+    const k=eo(seg(lt,.2,2.6));shadow(()=>{manS(cast(500-k*300,.35),640,lt*4,0,-1);womanS(cast(600+k*300,.2),580,lt*4,1)},.3);break}
+  case 10:{ // she walks out through a door of light, it narrows
+    const k=seg(lt,0,3.2),dw=lerp(240,30,eio(seg(lt,2.0,4.0))),dx=cast(820,.05);
+    g.save();g.globalCompositeOperation='screen';g.fillStyle='rgba(255,230,180,.55)';g.fillRect(dx-dw/2,760,dw,FLOOR-760);g.restore();
+    shadow(()=>{manS(cast(260,.35),640,0,0,1,.3*(1-k));if(lt<2.6){g.save();g.beginPath();g.rect(0,0,dx+dw/2,H);g.clip();womanS(lerp(cast(560,.2),dx+40,eio(k)),lerp(580,420,k),lt*5,1);g.restore()}},.3);break}
+  case 11:{ // didn't even say goodbye: he alone, the bulb slows down
+    shadow(()=>{manS(cast(540,.35),640,0,-6,1)},.3);break}
+  }
+}
+function endCard(t){ // 39.2 -> end: title + credits on the lit wall (bright, no dark ending)
+  const k=eo(seg(t,39.2,40.2));g.save();g.globalAlpha=k;g.textAlign='center';g.direction='rtl';g.textBaseline='middle';
+  g.font='700 132px Ruqaa';g.fillStyle='rgba(30,14,4,.55)';g.fillText('عارف بعد البُعد',548,708);g.fillStyle='#2a1406';g.fillText('عارف بعد البُعد',540,700);
+  g.font='700 46px Tajawal';g.fillStyle='#3b1d09';g.fillText('غناء وتوزيع: مجد سمارة',540,860);g.fillText('ألحان: محمد فوزي «ذهب الليلُ»',540,925);g.restore();
+  shadow(()=>{g.globalAlpha=k;manS(cast(300,.35),520,0,0,1);womanS(cast(800,.1),470,0,-1);heart(cast(540,.2),1120,90*(1+0.08*Math.sin(t*5)))},.3)}
+function credit(t){const k=cl((t-(DUR-3))/0.4);if(k<=0)return;g.save();g.globalAlpha=k;g.textAlign='center';g.direction='rtl';g.font='700 44px Tajawal';
+  g.lineJoin='round';g.lineWidth=8;g.strokeStyle='rgba(20,8,2,.8)';g.fillStyle='#fff3e0';g.strokeText('مونتاج وإخراج Mahmoud Elkosif',540,1640);g.fillText('مونتاج وإخراج Mahmoud Elkosif',540,1640);
+  g.font='700 34px Tajawal';g.strokeText('تابعني على فيسبوك',540,1700);g.fillText('تابعني على فيسبوك',540,1700);g.restore()}
+async function render(t){
+  // bulb sway: lively while he hopes, slowing to stillness on «سلام»
+  const amp=t<34.8?0.22:lerp(0.22,0.05,seg(t,34.8,39.2));SW=Math.sin(t*1.25)*amp+(t>=11.98&&t<15.6?Math.sin(t*3.1)*0.08:0);
+  const cool=t>=15.66&&t<18.5?Math.min(seg(t,15.66,16.2),1-seg(t,18.1,18.5)):0;
+  wall(t,cool);
+  if(t<39.2)scene(t);else endCard(t);
+  for(const l of L)lyric(l[2],t,l[0],l[1]);
+  credit(t);
+  g.save();g.font='700 24px Tajawal';g.direction='ltr';g.textAlign='left';g.fillStyle='rgba(255,240,220,.55)';g.fillText('© Mahmoud Elkosif',40,1890);g.restore();
+}
+Promise.all(['700 40px Naskh','700 40px Ruqaa','700 40px Tajawal'].map(f=>document.fonts.load(f))).then(async()=>{await render(0);window.__kosifReady=true});
+window.__kosif={duration:DUR,seek:async t=>{await render(t)}};
+</script></body></html>

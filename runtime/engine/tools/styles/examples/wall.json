@@ -1,0 +1,43 @@
+{
+  "_doc": {
+    "about": "wall: a living wall of looping tiles; the camera dives into hero tiles (the «حلوة يا بلدي» look, 2026-11-08).",
+    "tiles": "the wall, 3 per row, left to right then down: each a clip (src, ss, focus, box, zoom, speed); each loops `loop` seconds at 360x640 / 15 fps; 24 tiles = 8 rows fill the final pull-back",
+    "heroes": "tiles the camera dives into: tile = index in tiles, start = when the dive begins (the first hero starts at 0: the film opens inside it), end = end of the hold; the dive takes 2.2 s, so give each hero 2.4 s or more; ss overrides the tile's in-point for the full-size frames",
+    "title": "drawn as the first line, in gold Ruqaa 120 (no separate title slot on the wall)",
+    "lines": "words at y 1640, Tajawal 66, word by word",
+    "end": "the camera pulls back on the whole wall 2.6 s after the last hero; the end card dims it; credit 1.4 s later",
+    "cols / loop": "columns of the wall (3) and the tile loop length in seconds (2.9)",
+    "other fields": "same as examples/nil.json (no shots needed)"
+  },
+  "style": "wall",
+  "name": "living wall",
+  "duration": 30.0,
+  "watermark": "© Mahmoud Elkosif",
+  "credit": ["مونتاج وإخراج Mahmoud Elkosif", "تابعني على فيسبوك"],
+  "song": {"path": "music/song.m4a", "start": 162.0, "fade_in": 0.6, "fade_out": 2.5},
+  "tiles": [
+    {"src": "clips/announcement.mp4", "ss": 74.0, "focus": [0.45, 0.5]},
+    {"src": "clips/stage.mp4", "ss": 59.8, "focus": [0.43, 0.42]},
+    {"src": "clips/crowd.mp4", "ss": 18.3, "focus": [0.5, 0.4], "box": [0, 0, 1024, 1500]},
+    {"src": "clips/crowning.mp4", "ss": 0.15, "focus": [0.4, 0.45], "box": [0, 0, 1080, 1560]},
+    {"src": "clips/stage.mp4", "ss": 13.0, "focus": [0.43, 0.42]},
+    {"src": "clips/school.mp4", "ss": 3.4, "focus": [0.42, 0.45]},
+    {"src": "clips/announcement.mp4", "ss": 71.8, "focus": [0.5, 0.55]},
+    {"src": "clips/crowning.mp4", "ss": 4.2, "focus": [0.36, 0.5], "zoom": 1.3, "box": [0, 0, 1080, 1560]},
+    {"src": "clips/street.mp4", "ss": 10.0, "focus": [0.5, 0.45]},
+    {"src": "clips/announcement.mp4", "ss": 76.3, "focus": [0.4, 0.5], "speed": 0.7},
+    {"src": "clips/home.mp4", "ss": 0.5, "focus": [0.5, 0.5]},
+    {"src": "clips/reception.mp4", "ss": 25.0, "focus": [0.5, 0.45], "box": [0, 330, 1080, 1590]}
+  ],
+  "heroes": [
+    {"tile": 4, "start": 0.0, "end": 4.2},
+    {"tile": 9, "start": 9.0, "end": 14.0},
+    {"tile": 11, "start": 17.0, "end": 22.0}
+  ],
+  "title": {"text": "حلوة يا بلدي", "start": 1.2, "end": 4.0},
+  "lines": [
+    {"text": "المركز الأول، مصر", "start": 10.6, "end": 13.8},
+    {"text": "في ضيافة الرئيس", "start": 18.6, "end": 21.8}
+  ],
+  "end": {"at": 25.5, "title": "اسمها هنا", "sub": "سطر واحد عنها"}
+}

@@ -1,0 +1,17 @@
+{
+ "schema": "black-dragon.library.source.v1",
+ "id": "pro-motion",
+ "source_archive": "Fares_Motion.zip",
+ "source_archive_sha256": "c5e63fef6114e9a451c90d043d9caf4a2f2c2e0f8f24798ebd7d6d9808d358f5",
+ "files": 23,
+ "bytes": 308373,
+ "copied": "verbatim",
+ "excluded": [
+  ".DS_Store",
+  "__MACOSX",
+  "._*",
+  "example footage photos (personal images)"
+ ],
+ "license_notice": "No separate licence identified in the supplied archive. Bundled at the owner's request for his own use; check reuse rights before redistribution.",
+ "run_policy": "Reference and source. `tool library` only reads. Read a script before running it; installers, downloads and paid generation need the owner's explicit yes."
+}

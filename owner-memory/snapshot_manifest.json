@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "type": "owner-memory-backup",
+  "private_only": true,
+  "files": [
+    {
+      "path": "chats/c20261112-151000-2.md",
+      "bytes": 904,
+      "sha256": "1b64b708c04e2d299ec22fb302f1e4d134ea651b8a715b77bf2a75c174211d76"
+    },
+    {
+      "path": "chats/c20261112-222437-3.md",
+      "bytes": 1789,
+      "sha256": "8d2e0c9c14f2137d8c43d21b322d06f3b62241042128d9a75ca616fa4311c356"
+    },
+    {
+      "path": "chats/index.json",
+      "bytes": 702,
+      "sha256": "86f4dbe0ec5e561e749e431ecf685d2317252f2dda0f27d3b7188885684dd562"
+    },
+    {
+      "path": "guard/183e8d4289adfb7f.json",
+      "bytes": 2377,
+      "sha256": "c29473227fcae7c2006a7f637ad58f46d2cc416a941829aadc4241ef17c0f07d"
+    },
+    {
+      "path": "guard/c9882c73e94953e1.json",
+      "bytes": 299687,
+      "sha256": "d6151b6b8215de2f78175e102e37f68eebe6b59416ee31ddc4227d29f6063bd4"
+    },
+    {
+      "path": "hits.jsonl",
+      "bytes": 9739,
+      "sha256": "0640b415e177e7d39ab2da8ac834de81f4f06ac20723e3e3a11f033560164761"
+    },
+    {
+      "path": "installed_index.json",
+      "bytes": 315916,
+      "sha256": "2709541128cf362c74672388eda20bf4c363c0d4b04c45a7f4a9f99975a1797e"
+    },
+    {
+      "path": "last_turn.json",
+      "bytes": 2257,
+      "sha256": "d080adbb31ba113ee5b015ef617ddc83d95fbcee204d8844834d6d53fd6c926a"
+    },
+    {
+      "path": "lessons.jsonl",
+      "bytes": 11634,
+      "sha256": "d05969cb2560d5e05d2f8d834ad00b25ee7f0bc39fcc4fa145ebaf6898ccc571"
+    },
+    {
+      "path": "outcomes.jsonl",
+      "bytes": 1140,
+      "sha256": "acddcf4328bed604a747a2a5b64aed9b0a6cd9123ad35b956e089d7343314635"
+    },
+    {
+      "path": "route_examples.jsonl",
+      "bytes": 793,
+      "sha256": "f824ffa14d62dd3f6be3dd78fc38b1a30912d9872e2385bd06f5b024dc23199e"
+    },
+    {
+      "path": "route_examples.jsonl.bak-20261113",
+      "bytes": 571,
+      "sha256": "42e658b5e12709cca5b815d94423e18be0b6ff0dc3d7bfe9bf5df323715425da"
+    },
+    {
+      "path": "sync/misses.jsonl",
+      "bytes": 2104,
+      "sha256": "d2db47a8b5a6c8967559571f878683aeedf53bd9762e318c8e156466c5f1344e"
+    },
+    {
+      "path": "think/plans/20261115-081722/plan.json",
+      "bytes": 7695,
+      "sha256": "8381753e418e9466b24355fee9a66c32ea9e03ebd872d5ed22e11a6829326ce6"
+    },
+    {
+      "path": "think/plans/20261115-081722/plan_v1.md",
+      "bytes": 13369,
+      "sha256": "3305ffa2379cc54d4f14dfc37f07859e5c4266e9c98f191495e7afa27593619d"
+    },
+    {
+      "path": "think/plans/20261115-103519/plan.json",
+      "bytes": 7047,
+      "sha256": "3027fa65d6ea96d98109662a3fd930622f42873832f9d74bea5f5850d68154a5"
+    },
+    {
+      "path": "think/plans/20261115-103519/plan_v1.md",
+      "bytes": 9797,
+      "sha256": "d12c7c47a18f4f3f0c6c08fc161c592c97b6869ec6254098535dd256650b0f60"
+    },
+    {
+      "path": "think/plans/20261119-163513/plan.json",
+      "bytes": 10161,
+      "sha256": "33e49329f8bb37f2dd89bd0f21718500f7be4b5499cbf248eb5b47a88e70596e"
+    },
+    {
+      "path": "think/plans/20261119-163513/plan_v1.md",
+      "bytes": 12624,
+      "sha256": "64b453a8ef245a397a179677af63da2bc279eb5cd7fa14346707d66d59fbffb9"
+    }
+  ],
+  "count": 19
+}

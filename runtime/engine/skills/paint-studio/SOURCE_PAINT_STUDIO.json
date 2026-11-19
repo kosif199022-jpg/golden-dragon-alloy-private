@@ -1,0 +1,41 @@
+{
+  "schema": "black-dragon.source.v1016",
+  "skill": "paint-studio",
+  "bundled_verbatim": true,
+  "source_root": "%USERPROFILE%\\.claude\\skills\\paint-studio",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "364e6fb638fe65e1a517fbcd8351a45f15927f765dc9f9bb93d7de3af6ddb52d",
+      "size": 6382,
+      "source": "%USERPROFILE%\\.claude\\skills\\paint-studio\\SKILL.md"
+    },
+    {
+      "path": "reference/analysis.md",
+      "sha256": "b33670aaeff980691f6fdd9b9960149943435818abbd8ac7ca2f9f421bbae5f3",
+      "size": 6319,
+      "source": "%USERPROFILE%\\.claude\\skills\\paint-studio\\reference\\analysis.md"
+    },
+    {
+      "path": "reference/features.md",
+      "sha256": "ad4b19c655bce54332c2cd61e86fdad2f706a039f5fca048ccb64bf3a20d502c",
+      "size": 3276,
+      "source": "%USERPROFILE%\\.claude\\skills\\paint-studio\\reference\\features.md"
+    },
+    {
+      "path": "scripts/paint.py",
+      "sha256": "a5428ce59800ce01bc69c7fd2b4d46b5b47e8952ae038c8492e172ae5542055e",
+      "size": 51418,
+      "source": "%USERPROFILE%\\.claude\\skills\\paint-studio\\scripts\\paint.py"
+    },
+    {
+      "path": "scripts/paint_ai.py",
+      "sha256": "3cee6f3e761843674420fdf0067f507b2eec194d634b3d6a90adc2509660f998",
+      "size": 10867,
+      "source": "%USERPROFILE%\\.claude\\skills\\paint-studio\\scripts\\paint_ai.py"
+    }
+  ],
+  "bridge": "tools/paint/bridge.py",
+  "notes": "Copied byte-identical (no __pycache__). The bridge adds guards; the bundled scripts are not modified.",
+  "license_notice": "Owner's own skill (paint-studio), bundled at the owner's request."
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>flaky canvas page (render guard test fixture)</title>
+<!--
+  A deterministic stand-in for the Nov 2026 black runs: after 40 seeks in one page lifetime the canvas draws nothing
+  but black (headless Chromium did this on heavy canvas films). A reload starts a new lifetime.
+  Tests may insert window.FLAKY_CONFIG = {...} at the config marker:
+    duration (3), fail_after (40; 0 = never), head_black (0: black while t < it),
+    black_from / black_to (null: black for t in [from, to) in every lifetime), declare (false: expose allowBlack).
+-->
+<style>html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style>
+<!--config-->
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+(() => {
+  const cfg = Object.assign({ duration: 3, fail_after: 40, head_black: 0, black_from: null, black_to: null, declare: false },
+    window.FLAKY_CONFIG || {});
+  const cv = document.getElementById('c');
+  cv.width = innerWidth;
+  cv.height = innerHeight;
+  const g = cv.getContext('2d'), W = cv.width, H = cv.height;
+  let seeks = 0;
+  const intended = (t) => t < cfg.head_black || (cfg.black_from !== null && t >= cfg.black_from && t < cfg.black_to);
+
+  function draw(t) {
+    seeks++;
+    g.fillStyle = '#000';
+    g.fillRect(0, 0, W, H);
+    if ((cfg.fail_after && seeks > cfg.fail_after) || intended(t)) return; // nothing but black
+    const gr = g.createLinearGradient(0, 0, W, H);
+    gr.addColorStop(0, `hsl(${(t * 120) % 360}, 70%, 45%)`);
+    gr.addColorStop(1, `hsl(${(t * 120 + 180) % 360}, 70%, 25%)`);
+    g.fillStyle = gr;
+    g.fillRect(0, 0, W, H);
+    g.fillStyle = '#fff';
+    g.font = `${Math.round(H / 24)}px sans-serif`;
+    g.fillText(`t=${t.toFixed(2)}`, W * 0.1 + t * 20, H * 0.5);
+  }
+
+  window.__kosif = { duration: cfg.duration, seek: (t) => draw(t) };
+  if (cfg.declare) window.__kosif.allowBlack = intended;
+})();
+</script>
+</body>
+</html>

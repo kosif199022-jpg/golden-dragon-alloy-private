@@ -1,0 +1,30 @@
+{
+  "_comment": "Luxury product still: glass perfume bottle with gold cap on a marble plinth, dark studio sweep, soft 3-point light, shallow DOF, bloom + vignette.",
+  "scene": {
+    "resolution": [1920, 1080],
+    "engine": "CYCLES",
+    "samples": 160,
+    "color": {"view_transform": "AgX", "look": "Medium High Contrast"},
+    "world": {"type": "gradient", "top": "#1b1d22", "bottom": "#060607", "strength": 0.6}
+  },
+  "steps": [
+    {"op": "backdrop", "name": "Sweep", "color": "#14151a", "roughness": 0.5, "width": 40, "depth": 24, "height": 14, "location": [0, 4, 0]},
+    {"op": "material", "name": "Marble", "preset": "marble", "color": "#efece6", "color2": "#30333a", "scale": 3},
+    {"op": "add_primitive", "type": "cylinder", "name": "Plinth", "size": 2.6, "depth": 0.5, "location": [0, 0, 0.25], "segments": 96, "bevel": {"width": 0.02, "segments": 4}, "material": "Marble", "smooth": true},
+    {"op": "material", "name": "BottleGlass", "preset": "tinted_glass", "color": "#d8e8ff", "roughness": 0.02},
+    {"op": "rounded_box", "name": "Bottle", "size": [1.0, 0.55, 1.35], "radius": 0.12, "segments": 8, "location": [0, 0, 1.18], "material": "BottleGlass"},
+    {"op": "material", "name": "Liquid", "preset": "glass", "color": "#ffb347", "roughness": 0.0, "ior": 1.36},
+    {"op": "rounded_box", "name": "Juice", "size": [0.86, 0.42, 0.95], "radius": 0.08, "location": [0, 0, 1.0], "material": "Liquid"},
+    {"op": "material", "name": "Gold", "preset": "gold"},
+    {"op": "add_primitive", "type": "cylinder", "name": "Neck", "size": 0.26, "depth": 0.16, "location": [0, 0, 1.93], "material": "Gold", "segments": 64, "smooth": true},
+    {"op": "add_primitive", "type": "cylinder", "name": "Cap", "size": 0.5, "depth": 0.42, "location": [0, 0, 2.2], "material": "Gold", "segments": 96, "bevel": {"width": 0.03, "segments": 5}, "smooth": true},
+    {"op": "three_point", "target": "Bottle", "intensity": 1.0, "key_temperature": 5600, "rim_ratio": 1.6},
+    {"op": "rim_light", "target": "Bottle", "side": "right", "temperature": 4200},
+    {"op": "camera", "name": "Cam", "location": [2.6, -6.2, 2.2], "target": "Bottle", "lens": 70, "fstop": 2.8},
+    {"op": "frame_objects", "targets": ["Plinth", "Bottle", "Cap"], "direction": [0.35, -1, 0.22], "margin": 1.15},
+    {"op": "dof", "fstop": 2.8}
+  ],
+  "post": {"bloom": {"threshold": 0.85, "strength": 0.35, "size": 0.6}, "vignette": {"strength": 0.35}},
+  "render": {"type": "still", "out": "product_shot.png"},
+  "save_blend": "product_shot.blend"
+}

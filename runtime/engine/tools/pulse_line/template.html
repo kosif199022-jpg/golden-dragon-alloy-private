@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Ruqaa;src:url(fonts/ArefRuqaa-Bold.ttf)}
+@font-face{font-family:Amiri;src:url(fonts/Amiri-Regular.ttf)}
+@font-face{font-family:SerifI;src:url(fonts/LiberationSerif-Italic.ttf)}
+@font-face{font-family:Almarai;src:url(fonts/Almarai-Bold.ttf)}
+html,body{margin:0;background:#ecdfc3;overflow:hidden}canvas{display:block}
+</style></head><body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+// «الخطّ الذي لا يتمنّاه أحد» — heartbeat line on parchment (style card ST12 «خط النبض»).
+// One red line with a dark dot at a fixed point; the graph paper scrolls under it. The line is a pure function of time.
+const W=1080,H=1920,DUR=55.01,cv=document.getElementById('c'),g=cv.getContext('2d');
+const DOTX=690,BASE=900,V=220,T0=18.4;            // dot position, baseline, scroll px/s, scroll start
+const RED='#a51f2b',BROWN='#4a3a24',SOFT='#6b5a40';
+const cl=x=>Math.max(0,Math.min(1,x)),seg=(t,a,b)=>cl((t-a)/(b-a)),eo=k=>1-Math.pow(1-k,3);
+function rng(s){return()=>{s=(s*16807)%2147483647;return s/2147483647}}
+const G=(d,s)=>Math.exp(-d*d/(2*s*s));
+const BEATS=[[19.0,50],[20.0,80],[21.0,85],[22.3,330],[23.3,105],[24.2,95],[26.2,330],[28.4,340],[30.6,330],[31.5,90],[32.3,40],[33.0,15],
+ [41.6,50],[42.6,80],[43.6,100],[44.6,115],[45.6,115],[46.6,120],[47.5,200],[48.5,140],[49.5,150],[50.5,150],[51.5,150],[52.5,150],[53.5,150],[54.5,150],[55.5,150]];
+const DIPS=[[25.0,270],[27.3,270],[29.5,270],[40.4,200]];
+const LABELS=[[22.3,-1,'أوّل خطوة','first step'],[25.0,1,'أوّل خيبة','first heartbreak'],[26.2,-1,'التخرّج','graduation'],[27.3,1,'فقدُ عزيز','losing someone'],
+ [28.4,-1,'طفلٌ جديد','a new baby'],[29.5,1,'البدءُ من الصفر','starting over'],[30.6,-1,'حلمٌ تحقّق','a dream came true']];
+function sig(u){let y=0;                      // +y is up, in px
+  for(const[c,a]of BEATS){const d=u-c;if(d<-.4||d>.5)continue;y+=a*(0.12*G(d+.2,.035)-0.13*G(d+.032,.011)+G(d,.011)-0.3*G(d-.032,.012)+0.2*G(d-.24,.05))}
+  for(const[c,a]of DIPS){const d=u-c;if(d<-.7||d>.7)continue;y+=a*(0.22*G(d+.3,.012)-Math.pow(G(d,.15),.8))}
+  return y}
+// parchment: baked once
+const PAPER=(()=>{const c=document.createElement('canvas');c.width=270;c.height=480;const x=c.getContext('2d'),R=rng(12);x.fillStyle='#ecdfc3';x.fillRect(0,0,270,480);
+  for(let i=0;i<60;i++){const px=R()*270,py=R()*480,r=40+R()*80,d=R()<.5;const gr=x.createRadialGradient(px,py,0,px,py,r);gr.addColorStop(0,d?'rgba(214,196,160,.045)':'rgba(250,243,224,.06)');gr.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=gr;x.fillRect(px-r,py-r,2*r,2*r)}return c})();
+function paper(t){g.imageSmoothingEnabled=true;g.drawImage(PAPER,0,0,W,H);
+  const a=seg(t,13.2,14.6);if(a<=0)return;const off=-(Math.max(0,t-T0)*V)%200;
+  g.save();g.globalAlpha=a;const edge=y=>Math.min(1,(y-300)/110,(1500-y)/110);
+  const col=(major,k)=>major?`rgba(196,128,108,${.6*k})`:`rgba(200,150,125,${.3*k})`;
+  for(let x=off-200;x<W+40;x+=40){const major=Math.round((x-off)/40)%5===0;const gr=g.createLinearGradient(0,300,0,1500);
+    gr.addColorStop(0,col(major,0));gr.addColorStop(.09,col(major,1));gr.addColorStop(.91,col(major,1));gr.addColorStop(1,col(major,0));g.strokeStyle=gr;g.lineWidth=major?2:1;g.beginPath();g.moveTo(x,300);g.lineTo(x,1500);g.stroke()}
+  for(let y=300;y<=1500;y+=40){const major=(y-300)%200===0;g.strokeStyle=col(major,Math.max(0,edge(y)));g.lineWidth=major?2:1;g.beginPath();g.moveTo(0,y);g.lineTo(W,y);g.stroke()}
+  g.restore()}
+function line(t){const head=t<3.2?95+(DOTX-95)*eo(seg(t,0.3,3.2)):DOTX,start=Math.max(-10,95-Math.max(0,t-T0)*V);
+  g.strokeStyle=RED;g.lineWidth=9;g.lineCap='round';g.lineJoin='round';g.beginPath();let first=true,hy=BASE;
+  for(let x=start;x<=head;x+=1.5){const u=t-(DOTX-x)/V,y=BASE-(t<3.2?0:sig(u));first?g.moveTo(x,y):g.lineTo(x,y);first=false;hy=y}g.stroke();
+  g.fillStyle='rgba(165,31,43,.22)';g.beginPath();g.arc(head,hy,19,0,6.283);g.fill();g.fillStyle='#3a0a0e';g.beginPath();g.arc(head,hy,9,0,6.283);g.fill()}
+function txt(s,x,y,font,col,a,dir='rtl'){if(a<=0)return;g.save();g.globalAlpha=a;g.font=font;g.fillStyle=col;g.textAlign='center';g.direction=dir;g.textBaseline='middle';g.fillText(s,x,y);g.restore()}
+function labels(t){for(const[c,side,ar,en]of LABELS){const x=DOTX-(t-c)*V;if(x<-300||t<c-.05)continue;const a=seg(t,c,c+.4);
+  const y=side<0?BASE-330-110:BASE+270+95;txt(ar,x,y,'700 54px Ruqaa',BROWN,a);txt(en,x,y+58,'30px SerifI',SOFT,a,'ltr')}}
+const CAP=[[0.2,4.2,'هذا أكمل خط قد تراه في حياتك.'],[4.8,9.1,'لا صعود فيه، ولا هبوط، ولا خطأ.'],[9.2,12.3,'ومع ذلك... لا أحد يتمناه.'],[12.6,16.2,'فعلى شاشة المراقبة، لهذا الخط معنى واحد:'],[16.5,18.3,'أن القلب توقف.'],
+ [18.44,21.2,'أما الحياة، فترسم هكذا.'],[21.28,24.4,'كل صعود... لحظة تجرأت فيها.'],[24.48,27.3,'وكل هبوط... لحظة آلمتك.'],[27.38,32.6,'كم تمنيت أن تهدأ الحياة...','أن تستوي... أن تخلو من الهموم.',29.3],
+ [32.7,35.6,'لكن تأمل ما كنت تتمناه.'],[35.72,39.8,'فالقلب الذي لا يضطرب أبداً...','قلب لم يعد ينبض.',38.0],[40.06,43.05,'فإذا هبطت يوماً، فلا تحسبه فشلاً.'],[43.12,46.85,'إنه قلبك... يذكرك بأنك ما زلت حياً.'],[46.92,50.5,'لا تخش الهبوط... بل اخش الخط المستقيم.']];
+function captions(t){for(const[a,b,l1,l2,t2]of CAP){const k=Math.min(seg(t,a,a+.45),1-seg(t,b-.4,b));if(k<=0)continue;
+  txt(l1,540,1600,'58px Amiri',SOFT,k);if(l2)txt(l2,540,1672,'58px Amiri',SOFT,Math.min(k,seg(t,t2,t2+.45)))}}
+async function render(t){
+  paper(t);line(t);labels(t);captions(t);
+  const tk=Math.min(seg(t,0.2,0.9),1-seg(t,4.4,5.2));txt('الخطّ الذي لا يتمنّاه أحد',540,250,'700 96px Ruqaa',BROWN,tk);txt('The one line nobody wants',540,352,'44px SerifI',SOFT,tk,'ltr');
+  const ek=seg(t,50.6,51.5);txt('لا تخشَ الهبوط...',540,275,'700 92px Ruqaa',BROWN,ek);txt('بل اخشَ الخطَّ المستقيم',540,440,'700 100px Ruqaa',RED,seg(t,51.0,51.9));
+  txt("Don't fear the fall. Fear the flat line.",540,560,'42px SerifI',SOFT,seg(t,51.5,52.3),'ltr');
+  const ck=seg(t,DUR-3,DUR-2.5);txt('مونتاج وإخراج Mahmoud Elkosif',540,1560,'700 40px Almarai',BROWN,ck);txt('تابعني على فيسبوك',540,1618,'700 30px Almarai',SOFT,ck);
+  g.save();g.font='700 22px Almarai';g.direction='ltr';g.textAlign='left';g.fillStyle='rgba(74,58,36,.5)';g.fillText('© Mahmoud Elkosif',40,1890);g.restore();
+}
+Promise.all(['700 40px Ruqaa','40px Amiri','40px SerifI','700 40px Almarai'].map(f=>document.fonts.load(f))).then(async()=>{await render(0);window.__kosifReady=true});
+window.__kosif={duration:DUR,seek:async t=>{await render(t)}};
+</script></body></html>

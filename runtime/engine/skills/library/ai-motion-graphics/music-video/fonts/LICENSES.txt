@@ -1,0 +1,4 @@
+Fonts used by the Cartoon Music Video style (all from Google Fonts, free to use and redistribute):
+- Space Mono (SpaceMono-Bold.ttf) - SIL Open Font License 1.1 - https://fonts.google.com/specimen/Space+Mono
+- Luckiest Guy (LuckiestGuy-Regular.ttf) - Apache License 2.0 - https://fonts.google.com/specimen/Luckiest+Guy
+- Permanent Marker (PermanentMarker-Regular.ttf) - Apache License 2.0 - https://fonts.google.com/specimen/Permanent+Marker

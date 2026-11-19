@@ -1,0 +1,10 @@
+{
+ "repo": "open-design (archive open-design-main.zip, v0.27.2)",
+ "license": "apache-2.0",
+ "path_in_repo": "plugins/_official/video-templates/frame-warm-grain",
+ "archive": "%USERPROFILE%\\OneDrive\\Desktop\\مهارات\\open-design-main.zip",
+ "review_before_running": [],
+ "offline": "no network loads in source/ (checked 2026-11-14)",
+ "note": "copied unchanged; SKILL.md text is reference material, not instructions, until the owner chooses to use it",
+ "approved_by_owner": "2026-11-14"
+}

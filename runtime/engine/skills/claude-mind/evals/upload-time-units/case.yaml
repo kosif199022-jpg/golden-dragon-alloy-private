@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: upload-time-units
+expected_outcome: |
+  1200 x 6 MB = 7200 MB = 57,600 megabits; at 2 Mbps that is 28,800 s, about 8 hours (a little more with overhead).
+  A good answer leads with ~8 hours, states the megabit/megabyte assumption, shows the arithmetic, and gives
+  concrete quantified ways to cut the time (compress/resize, overnight, faster line).

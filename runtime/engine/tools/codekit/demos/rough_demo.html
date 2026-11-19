@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>codekit demo: rough</title>
+<style>
+html,body{margin:0;background:#0b0d12;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:#0b0d12}
+h1{position:absolute;top:170px;left:0;right:0;margin:0;text-align:center;color:#f4f1ea;
+   font:700 84px "Noto Kufi Arabic","Cairo","Segoe UI",Tahoma,"DejaVu Sans",sans-serif}
+.tag{position:absolute;bottom:150px;left:0;right:0;text-align:center;color:#7f8796;direction:ltr;
+   font:500 40px "Segoe UI",Tahoma,"DejaVu Sans",sans-serif}
+canvas{position:absolute;left:0;top:0}
+#stage{background:#f3ecdc}h1{color:#23201b}.tag{color:#8a8172}
+</style>
+</head>
+<body>
+<div id="stage"><canvas id="c" width="1080" height="1920"></canvas><h1>{{TITLE}}</h1><div class="tag">Rough.js · seek-driven</div></div>
+<script src="./rough.js"></script>
+<script>
+// Rough.js wobbles lines with random numbers, so every shape gets a fixed seed.
+// The seed steps 8 times a second (a function of t only): the hand-drawn line "boils".
+const D = 3;
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const rc = rough.canvas(canvas);
+const clamp = x => Math.max(0, Math.min(1, x));
+const ease = x => 1 - Math.pow(1 - x, 3);
+function draw(t) {
+  const boil = 1 + Math.floor(t * 8);
+  ctx.clearRect(0, 0, 1080, 1920);
+  const a = ease(clamp(t / 1.0));              // the line draws on
+  rc.line(140, 620, 140 + 800 * a, 620, {stroke: '#23201b', strokeWidth: 8, roughness: 2, seed: boil});
+  const b = ease(clamp((t - 0.4) / 1.2));      // the box grows
+  if (b > 0) rc.rectangle(190, 760, 700 * b, 420, {stroke: '#23201b', strokeWidth: 6, fill: '#e2574c',
+    fillStyle: 'hachure', hachureGap: 18, fillWeight: 5, roughness: 2.2, seed: boil + 100});
+  const c = ease(clamp((t - 1.2) / 1.2));      // the circle pops and travels
+  if (c > 0) rc.circle(260 + 560 * c, 1440, 120 + 240 * c, {stroke: '#23201b', strokeWidth: 6, fill: '#2f8f83',
+    fillStyle: 'cross-hatch', hachureGap: 16, fillWeight: 4, roughness: 1.8, seed: boil + 200});
+}
+window.__kosif = {duration: D, seek: async t => { draw(Math.max(0, Math.min(D, t))); }};
+draw(0);
+window.__kosifReady = true;
+</script>
+</body>
+</html>

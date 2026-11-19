@@ -1,0 +1,14 @@
+{
+  "schema": "black-dragon.source.v108",
+  "source_archive": "visual-forge.zip",
+  "source_archive_sha256": "26ae014a6d8f0ddc55708bfe0635b6ba28a98a0101c59eaf8651b49bc89c6a4f",
+  "original_script_sha256": "364fc1cee61d6c56678b96527f14ed5c73a82bf9fbc2451e04bc0524539d3b57",
+  "packaged_patched_script_sha256": "62373f6c63909d92aea20009a6973a27e511c9e1602f1093761b1576b50a2bef",
+  "changes_from_source": [
+    "non-destructive adapter gated prompt receipt",
+    "preserve transparent image alpha",
+    "copy compatible compressed audio instead of reencoding",
+    "reject overwrite and bad recipes at entrypoint"
+  ],
+  "notes": "Source references were user-supplied and do not include a separately identified license."
+}

@@ -1,0 +1,49 @@
+{
+  "_doc": {
+    "about": "chapters: an organised film, every text type in one fixed slot (the «ميار… بنت مصر» look, 2026-11-06). Built when the owner said the order was unclear; he later turned down numbered chapter cards for cinematic films, so numbers are off here: turn them on only when he asks for chapters.",
+    "numbers": "true draws the gold numeral (n) above each chapter title; false keeps only the title and its gold line",
+    "chapters": "top slot (y 300): n = numeral, title, start; each shows for dur seconds (2.6)",
+    "lines": "her words as subtitles in the bottom slot (Tajawal 50 at y 1580), only while she says them",
+    "verses": "Quran verse layer in ScheherazadeNew-Bold: text (from verses.json, letter for letter) with '|' between lines, ﴿ ﴾ drawn alone outside the RTL line, ref = sura and verse in gold below; no song should play under a recitation",
+    "lyrics": "gold Ruqaa lyric band at y 1560 (only lyrics that were checked word for word)",
+    "labels": "top label card: text + sub (gold)",
+    "lowers": "TV lower-third at y 1330: text = the name (only a verified speaker), kicker = small gold line above",
+    "shots[].broll": "aerials / library shots get 0.5 s dissolves; between two shots of her the dissolve is 0.16 s (no ghost double faces)",
+    "end": "dims the footage; title (gold Ruqaa), sub (white), sub2 (gold Ruqaa), flag = red/white/black strip; credit 2 s later (never later than duration - 3, so it holds 3 s)",
+    "_verses_example": "rename to verses for a Quran film: verses never play under a song (--check fails), so this example with a song keeps them as a note",
+    "requirements": "optional: the owner's request word for word, one item per demand; every shot or text that delivers one says \"covers\": [\"r1\"]; --check fails on a requirement nobody covers",
+    "other fields": "same as examples/nil.json; never show two text items at once (title, chapters, lines, verses, labels, lowers and the end card each get their own seconds: --check warns on an overlap)"
+  },
+  "style": "chapters",
+  "name": "organised film",
+  "duration": 36.0,
+  "watermark": "© Mahmoud Elkosif",
+  "credit": ["مونتاج وإخراج Mahmoud Elkosif", "تابعني على فيسبوك"],
+  "song": {"path": "music/song.m4a", "start": 0.0, "fade_in": 0.8, "fade_out": 2.5},
+  "numbers": false,
+  "shots": [
+    {"src": "broll/aerial.mp4", "ss": 0, "start": 0.0, "end": 4.5, "broll": true},
+    {"src": "clips/school.mp4", "ss": 3.4, "start": 4.5, "end": 9.0, "focus": [0.42, 0.45], "box": [0, 0, 720, 1040]},
+    {"src": "clips/stage.mp4", "ss": 13.0, "start": 9.0, "end": 14.0, "focus": [0.43, 0.42]},
+    {"src": "clips/announcement.mp4", "ss": 76.0, "start": 14.0, "end": 20.0, "focus": [0.4, 0.5], "speed": 0.55},
+    {"src": "clips/homecoming.mp4", "ss": 8.0, "start": 20.0, "end": 26.0, "focus": [0.5, 0.45]},
+    {"src": "clips/reception.mp4", "ss": 25.0, "start": 26.0, "end": 32.0, "focus": [0.5, 0.45], "box": [0, 330, 1080, 1590]},
+    {"src": "broll/aerial.mp4", "ss": 6.0, "start": 32.0, "end": 36.0, "broll": true}
+  ],
+  "title": {"text": "اسمها", "sub": "سطر تحت الاسم", "start": 0.3, "end": 4.3},
+  "chapters": [
+    {"n": "١", "title": "البداية", "start": 4.6},
+    {"n": "٢", "title": "على المسرح", "start": 9.1},
+    {"n": "٣", "title": "العودة", "start": 20.1}
+  ],
+  "lines": [
+    {"text": "سطر من كلامها بصوتها", "start": 11.9, "end": 13.6}
+  ],
+  "_verses_example": [
+    {"text": "السطر الأول من الآية|السطر الثاني من الآية", "ref": "سورة ...، رقم الآية", "start": 14.5, "end": 19.5}
+  ],
+  "lowers": [
+    {"text": "اسم المتحدث", "kicker": "صفته", "start": 26.5, "end": 30.0}
+  ],
+  "end": {"at": 30.5, "title": "اسمها هنا", "sub": "سطر أبيض عنها", "sub2": "سطر ذهبي", "flag": true}
+}

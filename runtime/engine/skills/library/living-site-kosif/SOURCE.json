@@ -1,0 +1,9 @@
+{
+ "schema": "black-dragon.library.source.v1",
+ "id": "living-site-kosif",
+ "source_folder": "project-files/living-site/skill-kosif",
+ "files": 41,
+ "bytes": 376720,
+ "copied": "verbatim (name and description prefix changed)",
+ "added_in": "red-dragon 2.7.1"
+}

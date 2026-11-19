@@ -1,0 +1,73 @@
+{
+ "_why": "Anti-regression gate read by `rd.py selftest`: route_eval2.py --split test --json (old: no context, fresh: --topic). A new version must stay at or above `floor`. The test half was measured once, after all tuning on the dev half was frozen. Slack: 2 requests of 50 on old, 4 of 112 on fresh. Raise the floor when a version measures higher on test; never lower it to make a version pass.",
+ "measured": {
+  "version": "2.8.0",
+  "date": "2026-11-13",
+  "old": {
+   "n": 50,
+   "top1": 0.66,
+   "ok": 0.72,
+   "top3": 0.8
+  },
+  "fresh": {
+   "n": 112,
+   "top1": 0.5893,
+   "ok": 0.7143,
+   "top3": 0.8036
+  },
+  "note": "re-measured once after the chat/status-carry fix (e2e): top1 and ok unchanged on both sets, fresh top3 0.8125 -> 0.8036 (one request of 112); dev unchanged",
+  "baseline_2.7.0": {
+   "old": {
+    "top1": 0.52,
+    "ok": 0.58,
+    "top3": 0.66
+   },
+   "fresh": {
+    "top1": 0.23,
+    "ok": 0.38,
+    "top3": 0.36
+   }
+  }
+ },
+ "floor": {
+  "old": {
+   "top1": 0.62,
+   "ok": 0.68
+  },
+  "fresh": {
+   "top1": 0.55,
+   "ok": 0.67
+  }
+ },
+ "measured_3.1.0": {
+  "date": "2026-11-16",
+  "dev": {
+   "old": {
+    "top1": 0.76,
+    "ok": 0.84
+   },
+   "fresh": {
+    "top1": 0.74,
+    "ok": 0.84
+   },
+   "sure": "47/47"
+  },
+  "test_once": {
+   "old": {
+    "n": 50,
+    "top1": 0.66,
+    "ok": 0.72,
+    "top3": 0.8,
+    "sure": "8/8"
+   },
+   "fresh": {
+    "n": 112,
+    "top1": 0.5893,
+    "ok": 0.7232,
+    "top3": 0.8036,
+    "sure": "24/25"
+   }
+  },
+  "note": "v3.1: new tier «sure» (CONF_SURE) = 32/33 (97%) on the hidden test, covering 33/162 requests; short complaints (FIX_RX) follow the chat topic and are never «sure». Overall top1 on test unchanged, so the floor stays."
+ }
+}

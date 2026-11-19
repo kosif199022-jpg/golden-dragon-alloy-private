@@ -1,0 +1,9 @@
+PROMPT:
+An old downtown Cairo café on a rainy night. Rain falls steadily and a passer-by with an umbrella slowly walks past the window. A narrow street with Art Deco facades. Rain falls through the neon glow, reflections ripple in the puddles, steam drifts upward. Camera: slow push in toward the window. Warm tungsten glow from the café window as the key, cool blue ambient from the street, wet reflections. Cinematic film look, fine grain, soft halation.
+
+NEGATIVE:
+morphing, warped hands, extra fingers, flicker, distorted face, text, watermark, jitter
+
+SETTINGS:
+mode=image-to-video (start frame = image_01.png)
+duration=5s  ratio=9:16  quality=pro/master  cfg=0.5

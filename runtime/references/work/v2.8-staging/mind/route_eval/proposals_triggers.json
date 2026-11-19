@@ -1,0 +1,332 @@
+{
+ "app-dev": {
+  "add": "البرنامج التحديث امكانيه واقف الايجنت معاينه القائمه اخطاء",
+  "phrases": [
+   "حدث التطبيق",
+   "اضف امكانيه",
+   "مش شغال",
+   "عدل التطبيق",
+   "حسن التطبيق",
+   "مشكله التحديث"
+  ],
+  "collisions": {
+   "البرنامج": [
+    "re-file",
+    "pc-task",
+    "clone-own-tool"
+   ]
+  },
+  "evidence_dev_ids": [
+   "old:80",
+   "fresh:28",
+   "fresh:30",
+   "fresh:36",
+   "fresh:40",
+   "fresh:44",
+   "fresh:48",
+   "fresh:52",
+   "fresh:54",
+   "fresh:70",
+   "fresh:170",
+   "fresh:174",
+   "fresh:180",
+   "fresh:184"
+  ]
+ },
+ "clone-own-tool": {
+  "add": "المحاكي الكاميرا لايف تسجيلات تطبيقي الافلام",
+  "phrases": [
+   "محاكي اندرويد",
+   "تطبيق شبيه",
+   "تطبيق مثله",
+   "تسجيل لايف",
+   "بيانات الدخول",
+   "برنامج التحميل",
+   "المتصفح السحابي",
+   "نسخه سطح"
+  ],
+  "collisions": {
+   "المحاكي": [
+    "machine-sim"
+   ],
+   "الكاميرا": [
+    "draw-math"
+   ]
+  },
+  "evidence_dev_ids": [
+   "old:0",
+   "old:26",
+   "old:32",
+   "old:50",
+   "old:100",
+   "fresh:136",
+   "fresh:138",
+   "fresh:140",
+   "fresh:142",
+   "fresh:148",
+   "fresh:150",
+   "fresh:192",
+   "fresh:194",
+   "fresh:196",
+   "fresh:198",
+   "fresh:200"
+  ]
+ },
+ "reconcile": {
+  "add": "مستفيد المستفيد لمستفيد طابقه اتحولت المبلغ لمورد",
+  "phrases": [
+   "تواريخ التحويل",
+   "بنفس المبلغ",
+   "حوالات رجعت",
+   "حساب بنك"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:96",
+   "fresh:120",
+   "fresh:122",
+   "fresh:130"
+  ]
+ },
+ "status": {
+  "add": "لسه قدامك لاقي",
+  "phrases": [
+   "هل خلصت",
+   "ولا لسه",
+   "باقي لك",
+   "مش لاقي",
+   "هل صنعت",
+   "هو شغال"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:60",
+   "old:94",
+   "fresh:18",
+   "fresh:20",
+   "fresh:22",
+   "fresh:34",
+   "fresh:166"
+  ]
+ },
+ "self-improve": {
+  "add": "احقن احقنه احقنها قدراتك امكانياتك خلاصه",
+  "phrases": [
+   "كل قدراتك",
+   "ملف التعليمات",
+   "ملف تعليمات",
+   "سوبر باور"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:8",
+   "fresh:10",
+   "fresh:14",
+   "fresh:156",
+   "fresh:168"
+  ]
+ },
+ "re-repo": {
+  "add": "مستودعات المستودعات جيتهاب استنساخ",
+  "phrases": [
+   "جيت هاب",
+   "مستودعات جيت",
+   "مستودع جيت"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:4",
+   "fresh:6",
+   "fresh:8",
+   "fresh:24",
+   "fresh:60"
+  ]
+ },
+ "build-skill": {
+  "add": "",
+  "phrases": [
+   "طور مهاره",
+   "اصنع مهاره",
+   "مهاره تعمل",
+   "يمكن لكلاود"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:14",
+   "old:24",
+   "old:28",
+   "old:74",
+   "fresh:104"
+  ]
+ },
+ "ship": {
+  "add": "ارفعه ارفع",
+  "phrases": [
+   "اعطيني الرابط",
+   "مجلد علي"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:72",
+   "fresh:158"
+  ]
+ },
+ "pc-task": {
+  "add": "التبويب تبويب powershell",
+  "phrases": [
+   "اسم التبويب",
+   "بامر واحد"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:74",
+   "fresh:76",
+   "fresh:102"
+  ]
+ },
+ "site-style": {
+  "add": "تناسق وخطوط",
+  "phrases": [
+   "الوان وخطوط",
+   "اقترح تطوير",
+   "طور الالوان"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:210",
+   "fresh:212"
+  ]
+ },
+ "deep-research": {
+  "add": "روابط",
+  "phrases": [
+   "كل المواقع",
+   "مفتوحه المصدر"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:86"
+  ]
+ },
+ "app-to-skill": {
+  "add": "حوله",
+  "phrases": [
+   "الي مهاره",
+   "حلله وحوله"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:218"
+  ]
+ },
+ "re-site": {
+  "add": "",
+  "phrases": [
+   "تفاصيل طلبات"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:20"
+  ]
+ },
+ "toon": {
+  "add": "ديزني لديزني disney",
+  "phrases": [
+   "ديزني استايل",
+   "نماذج تحويل"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:38",
+   "fresh:56"
+  ]
+ },
+ "web-build": {
+  "add": "",
+  "phrases": [
+   "اعمل موقع",
+   "موقع شبيه",
+   "الي تطبيق",
+   "موقع متقدم"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:58",
+   "fresh:108"
+  ]
+ },
+ "reel-montage": {
+  "add": "",
+  "phrases": [
+   "مونتاج لاغنيه"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:110"
+  ]
+ },
+ "motion-code": {
+  "add": "جرافك انميشن وانميشن",
+  "phrases": [
+   "موشن جرافك"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:80"
+  ]
+ },
+ "paid-gen": {
+  "add": "ارخص بدائل",
+  "phrases": [
+   "بدائل ارخص"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:48"
+  ]
+ },
+ "design-static": {
+  "add": "ترسم",
+  "phrases": [],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:52"
+  ]
+ },
+ "re-apk": {
+  "add": "apks",
+  "phrases": [],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:56"
+  ]
+ },
+ "re-file": {
+  "add": "سيرفر سيرفرات السيرفرات السيفرات server",
+  "phrases": [],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "old:92"
+  ]
+ },
+ "cloud-render": {
+  "add": "المجانيه مجانيه",
+  "phrases": [
+   "الخدمات المجانيه"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:160"
+  ]
+ },
+ "nature-palette": {
+  "add": "طائر",
+  "phrases": [
+   "صوره طائر"
+  ],
+  "collisions": {},
+  "evidence_dev_ids": [
+   "fresh:162"
+  ]
+ }
+}

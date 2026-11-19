@@ -1,0 +1,9 @@
+{
+ "repo": "https://github.com/usestrix/strix",
+ "stars_on_2026-11-14": 75552,
+ "license": "apache-2.0",
+ "commit": "4719329",
+ "path_in_repo": "skills/find-security-vulnerabilities-in-code",
+ "review_before_running": [],
+ "note": "copied unchanged with its LICENSE (v2.17.0); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

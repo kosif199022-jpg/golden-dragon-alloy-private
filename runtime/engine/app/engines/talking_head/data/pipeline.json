@@ -1,0 +1,15 @@
+{
+ "project_dirs": ["footage", "audio", "analysis", "matte", "broll", "logos", "assets", "qa", "render"],
+ "frame": {"W": 1080, "H": 1920},
+ "nice_fps": [23.976, 24, 25, 29.97, 30, 50, 59.94, 60],
+ "cut": {
+  "hop_s": 0.01, "merge_gap": 0.12, "min_region": 0.05, "touch_words": 0.3,
+  "min_gap": 0.22, "min_saving": 0.12, "max_tail": 0.08, "sentence_end": ".?!",
+  "pause_sentence": 0.22, "pause_mid": 0.14, "lead": 0.06, "trail": 0.25, "join_fade": 0.005
+ },
+ "asr": {"gap": 0.6, "sentence_end": [".", "!", "?", "؟", "…"], "model": "small", "model_en": "small.en"},
+ "master": {"lufs": -14.0, "true_peak": -1.5, "pre": "highpass=f=70,lowpass=f=16000,", "lra": 9, "retry_miss": 0.3},
+ "encode": {"vcodec": "libx264", "preset": "medium", "crf": 12, "pix_fmt": "yuv420p", "color": "bt709",
+            "acodec": "aac", "abitrate": "320k", "ar": 48000},
+ "sheet": {"cell": [270, 480], "cols": 8, "clip_frames": 6, "clip_cell": 320, "scene": 0.35}
+}

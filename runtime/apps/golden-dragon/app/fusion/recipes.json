@@ -1,0 +1,2388 @@
+[
+ {
+  "id": "reel-footage-song",
+  "title_ar": "ريل أو فيلم من فوتيج وأغنية",
+  "when": [
+   "اعمل ريل من الفيديوهات دي على الأغنية",
+   "مونتاج فيلم تكريم من صور وفيديوهات بموسيقى",
+   "make a 9:16 reel from my footage cut to the beat of this song"
+  ],
+  "tags": [
+   "montage",
+   "reel",
+   "song",
+   "beat",
+   "cinema",
+   "مونتاج",
+   "ريلز",
+   "اغنيه"
+  ],
+  "deliver_ar": "MP4 بـ 9:16 في output جوه مجلد الشغل، مقاس وفريماته اتشافت",
+  "steps": [
+   {
+    "do_ar": "اقيس الخامات واختار الأحسن",
+    "read": [
+     "skill:golden-dragon"
+    ],
+    "use": [
+     "tool:verify_media",
+     "program:ffprobe"
+    ],
+    "gate_ar": "كل ملف ليه مدة وأبعاد وLUFS متسجلين"
+   },
+   {
+    "do_ar": "اعرف إيقاع الأغنية وحدد نقط القطع على البيت",
+    "read": [
+     "skill:beat-sync-editing"
+    ],
+    "use": [
+     "program:ffmpeg"
+    ],
+    "gate_ar": "نقط القطع بالثواني على البيت"
+   },
+   {
+    "do_ar": "ركّب المونتاج بمحرك التنين (سينما الفوتيج: modules/cinema)",
+    "read": [
+     "skill:golden-dragon"
+    ],
+    "use": [
+     "engine:dragon_montage"
+    ],
+    "gate_ar": "النسخة الأولى اترندرت ومدتها صح"
+   },
+   {
+    "do_ar": "لون وأسلوب من ريل مرجعي لو موجود",
+    "read": [
+     "skill:taste-distillation",
+     "skill:taste-application"
+    ],
+    "use": [
+     "program:ffmpeg"
+    ],
+    "gate_ar": "الـ LUT اتطبق والفريمات مش محروقة"
+   },
+   {
+    "do_ar": "تحقق نهائي بالأرقام وبالعين",
+    "read": [
+     "skill:dragon-genius"
+    ],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "talking-head-reel",
+  "title_ar": "ريل كلام لشخص قدام الكاميرا",
+  "when": [
+   "عندي فيديو بتكلم فيه للكاميرا عايز منه ريل",
+   "شيل السكوت والتأتأة من الفيديو وحط كابشن",
+   "turn this talking-head recording into a vertical reel with captions"
+  ],
+  "tags": [
+   "talking head",
+   "podcast",
+   "interview",
+   "silence",
+   "كلام",
+   "بودكاست"
+  ],
+  "deliver_ar": "ريل 9:16 بكابشن مربوط بالكلام، مقاس",
+  "steps": [
+   {
+    "do_ar": "فرّغ الكلام كلمة بكلمة",
+    "read": [
+     "skill:video-understand"
+    ],
+    "use": [
+     "engine:voice_studio",
+     "program:whisperx"
+    ],
+    "gate_ar": "ملف كلمات JSON بالتوقيت"
+   },
+   {
+    "do_ar": "قص السكوت والإعادات",
+    "read": [
+     "skill:video-cut",
+     "skill:auto-editor"
+    ],
+    "use": [
+     "program:auto-editor"
+    ],
+    "gate_ar": "المدة قلّت والجمل كاملة (اتسمعت)"
+   },
+   {
+    "do_ar": "ريل 9:16 تحريري",
+    "read": [
+     "skill:video-use"
+    ],
+    "use": [
+     "engine:talking_head"
+    ],
+    "gate_ar": "الوش في الكادر طول الوقت"
+   },
+   {
+    "do_ar": "كابشن مربوط بالكلام",
+    "read": [
+     "skill:arabic-captions-khatt"
+    ],
+    "use": [
+     "tool:speech_sync"
+    ],
+    "gate_ar": "الكابشن على الكلمة الصح والعربي متوصّل"
+   },
+   {
+    "do_ar": "تلوين وصوت",
+    "read": [
+     "skill:video-color-grade"
+    ],
+    "use": [
+     "program:deep-filter",
+     "tool:verify_media"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "arabic-captions",
+  "title_ar": "كابشن أو ترجمة عربي محروقة على الفيديو",
+  "when": [
+   "حط كابشن عربي على الفيديو",
+   "اعمل ترجمة SRT للفيديو واحرقها",
+   "burn Arabic subtitles on this video"
+  ],
+  "tags": [
+   "caption",
+   "subtitle",
+   "srt",
+   "arabic",
+   "كابشن",
+   "ترجمه"
+  ],
+  "deliver_ar": "فيديو بكابشن عربي متوصّل ومن اليمين، وملف captions.srt",
+  "steps": [
+   {
+    "do_ar": "فرّغ الكلام بتوقيت الكلمة",
+    "read": [
+     "skill:auto-editor-transcribe"
+    ],
+    "use": [
+     "program:whisperx",
+     "program:faster-whisper"
+    ],
+    "gate_ar": "ملف كلمات بالتوقيت"
+   },
+   {
+    "do_ar": "اربط السكريبت بالكلام لو فيه سكريبت",
+    "read": [],
+    "use": [
+     "tool:speech_sync",
+     "cmd:rd-sync"
+    ],
+    "gate_ar": "نسبة المطابقة 80% أو أكتر"
+   },
+   {
+    "do_ar": "احرق الكابشن صح",
+    "read": [
+     "skill:arabic-captions-khatt",
+     "skill:captions-overlay"
+    ],
+    "use": [
+     "program:ffmpeg"
+    ],
+    "gate_ar": "فريم اتشاف: الحروف متوصّلة ومن اليمين للشمال"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "motion-html-film",
+  "title_ar": "فيلم موشن جرافيك بالكود (HTML و HyperFrames)",
+  "when": [
+   "اعمل فيديو موشن جرافيك لمنتج",
+   "انيميشن نصوص وأشكال بالكود",
+   "make a motion graphics video with HyperFrames"
+  ],
+  "tags": [
+   "motion",
+   "animation",
+   "hyperframes",
+   "gsap",
+   "موشن",
+   "انيميشن"
+  ],
+  "deliver_ar": "MP4 مترندر من HTML بفريمات ثابتة، والمكتبات أوفلاين في vendor",
+  "steps": [
+   {
+    "do_ar": "قانون الحركة والبريف الأول",
+    "read": [
+     "skill:motion-doctrine",
+     "skill:motion-art-direction"
+    ],
+    "use": [],
+    "gate_ar": "بريف فيه الإيقاع والألوان والخطوط"
+   },
+   {
+    "do_ar": "مكتبة جاهزة أوفلاين بدل كود جديد",
+    "read": [],
+    "use": [
+     "tool:motion_lib",
+     "lib:gsap"
+    ],
+    "gate_ar": "vendor فيه المكتبة ورخصتها"
+   },
+   {
+    "do_ar": "ابني المشاهد",
+    "read": [
+     "skill:hyperframes",
+     "skill:hyperframes-cli"
+    ],
+    "use": [
+     "lib:hyperframes",
+     "engine:web_film"
+    ],
+    "gate_ar": "hyperframes check عدّى"
+   },
+   {
+    "do_ar": "انتقالات بين المشاهد",
+    "read": [
+     "skill:seam-craft",
+     "skill:cut-the-curve"
+    ],
+    "use": [],
+    "gate_ar": "مفيش فريم فاضي عند الانتقال"
+   },
+   {
+    "do_ar": "رندر ومراجعة ناقد",
+    "read": [
+     "skill:motion-design-critique"
+    ],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "logo-intro",
+  "title_ar": "انترو أو أوترو باللوجو",
+  "when": [
+   "حرّك اللوجو بتاعي",
+   "انترو للقناة باللوجو",
+   "animate my logo into a short sting"
+  ],
+  "tags": [
+   "logo",
+   "intro",
+   "outro",
+   "sting",
+   "لوجو",
+   "شعار",
+   "انترو"
+  ],
+  "deliver_ar": "انترو قصير بألوان البراند، وبقناة شفافية لو هيتحط فوق فيديو",
+  "steps": [
+   {
+    "do_ar": "هوية البراند",
+    "read": [
+     "skill:brand-intake",
+     "skill:logo-animation"
+    ],
+    "use": [],
+    "gate_ar": "ألوان وخط اللوجو متسجلين"
+   },
+   {
+    "do_ar": "قالب جاهز",
+    "read": [
+     "skill:video-template-frame-logo-outro",
+     "skill:motion-launch-videos"
+    ],
+    "use": [
+     "tool:motion_lib"
+    ],
+    "gate_ar": "القالب اشتغل بألوان البراند"
+   },
+   {
+    "do_ar": "رندر (بألفا لو أوفرلاي)",
+    "read": [
+     "skill:motion-overlays"
+    ],
+    "use": [
+     "engine:web_film",
+     "program:ffmpeg"
+    ],
+    "gate_ar": "ffprobe: فيه قناة ألفا لو مطلوبة"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "blender-3d-shot",
+  "title_ar": "مشهد أو منتج 3D في Blender",
+  "when": [
+   "اعمل مشهد 3D في بلندر",
+   "رندر منتج ثلاثي الأبعاد بيلف",
+   "build a Blender scene and render a turntable"
+  ],
+  "tags": [
+   "blender",
+   "3d",
+   "render",
+   "turntable",
+   "بلندر",
+   "ثلاثي"
+  ],
+  "deliver_ar": "فريمات أو فيديو من Blender، مراجع ومقاس",
+  "steps": [
+   {
+    "do_ar": "خطة الإنتاج",
+    "read": [
+     "skill:blender-director",
+     "skill:blender-core"
+    ],
+    "use": [],
+    "gate_ar": "قايمة الأصول والكاميرا والإضاءة"
+   },
+   {
+    "do_ar": "موديلينج وخامات",
+    "read": [
+     "skill:blender-modeling",
+     "skill:blender-materials"
+    ],
+    "use": [
+     "engine:blender"
+    ],
+    "gate_ar": "الموديل اتفحص بـ blender-asset-qa"
+   },
+   {
+    "do_ar": "إضاءة وكاميرا",
+    "read": [
+     "skill:blender-lighting",
+     "skill:blender-cameras"
+    ],
+    "use": [
+     "engine:blender"
+    ],
+    "gate_ar": "فريم اختبار اتشاف"
+   },
+   {
+    "do_ar": "الرندر (التقيل على السحابة المجانية)",
+    "read": [
+     "skill:hf-blender-render"
+    ],
+    "use": [
+     "engine:blender",
+     "mcp:higgsfield-free"
+    ],
+    "gate_ar": "كل الفريمات موجودة"
+   },
+   {
+    "do_ar": "مراجعة",
+    "read": [
+     "skill:blender-asset-qa",
+     "skill:animation-quality-gate"
+    ],
+    "use": [
+     "tool:view_image",
+     "tool:verify_media"
+    ],
+    "gate_ar": "مفيش أجزاء طايرة ولا z-fighting"
+   }
+  ]
+ },
+ {
+  "id": "machine-teardown",
+  "title_ar": "محاكي 3D لماكينة بتشتغل إزاي",
+  "when": [
+   "اشرح الماكينة دي بتشتغل إزاي 3D",
+   "محاكي تفكيك لمحرك",
+   "interactive 3D teardown of how this machine works"
+  ],
+  "tags": [
+   "teardown",
+   "machine",
+   "simulator",
+   "ماكينه",
+   "محاكي",
+   "تفكيك"
+  ],
+  "deliver_ar": "صفحة HTML أوفلاين فيها الماكينة شغالة، وفيلم قصير بصوت",
+  "steps": [
+   {
+    "do_ar": "صورة مرجع وقواعد الأسلوب",
+    "read": [
+     "skill:teardown"
+    ],
+    "use": [
+     "tool:view_image"
+    ],
+    "gate_ar": "صورة مرجع موجودة"
+   },
+   {
+    "do_ar": "ابني الصفحة والعدادات",
+    "read": [
+     "skill:teardown"
+    ],
+    "use": [
+     "tool:write_file"
+    ],
+    "gate_ar": "الصفحة بتفتح أوفلاين وكل زرار شغال"
+   },
+   {
+    "do_ar": "فيلم قصير بصوت",
+    "read": [
+     "skill:teardown"
+    ],
+    "use": [
+     "program:ffmpeg",
+     "tool:verify_media"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ],
+  "approvals_ar": [
+   "النشر على النت بموافقة صريحة"
+  ]
+ },
+ {
+  "id": "image-design",
+  "title_ar": "صورة أو بوستر أو هوية بصرية",
+  "when": [
+   "صمم بوستر",
+   "اعمل هوية بصرية من الصورة دي",
+   "طلّع باليتة ألوان من صورة طائر",
+   "عدّل الصورة دي وصمم ثامبنيل",
+   "design a poster, thumbnail or a colour palette from this photo"
+  ],
+  "tags": [
+   "poster",
+   "image",
+   "brand",
+   "design",
+   "palette",
+   "thumbnail",
+   "بوستر",
+   "تصميم",
+   "هويه",
+   "الوان",
+   "باليته",
+   "طائر",
+   "طير",
+   "ثامبنيل",
+   "صوره"
+  ],
+  "deliver_ar": "صورة بالمقاس المطلوب، اتشافت وماعندهاش عيوب",
+  "steps": [
+   {
+    "do_ar": "3 اتجاهات بصرية مختلفة فعلًا",
+    "read": [
+     "skill:creative-explore",
+     "skill:chroma-motion"
+    ],
+    "use": [],
+    "gate_ar": "اتجاه اتختار بسبب مكتوب"
+   },
+   {
+    "do_ar": "التنفيذ",
+    "read": [
+     "skill:canvas-design",
+     "skill:krita-draw"
+    ],
+    "use": [
+     "program:magick",
+     "program:inkscape",
+     "cmd:rd-krita"
+    ],
+    "gate_ar": "الملف بالمقاس المطلوب"
+   },
+   {
+    "do_ar": "تشطيب",
+    "read": [
+     "skill:creative-polish"
+    ],
+    "use": [
+     "program:upscayl",
+     "program:rembg"
+    ],
+    "gate_ar": "مفيش حواف مقطوعة ولا تشويش"
+   },
+   {
+    "do_ar": "تحقق بالعين",
+    "read": [],
+    "use": [
+     "tool:view_image"
+    ],
+    "gate_ar": "اتشافت بالحجم الكامل"
+   }
+  ]
+ },
+ {
+  "id": "cartoon-look",
+  "title_ar": "تحويل فيديو أو صورة لكارتون أو أنمي",
+  "when": [
+   "حوّل الفيديو لأنمي",
+   "خلي الصورة كارتون 3D",
+   "turn this clip into an anime or cartoon style"
+  ],
+  "tags": [
+   "toon",
+   "anime",
+   "cartoon",
+   "disney",
+   "pixar",
+   "كارتون",
+   "انمي",
+   "ديزني",
+   "بيكسار",
+   "ستايل"
+  ],
+  "deliver_ar": "نسخة كارتون بنفس مدة الأصل",
+  "steps": [
+   {
+    "do_ar": "معاينة 3 ثواني الأول",
+    "read": [
+     "skill:anime-style"
+    ],
+    "use": [
+     "engine:toon"
+    ],
+    "gate_ar": "المعاينة اتشافت (--seconds 3)"
+   },
+   {
+    "do_ar": "الفيديو كله بالأسلوب اللي اتختار",
+    "read": [],
+    "use": [
+     "engine:toon"
+    ],
+    "gate_ar": "المدة زي الأصل"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "فريمات اتشافت ومفيش رعشة واضحة"
+   }
+  ]
+ },
+ {
+  "id": "voice-over",
+  "title_ar": "تعليق صوتي أو تحويل نص لصوت",
+  "when": [
+   "اعمل تعليق صوتي للسكريبت ده",
+   "حوّل النص لصوت عربي",
+   "نضّف الصوت من الدوشة",
+   "generate a voice-over or clean this audio"
+  ],
+  "tags": [
+   "voice",
+   "tts",
+   "narration",
+   "audio",
+   "صوت",
+   "تعليق",
+   "تنضيف",
+   "دوشه"
+  ],
+  "deliver_ar": "ملف صوت نضيف بمستوى مقاس، ومعاه توقيت الكلمات",
+  "steps": [
+   {
+    "do_ar": "ولّد الصوت",
+    "read": [
+     "skill:tts-narrator"
+    ],
+    "use": [
+     "engine:voice_studio",
+     "program:edge-tts"
+    ],
+    "gate_ar": "الملف موجود ومدته منطقية"
+   },
+   {
+    "do_ar": "نضافة وتوحيد المستوى",
+    "read": [],
+    "use": [
+     "program:deep-filter",
+     "program:ffmpeg"
+    ],
+    "gate_ar": "LUFS والذروة مقاسين"
+   },
+   {
+    "do_ar": "توقيت الكلمات للمونتاج",
+    "read": [],
+    "use": [
+     "tool:speech_sync"
+    ],
+    "gate_ar": "sync.json اتعمل"
+   }
+  ]
+ },
+ {
+  "id": "song-music",
+  "title_ar": "أغنية أو موسيقى خلفية",
+  "when": [
+   "اعمل أغنية",
+   "موسيقى خلفية للفيديو",
+   "make a background music track or a song"
+  ],
+  "tags": [
+   "music",
+   "song",
+   "موسيقي",
+   "اغنيه"
+  ],
+  "deliver_ar": "ملف موسيقى بمستوى مقاس",
+  "steps": [
+   {
+    "do_ar": "اختار: محلي ببلاش ولا Suno المدفوع",
+    "read": [
+     "skill:acestep"
+    ],
+    "use": [
+     "mcp:suno"
+    ],
+    "gate_ar": "موافقة صريحة لو مدفوع"
+   },
+   {
+    "do_ar": "فصل وتوحيد",
+    "read": [],
+    "use": [
+     "program:demucs",
+     "program:ffmpeg"
+    ],
+    "gate_ar": "LUFS مقاس"
+   }
+  ],
+  "approvals_ar": [
+   "Suno مدفوع: موافقة صريحة على الأداة والسعر"
+  ]
+ },
+ {
+  "id": "download-media",
+  "title_ar": "تحميل فيديو أو ملف",
+  "when": [
+   "نزّل الفيديو ده",
+   "حمّل من يوتيوب أو تيك توك",
+   "download this video or file fast"
+  ],
+  "tags": [
+   "download",
+   "تحميل",
+   "نزل",
+   "حمل",
+   "رابط",
+   "لينك",
+   "يوتيوب",
+   "تيك توك"
+  ],
+  "deliver_ar": "الملف في مجلد الشغل بأعلى جودة متاحة، والمصدر في sources.txt",
+  "steps": [
+   {
+    "do_ar": "صفحة فيديو؟",
+    "read": [
+     "skill:video-grabber",
+     "skill:yt-dlp-cli"
+    ],
+    "use": [
+     "program:yt-dlp"
+    ],
+    "gate_ar": "الملف نزل بأعلى جودة"
+   },
+   {
+    "do_ar": "ملف كبير مباشر",
+    "read": [
+     "skill:kosif-downloads"
+    ],
+    "use": [
+     "engine:kosif",
+     "program:aria2c"
+    ],
+    "gate_ar": "الحجم مطابق للسيرفر"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media"
+    ],
+    "gate_ar": "الملف بيتفتح ومدته صح"
+   }
+  ]
+ },
+ {
+  "id": "reverse-engineer",
+  "title_ar": "تحليل أو هندسة عكسية لملف أو برنامج",
+  "when": [
+   "حلّل البرنامج ده",
+   "البرنامج ده بيكلّم أنهي سيرفر",
+   "reverse engineer this exe or dll"
+  ],
+  "tags": [
+   "reverse",
+   "analysis",
+   "exe",
+   "dll",
+   "binary",
+   "تحليل",
+   "هندسه عكسيه"
+  ],
+  "deliver_ar": "تقرير بيفصل ✅ الدليل عن 🟡 الاستنتاج عن ❓ المجهول",
+  "steps": [
+   {
+    "do_ar": "صنّف من الدليل",
+    "read": [
+     "skill:omni-analyst"
+    ],
+    "use": [
+     "tool:omni",
+     "re:die",
+     "cmd:rd-re"
+    ],
+    "gate_ar": "النوع الحقيقي من الـ magic bytes"
+   },
+   {
+    "do_ar": "فرز سريع",
+    "read": [
+     "skill:rea-ultra"
+    ],
+    "use": [
+     "tool:retool",
+     "re:capa",
+     "re:floss"
+    ],
+    "gate_ar": "هاشات وباكر وقدرات"
+   },
+   {
+    "do_ar": "انزل للكود حسب النوع",
+    "read": [
+     "skill:reverse-engineer-anything"
+    ],
+    "use": [
+     "tool:rea",
+     "re:ilspy",
+     "re:pyinstxtractor"
+    ],
+    "gate_ar": "كل استنتاج مهم اتأكد بأداة تانية"
+   },
+   {
+    "do_ar": "التقرير",
+    "read": [
+     "skill:writing-defect-reports"
+    ],
+    "use": [
+     "tool:write_file"
+    ],
+    "gate_ar": "كل حكم معاه دليل"
+   }
+  ],
+  "approvals_ar": [
+   "تحليل وقت التشغيل (frida و pe-sieve و mitmdump) بإذن صريح"
+  ]
+ },
+ {
+  "id": "reverse-android",
+  "title_ar": "تحليل تطبيق أندرويد APK",
+  "when": [
+   "حلّل الـ APK ده",
+   "التطبيق ده بيبعت بيانات فين",
+   "analyze this Android APK"
+  ],
+  "tags": [
+   "apk",
+   "android",
+   "اندرويد"
+  ],
+  "deliver_ar": "تقرير صلاحيات وروابط ومكونات، والأسرار متقنّعة",
+  "steps": [
+   {
+    "do_ar": "فك وقراية",
+    "read": [
+     "skill:android-reverse-engineering"
+    ],
+    "use": [
+     "re:jadx",
+     "re:apktool"
+    ],
+    "gate_ar": "الـ Manifest والصلاحيات اتقروا"
+   },
+   {
+    "do_ar": "روابط ومفاتيح",
+    "read": [],
+    "use": [
+     "re:apkleaks",
+     "re:androguard"
+    ],
+    "gate_ar": "الأسرار اتقنّعت في التقرير"
+   },
+   {
+    "do_ar": "التقرير",
+    "read": [
+     "skill:writing-defect-reports"
+    ],
+    "use": [
+     "tool:write_file"
+    ],
+    "gate_ar": "دليل لكل حكم"
+   }
+  ]
+ },
+ {
+  "id": "web-app",
+  "title_ar": "موقع أو تطبيق ويب",
+  "when": [
+   "اعمل موقع",
+   "صفحة هبوط لمنتج",
+   "عايز موقع شبيه بالموقع ده فيه كتالوج",
+   "build a website, web app or a landing page"
+  ],
+  "tags": [
+   "website",
+   "web",
+   "landing",
+   "html",
+   "موقع",
+   "صفحه",
+   "ويب",
+   "كتالوج",
+   "شبيه"
+  ],
+  "deliver_ar": "موقع بيبني ويشتغل ومتجرّب في متصفح حقيقي",
+  "steps": [
+   {
+    "do_ar": "اتجاه التصميم",
+    "read": [
+     "skill:frontend-design",
+     "skill:unslop"
+    ],
+    "use": [],
+    "gate_ar": "اتجاه مكتوب مش قالب عام"
+   },
+   {
+    "do_ar": "البناء",
+    "read": [
+     "skill:web-artifacts-builder"
+    ],
+    "use": [
+     "program:node"
+    ],
+    "gate_ar": "بيبني من غير أخطاء"
+   },
+   {
+    "do_ar": "اختبار في متصفح حقيقي",
+    "read": [
+     "skill:webapp-testing",
+     "skill:accessibility-auditor"
+    ],
+    "use": [
+     "engine:chrome"
+    ],
+    "gate_ar": "سكرينشوت اتشاف والكونسول نضيف"
+   },
+   {
+    "do_ar": "النشر بموافقة",
+    "read": [
+     "skill:higgsfield-free"
+    ],
+    "use": [
+     "mcp:higgsfield-free"
+    ],
+    "gate_ar": "اللينك شغال"
+   }
+  ],
+  "approvals_ar": [
+   "النشر على النت بموافقة صريحة"
+  ]
+ },
+ {
+  "id": "instagram",
+  "title_ar": "محتوى إنستجرام",
+  "when": [
+   "اعمل خطة بوستات انستجرام",
+   "اكتب ريل وكابشن لانستا",
+   "plan my Instagram week and write a reel"
+  ],
+  "tags": [
+   "instagram",
+   "انستجرام",
+   "انستا"
+  ],
+  "deliver_ar": "خطة وسكريبتات وكابشنز جاهزة للنشر بإيدك",
+  "steps": [
+   {
+    "do_ar": "الخطة",
+    "read": [
+     "skill:ig-plan"
+    ],
+    "use": [],
+    "gate_ar": "أسبوع فيه الأنواع والمواعيد"
+   },
+   {
+    "do_ar": "الريل والكابشن",
+    "read": [
+     "skill:ig-reel",
+     "skill:ig-caption"
+    ],
+    "use": [],
+    "gate_ar": "أول سطر بيشد"
+   },
+   {
+    "do_ar": "الكاروسيل لو مطلوب",
+    "read": [
+     "skill:ig-carousel"
+    ],
+    "use": [
+     "program:magick"
+    ],
+    "gate_ar": "صور 1080×1350"
+   },
+   {
+    "do_ar": "شيل بصمة الآلة من الكلام",
+    "read": [
+     "skill:ig-human"
+    ],
+    "use": [],
+    "gate_ar": "مفيش كلمات AI متكررة"
+   }
+  ],
+  "approvals_ar": [
+   "النشر أو إرسال رسائل بموافقة صريحة"
+  ]
+ },
+ {
+  "id": "youtube",
+  "title_ar": "فيديو يوتيوب: سكريبت وعنوان وSEO",
+  "when": [
+   "اكتب سكريبت فيديو يوتيوب",
+   "عنوان وثامبنيل ووصف للفيديو",
+   "write a YouTube script, title and description"
+  ],
+  "tags": [
+   "youtube",
+   "يوتيوب"
+  ],
+  "deliver_ar": "سكريبت وعنوان ووصف وفصول جاهزين",
+  "steps": [
+   {
+    "do_ar": "السكريبت",
+    "read": [
+     "skill:yt-script"
+    ],
+    "use": [],
+    "gate_ar": "هوك وسكريبت كامل"
+   },
+   {
+    "do_ar": "العنوان والثامبنيل",
+    "read": [
+     "skill:yt-package"
+    ],
+    "use": [],
+    "gate_ar": "العنوان مش متقطع"
+   },
+   {
+    "do_ar": "الوصف والفصول",
+    "read": [
+     "skill:yt-seo",
+     "skill:yt-chapters"
+    ],
+    "use": [],
+    "gate_ar": "الفصول بقواعد يوتيوب"
+   },
+   {
+    "do_ar": "شورتس من الفيديو الطويل",
+    "read": [
+     "skill:yt-shorts"
+    ],
+    "use": [],
+    "gate_ar": "كل شورت مفهوم لوحده"
+   }
+  ]
+ },
+ {
+  "id": "linkedin",
+  "title_ar": "بوستات لينكدإن",
+  "when": [
+   "اكتب بوست لينكدإن",
+   "خطة محتوى لينكدإن",
+   "write a LinkedIn post"
+  ],
+  "tags": [
+   "linkedin",
+   "لينكدان"
+  ],
+  "deliver_ar": "بوستات بصوت صاحب الشغل، جاهزة للنشر بإيده",
+  "steps": [
+   {
+    "do_ar": "الخطة",
+    "read": [
+     "skill:li-plan"
+    ],
+    "use": [],
+    "gate_ar": "أسبوع فيه المواعيد"
+   },
+   {
+    "do_ar": "البوست",
+    "read": [
+     "skill:li-post"
+    ],
+    "use": [],
+    "gate_ar": "هوك من الصيغ المجربة"
+   },
+   {
+    "do_ar": "شيل بصمة الآلة",
+    "read": [
+     "skill:li-human"
+    ],
+    "use": [],
+    "gate_ar": "مفيش كلمات AI متكررة"
+   }
+  ],
+  "approvals_ar": [
+   "النشر بموافقة صريحة"
+  ]
+ },
+ {
+  "id": "business-launch",
+  "title_ar": "فكرة بيزنس من التقييم للإطلاق",
+  "when": [
+   "عندي فكرة مشروع",
+   "خطة إطلاق منتج جديد",
+   "validate my business idea and plan the launch"
+  ],
+  "tags": [
+   "business",
+   "startup",
+   "launch",
+   "مشروع",
+   "بيزنس"
+  ],
+  "deliver_ar": "تقييم وأرقام وعرض وخطة إطلاق بتواريخ",
+  "steps": [
+   {
+    "do_ar": "تقييم الفكرة",
+    "read": [
+     "skill:founder-board"
+    ],
+    "use": [],
+    "gate_ar": "حكم مكتوب بأسبابه"
+   },
+   {
+    "do_ar": "المنافسين والفجوة",
+    "read": [
+     "skill:founder-competitors"
+    ],
+    "use": [],
+    "gate_ar": "خريطة منافسين"
+   },
+   {
+    "do_ar": "الأرقام",
+    "read": [
+     "skill:founder-cfo"
+    ],
+    "use": [],
+    "gate_ar": "اقتصاديات الوحدة"
+   },
+   {
+    "do_ar": "العرض والهوية",
+    "read": [
+     "skill:founder-offer",
+     "skill:founder-brand"
+    ],
+    "use": [],
+    "gate_ar": "عرض واسم اتفحصوا"
+   },
+   {
+    "do_ar": "خطة الإطلاق",
+    "read": [
+     "skill:founder-launch"
+    ],
+    "use": [],
+    "gate_ar": "اختبار رخيص الأول بتاريخ"
+   }
+  ]
+ },
+ {
+  "id": "trading",
+  "title_ar": "بحث سهم وخطة صفقة",
+  "when": [
+   "حلل السهم ده",
+   "خطة صفقة بوقف خسارة",
+   "scan stocks and plan a trade"
+  ],
+  "tags": [
+   "stock",
+   "trade",
+   "سهم",
+   "تداول"
+  ],
+  "deliver_ar": "خطة صفقة فيها الدخول والوقف والهدف والحجم",
+  "steps": [
+   {
+    "do_ar": "فرز",
+    "read": [
+     "skill:trader-scanner"
+    ],
+    "use": [],
+    "gate_ar": "قايمة فرص"
+   },
+   {
+    "do_ar": "تحليل الشركة",
+    "read": [
+     "skill:trader-analyst"
+    ],
+    "use": [],
+    "gate_ar": "أرقام من المصدر الرسمي"
+   },
+   {
+    "do_ar": "المخاطرة والحجم",
+    "read": [
+     "skill:trader-risk",
+     "skill:trader-budget"
+    ],
+    "use": [],
+    "gate_ar": "الخسارة القصوى في حدودك"
+   },
+   {
+    "do_ar": "الخروج",
+    "read": [
+     "skill:trader-exit"
+    ],
+    "use": [],
+    "gate_ar": "وقف وهدف قبل الدخول"
+   },
+   {
+    "do_ar": "التنفيذ (ورقي افتراضيًا)",
+    "read": [
+     "skill:trader-broker"
+    ],
+    "use": [],
+    "gate_ar": "موافقة صريحة لأي أمر حقيقي"
+   }
+  ],
+  "approvals_ar": [
+   "أي أمر شراء أو بيع حقيقي بموافقة صريحة (الافتراضي تداول ورقي)"
+  ]
+ },
+ {
+  "id": "debug-code",
+  "title_ar": "باج في كود أو برنامج مش شغال",
+  "when": [
+   "الكود ده بيطلع error",
+   "السكربت بيطلع traceback",
+   "fix this bug or failing test"
+  ],
+  "tags": [
+   "bug",
+   "error",
+   "traceback",
+   "exception",
+   "debug",
+   "باج",
+   "خطا",
+   "كود",
+   "سكربت",
+   "اختبار"
+  ],
+  "deliver_ar": "تصليح صغير ومعاه اختبار يمنع رجوع الخطأ",
+  "steps": [
+   {
+    "do_ar": "اعمل reproduce بأمر واحد",
+    "read": [
+     "skill:systematic-debugging"
+    ],
+    "use": [
+     "tool:run_command"
+    ],
+    "gate_ar": "الخطأ بيتكرر"
+   },
+   {
+    "do_ar": "فرضية واحدة واختبار يكذّبها",
+    "read": [
+     "skill:strict-api"
+    ],
+    "use": [
+     "tool:search_files"
+    ],
+    "gate_ar": "السبب اتأكد بدليل"
+   },
+   {
+    "do_ar": "أقل تصليح",
+    "read": [
+     "skill:minimalist"
+    ],
+    "use": [
+     "tool:edit_file"
+    ],
+    "gate_ar": "الاختبار عدّى"
+   },
+   {
+    "do_ar": "مراجعة واختبار رجوع",
+    "read": [
+     "skill:requesting-code-review"
+    ],
+    "use": [
+     "tool:run_command"
+    ],
+    "gate_ar": "اختبار regression عدّى"
+   }
+  ]
+ },
+ {
+  "id": "app-self-develop",
+  "title_ar": "تطوير التطبيق نفسه (التنين الذهبي)",
+  "when": [
+   "ضيف ميزة للتطبيق",
+   "صلّح حاجة في التنين الذهبي",
+   "حدّث التطبيق اللي على سطح المكتب",
+   "اضف امكانية في البرنامج انه يعمل كذا",
+   "البرنامج واقف فيه مشكلة صلحه",
+   "الزرار ده مش شغال في التطبيق",
+   "خلي التطبيق يعرض كل المهارات",
+   "طوّر التطبيق بالقدرات دي",
+   "add a feature to this app or update it"
+  ],
+  "tags": [
+   "app",
+   "feature",
+   "update",
+   "التطبيق",
+   "البرنامج",
+   "ميزه",
+   "تحديث",
+   "حدث",
+   "اضف",
+   "امكانيه",
+   "فعل",
+   "الواجهه",
+   "زرار",
+   "الموافقه",
+   "الذاكره",
+   "المحادثات",
+   "الشات",
+   "يظهر",
+   "الوضع"
+  ],
+  "deliver_ar": "تعديل في forge، اختبارات عدّت، وتطبيق متبني",
+  "steps": [
+   {
+    "do_ar": "اقرا المكان الصح في المصنع",
+    "read": [
+     "skill:audit-context-building"
+    ],
+    "use": [
+     "tool:search_files",
+     "tool:read_text_file"
+    ],
+    "gate_ar": "التعديل مكانه forge مش app"
+   },
+   {
+    "do_ar": "عدّل واكتب اختبار",
+    "read": [
+     "skill:guarding-destructive-operations"
+    ],
+    "use": [
+     "tool:edit_file"
+    ],
+    "gate_ar": "pytest عدّى"
+   },
+   {
+    "do_ar": "ولّد وابني",
+    "read": [
+     "skill:shipping-build-artifacts"
+    ],
+    "use": [
+     "tool:rebuild_app"
+    ],
+    "gate_ar": "البناء عدّى والتطبيق فتح"
+   },
+   {
+    "do_ar": "قبل ما تقول خلص",
+    "read": [
+     "skill:release-check"
+    ],
+    "use": [],
+    "gate_ar": "اللي اتغيّر مكتوب في نقط"
+   }
+  ]
+ },
+ {
+  "id": "new-skill",
+  "title_ar": "مهارة Claude جديدة",
+  "when": [
+   "اعمل مهارة جديدة",
+   "حوّل الشغل ده لمهارة",
+   "طوّر مهارة متطورة لبلندر",
+   "package this workflow as a Claude skill"
+  ],
+  "tags": [
+   "skill",
+   "مهاره",
+   "مهارات",
+   "طور"
+  ],
+  "deliver_ar": "فولدر مهارة فيه SKILL.md وسكربتات متجرّبة",
+  "steps": [
+   {
+    "do_ar": "صمّم المهارة",
+    "read": [
+     "skill:skill-author"
+    ],
+    "use": [
+     "cmd:rd-skills"
+    ],
+    "gate_ar": "وصف فيه بتعمل إيه وإمتى تشتغل"
+   },
+   {
+    "do_ar": "أفضل الممارسات",
+    "read": [
+     "skill:apply-anthropic-skill-best-practices"
+    ],
+    "use": [
+     "tool:write_file"
+    ],
+    "gate_ar": "SKILL.md أقل من 500 سطر والوصف أقل من 1024 حرف"
+   },
+   {
+    "do_ar": "تقييم",
+    "read": [
+     "skill:audit-agents-skills",
+     "skill:agent-evaluation"
+    ],
+    "use": [],
+    "gate_ar": "اتجرّبت على طلب حقيقي"
+   }
+  ]
+ },
+ {
+  "id": "hard-decision",
+  "title_ar": "قرار صعب أو مسألة معقدة",
+  "when": [
+   "أعمل إيه في الموقف ده",
+   "قارن الاختيارات دي وقولي الأحسن",
+   "help me decide or think through a hard problem"
+  ],
+  "tags": [
+   "decision",
+   "plan",
+   "think",
+   "critique",
+   "قرار",
+   "خطه",
+   "فكر",
+   "نقد",
+   "قيم",
+   "مشكله",
+   "معقده"
+  ],
+  "deliver_ar": "حكم واحد بأسبابه، ومعاه أرخص خطوة تحسم المجهول",
+  "steps": [
+   {
+    "do_ar": "فك الطلب والهدف",
+    "read": [
+     "skill:planning-mind"
+    ],
+    "use": [],
+    "gate_ar": "الهدف في سطر"
+   },
+   {
+    "do_ar": "بدائل وتشريح قبل الفشل",
+    "read": [
+     "skill:ultra-mind"
+    ],
+    "use": [],
+    "gate_ar": "2-3 بدائل مختلفة فعلًا"
+   },
+   {
+    "do_ar": "مجلس خبراء",
+    "read": [
+     "skill:expert-council"
+    ],
+    "use": [],
+    "gate_ar": "آراء مستقلة وحكم الرئيس"
+   },
+   {
+    "do_ar": "فحص قبل التسليم",
+    "read": [
+     "skill:golden-dragon"
+    ],
+    "use": [
+     "cmd:rd-think"
+    ],
+    "gate_ar": "think check عدّى"
+   }
+  ]
+ },
+ {
+  "id": "office-docs",
+  "title_ar": "مستند أو تقرير أو عرض",
+  "when": [
+   "اعمل عرض بوربوينت",
+   "اكتب تقرير وحوّله PDF",
+   "اعمل ملف اكسل متطور فيه معادلات",
+   "make a presentation, report or Excel file"
+  ],
+  "tags": [
+   "document",
+   "report",
+   "slides",
+   "pdf",
+   "excel",
+   "word",
+   "تقرير",
+   "عرض",
+   "اكسل",
+   "وورد",
+   "بوربوينت",
+   "جدول"
+  ],
+  "deliver_ar": "ملف المستند أو العرض، اتفتح واتقرا",
+  "steps": [
+   {
+    "do_ar": "المحتوى",
+    "read": [
+     "skill:doc-coauthoring"
+    ],
+    "use": [],
+    "gate_ar": "هيكل متفق عليه"
+   },
+   {
+    "do_ar": "التنفيذ",
+    "read": [
+     "skill:slideshow"
+    ],
+    "use": [
+     "program:pandoc",
+     "program:python"
+    ],
+    "gate_ar": "الملف اتعمل"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:view_image",
+     "tool:read_text_file"
+    ],
+    "gate_ar": "اتفتح واتقرا من أوله لآخره"
+   }
+  ]
+ },
+ {
+  "id": "data-chart",
+  "title_ar": "رسم بياني أو أرقام متحركة",
+  "when": [
+   "ارسم الداتا دي chart",
+   "انيميشن لأرقام المبيعات",
+   "animate this data as a chart"
+  ],
+  "tags": [
+   "chart",
+   "data",
+   "graph",
+   "داتا",
+   "رسم بياني"
+  ],
+  "deliver_ar": "رسم بياني أو فيديو أرقام بيقول رسالة واحدة واضحة",
+  "steps": [
+   {
+    "do_ar": "الرسالة ونوع الرسم",
+    "read": [
+     "skill:data-storytelling",
+     "skill:data-visualization-discipline"
+    ],
+    "use": [],
+    "gate_ar": "رسالة واحدة مكتوبة"
+   },
+   {
+    "do_ar": "التحريك",
+    "read": [
+     "skill:motion-charts",
+     "skill:animated-chart"
+    ],
+    "use": [
+     "tool:motion_lib"
+    ],
+    "gate_ar": "الأرقام مطابقة للداتا"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "math-explainer",
+  "title_ar": "فيديو شرح رياضيات أو فيزياء",
+  "when": [
+   "اشرح المعادلة دي بفيديو",
+   "فيديو تعليمي فيزياء",
+   "math or physics explainer animation"
+  ],
+  "tags": [
+   "math",
+   "physics",
+   "manim",
+   "رياضيات",
+   "فيزياء",
+   "شرح"
+  ],
+  "deliver_ar": "فيديو شرح الأرقام فيه متراجعة",
+  "steps": [
+   {
+    "do_ar": "احسب وراجع الأرقام",
+    "read": [
+     "skill:physics-math"
+    ],
+    "use": [
+     "cmd:rd-math"
+    ],
+    "gate_ar": "الحساب اتعاد بطريقة تانية"
+   },
+   {
+    "do_ar": "الانيميشن",
+    "read": [
+     "skill:manim-video"
+    ],
+    "use": [
+     "lib:manim-community"
+    ],
+    "gate_ar": "المشاهد اترندرت"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "heavy-cloud",
+  "title_ar": "شغل تقيل على السحابة المجانية",
+  "when": [
+   "رندر تقيل",
+   "فرّغ ساعات صوت بسرعة",
+   "offload a heavy ffmpeg or whisper job"
+  ],
+  "tags": [
+   "cloud",
+   "render",
+   "سحابه",
+   "تقيل"
+  ],
+  "deliver_ar": "الناتج نزل لمجلد الشغل واتقاس على الجهاز",
+  "steps": [
+   {
+    "do_ar": "بوابة الأداة المجانية",
+    "read": [
+     "skill:higgsfield-free"
+    ],
+    "use": [
+     "mcp:higgsfield-free"
+    ],
+    "gate_ar": "hf.py check عدّى"
+   },
+   {
+    "do_ar": "ارفع ملفات المهمة بس وشغّل",
+    "read": [
+     "skill:higgsfield-cloud"
+    ],
+    "use": [
+     "mcp:higgsfield-free"
+    ],
+    "gate_ar": "اللوج بيقول خلص من غير أخطاء"
+   },
+   {
+    "do_ar": "نزّل وقيس",
+    "read": [],
+    "use": [
+     "tool:verify_media"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ],
+  "approvals_ar": [
+   "أي أداة توليد في Higgsfield بتصرف رصيد: موافقة صريحة",
+   "قول إيه اللي اترفع"
+  ]
+ },
+ {
+  "id": "pc-browser-control",
+  "title_ar": "التحكم في الجهاز أو كروم",
+  "when": [
+   "افتح كروم وروح للتبويب ده",
+   "غيّر إعداد في الويندوز",
+   "شغّل الأمر ده في PowerShell",
+   "اعمل الحاجة دي على الجهاز",
+   "control Chrome tabs or run a command on this PC"
+  ],
+  "tags": [
+   "chrome",
+   "browser",
+   "pc",
+   "powershell",
+   "كروم",
+   "الجهاز",
+   "تبويب",
+   "المتصفح",
+   "نافذه",
+   "ويندوز",
+   "امر",
+   "اعدادات",
+   "الشاشه"
+  ],
+  "deliver_ar": "المهمة اتعملت، وسكرينشوت بيثبتها",
+  "steps": [
+   {
+    "do_ar": "افهم الشاشة الأول",
+    "read": [],
+    "use": [
+     "mcp:blackdragon"
+    ],
+    "gate_ar": "سكرينشوت أو قراية الصفحة"
+   },
+   {
+    "do_ar": "نفّذ خطوة خطوة",
+    "read": [
+     "skill:dev-browser"
+    ],
+    "use": [
+     "cmd:rd-consent",
+     "mcp:blackdragon",
+     "engine:chrome"
+    ],
+    "gate_ar": "سكرينشوت بعد كل خطوة"
+   }
+  ],
+  "approvals_ar": [
+   "شراء أو إرسال أو مسح أو تغيير إعدادات حساب بموافقة صريحة"
+  ]
+ },
+ {
+  "id": "lip-sync-character",
+  "title_ar": "تحريك شفايف شخصية على صوت",
+  "when": [
+   "حرّك بق الشخصية على الصوت",
+   "lip sync لكارتون",
+   "lip-sync a cartoon character to this audio"
+  ],
+  "tags": [
+   "lip sync",
+   "mouth",
+   "شفايف",
+   "بق"
+  ],
+  "deliver_ar": "شخصية بتتكلم متزامنة مع الصوت",
+  "steps": [
+   {
+    "do_ar": "أشكال البق من الصوت",
+    "read": [],
+    "use": [
+     "tool:studio",
+     "studio:rhubarb"
+    ],
+    "gate_ar": "ملف أشكال البق بالتوقيت"
+   },
+   {
+    "do_ar": "طبّقها على الشخصية",
+    "read": [
+     "skill:blender-facial-shapekeys",
+     "skill:motion-cartoon"
+    ],
+    "use": [
+     "engine:blender"
+    ],
+    "gate_ar": "البق ماشي مع الكلام"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "social-analytics",
+  "title_ar": "تحليل حساب أو تعليقات أو هاشتاج",
+  "when": [
+   "حلّل حساب التيك توك ده",
+   "التعليقات بتقول إيه",
+   "analyze this creator account and its comments"
+  ],
+  "tags": [
+   "analytics",
+   "comments",
+   "hashtag",
+   "تحليل حساب",
+   "تعليقات"
+  ],
+  "deliver_ar": "تقرير أرقام وانطباعات بمصادرها",
+  "steps": [
+   {
+    "do_ar": "الحساب والأداء",
+    "read": [
+     "skill:creator-analytics"
+    ],
+    "use": [],
+    "gate_ar": "أرقام بمصدرها"
+   },
+   {
+    "do_ar": "التعليقات",
+    "read": [
+     "skill:comments-analysis"
+    ],
+    "use": [],
+    "gate_ar": "تصنيف الانطباع"
+   },
+   {
+    "do_ar": "الهاشتاجات",
+    "read": [
+     "skill:hashtag-research"
+    ],
+    "use": [],
+    "gate_ar": "قايمة مرتبة"
+   }
+  ],
+  "approvals_ar": [
+   "المهارات دي بتستخدم TikHub بمفتاح API: موافقة قبل أي طلب مدفوع"
+  ]
+ },
+ {
+  "id": "reconcile-statements",
+  "title_ar": "مطابقة كشوف حسابات وحوالات",
+  "when": [
+   "طابق كشف الحساب مع الحوالات",
+   "قارن كشف البنك بحسابات المستودع وطلّع الفرق",
+   "reconcile this bank statement with the transfers ledger"
+  ],
+  "tags": [
+   "reconcile",
+   "ledger",
+   "statement",
+   "account",
+   "invoice",
+   "invoices",
+   "كشف",
+   "حسابات",
+   "حوالات",
+   "حواله",
+   "تحويل",
+   "تحويلات",
+   "تاريخ",
+   "فواتير",
+   "مطابقه",
+   "بنك",
+   "مستودع",
+   "فرق",
+   "فروقات",
+   "رصيد",
+   "مبالغ"
+  ],
+  "deliver_ar": "ملف Excel فيه المتطابق والفروقات بأسبابها، والإجماليات متقاسة",
+  "steps": [
+   {
+    "do_ar": "اقرا الملفات واعرف الأعمدة",
+    "read": [
+     "skill:csv-profiler"
+    ],
+    "use": [
+     "program:python"
+    ],
+    "gate_ar": "كل ملف: الصفوف والأعمدة والتواريخ والمبالغ"
+   },
+   {
+    "do_ar": "طابق بالمبلغ والتاريخ والمرجع",
+    "read": [
+     "skill:hazel-bookkeeping-helper"
+    ],
+    "use": [
+     "program:python"
+    ],
+    "gate_ar": "كل صف متطابق أو فرق بسبب مكتوب"
+   },
+   {
+    "do_ar": "راجع الجودة",
+    "read": [
+     "skill:data-quality-checker"
+    ],
+    "use": [],
+    "gate_ar": "المتطابق + الفروقات = الإجمالي"
+   },
+   {
+    "do_ar": "سلّم Excel",
+    "read": [],
+    "use": [
+     "program:python",
+     "tool:write_file"
+    ],
+    "gate_ar": "الملف بيفتح والإجماليات مطابقة"
+   }
+  ]
+ },
+ {
+  "id": "github-repos",
+  "title_ar": "تحليل مستودعات GitHub وتحويلها لقدرة",
+  "when": [
+   "دوّر في جيت هاب على أشهر المستودعات للموضوع ده وادمجها",
+   "حلّل المستودع ده واعمل منه أداة",
+   "find the best GitHub repos for this and turn them into a capability"
+  ],
+  "tags": [
+   "github",
+   "repo",
+   "repos",
+   "جيت هاب",
+   "جيتهاب",
+   "مستودع",
+   "مستودعات",
+   "ادمج"
+  ],
+  "deliver_ar": "قايمة مستودعات برخصها، وقدرة أو مهارة متجرّبة",
+  "steps": [
+   {
+    "do_ar": "دوّر في الأطلس والكتالوج الأول",
+    "read": [
+     "skill:github-atlas",
+     "skill:montage-repos-hub"
+    ],
+    "use": [
+     "cmd:rd-repos",
+     "tool:run_command"
+    ],
+    "gate_ar": "قايمة مستودعات بنجومها ورخصها"
+   },
+   {
+    "do_ar": "حلّل الكود والرخصة",
+    "read": [
+     "skill:competitors-analysis",
+     "skill:reverse-engineer-anything"
+    ],
+    "use": [
+     "tool:rea"
+    ],
+    "gate_ar": "كل حكم بمسار وسطر"
+   },
+   {
+    "do_ar": "حوّله لقدرة أو مهارة",
+    "read": [
+     "skill:skill-author"
+    ],
+    "use": [
+     "tool:write_file"
+    ],
+    "gate_ar": "اتجرّبت على طلب حقيقي"
+   }
+  ],
+  "approvals_ar": [
+   "التنزيل والتثبيت بموافقة بعد فحص الرخصة والكود"
+  ]
+ },
+ {
+  "id": "own-tool-build",
+  "title_ar": "بناء أداة أو برنامج بتاعك (محاكي، مشغّل، أداة)",
+  "when": [
+   "شغّل التيك توك على محاكي أندرويد واربطه بالكاميرا",
+   "ابني أداة على الكمبيوتر بتعمل كذا",
+   "build my own desktop tool or emulator setup"
+  ],
+  "tags": [
+   "emulator",
+   "android",
+   "tool",
+   "محاكي",
+   "اندرويد",
+   "اداه",
+   "برنامج",
+   "كاميرا",
+   "obs",
+   "مشغل"
+  ],
+  "deliver_ar": "أداة شغالة على الجهاز، ومتجرّبة بسكرينشوت",
+  "steps": [
+   {
+    "do_ar": "صمّم الأداة",
+    "read": [
+     "skill:architecture-designer"
+    ],
+    "use": [],
+    "gate_ar": "مكونات ومداخل ومخارج مكتوبة"
+   },
+   {
+    "do_ar": "ابني",
+    "read": [
+     "skill:cli-developer"
+    ],
+    "use": [
+     "tool:run_command",
+     "tool:write_file"
+    ],
+    "gate_ar": "بتشتغل على عيّنة"
+   },
+   {
+    "do_ar": "صلّح اللي يقع",
+    "read": [
+     "skill:systematic-debugging"
+    ],
+    "use": [
+     "tool:run_command"
+    ],
+    "gate_ar": "المشكلة اتكررت واتصلحت"
+   },
+   {
+    "do_ar": "سلّم",
+    "read": [],
+    "use": [
+     "tool:view_image"
+    ],
+    "gate_ar": "اتشغّلت واتشافت بسكرينشوت"
+   }
+  ],
+  "approvals_ar": [
+   "تثبيت برامج أو محاكي بموافقة"
+  ]
+ },
+ {
+  "id": "ship-package",
+  "title_ar": "تحزيم وتسليم نسخة",
+  "when": [
+   "حزّم النسخة دي zip",
+   "ارفعه واديني الرابط",
+   "package this as a zip and hand it over"
+  ],
+  "tags": [
+   "zip",
+   "package",
+   "release",
+   "حزم",
+   "تحزيم",
+   "ارفع",
+   "رابط",
+   "تسليم",
+   "نسخه"
+  ],
+  "deliver_ar": "zip نضيف من غير أسرار، ومساره الكامل في أول سطر",
+  "steps": [
+   {
+    "do_ar": "فحص الأسرار والبروفايلات",
+    "read": [
+     "skill:release-check"
+    ],
+    "use": [
+     "tool:search_files"
+    ],
+    "gate_ar": "مفيش مفاتيح ولا كوكيز ولا بروفايل متصفح جوه الحزمة"
+   },
+   {
+    "do_ar": "حزّم",
+    "read": [],
+    "use": [
+     "program:7z"
+    ],
+    "gate_ar": "الـ zip بيتفتح وفيه كل الملفات"
+   },
+   {
+    "do_ar": "الرفع بموافقة",
+    "read": [],
+    "use": [
+     "cmd:rd-consent",
+     "program:gh"
+    ],
+    "gate_ar": "رسالة صاحب الشغل وافقت على الرفع صراحة، واللينك شغال"
+   },
+   {
+    "do_ar": "سلّم المسار",
+    "read": [],
+    "use": [
+     "tool:list_dir"
+    ],
+    "gate_ar": "المسار الكامل في أول سطر"
+   }
+  ],
+  "approvals_ar": [
+   "الرفع لأي مكان برّه الجهاز بموافقة صريحة"
+  ]
+ },
+ {
+  "id": "prompt-writing",
+  "title_ar": "كتابة برومبت أو تعليمات لوكيل",
+  "when": [
+   "اكتب برومبت واضح للايجنت يعدّل كذا",
+   "اكتب تعليمات لكلود يعمل المهمة دي",
+   "write a clear prompt for the agent"
+  ],
+  "tags": [
+   "prompt",
+   "agent",
+   "برومبت",
+   "تعليمات",
+   "الايجنت",
+   "صياغه"
+  ],
+  "deliver_ar": "برومبت جاهز فيه الهدف والقيود وطريقة التحقق",
+  "steps": [
+   {
+    "do_ar": "الهدف وبوابة الانتهاء",
+    "read": [
+     "skill:mkprompt-goal"
+    ],
+    "use": [],
+    "gate_ar": "الهدف وطريقة التحقق مكتوبين"
+   },
+   {
+    "do_ar": "اكتب البرومبت",
+    "read": [
+     "skill:prompt-architect"
+    ],
+    "use": [
+     "tool:write_file"
+    ],
+    "gate_ar": "دور وسياق وقيود وأمثلة"
+   },
+   {
+    "do_ar": "جرّبه مرة",
+    "read": [],
+    "use": [],
+    "gate_ar": "النتيجة اتقرت"
+   }
+  ]
+ },
+ {
+  "id": "deep-research",
+  "title_ar": "بحث عميق بمصادر",
+  "when": [
+   "ابحث بعمق عن الموضوع ده بمصادر",
+   "اقرا الكتاب ده وطلّع الأفكار",
+   "deep research on this topic with sources"
+  ],
+  "tags": [
+   "research",
+   "sources",
+   "بحث",
+   "مصادر",
+   "اقرا",
+   "كتاب",
+   "مقالات"
+  ],
+  "deliver_ar": "تقرير كل ادعاء فيه بمصدره",
+  "steps": [
+   {
+    "do_ar": "خطة البحث",
+    "read": [
+     "skill:mini-research"
+    ],
+    "use": [],
+    "gate_ar": "أسئلة محددة"
+   },
+   {
+    "do_ar": "اقرا بعمق",
+    "read": [
+     "skill:deepread"
+    ],
+    "use": [],
+    "gate_ar": "كل ادعاء ومعاه مصدره"
+   },
+   {
+    "do_ar": "التقرير",
+    "read": [
+     "skill:writing-defect-reports"
+    ],
+    "use": [
+     "tool:write_file"
+    ],
+    "gate_ar": "الدليل منفصل عن الاستنتاج"
+   }
+  ]
+ },
+ {
+  "id": "shadow-theatre-film",
+  "title_ar": "فيلم مسرح ظل بعرايس",
+  "when": [
+   "اعمل فيلم مسرح ظل بعرايس",
+   "مشهد ظلال لأشخاص بحركة عرائس",
+   "a shadow-puppet theatre film"
+  ],
+  "tags": [
+   "shadow",
+   "silhouette",
+   "puppet",
+   "ظل",
+   "ظلال",
+   "عرايس",
+   "عرائس",
+   "مسرح"
+  ],
+  "deliver_ar": "فيلم ظلال مترندر ومقاس",
+  "steps": [
+   {
+    "do_ar": "مشهد JSON",
+    "read": [],
+    "use": [
+     "engine:shadow_theatre"
+    ],
+    "gate_ar": "المشهد اتقرا من غير أخطاء"
+   },
+   {
+    "do_ar": "رندر",
+    "read": [],
+    "use": [
+     "engine:shadow_theatre"
+    ],
+    "gate_ar": "الفيلم اترندر"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "paid-generation",
+  "title_ar": "توليد صور أو فيديو بالذكاء الاصطناعي (مدفوع)",
+  "when": [
+   "ولّد فيديو بكلينج",
+   "اعمل صورة بالذكاء الاصطناعي من البرومبت ده",
+   "generate an AI video or image"
+  ],
+  "tags": [
+   "kling",
+   "higgsfield",
+   "generate",
+   "كلينج",
+   "هيجز",
+   "توليد",
+   "ذكاء اصطناعي",
+   "مدفوع"
+  ],
+  "deliver_ar": "الناتج المولّد بعد موافقة على التكلفة، ومقاس",
+  "steps": [
+   {
+    "do_ar": "البريف والبرومبت ببلاش الأول",
+    "read": [
+     "skill:visual-forge"
+    ],
+    "use": [
+     "engine:kling_director"
+    ],
+    "gate_ar": "برومبت متراجع"
+   },
+   {
+    "do_ar": "كارت التكلفة والموافقة",
+    "read": [],
+    "use": [
+     "cmd:rd-consent",
+     "mcp:higgsfield-paid"
+    ],
+    "gate_ar": "موافقة صريحة على الأداة والعدد والسعر"
+   },
+   {
+    "do_ar": "التوليد والتحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ],
+  "approvals_ar": [
+   "أي توليد بيصرف رصيد: كارت فيه الأداة والعدد والسعر، وbalance قبل وبعد"
+  ]
+ },
+ {
+  "id": "status-check",
+  "title_ar": "سؤال عن حالة الشغل أو مكان ملف",
+  "when": [
+   "فين الملف",
+   "خلصت ولا لسه",
+   "عملت ايه لحد دلوقتي",
+   "فاضل قد ايه",
+   "اين الملفات التي عملتها",
+   "where is the output file"
+  ],
+  "tags": [
+   "status",
+   "فين",
+   "اين",
+   "مكان",
+   "مكانها",
+   "وصلت",
+   "فاضل",
+   "الناتج"
+  ],
+  "deliver_ar": "المسار الكامل وحالة الشغل في أول سطر، من غير شغل جديد",
+  "steps": [
+   {
+    "do_ar": "دوّر على آخر ناتج",
+    "read": [],
+    "use": [
+     "tool:find_files"
+    ],
+    "gate_ar": "أحدث ملف في output"
+   },
+   {
+    "do_ar": "رد بالمسار والحالة",
+    "read": [],
+    "use": [
+     "tool:verify_media"
+    ],
+    "gate_ar": "المسار الكامل في أول سطر"
+   }
+  ]
+ },
+ {
+  "id": "lyrics-film",
+  "title_ar": "فيلم كلمات أغنية أو دعاء أو تلاوة",
+  "when": [
+   "اعمل فيديو كلمات للأغنية دي",
+   "فيديو دعاء بالكلمات على الشاشة",
+   "lyric video for this song or recitation"
+  ],
+  "tags": [
+   "lyrics",
+   "كلمات",
+   "اغنيه",
+   "دعاء",
+   "تلاوه",
+   "قران"
+  ],
+  "deliver_ar": "فيلم كلمات متزامن، والنص من مصدر موثوق",
+  "steps": [
+   {
+    "do_ar": "النص من مصدر مش من Whisper",
+    "read": [
+     "skill:golden-dragon"
+    ],
+    "use": [],
+    "gate_ar": "النص متأكد منه والكلمة المش واضحة اتسألت"
+   },
+   {
+    "do_ar": "توقيت الكلمات",
+    "read": [],
+    "use": [
+     "tool:speech_sync"
+    ],
+    "gate_ar": "كل سطر على وقته"
+   },
+   {
+    "do_ar": "الفيلم (سينما الفوتيج: modules/cinema)",
+    "read": [
+     "skill:golden-dragon"
+    ],
+    "use": [
+     "engine:dragon_montage"
+    ],
+    "gate_ar": "اترندر"
+   },
+   {
+    "do_ar": "كابشن عربي صح",
+    "read": [
+     "skill:arabic-captions-khatt"
+    ],
+    "use": [
+     "program:ffmpeg"
+    ],
+    "gate_ar": "الحروف متوصّلة"
+   },
+   {
+    "do_ar": "تحقق",
+    "read": [],
+    "use": [
+     "tool:verify_media",
+     "tool:view_image"
+    ],
+    "gate_ar": "verify_media: المدة والأبعاد والـ fps وLUFS والذروة، وفريمات اتشافت بالعين"
+   }
+  ]
+ },
+ {
+  "id": "media-hunt",
+  "title_ar": "صيد خامات ومراجع (فوتيج وصور ومزيكا)",
+  "when": [
+   "دوّر على مواقع فيها فوتيج وصور عالية الجودة للمونتاج",
+   "هاتلي خامات ببلاش للفيديو ده",
+   "find high-quality stock footage, images and music for this edit"
+  ],
+  "tags": [
+   "stock",
+   "footage",
+   "assets",
+   "خامات",
+   "فوتيج",
+   "مواقع",
+   "صور",
+   "جوده",
+   "مراجع",
+   "مجاني"
+  ],
+  "deliver_ar": "خامات في مجلد الشغل، ومصادرها ورخصها في sources.txt",
+  "steps": [
+   {
+    "do_ar": "دوّر في كتالوج المواقع",
+    "read": [
+     "skill:media-hunter"
+    ],
+    "use": [],
+    "gate_ar": "مواقع بالرخصة المناسبة"
+   },
+   {
+    "do_ar": "هات الخامة",
+    "read": [
+     "skill:media-use"
+    ],
+    "use": [
+     "program:yt-dlp",
+     "program:aria2c"
+    ],
+    "gate_ar": "الملفات نزلت"
+   },
+   {
+    "do_ar": "سجّل المصادر وقيس",
+    "read": [],
+    "use": [
+     "tool:write_file",
+     "tool:verify_media"
+    ],
+    "gate_ar": "sources.txt فيه كل ملف ورخصته"
+   }
+  ]
+ }
+]

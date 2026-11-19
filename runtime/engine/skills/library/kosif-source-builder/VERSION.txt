@@ -1,0 +1,1 @@
+KOSIF Cinematic Toolkit — 2026-10-25 — local helper and source installer (not full external source bundle)

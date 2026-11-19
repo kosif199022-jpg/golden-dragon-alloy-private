@@ -1,0 +1,12 @@
+
+/* ===================== التنين الذهبي — dragon layer =====================
+   Appended after the Golden Bird's gold layer. Same DOM, same selectors, same light/dark rules: it only adds a touch of
+   ember to the gold (the Red Dragon's fire inside the gold) and the fusion badge. */
+:root{--ember:#d97706;--ember-soft:rgba(217,119,6,.14)}
+@media (prefers-color-scheme: light){:root:not([data-theme=dark]){--ember:#9a4a05;--ember-soft:rgba(154,74,5,.10)}}
+:root[data-theme=light]{--ember:#9a4a05;--ember-soft:rgba(154,74,5,.10)}
+.welcome h1{background:linear-gradient(100deg,var(--gold2),var(--accent) 38%,var(--ember) 68%,var(--gold2) 96%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.welcome .wb-hero{filter:drop-shadow(0 18px 28px rgba(200,120,20,.32)) drop-shadow(0 2px 3px rgba(0,0,0,.12))}
+.gd-badge{display:inline-flex;gap:6px;align-items:center;margin-top:10px;padding:5px 12px;border-radius:999px;font-size:12px;
+  background:linear-gradient(90deg,var(--accent-soft),var(--ember-soft));color:var(--accent);border:.5px solid var(--ring)}

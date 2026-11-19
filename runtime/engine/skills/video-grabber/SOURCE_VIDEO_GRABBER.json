@@ -1,0 +1,25 @@
+{
+    "schema":  "black-dragon.source.video-grabber.v1",
+    "version":  "10.16.0",
+    "origin":  "%USERPROFILE%\\.claude\\skills\\video-grabber",
+    "copied":  "verbatim",
+    "excluded":  [
+                     ".pytest_cache",
+                     "__pycache__"
+                 ],
+    "files":  {
+                  "config/proxies.example.txt":  "c8a1bde9ca0d748b6d8bcacd1bd13863ae7ad2a944f6fb6b56b39da37ae4f19f",
+                  "references/downloader.md":  "477361b632bba85845bda39c9052b1b0de07a4dcb23c4baed33f44762186fd45",
+                  "references/ghost-browser.md":  "5b79e601c2174b2863bfa9a3c4056c4da1fc6ee983758d20f2ba20de19c9dbc5",
+                  "references/sites.md":  "b0da13ba4cdd412eab593792aa33ec246e32a12c9331014af2d7d858e716f75e",
+                  "scripts/ghost_browser.py":  "3db93d5c23a65eea60e682d03f743006f0cae1be54c9059fe5fc47befd417706",
+                  "scripts/grab.py":  "fc828e74cf50a44d08ab0a8ea167ad7f0a05714094e138f960aeb2b33b135ac9",
+                  "scripts/proxy_pool.py":  "85d5324df4e205d3765ba75e207e8970a78fc0473cea0c10ee56641bf581bb54",
+                  "SKILL.md":  "ee0f2d6231c209b296e5bc116225864e2fda66d70dea53ce044fb598d27a8015",
+                  "tests/browser/live_sites.py":  "8f6b0e89ac8996d22c2e09768423cd2dbfcfc60f5b68be1d7f2cd74c7598b7eb",
+                  "tests/browser/test_ghost_browser.py":  "3e96276ad4fa13dde20f8c1bf099db2eedef473ed657e10bbf75a05a5a6b9084",
+                  "tests/browser/test_proxy_pool.py":  "19665dea2ff1a0a76fa70406c6f6cf95b171e07b2906670e6981f296c4441f30",
+                  "tests/grab/live_grab.py":  "a16b02ca38151a76dbc2bd809f580dbeeb8beaf525e4dc5a2b8389cb73b265cd",
+                  "tests/grab/test_grab.py":  "ade31eb8dc66904679d94c5e4c85bd13c1b8aed5f9303fbc649aa79bfe162f6e"
+              }
+}

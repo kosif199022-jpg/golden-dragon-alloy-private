@@ -1,0 +1,22 @@
+{
+  "schema": "black-dragon.source-montage-windows.v1",
+  "version": "1990.2-candidate",
+  "sources": {
+    "montage-arena": {
+      "name": "montage-arena.zip",
+      "sha256": "6ccfb0d7ef1dceaf7415a6bfa2af1724be18e74bbeaf6312f26ea9c6ad49642b",
+      "files": 16
+    },
+    "windows-commands": {
+      "name": "windows-commands(1).zip",
+      "sha256": "06bc0513d0d9c02d55f4043a061fb4f01e37f16849324b5e2dfafe6cc0877e05",
+      "files": 19
+    }
+  },
+  "duplicates": {
+    "github-atlas(1).zip": "byte-for-byte same as github-atlas.zip",
+    "windows-commands(1).zip": "byte-for-byte same as windows-commands.zip"
+  },
+  "provenance": "User supplied ZIPs. Evidence, accuracy and test figures cited by their authors are not independently verified.",
+  "safety": "No automatic installs, agent calls, uploads or paid tool calls. Imported scripts execute only on explicit CLI invocation. Montage Arena local output and ffmpeg occur only upon requested commands."
+}

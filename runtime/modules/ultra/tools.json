@@ -1,0 +1,70 @@
+{
+ "_about": "Unified tool protocol for every module of Black Dragon Ultra. Built from a static import scan of 711 module scripts plus the repo requirements/*.txt. dragon.py doctor reads this file.",
+ "tiers": {
+  "system": {
+   "why": "Programs the module scripts call directly",
+   "exe": [
+    {"cmd": "python", "winget": "Python.Python.3.12", "for": "all scripts"},
+    {"cmd": "node", "winget": "OpenJS.NodeJS.LTS", "for": "web-film, living-site, editorial-film-edit, Remotion/HyperFrames"},
+    {"cmd": "ffmpeg", "winget": "Gyan.FFmpeg", "for": "video-montage, web-film, shadow-theatre, voice-studio, infinite-matrices"},
+    {"cmd": "ffprobe", "winget": "Gyan.FFmpeg", "for": "media inspection"},
+    {"cmd": "git", "winget": "Git.Git", "for": "repo sync, obra workflows"},
+    {"cmd": "magick", "winget": "ImageMagick.ImageMagick", "for": "image-studio, superpowers image tools"},
+    {"cmd": "tesseract", "winget": "UB-Mannheim.TesseractOCR", "for": "OCR (pytesseract, ocrmypdf)"}
+   ]
+  },
+  "core": {
+   "why": "Light Python libraries imported by the module scripts",
+   "python": [
+    ["PIL", "pillow"], ["numpy", "numpy"], ["scipy", "scipy"], ["pandas", "pandas"], ["yaml", "pyyaml"],
+    ["jsonschema", "jsonschema"], ["networkx", "networkx"], ["openpyxl", "openpyxl"], ["pypdf", "pypdf"],
+    ["cv2", "opencv-python-headless"], ["skimage", "scikit-image"], ["arabic_reshaper", "arabic-reshaper"], ["bidi", "python-bidi"],
+    ["fontTools", "fonttools"], ["av", "av"], ["imageio_ffmpeg", "imageio-ffmpeg"], ["faster_whisper", "faster-whisper"],
+    ["rembg", "rembg[cpu]"], ["rawpy", "rawpy"], ["psd_tools", "psd-tools"],
+    ["bs4", "beautifulsoup4"], ["lxml", "lxml"], ["jinja2", "jinja2"], ["httpx", "httpx"], ["regex", "regex"],
+    ["cryptography", "cryptography"], ["psutil", "psutil"], ["docx", "python-docx"], ["pptx", "python-pptx"],
+    ["markitdown", "markitdown[docx,pdf,xlsx,pptx]"], ["pdfplumber", "pdfplumber"], ["pymupdf", "pymupdf"], ["pypdfium2", "pypdfium2"],
+    ["matplotlib", "matplotlib"], ["plotly", "plotly"], ["seaborn", "seaborn"], ["altair", "altair"],
+    ["edge_tts", "edge-tts"], ["pydub", "pydub"], ["pyloudnorm", "pyloudnorm"], ["soundfile", "soundfile"], ["librosa", "librosa"],
+    ["scenedetect", "scenedetect"], ["moviepy", "moviepy"], ["yt_dlp", "yt-dlp"], ["playwright", "playwright"],
+    ["qrcode", "qrcode"], ["segno", "segno"], ["pyarabic", "pyarabic"], ["pillow_heif", "pillow-heif"], ["cairosvg", "cairosvg"],
+    ["reportlab", "reportlab"], ["trafilatura", "trafilatura"], ["feedparser", "feedparser"], ["emoji", "emoji"], ["sympy", "sympy"],
+    ["duckdb", "duckdb"], ["polars", "polars"], ["pyarrow", "pyarrow"], ["sklearn", "scikit-learn"], ["statsmodels", "statsmodels"],
+    ["opentimelineio", "opentimelineio"], ["mcp", "mcp"], ["fastapi", "fastapi"], ["uvicorn", "uvicorn"], ["starlette", "starlette"],
+    ["pytesseract", "pytesseract"], ["hypothesis", "hypothesis"], ["genanki", "genanki"]
+   ],
+   "browsers": ["chromium"]
+  },
+  "node": {
+   "why": "JavaScript render stack for web-film, living-site, motion graphics (installed into the repo node_modules, package.json untouched)",
+   "npm_file": "requirements/node.txt"
+  },
+  "heavy": {
+   "why": "Large or GPU-oriented libraries (several GB). Install only when a task needs them.",
+   "python": [
+    ["torch", "torch"], ["diffusers", "diffusers<0.36"], ["transformers", "transformers"], ["accelerate", "accelerate"],
+    ["whisper", "openai-whisper"], ["whisperx", "whisperx"], ["demucs", "demucs"], ["easyocr", "easyocr"], ["docling", "docling"],
+    ["mediapipe", "mediapipe"], ["spacy", "spacy"], ["camel_tools", "camel-tools"], ["chromadb", "chromadb"],
+    ["prophet", "prophet"], ["statsforecast", "statsforecast"], ["geopandas", "geopandas"], ["shapely", "shapely"], ["pyproj", "pyproj"],
+    ["ortools", "ortools"], ["pulp", "pulp"], ["z3", "z3-solver"], ["lightgbm", "lightgbm"], ["xgboost", "xgboost"],
+    ["quantstats", "quantstats"], ["music21", "music21"], ["onnx", "onnx"], ["piper", "piper-tts"], ["argostranslate", "argostranslate"],
+    ["weasyprint", "weasyprint"], ["tabula", "tabula-py"], ["rdkit", "rdkit"], ["Bio", "biopython"], ["mujoco", "mujoco"],
+    ["manim", "manim"], ["bpy", "bpy"], ["simple_lama_inpainting", "simple-lama-inpainting"], ["pandera", "pandera"],
+    ["mongomock", "mongomock"], ["instaloader", "instaloader"]
+   ],
+   "torch_index": "https://download.pytorch.org/whl/cpu"
+  },
+  "agents": {
+   "why": "SDKs for paid or keyed services. Each needs the user's own API key; never install or call without the user's approval.",
+   "python": [
+    ["anthropic", "anthropic"], ["together", "together"], ["fal_client", "fal-client"], ["google.genai", "google-genai"],
+    ["dotenv", "python-dotenv"], ["langgraph", "langgraph"], ["dspy", "dspy"], ["pydantic_ai", "pydantic-ai-slim"], ["streamlit", "streamlit"]
+   ]
+  }
+ },
+ "not_installable": {
+  "DaVinciResolveScript": "ships with DaVinci Resolve (desktop app)",
+  "bmesh/mathutils": "available inside Blender or with the bpy wheel",
+  "words_convert": "local helper, not on PyPI"
+ }
+}

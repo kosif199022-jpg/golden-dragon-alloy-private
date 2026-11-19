@@ -1,0 +1,9 @@
+{
+ "repo": "https://github.com/google/elephant-goldfish-model",
+ "stars_on_2026-11-14": 19096,
+ "license": "apache-2.0",
+ "commit": "e474732",
+ "path_in_repo": "skills/egm-brainstorm/",
+ "review_before_running": [],
+ "note": "copied unchanged with its LICENSE (v2.18.0); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

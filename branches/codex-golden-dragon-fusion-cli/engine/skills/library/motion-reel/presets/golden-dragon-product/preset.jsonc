@@ -1,0 +1,29 @@
+{
+  "name": "Golden Dragon product",
+  "colors": {
+    "bg": "#111922",
+    "accent": "#55C8FF",
+    "ink": "#F1F7FB"
+  },
+  "timeline": {
+    "duration": 15,
+    "music": {
+      "source": "synth"
+    },
+    "formats": [
+      "9x16",
+      "16x9"
+    ],
+    "fps": 60,
+    "bpm": 120
+  },
+  "voiceover": {
+    "provider": "none"
+  },
+  "brand": {
+    "product": "Golden Dragon"
+  },
+  "notes": [
+    "Match-cut from a product detail to its use. Synchronize the feature reveal to the downbeat."
+  ]
+}

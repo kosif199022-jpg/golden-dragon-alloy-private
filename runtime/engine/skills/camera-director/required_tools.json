@@ -1,0 +1,11 @@
+{
+  "tools": [
+    {"name": "python>=3.10", "check": "python --version", "install": "winget install Python.Python.3.12", "required": true},
+    {"name": "numpy", "check": "python -c \"import numpy\"", "install": "pip install numpy", "required": true},
+    {"name": "opencv-python", "check": "python -c \"import cv2\"", "install": "pip install opencv-python", "required": true},
+    {"name": "ffmpeg/ffprobe", "check": "ffmpeg -version", "install": "winget install Gyan.FFmpeg", "required": true},
+    {"name": "blender", "check": "blender -b --version", "install": "winget install BlenderFoundation.Blender", "required": false, "why": "only for 3D renders; export works without it"}
+  ],
+  "doctor": "python -X utf8 scripts/cam.py doctor",
+  "policy": "doctor only checks; installing anything needs the owner's explicit yes"
+}

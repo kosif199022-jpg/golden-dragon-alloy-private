@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0b1016">
+<title>سحاب — متصفح سحابي</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%2338d6c4' d='M20 50h28a12 12 0 0 0 1-24 17 17 0 0 0-32-3 13 13 0 0 0 3 27z'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0b1016; --bar:#121a23; --tab:#18222d; --tab-on:#223040; --line:#263445;
+  --ink:#dbe6f0; --dim:#8094a8; --acc:#38d6c4; --acc2:#7aa7ff; --warn:#ffb454; --bad:#ff6b6b;
+  --r:10px; font-family: "Segoe UI", system-ui, Tahoma, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--ink);overflow:hidden;font-size:13px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input,select{font:inherit;color:inherit}
+svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#app{display:grid;grid-template-rows:auto auto 1fr auto;height:100%}
+
+/* tab strip */
+#strip{display:flex;align-items:flex-end;gap:2px;padding:8px 8px 0;background:var(--bg);overflow-x:auto;scrollbar-width:none}
+#strip::-webkit-scrollbar{display:none}
+.tab{position:relative;display:flex;align-items:center;gap:8px;min-width:120px;max-width:220px;flex:1 1 200px;height:36px;
+  padding:0 12px;border-radius:var(--r) var(--r) 0 0;background:var(--tab);color:var(--dim);cursor:default;user-select:none;transition:background .15s}
+.tab:hover{background:#1d2935}
+.tab.on{background:var(--bar);color:var(--ink)}
+.tab .ic{width:16px;height:16px;flex:none;border-radius:4px;display:grid;place-items:center;font-size:10px;font-weight:700;background:#2b3a4b;color:var(--acc);overflow:hidden}
+.tab .ic img{width:16px;height:16px}
+.tab .tt{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tab .x{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;opacity:.6}
+.tab .x:hover{background:#ffffff1a;opacity:1}
+.tab .x svg{width:12px;height:12px}
+.tab.loading .ic{background:none;border:2px solid #2b3a4b;border-top-color:var(--acc);border-radius:50%;animation:spin .8s linear infinite}
+.tab.loading .ic *{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+#plus{flex:none;width:32px;height:32px;margin:0 4px 2px;border-radius:50%;display:grid;place-items:center;color:var(--dim)}
+#plus:hover{background:var(--tab);color:var(--ink)}
+
+/* toolbar */
+#bar{display:flex;align-items:center;gap:4px;padding:6px 8px;background:var(--bar);border-bottom:1px solid var(--line)}
+.ib{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--dim);flex:none;position:relative}
+.ib:hover{background:#ffffff12;color:var(--ink)}
+.ib.on{color:var(--acc)}
+.ib[disabled]{opacity:.35;pointer-events:none}
+.flip svg{transform:scaleX(-1)}
+#omni{flex:1;display:flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:18px;background:var(--bg);border:1px solid transparent;transition:border .15s}
+#omni:focus-within{border-color:var(--acc)}
+#lock{color:var(--dim);display:grid}
+#lock.sec{color:var(--acc)}
+#lock svg{width:15px;height:15px}
+#addr{flex:1;background:none;border:0;outline:0;direction:ltr;text-align:left;font-size:14px}
+#zoomb{font-size:11px;padding:2px 8px;border-radius:9px;background:#2b3a4b;color:var(--acc);display:none}
+#star.on svg{fill:var(--warn);stroke:var(--warn)}
+#shield.on{color:var(--acc)}
+#prog{position:absolute;inset:auto 0 -1px 0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent);background-size:200% 100%;animation:prog 1s linear infinite;opacity:0;transition:opacity .2s}
+#prog.on{opacity:1}
+@keyframes prog{from{background-position:200% 0}to{background-position:-200% 0}}
+
+/* stage */
+#stage{position:relative;overflow:hidden;background:#fff}
+#screen{position:absolute;inset:0;width:100%;height:100%;touch-action:none;outline:0}
+#ime{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;border:0;padding:0;resize:none;pointer-events:none;direction:ltr}
+#ntp{position:absolute;inset:0;background:radial-gradient(1200px 600px at 50% -10%,#173045,var(--bg) 60%);display:none;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:20px}
+#ntp.on{display:flex}
+#ntp h1{font-size:44px;font-weight:800;letter-spacing:1px;display:flex;align-items:center;gap:12px}
+#ntp h1 svg{width:54px;height:54px;fill:var(--acc);stroke:none}
+#ntp h1 small{font-size:14px;color:var(--dim);font-weight:400;display:block}
+#ntpq{width:min(620px,94vw);height:52px;border-radius:26px;border:1px solid var(--line);background:var(--bar);padding:0 22px;font-size:16px;outline:0}
+#ntpq:focus{border-color:var(--acc)}
+#tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:12px;width:min(640px,94vw)}
+.tile{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 8px;border-radius:12px;color:var(--ink)}
+.tile:hover{background:#ffffff0d}
+.tile .ic{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--tab);font-size:18px;font-weight:700;color:var(--acc)}
+.tile span{font-size:12px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--dim)}
+#offline{position:absolute;inset:0;background:#0b1016e0;display:none;place-items:center;font-size:16px;color:var(--dim)}
+#offline.on{display:grid}
+
+/* status */
+#status{display:flex;gap:14px;align-items:center;padding:3px 12px;background:var(--bar);border-top:1px solid var(--line);color:var(--dim);font-size:11px;direction:ltr}
+#status b{color:var(--ink);font-weight:500}
+#status .dot{width:7px;height:7px;border-radius:50%;background:var(--bad)}
+#status .dot.ok{background:var(--acc)}
+
+/* menus & panels */
+.pop{position:absolute;z-index:20;background:var(--bar);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 50px #0009;padding:6px;display:none}
+.pop.on{display:block}
+#menu{top:94px;left:8px;width:270px}
+.mi{display:flex;align-items:center;gap:10px;width:100%;padding:9px 12px;border-radius:8px;text-align:right}
+.mi:hover{background:#ffffff10}
+.mi kbd{margin-inline-start:auto;color:var(--dim);font:11px monospace;direction:ltr}
+.sep{height:1px;background:var(--line);margin:6px 4px}
+.row{display:flex;align-items:center;gap:10px;padding:8px 12px}
+.row label{flex:1;color:var(--dim)}
+.row input[type=range]{width:110px;accent-color:var(--acc)}
+.row select{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:3px 6px}
+#side{position:fixed;z-index:19;top:94px;bottom:22px;left:0;width:min(380px,100vw);background:var(--bar);border-right:1px solid var(--line);box-shadow:12px 0 40px #0007;transform:translateX(-24px);opacity:0;visibility:hidden;transition:transform .2s,opacity .2s,visibility .2s;display:flex;flex-direction:column}
+#side.on{transform:none;opacity:1;visibility:visible}
+#side header{display:flex;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line);font-weight:600;font-size:14px}
+#side header .ib{margin-inline-start:auto}
+#sidelist{overflow:auto;flex:1;padding:6px}
+.li{display:flex;flex-direction:column;gap:2px;padding:8px 10px;border-radius:8px;cursor:pointer}
+.li:hover{background:#ffffff0d}
+.li b{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.li small{color:var(--dim);direction:ltr;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.li a{color:var(--acc);text-decoration:none}
+#findbar{top:100px;left:16px;display:none;align-items:center;gap:4px;padding:4px 6px}
+#findbar.on{display:flex}
+#findq{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 10px;outline:0;width:220px}
+#findq.miss{border-color:var(--bad)}
+.modal{position:fixed;inset:0;z-index:40;background:#0008;display:none;place-items:center}
+.modal.on{display:grid}
+.card{background:var(--bar);border:1px solid var(--line);border-radius:14px;padding:20px;width:min(440px,92vw);display:flex;flex-direction:column;gap:14px;box-shadow:0 30px 80px #000a}
+.card h3{font-size:15px}
+.card p{color:var(--dim);white-space:pre-wrap;word-break:break-word;max-height:40vh;overflow:auto}
+.card input[type=text]{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;outline:0}
+.card .btns{display:flex;gap:8px;justify-content:flex-start}
+.btn{padding:8px 18px;border-radius:8px;background:#ffffff12}
+.btn.pri{background:var(--acc);color:#04201d;font-weight:600}
+#toast{position:fixed;z-index:50;bottom:36px;left:50%;transform:translate(-50%,20px);background:#1d2935;border:1px solid var(--line);padding:10px 18px;border-radius:10px;opacity:0;transition:.25s;pointer-events:none;max-width:90vw}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (max-width:640px){
+  .tab{min-width:90px}
+  #fwd,#zoomb,#star{display:none!important}
+  #menu{left:4px;right:4px;width:auto}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="strip"><button id="plus" title="تاب جديد"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button></div>
+
+  <div id="bar" style="position:relative">
+    <button class="ib flip" id="back" title="رجوع (Alt+←)"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <button class="ib flip" id="fwd" title="قدّام (Alt+→)"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+    <button class="ib" id="reload" title="تحديث (F5)"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg></button>
+    <form id="omni" autocomplete="off">
+      <span id="lock"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></span>
+      <input id="addr" spellcheck="false" placeholder="ابحث أو اكتب عنوان موقع">
+      <span id="zoomb" title="رجّع الزوم 100%"></span>
+      <button type="button" class="ib" id="star" title="إشارة مرجعية"><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></button>
+    </form>
+    <button class="ib" id="shield" title="مانع الإعلانات"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></button>
+    <button class="ib" id="dl" title="التحميلات"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
+    <button class="ib" id="more" title="القايمة"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+    <div id="prog"></div>
+  </div>
+
+  <div id="stage">
+    <canvas id="screen" tabindex="0"></canvas>
+    <textarea id="ime" autocapitalize="off" autocomplete="off" spellcheck="false"></textarea>
+    <div id="ntp">
+      <h1><svg viewBox="0 0 64 64"><path d="M20 50h28a12 12 0 0 0 1-24 17 17 0 0 0-32-3 13 13 0 0 0 3 27z"/></svg><span>سحاب<small>متصفحك شغّال في السحابة</small></span></h1>
+      <form id="ntpf" autocomplete="off"><input id="ntpq" placeholder="ابحث في الويب أو اكتب عنوان"></form>
+      <div id="tiles"></div>
+    </div>
+    <div id="offline">بيتوصل بالسيرفر…</div>
+  </div>
+
+  <div id="status"><span class="dot" id="dot"></span><span>fps <b id="fps">0</b></span><span>ping <b id="ping">–</b> ms</span><span>stream <b id="kbps">0</b> KB/s</span><span id="res"></span><span style="margin-left:auto" id="hover"></span></div>
+</div>
+
+<div class="pop" id="menu">
+  <button class="mi" data-a="newtab">تاب جديد</button>
+  <button class="mi" data-a="find">بحث في الصفحة <kbd>Ctrl+F</kbd></button>
+  <button class="mi" data-a="copy">انسخ النص المحدد</button>
+  <div class="sep"></div>
+  <button class="mi" data-a="shot">صورة للي ظاهر</button>
+  <button class="mi" data-a="fullshot">صورة للصفحة كلها</button>
+  <button class="mi" data-a="pdf">حفظ PDF</button>
+  <div class="sep"></div>
+  <button class="mi" data-a="history">السجل</button>
+  <button class="mi" data-a="bookmarks">الإشارات المرجعية</button>
+  <button class="mi" data-a="downloads">التحميلات</button>
+  <div class="sep"></div>
+  <div class="row"><label>جودة البث</label><input type="range" id="q" min="30" max="100" step="5"><span id="qv" style="width:28px"></span></div>
+  <div class="row"><label>محرك البحث</label><select id="eng"><option value="google">Google</option><option value="ddg">DuckDuckGo</option><option value="bing">Bing</option></select></div>
+  <div class="sep"></div>
+  <button class="mi" data-a="zin">تكبير <kbd>Ctrl +</kbd></button>
+  <button class="mi" data-a="zout">تصغير <kbd>Ctrl −</kbd></button>
+  <button class="mi" data-a="full">ملء الشاشة</button>
+</div>
+
+<div class="pop" id="findbar">
+  <input id="findq" placeholder="دوّر في الصفحة">
+  <button class="ib" id="findup" title="اللي قبله"><svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg></button>
+  <button class="ib" id="finddn" title="اللي بعده"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <button class="ib" id="findx"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+
+<aside id="side"><header><span id="sidet"></span><button class="ib" id="sidex"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></header><div id="sidelist"></div></aside>
+
+<div class="modal" id="dlg"><div class="card"><h3 id="dlgt"></h3><p id="dlgm"></p><input type="text" id="dlgi"><div class="btns"><button class="btn pri" id="dlgok">تمام</button><button class="btn" id="dlgno">إلغاء</button></div></div></div>
+<div class="modal" id="fmod"><div class="card"><h3>الموقع عايز ملف</h3><p>اختار ملف من جهازك وهيترفع للمتصفح السحابي.</p><input type="file" id="fin"><div class="btns"><button class="btn" id="fno">إلغاء</button></div></div></div>
+<div id="toast"></div>
+
+<script>
+"use strict";
+const $ = s => document.querySelector(s);
+const cv = $("#screen"), ctx = cv.getContext("2d", {alpha: false}), ime = $("#ime"), stage = $("#stage");
+let ws, S = {tabs: [], active: null}, view = {w: 0, h: 0, dpr: 1};
+let frames = 0, bytes = 0, decoding = false, pending = null;
+
+/* ---------------- connection ---------------- */
+function connect() {
+  ws = new WebSocket((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws");
+  ws.binaryType = "blob";
+  ws.onopen = () => { $("#offline").classList.remove("on"); $("#dot").classList.add("ok"); sendResize(true); };
+  ws.onclose = () => { $("#offline").classList.add("on"); $("#dot").classList.remove("ok"); setTimeout(connect, 1200); };
+  ws.onmessage = e => typeof e.data === "string" ? onMsg(JSON.parse(e.data)) : onFrame(e.data);
+}
+const send = m => ws && ws.readyState === 1 && ws.send(JSON.stringify(m));
+
+function onFrame(blob) {
+  bytes += blob.size;
+  if (decoding) { pending = blob; return; }    // ناخد آخر فريم بس، مانتأخرش
+  decoding = true;
+  createImageBitmap(blob).then(bmp => {
+    ctx.drawImage(bmp, 0, 0, cv.width, cv.height); bmp.close(); frames++;
+  }).catch(() => {}).finally(() => {
+    decoding = false;
+    if (pending) { const b = pending; pending = null; onFrame(b); bytes -= b.size; }
+  });
+}
+setInterval(() => { $("#fps").textContent = frames; $("#kbps").textContent = (bytes / 1024 | 0); frames = 0; bytes = 0; }, 1000);
+setInterval(() => send({t: "ping", ts: performance.now()}), 2000);
+
+function onMsg(m) {
+  switch (m.t) {
+    case "tabs": S = m; renderTabs(); break;
+    case "pong": $("#ping").textContent = Math.round(performance.now() - m.ts); break;
+    case "cursor": cv.style.cursor = m.c; break;
+    case "clipboard": navigator.clipboard?.writeText(m.text).then(() => toast("اتنسخ ✓"), () => toast("المتصفح رفض النسخ")); break;
+    case "toast": toast(m.text); break;
+    case "found": $("#findq").classList.toggle("miss", !m.ok); break;
+    case "download":
+      if (m.state === "start") toast("بيحمّل: " + m.name);
+      else if (m.state === "done") toast("اتحمّل على السيرفر: " + m.name + " — من زرار التحميلات");
+      else toast("التحميل فشل: " + m.name);
+      break;
+    case "dialog": showDialog(m); break;
+    case "filechooser": showFile(m); break;
+  }
+}
+
+/* ---------------- size ---------------- */
+let rzT;
+function sendResize(now) {
+  clearTimeout(rzT);
+  rzT = setTimeout(() => {
+    const r = stage.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    view = {w: Math.round(r.width), h: Math.round(r.height), dpr};
+    cv.width = Math.round(view.w * dpr); cv.height = Math.round(view.h * dpr);
+    ctx.fillStyle = "#fff"; ctx.fillRect(0, 0, cv.width, cv.height);
+    $("#res").textContent = `${view.w}×${view.h} @${dpr}x`;
+    send({t: "resize", ...view});
+  }, now ? 0 : 150);
+}
+new ResizeObserver(() => sendResize()).observe(stage);
+
+/* ---------------- tabs / toolbar ---------------- */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const badIcons = new Set();
+function iconHTML(t) {
+  const letter = esc(((t.title || t.url || "?").replace(/^https?:\/\/(www\.)?/, "")[0] || "?").toUpperCase());
+  const src = `/api/favicon/${t.id}?u=${encodeURIComponent(t.url)}`;
+  return t.hasIcon && !badIcons.has(src) ? `<img src="${src}" onerror="badIcons.add(this.getAttribute('src'));this.replaceWith('${letter.replace(/['\\]/g, "")}')">` : letter;
+}
+function renderTabs() {
+  const strip = $("#strip"), plus = $("#plus");
+  strip.querySelectorAll(".tab").forEach(e => e.remove());
+  for (const t of S.tabs) {
+    const d = document.createElement("div");
+    d.className = "tab" + (t.id === S.active ? " on" : "") + (t.loading ? " loading" : "");
+    d.title = t.title + "\n" + t.url;
+    d.innerHTML = `<span class="ic">${iconHTML(t)}</span><span class="tt">${esc(t.title)}</span><button class="x"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>`;
+    d.onmousedown = e => { if (e.button === 1) { e.preventDefault(); send({t: "close", id: t.id}); } };
+    d.onclick = e => e.target.closest(".x") ? send({t: "close", id: t.id}) : send({t: "activate", id: t.id});
+    strip.insertBefore(d, plus);
+  }
+  const cur = S.tabs.find(t => t.id === S.active) || {url: "", loading: false, zoom: 1};
+  const blank = !cur.url || cur.url === "about:blank";
+  if (document.activeElement !== $("#addr")) $("#addr").value = blank ? "" : cur.url;
+  $("#lock").classList.toggle("sec", cur.url.startsWith("https:"));
+  $("#lock").innerHTML = cur.url.startsWith("http")
+    ? `<svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>`
+    : `<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>`;
+  $("#reload").innerHTML = cur.loading
+    ? `<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>`
+    : `<svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"/><path d="M21 3v5h-5"/></svg>`;
+  $("#prog").classList.toggle("on", cur.loading);
+  $("#star").classList.toggle("on", !!S.bookmarked);
+  $("#shield").classList.toggle("on", !!S.adblock);
+  const zb = $("#zoomb"); zb.style.display = cur.zoom !== 1 ? "inline-block" : "none"; zb.textContent = Math.round(cur.zoom * 100) + "%";
+  $("#q").value = S.quality; $("#qv").textContent = S.quality; $("#eng").value = S.engine;
+  const ntp = $("#ntp"), wasOn = ntp.classList.contains("on");
+  ntp.classList.toggle("on", blank && !cur.loading);
+  if (blank && !wasOn) { loadTiles(); setTimeout(() => $("#ntpq").focus(), 50); }
+  document.title = (blank ? "تاب جديد" : cur.title) + " — سحاب";
+}
+async function loadTiles() {
+  const st = await (await fetch("/api/state")).json();
+  const seen = new Set(), items = [...st.bookmarks];
+  for (const h of st.history) { if (items.length >= 12) break; const o = new URL(h.url).origin; if (!seen.has(o) && !items.some(b => b.url.startsWith(o))) { seen.add(o); items.push({url: o + "/", title: new URL(h.url).hostname.replace(/^www\./, "")}); } }
+  $("#tiles").innerHTML = items.slice(0, 12).map(b => `<a class="tile" href="#" data-u="${esc(b.url)}"><span class="ic">${esc((b.title || "?")[0].toUpperCase())}</span><span>${esc(b.title)}</span></a>`).join("");
+}
+$("#tiles").onclick = e => { const a = e.target.closest(".tile"); if (a) { e.preventDefault(); send({t: "nav", url: a.dataset.u}); } };
+$("#ntpf").onsubmit = e => { e.preventDefault(); const v = $("#ntpq").value.trim(); if (v) { send({t: "nav", url: v}); $("#ntpq").value = ""; focusPage(); } };
+$("#omni").onsubmit = e => { e.preventDefault(); send({t: "nav", url: $("#addr").value}); focusPage(); };
+$("#addr").onfocus = () => setTimeout(() => $("#addr").select(), 0);
+$("#plus").onclick = () => send({t: "newtab"});
+$("#back").onclick = () => send({t: "back"});
+$("#fwd").onclick = () => send({t: "forward"});
+$("#reload").onclick = () => { const c = S.tabs.find(t => t.id === S.active); send({t: c && c.loading ? "stop" : "reload"}); };
+$("#star").onclick = () => send({t: "bookmark"});
+$("#shield").onclick = () => { send({t: "adblock", on: !S.adblock}); toast(S.adblock ? "مانع الإعلانات اتقفل" : "مانع الإعلانات اشتغل"); };
+$("#zoomb").onclick = () => send({t: "zoom", reset: true});
+$("#q").oninput = e => $("#qv").textContent = e.target.value;
+$("#q").onchange = e => send({t: "quality", q: +e.target.value});
+$("#eng").onchange = e => send({t: "engine", e: e.target.value});
+
+/* ---------------- menu / panels ---------------- */
+const menu = $("#menu");
+$("#more").onclick = e => { e.stopPropagation(); menu.classList.toggle("on"); };
+document.addEventListener("click", e => { if (!menu.contains(e.target)) menu.classList.remove("on"); });
+$("#dl").onclick = () => openSide("downloads");
+menu.onclick = e => {
+  const a = e.target.closest("[data-a]")?.dataset.a; if (!a) return;
+  menu.classList.remove("on");
+  ({
+    newtab: () => send({t: "newtab"}), find: openFind, copy: () => send({t: "copy"}),
+    shot: () => location.href = "/api/screenshot", fullshot: () => location.href = "/api/screenshot?full=1",
+    pdf: () => location.href = "/api/pdf", history: () => openSide("history"), bookmarks: () => openSide("bookmarks"),
+    downloads: () => openSide("downloads"), zin: () => send({t: "zoom", d: 1}), zout: () => send({t: "zoom", d: -1}),
+    full: () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(),
+  })[a]?.();
+};
+async function openSide(kind) {
+  const side = $("#side"), list = $("#sidelist");
+  $("#sidet").textContent = {history: "السجل", bookmarks: "الإشارات المرجعية", downloads: "التحميلات"}[kind];
+  list.innerHTML = "…"; side.classList.add("on");
+  if (kind === "downloads") {
+    const files = await (await fetch("/api/downloads")).json();
+    list.innerHTML = files.length ? files.map(f => `<div class="li"><b>${esc(f.name)}</b><small>${(f.size / 1048576).toFixed(2)} MB · <a href="/api/downloads/${encodeURIComponent(f.name)}">نزّله على جهازك</a></small></div>`).join("") : `<div class="li"><small>مفيش تحميلات لسه</small></div>`;
+  } else {
+    const st = await (await fetch("/api/state")).json(), arr = st[kind];
+    list.innerHTML = arr.length ? arr.map(h => `<div class="li" data-u="${esc(h.url)}"><b>${esc(h.title || h.url)}</b><small>${esc(h.url)}${h.ts ? " · " + new Date(h.ts * 1000).toLocaleString("ar-EG") : ""}</small></div>`).join("") : `<div class="li"><small>فاضي</small></div>`;
+  }
+}
+$("#sidelist").onclick = e => { const li = e.target.closest(".li[data-u]"); if (li) { send({t: "nav", url: li.dataset.u}); $("#side").classList.remove("on"); } };
+$("#sidex").onclick = () => $("#side").classList.remove("on");
+
+function openFind() { $("#findbar").classList.add("on"); $("#findq").focus(); $("#findq").select(); }
+const doFind = back => { const q = $("#findq").value; if (q) send({t: "find", q, back}); };
+$("#findq").onkeydown = e => { if (e.key === "Enter") { e.preventDefault(); doFind(e.shiftKey); } if (e.key === "Escape") closeFind(); };
+$("#findup").onclick = () => doFind(true); $("#finddn").onclick = () => doFind(false);
+const closeFind = () => { $("#findbar").classList.remove("on"); focusPage(); };
+$("#findx").onclick = closeFind;
+
+let tT;
+function toast(s) { const t = $("#toast"); t.textContent = s; t.classList.add("on"); clearTimeout(tT); tT = setTimeout(() => t.classList.remove("on"), 3200); }
+
+/* ---------------- dialogs & uploads ---------------- */
+function showDialog(m) {
+  const titles = {alert: "رسالة من الموقع", confirm: "الموقع بيسأل", prompt: "الموقع طالب إدخال", beforeunload: "تسيب الصفحة؟"};
+  $("#dlgt").textContent = titles[m.kind] || "رسالة"; $("#dlgm").textContent = m.message;
+  const inp = $("#dlgi"); inp.style.display = m.kind === "prompt" ? "" : "none"; inp.value = m.default || "";
+  $("#dlgno").style.display = m.kind === "alert" ? "none" : "";
+  $("#dlg").classList.add("on");
+  const done = accept => { $("#dlg").classList.remove("on"); send({t: "dialog", accept, text: inp.value}); focusPage(); };
+  $("#dlgok").onclick = () => done(true); $("#dlgno").onclick = () => done(false);
+  setTimeout(() => (m.kind === "prompt" ? inp : $("#dlgok")).focus(), 30);
+}
+function showFile(m) {
+  const fin = $("#fin"); fin.value = ""; fin.multiple = !!m.multiple; $("#fmod").classList.add("on");
+  fin.onchange = async () => {
+    const fd = new FormData(); for (const f of fin.files) fd.append("f", f, f.name);
+    $("#fmod").classList.remove("on"); toast("بيرفع…");
+    const r = await fetch(`/api/upload/${m.tab}`, {method: "POST", body: fd});
+    toast(r.ok ? "اترفع ✓" : "الرفع فشل"); focusPage();
+  };
+  $("#fno").onclick = () => { $("#fmod").classList.remove("on"); fetch(`/api/upload/${m.tab}/cancel`, {method: "POST"}); focusPage(); };
+}
+
+/* ---------------- input: mouse / touch ---------------- */
+const focusPage = () => ime.focus({preventScroll: true});
+const mods = e => (e.altKey ? 1 : 0) | (e.ctrlKey ? 2 : 0) | (e.metaKey ? 4 : 0) | (e.shiftKey ? 8 : 0);
+const BTN = ["left", "middle", "right"];
+const pos = e => { const r = cv.getBoundingClientRect(); return {x: e.clientX - r.left, y: e.clientY - r.top}; };
+let moveQ = null, touch = null, clickN = 0, lastDown = 0, lastXY = {x: -99, y: -99};
+
+cv.addEventListener("contextmenu", e => e.preventDefault());
+cv.addEventListener("pointerdown", e => {
+  e.preventDefault(); focusPage(); $("#side").classList.remove("on");
+  const p = pos(e);
+  if (e.pointerType === "touch") { touch = {...p, sx: p.x, sy: p.y, scroll: false}; return; }
+  cv.setPointerCapture(e.pointerId);
+  const now = performance.now();
+  clickN = (now - lastDown < 400 && Math.hypot(p.x - lastXY.x, p.y - lastXY.y) < 6) ? clickN + 1 : 1;
+  lastDown = now; lastXY = p;
+  send({t: "mouse", e: "mousePressed", ...p, b: BTN[e.button] || "left", bs: e.buttons, c: clickN, mod: mods(e)});
+});
+cv.addEventListener("pointermove", e => {
+  const p = pos(e);
+  if (e.pointerType === "touch") {
+    if (!touch) return;
+    if (!touch.scroll && Math.hypot(p.x - touch.sx, p.y - touch.sy) > 8) touch.scroll = true;
+    if (touch.scroll) { send({t: "wheel", x: p.x, y: p.y, dx: (touch.x - p.x) * 1.6, dy: (touch.y - p.y) * 1.6}); touch.x = p.x; touch.y = p.y; }
+    return;
+  }
+  const first = !moveQ;
+  moveQ = {t: "mouse", e: "mouseMoved", ...p, b: e.buttons & 1 ? "left" : (e.buttons & 4 ? "middle" : (e.buttons & 2 ? "right" : "none")), bs: e.buttons, mod: mods(e)};
+  if (first) requestAnimationFrame(() => { send(moveQ); moveQ = null; });
+  $("#hover").textContent = "";
+});
+cv.addEventListener("pointerup", e => {
+  const p = pos(e);
+  if (e.pointerType === "touch") {
+    if (touch && !touch.scroll) {
+      send({t: "mouse", e: "mouseMoved", ...p});
+      send({t: "mouse", e: "mousePressed", ...p, b: "left", bs: 1, c: 1});
+      send({t: "mouse", e: "mouseReleased", ...p, b: "left", bs: 0, c: 1});
+    }
+    touch = null; return;
+  }
+  send({t: "mouse", e: "mouseReleased", ...p, b: BTN[e.button] || "left", bs: e.buttons, c: clickN, mod: mods(e)});
+});
+cv.addEventListener("wheel", e => {
+  e.preventDefault();
+  if (e.ctrlKey) { send({t: "zoom", d: e.deltaY < 0 ? 1 : -1}); return; }
+  const k = e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? view.h : 1;
+  send({t: "wheel", ...pos(e), dx: e.deltaX * k, dy: e.deltaY * k, mod: mods(e)});
+}, {passive: false});
+
+/* ---------------- input: keyboard ---------------- */
+const CMD = {a: ["selectAll"], c: ["copy"], x: ["cut"], z: ["undo"], y: ["redo"]};
+function keyMsg(e, type) {
+  const ctrl = e.ctrlKey || e.metaKey, printable = e.key.length === 1 && !ctrl;
+  const m = {t: "key", e: type, key: e.key, code: e.code, kc: e.keyCode, mod: mods(e)};
+  if (type !== "keyUp") {
+    if (printable) m.text = e.key;
+    else if (e.key === "Enter") m.text = "\r";
+    else m.e = "rawKeyDown";
+    if (ctrl && !e.altKey) { const c = e.shiftKey && e.key.toLowerCase() === "z" ? ["redo"] : CMD[e.key.toLowerCase()]; if (c) m.cmd = c; }
+  }
+  return m;
+}
+function localShortcut(e) {
+  const k = e.key.toLowerCase(), ctrl = e.ctrlKey || e.metaKey;
+  if (ctrl && k === "l") { $("#addr").focus(); return true; }
+  if (ctrl && k === "f") { openFind(); return true; }
+  if (ctrl && (k === "=" || k === "+")) { send({t: "zoom", d: 1}); return true; }
+  if (ctrl && k === "-") { send({t: "zoom", d: -1}); return true; }
+  if (ctrl && k === "0") { send({t: "zoom", reset: true}); return true; }
+  if (ctrl && k === "r" || e.key === "F5") { send({t: "reload"}); return true; }
+  if (e.altKey && e.key === "ArrowLeft") { send({t: "back"}); return true; }
+  if (e.altKey && e.key === "ArrowRight") { send({t: "forward"}); return true; }
+  return false;
+}
+ime.addEventListener("keydown", e => {
+  if (e.isComposing || e.keyCode === 229) return;
+  if (localShortcut(e)) { e.preventDefault(); return; }
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "v") return;   // نسيب حدث paste يشتغل
+  e.preventDefault();
+  send(keyMsg(e, "keyDown"));
+});
+ime.addEventListener("keyup", e => {
+  if (e.isComposing || e.keyCode === 229) return;
+  e.preventDefault(); send(keyMsg(e, "keyUp"));
+});
+ime.addEventListener("paste", e => { e.preventDefault(); const t = e.clipboardData.getData("text"); if (t) send({t: "text", text: t}); });
+// موبايل و IME: الحروف بتيجي عن طريق input مش keydown
+ime.addEventListener("input", e => {
+  if (e.isComposing) return;
+  if (e.inputType === "deleteContentBackward") {
+    send({t: "key", e: "rawKeyDown", key: "Backspace", code: "Backspace", kc: 8}); send({t: "key", e: "keyUp", key: "Backspace", code: "Backspace", kc: 8});
+  } else if (e.data) send({t: "text", text: e.data});
+  ime.value = "";
+});
+ime.addEventListener("compositionend", e => { if (e.data) send({t: "text", text: e.data}); ime.value = ""; });
+document.addEventListener("keydown", e => {
+  if (e.target === ime || e.target.closest("input,select,textarea")) { if (e.key === "Escape") $("#side").classList.remove("on"); return; }
+  if (localShortcut(e)) e.preventDefault();
+});
+
+connect();
+</script>
+</body>
+</html>

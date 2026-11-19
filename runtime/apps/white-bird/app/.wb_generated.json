@@ -1,0 +1,27 @@
+{
+ "generated": "2026-11-13 19:43:32",
+ "source": "%USERPROFILE%\\OneDrive\\Desktop\\التنين الأسود\\apps\\dragon_desktop",
+ "source_app_sha256": "6abc7c69e15cae3552222a62c74d94013d1b92715a4647510b198b162bcb6692",
+ "files": {
+  "app.py": "7c38df8d923c819251ab831136402dca44a3afa508de0981afdd9a4092183a38",
+  "brain.py": "702cceaa81208f065f54bee1ad02ea2cc640f4fb3f0bdd3ee46d0eb69fae0c81",
+  "build.ps1": "bea08d741a15f579829e54fead13706547a87f99fb4f9292ae539c0936e51ec1",
+  "control.py": "9c597a780093eaeb1c8f2c6693c6d305d41c8a8f3924f05117be306f545ce65d",
+  "mcp_control.py": "303f8eacf48f742a14c4159d2a68cf51b7caf0390696986ca19043aeb228817d",
+  "mcp_dragon.py": "e47e87e10a3e7158390eb088df970e515fc5e4408ed6ac9b0a9ab6419d47d344",
+  "README.md": "c600096b225ad3175945706f3daf53429fd27b290cb73c1248d6803f4b734aa2",
+  "voice.py": "3490ec1098c621583019374cb9910b93b63e0c4d2e1cff63e12d578d4a42a6a5",
+  "chrome_extension/background.js": "c775e75b2466d6b72e1299f1f432df8fc8975cc413b87078170d83368aa10db7",
+  "chrome_extension/icon128.png": "3c82e222f544d0d3bd2b932a49b5e9facf1eb4bd4c6e337854bf953a27f169e4",
+  "chrome_extension/manifest.json": "153a2a92e3546ed1d1314c4502fef8261da62e28a4c76a6d6e278508126423ba",
+  "chrome_extension/popup.html": "1a1169c5e82a4e526910473039a8efc372a72437cd10c624f8b157bb1cb72200",
+  "chrome_extension/popup.js": "6472ed14f50fe34f514f900e21e51ae835aab497aaa9fca42b665a380a7b6966",
+  "ui/index.html": "5a9ab3822dbd215bed44303e675f90c021ec60410202606e150d59a99129d8d7",
+  "ui/white-bird.ico": "7d557f2cf5ef4b7a00368e5988affec032a164a969bacace52344f84d65cc070",
+  "ui/white-bird.png": "512341e8fe209dbd1e8a17845c1dee6cad696db87445efe1d9a46ce155bacd5b",
+  "ui/fonts/inter-latin-wght.woff2": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+  "ui/fonts/noto-sans-arabic-wght.woff2": "ce85091f020920b65762b387b194ef59457ea5b25b760f2dcc35240a94bb8669",
+  "ui/fonts/OFL-inter.txt": "3b0a5fca3d17942cde889069889dedbbbd075e9b599968c82a95f4d944e9b345",
+  "ui/fonts/OFL-noto.txt": "91053c23e8a0fe5fc9b5fdbe5ff74ceffd66f6f996c123f1a6ca4c23487c1fff"
+ }
+}

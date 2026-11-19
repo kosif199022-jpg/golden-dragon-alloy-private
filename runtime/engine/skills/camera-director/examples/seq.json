@@ -1,0 +1,4 @@
+{"axis":[[-5,0],[5,0]],"shots":[
+ {"mode":"3d","move":"static","dur":3,"pos":[0,-6,1.6],"target":[0,0,1],"lens":35},
+ {"mode":"3d","move":"static","dur":3,"pos":[1,-6,1.6],"target":[0,0,1],"lens":40},
+ {"mode":"3d","move":"static","dur":3,"pos":[0,6,1.6],"target":[0,0,1],"lens":85}]}

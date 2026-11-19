@@ -1,0 +1,9 @@
+{
+ "repo": "own code (Golden Bird session, 2026-11-14); idea from MoneyPrinterTurbo 1.3.10 subtitle_shaping.py (MIT)",
+ "license": "own; uses khatt 0.4.0 (MIT) + freetype-py 2.5.1 (BSD) + OFL fonts bundled with khatt",
+ "review_before_running": [
+  "exec (ffmpeg)"
+ ],
+ "approved_by_owner": "2026-11-14",
+ "note2": "SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

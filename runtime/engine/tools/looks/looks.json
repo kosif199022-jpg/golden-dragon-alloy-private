@@ -1,0 +1,812 @@
+{
+ "schema": "dragon.looks.v2",
+ "updated": "2026-11-11",
+ "refs": [
+  "d684961b-6a65-4c48-b2a9-45cd479bd43e",
+  "81dfa2e9-ecfd-44f1-bb50-4b722437a67a"
+ ],
+ "cdn": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/",
+ "prompt_tail": "Vertical 9:16, bright warm light on their faces, faces in the upper half of the frame, the lower third is calm, no text, no letters.",
+ "modesty": "كل فساتين البنت: ياقة عالية وكُمّ طويل والصدر متغطي (طلبه 2026-11-09).",
+ "looks": [
+  {
+   "id": "C01",
+   "kind": "character",
+   "name": "الراجل والبنت (الشخصيتين الأساسيتين)",
+   "image": "img/ref_couple_umbrellas.jpg",
+   "use": "أي فيلم «بالراجل والمراة/الفتاة». ابعت الصورتين المرجع دايمًا في medias.",
+   "prompt": "Same storybook cartoon illustration style and same two characters as the references, the man with round glasses and curly brown hair, the woman with a long brown braid.",
+   "notes": "المرجعين على Higgsfield: d684961b-6a65-4c48-b2a9-45cd479bd43e و 81dfa2e9-ecfd-44f1-bb50-4b722437a67a (role image، السيرفر بيحوّلها image_references). الشكل الثابت: هو بنضارة مدورة وشعر بني كيرلي، هي بضفيرة بني طويلة.",
+   "aliases": [
+    "الراجل والست",
+    "الرجل والمرأة",
+    "الولد والبنت",
+    "الكابل",
+    "couple",
+    "الشخصيتين"
+   ]
+  },
+  {
+   "id": "C02",
+   "kind": "character",
+   "name": "المرجع التاني (تحت الشمسية الحمرا)",
+   "image": "img/ref_couple_red_umbrella.jpg",
+   "use": "نفس الشخصيتين؛ مرجع تاني للوشوش من قريب.",
+   "notes": "media id 81dfa2e9-ecfd-44f1-bb50-4b722437a67a",
+   "aliases": [
+    "الشمسية الحمرا"
+   ]
+  },
+  {
+   "id": "W01",
+   "kind": "wardrobe",
+   "name": "الكلاسيك: معطف أحمر + بالطو رمادي وكوفية نبيتي",
+   "image": "img/w01_classic_red_grey.jpg",
+   "use": "الشكل الأصلي لأغلب أغاني 9 نوفمبر (مطر، شوارع بالليل).",
+   "prompt": "the woman in a crimson red coat with a high modest collar, the man in a grey coat and a dark red scarf.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/e2b9ab14-7e44-45de-a733-16441f77dc3d.mp4"
+  },
+  {
+   "id": "W02",
+   "kind": "wardrobe",
+   "name": "القاهرة الستينات (كامل الأوصاف)",
+   "image": "img/w02_vintage_cairo.jpg",
+   "use": "أغاني الزمن الجميل: بلكونة ياسمين، قهوة وجرامافون، كوبري النيل والقمر.",
+   "prompt": "vintage 1960s Cairo, jasmine balcony, the woman in a crimson coat, the man in a grey coat and red scarf, warm lights.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/a1cc91a7-9f5c-4319-ba68-09ec18ac2833.mp4",
+   "aliases": [
+    "الستينات"
+   ]
+  },
+  {
+   "id": "W02b",
+   "kind": "wardrobe",
+   "name": "رقصة على كوبري النيل تحت القمر",
+   "image": "img/w02b_nile_bridge_moon.jpg",
+   "use": "ختام رومانسي ليلي.",
+   "prompt": "they dance on a Nile bridge under a full moon, city lights and a felucca behind."
+  },
+  {
+   "id": "W03",
+   "kind": "wardrobe",
+   "name": "صيف المتوسط: فستان أصفر بورد + صديري تركواز",
+   "image": "img/w03_med_summer_yellow.jpg",
+   "use": "أغاني فرحانة نهارية (وعدني). الفستان اتعدّل لياقة عالية وكم للكوع.",
+   "prompt": "she wears a sunflower yellow summer dress with small white daisies, a high round neckline and elbow sleeves, a straw hat with a turquoise ribbon; he wears a white linen shirt, a teal waistcoat and beige trousers; Lebanese seaside village, turquoise doors.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/01c2d185-a51a-4cd0-a382-86eba1bf1c25.mp4"
+  },
+  {
+   "id": "W04",
+   "kind": "wardrobe",
+   "name": "تراس الغروب: بلوزة كريمي وجيبة خضرا + قميص كحلي",
+   "image": "img/w04_sunset_terrace.jpg",
+   "use": "من بين كل العيون: شموع وفوانيس والبحر وقت الغروب.",
+   "prompt": "she wears a cream long sleeved blouse with a high modest neckline and a long sage green skirt, he wears a dark navy shirt with rolled sleeves; seaside stone terrace at sunset, candles, lanterns, flowering vines.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/58261cb7-aee5-4cc8-a282-9b7f10f2e20a.mp4"
+  },
+  {
+   "id": "W05",
+   "kind": "wardrobe",
+   "name": "القهوة المصرية: فستان بني + قميص زيتي",
+   "image": "img/w05_egyptian_cafe.jpg",
+   "use": "لو كنت شوفتك من زمان: مشربية وفوانيس نحاس وشاي أحمر.",
+   "prompt": "she wears a dark chocolate brown long sleeved dress with a high modest neckline, he wears a dark olive brown shirt; vintage Egyptian cafe at night, mashrabiya, brass lanterns, red tea.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/56ef163d-b3e4-4c02-af9b-581673e68cf1.mp4",
+   "aliases": [
+    "قهوة",
+    "القهوة"
+   ]
+  },
+  {
+   "id": "W06",
+   "kind": "wardrobe",
+   "name": "بلكونة النيل بالليل: فستان كحلي + قميص أبيض",
+   "image": "img/w06_nile_balcony_navy.jpg",
+   "use": "خليني في حضنك: برج القاهرة والمراكب والياسمين.",
+   "prompt": "she wears a long navy blue dress with long sleeves and a high modest neckline, he wears a white shirt with rolled sleeves; Cairo balcony over the Nile at night, city lights, jasmine, lantern.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/a685b5bf-7afd-4806-80a7-8a0925ab283a.mp4",
+   "aliases": [
+    "النيل"
+   ]
+  },
+  {
+   "id": "W07",
+   "kind": "wardrobe",
+   "name": "شتا إسكندرية: معطف جملي وشال + بالطو كحلي",
+   "image": "img/w07_alex_winter.jpg",
+   "use": "بيكلموني: الكورنيش والموج وقلعة قايتباي.",
+   "prompt": "she wears a long camel coat buttoned up with a cream knitted shawl scarf, he wears a navy overcoat and a grey scarf; Alexandria corniche in winter, waves, old street lamps.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/b36f47b1-785a-4045-b738-92f6f617ef98.mp4",
+   "aliases": [
+    "إسكندرية",
+    "اسكندرية",
+    "شتا"
+   ]
+  },
+  {
+   "id": "W08",
+   "kind": "wardrobe",
+   "name": "الحارة المزيّنة: عباية زمردي مطرّزة + كتان أبيض",
+   "image": "img/w08_festive_alley_emerald.jpg",
+   "use": "عليكي عيون: زينة ورق وفوانيس ومشربيات.",
+   "prompt": "she wears an elegant long emerald green embroidered abaya dress with gold trim, long sleeves and a high modest neckline, he wears a white linen shirt and beige trousers; festive old Egyptian alley at night, paper decorations, glowing lanterns.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/728a5a8e-f7bd-4ed0-a50d-0c9bd0c80cfc.mp4"
+  },
+  {
+   "id": "W09",
+   "kind": "wardrobe",
+   "name": "ساحة الخيل: شال وردي وكارديجان أسود وبنطلون نبيتي + كتان بيج",
+   "image": "img/w09_horse_arena.jpg",
+   "use": "خليني شوية معاك (متحرك): بلكونة فوق ساحة خيل ونخل.",
+   "prompt": "she wears a soft blush pink silk scarf, a white t-shirt under a long black cardigan and long burgundy trousers, he wears a light beige linen shirt and dark trousers; sunny balcony above a sandy horse arena with stables and palm trees.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/661742b0-787e-4482-ac68-2adf603df6db.mp4"
+  },
+  {
+   "id": "W10",
+   "kind": "wardrobe",
+   "name": "الحوش الحجري: فستان أصفر بكشكشة + صديري بني وعود",
+   "image": "img/w10_courtyard_yellow_oud.jpg",
+   "use": "لون عيونك غرامي (متحرك): فرقة وسجادة وفوانيس.",
+   "prompt": "she wears a long mustard yellow ruffled dress with long sleeves and a high modest neckline and sings at a vintage silver microphone, he wears a white shirt and a brown waistcoat and plays an oud; old Lebanese stone courtyard at golden evening, lanterns, red Persian rug, musicians.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/cb423dc0-42c7-46c2-b1f5-9d7a8e91ea0a.mp4"
+  },
+  {
+   "id": "W11",
+   "kind": "wardrobe",
+   "name": "شارع قديم بالفوانيس والورد الأحمر (معطف أحمر)",
+   "image": "img/w11_old_street_lanterns.jpg",
+   "use": "من وجودك ما تحرمشي: ورد وساعة جيب وسلم حجر.",
+   "prompt": "the classic red coat and grey coat look on an old European stone street at night, wrought iron lanterns, hanging baskets of red flowers, wet cobblestones.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/6b866a0f-ab81-49cb-9151-eab4b514cd77.mp4"
+  },
+  {
+   "id": "G01",
+   "kind": "singer",
+   "name": "المغنية: جاكيت جلد بني + كوفية وجيبة كريمي",
+   "image": "img/g01_singer_brown_leather.jpg",
+   "use": "حفلة في ميدان قدام برج الساعة (هحتاج لإيه). البنت لوحدها لما الريل فيه مطربة حقيقية: مانقلش وشّها، بنعمل الكرتون بلبس قريب.",
+   "prompt": "a brown leather jacket closed over a cream scarf wrapped high around her neck and a long cream skirt, singing on an outdoor concert stage at dusk.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/458f1dd4-7b7c-47c6-affd-3764ad2f382d.mp4",
+   "aliases": [
+    "المغنية",
+    "مطربة"
+   ]
+  },
+  {
+   "id": "G02",
+   "kind": "singer",
+   "name": "المغنية: جاكيت جلد أسود + بنطلون رمادي واسع",
+   "image": "img/g02_singer_black_leather.jpg",
+   "use": "حفلة بالليل، أطفال وبيانو ونور أزرق (الدنيا سهلة). البنت لوحدها لما الريل فيه مطربة حقيقية: مانقلش وشّها، بنعمل الكرتون بلبس قريب.",
+   "prompt": "an oversized black leather jacket closed over a light grey top with a high neckline and wide light grey trousers, on a concert stage at night.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/724cd224-3b1f-4181-bb52-d748f8311674.mp4"
+  },
+  {
+   "id": "G03",
+   "kind": "singer",
+   "name": "المغنية: فستان ساتان فضي في فرح",
+   "image": "img/g03_singer_silver_wedding.jpg",
+   "use": "فرح بالليل بأنوار بنفسجي والعروسين من ضهرهم. البنت لوحدها لما الريل فيه مطربة حقيقية: مانقلش وشّها، بنعمل الكرتون بلبس قريب.",
+   "prompt": "an elegant silver grey satin dress with a high draped neckline and long sleeves, singing at an outdoor wedding party at night, pastel guests, purple lights.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/8a8f4303-23b4-4d8c-9686-eada9a76bbf6.mp4"
+  },
+  {
+   "id": "E01",
+   "kind": "expression",
+   "name": "مكسوفة وإيدها على بُقها",
+   "image": "img/e01_shy_hand_mouth.jpg",
+   "use": "لما يطلب «نفس تعبير الوش» من فيديو: اكتب التعبير في الـ prompt بالحرف (The expression is the key: ...).",
+   "prompt": "The expression is the key: a shy delighted smile half hidden behind her hand, eyes sparkling looking up to the side, cheeks blushing.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/8e607527-e7b0-4680-9b85-0c6b1fdc67dd.mp4"
+  },
+  {
+   "id": "E02",
+   "kind": "expression",
+   "name": "باصص لتحت بنص ابتسامة",
+   "image": "img/e02_tender_look_down.jpg",
+   "use": "لما يطلب «نفس تعبير الوش» من فيديو: اكتب التعبير في الـ prompt بالحرف (The expression is the key: ...).",
+   "prompt": "The expression is the key: head tilted slightly down, eyes lowered with a deep tender gaze, a small knowing half smile.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/8e607527-e7b0-4680-9b85-0c6b1fdc67dd.mp4"
+  },
+  {
+   "id": "E03",
+   "kind": "expression",
+   "name": "سانْدة دقنها على إيدها وسرحانة",
+   "image": "img/e03_chin_on_hand_dreamy.jpg",
+   "use": "لما يطلب «نفس تعبير الوش» من فيديو: اكتب التعبير في الـ prompt بالحرف (The expression is the key: ...).",
+   "prompt": "The expression is the key: chin resting on her fist, a soft dreamy closed lip smile, eyes half lowered.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/8e607527-e7b0-4680-9b85-0c6b1fdc67dd.mp4"
+  },
+  {
+   "id": "E04",
+   "kind": "expression",
+   "name": "بتضحك بعيون مقفولة",
+   "image": "img/e04_laughing_eyes_closed.jpg",
+   "use": "لما يطلب «نفس تعبير الوش» من فيديو: اكتب التعبير في الـ prompt بالحرف (The expression is the key: ...).",
+   "prompt": "The expression is the key: a big bright laughing smile, eyes closed in joy, head tilted resting against her hand.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/8e607527-e7b0-4680-9b85-0c6b1fdc67dd.mp4"
+  },
+  {
+   "id": "E05",
+   "kind": "expression",
+   "name": "بيوشوشها",
+   "image": "img/e05_whisper.jpg",
+   "use": "لما يطلب «نفس تعبير الوش» من فيديو: اكتب التعبير في الـ prompt بالحرف (The expression is the key: ...).",
+   "prompt": "The expression is the key: he leans in to whisper, she looks sideways with a radiant smile, hand near her chin.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/8e607527-e7b0-4680-9b85-0c6b1fdc67dd.mp4"
+  },
+  {
+   "id": "E06",
+   "kind": "expression",
+   "name": "سرحان وإيده على بُقه",
+   "image": "img/e06_thoughtful_hand_mouth.jpg",
+   "use": "لما يطلب «نفس تعبير الوش» من فيديو: اكتب التعبير في الـ prompt بالحرف (The expression is the key: ...).",
+   "prompt": "The expression is the key: thoughtful, hand over mouth and chin, eyes looking down to the side, a hidden smile.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/8e607527-e7b0-4680-9b85-0c6b1fdc67dd.mp4"
+  },
+  {
+   "id": "E07",
+   "kind": "expression",
+   "name": "راسهم جنب بعض وبيضحكوا",
+   "image": "img/e07_heads_together_laugh.jpg",
+   "use": "لما يطلب «نفس تعبير الوش» من فيديو: اكتب التعبير في الـ prompt بالحرف (The expression is the key: ...).",
+   "prompt": "The expression is the key: heads leaning gently together, she laughs with eyes closed and hand over mouth, he smiles with eyes closed.",
+   "example": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/8e607527-e7b0-4680-9b85-0c6b1fdc67dd.mp4"
+  },
+  {
+   "id": "SC01",
+   "kind": "scene",
+   "name": "لوحدها في المطر والشمسية واقعة",
+   "image": "img/sc01_rain_street.jpg",
+   "use": "حزن/فراق في شارع ممطر بالليل.",
+   "notes": "من أغاني 9 نوفمبر باللبس الكلاسيك (W01)."
+  },
+  {
+   "id": "SC02",
+   "kind": "scene",
+   "name": "ماشيين بالليل في شارع منوّر",
+   "image": "img/sc02_night_walk.jpg",
+   "use": "مصالحة/سهرة.",
+   "notes": "من أغاني 9 نوفمبر باللبس الكلاسيك (W01)."
+  },
+  {
+   "id": "SC03",
+   "kind": "scene",
+   "name": "بتحلم بيه (فقاعة تفكير)",
+   "image": "img/sc03_dream_bubble.jpg",
+   "use": "شوق وغياب.",
+   "notes": "من أغاني 9 نوفمبر باللبس الكلاسيك (W01)."
+  },
+  {
+   "id": "SC04",
+   "kind": "scene",
+   "name": "هي حزينة وهو على الباب",
+   "image": "img/sc04_sad_waiting.jpg",
+   "use": "عتاب/انتظار.",
+   "notes": "من أغاني 9 نوفمبر باللبس الكلاسيك (W01)."
+  },
+  {
+   "id": "SC05",
+   "kind": "scene",
+   "name": "حنطور على البحر",
+   "image": "img/sc05_carriage_sea.jpg",
+   "use": "فرحة/خروجة.",
+   "notes": "من أغاني 9 نوفمبر باللبس الكلاسيك (W01)."
+  },
+  {
+   "id": "SC06",
+   "kind": "scene",
+   "name": "وداع في محطة قطر",
+   "image": "img/sc06_train_station.jpg",
+   "use": "سفر وفراق.",
+   "notes": "من أغاني 9 نوفمبر باللبس الكلاسيك (W01)."
+  },
+  {
+   "id": "SC07",
+   "kind": "scene",
+   "name": "وردة سحرية وهو بيلف",
+   "image": "img/sc07_rose_magic.jpg",
+   "use": "بداية حب/حلم.",
+   "notes": "من أغاني 9 نوفمبر باللبس الكلاسيك (W01)."
+  },
+  {
+   "id": "ST01",
+   "kind": "style",
+   "name": "كرتون الحكايات (Storybook) بالصور الثابتة + حركة كاميرا",
+   "image": "img/w01_classic_red_grey.jpg",
+   "use": "الافتراضي لأي أغنية حب. 5–9 صور × 0.25 كريدت، والحركة كاميرا هادية من غير مؤثرات.",
+   "notes": "gpt_image_2_6، 9:16، count 1، use_unlim false، ومرجعين C01.",
+   "aliases": [
+    "كرتون",
+    "ستوري بوك",
+    "storybook"
+   ]
+  },
+  {
+   "id": "ST02",
+   "kind": "style",
+   "name": "عمق 2.5D وحركة حياة بالكود (مجاني)",
+   "image": "img/st_life_25d.jpg",
+   "use": "لما يطلب «حركة» من غير كريدت تحريك: فصل الشخصية عن الخلفية (rembg u2netp) وparallax وتمايل خفيف.",
+   "notes": "الصورة دي من قبل قاعدة المؤثرات (فيها ورد/غبار): النسخ الجديدة صفر overlay."
+  },
+  {
+   "id": "ST03",
+   "kind": "style",
+   "name": "تحريك حقيقي بأرخص موديل (Seedance 2.0 Mini)",
+   "image": "img/st_seedance_anim.jpg",
+   "use": "لما يطلب تحريك وأرخص حاجة: 4 ث، 480p، من غير صوت = 2 كريدت للقطة، والصوت بنركبه إحنا.",
+   "notes": "بنبطّأ اللقطة لطول السطر بـ minterpolate ونكبّر لـ 1080×1920.",
+   "aliases": [
+    "سيدانس",
+    "seedance",
+    "تحريك"
+   ]
+  },
+  {
+   "id": "ST04",
+   "kind": "style",
+   "name": "فوتيج مفتوح المصدر + خطوط (دعاء)",
+   "image": "img/st_dua_footage.jpg",
+   "use": "الأدعية: Coverr/Mixkit Free بس، أميري أبيض + رقعة دهبي، وفوق اليوم والتاريخ الهجري والميلادي.",
+   "notes": "التاريخ الهجري يتأكد من api.aladhan.com.",
+   "aliases": [
+    "دعاء",
+    "فوتيج"
+   ]
+  },
+  {
+   "id": "ST05",
+   "kind": "style",
+   "name": "أجواء مطر من غير كلام",
+   "image": "img/st_rain_footage.jpg",
+   "use": "«نفس الفكرة» لفيديو أجواء: لقطات مفتوحة على البيت، صفر مؤثرات، ولا كلام.",
+   "notes": "Mixkit Restricted مستبعد.",
+   "aliases": [
+    "مطر"
+   ]
+  },
+  {
+   "id": "ST06",
+   "kind": "style",
+   "name": "كينتك تايبوغرافي نشيد مسطح (أنتِ لي مأوى)",
+   "image": "img/st_kinetic_nasheed.jpg",
+   "use": "نشيد أو أغنية من غير ناس: كلمة = مشهد = رسمة، 4 ألوان (غامق/بينك/لايم/كريمي)، «يا» صغيرة، pills، بانرات بتتكدس في الآخر. القالب tools/kinetic_nasheed/template.html.",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/5aea893b-1597-4730-b74f-c7fb69f8c942.mp4",
+   "notes": "اتنقل من ريل ghawth.studio بطلبه؛ الرسم كله بالكود، صفر صرف كريدت.",
+   "aliases": [
+    "نشيد",
+    "كينتك",
+    "انت لي مأوى"
+   ]
+  },
+  {
+   "id": "ST07",
+   "kind": "style",
+   "name": "خواطر لوحات مرسومة (تيل وبرتقالي)",
+   "image": "img/st_khawater_painted.jpg",
+   "use": "خاطرة بصوت: 6 لوحات مرسومة تيل/برتقالي، شخص لوحده، الكلام كتلة كريمي كبيرة في الفراغ. dragon.py tool mono JOB spec.json مع \"look\":\"khawater\" وصور بدل فيديو (push بطيء).",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/499d9962-6b44-4ec5-88c8-0181b091bc68.mp4",
+   "notes": "من ريل أحمد الشامي «خليك مش فاضي». 6 صور = 1.5 كريدت. خط Changa (Lalezar بيبوظ في libass).",
+   "aliases": [
+    "خواطر",
+    "خاطرة",
+    "لوحات",
+    "الشامي",
+    "مشغول"
+   ]
+  },
+  {
+   "id": "ST08",
+   "kind": "style",
+   "name": "حكاية كرتون حبر أبيض وأسود (كائن تلاتيني)",
+   "image": "img/st_mono_story.jpg",
+   "use": "أغنية حزينة كحكاية: لقطة متحركة لكل سطر، ترجمة صغيرة سطرين، كارت أبيض بشخبطة. dragon.py tool mono JOB spec.json",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/6fc42896-c47f-48ae-a76e-c3892f22804c.mp4",
+   "notes": "الراجل C01 مرسوم حبر. 9 صور + 9 Seedance Mini = 20.25 كريدت. الرندر محتاج ~3 أضعاف حجم الفيلم على الديسك.",
+   "aliases": [
+    "كائن تلاتيني",
+    "ستيك مان",
+    "حبر",
+    "ابيض واسود",
+    "حكاية"
+   ]
+  },
+  {
+   "id": "ST09",
+   "kind": "style",
+   "name": "سريالي مينيمال أبيض وأسود (Hossein Zare)",
+   "image": "img/st_surreal_minimal.jpg",
+   "use": "فكرة اجتماعية في لقطة واحدة: فراغ أبيض، تكرار للأفق، واحد بيكسر النمط. القالب tools/surreal_minimal/template.html",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/52c8550c-9d30-4b56-b763-5e0f6b91e100.mp4",
+   "notes": "بالكود صفر كريدت؛ نسخة فوتوغرافية بـ gpt_image_2_6 + Seedance.",
+   "aliases": [
+    "زاري",
+    "حسين زاري",
+    "سريالي",
+    "مينيمال",
+    "الترابيزة"
+   ]
+  },
+  {
+   "id": "ST10",
+   "kind": "style",
+   "name": "أسلوب الظلال (خيال ظل على حيطة)",
+   "image": "img/st_shadow_play.jpg",
+   "use": "أغنية فراق/حنين: لمبة بتتمرجح، كل سطر مشهد خيال ظل، مفيش وشوش. القالب tools/shadow_play/template.html",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/cc4dd6ce-7ca7-45e4-9b16-c4370c2b2c4e.mp4",
+   "notes": "صفر كريدت. الظلال على طبقة لوحدها عشان المفاصل ماتغمقش.",
+   "aliases": [
+    "الظلال",
+    "ظل",
+    "خيال ظل",
+    "لمبة",
+    "عارف بعد البعد"
+   ]
+  },
+  {
+   "id": "ST11",
+   "kind": "style",
+   "name": "حبر على ورق (مقال خطي مينيمال)",
+   "image": "img/st_ink_essay.jpg",
+   "use": "تأمل بصوت راوي: ورق كريمي، خط حبر واحد، قلم بيرسم، ملصقات تقنية صغيرة، الكلام تحت بخط Almarai. القالب tools/ink_essay/template.html",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/817edd24-11fa-4a2a-bfb4-44ed488f0c6d.mp4",
+   "notes": "من ريل ai.studio.1990 «الدائرة». صفر كريدت.",
+   "aliases": [
+    "حبر على ورق",
+    "الدائرة",
+    "مينيمال خطي",
+    "قلم",
+    "تأمل"
+   ]
+  },
+  {
+   "id": "ST12",
+   "kind": "style",
+   "name": "خط النبض (رسم قلب على ورق بارشمان)",
+   "image": "img/st_pulse_line.jpg",
+   "use": "تأمل بصوت راوي عن الحياة: خط أحمر واحد بينبض على ورق رسم بياني، القمم والهبوط بأسمائها، عنوان رقعة وكلام أميري. القالب tools/pulse_line/template.html",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/51d03436-0a21-463e-8d65-392421a71318.mp4",
+   "notes": "من ريل ai.studio.1990. بالكود، صفر كريدت.",
+   "aliases": [
+    "خط النبض",
+    "نبض",
+    "رسم القلب",
+    "الخط المستقيم",
+    "بارشمان"
+   ]
+  },
+  {
+   "id": "ST13",
+   "kind": "style",
+   "name": "خط مضيء على أسود (العقل والشجرة الدهبية)",
+   "image": "img/st_glow_line.jpg",
+   "use": "فكرة من غير كلام: رسم خطي أبيض على أسود بيتحول لدهبي مضيء (كعبلة ← ترتيب ← شجرة). القالب tools/glow_line/template.html",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/07008ee8-319f-41e0-8e2d-8b51895d27ed.mp4",
+   "notes": "من ريل _dreamscapes_sajna. بالكود، صفر كريدت. الخلفية السودا مقصودة.",
+   "aliases": [
+    "خط مضيء",
+    "الشجرة الدهبية",
+    "العقل",
+    "راس",
+    "نيون",
+    "اسود ودهبي"
+   ]
+  },
+  {
+   "id": "ST14",
+   "kind": "style",
+   "name": "طباشير على سبورة كحلي (الصبر)",
+   "image": "img/st_chalk_board.jpg",
+   "use": "حِكم قصيرة بموسيقى: كل حكمة مشهد طباشير (منحنى، إشارة مرور، سلايدرات، كلمة بتتفك حروف) والماوس هو الممثل. القالب tools/chalk_board/template.html",
+   "url": "https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/9e90c0d3-1950-4f40-aa3a-464e075740f3.mp4",
+   "notes": "من ريل salsabil_creates. بالكود، صفر كريدت. الخط Marhey Bold.",
+   "aliases": [
+    "طباشير",
+    "سبورة",
+    "الصبر",
+    "سلايدر",
+    "انضباط",
+    "كحلي"
+   ]
+  },
+  {
+   "id": "LY01",
+   "kind": "layout",
+   "name": "الكلام فوق (أبيض رقعة + أحمر)",
+   "image": "img/lay_top_lyrics.jpg",
+   "use": "لما الصورة فيها الوش في النص أو تحت.",
+   "aliases": [
+    "الكلام فوق"
+   ]
+  },
+  {
+   "id": "LY02",
+   "kind": "layout",
+   "name": "الكلام تحت الوشوش (y≈1200/1325)",
+   "image": "img/lay_lower_lyrics.jpg",
+   "use": "لقطات الوش القريبة: الكلام ما يقعدش على الوش أبدًا.",
+   "aliases": [
+    "الكلام تحت"
+   ]
+  },
+  {
+   "id": "M01",
+   "kind": "model",
+   "name": "gpt_image_2_6 (صور الكرتون)",
+   "use": "Higgsfield image",
+   "notes": "batch بحد أقصى 12 طلب، وjobs_wait بحد أقصى 12 job.",
+   "cost": "0.25 كريدت للصورة"
+  },
+  {
+   "id": "M02",
+   "kind": "model",
+   "name": "seedance_2_0_mini 480p 4 ث (الأرخص)",
+   "use": "Higgsfield video",
+   "notes": "start_image = job id الصورة، generate_audio false.",
+   "cost": "2 كريدت (720p = 4)"
+  },
+  {
+   "id": "M03",
+   "kind": "model",
+   "name": "grok_video_v15_lite",
+   "use": "Higgsfield video",
+   "cost": "5 كريدت / 5 ث"
+  },
+  {
+   "id": "M04",
+   "kind": "model",
+   "name": "flux_3_video (FLUX 3، «فيلاكس»)",
+   "use": "Higgsfield video",
+   "notes": "نفس السعر بصوت أو من غيره؛ إحنا بنركب الصوت.",
+   "cost": "30 كريدت / 5 ث 720p (10 ث = 60)"
+  },
+  {
+   "id": "M05",
+   "kind": "model",
+   "name": "cost check قبل أي صرف",
+   "use": "Higgsfield tip",
+   "notes": "اعرض السعر واستنى موافقته قبل الصرف.",
+   "cost": "get_cost true مجاني"
+  },
+  {
+   "id": "PM01",
+   "name": "ميار: موشن 40ث (صور + عناوين مراحل مرقّمة)",
+   "image": "img/pm01_mayar_motion_40s.jpg",
+   "use": "فيلم تكريم/إنجاز لشخص من صور وفيديوهات حقيقية: كل مرحلة ليها رقم وعنوان صغير فوق، وكارت أحمر تحت بالخبر، وخط ثلث/رقعة للجملة المهمة.",
+   "example": "/mnt/project-files/mayar-edit/mayar-othman-40s.mp4",
+   "aliases": [
+    "تكريم",
+    "موشن جرافيك",
+    "عناوين مراحل",
+    "فيلم إنجاز"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-05. فوتيج صاحب المشروع + أغنية أصلية زي ما هي (AAC copy) + طبقة موشن HTML/ffmpeg. القطع على البيت."
+  },
+  {
+   "id": "PM02",
+   "name": "ميار: قصة على أغنية Suno بالكلمة الذهبي (كاريوكي مشكّل)",
+   "image": "img/pm02_mayar_suno_kinetic.jpg",
+   "use": "أغنية متألفة للقصة: كل لقطة تيجي مع الكلمة اللي بتتغنى، الكلام بالتشكيل الكامل تحت، والكلمة الحالية بتنوّر ذهبي، وعنوان المرحلة فوق.",
+   "example": "/mnt/project-files/mayar-edit/mayar-suno-story-45s.mp4",
+   "aliases": [
+    "سونو",
+    "suno",
+    "كاريوكي",
+    "الكلمة الذهبي",
+    "أغنية متألفة",
+    "فيلم كلمات"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-05. الكلمات فصحى مشكّلة ومراجعة ← Suno (أعلى موديل بعد الموافقة) ← توقيت كل كلمة بـ Whisper ← 21 لقطة على القصة ← لو الأغنية خلصت قبل آخر كلمة اقفل بلوحة ختام."
+  },
+  {
+   "id": "PM03",
+   "name": "ميار: فيلم كلمات 42ث (شريط علوي + سطر كلام تحت)",
+   "image": "img/pm03_mayar_lyrics_film.jpg",
+   "use": "فيلم على أغنيتها الأصلية: هيدر ثابت فوق (اسم المسابقة + الاسم بخط رقعة ذهبي) وسطر الكلام تحت على أرضية سودا، والصورة في النص.",
+   "example": "/mnt/project-files/mayar-edit-2/ميار-عثمان-فيلم-كلمات-42ث.mp4",
+   "aliases": [
+    "فيلم كلمات",
+    "هيدر",
+    "شريط علوي",
+    "lyrics"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-05. lyrics.json → lyrics.ass → render_mayar2.py (في mayar-edit-2). إعادة البناء بالنظام الجديد طلعت VMAF 99.46."
+  },
+  {
+   "id": "PM04",
+   "name": "ميار: كلامها في برنامج + كلمة كبيرة ذهبي فوق (الإصرار)",
+   "image": "img/pm04_mayar_talk_zoom.jpg",
+   "use": "ريل من لقاء تلفزيوني: زوم بسيط على وشها في اللحظات المهمة، الكلمة المفتاحية كبيرة ذهبي فوق بخط رقعة، وترجمة كاملة تحت، ومزيكا Suno واطية (−10/−11 dB) تحت كلامها.",
+   "example": "/mnt/project-files/mayar-edit/persistence-reel/ميار-الإصرار-موشن-وطني.mp4",
+   "aliases": [
+    "لقاء",
+    "برنامج",
+    "منى الشاذلي",
+    "الإصرار",
+    "زوم على الوش",
+    "talk show"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-05. mkass.py → edit.ass → render.sh (في mayar-edit/persistence-reel). اللي مش واضح في الصوت بيتساب من غير ترجمة."
+  },
+  {
+   "id": "PM05",
+   "name": "ميار: مكتبة ميار عثمان (3 د، عدّاد + لوحة ختام دهبي)",
+   "image": "img/pm05_mayar_library.jpg",
+   "use": "ريل طويل من لقاء: لوجو البرنامج، تايتل الاسم، عدّاد بيطلع لـ 100٪، فلاش على كلمة واحدة بس، ولوحة ختام دهبي بالاسم وقلوب.",
+   "example": "/mnt/project-files/mayar-edit/library-reel/ميار-مكتبة-ميار-عثمان-موشن.mp4",
+   "aliases": [
+    "مكتبة",
+    "عداد",
+    "لوحة ختام",
+    "فلاش"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-05. reel2.py + lib.py + render.sh (في mayar-edit/library-reel)، مزيكا Suno «يا بلادي يا أحلى البلاد»."
+  },
+  {
+   "id": "PM06",
+   "name": "ميار: حلم من زمان (كلمة رقعة فوق + ستيكر «مبسوطة أوي»)",
+   "image": "img/pm06_mayar_dream.jpg",
+   "use": "ريل عاطفي من لقاء: جملة الحلم بخط رقعة ذهبي فوق، ستيكرات صغيرة بعلم وقلب، وقفلة كبيرة بفلاش «أنا هبقى منى الشاذلي!» وقلوب طالعة في الحضن.",
+   "example": "/mnt/project-files/mayar-edit/dream-reel/ميار-حلم-من-زمان-موشن.mp4",
+   "aliases": [
+    "حلم",
+    "ستيكر",
+    "قلوب",
+    "مبسوطة"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-05. reel3.py + lib.py (في mayar-edit/dream-reel)، على مزيكا «مصر والإصرار» من غير كريدت جديد."
+  },
+  {
+   "id": "PM07",
+   "name": "ميار: ستايل تيك توك وثائقي (استقبال البطلة 73ث)",
+   "image": "img/pm07_mayar_tiktok_doc.jpg",
+   "use": "تجميعة أحداث حقيقية بالترتيب الزمني: عنوان أصفر كبير فوق لكل حدث، القطع على البيت، والموسيقى بتوطى لما حد بيتكلم.",
+   "example": "/mnt/project-files/mayar-tiktok-edit/ميار-استقبال-البطلة-v1.mp4",
+   "aliases": [
+    "تيك توك",
+    "وثائقي",
+    "استقبال",
+    "تجميعة",
+    "زفة"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-06. تحميل فيديوهات المصادر (تيك توك/رسمية) ← ترتيب زمني ← أغنية الفيديو الأول. يوتيوب مقفول من السيرفر: اطلب الملف أو لينك تيك توك/فيسبوك."
+  },
+  {
+   "id": "PM08",
+   "name": "عالم واحد وكاميرا واحدة (خريطة ورق + صور برواز)",
+   "image": "img/pm08_one_world_map.jpg",
+   "use": "فيلم رحلة: خريطة ورق واحدة والكاميرا ماشية حركة واحدة (البرلس ← دبي ← القاهرة)، صور متبروزة بتظهر على المدن، خط أحمر متقطع للطريق.",
+   "example": "/mnt/project-files/black-dragon/world-film/ميار-عثمان-فيلم-عالم-واحد-مسودة.mp4",
+   "aliases": [
+    "خريطة",
+    "رحلة",
+    "عالم واحد",
+    "كاميرا واحدة",
+    "web film",
+    "map"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-05. جدول بيتات (EXAMPLE_MAYAR_BEAT_TABLE.md): لكل سطر بطل واحد ولحظة على الكلمة (circle/glow/lift/draw/stamp). الفاحص بيرفض: أكتر من بطل، نص بيتقال وبيتكتب، خط صغير، كاميرا بتقف أو بتتهز. المحرك app/engines/web_film."
+  },
+  {
+   "id": "PM09",
+   "name": "مسرح الظل (حارس الفانوس)",
+   "image": "img/pm09_shadow_theatre.jpg",
+   "use": "حكاية من غير ناس حقيقيين: صور ظلية سودا على سما متدرجة (غروب/ليل بقمر)، انتقالات هادية، 22 ث بصوت.",
+   "example": "/mnt/project-files/shadow-theatre/lantern-keeper.mp4",
+   "aliases": [
+    "ظل",
+    "ظلال",
+    "سيلويت",
+    "silhouette",
+    "shadow",
+    "حارس الفانوس"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-02. مهارة kosif-shadow-theatre (analyze / check / stills / render)، المرجع references/skills/kosif-shadow-theatre.md."
+  },
+  {
+   "id": "PM10",
+   "name": "المصفوفات اللانهائية: الزجاج اللي بيفتكر الضوء",
+   "image": "img/pm10_glass_light.jpg",
+   "use": "أسلوب جديد مبني بقانون سببي (6 لبنات: حالة، عملية، قانون، زمن، ذاكرة، تغذية راجعة) ومقارنة بحالة من غيره لإثبات الأثر.",
+   "example": "/mnt/project-files/infinite-matrices/glass-remembers-light.mp4",
+   "aliases": [
+    "مصفوفات",
+    "infinite matrices",
+    "زجاج",
+    "ضوء",
+    "أسلوب جديد"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-10-24. محرك KOSIF Infinite Matrices (86 أسلوب، 283 فرضية). النتيجة: 77.2٪ مقابل 28.6٪ و49.5٪، 8/8 بذور. التقرير infinite-matrices/report.md."
+  },
+  {
+   "id": "PM11",
+   "name": "مونتاج مناظرة/بودكاست (كارت المتكلم + شريط الوقت)",
+   "image": "img/pm11_debate_montage.jpg",
+   "use": "ريل من نقاش طويل: الفيديو فوق، كارت الكلام بإطار ذهبي تحت، صور المتكلمين بأسمائهم، وشريط وقت أحمر/أخضر.",
+   "example": "/mnt/project-files/black-dragon/montage-protocol-20261107/تجربة-مونتاج-المناظرة-41-ثانية.mp4",
+   "aliases": [
+    "مناظرة",
+    "بودكاست",
+    "debate",
+    "talking head",
+    "متكلم"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-07. بروتوكول المونتاج 8 خطوات + ستوري بورد ومصفوفة تحركات قبل الرندر. الهوك الآلي لازم يتراجع بعين بشرية (أخد 0.32)."
+  },
+  {
+   "id": "PM12",
+   "name": "ريل كينتك قصير (قهوة 8 ث، اللون العاشر)",
+   "image": "img/pm12_coffee_kinetic.jpg",
+   "use": "ريل كلام على خلفية غامقة: كلمة رمادي + كلمة بلون تمييز واحد (برتقالي) في دايرة. قاعدة 60/30/10.",
+   "example": "/mnt/project-files/black-dragon/video-protocol/تجربة-ريل-قهوة-٨-ثواني.mp4",
+   "aliases": [
+    "قهوة",
+    "كينتك",
+    "اللون العاشر",
+    "60/30/10",
+    "accent"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-05. بروتوكول الفيديو الإلزامي v2 (brief ← concept ← color ← shots ← produce ← qa ← deliver). الهوك الأول 30/100 اترفض لحد 80."
+  },
+  {
+   "id": "PM13",
+   "name": "إعادة تأطير سينمائي لطولي (Cinema Lab)",
+   "image": "img/pm13_cinema_reframe.jpg",
+   "use": "تحويل فيلم عريض لـ 9:16 مع تتبع البطل، لوك سينمائي دافي.",
+   "example": "/mnt/project-files/cinema-lab/reframe-vertical-20s.mp4",
+   "aliases": [
+    "reframe",
+    "طولي",
+    "سينما",
+    "تأطير"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-10-25. cinema-lab: storyboard.jpg + reframe-vertical-20s.mp4. الصورة لازم تملا الفريم (photo_cover.js + check_frame_cover.cjs)."
+  },
+  {
+   "id": "PM14",
+   "name": "فيديو كرتون بالكود (محرك cartoon)",
+   "image": "img/pm14_cartoon_engine.jpg",
+   "use": "شورت كرتون 2D/3D من سكريبت: مشاهد وشخصيات متعرّفة بالكود، صوت ومؤثرات CC0.",
+   "example": "/mnt/project-files/cartoon-short/engine-test-stills.jpg",
+   "aliases": [
+    "كرتون",
+    "cartoon",
+    "انيميشن",
+    "2d",
+    "رسوم متحركة"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-07. tools/cartoon (المحرك + claude-animated-shorts MIT). الكادرات دي من أول تشغيل للمحرك."
+  },
+  {
+   "id": "PM15",
+   "name": "ستوري بورد + مصفوفة تحركات (الشكل التقريبي قبل الرندر)",
+   "image": "img/pm15_storyboard_matrix.jpg",
+   "use": "إجباري قبل أي رندر نهائي: كادر من كل قطعة بالمقاس النهائي وشريط زمني، وجدول لكل قطعة: الوقت، منين، دورها، حركة الكاميرا، الانتقال، الكلام، السبب. ومفيش رندر قبل «موافق».",
+   "example": "/mnt/project-files/black-dragon/montage-protocol-20261107/مثال-ستوري-بورد.jpg",
+   "aliases": [
+    "ستوري بورد",
+    "storyboard",
+    "مصفوفة تحركات",
+    "شكل تقريبي"
+   ],
+   "kind": "method",
+   "notes": "من محادثة 2026-11-07. references/example-storyboard.jpg و EXAMPLE_MOVEMENT_MATRIX.md."
+  }
+ ],
+ "remind_rule": "لما يطلب نموذج بالاسم: tool looks remind \"<كلامه>\" ← ابعتله الصورة والرقم والاسم ← استنى «أيوه/موافق» ← استخدمه. لو أكتر من نموذج قريب ابعت الصور كلها يختار بالرقم."
+}

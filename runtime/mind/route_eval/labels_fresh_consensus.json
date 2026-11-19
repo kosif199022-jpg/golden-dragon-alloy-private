@@ -1,0 +1,1942 @@
+[
+{
+"fid": 0,
+"best": "skip",
+"ok": [],
+"why": "pasted chat-update digest, no real request",
+"agree": true
+},
+{
+"fid": 1,
+"best": "app-dev",
+"ok": [],
+"why": "update the desktop app shortcut",
+"agree": true
+},
+{
+"fid": 2,
+"best": "app-dev",
+"ok": [],
+"why": "update desktop app",
+"agree": true
+},
+{
+"fid": 3,
+"best": "app-dev",
+"ok": [
+"pc-task"
+],
+"why": "open updated app version",
+"agree": true
+},
+{
+"fid": 4,
+"best": "download",
+"ok": [
+"pc-task",
+"re-repo",
+"self-improve"
+],
+"why": "download montage tools and skills into folder",
+"agree": true
+},
+{
+"fid": 5,
+"best": "download",
+"ok": [
+"pc-task",
+"self-improve"
+],
+"why": "install the downloaded montage tools",
+"agree": true
+},
+{
+"fid": 6,
+"best": "re-repo",
+"ok": [
+"download",
+"self-improve"
+],
+"why": "download needed GitHub repos",
+"agree": false
+},
+{
+"fid": 7,
+"best": "re-repo",
+"ok": [
+"deep-research",
+"download",
+"self-improve"
+],
+"why": "find montage repos, download, integrate",
+"agree": true
+},
+{
+"fid": 8,
+"best": "re-repo",
+"ok": [
+"download",
+"re-file",
+"re-site",
+"self-improve"
+],
+"why": "install REA, fetch tools to clone apps",
+"agree": false
+},
+{
+"fid": 9,
+"best": "re-repo",
+"ok": [
+"deep-research",
+"download",
+"self-improve"
+],
+"why": "top 500 GitHub repos for montage, install",
+"agree": true
+},
+{
+"fid": 10,
+"best": "self-improve",
+"ok": [
+"build-skill",
+"docs-office"
+],
+"why": "instructions file listing all tools and skills",
+"agree": true
+},
+{
+"fid": 11,
+"best": "re-repo",
+"ok": [
+"deep-research",
+"download",
+"self-improve"
+],
+"why": "analyze top 500 video repos and install",
+"agree": true
+},
+{
+"fid": 12,
+"best": "self-improve",
+"ok": [
+"download",
+"pc-task",
+"re-repo"
+],
+"why": "download tools/skills to boost Claude",
+"agree": true
+},
+{
+"fid": 13,
+"best": "design-static",
+"ok": [
+"lyric-quran",
+"motion-code",
+"none",
+"reel-montage"
+],
+"why": "likely title for congratulation design; ambiguous",
+"agree": false
+},
+{
+"fid": 14,
+"best": "self-improve",
+"ok": [
+"build-skill"
+],
+"why": "activate dragon and superpowers in folder",
+"agree": true
+},
+{
+"fid": 15,
+"best": "self-improve",
+"ok": [
+"build-skill",
+"reel-montage"
+],
+"why": "start: continues dragon activation",
+"agree": true
+},
+{
+"fid": 16,
+"best": "reel-montage",
+"ok": [
+"download",
+"lyric-quran",
+"voice"
+],
+"why": "song montage file not working",
+"agree": true
+},
+{
+"fid": 17,
+"best": "status",
+"ok": [],
+"why": "where is skill, are you done",
+"agree": true
+},
+{
+"fid": 18,
+"best": "status",
+"ok": [],
+"why": "are you done",
+"agree": true
+},
+{
+"fid": 19,
+"best": "status",
+"ok": [
+"build-skill",
+"self-improve",
+"ship"
+],
+"why": "finish and tell folder name",
+"agree": false
+},
+{
+"fid": 20,
+"best": "status",
+"ok": [],
+"why": "how long left, what doing",
+"agree": true
+},
+{
+"fid": 21,
+"best": "self-improve",
+"ok": [
+"build-skill",
+"none",
+"status"
+],
+"why": "scale agents for ongoing dragon work",
+"agree": true
+},
+{
+"fid": 22,
+"best": "status",
+"ok": [],
+"why": "done yet",
+"agree": true
+},
+{
+"fid": 23,
+"best": "status",
+"ok": [],
+"why": "where is the skill",
+"agree": true
+},
+{
+"fid": 24,
+"best": "re-repo",
+"ok": [
+"build-skill",
+"self-improve"
+],
+"why": "find Blender/PS/AE skills on GitHub, merge",
+"agree": false
+},
+{
+"fid": 25,
+"best": "skip",
+"ok": [],
+"why": "pasted shell commands only",
+"agree": true
+},
+{
+"fid": 26,
+"best": "skip",
+"ok": [],
+"why": "pasted command with API key, no request",
+"agree": true
+},
+{
+"fid": 27,
+"best": "app-dev",
+"ok": [
+"clone-own-tool"
+],
+"why": "make dragon a Windows API app",
+"agree": true
+},
+{
+"fid": 28,
+"best": "app-dev",
+"ok": [],
+"why": "app stuck, fix",
+"agree": true
+},
+{
+"fid": 29,
+"best": "app-dev",
+"ok": [],
+"why": "add attachments, folder, balance to app",
+"agree": true
+},
+{
+"fid": 30,
+"best": "app-dev",
+"ok": [],
+"why": "show agent status and preview in app",
+"agree": true
+},
+{
+"fid": 31,
+"best": "app-dev",
+"ok": [],
+"why": "busy indicator, multiple chats in app",
+"agree": true
+},
+{
+"fid": 32,
+"best": "app-dev",
+"ok": [],
+"why": "auto-approve permissions in app",
+"agree": true
+},
+{
+"fid": 33,
+"best": "app-dev",
+"ok": [
+"self-improve"
+],
+"why": "develop the app and its capabilities",
+"agree": true
+},
+{
+"fid": 34,
+"best": "status",
+"ok": [
+"app-dev"
+],
+"why": "cannot find the program",
+"agree": true
+},
+{
+"fid": 35,
+"best": "app-dev",
+"ok": [],
+"why": "run app on Claude subscription",
+"agree": true
+},
+{
+"fid": 36,
+"best": "app-dev",
+"ok": [],
+"why": "switch billing vs subscription in app",
+"agree": true
+},
+{
+"fid": 37,
+"best": "app-dev",
+"ok": [],
+"why": "open agent count setting",
+"agree": true
+},
+{
+"fid": 38,
+"best": "app-dev",
+"ok": [],
+"why": "app to use other AI platforms' subscriptions",
+"agree": true
+},
+{
+"fid": 39,
+"best": "app-dev",
+"ok": [],
+"why": "update, develop and open app",
+"agree": true
+},
+{
+"fid": 40,
+"best": "app-dev",
+"ok": [],
+"why": "ChatGPT provider not working in app",
+"agree": true
+},
+{
+"fid": 41,
+"best": "app-dev",
+"ok": [],
+"why": "file sidebar in app",
+"agree": true
+},
+{
+"fid": 42,
+"best": "app-dev",
+"ok": [],
+"why": "fix drag and drop in app",
+"agree": true
+},
+{
+"fid": 43,
+"best": "app-dev",
+"ok": [
+"chrome-task",
+"pc-task"
+],
+"why": "add Chrome/PC control and extension to app",
+"agree": true
+},
+{
+"fid": 44,
+"best": "app-dev",
+"ok": [
+"status"
+],
+"why": "app did not update",
+"agree": true
+},
+{
+"fid": 45,
+"best": "app-dev",
+"ok": [],
+"why": "enable Antigravity in app",
+"agree": true
+},
+{
+"fid": 46,
+"best": "app-dev",
+"ok": [],
+"why": "optional blind mode in app",
+"agree": true
+},
+{
+"fid": 47,
+"best": "app-dev",
+"ok": [],
+"why": "merge chats feature in app",
+"agree": true
+},
+{
+"fid": 48,
+"best": "app-dev",
+"ok": [],
+"why": "update app",
+"agree": true
+},
+{
+"fid": 49,
+"best": "app-dev",
+"ok": [],
+"why": "use Antigravity when open",
+"agree": true
+},
+{
+"fid": 50,
+"best": "app-dev",
+"ok": [],
+"why": "model missing in app list",
+"agree": true
+},
+{
+"fid": 51,
+"best": "app-dev",
+"ok": [],
+"why": "window size control in app",
+"agree": true
+},
+{
+"fid": 52,
+"best": "app-dev",
+"ok": [],
+"why": "zero-memory mode in app",
+"agree": true
+},
+{
+"fid": 53,
+"best": "app-dev",
+"ok": [],
+"why": "update button broken",
+"agree": true
+},
+{
+"fid": 54,
+"best": "app-dev",
+"ok": [],
+"why": "update app, explain actions, fix bugs",
+"agree": true
+},
+{
+"fid": 55,
+"best": "app-dev",
+"ok": [
+"status"
+],
+"why": "does app have all capabilities now",
+"agree": false
+},
+{
+"fid": 56,
+"best": "toon",
+"ok": [
+"app-dev",
+"status"
+],
+"why": "Disney-style conversion models linked?",
+"agree": true
+},
+{
+"fid": 57,
+"best": "toon",
+"ok": [
+"app-dev"
+],
+"why": "do both toon options, link to app",
+"agree": false
+},
+{
+"fid": 58,
+"best": "none",
+"ok": [
+"re-repo",
+"status"
+],
+"why": "connectivity question about GitHub",
+"agree": false
+},
+{
+"fid": 59,
+"best": "re-repo",
+"ok": [
+"build-skill",
+"self-improve"
+],
+"why": "analyze REA repo, build super skill",
+"agree": true
+},
+{
+"fid": 60,
+"best": "re-repo",
+"ok": [
+"deep-research",
+"re-site",
+"self-improve"
+],
+"why": "analyze any needed apps/sites/repos",
+"agree": true
+},
+{
+"fid": 61,
+"best": "re-repo",
+"ok": [
+"build-skill",
+"self-improve"
+],
+"why": "continue repo analysis",
+"agree": true
+},
+{
+"fid": 62,
+"best": "build-skill",
+"ok": [
+"draw-math"
+],
+"why": "new math/physics skill for montage",
+"agree": true
+},
+{
+"fid": 63,
+"best": "self-improve",
+"ok": [
+"app-dev",
+"build-skill",
+"clone-own-tool"
+],
+"why": "focus on cloud browser and downloader",
+"agree": false
+},
+{
+"fid": 64,
+"best": "self-improve",
+"ok": [
+"app-dev",
+"build-skill",
+"ship"
+],
+"why": "upgrade attached dragon zip",
+"agree": true
+},
+{
+"fid": 65,
+"best": "app-dev",
+"ok": [
+"status"
+],
+"why": "were RE tools added to app",
+"agree": false
+},
+{
+"fid": 66,
+"best": "app-dev",
+"ok": [],
+"why": "selectable analysis tools in app",
+"agree": true
+},
+{
+"fid": 67,
+"best": "app-dev",
+"ok": [
+"ship"
+],
+"why": "update version, put on desktop",
+"agree": true
+},
+{
+"fid": 68,
+"best": "app-dev",
+"ok": [],
+"why": "fix app problems",
+"agree": true
+},
+{
+"fid": 69,
+"best": "app-dev",
+"ok": [],
+"why": "app not working",
+"agree": true
+},
+{
+"fid": 70,
+"best": "app-dev",
+"ok": [],
+"why": "voice input and RE tools in app",
+"agree": true
+},
+{
+"fid": 71,
+"best": "ship",
+"ok": [
+"status"
+],
+"why": "send skills library as zip",
+"agree": true
+},
+{
+"fid": 72,
+"best": "ship",
+"ok": [],
+"why": "upload file and give link",
+"agree": true
+},
+{
+"fid": 73,
+"best": "excel-pro",
+"ok": [
+"reconcile"
+],
+"why": "prepare report from statement xlsx",
+"agree": false
+},
+{
+"fid": 74,
+"best": "pc-task",
+"ok": [
+"chrome-task"
+],
+"why": "browser tabs behavior help",
+"agree": false
+},
+{
+"fid": 75,
+"best": "pc-task",
+"ok": [
+"chrome-task",
+"deep-research",
+"none"
+],
+"why": "explain Firefox",
+"agree": true
+},
+{
+"fid": 76,
+"best": "pc-task",
+"ok": [
+"chrome-task",
+"none"
+],
+"why": "how to rename a tab",
+"agree": false
+},
+{
+"fid": 77,
+"best": "pc-task",
+"ok": [
+"chrome-task",
+"none"
+],
+"why": "restore tabs on startup",
+"agree": false
+},
+{
+"fid": 78,
+"best": "pc-task",
+"ok": [
+"chrome-task"
+],
+"why": "persistent browser fix",
+"agree": false
+},
+{
+"fid": 79,
+"best": "none",
+"ok": [],
+"why": "ok acknowledgement",
+"agree": true
+},
+{
+"fid": 80,
+"best": "motion-code",
+"ok": [],
+"why": "make motion graphics animation",
+"agree": true
+},
+{
+"fid": 81,
+"best": "status",
+"ok": [],
+"why": "done?",
+"agree": true
+},
+{
+"fid": 82,
+"best": "motion-code",
+"ok": [
+"status"
+],
+"why": "motion file not working",
+"agree": true
+},
+{
+"fid": 83,
+"best": "none",
+"ok": [],
+"why": "language preference only",
+"agree": true
+},
+{
+"fid": 84,
+"best": "think-hard",
+"ok": [
+"app-dev",
+"docs-office",
+"none"
+],
+"why": "write clear edit instructions; context unknown",
+"agree": true
+},
+{
+"fid": 85,
+"best": "reconcile",
+"ok": [],
+"why": "settlement, what is the difference",
+"agree": true
+},
+{
+"fid": 86,
+"best": "reconcile",
+"ok": [],
+"why": "where is ~200 difference",
+"agree": true
+},
+{
+"fid": 87,
+"best": "excel-pro",
+"ok": [
+"docs-office",
+"reconcile"
+],
+"why": "prettier formatting of sheet",
+"agree": true
+},
+{
+"fid": 88,
+"best": "excel-pro",
+"ok": [
+"docs-office",
+"reconcile",
+"status"
+],
+"why": "sequence numbering in sheet",
+"agree": true
+},
+{
+"fid": 89,
+"best": "excel-pro",
+"ok": [
+"docs-office",
+"reconcile"
+],
+"why": "fix sequence numbering",
+"agree": true
+},
+{
+"fid": 90,
+"best": "reconcile",
+"ok": [],
+"why": "is beneficiary present in statements",
+"agree": true
+},
+{
+"fid": 91,
+"best": "reconcile",
+"ok": [],
+"why": "did transfers arrive or bounce",
+"agree": true
+},
+{
+"fid": 92,
+"best": "reconcile",
+"ok": [],
+"why": "same for Beroya transfers",
+"agree": true
+},
+{
+"fid": 93,
+"best": "reconcile",
+"ok": [],
+"why": "when was the loan",
+"agree": true
+},
+{
+"fid": 94,
+"best": "reconcile",
+"ok": [
+"excel-pro",
+"think-hard"
+],
+"why": "professional review of statements",
+"agree": true
+},
+{
+"fid": 95,
+"best": "reconcile",
+"ok": [],
+"why": "yes, match it",
+"agree": true
+},
+{
+"fid": 96,
+"best": "reconcile",
+"ok": [],
+"why": "yes, match it",
+"agree": true
+},
+{
+"fid": 97,
+"best": "none",
+"ok": [
+"chrome-task"
+],
+"why": "logged in notice",
+"agree": true
+},
+{
+"fid": 98,
+"best": "none",
+"ok": [
+"status"
+],
+"why": "memory probe test",
+"agree": true
+},
+{
+"fid": 99,
+"best": "none",
+"ok": [],
+"why": "one-word test",
+"agree": true
+},
+{
+"fid": 100,
+"best": "none",
+"ok": [],
+"why": "one-word test",
+"agree": true
+},
+{
+"fid": 101,
+"best": "paid-gen",
+"ok": [
+"cloud-render",
+"none"
+],
+"why": "check Higgsfield balance",
+"agree": true
+},
+{
+"fid": 102,
+"best": "pc-task",
+"ok": [
+"motion-code",
+"none"
+],
+"why": "ffmpeg test video smoke test",
+"agree": true
+},
+{
+"fid": 103,
+"best": "status",
+"ok": [
+"none"
+],
+"why": "name of created file",
+"agree": true
+},
+{
+"fid": 104,
+"best": "build-skill",
+"ok": [
+"blender-3d",
+"clone-own-tool",
+"self-improve"
+],
+"why": "Blender, downloader, hidden browser skills",
+"agree": true
+},
+{
+"fid": 105,
+"best": "build-skill",
+"ok": [
+"none",
+"re-repo",
+"self-improve"
+],
+"why": "approval during skill build",
+"agree": false
+},
+{
+"fid": 106,
+"best": "deep-research",
+"ok": [
+"download"
+],
+"why": "find 500 HQ stock media sites",
+"agree": true
+},
+{
+"fid": 107,
+"best": "cloud-render",
+"ok": [
+"none",
+"web-build"
+],
+"why": "bare 'cloud server', ambiguous",
+"agree": true
+},
+{
+"fid": 108,
+"best": "web-build",
+"ok": [
+"deep-research",
+"re-site",
+"site-style"
+],
+"why": "build car parts site like partslink24",
+"agree": true
+},
+{
+"fid": 109,
+"best": "web-build",
+"ok": [
+"re-site"
+],
+"why": "3D car parts database site",
+"agree": true
+},
+{
+"fid": 110,
+"best": "reel-montage",
+"ok": [
+"download",
+"lyric-quran",
+"trend"
+],
+"why": "song montage with Riyadh footage",
+"agree": true
+},
+{
+"fid": 111,
+"best": "reconcile",
+"ok": [],
+"why": "match two statements",
+"agree": true
+},
+{
+"fid": 112,
+"best": "none",
+"ok": [
+"reconcile"
+],
+"why": "no, enough",
+"agree": false
+},
+{
+"fid": 113,
+"best": "reconcile",
+"ok": [
+"excel-pro"
+],
+"why": "international transfers and returns table",
+"agree": true
+},
+{
+"fid": 114,
+"best": "reconcile",
+"ok": [],
+"why": "which statements needed",
+"agree": true
+},
+{
+"fid": 115,
+"best": "reconcile",
+"ok": [],
+"why": "statements per account and company",
+"agree": true
+},
+{
+"fid": 116,
+"best": "reconcile",
+"ok": [],
+"why": "Beroya invoices and statements",
+"agree": true
+},
+{
+"fid": 117,
+"best": "reconcile",
+"ok": [
+"excel-pro"
+],
+"why": "transfers, returns, net, invoices sheets",
+"agree": true
+},
+{
+"fid": 118,
+"best": "reconcile",
+"ok": [
+"none"
+],
+"why": "answer within reconciliation",
+"agree": true
+},
+{
+"fid": 119,
+"best": "excel-pro",
+"ok": [
+"reconcile"
+],
+"why": "improve workbook formatting",
+"agree": false
+},
+{
+"fid": 120,
+"best": "reconcile",
+"ok": [
+"excel-pro"
+],
+"why": "intercompany transfers to supplier table",
+"agree": true
+},
+{
+"fid": 121,
+"best": "reconcile",
+"ok": [
+"excel-pro"
+],
+"why": "update reconciliation",
+"agree": true
+},
+{
+"fid": 122,
+"best": "reconcile",
+"ok": [],
+"why": "returned transfers re-sent?",
+"agree": true
+},
+{
+"fid": 123,
+"best": "reconcile",
+"ok": [
+"excel-pro"
+],
+"why": "table tracing returned transfers",
+"agree": true
+},
+{
+"fid": 124,
+"best": "reconcile",
+"ok": [
+"excel-pro"
+],
+"why": "show in table",
+"agree": true
+},
+{
+"fid": 125,
+"best": "reconcile",
+"ok": [],
+"why": "trace re-sent returned transfers",
+"agree": true
+},
+{
+"fid": 126,
+"best": "reconcile",
+"ok": [],
+"why": "yes, add it",
+"agree": true
+},
+{
+"fid": 127,
+"best": "reconcile",
+"ok": [],
+"why": "direct and intermediary transfers to Beroya",
+"agree": true
+},
+{
+"fid": 128,
+"best": "reconcile",
+"ok": [],
+"why": "yes that one",
+"agree": true
+},
+{
+"fid": 129,
+"best": "reconcile",
+"ok": [
+"excel-pro",
+"status"
+],
+"why": "save workbook as Noon",
+"agree": true
+},
+{
+"fid": 130,
+"best": "reconcile",
+"ok": [],
+"why": "transfer dates for beneficiary",
+"agree": true
+},
+{
+"fid": 131,
+"best": "toon",
+"ok": [],
+"why": "model to convert video to Disney",
+"agree": true
+},
+{
+"fid": 132,
+"best": "skip",
+"ok": [],
+"why": "only system control preamble, no request",
+"agree": true
+},
+{
+"fid": 133,
+"best": "cloud-render",
+"ok": [
+"deep-research"
+],
+"why": "Higgsfield free render capabilities",
+"agree": true
+},
+{
+"fid": 134,
+"best": "status",
+"ok": [],
+"why": "where are the skills you made",
+"agree": true
+},
+{
+"fid": 135,
+"best": "clone-own-tool",
+"ok": [
+"app-to-skill",
+"re-file"
+],
+"why": "check folder, existing app (virtual camera)",
+"agree": true
+},
+{
+"fid": 136,
+"best": "clone-own-tool",
+"ok": [],
+"why": "virtual camera to Android live",
+"agree": true
+},
+{
+"fid": 137,
+"best": "clone-own-tool",
+"ok": [],
+"why": "phone sees virtual camera",
+"agree": true
+},
+{
+"fid": 138,
+"best": "clone-own-tool",
+"ok": [],
+"why": "Android emulator with our camera",
+"agree": true
+},
+{
+"fid": 139,
+"best": "clone-own-tool",
+"ok": [],
+"why": "lightweight emulator inside own app",
+"agree": true
+},
+{
+"fid": 140,
+"best": "clone-own-tool",
+"ok": [
+"download"
+],
+"why": "download whatever needed",
+"agree": true
+},
+{
+"fid": 141,
+"best": "status",
+"ok": [],
+"why": "done?",
+"agree": true
+},
+{
+"fid": 142,
+"best": "clone-own-tool",
+"ok": [],
+"why": "emulator must see camera",
+"agree": true
+},
+{
+"fid": 143,
+"best": "clone-own-tool",
+"ok": [],
+"why": "bug report in own app",
+"agree": true
+},
+{
+"fid": 144,
+"best": "clone-own-tool",
+"ok": [],
+"why": "fix the problem",
+"agree": true
+},
+{
+"fid": 145,
+"best": "clone-own-tool",
+"ok": [
+"ship"
+],
+"why": "send full app",
+"agree": false
+},
+{
+"fid": 146,
+"best": "clone-own-tool",
+"ok": [
+"pc-task"
+],
+"why": "install and run it",
+"agree": true
+},
+{
+"fid": 147,
+"best": "clone-own-tool",
+"ok": [
+"pc-task"
+],
+"why": "try running it",
+"agree": true
+},
+{
+"fid": 148,
+"best": "clone-own-tool",
+"ok": [],
+"why": "emulator did not open",
+"agree": true
+},
+{
+"fid": 149,
+"best": "clone-own-tool",
+"ok": [],
+"why": "app very slow",
+"agree": true
+},
+{
+"fid": 150,
+"best": "clone-own-tool",
+"ok": [],
+"why": "develop emulator, ensure TikTok",
+"agree": true
+},
+{
+"fid": 151,
+"best": "clone-own-tool",
+"ok": [],
+"why": "same problem, try another emulator",
+"agree": true
+},
+{
+"fid": 152,
+"best": "clone-own-tool",
+"ok": [],
+"why": "fix virtual camera link",
+"agree": true
+},
+{
+"fid": 153,
+"best": "app-dev",
+"ok": [
+"self-improve"
+],
+"why": "give desktop app all your capabilities",
+"agree": true
+},
+{
+"fid": 154,
+"best": "app-dev",
+"ok": [
+"pc-task"
+],
+"why": "add PC control to app",
+"agree": true
+},
+{
+"fid": 155,
+"best": "app-dev",
+"ok": [
+"app-to-skill",
+"build-skill"
+],
+"why": "app feature: file to saved skill",
+"agree": true
+},
+{
+"fid": 156,
+"best": "self-improve",
+"ok": [
+"build-skill",
+"ship"
+],
+"why": "upgrade dragon zip with launcher",
+"agree": true
+},
+{
+"fid": 157,
+"best": "status",
+"ok": [],
+"why": "did you develop it, where",
+"agree": true
+},
+{
+"fid": 158,
+"best": "ship",
+"ok": [
+"pc-task",
+"status"
+],
+"why": "desktop folder with 1990 build",
+"agree": false
+},
+{
+"fid": 159,
+"best": "ship",
+"ok": [
+"pc-task"
+],
+"why": "save file on desktop as 1990",
+"agree": false
+},
+{
+"fid": 160,
+"best": "cloud-render",
+"ok": [
+"app-dev",
+"build-skill"
+],
+"why": "skill using Higgsfield free render",
+"agree": false
+},
+{
+"fid": 161,
+"best": "app-dev",
+"ok": [
+"cloud-render",
+"paid-gen"
+],
+"why": "add Higgsfield MCP to app",
+"agree": true
+},
+{
+"fid": 162,
+"best": "nature-palette",
+"ok": [
+"app-dev",
+"image-identity",
+"self-improve"
+],
+"why": "bird photo palette to identity skill",
+"agree": false
+},
+{
+"fid": 163,
+"best": "app-dev",
+"ok": [
+"build-skill",
+"nature-palette"
+],
+"why": "add palette skill into app",
+"agree": false
+},
+{
+"fid": 164,
+"best": "ship",
+"ok": [],
+"why": "zip all dragon capabilities on desktop",
+"agree": true
+},
+{
+"fid": 165,
+"best": "self-improve",
+"ok": [
+"pc-task",
+"ship",
+"status"
+],
+"why": "open developed dragon skill",
+"agree": false
+},
+{
+"fid": 166,
+"best": "status",
+"ok": [],
+"why": "did you make White Dragon",
+"agree": true
+},
+{
+"fid": 167,
+"best": "app-dev",
+"ok": [
+"audit-install",
+"build-skill"
+],
+"why": "install it as skill in app",
+"agree": true
+},
+{
+"fid": 168,
+"best": "self-improve",
+"ok": [
+"app-dev",
+"app-to-skill",
+"build-skill",
+"re-file"
+],
+"why": "build Red Dragon from analyzed folder",
+"agree": true
+},
+{
+"fid": 169,
+"best": "app-dev",
+"ok": [
+"self-improve"
+],
+"why": "add 200 skills to app",
+"agree": true
+},
+{
+"fid": 170,
+"best": "app-dev",
+"ok": [
+"pc-task"
+],
+"why": "reopen app after update",
+"agree": true
+},
+{
+"fid": 171,
+"best": "app-dev",
+"ok": [
+"pc-task"
+],
+"why": "open Red Dragon app",
+"agree": false
+},
+{
+"fid": 172,
+"best": "app-dev",
+"ok": [
+"self-improve"
+],
+"why": "develop app, rename Red Dragon",
+"agree": true
+},
+{
+"fid": 173,
+"best": "status",
+"ok": [
+"app-dev"
+],
+"why": "were 200 skills added",
+"agree": true
+},
+{
+"fid": 174,
+"best": "app-dev",
+"ok": [],
+"why": "fix update mechanism",
+"agree": true
+},
+{
+"fid": 175,
+"best": "app-dev",
+"ok": [
+"status"
+],
+"why": "how to enable 200 skills",
+"agree": true
+},
+{
+"fid": 176,
+"best": "app-dev",
+"ok": [],
+"why": "only 43 skills showing",
+"agree": true
+},
+{
+"fid": 177,
+"best": "app-dev",
+"ok": [
+"ship"
+],
+"why": "apply update, zip app files",
+"agree": false
+},
+{
+"fid": 178,
+"best": "app-dev",
+"ok": [],
+"why": "multi-select skills in app",
+"agree": true
+},
+{
+"fid": 179,
+"best": "app-dev",
+"ok": [],
+"why": "select all skills in app",
+"agree": true
+},
+{
+"fid": 180,
+"best": "app-dev",
+"ok": [],
+"why": "selection list bug",
+"agree": true
+},
+{
+"fid": 181,
+"best": "app-dev",
+"ok": [
+"re-repo",
+"self-improve"
+],
+"why": "add 500 repos and skills to app",
+"agree": true
+},
+{
+"fid": 182,
+"best": "app-dev",
+"ok": [],
+"why": "app shows its thinking",
+"agree": true
+},
+{
+"fid": 183,
+"best": "app-dev",
+"ok": [
+"self-improve"
+],
+"why": "update incomplete, fix",
+"agree": true
+},
+{
+"fid": 184,
+"best": "app-dev",
+"ok": [],
+"why": "fix update problem",
+"agree": true
+},
+{
+"fid": 185,
+"best": "app-dev",
+"ok": [],
+"why": "fix it",
+"agree": true
+},
+{
+"fid": 186,
+"best": "app-dev",
+"ok": [
+"self-improve"
+],
+"why": "improve updater script",
+"agree": true
+},
+{
+"fid": 187,
+"best": "re-file",
+"ok": [
+"none"
+],
+"why": "run REA binary_session, explain tools",
+"agree": true
+},
+{
+"fid": 188,
+"best": "skip",
+"ok": [
+"re-file"
+],
+"why": "bare folder path only",
+"agree": true
+},
+{
+"fid": 189,
+"best": "clone-own-tool",
+"ok": [],
+"why": "own app with recording, download, player",
+"agree": true
+},
+{
+"fid": 190,
+"best": "clone-own-tool",
+"ok": [],
+"why": "all features",
+"agree": true
+},
+{
+"fid": 191,
+"best": "clone-own-tool",
+"ok": [
+"status"
+],
+"why": "how to run own app",
+"agree": true
+},
+{
+"fid": 192,
+"best": "clone-own-tool",
+"ok": [
+"status"
+],
+"why": "login details for own app",
+"agree": true
+},
+{
+"fid": 193,
+"best": "clone-own-tool",
+"ok": [],
+"why": "IPTV login used in own app",
+"agree": true
+},
+{
+"fid": 194,
+"best": "clone-own-tool",
+"ok": [],
+"why": "live recording, multi-view",
+"agree": true
+},
+{
+"fid": 195,
+"best": "clone-own-tool",
+"ok": [
+"app-dev"
+],
+"why": "update own app on desktop",
+"agree": true
+},
+{
+"fid": 196,
+"best": "clone-own-tool",
+"ok": [],
+"why": "save recordings folder",
+"agree": true
+},
+{
+"fid": 197,
+"best": "clone-own-tool",
+"ok": [],
+"why": "search by section, summaries",
+"agree": true
+},
+{
+"fid": 198,
+"best": "clone-own-tool",
+"ok": [
+"web-build"
+],
+"why": "web version for mobile",
+"agree": true
+},
+{
+"fid": 199,
+"best": "clone-own-tool",
+"ok": [],
+"why": "tap controls on player",
+"agree": true
+},
+{
+"fid": 200,
+"best": "clone-own-tool",
+"ok": [
+"web-build"
+],
+"why": "website with same features for iPhone",
+"agree": false
+},
+{
+"fid": 201,
+"best": "status",
+"ok": [],
+"why": "where is the link",
+"agree": true
+},
+{
+"fid": 202,
+"best": "status",
+"ok": [
+"clone-own-tool",
+"pc-task",
+"web-build"
+],
+"why": "put link in desktop text file",
+"agree": false
+},
+{
+"fid": 203,
+"best": "clone-own-tool",
+"ok": [
+"ship",
+"web-build"
+],
+"why": "host site on cloud server",
+"agree": false
+},
+{
+"fid": 204,
+"best": "clone-own-tool",
+"ok": [
+"re-site",
+"web-build"
+],
+"why": "pull content from other site",
+"agree": true
+},
+{
+"fid": 205,
+"best": "clone-own-tool",
+"ok": [
+"download",
+"web-build"
+],
+"why": "extract video from player pages",
+"agree": true
+},
+{
+"fid": 206,
+"best": "clone-own-tool",
+"ok": [
+"download"
+],
+"why": "download feature broken",
+"agree": true
+},
+{
+"fid": 207,
+"best": "build-skill",
+"ok": [
+"app-to-skill",
+"re-repo",
+"self-improve"
+],
+"why": "rework kosif-tool skills with REA",
+"agree": false
+},
+{
+"fid": 208,
+"best": "re-site",
+"ok": [
+"site-style",
+"web-build"
+],
+"why": "analyze artifact and Apple site",
+"agree": true
+},
+{
+"fid": 209,
+"best": "re-site",
+"ok": [
+"pc-task",
+"ship",
+"status"
+],
+"why": "save analysis folder on desktop",
+"agree": true
+},
+{
+"fid": 210,
+"best": "site-style",
+"ok": [
+"re-site",
+"think-hard",
+"web-build"
+],
+"why": "propose colors, fonts for artifact",
+"agree": true
+},
+{
+"fid": 211,
+"best": "web-build",
+"ok": [
+"chrome-task",
+"ship"
+],
+"why": "can you publish and edit live",
+"agree": true
+},
+{
+"fid": 212,
+"best": "site-style",
+"ok": [
+"web-build"
+],
+"why": "apply Apple colors and harmony",
+"agree": true
+},
+{
+"fid": 213,
+"best": "site-style",
+"ok": [
+"re-site",
+"web-build"
+],
+"why": "use REA in that work",
+"agree": true
+},
+{
+"fid": 214,
+"best": "site-style",
+"ok": [
+"pc-task",
+"ship",
+"status",
+"web-build"
+],
+"why": "put full file on desktop",
+"agree": true
+},
+{
+"fid": 215,
+"best": "site-style",
+"ok": [
+"re-site"
+],
+"why": "Apple fonts, theme, transitions via REA",
+"agree": true
+},
+{
+"fid": 216,
+"best": "site-style",
+"ok": [
+"docs-office",
+"pc-task"
+],
+"why": "save as desktop file 'style'",
+"agree": true
+},
+{
+"fid": 217,
+"best": "app-to-skill",
+"ok": [
+"re-file"
+],
+"why": "REA analyze app, make skill with protocol",
+"agree": true
+},
+{
+"fid": 218,
+"best": "app-to-skill",
+"ok": [
+"re-file"
+],
+"why": "analyze app folder, make Claude skill",
+"agree": true
+},
+{
+"fid": 219,
+"best": "app-to-skill",
+"ok": [
+"build-skill"
+],
+"why": "add all",
+"agree": true
+},
+{
+"fid": 220,
+"best": "app-to-skill",
+"ok": [
+"build-skill"
+],
+"why": "finish the skill",
+"agree": true
+},
+{
+"fid": 221,
+"best": "pc-task",
+"ok": [
+"app-dev",
+"none"
+],
+"why": "reconnect new Claude account",
+"agree": true
+},
+{
+"fid": 222,
+"best": "self-improve",
+"ok": [
+"none",
+"re-repo",
+"status"
+],
+"why": "do you see superpower and dragon repos",
+"agree": false
+},
+{
+"fid": 223,
+"best": "self-improve",
+"ok": [
+"build-skill"
+],
+"why": "merge all skills into one super skill",
+"agree": true
+},
+{
+"fid": 224,
+"best": "self-improve",
+"ok": [
+"audit-install",
+"build-skill",
+"pc-task"
+],
+"why": "install merged super skill",
+"agree": true
+},
+{
+"fid": 225,
+"best": "self-improve",
+"ok": [
+"build-skill"
+],
+"why": "continue super skill development",
+"agree": true
+}
+]

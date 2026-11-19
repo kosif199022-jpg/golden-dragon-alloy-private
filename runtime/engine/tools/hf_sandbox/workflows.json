@@ -1,0 +1,384 @@
+{
+  "schema": "kosif.higgsfield.workflow-catalog.v1",
+  "as_of": "2026-11-11",
+  "source": "user-supplied Claude Higgsfield Sandbox read-only inspection report (not independently reproduced)",
+  "scope": "metadata and routing only; no Higgsfield service calls or workflow execution",
+  "cost_policy": "No credit debit observed in some 2026-11-10 tests is not a guarantee; require price and owner approval for any potentially billable service. XL startup cost unverified.",
+  "readiness_legend": {
+    "dependency_ready": "Dependencies reported present; workflow not executed",
+    "partial": "Some important functionality unavailable/unverified",
+    "needs_setup": "Additional configuration before execution"
+  },
+  "workflows": [
+    {
+      "name": "color-grade",
+      "purpose": "تلوين صور وفيديو ومطابقة مرجع وتصدير LUT",
+      "entrypoints": [
+        "grade.py",
+        "video.py",
+        "build_look.py",
+        "compare.py",
+        "sheet.py"
+      ],
+      "requires": [
+        "numpy",
+        "opencv",
+        "ffmpeg"
+      ],
+      "readiness": "dependency_ready",
+      "limits": "التشغيل الفعلي لم يُختبر في التقرير",
+      "keywords": [
+        "تلوين",
+        "لون",
+        "سينمائي",
+        "color",
+        "grade",
+        "lut",
+        "مظهر"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": false
+    },
+    {
+      "name": "narration",
+      "purpose": "قياس كلام TTS ودمج مقدم Green Screen",
+      "entrypoints": [
+        "speech_metrics.sh",
+        "presenter_composite.sh"
+      ],
+      "requires": [
+        "ffmpeg",
+        "imagemagick"
+      ],
+      "readiness": "dependency_ready",
+      "limits": "يحتاج ملف صوت/فيديو من المستخدم أو مصدر مرخّص",
+      "keywords": [
+        "تعليق",
+        "صوت",
+        "سرد",
+        "narration",
+        "tts",
+        "دوبلاج"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": false
+    },
+    {
+      "name": "video-montage",
+      "purpose": "تفريغ صوت وترجمة مضبوطة بالكلمة وحرق كابشن",
+      "entrypoints": [
+        "audio_to_captions.py",
+        "make_captions.py",
+        "burn_caps_clean.sh",
+        "subtitle_paper_burn.py"
+      ],
+      "requires": [
+        "faster-whisper",
+        "pillow",
+        "ffmpeg"
+      ],
+      "readiness": "dependency_ready",
+      "limits": "راجع موديل Whisper والخطوط العربية؛ مسار OpenAI STT اختياري وقد يكون مدفوعًا",
+      "keywords": [
+        "ترجمة",
+        "كابشن",
+        "نص",
+        "كلمة",
+        "subtitles",
+        "caption",
+        "lyrics",
+        "دعاء"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": false
+    },
+    {
+      "name": "manga-engine",
+      "purpose": "إعداد صفحات مانغا وبرومبتات ولا يقوم بالتوليد",
+      "entrypoints": [
+        "manga.py"
+      ],
+      "requires": [
+        "python-stdlib"
+      ],
+      "readiness": "dependency_ready",
+      "limits": "الصور النهائية تحتاج مصدرًا منفصلًا وقد يتطلب كريدت",
+      "keywords": [
+        "مانجا",
+        "مانغا",
+        "كوميكس",
+        "manga",
+        "comic",
+        "storyboard"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": true
+    },
+    {
+      "name": "thumbnail-generation",
+      "purpose": "كتابة نص على صورة مصغرة",
+      "entrypoints": [
+        "bake_text_overlay.mjs"
+      ],
+      "requires": [
+        "playwright-node",
+        "chromium"
+      ],
+      "readiness": "dependency_ready",
+      "limits": "لابد من توفير صورة مدخل؛ التشغيل لم يختبر",
+      "keywords": [
+        "ثامبنيل",
+        "مصغرة",
+        "thumbnail",
+        "بوستر",
+        "عنوان",
+        "تصميم"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": false
+    },
+    {
+      "name": "ugc-video",
+      "purpose": "التقاط صورة لموقع حي وتجهيز خطة مدد إعلانية",
+      "entrypoints": [
+        "capture_site.mjs",
+        "plan_duration.py"
+      ],
+      "requires": [
+        "playwright-node",
+        "chromium"
+      ],
+      "readiness": "dependency_ready",
+      "limits": "يفتح مواقع عبر الإنترنت وقد تتطلب تصريح وصول؛ المقاطع المولدة منفصلة",
+      "keywords": [
+        "موقع",
+        "website",
+        "ugc",
+        "إعلان",
+        "capture",
+        "صفحة"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": true
+    },
+    {
+      "name": "faceless-video",
+      "purpose": "تجميع ريلز بلا وجه من مقاطع وصوت وفحص الجودة",
+      "entrypoints": [
+        "finish_video.sh",
+        "assemble_final.sh",
+        "assemble_slides.sh",
+        "validate_*.py"
+      ],
+      "requires": [
+        "ffmpeg",
+        "faster-whisper"
+      ],
+      "readiness": "dependency_ready",
+      "limits": "لا يولد الفيديو أو TTS بنفسه، ويعمل بمدخلات مرخّصة",
+      "keywords": [
+        "بدون وجه",
+        "faceless",
+        "slides",
+        "shorts",
+        "ريلز",
+        "مونتاج"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": true
+    },
+    {
+      "name": "shorts-studio",
+      "purpose": "محرك HTML إلى MP4 وتخطيط صوت وفواصل",
+      "entrypoints": [
+        "reels.py",
+        "engine/render.py"
+      ],
+      "requires": [
+        "chromium",
+        "ffmpeg",
+        "faster-whisper",
+        "pillow"
+      ],
+      "readiness": "dependency_ready",
+      "limits": "رندر محلي يحتاج مدخلات؛ يعتمد على موارد CPU المتاحة",
+      "keywords": [
+        "ريلز",
+        "shorts",
+        "reels",
+        "html",
+        "موشن",
+        "انيميشن",
+        "فيديو",
+        "motion"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": false
+    },
+    {
+      "name": "reel-effects",
+      "purpose": "قوالب تأثيرات Talking Head ومؤثرات HTML",
+      "entrypoints": [
+        "effects.py",
+        "render.mjs"
+      ],
+      "requires": [
+        "chromium",
+        "ffmpeg",
+        "opencv",
+        "onnxruntime"
+      ],
+      "readiness": "partial",
+      "limits": "فصل الشخصية يتطلب موديل U2-Net غير محفوظ أو خدمة remove_background مدفوعة",
+      "keywords": [
+        "مؤثرات",
+        "effects",
+        "freeze",
+        "behind",
+        "توكينج",
+        "موشن",
+        "ريلز"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": true
+    },
+    {
+      "name": "brand-asset-creation",
+      "purpose": "إنشاء هوية وكتاب علامة SVG/PPTX/PDF",
+      "entrypoints": [
+        "brandkit.py",
+        "build_brandbook.py",
+        "render_brandbook_pdf.py"
+      ],
+      "requires": [
+        "imagemagick",
+        "rsvg",
+        "libreoffice"
+      ],
+      "readiness": "partial",
+      "limits": "الكود يستخدم magick غير المثبت؛ بديل convert لم يتم اختباره",
+      "keywords": [
+        "براند",
+        "هوية",
+        "شعار",
+        "لوجو",
+        "brand",
+        "logo",
+        "design"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": false
+    },
+    {
+      "name": "drama-ads",
+      "purpose": "فحوصات وتجميع الإعلانات الدرامية",
+      "entrypoints": [
+        "checks.py",
+        "assemble.py",
+        "song_times.py",
+        "stems.py"
+      ],
+      "requires": [
+        "ffmpeg",
+        "faster-whisper"
+      ],
+      "readiness": "partial",
+      "limits": "Demucs غير موجود؛ فصل مسارات الموسيقى غير متاح بدون إعداد",
+      "keywords": [
+        "دراما",
+        "drama",
+        "إعلانات",
+        "اعلان",
+        "film"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": true
+    },
+    {
+      "name": "microdrama-ads",
+      "purpose": "نسخة مطابقة لـ drama-ads وفق diff في التقرير",
+      "entrypoints": [
+        "checks.py",
+        "assemble.py",
+        "song_times.py",
+        "stems.py"
+      ],
+      "requires": [
+        "ffmpeg",
+        "faster-whisper"
+      ],
+      "readiness": "partial",
+      "limits": "نفس قيود drama-ads؛ لا تُحسب كقدرة مختلفة",
+      "keywords": [
+        "microdrama",
+        "دراما قصيرة"
+      ],
+      "alias_of": "drama-ads",
+      "paid_handoff_possible": true
+    },
+    {
+      "name": "katana",
+      "purpose": "تحليل مراجع وكمبوزيتر Canvas والتسليم ودفتر إنفاق",
+      "entrypoints": [
+        "rr.sh",
+        "fetch_ref.py",
+        "analyze_ref.py",
+        "comp/render.py",
+        "matte.py",
+        "deliver.py",
+        "ledger.py"
+      ],
+      "requires": [
+        "ffmpeg",
+        "chromium",
+        "yt-dlp",
+        "opencv",
+        "onnxruntime",
+        "librosa"
+      ],
+      "readiness": "needs_setup",
+      "limits": "يحتاج تعليمات get_workflow_instructions وrr.sh؛ بعض الخطوات تستدعي توليد مدفوعًا",
+      "keywords": [
+        "كاتانا",
+        "katana",
+        "مرجع",
+        "reference",
+        "سينمائي",
+        "مونتاج",
+        "deliver"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": true
+    },
+    {
+      "name": "website-builder-flow",
+      "purpose": "خامات PBR وبعض أدوات GLB و3D ونشر",
+      "entrypoints": [
+        "pipeline.py",
+        "glb_*.py",
+        "rig_transfer.py",
+        "publish-app.mjs"
+      ],
+      "requires": [
+        "numpy",
+        "pillow",
+        "blender-bpy",
+        "ENGINE_URL",
+        "PUBLISH_TOKEN"
+      ],
+      "readiness": "partial",
+      "limits": "خامات PBR متاحة؛ Blender غير موجود، والنشر يحتاج مفاتيح/موافقة",
+      "keywords": [
+        "3d",
+        "blender",
+        "pbr",
+        "webgl",
+        "موقع",
+        "خامات",
+        "موقع 3d"
+      ],
+      "alias_of": null,
+      "paid_handoff_possible": true
+    }
+  ]
+}

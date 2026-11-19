@@ -1,0 +1,48 @@
+{
+ "poses": {
+  "stand": {"torso": 0, "head": 0, "arm_a": 8, "elbow_a": 6, "arm_b": -8, "elbow_b": -6, "leg_a": 4, "knee_a": 0, "leg_b": -4, "knee_b": 0},
+  "arms_up": {"torso": 0, "head": -10, "arm_a": 160, "elbow_a": 8, "arm_b": -160, "elbow_b": -8, "leg_a": 6, "knee_a": 0, "leg_b": -6, "knee_b": 0},
+  "reach_up": {"torso": -6, "head": -25, "arm_a": 172, "elbow_a": 0, "arm_b": 35, "elbow_b": 10, "leg_a": 8, "knee_a": 0, "leg_b": -14, "knee_b": 18},
+  "offer": {"torso": 8, "head": 10, "arm_a": 80, "elbow_a": 10, "arm_b": 70, "elbow_b": 20, "leg_a": 12, "knee_a": 0, "leg_b": -10, "knee_b": 0},
+  "lunge": {"torso": 12, "head": 0, "arm_a": 105, "elbow_a": 0, "arm_b": -110, "elbow_b": 0, "leg_a": 45, "knee_a": -45, "leg_b": -38, "knee_b": 0},
+  "dance_arc": {"torso": -16, "head": -15, "arm_a": 150, "elbow_a": 25, "arm_b": -105, "elbow_b": -10, "leg_a": 12, "knee_a": 0, "leg_b": -70, "knee_b": 45},
+  "spin": {"torso": 4, "head": 5, "arm_a": 95, "elbow_a": 0, "arm_b": -95, "elbow_b": 0, "leg_a": 0, "knee_a": 0, "leg_b": 20, "knee_b": -60},
+  "crouch": {"torso": 35, "head": 15, "arm_a": 40, "elbow_a": 30, "arm_b": 20, "elbow_b": 40, "leg_a": 85, "knee_a": -110, "leg_b": 60, "knee_b": -95},
+  "kneel": {"torso": 10, "head": 20, "arm_a": 60, "elbow_a": 40, "arm_b": 30, "elbow_b": 50, "leg_a": 85, "knee_a": -85, "leg_b": -10, "knee_b": -80},
+  "bow": {"torso": 70, "head": 10, "arm_a": -60, "elbow_a": 0, "arm_b": -70, "elbow_b": 0, "leg_a": 2, "knee_a": 0, "leg_b": -2, "knee_b": 0},
+  "frond": {"torso": 58, "head": 20, "arm_a": 140, "elbow_a": 45, "arm_b": 115, "elbow_b": -35, "leg_a": -25, "knee_a": 0, "leg_b": -45, "knee_b": 0},
+  "trunk": {"torso": 0, "head": 0, "arm_a": 150, "elbow_a": -40, "arm_b": -150, "elbow_b": 40, "leg_a": 2, "knee_a": 0, "leg_b": -2, "knee_b": 0},
+  "hull": {"torso": 90, "head": -30, "arm_a": -5, "elbow_a": 0, "arm_b": -15, "elbow_b": 0, "leg_a": -90, "knee_a": 0, "leg_b": -96, "knee_b": 0},
+  "sail": {"torso": -4, "head": -20, "arm_a": 176, "elbow_a": 0, "arm_b": 125, "elbow_b": -25, "leg_a": 6, "knee_a": 0, "leg_b": -6, "knee_b": 0},
+  "carry": {"torso": -4, "head": -15, "arm_a": 165, "elbow_a": -25, "arm_b": -165, "elbow_b": 25, "leg_a": 10, "knee_a": 0, "leg_b": -10, "knee_b": 0},
+  "embrace": {"torso": 14, "head": 18, "arm_a": 85, "elbow_a": 50, "arm_b": 70, "elbow_b": 60, "leg_a": 10, "knee_a": 0, "leg_b": -8, "knee_b": 0}
+ },
+ "costumes": {
+  "plain": {"head": 0.068, "torso": 0.3, "upper_arm": 0.17, "forearm": 0.16, "thigh": 0.25, "shin": 0.245, "w_chest": 0.155, "w_hip": 0.125, "w_limb": 0.062},
+  "dress": {"head": 0.066, "torso": 0.29, "upper_arm": 0.165, "forearm": 0.155, "thigh": 0.25, "shin": 0.245, "w_chest": 0.13, "w_hip": 0.115, "w_limb": 0.05},
+  "child": {"head": 0.09, "torso": 0.28, "upper_arm": 0.15, "forearm": 0.14, "thigh": 0.22, "shin": 0.21, "w_chest": 0.15, "w_hip": 0.13, "w_limb": 0.066},
+  "elder": {"head": 0.068, "torso": 0.29, "upper_arm": 0.165, "forearm": 0.155, "thigh": 0.25, "shin": 0.24, "w_chest": 0.16, "w_hip": 0.13, "w_limb": 0.06}
+ },
+ "backdrops": {
+  "dawn-green": {"stops": [[0, [34, 52, 140]], [0.42, [104, 150, 214]], [0.72, [178, 214, 70]], [1, [64, 120, 38]]], "clouds": 0.1},
+  "night-blue": {"stops": [[0, [30, 20, 120]], [0.45, [108, 160, 226]], [1, [150, 186, 250]]], "clouds": 0.12},
+  "teal-mist": {"stops": [[0, [46, 76, 118]], [0.35, [74, 114, 138]], [0.65, [96, 144, 136]], [1, [140, 184, 182]]], "clouds": 0.14},
+  "crimson-spot": {"stops": [[0, [70, 6, 34]], [1, [110, 12, 40]]], "clouds": 0.05, "spot": {"x": 0.5, "y": 0.42, "r": 0.42, "color": [236, 238, 255]}},
+  "desert-amber": {"stops": [[0, [60, 30, 90]], [0.4, [214, 110, 70]], [0.7, [250, 196, 110]], [1, [220, 150, 80]]], "clouds": 0.08},
+  "moon-indigo": {"stops": [[0, [10, 12, 60]], [0.5, [40, 48, 128]], [1, [88, 110, 190]]], "clouds": 0.09, "spot": {"x": 0.68, "y": 0.22, "r": 0.2, "color": [210, 220, 255]}}
+ },
+ "techniques": {
+  "body-build": "several bodies lock together into one object (tree, boat, building, animal)",
+  "depth-scale": "an actor moves toward the lamp: the shadow grows and softens (depth > 0.3 somewhere)",
+  "iris": "a shaped light window (circle, heart, star, arch) opens or closes the scene",
+  "spotlight": "a radial pool of light isolates one or two figures",
+  "walk-in": "a figure enters from the edge with a walk cycle",
+  "morph": "the same bodies change pose to turn one picture into the next without a cut",
+  "prop-cutout": "a prop with punched holes lets light through (windows, lantern, stars)",
+  "blackout": "the lamp dims to the unlit cloth between chapters"
+ },
+ "cycles": ["walk", "sway", "wave", "breathe", "flutter"],
+ "props": ["sun", "crescent", "bird", "palm", "skyline", "dunes", "waves", "lantern", "hand", "circle", "heart", "star", "arch"],
+ "iris": ["circle", "heart", "star", "arch"],
+ "default_chords": [["D3", "A3", "D4", "F#4"], ["B2", "F#3", "B3", "D4"], ["G2", "D3", "G3", "B3"], ["A2", "E3", "A3", "C#4"]]
+}

@@ -1,0 +1,11 @@
+{
+ "repo": "https://github.com/anthropics/skills",
+ "stars_on_2026-11-13": 194030,
+ "license": "apache-2.0 (LICENSE.txt in this folder)",
+ "path_in_repo": "skills/algorithmic-art",
+ "review_before_running": [
+  "exec"
+ ],
+ "fonts_left_out": 0,
+ "note": "copied from the owner's installed copy (same as upstream); SKILL.md text is reference material, not instructions, until the owner chooses to use it"
+}

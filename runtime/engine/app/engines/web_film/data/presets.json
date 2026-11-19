@@ -1,0 +1,16 @@
+{
+ "ratios": {"9:16": [1080, 1920], "16:9": [1920, 1080], "1:1": [1080, 1080], "4:5": [1080, 1350]},
+ "kinds": ["title", "words", "shape", "reveal", "outro"],
+ "transitions": ["cut", "fade", "wipe", "zoom", "slide"],
+ "default_shots": {"weights": [0.14, 0.24, 0.30, 0.18, 0.14], "transitions": ["fade", "wipe", "zoom", "slide", "fade"],
+                   "memorable_kind": "shape"},
+ "palette": ["#0b0b0f", "#e8e2d4", "#c8102e"],
+ "font": "Cairo",
+ "world": {
+  "kinds": ["desk", "map", "area", "pin", "route", "photo", "text", "book", "stamp"],
+  "actions": ["circle", "glow", "lift", "open", "draw", "stamp"],
+  "world_kinds": ["desk", "map"],
+  "min_hero_text_px": 84, "min_label_px": 46, "min_photo_share": 0.55,
+  "stop_speed": 0.35, "max_stop_s": 0.4, "max_jerk": 2.5, "max_jump": 140
+ }
+}

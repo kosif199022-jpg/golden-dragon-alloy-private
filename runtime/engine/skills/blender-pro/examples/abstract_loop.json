@@ -1,0 +1,35 @@
+{
+  "_comment": "Abstract motion loop (4 s, seamless): geometry-nodes field of glossy pillars rippling in a radial wave; tops glow by wave height via the 'wave' instance attribute; camera sways on a periodic driver (perfect loop); bloom.",
+  "scene": {
+    "resolution": [1920, 1080],
+    "fps": 30,
+    "frame_start": 1,
+    "frame_end": 120,
+    "engine": "EEVEE",
+    "samples": 48,
+    "color": {"view_transform": "AgX", "look": "Punchy"},
+    "world": {"type": "color", "color": "#04050a", "strength": 0.2}
+  },
+  "steps": [
+    {"op": "material_graph", "name": "PillarGlow",
+     "nodes": {
+       "attr": {"type": "ShaderNodeAttribute", "props": {"attribute_type": "INSTANCER", "attribute_name": "wave"}},
+       "ramp": {"type": "ShaderNodeValToRGB", "ramp": [[0.0, "#0a1a5c"], [0.55, "#6a2cff"], [0.85, "#ff3fa8"], [1.0, "#ffd0a0"]]},
+       "pow":  {"type": "ShaderNodeMath", "props": {"operation": "POWER"}, "inputs": {"1": 3.0}},
+       "str":  {"type": "ShaderNodeMath", "props": {"operation": "MULTIPLY"}, "inputs": {"1": 4.0}},
+       "Principled BSDF": {"inputs": {"Base Color": "#0d1020", "Metallic": 0.6, "Roughness": 0.22, "Coat Weight": 0.5}}
+     },
+     "links": [["attr.Fac", "ramp.Fac"], ["ramp.Color", "Principled BSDF.Emission Color"],
+               ["attr.Fac", "pow.0"], ["pow.Value", "str.0"], ["str.Value", "Principled BSDF.Emission Strength"]]},
+    {"op": "gn_wave_grid", "name": "Field", "count": 26, "spacing": 0.42, "cell": 0.34, "height": 0.2, "amplitude": 1.4, "frequency": 1.3, "pattern": "radial", "material": "PillarGlow"},
+    {"op": "light", "type": "AREA", "name": "Top", "location": [0, 0, 9], "rotation": [0, 0, 0], "energy": 500, "size": 8, "temperature": 7500},
+    {"op": "light", "type": "AREA", "name": "Side", "location": [-8, -4, 3], "target": [0, 0, 0.5], "energy": 1200, "size": 3, "color": "#ff4fb0"},
+    {"op": "camera", "name": "Camera", "location": [0, -14, 7.5], "target": [0, 0, 0.3], "lens": 38, "fstop": 2.8},
+    {"op": "empty", "name": "Pivot"},
+    {"op": "parent", "child": "Camera", "parent": "Pivot"},
+    {"op": "driver", "target": "Pivot", "data_path": "rotation_euler", "index": 2, "expression": "sin(frame*2*pi/120)*0.35"}
+  ],
+  "post": {"bloom": {"threshold": 0.7, "strength": 0.7, "size": 0.75}, "vignette": {"strength": 0.4}, "lens": {"distortion": -0.02, "dispersion": 0.012}},
+  "render": {"type": "animation", "out": "abstract_loop.mp4"},
+  "save_blend": "abstract_loop.blend"
+}

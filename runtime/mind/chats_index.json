@@ -1,0 +1,2009 @@
+{
+ "_doc": "ذاكرة محادثات صاحب التنين: خلاصة لكل محادثة (طلبات، نتايج، مسارات، أرقام، قرارات، دروس، حدود، مفتوح). rd.py chats / files.",
+ "built": "2026-11-12",
+ "count": 162,
+ "convs": [
+  {
+   "id": "c20261112-085301-3",
+   "title": "استخدم كل المهارات المتثبتة (39 مهارة) مع بعض: اختار منها كل",
+   "topic": "استخدم كل المهارات المتثبتة (39 مهارة) مع بعض ... (العنوان مقطوع في الملف) (2026-11-12)",
+   "date": "2026-11-12 08:53",
+   "updated": "2026-11-12T14:45",
+   "n_user": 9,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\هام\\output\\black-dragon-v1990.10.0.zip",
+    "C:\\Users\\cinde\\.claude\\skills\\black-dragon-v10.18.0-backup-20261112.zip",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\هام\\white-dragon\\data\\powers.json",
+    "C:\\Users\\cinde\\.claude\\projects\\C--Users-cinde-OneDrive-Desktop----\\memory\\black-dragon-v1990-10-pending.md"
+   ]
+  },
+  {
+   "id": "c20261112-083955-2",
+   "title": "اختبار من Claude Code بعد التحديث (ماتنفّذش حاجة تقيلة): عاي",
+   "topic": "اختبار من Claude Code بعد التحديث (ماتنفّذش حاجة تقيلة): عاي (2026-11-12)",
+   "date": "2026-11-12 08:39",
+   "updated": "2026-11-12T08:40",
+   "n_user": 1,
+   "paths": [
+    "C:\\Users\\cinde\\.claude\\skills\\teardown\\STYLE_AR.md"
+   ]
+  },
+  {
+   "id": "c20261112-082334-1",
+   "title": "استخدم مهارة «teardown»: ماكينة غسل البنات وابعت الفديو ,, ش",
+   "topic": "استخدم مهارة «teardown»: ماكينة غسل البنات وابعت الفديو ,, ش (العنوان مقطوع في الملف) (2026-11-12)",
+   "date": "2026-11-12 08:23",
+   "updated": "2026-11-12T14:45",
+   "n_user": 6,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\washer-teardown-9x16.mp4",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\teardown-out\\dist\\washer-film.html",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\alex-corniche-2cb-9x16.mp4",
+    "C:\\Users\\cinde\\.claude\\projects\\C--Users-cinde-OneDrive-Desktop-------2\\memory\\teardown-9x16-path.md"
+   ]
+  },
+  {
+   "id": "s20261112-BgYq8",
+   "title": "موشن جرافيك «أدب المصريين» من شورت يوتيوب، والصوت متقفل",
+   "topic": "صاحب الشغل بعت شورت يوتيوب (o39swOytHWc) فيه راجل بيحكي عن أدب المصريين، وطلب يتعمل موشن جرافيك عليه.",
+   "date": "2026-11-12 06:54",
+   "updated": "2026-11-12T10:35",
+   "n_user": 0,
+   "paths": [
+    "23cadead-34af-4928-b577-9f43b778e19f.mp4",
+    "C:\\BlackDragon"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261112-BgYq7",
+   "title": "دعاء يوم الخميس (تيك توك) بفوتيج مفتوح + هاشتاجات",
+   "topic": "https://vt.tiktok.com/ZSpuKTh3v/ : «احتاج منك تكوين نفس الخطوط تماما وبنفس الالوان ووضع مكانها فديوهات مفتوحة المصدر وبنفس الانتقالات… وكل شيء». وبعدها طلب هاشتاجات دعاء الخميس.",
+   "date": "2026-11-12 06:14",
+   "updated": "2026-11-12T07:06",
+   "n_user": 0,
+   "paths": [
+    "src/ref.mp4"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "c20261112-014346-4",
+   "title": "طور مهارة تطوير الموشن والالوان مكن من شكل الطيور مثلا ارسل",
+   "topic": "مهارة تطوير الموشن والألوان من صورة الطائر (هوية + فيديو) (2026-11-12 02:11)",
+   "date": "2026-11-12 01:43",
+   "updated": "2026-11-12T02:11",
+   "n_user": 1,
+   "paths": [
+    "C:\\Users\\cinde\\.claude\\skills\\chroma-motion\\SKILL.md",
+    "C:\\Users\\cinde\\.claude\\skills\\chroma-motion\\scripts\\chroma_identity.py"
+   ]
+  },
+  {
+   "id": "t20261111-kGpNaJ",
+   "title": "بناء مهارة استخراج الألوان من الطبيعة",
+   "topic": "تحليل أسلوب حساب إنستجرام doctor.pic.dz في استخراج الألوان، وبناء مهارة تستخرج باليتة من الطيور والحيوانات والأشياء.",
+   "date": "2026-11-11 22:07",
+   "updated": "2026-11-11T22:16",
+   "n_user": 0,
+   "paths": [
+    "https://www.instagram.com/doctor.pic.dz",
+    "/mnt/project-files/nature-palette/nature-palette.skill",
+    "ريل-الرفراف.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261111-fgadEF",
+   "title": "إضافة خلاصة التجارب والنماذج للتنين الأسود",
+   "topic": "نسخة جديدة من التنين الأسود (v1990.6.0) فيها خلاصة كل المحادثات، وكتالوج النماذج اللي استقرّوا عليها بصورها، وبعدين رفعها على رابط.",
+   "date": "2026-11-11 20:48",
+   "updated": "2026-11-11T21:16",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/black-dragon/v1990.6.0/black-dragon-v1990.6.0.zip",
+    "/mnt/project-files/black-dragon/v1990.6.0/خلاصة-المشروع-كله.md",
+    "/mnt/project-files/black-dragon/v1990.6.0/ورقة-طرق-الشغل-PM.jpg"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "c20261111-162223-1",
+   "title": "استخدم المهارات دي مع بعض (4): «black-dragon-2»، «blender-pr",
+   "topic": "فيلم كرتون ديزني 5 ثواني بأربع مهارات، ثم مهارة تشغيل الرندر على هيجز فيلد المجاني (2026-11-11 17:47)",
+   "date": "2026-11-11 16:22",
+   "updated": "2026-11-11T17:47",
+   "n_user": 2,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\فقس_كرتون_5ث.mp4",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\poster\\poster.png",
+    "C:\\Users\\cinde\\.claude\\skills\\hf-blender-render\\SKILL.md"
+   ]
+  },
+  {
+   "id": "c20261111-160429-1",
+   "title": "استخدم مهارة «black-dragon-2»: LH R]VHJ HGLIHVM",
+   "topic": "استخدم مهارة «black-dragon-2» (2026-11-11T17:11)",
+   "date": "2026-11-11 16:04",
+   "updated": "2026-11-11T17:11",
+   "n_user": 4,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\cartoon_chick_3d\\chick_hatch_4s.mp4",
+    "C:\\Users\\cinde\\bd_work\\chick3d\\chick.py"
+   ]
+  },
+  {
+   "id": "c20261111-155708-2",
+   "title": "اختبار ربط من Claude Code: رد بكلمة واحدة بس: تم",
+   "topic": "اختبار ربط من Claude Code: رد بكلمة واحدة بس: تم (2026-11-11T15:57)",
+   "date": "2026-11-11 15:57",
+   "updated": "2026-11-11T15:57",
+   "n_user": 1,
+   "paths": []
+  },
+  {
+   "id": "c20261111-130210-2",
+   "title": "LK",
+   "topic": "LK (2026-11-11T15:54)",
+   "date": "2026-11-11 13:02",
+   "updated": "2026-11-11T15:54",
+   "n_user": 2,
+   "paths": []
+  },
+  {
+   "id": "c20261111-125717-1",
+   "title": "ازيك",
+   "topic": "ازيك (2026-11-11T15:54)",
+   "date": "2026-11-11 12:57",
+   "updated": "2026-11-11T15:54",
+   "n_user": 1,
+   "paths": []
+  },
+  {
+   "id": "c20261111-024540-3",
+   "title": "هل هناك اجهزة او قدرات برمجية او خدمات مجانية يقدمها هيجحزفي",
+   "topic": "هل هناك اجهزة او قدرات برمجية او خدمات مجانية يقدمها هيجحزفيلد تساعد في الريندر للفديوهات (2026-11-11T02:48)",
+   "date": "2026-11-11 02:45",
+   "updated": "2026-11-11T02:48",
+   "n_user": 2,
+   "paths": []
+  },
+  {
+   "id": "s20261111-BgYq5",
+   "title": "«قلده واحفظ الاستايل»: ريلز ST06–ST14 والأجهزة",
+   "topic": "صاحب الشغل بعت لينكات ريلز إنستجرام كتير، ومع كل واحد «قلده» أو «قلده تماما واحفظ الاستايل». طلب كمان يدرس أسلوب فنان، ويحلل مستودع teardown (محاكي ماكينة 3D)، ويجرب أجهزة أقوى.",
+   "date": "2026-11-11 00:00",
+   "updated": "2026-11-12T05:55",
+   "n_user": 0,
+   "paths": [
+    "mono_story/build.py"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261111-BgYq6",
+   "title": "دمج نسخ التنين الأسود من v1990.5 لحد v1990.9.0",
+   "topic": "صاحب الشغل رفع نسخ من التنين ومهارات (zip وrar) وقال: «ادمج كل حاجة في حزمة واحدة وابعتها». وآخر طلب كان «طور ملف التنين الاسود بكل اللي وصلنا ليه وابعته» ومعاه لينك release v10.17.0.",
+   "date": "2026-11-11 00:00",
+   "updated": "2026-11-12T05:55",
+   "n_user": 0,
+   "paths": [
+    "/home/user/kosif-tool/out/black-dragon-v1990.9.0.zip",
+    "app/data/own_tools.json",
+    "references/SESSION_HARVEST_V19909.md",
+    "TEST_REPORT_V19909.md"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "c20261110-235439-1",
+   "title": "من انت",
+   "topic": "من انت (2026-11-11)",
+   "date": "2026-11-10 23:54",
+   "updated": "2026-11-11T00:40",
+   "n_user": 2,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\dragon-genius.zip",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\selected100.json",
+    "C:\\Users\\cinde\\dragon-repos\\TOP500_github_montage_thinking.csv",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\research\\batch_01.md"
+   ]
+  },
+  {
+   "id": "c20261110-214011-2",
+   "title": "فكك التطبيق وطوره",
+   "topic": "فكك التطبيق وطوره (2026-11-11T00:40)",
+   "date": "2026-11-10 21:40",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": []
+  },
+  {
+   "id": "s20261110-A539ZZ",
+   "title": "تطوير التنين الأسود (v10.17.0 من الحزم المرفوعة)",
+   "topic": "دمج 9 ملفات مرفوعة (مكتبات مهارات + نسخ قديمة من التنين) ومستند برومبتات في مهارة التنين الأسود على جهازه (Remote Control، موديل claude-fable-5-2)، وبعدين ضغطها ورفعها.",
+   "date": "2026-11-10 20:44",
+   "updated": "2026-11-12T05:41",
+   "n_user": 0,
+   "paths": [
+    "SOURCE.json",
+    "C:\\Users\\cinde\\.claude\\skills\\black-dragon\\",
+    "references/LIBRARY_V1017.md",
+    "C:\\Users\\cinde\\.claude\\skills\\black-dragon-v10.14.0-backup-20261110.zip",
+    "C:\\Users\\cinde\\AppData\\Local\\Temp\\claude\\7f122ab2f88a3050\\cb853db5-f8bc-4262-ac75-5af420d0bbcc\\scratchpad\\black-dragon-v10.17.0.zip",
+    ".../releases/download/v10.17.0/black-dragon-v10.17.0.zip",
+    "C:\\Users\\cinde\\AppData\\Local\\BlackDragon\\BlackDragon.exe",
+    "test_mod_dragon_montage.py",
+    "DRAGON_HOME=C:\\Users\\cinde\\.claude\\skills\\black-dragon\\app",
+    "C:\\Users\\cinde",
+    "OWNER.md",
+    "LESSONS.md"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "c20261110-195823-5",
+   "title": "اين المهارات التي صنعتها ارسلي مكانها",
+   "topic": "اين المهارات التي صنعتها ارسلي مكانها (2026-11-11)",
+   "date": "2026-11-10 19:58",
+   "updated": "2026-11-11T00:40",
+   "n_user": 4,
+   "paths": [
+    "C:\\Users\\cinde\\.claude\\skills",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\bd_src\\black-dragon",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\black-dragon-v10.16.0.zip",
+    "C:\\Users\\cinde\\.claude\\skills\\black-dragon"
+   ]
+  },
+  {
+   "id": "c20261110-174315-4",
+   "title": "راجع بياناتك انت وطور التطبيق والقدرات وصحح الاخطاء وانشر ال",
+   "topic": "راجع بياناتك انت وطور التطبيق والقدرات وصحح الاخطاء وانشر التحديث الجديد (2026-11-11T00:40)",
+   "date": "2026-11-10 17:43",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": [
+    "%TEMP%\\bd_src_backup"
+   ]
+  },
+  {
+   "id": "c20261110-173834-3",
+   "title": "حلل بيانات نفسك وطور نفسك وقدراتك وانشر التحديث",
+   "topic": "حلل بيانات نفسك وطور نفسك وقدراتك وانشر التحديث (2026-11-11T00:40)",
+   "date": "2026-11-10 17:38",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود\\apps\\dragon_desktop\\app.py",
+    "C:\\Users\\cinde\\AppData\\Roaming\\BlackDragon\\source_backups\\20261110-174231-self"
+   ]
+  },
+  {
+   "id": "c20261110-152458-3",
+   "title": "حولها الى تطبيق",
+   "topic": "حولها الى تطبيق (مرفق: قوائم مالية PDF 2025) (2026-11-11T00:40)",
+   "date": "2026-11-10 15:24",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\(اسم ملف القوائم المالية)_2025.html"
+   ]
+  },
+  {
+   "id": "c20261110-151118-2",
+   "title": "افتح في كروب اليوتيوب على فديو توم وجيري",
+   "topic": "افتح في كروم يوتيوب على فيديو توم وجيري + تعديل التطبيق (2026-11-11T00:40)",
+   "date": "2026-11-10 15:11",
+   "updated": "2026-11-11T00:40",
+   "n_user": 2,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود\\apps\\dragon_desktop\\chrome_extension\\background.js",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود\\apps\\dragon_desktop\\app.py"
+   ]
+  },
+  {
+   "id": "c20261110-150151-1",
+   "title": "انت شايف مستودع سوبر باور",
+   "topic": "انت شايف مستودع سوبر باور (آخر تحديث 2026-11-11T00:40)",
+   "date": "2026-11-10 15:01",
+   "updated": "2026-11-11T00:40",
+   "n_user": 13,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\black-dragon-v10.13.0.zip",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\black-dragon-v10.14.0.zip",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\output\\black-dragon-v10.15.0.zip",
+    "C:\\Users\\cinde\\.claude\\skills\\black-dragon",
+    "C:\\Users\\cinde\\.claude\\skill-backups\\black-dragon-v10.8.1-20261110",
+    "C:\\Users\\cinde\\kosif-tool",
+    "~\\.black-dragon\\app"
+   ]
+  },
+  {
+   "id": "c20261110-140544-1",
+   "title": "تقدر تحول فديو لاستايل ديزني بشكل مجاني",
+   "topic": "تقدر تحول فديو لاستايل ديزني بشكل مجاني (2026-11-11)",
+   "date": "2026-11-10 14:05",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود"
+   ]
+  },
+  {
+   "id": "c20261110-130529-1",
+   "title": "هل لديك موديل مجاني للتحويل لالديزني",
+   "topic": "هل لديك موديل مجاني للتحويل لالديزني (2026-11-11T00:40)",
+   "date": "2026-11-10 13:05",
+   "updated": "2026-11-11T00:40",
+   "n_user": 2,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\ديزني_ريل\\output\\cartoon_3d.png"
+   ]
+  },
+  {
+   "id": "c20261110-122245-1",
+   "title": "هل عندك مودل يحول الفديو الى ديزني",
+   "topic": "هل عندك مودل يحول الفديو الى ديزني (2026-11-11T00:40)",
+   "date": "2026-11-10 12:22",
+   "updated": "2026-11-11T00:40",
+   "n_user": 6,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\ديزني_ريل\\ريل_كرتون_أميرة_9x16.mp4",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\ديزني_ريل\\higgsfield\\flux_3d_part1.mp4",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\خطابة 2\\ديزني_ريل\\sources.txt"
+   ]
+  },
+  {
+   "id": "c20261110-095251-2",
+   "title": "من كل محادثاتنا السابقة طور التنين الاسود وارسله لي على سطح",
+   "topic": "من كل محادثاتنا السابقة طور التنين الاسود وارسله لي على سطح المكتب (2026-11-11T00:40)",
+   "date": "2026-11-10 09:52",
+   "updated": "2026-11-11T00:40",
+   "n_user": 3,
+   "paths": [
+    "C:\\Users\\cinde\\.claude\\skills",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\black-dragon-v10.8.0.zip",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين الأسود v10.8 - ما الجديد.txt",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\black-dragon-v10.8.1.zip",
+    "C:\\Users\\cinde\\.claude\\skills\\black-dragon",
+    "C:\\Users\\cinde\\.claude\\skills\\black-dragon-v1.0-backup-20261110.zip",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\المونتاج\\05_output\\riyadh_song\\شتا_الرياض_ليل_ذهبي_للنشر_phone2.mp4"
+   ]
+  },
+  {
+   "id": "c20261110-090703-5",
+   "title": "، محتاج منك المعلومات التالية: 1. ملف index.android.bundle و",
+   "topic": "طلب معلومات تطبيق ميثاق (API وباندل وFirebase) (2026-11-11)",
+   "date": "2026-11-10 09:07",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": []
+  },
+  {
+   "id": "c20261110-032815-4",
+   "title": "حلل التطبيق واصنع تطبيق شبيه",
+   "topic": "حلل التطبيق واصنع تطبيق شبيه (2026-11-11T00:40)",
+   "date": "2026-11-10 03:28",
+   "updated": "2026-11-11T00:40",
+   "n_user": 8,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\الخطابة\\تقرير_التحليل.md",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\الخطابة\\الخطابة_com.et3arraf.Et3arrafApp_v9.7.2.apks"
+   ]
+  },
+  {
+   "id": "c20261110-032325-3",
+   "title": "من انت",
+   "topic": "من انت (آخر تحديث 2026-11-11T00:40)",
+   "date": "2026-11-10 03:23",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": []
+  },
+  {
+   "id": "c20261110-032129-2",
+   "title": "طور التنين الاسود بكل اللي وصلنا ليه في محادثاتنا",
+   "topic": "تطوير التنين الأسود بكل اللي وصلنا ليه في المحادثات (2026-11-11 00:40)",
+   "date": "2026-11-10 03:21",
+   "updated": "2026-11-11T00:40",
+   "n_user": 2,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\black-dragon-v10.7.0.zip",
+    "C:\\Users\\cinde\\.black-dragon\\app"
+   ]
+  },
+  {
+   "id": "c20261110-023102-5",
+   "title": "حلل التطبيق وعدله ليكون ارسال الرسائل غير محدوده ومفتوح كل ا",
+   "topic": "حلل التطبيق وعدله ليكون ارسال الرسائل غير محدوده ومفتوح كل المميزات (2026-11-11T00:40)",
+   "date": "2026-11-10 02:31",
+   "updated": "2026-11-11T00:40",
+   "n_user": 4,
+   "paths": []
+  },
+  {
+   "id": "c20261110-021411-4",
+   "title": "اصنع تطبيق اندرويد يستطيع تحميل اي تطبيق على جوالي بصيغة APK",
+   "topic": "اصنع تطبيق أندرويد يستطيع تحميل أي تطبيق على جوالي بصيغة APK (2026-11-11T00:40)",
+   "date": "2026-11-10 02:14",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": [
+    "C:\\Users\\cinde\\.claude\\skills\\output\\apk-extractor\\dist\\APK-Extractor-v1.0.apk"
+   ]
+  },
+  {
+   "id": "c20261110-021226-2",
+   "title": "حلل تطبيق انترنت دون لود الموجود على جهازي واصنع تطبيق مثله",
+   "topic": "حلل تطبيق انترنت دون لود الموجود على جهازي واصنع تطبيق مثله باسم KOSIF (2026-11-11T00:40)",
+   "date": "2026-11-10 02:12",
+   "updated": "2026-11-11T00:40",
+   "n_user": 2,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\KOSIF.lnk",
+    "C:\\Users\\cinde\\AppData\\Roaming\\KOSIF\\com.kosif.dm.json"
+   ]
+  },
+  {
+   "id": "c20261110-020928-1",
+   "title": "حلل برنامج كروم المثبت على جهازي واصنع متصفح سحابي متطور مثل",
+   "topic": "حلل برنامج كروم المثبت على جهازي واصنع متصفح سحابي متطور مثله (2026-11-11T00:40)",
+   "date": "2026-11-10 02:09",
+   "updated": "2026-11-11T00:40",
+   "n_user": 2,
+   "paths": []
+  },
+  {
+   "id": "c20261110-004423-3",
+   "title": "https://github.com/morluto/rea ثبت المهارة",
+   "topic": "https://github.com/morluto/rea ثبت المهارة (2026-11-11T00:40)",
+   "date": "2026-11-10 00:44",
+   "updated": "2026-11-11T00:40",
+   "n_user": 5,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\black-dragon-v10.5.0.zip",
+    "C:\\Users\\cinde\\.black-dragon\\app",
+    "C:\\Users\\cinde\\re-tools\\cases\\black-dragon-app-backup-20261110"
+   ]
+  },
+  {
+   "id": "c20261109-181634-2",
+   "title": "اريد مهارة رياضيه حساب احجاب ومسافات واوزان وكل شيء فيزاء لي",
+   "topic": "اريد مهارة رياضية لحساب أحجام ومسافات وأوزان وكل شيء فيزيائي (2026-11-11T00:40)",
+   "date": "2026-11-09 18:16",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": []
+  },
+  {
+   "id": "c20261109-175351-1",
+   "title": "طور مهارة جديده لعمل الصور باحترافيه بشات جيبتي وفديوهات كلا",
+   "topic": "طور مهارة جديدة لعمل الصور باحترافية بشات جيبتي وفيديوهات كلاينك (2026-11-11T00:40)",
+   "date": "2026-11-09 17:53",
+   "updated": "2026-11-11T00:40",
+   "n_user": 2,
+   "paths": []
+  },
+  {
+   "id": "c20261109-155211-4",
+   "title": "اصنع مهارة الابداع المطلق والابتكار لتبدع في المونتاتج والتص",
+   "topic": "اصنع مهارة الابداع المطلق والابتكار (2026-11-11T00:40)",
+   "date": "2026-11-09 15:52",
+   "updated": "2026-11-11T00:40",
+   "n_user": 1,
+   "paths": []
+  },
+  {
+   "id": "c20261109-150749-3",
+   "title": "https://github.com/morluto/rea   ستخدم REA واحلل الملف وطور",
+   "topic": "https://github.com/morluto/rea ستخدم REA واحلل الملف وطور (2026-11-09)",
+   "date": "2026-11-09 15:07",
+   "updated": "2026-11-09T17:45",
+   "n_user": 4,
+   "paths": [
+    "C:\\Users\\cinde\\.claude\\skills\\rea-ultra\\SKILL.md",
+    "C:\\Users\\cinde\\.claude\\skills\\rea-ultra\\references\\methodology.md",
+    "C:\\Users\\cinde\\.claude\\skills\\rea-ultra\\references\\mobile-web-methodology.md",
+    "C:\\Users\\cinde\\.claude\\skills\\rea-ultra\\references\\companion-tools.md",
+    "C:\\Users\\cinde\\dragon-repos\\re",
+    "C:\\Users\\cinde\\dragon-repos\\morluto__rea"
+   ]
+  },
+  {
+   "id": "c20261109-132021-2",
+   "title": "طور مهارة بلندر متطوره جدا جدا وتحكم بالرسم والفديو يمكن لكل",
+   "topic": "طور مهارة بلندر متطوره جدا جدا وتحكم بالرسم والفديو يمكن لكل (2026-11-11T00:40)",
+   "date": "2026-11-09 13:20",
+   "updated": "2026-11-11T00:40",
+   "n_user": 5,
+   "paths": [
+    "%USERPROFILE%\\.video-grabber\\proxies.txt"
+   ]
+  },
+  {
+   "id": "c20261109-131456-1",
+   "title": "من انت",
+   "topic": "من انت (آخر تحديث 2026-11-09T17:45)",
+   "date": "2026-11-09 13:14",
+   "updated": "2026-11-09T17:45",
+   "n_user": 2,
+   "paths": []
+  },
+  {
+   "id": "c20261109-122937-2",
+   "title": "اصنع مهارة تفكير فائقة الذكاء بالاستفادة من ارشيف الكتب العا",
+   "topic": "اصنع مهارة تفكير فائقة الذكاء بالاستفادة من ارشيف الكتب العالمية (2026-11-09T12:59)",
+   "date": "2026-11-09 12:29",
+   "updated": "2026-11-09T12:59",
+   "n_user": 3,
+   "paths": [
+    "C:\\Users\\cinde\\.claude\\expert-council\\lessons.jsonl",
+    "~/.claude/expert-council/"
+   ]
+  },
+  {
+   "id": "c20261109-090113-1",
+   "title": "ابحث عن 500 موقع به فديوهات وصور عالية الجودة للمونتات",
+   "topic": "ابحث عن 500 موقع به فديوهات وصور عالية الجودة للمونتات (2026-11-09)",
+   "date": "2026-11-09 09:01",
+   "updated": "2026-11-09T10:30",
+   "n_user": 2,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\تحليل\\output\\مواقع_فيديو_وصور_للمونتاج_615.xlsx",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\تحليل\\media_hunter\\mh.py",
+    "C:\\Users\\cinde\\.claude\\skills\\media-hunter\\SKILL.md",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\تحليل\\tools\\merge_sites.py"
+   ]
+  },
+  {
+   "id": "c20261109-085554-1",
+   "title": "اريد روابط كل المواقع التي يمكنني منها تحميل فديوهات او صور",
+   "topic": "اريد روابط كل المواقع التي يمكنني منها تحميل فديوهات او صور (2026-11-09)",
+   "date": "2026-11-09 08:55",
+   "updated": "2026-11-09T08:58",
+   "n_user": 1,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\تحليل\\مواقع_فيديو_وصور_مجانية.md"
+   ]
+  },
+  {
+   "id": "c20261109-034101-2",
+   "title": "https://github.com/morluto/rea   https://github.com/storytol",
+   "topic": "https://github.com/morluto/rea https://github.com/storytol (2026-11-09T08:53)",
+   "date": "2026-11-09 03:41",
+   "updated": "2026-11-09T08:53",
+   "n_user": 4,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\تحليل\\NovaPlay Pro تطوير\\NovaPlay Pro.exe",
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\تحليل\\NovaPlay Pro تطوير\\NovaPlay-Pro-2.1-source.zip"
+   ]
+  },
+  {
+   "id": "c20261109-024644-4",
+   "title": "https://github.com/morluto/rea   https://github.com/storytol",
+   "topic": "https://github.com/morluto/rea https://github.com/storytol (2026-11-09T03:40)",
+   "date": "2026-11-09 02:46",
+   "updated": "2026-11-09T03:40",
+   "n_user": 3,
+   "paths": []
+  },
+  {
+   "id": "c20261109-023044-3",
+   "title": "طور المهارة والقدرات",
+   "topic": "طور المهارة والقدرات (2026-11-09T08:38)",
+   "date": "2026-11-09 02:30",
+   "updated": "2026-11-09T08:38",
+   "n_user": 3,
+   "paths": [
+    "C:\\Users\\cinde\\Downloads\\black-dragon-skill-v1.2.zip",
+    "C:\\Users\\cinde\\Downloads\\black-dragon-skill.zip"
+   ]
+  },
+  {
+   "id": "c20261109-022425-2",
+   "title": "من انت",
+   "topic": "من انت (آخر تحديث 2026-11-09T02:36)",
+   "date": "2026-11-09 02:24",
+   "updated": "2026-11-09T02:36",
+   "n_user": 4,
+   "paths": [
+    "C:\\Users\\cinde\\OneDrive\\Desktop\\التنين_الأسود_Excel_متطور.xlsx",
+    "C:\\Users\\cinde\\dragon-tools\\build_excel_dragon.py"
+   ]
+  },
+  {
+   "id": "c20261109-015819-1",
+   "title": "https://vt.tiktok.com/ZSpS99bJM/ حمل المقطع وحلله وعايزك تنز",
+   "topic": "https://vt.tiktok.com/ZSpS99bJM/ حمل المقطع وحلله... (2026-11-09T03:00)",
+   "date": "2026-11-09 01:58",
+   "updated": "2026-11-09T03:00",
+   "n_user": 1,
+   "paths": [
+    "C:\\Users\\cinde\\tiktok_clone\\output\\ma_tlaqinash_remake.mp4",
+    "C:\\Users\\cinde\\tiktok_clone\\output\\ma_tlaqinash_remake_no_audio.mp4",
+    "C:\\Users\\cinde\\tiktok_clone\\sources.txt",
+    "C:\\Users\\cinde\\tiktok_clone\\source\\original.mp4",
+    "C:\\Users\\cinde\\tiktok_clone\\work\\lyrics.ass"
+   ]
+  },
+  {
+   "id": "s20261109-BgYq4",
+   "title": "حوالي 40 فيلم أغاني بالراجل والبنت (كرتون Higgsfield) وقواعد",
+   "topic": "صاحب الشغل بيبعت لينك ريل أو تيك توك فيه أغنية ويقول «بالراجل والمراة / ابدع / نفس كل شيء». الفيلم بيتعمل بصوت الريل كما هو، وكلام الأغنية من الكابشن، و5–9 صور كرتون جديدة للزوجين.",
+   "date": "2026-11-09 00:00",
+   "updated": "2026-11-11T12:00",
+   "n_user": 0,
+   "paths": [
+    "imgs.py",
+    "references/SESSION_HARVEST_V19905.md",
+    "LOOKS_LIBRARY_V19905.md",
+    "tools/looks/looks.json",
+    "EFFECTS_SMART.md"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261108-7GVFkC",
+   "title": "Build monitor for scheduled agent deployment",
+   "topic": "تطبيق بايثون صغير يراقب deployment لوكيل مُجدول على Anthropic (managed agents) ويبث رسايله.",
+   "date": "2026-11-08 21:13",
+   "updated": "2026-11-08T21:15",
+   "n_user": 0,
+   "paths": [
+    "monitor.py",
+    "README.md",
+    "C:\\Users\\cinde\\Downloads\\deployment-monitor\\"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261108-sqq9Hm",
+   "title": "تطوير مهارة التنين الأسود بإعادة البناء",
+   "topic": "مهارة التنين الأسود v1.0 (`black-dragon`، باب واحد: `python -m dragon find/verify/film/engines/run`) — دمجها مع kosif-black-dragon، وتحويلها لـ zip يتثبت على claude.ai ويشتغل في السحابة وعلى الجهاز.",
+   "date": "2026-11-08 17:30",
+   "updated": "2026-11-08T17:57",
+   "n_user": 0,
+   "paths": [
+    "black-dragon-skill.zip",
+    "/mnt/project-files/black-dragon/skill-install/black-dragon-skill.zip",
+    "C:\\Users\\cinde\\..."
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261108-G7Ua1Y",
+   "title": "مونتاج أغنية الرياض",
+   "topic": "مونتاج أغنية من فيديو تيك توك بتاعه، على لقطات للرياض، بكل أدوات مجلد المونتاج + التنين الأسود + Blender (جلسة Remote Control على جهازه الويندوز).",
+   "date": "2026-11-08 09:22",
+   "updated": "2026-11-08T10:07",
+   "n_user": 0,
+   "paths": [
+    "C:\\Users\\cinde\\.claude\\skills\\kosif-black-dragon-ultra",
+    "C:\\Users\\cinde\\AppData\\Local\\Temp\\claude\\...\\tasks\\"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261108-cJm9NX",
+   "title": "موشن جرافيك احترافي لميار (3 أفلام وطنية)",
+   "topic": "3 أفلام موشن جرافيك سينمائية مختلفة عن ميار مع أغاني وطنية (Remote Control على جهازه، بالتوازي مع جلسة مونتاج أغنية الرياض).",
+   "date": "2026-11-08 09:12",
+   "updated": "2026-11-08T10:21",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261108-zb9Qzv",
+   "title": "البحث عن أهم مستودعات المونتاج",
+   "topic": "قايمة بأهم مستودعات GitHub اللي تساعد في المونتاج، مترتبة حسب فايدتها للتنين الأسود.",
+   "date": "2026-11-08 06:36",
+   "updated": "2026-11-08T06:38",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261107-Zgs7zX",
+   "title": "الاستفادة من مهارة arena في التنين الأسود",
+   "topic": "دمج مستودع `https://github.com/Jakeschincariol/arena-skill` («الحلبة») في التنين الأسود.",
+   "date": "2026-11-07 18:23",
+   "updated": "2026-11-07T18:31",
+   "n_user": 0,
+   "paths": [
+    "https://github.com/Jakeschincariol/arena-skill"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261107-aARLws",
+   "title": "مراجعة ودمج كل طلبات الدمج المفتوحة",
+   "topic": "دمج كل الـ PRs المفتوحة في kosif-tool (#224 لـ #247) وحل تعارضاتها.",
+   "date": "2026-11-07 16:57",
+   "updated": "2026-11-07T20:37",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261107-CeoB8w",
+   "title": "دمج مهارة ريلز المتحدث في التنين الأسود",
+   "topic": "رفع zip لمهارة ريلز المتحدث (talking-head reels) وبعدها «ادمج».",
+   "date": "2026-11-07 16:42",
+   "updated": "2026-11-07T17:52",
+   "n_user": 0,
+   "paths": [
+    "words.json"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261107-jkqLiB",
+   "title": "دمج بلجن الستيك مان في التنين الأسود",
+   "topic": "رفع بلجن ستيك مان (GrowKaz) من غير كلام، ودمجه في السوبر باور والتنين الأسود.",
+   "date": "2026-11-07 16:37",
+   "updated": "2026-11-07T18:42",
+   "n_user": 0,
+   "paths": [
+    "THIRD_PARTY_NOTICES.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261107-7k6qmD",
+   "title": "تطوير التنين الأسود من مكتبة 3D",
+   "topic": "تحليل مكتبة Futurepedia «claude-code-3d-build-library» وموقع nafay3d.com واستخراج البرومتات والأفكار للتنين الأسود.",
+   "date": "2026-11-07 16:29",
+   "updated": "2026-11-07T17:40",
+   "n_user": 0,
+   "paths": [
+    "https://www.futurepedia.io/resources/claude-code-3d-build-library/view#library"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261107-8T9QXD",
+   "title": "دمج مهارة فيديو الكرتون في السوبر باور",
+   "topic": "دمج كيت مهارة فيديو الكرتون (cartoon-audio-short) ومعاها مستودع `github.com/mromidev/claude-animated-shorts` في السوبر باور والتنين الأسود.",
+   "date": "2026-11-07 16:26",
+   "updated": "2026-11-07T18:38",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261107-NxvGVU",
+   "title": "تشغيل مجلس الخبراء وعقل التنين فعلياً",
+   "topic": "صاحب الشغل لصق برومبت جاهز (كان معمول لـ Claude Code): يجيب آخر main بعد PR #233 و#238، ويتأكد إن المجلس وعقل التنين وجسر الأطلس متوصلين فعلًا بمحرك التنين الأسود مش مجرد ملفات، ويدّي تقرير: كام قدرة،",
+   "date": "2026-11-07 15:21",
+   "updated": "2026-11-07T16:25",
+   "n_user": 0,
+   "paths": [
+    "creative_council.py",
+    "dragon_mind.py",
+    "atlas_council_bridge.py",
+    "mind_links.json"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261107-8qGLog",
+   "title": "تطوير السوبر باور من مهارات الأطلس",
+   "topic": "الاستفادة من الـ ١٥ ألف مهارة بتاعة الأطلس لتطوير السوبر باور.",
+   "date": "2026-11-07 15:02",
+   "updated": "2026-11-07T18:52",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261106-mdYhs8",
+   "title": "دمج مهارة saas-animation في السوبر باور",
+   "topic": "رفع ملف مهارة saas-animation (رسالة فاضية فيها مرفق) ودمجها، وبعدين «Fix CI» و«ادمج».",
+   "date": "2026-11-06 20:37",
+   "updated": "2026-11-07T14:49",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261106-Ky4mzR",
+   "title": "تطوير قدرات التفكير من الكتاب",
+   "topic": "قراية كتاب «Thinking, Fast and Slow» لكانمان كله وتحويله لأطر تفكير جوه عقل التنين (kosif-dragon-mind).",
+   "date": "2026-11-06 19:39",
+   "updated": "2026-11-06T20:35",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261106-FPhsYZ",
+   "title": "خطة تطوير بروتوكول التنين الأسود",
+   "topic": "خطة ثم تنفيذ «بروتوكول المونتاج المبدع» للتنين الأسود (kosif-dragon-montage): ٨ محطات من تحليل الفوتدج لحد الرندر والنقد.",
+   "date": "2026-11-06 13:47",
+   "updated": "2026-11-07T20:01",
+   "n_user": 0,
+   "paths": [
+    ".claude/skills/kosif-superpowers/references/protocol/A50-v66-dragon-montage.md",
+    ".claude/skills/kosif-dragon-montage/SKILL.md",
+    "CONTRACTS.md",
+    "/mnt/project-files/black-dragon/montage-protocol-20261107/"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261106-ej3KW2",
+   "title": "فحص كل مهارات السوبر باور",
+   "topic": "فحص جودة كل مهارات kosif-superpowers (790 مهارة)، وبعدين تنفيذ خطة الإصلاح في PRs منفصلة.",
+   "date": "2026-11-06 13:46",
+   "updated": "2026-11-07T18:59",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261106-1cbqkF",
+   "title": "دمج ملفات المهارات المرفوعة في السوبر باور",
+   "topic": "رفع ملفات `.skill` (أول ١٢، بعدها ١٦ + نسخ «2») ودمجها في السوبر باور جوه kosif-tool.",
+   "date": "2026-11-06 13:07",
+   "updated": "2026-11-07T18:32",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/kosif-reel-hooks.skill",
+    "/mnt/project-files/kosif-shadow-theatre.skill"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261106-zkzaJD",
+   "title": "إضافة 100 مصدر مجاني لمحتوى المونتاج",
+   "topic": "لزق قايمة 100 موقع خامات مجانية (من رد Claude تاني) وطلب يضيفها لمصادر المونتاج في السوبر باور.",
+   "date": "2026-11-06 12:35",
+   "updated": "2026-11-06T14:08",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261106-UpxqS3",
+   "title": "إصلاح الفريمات السودا في render_html",
+   "topic": "`tools/render_html.cjs` في `--mode seek` كان بيطلع سلاسل فريمات سودا خالص (Y=16، من غير علامة مائية ولا جرين) وبترجع مع كل إعادة لنفس الـchunk.",
+   "date": "2026-11-06 09:31",
+   "updated": "2026-11-06T09:42",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261106-zCwwLD",
+   "title": "مونتاج ميار على طريقة فيديوهات تيك توك",
+   "topic": "مونتاج لاستقبال ميار (البطلة) بنفس فكرة ٣ فيديوهات تيك توك عجبوه، مع إضافة استقبالات السيسي ووزير التربية والتعليم ومنى الشاذلي وأهل البرلس.",
+   "date": "2026-11-06 00:14",
+   "updated": "2026-11-06T00:25",
+   "n_user": 0,
+   "paths": [
+    "https://vt.tiktok.com/ZSpjRC5Fe/",
+    "https://vt.tiktok.com/ZSpj8LG2n/",
+    "https://vt.tiktok.com/ZSpj8hdPy/",
+    "ميار-استقبال-البطلة-v1.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261105-jnj9iK",
+   "title": "بروتوكول فيديو إلزامي للتنين الأسود",
+   "topic": "تحليل ريلزين إنستجرام ليوسف رحاب، وبعدين بروتوكول فيديو إلزامي بـ 7 مراحل جوه التنين الأسود.",
+   "date": "2026-11-05 23:04",
+   "updated": "2026-11-07T17:58",
+   "n_user": 0,
+   "paths": [
+    "بروتوكول-الفيديو-الإلزامي.md",
+    "تجربة-ريل-قهوة-٨-ثواني.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261105-Z5nVK6F25D",
+   "title": "موشن جرافيك لريل ميار عن الإصرار",
+   "topic": "3 ريلز إنستجرام لميار عثمان، يتعمل لكل واحد موشن جرافيك على مزيكا وطنية بيبرز كلامها وقد إيه الإصرار مهم.",
+   "date": "2026-11-05 21:55",
+   "updated": "2026-11-05T23:40",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/mayar-edit/persistence-reel/",
+    "ميار-الإصرار-موشن-وطني.mp4",
+    "ميار-مكتبة-ميار-عثمان-موشن.mp4",
+    "ميار-حلم-من-زمان-موشن.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261105-CJXGzz1",
+   "title": "Add code-drawn cinematic videos to Black Dragon",
+   "topic": "لزق برومبت إنجليزي جاهز (قالب) لفيديو سينمائي مرسوم بالكود بالكامل (عالم واحد + كاميرا واحدة متصلة، بطل واحد لكل سطر، مفيش تكرار نص، خط كبير، beat table قبل البناء، مراجعة كادرات قبل الرندر) وكتب تحته",
+   "date": "2026-11-05 19:21",
+   "updated": "2026-11-07T17:46",
+   "n_user": 0,
+   "paths": [
+    "beat-table-mayar.md",
+    "ميار-عثمان-فيلم-عالم-واحد-مسودة.mp4",
+    "history/tasks/20261104-warehouse-count-...json"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261105-a9VzU",
+   "title": "تحويل كل قدرات التنين الأسود لبرامج شغالة",
+   "topic": "«حوّلها كلها إلى قدرات… تعمل تاني منتج جديد لميار، وما يعتبرش إنك نجحت إلا لو استخدمت كل القدرات 7800».",
+   "date": "2026-11-05 16:52",
+   "updated": "2026-11-07T17:52",
+   "n_user": 0,
+   "paths": [
+    "REPORT.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261105-hhd8Y6",
+   "title": "مونتاج موشن جرافيك لميار عثمان",
+   "topic": "مونتاج موشن جرافيك 40 ث لميار عثمان من 25 ريل إنستجرام على أغنية وطنية، وبعدين أغاني Suno بالفصحى المشكّلة ومهارة جديدة `suno-arabic-qasida`.",
+   "date": "2026-11-05 16:14",
+   "updated": "2026-11-05T18:05",
+   "n_user": 0,
+   "paths": [
+    "mayar-othman-40s.mp4",
+    "mayar-suno-story-45s.mp4",
+    "/mnt/project-files/mayar-edit/mayar-othman-40s.mp4",
+    "/mnt/project-files/mayar-edit/mayar-suno-story-45s.mp4",
+    "/mnt/project-files/skills/suno-arabic-qasida/SKILL.md",
+    "ميار-عثمان-موشن-40ث.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261105-mWmGR1",
+   "title": "جمع بيانات الأصناف",
+   "topic": "جمع بيانات 2533 صنف قطع غيار وكل الأسماء البديلة (أرقام OE) من موقعين: autopartspro.co.uk وspareto.com.",
+   "date": "2026-11-05 11:24",
+   "updated": "2026-11-05T11:25",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261105-GyPM26",
+   "title": "بناء إكسل القطع البديلة بالصور",
+   "topic": "إكسل لـ 2533 صنف قطع غيار (ملف جرد نوفمبر) بالأرقام والأسماء البديلة والصور واللينكات من مواقع قطع الغيار.",
+   "date": "2026-11-05 09:26",
+   "updated": "2026-11-06T23:14",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/alt-parts/القطع-البديلة-نهائي-كل-المواقع-تحديث2.xlsx",
+    "/mnt/project-files/alt-parts/القطع-البديلة-نهائي-كل-المواقع.xlsx",
+    "/mnt/project-files/alt-parts/القطع-البديلة-شامل-الموقعين-جرد-نوفمبر-2026.xlsx",
+    "القطع-البديلة-جرد-نوفمبر-2026.xlsx",
+    "القطع-البديلة-بالصور-جرد-نوفمبر-2026.xlsx",
+    "فحص-105-موقع-قطع-غيار.xlsx",
+    "صور-الأصناف-دقة-أصلية.zip",
+    "~/Downloads",
+    "spareto-full-2533.json.gz",
+    "spareto-backup-1.json.gz"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261105-U4Uk3V62se",
+   "title": "ربط craft-anything بالتنين الأسود",
+   "topic": "«حمل الأداة https://github.com/storytold/craft-anything» وبعدين «استخدمها في تطوير التنين الأسود».",
+   "date": "2026-11-05 04:48",
+   "updated": "2026-11-05T15:58",
+   "n_user": 0,
+   "paths": [
+    "craft_anything.py",
+    "/mnt/project-files/craft-anything/craft-anything-v0.4.0-869eb85.zip",
+    "/mnt/project-files/craft-anything/craft-anything-cli-linux-x86_64.gz",
+    "/mnt/project-files/black-dragon/craft-anything-run-20261105/black_dragon_report.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261105-BgYq3",
+   "title": "صفحة «رفع فيديوهات المونتاج» من الآيفون",
+   "topic": "صاحب الشغل محتاج يبعت فيديوهات كبيرة من الآيفون للجلسة السحابية، والشات مش بيستحمل الحجم.",
+   "date": "2026-11-05 00:00",
+   "updated": "2026-11-05T21:33",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261104-AhqRSV",
+   "title": "Suno MCP HTTP transport",
+   "topic": "إضافة Suno كسيرفر MCP (`claude mcp add --transport http suno https://api.suno.com/mcp`).",
+   "date": "2026-11-04 15:43",
+   "updated": "2026-11-04T15:44",
+   "n_user": 0,
+   "paths": [
+    "/root/.claude.json",
+    ".mcp.json",
+    ".claude/skills/kosif-superpowers/references/protocol/A46-suno-mcp.md",
+    "https://api.suno.com/mcp"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261103-n2FPhzu",
+   "title": "دمج كل فروع السوبر باور",
+   "topic": "«ادمج كل الفروع المفتوح في سوبر باور وقولي وصلنا لفين» (سوبر باور = kosif-tool، مهارة kosif-superpowers).",
+   "date": "2026-11-03 17:05",
+   "updated": "2026-11-04T12:37",
+   "n_user": 0,
+   "paths": [
+    "merge-status-20261103.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261102-29Cwtk",
+   "title": "دمج قدرات goclone في السوبر باور",
+   "topic": "«https://github.com/goclone-dev/goclone استخدم هذا، حلل المرفق واستفيد من كل قدراته في تطوير قدرات السوبر باور» (مرفق `kosif-site-snapshot.zip`).",
+   "date": "2026-11-02 20:36",
+   "updated": "2026-11-03T05:19",
+   "n_user": 0,
+   "paths": [
+    "kosif-site-snapshot.zip",
+    "site_snapshot.py",
+    "design.md",
+    "CLAUDE.md",
+    "tools.json",
+    "black_dragon_media.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261102-z89Bgt",
+   "title": "بناء موقع رفع الفيديوهات ونشرها على تيك توك",
+   "topic": "موقع («رف فيديوهات KOSIF») يرفع عليه Claude كل فيديو يتعمل، وصاحب الشغل يختار ويرتّب وينشر على تيك توك بهاشتاجات ميار.",
+   "date": "2026-11-02 20:30",
+   "updated": "2026-11-03T16:34",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261102-6XT3JC",
+   "title": "استنساخ موقع Autodoc (2)",
+   "topic": "محاولة تانية لنفس طلب Autodoc بأداة goclone، وبعدين طلب حصر الأصناف ومقارنة أسمائها البديلة بموقع تاني.",
+   "date": "2026-11-02 20:30",
+   "updated": "2026-11-02T20:38",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261102-VBzn77",
+   "title": "استنساخ موقع Autodoc (1)",
+   "topic": "المالك عايز يستخدم ريبو REA (morluto/rea) يستنسخ autodoc.co.uk وينقله لموقع جديد ويجمع كل الأصناف بأسمائها البديلة.",
+   "date": "2026-11-02 20:06",
+   "updated": "2026-11-02T20:25",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261102-C1xsY",
+   "title": "ضغط أجزاء المناظرة الثلاثة",
+   "topic": "لزق رد Claude تاني (بالإنجليزي) فيه روابط أجزاء المناظرة الكاملة (41 دقيقة، 3 أجزاء ~410 ميجا) وكتب «ارسلهم كملفات مضغوطه».",
+   "date": "2026-11-02 19:46",
+   "updated": "2026-11-02T20:09",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/debate-compressed/debate-part1-phone.mp4",
+    "debate-3-parts-phone.zip"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261102-5hcE4D",
+   "title": "صنع مهارة مشاهد الظلال بالموشن جرافيك",
+   "topic": "حلّل فيديو عرض مسرح ظل (برنامج مواهب) واعمل مهارة تحاكيه بمشاهد ظلال جديدة.",
+   "date": "2026-11-02 17:59",
+   "updated": "2026-11-02T18:30",
+   "n_user": 0,
+   "paths": [
+    "black_dragon_media.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261102-tJo5Pn",
+   "title": "دمج قدرات VoiceStudio في المهارة",
+   "topic": "«https://github.com/debpalash/VoiceStudio ادمج قدراته في المهارة».",
+   "date": "2026-11-02 17:38",
+   "updated": "2026-11-03T04:55",
+   "n_user": 0,
+   "paths": [
+    "voice_studio.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261102-ZJpRsE",
+   "title": "Debate render helper B (chunks 199-246)",
+   "topic": "رندر الأجزاء 199–246 من فيلم المناظرة.",
+   "date": "2026-11-02 17:03",
+   "updated": "2026-11-02T17:39",
+   "n_user": 0,
+   "paths": [
+    ".claude/settings.local.json"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261102-BgYq2",
+   "title": "رندر مونتاج المناظرة الطويل متقسّم على جلستين مساعدتين",
+   "topic": "فيلم مناظرة/بودكاست طولي اتعمل كصفحة HTML وبيترندر 10 ث للجزء (246 جزء، يعني حوالي 41 دقيقة). الجلسة الأم فتحت جلستين سحابيتين بـ create_session عشان يرندروا مع بعض.",
+   "date": "2026-11-02 17:02",
+   "updated": "2026-11-02T19:13",
+   "n_user": 0,
+   "paths": [
+    ".claude/settings.local.json"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261102-Y2wefa",
+   "title": "Debate render helper A (chunks 150-198)",
+   "topic": "الجلسة الأم فتحت الجلسة دي عشان ترندر الأجزاء 150–198 من فيلم المناظرة.",
+   "date": "2026-11-02 17:02",
+   "updated": "2026-11-02T19:13",
+   "n_user": 0,
+   "paths": [
+    "debate.mp4",
+    ".claude/settings.local.json"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261102-zjyFw",
+   "title": "Make more Black Dragon capabilities executable",
+   "topic": "صاحب الشغل لزق رد Claude قديم بيقول إن 7,356 قدرة من التنين «متوقفة» وكتب تحته «حل المشكلة»، وعايز كلهم يشتغلوا.",
+   "date": "2026-11-02 13:08",
+   "updated": "2026-11-03T17:25",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261101-dTfE3",
+   "title": "دمج كل الفروع المفتوحة",
+   "topic": "«ادمج كل الفروع» في kosif-tool.",
+   "date": "2026-11-01 19:42",
+   "updated": "2026-11-02T07:22",
+   "n_user": 0,
+   "paths": [
+    "black_dragon_adapters.json"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261101-ukvfvc",
+   "title": "تحميل فيديو تيك توك وتحليله",
+   "topic": "رابط تيك توك لوحده (https://vt.tiktok.com/ZSgwvwbw8/) من غير كلام.",
+   "date": "2026-11-01 13:11",
+   "updated": "2026-11-01T13:13",
+   "n_user": 0,
+   "paths": [
+    "mayar-shorbagy-cairo24.mp4",
+    "report.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261101-1nRdP7Z",
+   "title": "مراجعة السوبر باور وتطوير البروتوكول",
+   "topic": "«راجع كل السوبر باور وادمج ما تراه مناسب وطور البروتكول وادمج قدرات التنين بالبرو وطور كل شيء واصلح كل شيء» → USIP v6.5.",
+   "date": "2026-11-01 05:12",
+   "updated": "2026-11-01T06:46",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261031-p6WaA6",
+   "title": "إكمال منسّق التنين الأسود",
+   "topic": "إكمال منسّق «التنين الأسود» (KOSIF Black Dragon AI Orchestrator) اللي بيشغّل كل القدرات، وإصدار البروتوكول USIP v6.4 بيه.",
+   "date": "2026-10-31 20:10",
+   "updated": "2026-11-01T05:14",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/black-dragon/try-run-20261031/black_dragon_report.md",
+    "/mnt/project-files/protocol/USIP_v6_4_20261101.zip"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261031-vD2pvX",
+   "title": "الاستفادة من مهارة Instagram Agent",
+   "topic": "الاستفادة من مهارة Instagram Agent (`/ig-reel` و`/ig-human`) في KOSIF.",
+   "date": "2026-10-31 19:42",
+   "updated": "2026-11-01T05:53",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261031-N3Vy9Q",
+   "title": "تطوير البروتوكول وحل المشاكل المتبقية",
+   "topic": "«طور وعالج المشاكل» → USIP v6.3، ودمج الفروع، وميلاد مهارة «التنين الأسود».",
+   "date": "2026-10-31 16:49",
+   "updated": "2026-10-31T19:27",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/protocol/v63-20261031/USIP_PASTE.md",
+    "/mnt/project-files/black-dragon/black-dragon-demo.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261031-YH94T",
+   "title": "تطوير البروتوكول إلى v6.2",
+   "topic": "«طور» = طوّر بروتوكول USIP من v6.1 لـ v6.2.",
+   "date": "2026-10-31 11:47",
+   "updated": "2026-10-31T16:14",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/protocol/USIP_v6_2_20261031.zip",
+    "/mnt/project-files/protocol/v62-20261031/USIP_PASTE.md",
+    "docs/protocol/USIP_PORTABLE_v6_2.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261031-dTudk2",
+   "title": "مراجعة الفروع المفتوحة وإرسال البروتوكول",
+   "topic": "جرد فروع kosif-tool وإيه الناقص، وبعدين إرسال البروتوكول الأحدث.",
+   "date": "2026-10-31 09:15",
+   "updated": "2026-10-31T09:19",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/protocol/v61-latest-20261031/README.md",
+    "USIP_PASTE.md",
+    "USIP_v6_1_latest_20261031.zip"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261030-epv88i",
+   "title": "Finish KOSIF Media Gateway on Render",
+   "topic": "إكمال KOSIF Media Gateway (سيرفر HTTP + MCP على Render Free) عشان Claude يحمّل فيديوهات يوتيوب من غير الآيفون، وبعدين دمج كل الفروع.",
+   "date": "2026-10-30 20:54",
+   "updated": "2026-10-30T23:58",
+   "n_user": 0,
+   "paths": [
+    "services/kosif-media-gateway/{server.py,requirements.txt,README.md,mcp_client_check.py,tests/}",
+    ".claude/skills/kosif-superpowers/scripts/_media_gateway.py",
+    "fetch_video.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261030-F7UjaB",
+   "title": "إضافة اتصال Suno MCP كأول خطوة في البروتوكول",
+   "topic": "إضافة الاتصال بـ Suno MCP (`https://api.suno.com/mcp`) كخطوة صفر في البروتوكول (v6.1، ملحق A46).",
+   "date": "2026-10-30 19:32",
+   "updated": "2026-10-30T23:05",
+   "n_user": 0,
+   "paths": [
+    "https://api.suno.com/mcp",
+    "CLAUDE.md",
+    "boot.py",
+    "/mnt/project-files/protocol/v61-20261030/A46-v61-suno-mcp.md",
+    "LOADER.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261030-RS6WTt",
+   "title": "تشغيل تحميل فيديوهات اليوتيوب في البروتوكول",
+   "topic": "محاولة تحميل فيديو يوتيوب (dYrEeavC3cw) من الكلاود «بكل القدرات»، وبناء أداة `yt_get.sh` وملحق A45.",
+   "date": "2026-10-30 16:35",
+   "updated": "2026-10-30T19:47",
+   "n_user": 0,
+   "paths": [
+    "receipt.json",
+    "/mnt/project-files/living-site/skill-kosif/tools/yt_get.sh",
+    "/mnt/project-files/protocol/v60-20261030/A45-youtube-download.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261030-unb4tW",
+   "title": "حل مشكلة FusionForge Hub Bridge",
+   "topic": "بناء جسر تشغيل بين FusionForge وHub (`fusionforge_hub_runner.py`) عشان وصفات FusionForge تتشغل عبر `hub.py`.",
+   "date": "2026-10-30 14:24",
+   "updated": "2026-10-30T23:06",
+   "n_user": 0,
+   "paths": [
+    "fusionforge_hub_runner.py",
+    "hub.py",
+    "tools.json"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261030-whdyzD",
+   "title": "إضافة مصادر صور وفيديو مجانية للمونتاج",
+   "topic": "إضافة بحث وتحميل صور وفيديوهات مجانية للمونتاج كقسم في البروتوكول (ملحق A44).",
+   "date": "2026-10-30 13:36",
+   "updated": "2026-10-30T14:33",
+   "n_user": 0,
+   "paths": [
+    "free_photos.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261030-75nHie",
+   "title": "دمج حزمة USIP v6.0 في التطوير",
+   "topic": "دمج حزمة USIP v6.0 (فرع موازي مبني على v5.9) مع v5.10–v5.12، إضافة عدّاد لكل مهمة، رفع v6.0 كامل على GitHub، وتطوير Cinema C لـ V35.",
+   "date": "2026-10-30 12:20",
+   "updated": "2026-10-30T14:32",
+   "n_user": 0,
+   "paths": [
+    "validate_receipt.py",
+    "check.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261030-6PAAo8",
+   "title": "إضافة المتصفح وجمع الروابط للبروتوكول",
+   "topic": "هل Claude يقدر يستخدم «متصفح Higgsfield» مجانًا للتصفح وجمع الروابط، وبعدها إضافة قدرة المتصفح للبروتوكول v5.12.",
+   "date": "2026-10-30 12:11",
+   "updated": "2026-10-30T12:17",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/link-collector/collect-links.js",
+    "/mnt/project-files/protocol/v512-20261030/README.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261030-P799Gv",
+   "title": "إنشاء رابط رفع ملفات بأي حجم وتحليلها",
+   "topic": "صفحة رفع لأي عدد ملفات وأي حجم (كتاب فوق 40 ميجا)، تحليل 53 ملف اترفعوا، تحويل الرابط لمهارة، ودمج كل الـ PRs المفتوحة.",
+   "date": "2026-10-30 08:04",
+   "updated": "2026-10-30T13:02",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/file-uploads/kosif-upload-link.zip",
+    "join_parts.py",
+    "/mnt/project-files/uploads/files/",
+    "../../PROTOCOL.md",
+    "../PROTOCOL.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261029-xNthpi",
+   "title": "دمج مهارة Kling Cinematic Director في التطوير",
+   "topic": "دمج مهارة مخرج Kling السينمائي في KOSIF وإصدار البروتوكول v5.11.",
+   "date": "2026-10-29 22:14",
+   "updated": "2026-10-29T22:22",
+   "n_user": 0,
+   "paths": [
+    "kling_lint.py",
+    "references/level-2-kling-director.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261029-cVQd4c",
+   "title": "دمج كل الفروع في المستودع",
+   "topic": "دمج كل الفروع المفتوحة في main بتاع kosif-tool.",
+   "date": "2026-10-29 18:34",
+   "updated": "2026-10-29T18:59",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261029-Ch17ZV",
+   "title": "تطوير شامل لـ KOSIF والبروتوكول v5.9",
+   "topic": "«طور كل حاجة» على البروتوكول ومهارة KOSIF (مرفق USIP v5.10 وliving-site-kosif-v510.zip) → إصدار USIP v5.10.",
+   "date": "2026-10-29 12:53",
+   "updated": "2026-10-29T13:06",
+   "n_user": 0,
+   "paths": [
+    "check.py",
+    "protocol_lint.py",
+    "photocraft_mcp.py",
+    "/mnt/project-files/protocol/v510-20261029/CHANGELOG_v5_10.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261029-FnsCVn",
+   "title": "فيديوهات دعائية لأغنام الوادي (3 إعلانات)",
+   "topic": "جلسة طويلة: الأول فيديو «الغرف اليونانية» موشن رأسي، وبعدين 3 إعلانات لمتجر أغنام الوادي.",
+   "date": "2026-10-29 06:54",
+   "updated": "2026-10-30T14:34",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261029-Y6hM5x",
+   "title": "نقل قدرات photocraft إلى KOSIF",
+   "topic": "نقل قدرات PhotoCraft (بديل فوتوشوب مفتوح المصدر بـ MCP) للبروتوكول v5.9، وبعدها دمج الفروع المفتوحة.",
+   "date": "2026-10-29 05:25",
+   "updated": "2026-10-29T06:52",
+   "n_user": 0,
+   "paths": [
+    "photocraft_mcp.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261029-HFZq9h",
+   "title": "دمج مهارة Living Site في التطوير",
+   "topic": "دمج مهارة Living Site (مواقع حية متحركة) في KOSIF والبروتوكول v5.9.",
+   "date": "2026-10-29 05:21",
+   "updated": "2026-10-29T05:30",
+   "n_user": 0,
+   "paths": [
+    "check.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261028-WQ5xSH",
+   "title": "تسليم المونتاج لدافنشي وبريمير وبلندر",
+   "topic": "أداة `nle_export` تطلّع مونتاج KOSIF كتايملاين قابل للتعديل في برامج المونتاج.",
+   "date": "2026-10-28 16:16",
+   "updated": "2026-10-29T06:52",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261027-64uuo6",
+   "title": "تطوير KOSIF Motion من ملف Fares Motion",
+   "topic": "الاستفادة من ملف Fares Motion (بانل Claude في After Effects + سكيل pro-motion + أمثلة ريلز) في تطوير KOSIF Motion.",
+   "date": "2026-10-27 19:32",
+   "updated": "2026-10-27T20:39",
+   "n_user": 0,
+   "paths": [
+    "tools/overlap_rig.py",
+    "overlap-camera.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261027-vTLWiH",
+   "title": "إصلاح مهلة sandbox_exec في Higgsfield",
+   "topic": "أمر ترميز في `sandbox_exec` بتاع Higgsfield بيتقطع بعد 60 ثانية.",
+   "date": "2026-10-27 17:47",
+   "updated": "2026-10-29T06:52",
+   "n_user": 0,
+   "paths": [
+    "cw.mp4",
+    "ct.mp4",
+    "catalog/playbooks.json"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261027-zCq1Jn",
+   "title": "ربط شات جيبتي بكلاود",
+   "topic": "أسئلة: إزاي أربط ChatGPT بـ Claude، وهل Claude يتحكم في فوتوشوب.",
+   "date": "2026-10-27 17:39",
+   "updated": "2026-10-27T17:47",
+   "n_user": 0,
+   "paths": [
+    "kosif_mcp.py",
+    ".claude/skills/kosif-superpowers/scripts/kosif_mcp.py"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261027-LVBTMN",
+   "title": "كشف رواتب سبتمبر 2026 (تطبيق ويب)",
+   "topic": "صفحة Artifact لكشف رواتب شهر سبتمبر لشركة فيها أقسام (الشبح الرياض/جدة)، المالك بيعدّلها من الموبايل عشان يبعتها للمدير.",
+   "date": "2026-10-27 17:22",
+   "updated": "2026-10-28T09:34",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261027-rh6EHe",
+   "title": "إضافة After Effects MCP للبروتوكول",
+   "topic": "إضافة جسور MCP لبرامج أدوبي (أفتر إفكتس، بريمير، فوتوشوب) للبروتوكول USIP v5.8، وبعدها برامج مونتاج تانية.",
+   "date": "2026-10-27 06:35",
+   "updated": "2026-10-27T17:55",
+   "n_user": 0,
+   "paths": [
+    "adobe_mcp.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261026-jnYGyR",
+   "title": "إصلاح خطأ تفريغ الصوت بـ Gemini",
+   "topic": "أمر تفريغ صوت بـ Gemini وقع بخطأ HTTP في جلسة تانية (سكرين شوت من غير كلام).",
+   "date": "2026-10-26 20:25",
+   "updated": "2026-10-26T21:38",
+   "n_user": 0,
+   "paths": [
+    "tools/transcribe_audio.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261026-Vdimnu",
+   "title": "إعلان بودكاست وفاء يوسف (الجلسة الأولى)",
+   "topic": "إعلان لبودكاست جديد لوفاء يوسف (قناة «الحكاية فيها إنّ»): Higgsfield + Kling 4 + صور + فويس أوفر Gemini Flash بصوت بنت مصرية.",
+   "date": "2026-10-26 19:57",
+   "updated": "2026-10-26T20:23",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261026-FN23Ny",
+   "title": "إرسال البروتوكول المتطور v5.8",
+   "topic": "«ارسل البرتكول المتطور» (تاني، بعد ما اتعمل v5.8).",
+   "date": "2026-10-26 19:52",
+   "updated": "2026-10-26T19:53",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/protocol/latest-20261026/USIP_PASTE.md",
+    "/mnt/project-files/protocol/latest-20261026/USIP_PORTABLE_v5_8.md",
+    "/mnt/project-files/protocol/latest-20261026/USIP_PORTABLE_FULL_v5_8.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261026-2wUMnj",
+   "title": "تحميل صفحة التقرير اليومي",
+   "topic": "صفحة التقرير اليومي (حسابات: مبيعات، مشتريات، مصروفات، سندات، صندوق) المنشورة على GitHub Pages — «أين مكوناته» و«عايز مكان المستودع علشان احمله».",
+   "date": "2026-10-26 17:59",
+   "updated": "2026-10-26T18:01",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/daily-report/daily-report.html"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261026-ynsgKw",
+   "title": "نقل قدرات مستودع الـ114 مهارة لسوبر باور",
+   "topic": "نقل الـ114 مهارة من مستودع `100-superskills` لجوه سوبر باور (kosif-tool).",
+   "date": "2026-10-26 14:24",
+   "updated": "2026-10-26T17:21",
+   "n_user": 0,
+   "paths": [
+    "scripts/superskills.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261026-ejtjVv",
+   "title": "تطوير سوبر باور من أهم مستودعات GitHub وكتب التفكير",
+   "topic": "أهم 1000 مستودع GitHub اتحدّثوا في آخر 30 يوم + أشهر كتب التفكير → تطوير Superpowers والبروتوكول (v5.8) والأدوات، وبعدين إضافة «مجلس الخمسة» (LLM Council) إلزامي وذكي.",
+   "date": "2026-10-26 12:32",
+   "updated": "2026-10-26T16:04",
+   "n_user": 0,
+   "paths": [
+    "github_pulse.py",
+    "thinking_books.py",
+    "design_tells.py",
+    "video_eyes.py",
+    "llm_council.py",
+    "github-pulse-30d.md",
+    "A38-v58-thinking-books-github-pulse.md",
+    "council-20261026-smart-council.md",
+    "/mnt/project-files/protocol/latest-20261026/USIP_PORTABLE_v5_8.md",
+    "/mnt/project-files/protocol/latest-20261026/USIP_PASTE.md",
+    "/mnt/project-files/protocol/latest-20261026/USIP_PORTABLE_FULL_v5_8.md",
+    "cinema-lab/reframe-vertical-20s.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261026-M8cZtx",
+   "title": "إرسال البروتوكول المتطور",
+   "topic": "«ارسل البروتوكول المتطور».",
+   "date": "2026-10-26 08:48",
+   "updated": "2026-10-26T08:51",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/protocol/latest-20261026/USIP_PORTABLE_v5_7.md",
+    "/mnt/project-files/protocol/latest-20261026/USIP_PORTABLE_FULL_v5_7.md",
+    "/mnt/project-files/protocol/latest-20261026/USIP_PASTE.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261026-RwEFk8",
+   "title": "رفع الفيديوهات الكبيرة عبر رابط رفع",
+   "topic": "حد الـ 40 ميجا في رفع الفيديوهات للمونتاج، والحل صفحة رفع (Artifact) تقبل أي حجم.",
+   "date": "2026-10-26 06:11",
+   "updated": "2026-10-26T07:42",
+   "n_user": 0,
+   "paths": [
+    "/mnt/project-files/video-uploads/README.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261025-Hhph3e",
+   "title": "إصلاح خطأ JSON في توليد صور Higgsfield",
+   "topic": "استدعاء توليد صورة على Higgsfield فشل بخطأ JSON (سكرين شوت).",
+   "date": "2026-10-25 22:33",
+   "updated": "2026-10-26T15:36",
+   "n_user": 0,
+   "paths": [
+    "CLAUDE.md",
+    "PROTOCOL.md",
+    "think.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261025-s4iv8P",
+   "title": "فيديو دعائي لمتجر أغنام الوادي",
+   "topic": "«استخرج فديوهات من المواقع واصنع فديو دعائي للمتجر» لمتجر ذبائح في جدة على سلة.",
+   "date": "2026-10-25 18:31",
+   "updated": "2026-10-26T17:56",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261025-1h1rPg",
+   "title": "تطوير KOSIF من الملفات المرفقة",
+   "topic": "مرفقات (2 PDF + 2 zip) للاستفادة منها في التطوير.",
+   "date": "2026-10-25 18:16",
+   "updated": "2026-10-25T19:08",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261025-hcJeLw",
+   "title": "تطوير KOSIF Motion بمستودعات السينما والمونتاج",
+   "topic": "قايمة 24 مستودع (Blender، Storyboarder، Nerfstudio، COLMAP، libgphoto2، OpenCV، FFmpeg، Remotion، Kdenlive، Shotcut، LosslessCut، Auto-Editor، PySceneDetect، OpenTimelineIO، OBS، Natron، OpenColorIO، ",
+   "date": "2026-10-25 17:55",
+   "updated": "2026-10-25T19:38",
+   "n_user": 0,
+   "paths": [
+    "cinema_lab.py",
+    "export_profile.py",
+    ".claude/skills/kosif-superpowers/scripts/cinema_lab.py",
+    "reframe-vertical-20s.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261025-Qagiyx",
+   "title": "توحيد إعدادات تصدير الفيديوهات",
+   "topic": "تثبيت إعدادات تصدير فيديو «داري يا قلبي» (اللي طلعت الأحسن) كأساس لكل تصدير جاي في الريبو.",
+   "date": "2026-10-25 17:37",
+   "updated": "2026-10-25T18:38",
+   "n_user": 0,
+   "paths": [
+    "export_profile.py",
+    "montage_pro.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261025-ysVJzd",
+   "title": "Publish 4K videos directly to TikTok",
+   "topic": "نشر فيديو 4K مباشر على تيك توك من Claude Code على الموبايل عبر Higgsfield، + عيب `--scale 2` في أداة الرندر.",
+   "date": "2026-10-25 15:08",
+   "updated": "2026-10-25T15:21",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261025-XomBoM",
+   "title": "Restore stock video downloads",
+   "topic": "التحميل من Pexels وحوالي 100 موقع خامات وقف، وأوامر ffmpeg والرندر بتقف بخطأ «classifier gave no verdict».",
+   "date": "2026-10-25 06:22",
+   "updated": "2026-10-25T07:04",
+   "n_user": 0,
+   "paths": [
+    ".claude/settings.json",
+    "docs/download-permissions.md",
+    "CLAUDE.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261025-1ynFXE",
+   "title": "Fix photo not filling video frame",
+   "topic": "الصورة في قوالب الموشن جرافيك مش مالية الفريم وبتبان حافة فاضية.",
+   "date": "2026-10-25 05:57",
+   "updated": "2026-10-26T16:27",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261025-7zM9X3",
+   "title": "Fix blocked sleep waits during rendering",
+   "topic": "Claude Code بيمنع انتظار الرندر بـ `sleep 60` وبعده قراءة اللوج، والرندر كان بيقف.",
+   "date": "2026-10-25 05:45",
+   "updated": "2026-10-25T06:36",
+   "n_user": 0,
+   "paths": [
+    "tools/job.py",
+    "CLAUDE.md",
+    "AGENTS.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261024-BgYq1",
+   "title": "شورت موشن جرافيك: أول الأفلام (كورنيش إسكندرية) وقواعد التصد",
+   "topic": "أول أيام الجلسة الطويلة (فتحها من الآيفون، ريبو kosif-tool). الجلسة فيها 34 ألف حدث و21 compaction، فالجزء ده متجمّع من صفحة التحميل اللي اتنشرت فيها ومن القواعد المؤرّخة اللي الجلسة نفسها كتبتها في `",
+   "date": "2026-10-24 22:32",
+   "updated": "2026-10-26T23:59",
+   "n_user": 0,
+   "paths": [
+    "LESSONS.md",
+    ".../[مخفي]/d25083f7-bcc6-4e9b-8d9e-448d9c465e74.zip",
+    ".../2779d328-bd9e-48ec-b6c2-aff2d7457756.mp4",
+    ".../0cb01a70-f057-44e2-9d96-c7d3739522e5.mp4"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261024-7AgX8n",
+   "title": "تطوير مجلس الخبراء وتفعيل كل القدرات",
+   "topic": "سطر «وضع التفعيل الكامل» في أول بروتوكول USIP v5.7، تحميل أخف للمهارات، تطوير مجلس الخبراء ومحامي الشيطان والنماذج الذهنية، ومجلس 5 شخصيات افتراضية يراجع كل مهارة وميزة.",
+   "date": "2026-10-24 20:50",
+   "updated": "2026-10-24T22:46",
+   "n_user": 0,
+   "paths": [
+    "LOADER.md",
+    "USIP_PORTABLE_FULL_v5_7.md",
+    "USIP_PORTABLE_v5_7.md",
+    "/mnt/project-files/protocol/USIP_PORTABLE_FULL_v5_7.md",
+    "/mnt/project-files/protocol/USIP_PORTABLE_v5_7.md",
+    "requirements.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261024-L3omKB",
+   "title": "إصلاح نقص yt-dlp في بداية المحادثات",
+   "topic": "جلسات السحابة الجديدة بتبدأ من غير yt-dlp، وصاحب الشغل بعت سكرين شوت فيها exit 1.",
+   "date": "2026-10-24 20:47",
+   "updated": "2026-10-24T21:15",
+   "n_user": 0,
+   "paths": [
+    "boot.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261024-HYZECK",
+   "title": "فيديو دخان (ريل دعاء صباح الأحد بالمبخرة)",
+   "topic": "فيديو تيك توك (دعاء صباح الأحد من `@oaun.11`): طلّع الصوت وابتكر فيديو جديد بمبخرة ودخان وانتقالات موشن.",
+   "date": "2026-10-24 20:46",
+   "updated": "2026-10-24T21:13",
+   "n_user": 0,
+   "paths": [
+    "rights.json",
+    "research/references.md"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "t20261024-mbzMCv",
+   "title": "تطوير بروتوكول Superpowers ودمج الفروع",
+   "topic": "الاستفادة من المرفقات (USIP_PORTABLE_v5_7.md وملفات Infinite Matrices v0.2) في تطوير Superpowers، دمج كل الفروع غير المدموجة، وتطوير البروتوكول لنسخة محمولة تتلصق في أي محادثة.",
+   "date": "2026-10-24 19:35",
+   "updated": "2026-10-24T20:51",
+   "n_user": 0,
+   "paths": [
+    ".claude/skills/kosif-superpowers/PROTOCOL.md",
+    "references/protocol/A36-v57-context-boot-parallel.md",
+    ".claude/skills/kosif-superpowers/USIP_PORTABLE.md",
+    "docs/protocol/USIP_PORTABLE_v5_7.md",
+    "scripts/boot.py",
+    "hub.py",
+    "skill_intelligence.py",
+    "fusionforge.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261024-9nYgUS",
+   "title": "تجربة إنستجرام بتسجيل الدخول",
+   "topic": "تجربة instagram_finder بـ INSTAGRAM_SESSIONID من السحابة، وبعدها أمر تحميل ريل مباشر وإضافة كروم تجمع روابط فيديوهات أي حساب.",
+   "date": "2026-10-24 19:21",
+   "updated": "2026-10-24T20:45",
+   "n_user": 0,
+   "paths": [
+    "instagram-link-collector.zip",
+    "chase90re-Dd7vmSAK0j6.mp4"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261024-g47zpx",
+   "title": "تجربة أداة إنستجرام أونلاين",
+   "topic": "تجربة أداة instagram_finder من السحابة بعد فتح الشبكة، من غير حساب.",
+   "date": "2026-10-24 18:47",
+   "updated": "2026-10-24T18:51",
+   "n_user": 0,
+   "paths": [
+    ".claude/skills/kosif-superpowers/scripts/instagram_finder.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261024-HLz9zm",
+   "title": "إضافة بحث وتحميل فيديوهات إنستجرام",
+   "topic": "أداة في Superpowers تبحث في إنستجرام عن فيديوهات تناسب منتج وتحمّلها، مع حفظ حسابات مرجعية.",
+   "date": "2026-10-24 18:05",
+   "updated": "2026-10-24T19:50",
+   "n_user": 0,
+   "paths": [
+    "fetch_video.py"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261024-68ymrj",
+   "title": "استكشاف مستودعات مفتوحة لتطوير ذكاء Superpowers",
+   "topic": "مراجعة مستودعات GitHub مفتوحة المصدر عالمية لرفع ذكاء KOSIF Superpowers.",
+   "date": "2026-10-24 18:00",
+   "updated": "2026-10-24T18:06",
+   "n_user": 0,
+   "paths": [],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261024-TaHdYP",
+   "title": "مراجعة وتطوير قدرات KOSIF Superpowers",
+   "topic": "مراجعة كاملة لقدرات Superpowers، والأولوية (بطلب إضافي) لذكاء التوجيه والقرار مش مميزات جديدة.",
+   "date": "2026-10-24 17:51",
+   "updated": "2026-10-24T19:36",
+   "n_user": 0,
+   "paths": [
+    "SUPERPOWERS_REVIEW_20261024.md"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "t20261024-ocRRXU",
+   "title": "استكمال محرك KOSIF Infinite Matrices",
+   "topic": "مشروع KOSIF Infinite Matrices جوه Superpowers: تحليل 86 أسلوب بصري (أرشيف ai-style-atlas-prompts-FULL.zip) للبنات أساسية (الحالة، العملية، القانون، الزمن، الذاكرة، التغذية الراجعة)، ومحرك يركّب أسلوب ",
+   "date": "2026-10-24 17:41",
+   "updated": "2026-10-24T19:30",
+   "n_user": 0,
+   "paths": [
+    "report.md",
+    "KOSIF_Infinite_Matrices_full.zip"
+   ],
+   "source": "project-thread"
+  },
+  {
+   "id": "s20261020-aAtrmM",
+   "title": "موشن جرافيك لأغنية من تيك توك",
+   "topic": "تنزيل فيديو تيك توك وعمل موشن جرافيك متزامن مع كلام الأغنية.",
+   "date": "2026-10-20 00:37",
+   "updated": "2026-10-20T01:05",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261020-2GRKc2",
+   "title": "مراجعة أداة دراسة المواقع (MagicPath) في Atlas",
+   "topic": "مراجعة عدائية لكوميت `web_app_study.py` في kosif-superpowers (REA 6.7.0 + Chromium 141) وإصلاح الملاحظات.",
+   "date": "2026-10-20 00:00",
+   "updated": "2026-10-20T23:13",
+   "n_user": 0,
+   "paths": [
+    "web_app_study.py"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261020-VBh3Mp",
+   "title": "ريلز دعاء يومية (مخرج KOSIF السينمائي)",
+   "topic": "ريلز دعاء (الإثنين/الثلاثاء) بنفس أسلوب «الدعاء».",
+   "date": "2026-10-20 00:00",
+   "updated": "2026-10-20T00:31",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261020-h4Q67N",
+   "title": "تنظيم KOSIF Superpowers وخط الجمعة",
+   "topic": "إنهاء ملاحظات مراجعة متبقية في سكيل kosif-superpowers + عيلة خط KOSIF Jumuah.",
+   "date": "2026-10-20 00:00",
+   "updated": "2026-10-22T19:53",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261019-VfbQZ1",
+   "title": "فيلم كلمات موشن لأغنية مصرية",
+   "topic": "فيديو موشن احترافي على أغنية مصرية بتاعة المالك.",
+   "date": "2026-10-19 16:28",
+   "updated": "2026-10-19T17:03",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261019-9uLWGr",
+   "title": "قائمة مطاعم البرجر في جدة ومكة",
+   "topic": "توسيع ملف Excel لمطاعم البرجر في جدة ومكة من تطبيقات التوصيل ومواقع الدليل.",
+   "date": "2026-10-19 00:00",
+   "updated": "2026-10-19T20:51",
+   "n_user": 0,
+   "paths": [
+    "burger_jeddah_makkah_v4.xlsx"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261019-DC9mmE",
+   "title": "فيلم KOSIF السينمائي (مفاتيح) على لقطات طبيعة",
+   "topic": "إعادة قص فيلم موشن بصوت (مفاتيح) على لقطات طبيعة بس من غير أي بشر.",
+   "date": "2026-10-19 00:00",
+   "updated": "2026-10-19T11:16",
+   "n_user": 0,
+   "paths": [
+    "RIGHTS.md"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261018-uU87Pa",
+   "title": "تحليل مقطع «الدعاء» وحفظه كأسلوب",
+   "topic": "تحليل ريل دعاء جمعة وحفظه كأسلوب `dua` قابل لإعادة الاستخدام (عنوان الجلسة: Graphify).",
+   "date": "2026-10-18 00:00",
+   "updated": "2026-10-18T20:09",
+   "n_user": 0,
+   "paths": [
+    "project.json"
+   ],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261016-nqoWCy",
+   "title": "إضافة Graphify MCP",
+   "topic": "أمر `claude mcp add ... graphify` وبلوك قواعد Graphify لـCLAUDE.md وشرح ريبو kosif-atlas بأدوات Graphify بس.",
+   "date": "2026-10-16 17:35",
+   "updated": "2026-10-16T17:37",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  },
+  {
+   "id": "s20261016-GoiYjr",
+   "title": "برومبت Katana من Higgsfield مع KOSIF Superpowers",
+   "topic": "المالك عايز برومبت يدمج Katana (من Higgsfield) مع سكيل KOSIF.",
+   "date": "2026-10-16 00:00",
+   "updated": "2026-10-16T19:55",
+   "n_user": 0,
+   "paths": [],
+   "source": "cloud"
+  }
+ ]
+}

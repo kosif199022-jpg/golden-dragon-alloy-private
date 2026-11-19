@@ -1,0 +1,601 @@
+{
+ "_doc": "The Black Dragon registered engines. Catalog status=registered (not proof of execution). Some tools require external programs or credentials.",
+ "tools": [
+  {
+   "id": "dragon-montage",
+   "ar": "مونتاج التنين الكامل",
+   "en": "Full reasoned montage",
+   "cmd": "dragon run dragon_montage plan \"ريل حماسي 30 ثانية\" --clip a.mp4 --music m.mp3",
+   "what": "فوتيج وطلب بكلامك يتحول لمونتاج: تحليل، خطة وستوري بورد، رندر، مراجعة وتصليح. montage edit reel footage storyboard review"
+  },
+  {
+   "id": "cinema-film",
+   "ar": "فيلم تكريم سينمائي من فيديوهات وأغنية",
+   "en": "Footage cinema film",
+   "cmd": "dragon film spec.json --stills 1.5,7.5",
+   "what": "أفلام تكريم واحتفال 9:16 بأغنية وتلوين وكتابة عربية. cinematic tribute film song beat"
+  },
+  {
+   "id": "talking-head",
+   "ar": "ريل متحدث تحريري",
+   "en": "Talking-head reel",
+   "cmd": "dragon run talking_head --help",
+   "what": "تسجيل حد بيتكلم يتحول لريل: قص السكتات، صوت ماستر، نص متحرك. talking head podcast interview silence cut captions"
+  },
+  {
+   "id": "image-studio",
+   "ar": "استوديو الصور: عنوان عربي وغلاف وتلوين وتكبير وشيل خلفية",
+   "en": "Image studio",
+   "cmd": "dragon run image_studio cover photo.jpg cover.jpg \"العنوان\" --sub \"سطر\" --look warm_gold",
+   "what": "عنوان عربي متشكّل صح، ريفريم 9:16 بخلفية مغبشة، 7 لوكات تلوين، تكبير 4x بـ Upscayl، شيل الخلفية بـ rembg، غلاف ريل ويوتيوب، شيت فريمات للمراجعة. arabic title typography thumbnail cover poster upscale enhance background removal cutout grade color reframe contact sheet"
+  },
+  {
+   "id": "blender-engine",
+   "ar": "Blender في الخلفية: سكريبتات ورندر صور وفيديو",
+   "en": "Blender headless engine",
+   "cmd": "dragon run blender render scene.blend out.mp4 --start 1 --end 120 --res 1080x1920 --engine CYCLES",
+   "what": "تشغيل Blender 5.2 من غير واجهة ولا MCP: كود bpy، رندر فريم أو فيديو MP4 بمعيار التصدير. blender 3d render bpy product logo reveal turntable"
+  },
+  {
+   "id": "web-film",
+   "ar": "فيلم موشن كصفحة ويب",
+   "en": "Web film",
+   "cmd": "dragon run web_film --help",
+   "what": "موشن جرافيك وتايتلات بـ HTML يترندر MP4، عالم واحد وكاميرا واحدة. motion graphics title sequence html render"
+  },
+  {
+   "id": "editorial-look",
+   "ar": "لوك أرشيفي سينمائي",
+   "en": "Editorial film look",
+   "cmd": "dragon run editorial --help",
+   "what": "حبيبات فيلم، توهج، أبيض وأسود، كابشن متحرك. film grain bloom halation archival documentary"
+  },
+  {
+   "id": "shadow-theatre",
+   "ar": "أفلام مسرح الظل",
+   "en": "Shadow theatre films",
+   "cmd": "dragon run shadow_theatre --help",
+   "what": "أفلام ظلال من مشهد JSON. silhouette shadow puppet animation story"
+  },
+  {
+   "id": "voice-studio",
+   "ar": "استوديو الصوت: تفريغ وترجمة SRT وتوقيت كلمات واستنساخ",
+   "en": "Voice studio",
+   "cmd": "dragon run voice_studio --help",
+   "what": "كلام بتوقيت الكلمات، تفريغ لـ SRT/VTT، استنساخ وتصميم صوت. voice tts transcription subtitles srt vtt cloning"
+  },
+  {
+   "id": "reel-hooks",
+   "ar": "تقييم هوك الريل وتوزيع السكريبت",
+   "en": "Reel hooks",
+   "cmd": "dragon run reel_hooks --help",
+   "what": "تقييم أول جملة على 5 خصائص، beat sheet، تبسيط العربي. hook script opening line scoring"
+  },
+  {
+   "id": "kling-director",
+   "ar": "حزمة برومبت Kling وستوري بورد (من غير صرف)",
+   "en": "Kling director",
+   "cmd": "dragon run kling_director --help",
+   "what": "برومبتات فيلم قصير لـ Kling مع فحص. kling prompt storyboard ai video"
+  },
+  {
+   "id": "infinite-matrices",
+   "ar": "المصفوفات اللانهائية: اختراع أساليب بصرية",
+   "en": "Infinite matrices",
+   "cmd": "dragon run matrices --help",
+   "what": "أنظمة بصرية جديدة من طوب سببي. visual system style invention generative"
+  },
+  {
+   "id": "method-cards",
+   "ar": "2901 كارت طريقة مونتاج وصوت",
+   "en": "Method cards",
+   "cmd": "dragon run cards list",
+   "what": "طرق مونتاج وصوت وبيانات كل واحدة باختبار. method cards audio video data"
+  },
+  {
+   "id": "fetch-sources",
+   "ar": "تحميل بأعلى جودة مع تسجيل المصدر في sources.txt",
+   "en": "Fetch with source log",
+   "cmd": "python scripts/dragon.py tool fetch URL --dir job --licence \"CC BY 4.0\"",
+   "what": "تحميل فيديو أو صوت أو صورة بـ yt-dlp أو aria2c وتسجيل المصدر والترخيص. download youtube tiktok video image source credit licence"
+  },
+  {
+   "id": "free-stock",
+   "ar": "صور وفيديو مجانية بالترخيص",
+   "en": "Free stock search",
+   "cmd": "python scripts/dragon.py tool stock search \"sunset city\"",
+   "what": "صور وفيديو مفتوحة الترخيص مع سطر النسب. free stock photos videos openverse wikimedia"
+  },
+  {
+   "id": "arena",
+   "ar": "الحلبة: وكلاء بيتنافسوا على أحسن إجابة",
+   "en": "Arena",
+   "cmd": "python scripts/dragon.py tool arena --help",
+   "what": "لما الإجابة تترفض، 16 وكيل يتنافسوا. debate tournament ideas"
+  },
+  {
+   "id": "deep-filter",
+   "ar": "تنضيف الصوت وشيل الدوشة (DeepFilterNet)",
+   "en": "Voice denoise",
+   "cmd": "deep-filter voice.wav -o clean/",
+   "what": "شيل الدوشة والزن من الكلام. denoise noise hum voice clean audio"
+  },
+  {
+   "id": "demucs",
+   "ar": "فصل الصوت عن الموسيقى",
+   "en": "Stem separation",
+   "cmd": "demucs --two-stems vocals song.mp3",
+   "what": "فصل الفوكال والمزيكا والدرامز. stems vocals music separation karaoke"
+  },
+  {
+   "id": "whisperx",
+   "ar": "تفريغ بتوقيت كل كلمة",
+   "en": "Word-level transcription",
+   "cmd": "whisperx audio.wav --language ar --output_format srt",
+   "what": "تفريغ ومحاذاة الكلمات للترجمة والكاريوكي. transcribe subtitles word timing"
+  },
+  {
+   "id": "upscayl",
+   "ar": "تكبير الصور 4x بالذكاء الاصطناعي",
+   "en": "AI upscale",
+   "cmd": "dragon run image_studio upscale in.jpg out.png --model ultrasharp-4x",
+   "what": "Real-ESRGAN بـ Upscayl من غير كارت NVIDIA. upscale enhance resolution super resolution"
+  },
+  {
+   "id": "rembg",
+   "ar": "شيل خلفية الصور",
+   "en": "Background removal",
+   "cmd": "dragon run image_studio cutout in.jpg out.png",
+   "what": "PNG شفاف من أي صورة. remove background cutout transparent"
+  },
+  {
+   "id": "auto-editor",
+   "ar": "قص السكتات أوتوماتيك",
+   "en": "Silence cut",
+   "cmd": "auto-editor talk.mp4 --margin 0.2sec",
+   "what": "شيل السكتات والوقفات. silence cut jump cut"
+  },
+  {
+   "id": "scenedetect",
+   "ar": "كشف القطعات واللقطات",
+   "en": "Shot detection",
+   "cmd": "scenedetect -i film.mp4 detect-adaptive list-scenes",
+   "what": "تقسيم فيديو للقطات. shot scene detection cuts"
+  },
+  {
+   "id": "v10-thinking-checks",
+   "ar": "فحوص التفكير والتحيز وفق الكتاب",
+   "en": "Evidence-aware cognitive decision review",
+   "cmd": "dragon v10 think \"اعمل مونتاج\" --domain video",
+   "what": "قرارات 3 خطط معاكس دليل مصدر Kahneman thinking biases baseline alternatives cognitive review"
+  },
+  {
+   "id": "v10-catalog-audit",
+   "ar": "فحص الكتالوج والأدلة بلا ادعاء التنفيذ",
+   "en": "Catalog execution truth audit",
+   "cmd": "dragon v10 catalog-audit",
+   "what": "عدد الفهارس وسجلات البرامج وموصلات وصفية executable catalog audit receipts"
+  },
+  {
+   "id": "v10-video-gate",
+   "ar": "بوابة الفيديو سبع مراحل مع الإيصالات",
+   "en": "Seven-stage video production gate",
+   "cmd": "dragon v10 gate check --job out/film",
+   "what": "مراحل brief concept color shots produce qa deliver فحص الفيديو والستوري بورد والاعتماد"
+  },
+  {
+   "id": "v10-pixel-qa",
+   "ar": "قياس ألوان الفيديو من 7 كادرات",
+   "en": "Sampled video color compliance",
+   "cmd": "dragon v10 gate qa --job out/film",
+   "what": "60 30 10 اللون العاشر deltaE قياس البكسلات جودة الفيديو pipeline qa"
+  },
+  {
+   "id": "v10-kling-pack",
+   "ar": "إخراج برومبتات Kling بالبلوكات دون كريدت",
+   "en": "Text-only Kling cinematic director",
+   "cmd": "dragon v10 kling-pack examples/v10-kling-spec.json",
+   "what": "Kling storyboard story engine film director prompts no spend"
+  },
+  {
+   "id": "v10-media-audit",
+   "ar": "فحص ملفات الفيديو الحقيقي وبصمة SHA256",
+   "en": "Read-only media audit",
+   "cmd": "dragon v10 audit-media video.mp4 --deep",
+   "what": "ffprobe ffmpeg audio loudness black frames exact duration inspect"
+  },
+  {
+   "id": "v10-reference-links",
+   "ar": "فهرس مراجع فيديو ميار دون تحميل",
+   "en": "Offline reference video search",
+   "cmd": "dragon v10 links --keyword \"تتويج\"",
+   "what": "تيك توك انستجرام روابط فيديو البحث فهرس ترخيص ميار"
+  },
+  {
+   "id": "media-hunter",
+   "ar": "صيّاد الميديا — بحث حي وملفات مع توثيق التراخيص",
+   "en": "Media Hunter searchable stock + site discovery",
+   "cmd": "python scripts/dragon.py tool hunter hunt \"camel desert sunset\" --type video --orientation portrait",
+   "what": "Media Hunter بحث فيديو وصور ومتاحف وأيقونات وخامات بواجهات موثقة؛ 31 مصدرًا مدرجًا، جزء فقط مزود بموصلات حية، تنزيل بموافقة وعزو الحقوق. search footage b-roll royalty public domain stock art museum hdri texture icon gifs"
+  },
+  {
+   "id": "ultra-mind",
+   "ar": "العقل الفائق: بدائل، نقد، تحقق، معايرة تنبؤات",
+   "en": "Ultra Mind reasoning protocol + independent evidence checks",
+   "cmd": "python scripts/dragon.py v10 ultra plan \"قرار صعب\" --domain decision --level L3",
+   "what": "7-stage thinking scaffolds; competing hypotheses; falsification; independent file-SHA256 evidence integrity (not truth); measured forecast Brier/calibration; creative methods TRIZ, ACH, Polya, Kahneman, Tetlock. Think reasoning decision Bayesian bias verify creative عقل التفكير البدائل التحقق والتدقيق"
+  },
+  {
+   "id": "expert-council",
+   "ar": "مجلس الخبراء المستقل — اختلاف الآراء والأدلة والدروس",
+   "en": "Expert Council: role planning, evidence audit and lessons",
+   "cmd": "python scripts/dragon.py v10 council plan \"قيّم هذا المونتاج\" --domain editing --size 5",
+   "what": "مجلس خبراء 3 5 7 مقاعد مختلفة المدارس، جولة مستقلة، steelman، متشكك red-team، حكم عملي ورأي مخالف، فحص SHA256 لملفات الأدلة، سجل تعلم خاص من الأخطاء والتصحيحات. Council editing cinematography directing literature review audit learning lessons. Planning is not invocation of real agents."
+  },
+  {
+   "id": "blender-pro",
+   "ar": "بلندر برو: وصفات 3D ورسم وشعارات عربية وتحرير فيديو",
+   "en": "Blender Pro recipe-driven headless renderer",
+   "cmd": "python scripts/dragon.py tool blender-pro doctor",
+   "what": "Blender Pro 3D rendering EEVEE Cycles materials product shot logo reveal Arabic text camera lighting geometry nodes Grease Pencil drawing VSE video edit. Source bundled; Blender runtime required for actual render; validate and plan operate offline."
+  },
+  {
+   "id": "absolute-creativity",
+   "ar": "الإبداع المطلق: تصادم أفكار وفحص أصالة وتايبوجرافي عربي",
+   "en": "Absolute Creativity idea forge + original Arabic typography",
+   "cmd": "python scripts/dragon.py tool creativity spin \"ريل توعوي\" --n 12 --seed 7",
+   "what": "أفكار إبداعية قابلة لإعادة الإنتاج 12 بذرة وفحص 3 بدائل و3 كليشيهات وتقييم يدوي 5 معايير 18/25 وبنية Style Bible وتايتل عربي بـPillow libraqm حسب توفره؛ cinematic art direction fashion montage narrative concept brainstorming storyboard prompts typography creativity art design original non-derivative. Ideation is not proof of originality or rendered footage."
+  },
+  {
+   "id": "rea-ultra",
+   "ar": "فحص وتحليل البرامج والملفات بأدلة وأمان",
+   "en": "REA Ultra authorized reverse-engineering triage",
+   "cmd": "python scripts/dragon.py tool rea-ultra triage /path/to/authorized/sample --out out/rea-evidence.json",
+   "what": "REA Ultra static offline triage and artifact comparison. PE exe dll ELF APK Electron ASAR wasm SQLite ZIP JavaScript HAR binary security audit Ghidra JADX REA evidence observed inferred unknowns SHA256. تحليل هندسة عكسية فحص الملفات والمكتبات وتطبيقات أندرويد وإلكترون والتتبع. External REA runtime and Ghidra are optional and not bundled, not executed."
+  },
+  {
+   "id": "visual-forge",
+   "ar": "مصنع الصورة: برومبت ChatGPT وKling ومؤثرات جوية محلية",
+   "en": "Visual Forge: image/video prompt planner and atmospheric FX",
+   "cmd": "python scripts/dragon.py tool visual-forge doctor",
+   "what": "Visual Forge 20 atmosphere presets rain snow fog dust godrays lightning bloom color grade Arabic visual generation prompts image to video Kling ChatGPT shots look bible continuity storyboard offline effect render image video audio safe output receipt lint. مصنع الصورة سينمائي مطر ثلج ضباب شبورة عاصفة نيون مؤثرات جوية صور فوتيج ثابت الشخصية برومبت حركة إخراج"
+  },
+  {
+   "id": "physics-math",
+   "ar": "رياضيات وفيزياء المونتاج والحركة والكاميرا",
+   "en": "Physics & Math for motion, VFX, cinematography and editing",
+   "cmd": "python scripts/dragon.py tool physics fall --height 20 --fps 30 --keys",
+   "what": "Physics math calculation units motion gravity projectile bounce spring easing camera optics FOV focal dolly parallax depth of field beats BPM timecode frames crop 9:16 audio dB LUFS plans conversions Blender scale. حسابات الحركة والفيزياء والتصوير والرياضيات فريمات إيقاع سقوط ارتداد وسرعة وزمن وكاميرا ووزن وكثافة. Pure Python local calculation, not external measured media or physically calibrated simulation."
+  },
+  {
+   "id": "phone-play-check",
+   "ar": "فحص التشغيل على الموبايل: هل الفيديو هيشتغل على الآيفون وواتساب؟ ويصلّحه في نسخة جديدة",
+   "en": "Phone/WhatsApp/iPhone playability check and safe fix (NAME_phone.mp4)",
+   "cmd": "python scripts/dragon.py play-check FILE.mp4 [--fix]",
+   "what": "الملف لا يعمل الفيديو مش شغال الأغنية مش شغالة صوت ساكت آيفون واتساب mp3 جوه mp4 faststart yuv420p ملف ناقص تالف moov playability iphone whatsapp silent audio broken mp4 fix"
+  },
+  {
+   "id": "dragon-status",
+   "ar": "حالة الشغل: خلصت ولا لسه؟ الشغّال والمخلّص ومدته وملفاته",
+   "en": "Job status ledger: running / done / failed with durations and outputs",
+   "cmd": "python scripts/dragon.py status",
+   "what": "خلصت ولا لسه هل انتهيت قدامك قد ايه حالة الرندر شغال progress job status running done"
+  },
+  {
+   "id": "dragon-last",
+   "ar": "فين الملف؟ آخر الملفات اللي التنين طلّعها بمساراتها الكاملة",
+   "en": "Last outputs with full paths",
+   "cmd": "python scripts/dragon.py last [N]",
+   "what": "فين الملف فين مكان المهارة اسم الملف ايه مش لاقي الناتج المسار outputs where is the file last output path"
+  },
+  {
+   "id": "dragon-resources",
+   "ar": "الذاكرة والهارد والمعالج: الجهاز يستحمل رندر تقيل دلوقتي؟ وعدد الشغّالين المناسب",
+   "en": "RAM/disk/CPU/GPU check and safe worker count before heavy jobs",
+   "cmd": "python scripts/dragon.py resources",
+   "what": "ذاكرة رام قليلة الجهاز تقيل الرندر وقف low memory killed ram disk cpu gpu workers"
+  },
+  {
+   "id": "keyboard-layout-fix",
+   "ar": "فك الكتابة بالكيبورد الغلط: عربي اتكتب والكيبورد إنجليزي (;LG = كمل)",
+   "en": "Wrong keyboard layout fixer (Arabic typed on English layout and back)",
+   "cmd": "python scripts/dragon.py tool layout \"TEXT\"",
+   "what": "كيبورد غلط لغة الكيبورد كلام مش مفهوم حروف انجليزي بدل عربي كابس لوك wrong keyboard layout caps lock gibberish arabic english"
+  },
+  {
+   "id": "media-hunter-615",
+   "ar": "فهرس Media Hunter الأصلي لـ615 موقعًا",
+   "en": "Media Hunter 615-site source index and optional live providers",
+   "cmd": "python scripts/dragon.py tool hunter615 sites 'cinematic sea' --type video --json",
+   "what": "فهرس فعلي من 615 موقعًا لصور وفيديو وخامات، اكتشاف وتصنيف محلي، وواجهات API اختيارية عند الاتصال. حفظ حقوق كل نتيجة ضروري، ولا تنزيل دون إقرار الترخيص الصريح."
+  },
+  {
+   "id": "repo-fusion",
+   "ar": "مصادر التكامل والقدرات من المستودعات",
+   "en": "Offline repository capability fusion references",
+   "cmd": "python scripts/dragon.py tool fusion list",
+   "what": "فهرسة عشر مستودعات ومراجع لطرق الدمج مع الشفرات الأصلية المضمنة؛ لا يدعي تشغيل الأدوات الخارجية أو الوصول الحالي لـGitHub."
+  },
+  {
+   "id": "chrome-control",
+   "ar": "التحكم في جوجل كروم الحقيقي: افتح، اقرا، اضغط، اكتب، صوّر",
+   "en": "Chrome control: drive the real Google Chrome over CDP",
+   "cmd": "python scripts/dragon.py chrome snapshot",
+   "what": "تحكم في متصفح كروم: افتح موقع، تابات، اقرا نص الصفحة، ارقام العناصر snapshot، كليك، اكتب في الفورم، اضغط زرار، سكرول، سكرين شوت، PDF، eval. Browser automation Chrome DevTools Protocol CDP Playwright web navigate click type screenshot scrape page read tabs. ملف تعريف منفصل للتنين؛ ممنوع حقول الباسورد والدفع."
+  },
+  {
+   "id": "cloud-browser",
+   "ar": "سحاب: متصفح سحابي Chromium بيتبث لايف لأي جهاز",
+   "en": "Sahab cloud browser: remote Chromium streamed to any device",
+   "cmd": "python scripts/dragon.py sahab start --open",
+   "what": "متصفح سحابي remote browser isolation: Chromium headless على السيرفر والصورة بتتبث JPEG عبر WebSocket، تابات، كتابة عربي، موبايل ولمس، تحميلات، رفع ملفات، مانع اعلانات، DNS آمن DoH، توكن دخول، منع الشبكة الداخلية SSRF، Docker. Cloud browser streaming screencast CDP tabs mobile."
+  },
+  {
+   "id": "kosif-downloads",
+   "ar": "KOSIF: تحميل مسرّع زي IDM بتعدد اتصالات واستكمال",
+   "en": "KOSIF accelerated multi-connection downloads",
+   "cmd": "python scripts/dragon.py kosif fetch URL -o OUT -c 16",
+   "what": "تحميل مسرّع نزّل حمّل داونلود مدير تحميل IDM تعدد اتصالات استكمال التحميل المقطوع فيديو يوتيوب تيك توك m3u8 SHA-256. download manager accelerated resume multi-connection"
+  },
+  {
+   "id": "lyric-ass",
+   "ar": "كلمات أغاني عربي متوقّتة بكلمة ملونة (ASS)",
+   "en": "Bidi-safe Arabic lyric captions (.ass)",
+   "cmd": "python scripts/dragon.py tool lyric-ass spec.json out.ass",
+   "what": "كلمات اغنية ترجمة كابشن سطور متوقتة كلمة ملونة حرق الترجمة ريميك تيك توك. lyric captions subtitles ass libass"
+  },
+  {
+   "id": "psd-studio",
+   "ar": "استوديو PSD: ملفات فوتوشوب بطبقات حقيقية من غير فوتوشوب (قراءة وتصدير وبناء وعناوين عربي وقص خلفية)",
+   "en": "Layered PSD studio without Photoshop: inspect, export layers, build layered PSD with Arabic titles, cut-outs",
+   "cmd": "python scripts/dragon.py tool psd build SPEC.json OUT.psd",
+   "what": "فوتوشوب فتوشوب الفتشوب psd طبقات لير ليرز بوستر تصميم غلاف شيل خلفية قص عنوان عربي photoshop layers layered psd poster cutout gimp krita photopea"
+  },
+  {
+   "id": "song-map",
+   "ar": "خريطة طاقة الأغنية والإيقاعات لاختيار المقطع والقطع على البيت",
+   "en": "Song energy map + beats",
+   "cmd": "python scripts/dragon.py tool song-map SONG.mp3",
+   "what": "اغنية طاقة ذروة ايقاع بيت اختيار مقطع قص على الإيقاع song energy map beats section pick drop chorus"
+  },
+  {
+   "id": "contact-sheets",
+   "ar": "أوراق كادرات بتوقيت لمراجعة الفيديو بالعين",
+   "en": "Timestamped contact sheets",
+   "cmd": "python scripts/dragon.py tool sheets VIDEO.mp4",
+   "what": "ورقة كادرات فريمات مراجعة بالعين مونتاج مرجع contact sheet frames thumbnails review"
+  },
+  {
+   "id": "skill-atlas",
+   "ar": "خريطة المهارات (243 مهارة) وإعادة بنائها",
+   "en": "Skill atlas map rebuild",
+   "cmd": "python scripts/dragon.py tool skill-atlas --write",
+   "what": "خريطة مهارات اطلس فهرس skills atlas index map"
+  },
+  {
+   "id": "idea-forge",
+   "ar": "الإبداع المطلق: تصادم أفكار وكروت إلهام",
+   "en": "Absolute creativity: idea collisions and cards",
+   "cmd": "python scripts/dragon.py tool creativity spin \"ريل تكريم\" --n 12",
+   "what": "ابتكار فكرة جديدة مختلفة كونسبت حبكة brainstorm idea concept collision cards (v10.8.1 id, same job as absolute-creativity)"
+  },
+  {
+   "id": "arabic-font-lab",
+   "ar": "معمل الخطوط العربي: عنوان PNG متشكّل",
+   "en": "Arabic font lab: shaped title PNG",
+   "cmd": "python scripts/dragon.py tool creativity font-title \"النص\" --out t.png",
+   "what": "خط فونت عربي تشكيل عنوان شفاف typography arabic font shaped title png font-doctor"
+  },
+  {
+   "id": "expert-lessons",
+   "ar": "سجل الدروس: اتعلم من الغلط وماتكررهوش",
+   "en": "Lessons ledger (learn from mistakes)",
+   "cmd": "python scripts/dragon.py tool brain learn \"الدرس\" --domain video",
+   "what": "اتعلم من غلطك سجل الدرس ماتكررش الغلطة دروس lessons learned mistakes ledger"
+  },
+  {
+   "id": "ultra-mind-think",
+   "ar": "العقل الفائق: مراحل التفكير وأخطاء النماذج حسب المهمة",
+   "en": "Ultra mind thinking briefing",
+   "cmd": "python scripts/dragon.py tool brain \"الطلب\"",
+   "what": "فكر بعمق حلل قرار صعب راجع كلامك deep thinking checklist failure modes calibrate"
+  },
+  {
+   "id": "rea-digest",
+   "ar": "تلخيص أدلة REA الكبيرة",
+   "en": "REA evidence digest",
+   "cmd": "python scripts/dragon.py tool rea-ultra digest evidence.json --grep X",
+   "what": "هندسة عكسية تلخيص ادلة REA evidence digest json grep"
+  },
+  {
+   "id": "superpowers-hub",
+   "ar": "سوبر باور حي: بحث وجاهزية وبطاقات وبوابة جودة تانية",
+   "en": "Live KOSIF Superpowers hub (find/doctor/tool/qc/run)",
+   "cmd": "python scripts/dragon.py tool sp find \"ريل تكريم\"",
+   "what": "سوبر باور superpowers hub find doctor verify-video qc بوابة جودة تسليم"
+  },
+  {
+   "id": "atlas-picks",
+   "ar": "مختارات أطلس: مهارات مرجعية مختارة وبحث آمن في أطلس",
+   "en": "Curated Atlas skills + safe Atlas search",
+   "cmd": "python scripts/dragon.py tool atlas list",
+   "what": "اطلس مهارات مرجع atlas skills captions legibility hooks ffmpeg audio drift"
+  },
+  {
+   "id": "re-front-door",
+   "ar": "الهندسة العكسية: تعريف الملف وترتيب الأدوات وتقرير بالأدلة وفحص الحزم",
+   "en": "Reverse engineering front door (plan/investigate/audit/run)",
+   "cmd": "python scripts/dragon.py tool re plan FILE",
+   "what": "هندسة عكسية حلل ملف برنامج exe dll apk فحص حزمة مفاتيح متسابة reverse engineering triage die capa floss yara audit"
+  },
+  {
+   "id": "dragon-brain",
+   "ar": "عقل التنين: تقرير واحد من كل المصادر قبل الشغل",
+   "en": "Dragon brain briefing",
+   "cmd": "python scripts/dragon.py tool brain \"الطلب\"",
+   "what": "فكر خطط عقل briefing plan sources lessons acceptance criteria council"
+  },
+  {
+   "id": "onscreen-check",
+   "ar": "فحص الكتابة على الشاشة: كلامه أو كلمات الأغنية أو الكريدت بس، ومفيش وصف",
+   "en": "On-screen text check: his words, confirmed lyrics or credit only (no description)",
+   "cmd": "python scripts/dragon.py tool onscreen check CAPTIONS.ass --words words.json --lyrics lyrics.txt",
+   "what": "كتابة على الشاشة وصف شرح كابشن كلمات الاغنية كلامه ممنوع وصف ass srt on-screen text description lyrics captions check fill both xfade tpad lint"
+  },
+  {
+   "id": "paint-studio",
+   "ar": "الرسام: ارسم أشكال وكتابة عربي وطبقات وشيل الخلفية على الكانفاس بالكود، ولو عايز صور بالـ AI يبقى SD-Turbo محلي ببلاش",
+   "en": "Paint Studio: Windows 11 Paint as a scriptable engine (shapes, brushes, Arabic text, layers, background removal, local SD-Turbo AI)",
+   "cmd": "python scripts/dragon.py tool paint draw IN.png OUT.png --ops ops.json",
+   "what": "ارسم رسم الرسام بينت رسمة أشكال سهم فقاعة كتابة على صورة طبقات شيل الخلفية ستيكر صفحة تلوين قص تدوير paint mspaint draw sketch shapes callout text layers remove background sticker coloring page crop resize image creator cocreator reimagine generative fill"
+  },
+  {
+   "id": "grab",
+   "ar": "صيّاد الفيديو: ينزّل من أي موقع، ولو اتحظر يلف على بروكسيات من ملفك أو يفتح متصفح مخفي يلاقي رابط البث",
+   "en": "Video grabber: any-site download with proxy rotation from your own file and a headless ghost browser that sniffs m3u8/mpd",
+   "cmd": "python scripts/dragon.py tool grab plan URL",
+   "what": "نزّل فيديو حمّل رابط بث m3u8 mpd بروكسي 403 429 حظر جغرافي متصفح مخفي صوت بس mp3 جزء من الفيديو download video proxy rotation geo-block headless browser stream sniffer audio only clip range"
+  },
+  {
+   "id": "toon",
+   "ar": "توون: حوّل صورة أو فيديو لأسلوب كارتون 3D أو أنمي (هاياو/شينكاي/رسم بورتريه) على جهازك ببلاش، مع كشف الوشوش",
+   "en": "Toon: cartoon / anime look for photos and videos (3d, ai3d, hayao, shinkai, paint), local and free",
+   "cmd": "python scripts/dragon.py tool toon video IN.mp4 OUT.mp4 --style hayao --seconds 3",
+   "what": "كارتون انمي أنمي ديزني بيكسار 3d كرتنة رسم بورتريه هاياو شينكاي جيبلي حول الفيديو كارتون cartoon anime toon pixar disney ghibli hayao shinkai portrait painting animegan dct-net sd-turbo ai3d"
+  },
+  {
+   "id": "links",
+   "ar": "سجل اللينكات: كل لينك استخدمته مع التنين متصنّف، ويقولك أنهي أداة تتعامل معاه والأمر بتاعها",
+   "en": "Links registry: every link used with Black Dragon, classified, with the tool that handles it",
+   "cmd": "python scripts/dragon.py tool links route URL",
+   "what": "لينك رابط روابط سجل اللينكات انهي اداة route links registry url handler stats find list github repo artifact stock video source"
+  },
+  {
+   "id": "genius",
+   "ar": "عبقرية التنين: انضباط الشغل، وبوابة تسليم بتقيس الفيديو فعلًا، وفاحص تفريغ وترجمة",
+   "en": "Dragon Genius: operating discipline + a delivery gate that measures the video + transcript/caption QA",
+   "cmd": "python scripts/dragon.py tool genius gate OUT.mp4 --aspect 9:16 --expect 30",
+   "what": "فائق الذكاء عبقري اشتغل باحتراف ماتغلطش اتأكد افحص قبل التسليم بوابة التسليم راجع الفيديو الترجمة متزامنة الصوت عالي واطي ليه الفيديو فيه سواد مدة yuv420p faststart LUFS true peak CPS noise order delivery gate transcript qa quality discipline verify genius"
+  },
+  {
+   "id": "omni",
+   "ar": "المحلل الشامل: يتعرّف على أي هدف ويحلّله بطبقات من غير ما يشغّله أو يتصل بالنت",
+   "en": "Omni Analyst: identify and layer-analyze any target without running it or touching the network",
+   "cmd": "python scripts/dragon.py tool omni plan TARGET --depth 3",
+   "what": "حلل حلل بعمق ايه اللي جوه ده البرنامج ده بيعمل ايه بيكلم مين امن ولا لا افحص الموقع الملف المجلد الجهاز قارن نسختين تصنيف بصمة خطة تحليل فرضيات متنافسة ACH بايزي analyze investigate audit triage inspect classify probe plan report hypotheses bayes entropy exe dll dotnet electron apk wasm firmware pcap sqlite omni"
+  },
+  {
+   "id": "hf-free",
+   "ar": "حصر Higgsfield المجاني المُقاس: إيه ببلاش وإيه بكريدت بالدليل",
+   "en": "Measured free Higgsfield catalog (balance before/after)",
+   "cmd": "python scripts/dragon.py tool hf free",
+   "what": "هيجز فيلد ببلاش مجاني مجانية كريدت رصيد بدون خصم ايه المجاني حصر sandbox higgsedit match cut typewriter higgsfield free credits balance measured catalog apps"
+  },
+  {
+   "id": "hf-trend",
+   "ar": "الترند: موسيقى تيك توك الترند، بريسيتات Genjutsu الرائجة، وتفكيك أي ريل ناجح ببلاش",
+   "en": "Trend sources + free reel teardown (cuts, energy, BPM, keyframes)",
+   "cmd": "python scripts/dragon.py tool hf trend live",
+   "what": "ترند الترند رائج تريند تيك توك موسيقى ترند حلل الريل ده فكك ريل ناجح مرجع katana what if dna قطعات طاقة ايقاع bpm trend trending tiktok music reel teardown reference analysis viral"
+  },
+  {
+   "id": "hf-blender",
+   "ar": "بلندر مستضاف ببلاش (3D Jutsu): مشهد 3D ورندر وGLB بالكود + فيلم بالكود",
+   "en": "Hosted Blender 5.2 (3D Jutsu) loop and scene template; film-in-code method",
+   "cmd": "python scripts/dragon.py tool hf blender rules",
+   "what": "بلندر بلاندر blender 3d jutsu ثري دي مشهد ثلاثي الابعاد رندر eevee cycles glb blend scene builder منتج لوجو 3d فيلم بالكود كرتون بالكود code film three.js higgsedit"
+  },
+  {
+   "id": "framecheck",
+   "ar": "مراجعة فريم بفريم: فريم بينط، قطع متداخل، أول 3 فريمات بعد كل قطعة، تجميد، وورق كادرات مترقّم",
+   "en": "Frame review: pops, blended cuts, first frames after each cut, freezes, numbered contact sheets",
+   "cmd": "python scripts/dragon.py tool framecheck scan FILM.mp4 --out out/framecheck",
+   "what": "راجع الفيلم فريم فريم فريم بينط فلاش فريم واحد قطع متداخل double exposure اول فريمات بعد القطع تجميد فريم مكرر ورق كادرات contact sheet ارقام الفريمات pop metric frame review animation check blend cut freeze flash qa قبل التسليم"
+  },
+  {
+   "id": "blind-critic",
+   "ar": "الناقد الأعمى: بطاقة 8 محاور من حد ماقراش السكريبت، ودرجة لكل نسخة، ومقارنة بالمرجع",
+   "en": "Blind critic: eight-axis scorecard from a reviewer who never read the script, version ledger, compare with a reference",
+   "cmd": "python scripts/dragon.py tool critic brief FILM.mp4 --out out/critic",
+   "what": "ناقد اعمى قيّم الفيلم درجة من عشرة نقد صريح ماتجاملش مراجعة مستقلة محاور الهوك الوضوح الايقاع الصورة البطل الحركة الصوت التشطيب قارن بالمرجع سجل النسخ blind critic scorecard review score ledger compare reference axes"
+  },
+  {
+   "id": "pack-registry",
+   "ar": "حزم المهارات اللي بيرفعها: كروت مراجعة بالبصمة، فحص أمان ثابت، وفك آمن برّه التنين",
+   "en": "Uploaded skill packs: reviewed-by-hash cards, static safety scan, safe unpack outside the skill",
+   "cmd": "python scripts/dragon.py tool pack list",
+   "what": "مهارة رفعتها حزمة مهارات skills library zip plugin افحص الحزمة قبل التثبيت فك آمن رخصة minimal reels arabic-minimal-reels faceless shorts talking head saas animation stickman growkaz ai motion graphics motion reel kit living site fares motion kling director style atlas pack inspect install card"
+  },
+  {
+   "id": "github-atlas-top1000",
+   "ar": "بحث واختيار الأدوات المفتوحة من 1000 مستودع GitHub بمراجع الرخص والتوافق مع ويندوز، قراءة فقط",
+   "en": "Offline discovery among 1000 GitHub repositories; read-only metadata and licence/Windows flags",
+   "cmd": "python scripts/dragon.py tool github-atlas find \"مونتاج فيديو\"",
+   "what": "مستودع GitHub أداة برنامج مفتوح المصدر بديل مجاني كود مكتبة برمجة مونتاج فيديو موقع أتمتة مستودعات top 1000 install windows license open source research",
+   "scope": "offline-discovery-only"
+  },
+  {
+   "id": "library",
+   "ar": "مكتبة المهارات والبرومبتات",
+   "en": "Skill packs and prompt library",
+   "cmd": "python scripts/dragon.py tool library find \"شورتس من غير وش\"",
+   "what": "12 حزمة مهارات + 105 برومبت: list show find prompts prompt grep doctor. skill packs prompts library"
+  },
+  {
+   "id": "looks",
+   "ar": "النماذج بصورها",
+   "en": "Looks library",
+   "cmd": "python scripts/dragon.py tool looks remind \"الراجل والست\" --out DIR",
+   "what": "الشخصيات واللبس والتعبيرات والستايلات ST01-ST14 وطرق الشغل PM01-PM15 بصورها. looks styles characters remind"
+  },
+  {
+   "id": "mono",
+   "ar": "فيلم لقطات + ترجمة + كارت",
+   "en": "Shots + subtitles film",
+   "cmd": "python scripts/dragon.py tool mono JOB spec.json --out film.mp4",
+   "what": "لقطات متحركة أو صور، ترجمة ink/comic/khawater، كارت شخبطة، بـ ffmpeg بس. subtitles khawater ink story"
+  },
+  {
+   "id": "codekit",
+   "ar": "عدّة الفيديو بالكود (12 أداة)",
+   "en": "Code-video toolkit",
+   "cmd": "python scripts/dragon.py tool codekit status",
+   "what": "Three.js anime.js mo.js Rough.js متضمّنين، GSAP بالنسخ، status map demo install. three gsap anime mojs rough remotion"
+  },
+  {
+   "id": "video12",
+   "ar": "تخطيط وتثبيت الـ 12 أداة",
+   "en": "12 video tools planner",
+   "cmd": "python scripts/dragon.py tool video12 plan \"ريل 9:16 بموشن و3D\"",
+   "what": "list plan doctor install (بـ --yes بس) run. remotion hyperframes whisperx manim"
+  },
+  {
+   "id": "palette",
+   "ar": "باليتة الطبيعة",
+   "en": "Nature palette",
+   "cmd": "python scripts/dragon.py tool palette extract PHOTO --title \"…\"",
+   "what": "كارت ألوان بالـ HEX والأسماء العربي والأدوار والتناغم، وريل القطّارة. palette colors card"
+  },
+  {
+   "id": "chroma",
+   "ar": "كروما موشن: هوية من صورة",
+   "en": "Chroma motion identity",
+   "cmd": "python scripts/dragon.py tool chroma IMAGE --name \"…\" --out DIR --video 9:16",
+   "what": "لوحة هوية، tokens، باليتة فوتوشوب، ولغة حركة وفيديو موشن. brand identity tokens motion"
+  },
+  {
+   "id": "powers",
+   "ar": "كل قدرات واتصالات التنين",
+   "en": "Powers and connections router",
+   "cmd": "python scripts/dragon.py tool powers route \"الطلب\"",
+   "what": "خريطة كل القدرات: خوادم MCP (Higgsfield، Suno، REA، كروم، التحكم في الجهاز، Claude Docs)، سحابة Higgsfield المجانية، المحركات (toon، kosif، chrome)، الوكلاء، الهندسة العكسية، البرامج، والمهارات، بعلامة التكلفة (ببلاش / بموافقة / مدفوع) و«أول رد». powers connections mcp cloud agents router doctor first reply"
+  },
+  {
+   "id": "package",
+   "ar": "تحزيم نسخة التنين",
+   "en": "Package the skill",
+   "cmd": "python scripts/dragon.py tool package --set-version X --out DIR",
+   "what": "بيبصم النسخة، ويعيد كتابة MANIFEST_SHA256 وSHA256SUMS لكل الملفات، ويعمل zip ويختبره. package zip release checksum version"
+  }
+ ]
+}

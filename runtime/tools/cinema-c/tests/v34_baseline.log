@@ -1,0 +1,26 @@
+
+Choose quality:
+----------------------------------------
+ 1) BEST quality — automatic
+ 2) 4K / 2160p or lower
+ 3) 2K / 1440p or lower
+ 4) Full HD / 1080p or lower
+ 5) HD / 720p or lower
+ 6) SD / 480p or lower
+ 7) FAST MP4 — ready video+audio
+ 8) AUDIO — M4A
+ 9) AUDIO — MP3
+10) EXACT site formats — show IDs
+11) AUDIO LAB — voice / music separation
+12) PART only — download from START to END
+13) VIDEO + SUBTITLES — Arabic / English
+14) STUDIO — download, then trim / compress / reels / GIF...
+ 0) Cancel
+----------------------------------------
+Number: 
+Save after download:
+ 1) Photos SAFE   — verify by rebuilding to iPhone-safe MP4
+ 2) Files only    — Cinema_Downloads
+Number: [C] Downloading FAST MP4...
+ERROR: yt-dlp finished but no completed media file was found.
+V34 rc=1

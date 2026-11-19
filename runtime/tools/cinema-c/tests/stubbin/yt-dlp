@@ -1,0 +1,21 @@
+#!/bin/sh
+# offline stub: no network. Writes a fake media file into the -o template dir.
+# Fails for URLs containing "fail". --version prints a version.
+tpl=''; url=''
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --version) echo 2099.01.01-stub; exit 0 ;;
+    --list-impersonate-targets) exit 0 ;;
+    -o) tpl=$2; shift 2; continue ;;
+    -f|-S|--concurrent-fragments|--retries|--fragment-retries|--extractor-retries|--socket-timeout|--merge-output-format|--cookies|--impersonate|--download-sections|--sub-langs|--sub-format|--convert-subs|--audio-format|--audio-quality|--download-archive) shift 2; continue ;;
+    http*) url=$1 ;;
+  esac
+  shift
+done
+echo "stub yt-dlp: $url" >> "${STUB_LOG:-/dev/null}"
+case "$url" in *fail*) echo 'ERROR: stub failure' >&2; exit 1 ;; esac
+case "$url" in */p/PHOTO*) echo "ERROR: [Instagram] PHOTO: There is no video in this post" >&2; exit 1 ;; esac
+dir=${tpl%/*}
+cp "$STUB_MEDIA" "$dir/عنوان تجريبي - test's \"clip\" [abc123].ts"
+: > "$dir/عنوان تجريبي [abc123].f137.mp4.part"
+exit 0

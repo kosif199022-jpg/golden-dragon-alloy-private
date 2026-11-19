@@ -1,0 +1,30 @@
+
+/* ===================== الطائر الذهبي — gold layer =====================
+   Appended after the White Bird's Apple layer, so it only swaps the accent family (blue -> gold) and warms the DARK
+   surfaces. No layout rule is touched: the DOM and every JS selector stay exactly the White Bird's.
+   Light mode keeps the base light surfaces: the warm dark surfaces apply only when the look is not light
+   (an unconditional :root here would override the base light media query and give dark-on-dark).
+   --on-accent = text drawn on a gold fill (dark ink on bright gold in dark mode, white on deep gold in light mode). */
+:root{--accent:#e3b341;--accent-soft:rgba(227,179,65,.16);--ring:rgba(227,179,65,.40);--on-accent:#1b1505;--gold:#e3b341;--gold2:#f5d77a}
+@media not (prefers-color-scheme: light){:root:not([data-theme=light]){
+  --bg:#141311;--bg2:#1a1916;--card:#211f1b;--sheet:#23211d;
+  --glass:rgba(33,31,27,.68);--glass-strong:rgba(41,38,33,.88);--panel:rgba(37,35,31,.74);
+}}
+:root[data-theme=dark]{
+  --accent:#e3b341;--accent-soft:rgba(227,179,65,.16);--ring:rgba(227,179,65,.40);--on-accent:#1b1505;--gold:#e3b341;--gold2:#f5d77a;
+  --bg:#141311;--bg2:#1a1916;--card:#211f1b;--sheet:#23211d;
+  --glass:rgba(33,31,27,.68);--glass-strong:rgba(41,38,33,.88);--panel:rgba(37,35,31,.74);
+}
+@media (prefers-color-scheme: light){:root:not([data-theme=dark]){
+  --accent:#8f6206;--accent-soft:rgba(176,124,16,.12);--ring:rgba(176,124,16,.30);--on-accent:#fff;--gold:#8f6206;--gold2:#b8860b;
+}}
+:root[data-theme=light]{
+  --accent:#8f6206;--accent-soft:rgba(176,124,16,.12);--ring:rgba(176,124,16,.30);--on-accent:#fff;--gold:#8f6206;--gold2:#b8860b;
+}
+button.gold,#wbSpot .it2.on,.it .th .new{color:var(--on-accent)}
+button.gold{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 88%,#fff 12%),var(--accent))}
+.welcome .wb-hero{filter:drop-shadow(0 16px 24px rgba(200,150,30,.30)) drop-shadow(0 2px 3px rgba(0,0,0,.10))}
+.welcome h1{background:linear-gradient(100deg,var(--gold2),var(--accent) 45%,var(--gold2) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand .logo{letter-spacing:.2px}
+.gb-badge{display:inline-flex;gap:6px;align-items:center;margin-top:10px;padding:5px 12px;border-radius:999px;font-size:12px;
+  background:var(--accent-soft);color:var(--accent);border:.5px solid var(--ring)}

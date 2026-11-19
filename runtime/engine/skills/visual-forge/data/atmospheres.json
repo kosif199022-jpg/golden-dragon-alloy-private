@@ -1,0 +1,150 @@
+{
+  "_note": "One source for weather/atmosphere: image phrase (ChatGPT), motion phrase (Kling), light logic, and the local fx recipe (forge.py fx). Edit here, never in two places.",
+  "rain": {
+    "ar": "مطر",
+    "image": "steady rain falling at a slight diagonal, wet reflective asphalt with mirror-like puddles, droplets beading on surfaces, rim light catching the rain streaks",
+    "video": "rain falls continuously at a slight diagonal, droplets splash in the puddles, wet surfaces shimmer as light moves across them",
+    "light": "backlight or side-light the rain; front-lit rain is invisible. Wet ground doubles every light source as a reflection.",
+    "fx": "grade:night_blue:0.4,rain:0.7,fog:0.2,vignette:0.4,grain:0.25"
+  },
+  "storm": {
+    "ar": "عاصفة رعدية",
+    "image": "violent thunderstorm, heavy wind-driven rain, a fork of lightning splitting a bruised purple-grey sky, the scene lit cold blue for an instant",
+    "video": "heavy rain whips sideways in gusts, a lightning flash briefly lights the whole scene, clothes and hair are pushed by the wind",
+    "light": "the lightning is the key light for one frame; everything else stays dark and cold.",
+    "fx": "grade:night_blue:0.6,rain:1.0,lightning:0.8,fog:0.3,vignette:0.5,grain:0.3"
+  },
+  "drizzle": {
+    "ar": "رذاذ",
+    "image": "fine drizzle hanging in the air like a soft veil, damp glistening surfaces, muted overcast light",
+    "video": "a fine drizzle drifts slowly through the frame, tiny droplets catch the light",
+    "light": "soft overcast, low contrast; let a single warm practical light break the grey.",
+    "fx": "grade:bleach:0.3,rain:0.3,fog:0.35,grain:0.2"
+  },
+  "snow": {
+    "ar": "ثلج",
+    "image": "large soft snowflakes drifting down, fresh snow settling on shoulders and rooftops, breath visible as vapor, cold blue shadows with warm window light",
+    "video": "snowflakes drift down slowly and sway in a light wind, breath vapor rises from the subject",
+    "light": "snow is a giant reflector: shadows go blue, faces get a soft fill from below.",
+    "fx": "grade:cold:0.4,snow:0.7,fog:0.25,bloom:0.2,grain:0.2"
+  },
+  "blizzard": {
+    "ar": "عاصفة ثلجية",
+    "image": "whiteout blizzard, dense snow driven horizontally by the wind, visibility collapsing into white, figures reduced to dark silhouettes",
+    "video": "dense snow streams sideways across the frame in strong gusts, the background disappears into white",
+    "light": "flat and directionless; separate the subject by silhouette and a single warm lantern.",
+    "fx": "grade:cold:0.5,snow:1.0,fog:0.6:white,vignette:0.3,grain:0.3"
+  },
+  "fog": {
+    "ar": "شبورة / ضباب",
+    "image": "thick low-lying fog swallowing the background, layers of depth fading into grey, silhouettes emerging from the mist, volumetric light beams cutting through",
+    "video": "fog rolls slowly across the ground and drifts between the layers of the scene",
+    "light": "backlight into fog = visible beams. Keep the subject one layer in front of the densest fog.",
+    "fx": "fog:0.65,godrays:0.4,grade:bleach:0.2,grain:0.2"
+  },
+  "mist": {
+    "ar": "شبورة خفيفة",
+    "image": "a soft morning mist over the landscape, aerial perspective with each distant layer lighter and bluer, dew on the grass",
+    "video": "a thin mist drifts gently over the ground as the morning light grows",
+    "light": "low sun, long soft shadows, haze lifts the blacks.",
+    "fx": "fog:0.35,bloom:0.25,grade:golden:0.3,grain:0.15"
+  },
+  "haze": {
+    "ar": "غبشة / هيز",
+    "image": "warm atmospheric haze, the air thick with light, distant buildings softened and lifted, a glowing halo around the sun",
+    "video": "the hazy air glows as the sun slowly drops behind the skyline",
+    "light": "lifted blacks, low contrast, halation around highlights.",
+    "fx": "fog:0.3,bloom:0.4,grade:golden:0.4,grain:0.2"
+  },
+  "sandstorm": {
+    "ar": "عاصفة رملية / خماسين",
+    "image": "an orange-brown sandstorm, airborne sand turning the sun into a pale disc, fabric whipping in the wind, grains streaking across the frame",
+    "video": "sand streams sideways in strong gusts, scarves and robes snap in the wind, the sun dims behind the dust",
+    "light": "everything turns amber; contrast collapses with distance.",
+    "fx": "grade:desert:0.7,fog:0.7:sand,dust:0.9,vignette:0.4,grain:0.3"
+  },
+  "dust": {
+    "ar": "غبار في الضوء",
+    "image": "dust motes floating in a shaft of sunlight through a window, the beam clearly visible, the rest of the room in soft shadow",
+    "video": "dust particles drift slowly through the beam of light",
+    "light": "one hard source through a gap, dark background behind the beam.",
+    "fx": "godrays:0.6,dust:0.5,bloom:0.2,grain:0.2"
+  },
+  "godrays": {
+    "ar": "أشعة إلهية",
+    "image": "crepuscular god rays streaming through the gaps between clouds or trees, visible volumetric light shafts, deep shadows between the beams",
+    "video": "light shafts slowly sweep across the scene as the clouds move",
+    "light": "needs atmosphere (haze, dust, fog) plus a strong backlight partly blocked.",
+    "fx": "godrays:0.8,fog:0.25,bloom:0.3"
+  },
+  "golden_hour": {
+    "ar": "الساعة الذهبية",
+    "image": "golden hour, low warm sun grazing the scene, long shadows, glowing rim light on hair and skin, a gentle lens flare",
+    "video": "the low sun flickers through moving leaves, warm light glides across the subject",
+    "light": "sun 5-10 degrees above the horizon, behind or beside the subject.",
+    "fx": "grade:golden:0.6,bloom:0.35,leak:0.3,grain:0.2"
+  },
+  "blue_hour": {
+    "ar": "الساعة الزرقاء",
+    "image": "blue hour just after sunset, deep cobalt sky, city lights and windows switching on in warm tungsten, balanced sky and artificial light",
+    "video": "the sky deepens to cobalt while the city lights flicker on one by one",
+    "light": "cool ambient vs warm practicals: the classic complementary split.",
+    "fx": "grade:night_blue:0.5,bloom:0.3,grain:0.2"
+  },
+  "neon_rain_night": {
+    "ar": "ليل نيون ومطر",
+    "image": "rain-soaked city street at night, neon signs in magenta and cyan reflected in wet pavement, steam rising from a grate, light rain falling",
+    "video": "rain falls through the neon glow, reflections ripple in the puddles, steam drifts upward",
+    "light": "colored practicals only; keep skin readable with a soft key from a sign.",
+    "fx": "grade:neon:0.6,rain:0.6,fog:0.25,bloom:0.45,grain:0.25"
+  },
+  "smoke": {
+    "ar": "دخان",
+    "image": "swirling smoke curling through the beam of a hard light, layered translucent wisps, dark background",
+    "video": "smoke curls and drifts slowly upward, catching the light",
+    "light": "backlight or side-light the smoke against black.",
+    "fx": "fog:0.5:smoke,godrays:0.4,grade:bleach:0.3,grain:0.25"
+  },
+  "embers": {
+    "ar": "جمر وشرر",
+    "image": "glowing orange embers and sparks rising into the night air, warm firelight flickering on faces, smoke above",
+    "video": "embers rise and swirl upward on the heat, firelight flickers across the faces",
+    "light": "a low warm source, flickering; everything else falls into darkness.",
+    "fx": "grade:fire:0.5,embers:0.8,bloom:0.4,vignette:0.5,grain:0.25"
+  },
+  "heat_haze": {
+    "ar": "سراب حراري",
+    "image": "shimmering heat haze above the asphalt, a mirage on the horizon, bleached harsh midday sun",
+    "video": "heat haze ripples and shimmers above the ground, distant shapes waver",
+    "light": "high hard sun, short shadows, washed-out sky.",
+    "fx": "heat:0.6,grade:desert:0.4,grain:0.2"
+  },
+  "aurora": {
+    "ar": "شفق قطبي",
+    "image": "green and violet aurora borealis rippling across a starry sky above a snowy landscape, reflected in a still lake",
+    "video": "the aurora ripples and shifts slowly across the sky",
+    "light": "very low light; long-exposure look with crisp stars.",
+    "fx": "grade:cold:0.3,bloom:0.3,grain:0.3"
+  },
+  "underwater": {
+    "ar": "تحت الماء",
+    "image": "underwater, rippling caustic light patterns dancing on the sand and the subject, suspended particles, light rays from the surface fading into deep blue",
+    "video": "caustic light ripples across the subject, small particles float past, hair drifts weightlessly",
+    "light": "light comes only from above; color shifts to cyan with depth.",
+    "fx": "grade:cold:0.5,heat:0.3,godrays:0.5,dust:0.3"
+  },
+  "steam": {
+    "ar": "بخار",
+    "image": "steam rising in soft curls, backlit and glowing, droplets of condensation",
+    "video": "steam rises and curls slowly, catching the backlight",
+    "light": "backlight is mandatory or steam disappears.",
+    "fx": "fog:0.3,bloom:0.3"
+  },
+  "wind_leaves": {
+    "ar": "رياح وأوراق",
+    "image": "autumn leaves caught mid-air in a gust of wind, hair and coat blown sideways, motion in the trees",
+    "video": "a gust of wind sweeps through, leaves swirl across the frame, hair and clothes flutter",
+    "light": "dappled light through moving branches adds life.",
+    "fx": "grade:golden:0.4,leak:0.2,grain:0.2"
+  }
+}

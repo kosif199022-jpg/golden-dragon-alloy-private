@@ -1,0 +1,44 @@
+[
+ {
+  "file": "app/engines/cards/lib/fam_skills_part7.py",
+  "rule": "bd_credential_read",
+  "reason": "detector regex of the plugin scanner (line ~229), not a read",
+  "reviewed": "2026-11-10 v10.14"
+ },
+ {
+  "file": "app/engines/cards/lib/fam_skills_part7.py",
+  "rule": "bd_remote_pipe_shell",
+  "reason": "EXT_BAD fixture text + detector regex for curl|sh",
+  "reviewed": "2026-11-10 v10.14"
+ },
+ {
+  "file": "app/engines/cards/lib/fam_skills_part7.py",
+  "rule": "bd_obfuscated_exec",
+  "reason": "EXT_BAD fixture string (hooks/post.py sample the scanner must reject)",
+  "reviewed": "2026-11-10 v10.14"
+ },
+ {
+  "file": "tools/re/re.py",
+  "rule": "bd_obfuscated_exec",
+  "reason": "the audit's own detector patterns (PATTERNS list), not a call",
+  "reviewed": "2026-11-10 v10.14"
+ },
+ {
+  "file": "tools/re/re.py",
+  "rule": "bd_credential_read",
+  "reason": "the audit's own detector patterns (PATTERNS list), not a read",
+  "reviewed": "2026-11-10 v10.14"
+ },
+ {
+  "file": "tools/re/re.py",
+  "rule": "bd_remote_pipe_shell",
+  "reason": "the audit's own detector patterns (PATTERNS list)",
+  "reviewed": "2026-11-10 v10.14"
+ },
+ {
+  "file": "skills/higgsfield-cloud/scripts/hfc.py",
+  "rule": "bd_remote_pipe_shell",
+  "reason": "cmd_install_cmd PRINTS (does not run) a sandbox paste line: curl -o /tmp/hfc.tgz, then `echo HASH | sha256sum -c` before tar; nothing is piped into a shell",
+  "reviewed": "2026-11-12 v1990.10"
+ }
+]

@@ -1,0 +1,92 @@
+<title>فيديوهات الكوسف</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;600&display=swap">
+<style>
+/* Layout: a title band, then a wrapping grid of vertical poster cards, newest first. */
+:root {
+  --bg: #f6f1e6; --surface: #fffaf0; --fg: #2a2216; --muted: #6f624c;
+  --gold: #a87a1f; --line: #e2d6bd; --on-gold: #fffaf0;
+  --display: "Aref Ruqaa", "Amiri", serif;
+  --body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #14110b; --surface: #1d1810; --fg: #f1e7d2; --muted: #b3a283;
+  --gold: #e0b45a; --line: #3a3020; --on-gold: #1a1408; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #14110b; --surface: #1d1810; --fg: #f1e7d2; --muted: #b3a283;
+  --gold: #e0b45a; --line: #3a3020; --on-gold: #1a1408; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+main { max-width: 1040px; margin: 0 auto; padding-block: 28px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 22px; }
+header { display: grid; gap: 4px; text-align: center; }
+h1 { font-family: var(--display); font-size: 2.4rem; line-height: 1.3; margin: 0; color: var(--gold); text-wrap: balance; }
+.lead { color: var(--muted); margin: 0; }
+.count { color: var(--muted); font-size: .85rem; font-variant-numeric: tabular-nums; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+.thumb { display: block; aspect-ratio: 9 / 16; max-width: 100%; background: #000; position: relative; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dur { position: absolute; bottom: 8px; left: 8px; background: rgb(0 0 0 / .65); color: #fff; font-size: .75rem;
+  padding: 2px 8px; border-radius: 6px; direction: ltr; font-variant-numeric: tabular-nums; }
+.body { padding: 12px 14px 14px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.body h2 { margin: 0; font-size: 1.05rem; font-weight: 600; line-height: 1.4; }
+.date { color: var(--muted); font-size: .85rem; direction: ltr; text-align: right; unicode-bidi: isolate; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn { flex: 1 1 auto; display: inline-flex; justify-content: center; align-items: center; min-height: 42px; padding: 6px 12px;
+  border-radius: 10px; font: 600 .92rem var(--body); text-decoration: none; cursor: pointer; border: 1px solid var(--gold); }
+.primary { background: var(--gold); color: var(--on-gold); }
+.secondary { background: transparent; color: var(--gold); }
+.btn:focus-visible, .thumb:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; }
+.empty { text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 14px; padding: 40px 16px; }
+</style>
+
+<main dir="rtl">
+  <header>
+    <h1>فيديوهات الكوسف</h1>
+    <p class="lead">كل فيديو ليه صفحة تحميل بأعلى جودة ونسخة خفيفة وكابشن جاهز.</p>
+    <div class="count" id="count"></div>
+  </header>
+  <section class="grid" id="grid" aria-live="polite"></section>
+  <p class="empty" id="empty" hidden>لسه مفيش فيديوهات هنا. أول فيديو هيظهر هنا أول ما يتسلّم.</p>
+</main>
+
+<script>
+(function () {
+  var grid = document.getElementById('grid');
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function render(list) {
+    list.sort(function (a, b) { return (b.added || '').localeCompare(a.added || ''); });
+    document.getElementById('count').textContent = list.length ? list.length + ' فيديو' : '';
+    document.getElementById('empty').hidden = list.length > 0;
+    list.forEach(function (v) {
+      var card = el('article', 'card');
+      var a = el('a', 'thumb'); a.href = v.page_url; a.target = '_blank'; a.rel = 'noopener';
+      a.setAttribute('aria-label', 'افتح صفحة تحميل ' + v.title);
+      var img = el('img'); img.src = v.poster; img.alt = ''; img.loading = 'lazy'; a.appendChild(img);
+      if (v.duration) a.appendChild(el('span', 'dur', v.duration));
+      card.appendChild(a);
+      var body = el('div', 'body');
+      body.appendChild(el('h2', null, v.title));
+      if (v.date) body.appendChild(el('div', 'date', v.date));
+      var row = el('div', 'row');
+      var go = el('a', 'btn primary', 'صفحة التحميل'); go.href = v.page_url; go.target = '_blank'; go.rel = 'noopener';
+      row.appendChild(go);
+      if (v.direct_url) {
+        var cp = el('button', 'btn secondary', 'نسخ الرابط المباشر'); cp.type = 'button';
+        cp.addEventListener('click', function () {
+          var done = function () { cp.textContent = 'اتنسخ ✓'; setTimeout(function () { cp.textContent = 'نسخ الرابط المباشر'; }, 1600); };
+          try { navigator.clipboard.writeText(v.direct_url).then(done, function () { cp.textContent = v.direct_url; }); }
+          catch (e) { cp.textContent = v.direct_url; }
+        });
+        row.appendChild(cp);
+      }
+      body.appendChild(row);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+  }
+  fetch('videos.json').then(function (r) { return r.ok ? r.json() : []; }).then(render).catch(function () { render([]); });
+})();
+</script>

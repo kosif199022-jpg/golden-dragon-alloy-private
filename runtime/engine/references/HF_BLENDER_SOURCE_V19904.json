@@ -1,0 +1,16 @@
+{
+  "source": "hf-blender-render.rar",
+  "source_sha256": "dd9078c24b0ff67fd272d6f5c41f279fe9337106068c422fdfcc304a56a52f76",
+  "archive_files": {
+    "SKILL.md": "d4dfa32da73c329e39ec60cb842e4b878740f8411042c8cc935e09e7cd6bbf21",
+    "scenes/hatch_scene.py": "8d231b34fe9ff20578d1380e9efaa3cdd399fac886dc6e8a4407bb40123841d8",
+    "scenes/hatch_sound.py": "f50e6e4405f14afe2e7b12f69453b59560fc2788efe6a32792b21cc7817b709b",
+    "scripts/hf_bootstrap.sh": "2208c4a893a05208a138de70c9424ebc131b6361fecc0121e6d72f146c009f77",
+    "scripts/hf_finish.sh": "a48fa3f59547dedb719d0109185bb0b85d23aa35c8d10de3d8fadbac4341c7e5",
+    "scripts/hf_render.sh": "c9c7572233720b4d164876bd0223551f08394767e8019f6f98af01113eaeef64",
+    "scripts/pack.py": "0ae6b4ba67cdbe73aece337788a3814f4e59f3401e60bba630d76bfce78c38f9"
+  },
+  "notes": "imported reviewed modifications, original SHA are recorded; not identical to source",
+  "baseline": "black-dragon-v1990.3.1-desktop-safety-candidate.zip",
+  "baseline_sha256": "e19f506265a9a8dfaac5cbc93b7834124118809814d286353090da04719cd6d0"
+}

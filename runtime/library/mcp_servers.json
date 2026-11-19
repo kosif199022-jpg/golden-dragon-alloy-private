@@ -1,0 +1,83 @@
+{
+ "kind": "red-dragon/mcp-servers",
+ "date": "2026-11-14",
+ "note": "Config reference only. Nothing here is installed or started by the Red Dragon. Servers marked device_control drive a real phone: never connect or call them without the owner's explicit approval for that exact task.",
+ "servers": [
+  {
+   "name": "playwright",
+   "repo": "microsoft/playwright-mcp",
+   "license": "apache-2.0",
+   "stars": 39646,
+   "category": "web-testing",
+   "install": "claude mcp add playwright npx @playwright/mcp@latest",
+   "cost": "free",
+   "device_control": false,
+   "what": "Claude opens a real browser, clicks, fills forms and checks its own page work."
+  },
+  {
+   "name": "figma",
+   "repo": "figma (official)",
+   "license": "proprietary service",
+   "category": "design",
+   "install": "claude mcp add --transport http figma https://mcp.figma.com/mcp  (or the Figma connector on claude.ai)",
+   "cost": "any Figma plan; needs Figma sign-in",
+   "device_control": false,
+   "what": "Design context from Figma files to code, and writing native Figma content back to the canvas."
+  },
+  {
+   "name": "context7",
+   "repo": "upstash/context7",
+   "license": "mit",
+   "stars": 64803,
+   "category": "docs",
+   "install": "npx ctx7 setup  (MCP package @upstash/context7-mcp)",
+   "cost": "free tier",
+   "device_control": false,
+   "what": "Current, version-specific library docs."
+  },
+  {
+   "name": "hyperframes",
+   "repo": "heygen-com/hyperframes",
+   "license": "apache-2.0",
+   "stars": 84293,
+   "category": "video",
+   "install": "npx hyperframes skills update  (or npx skills add heygen-com/hyperframes)",
+   "cost": "free, local render",
+   "device_control": false,
+   "what": "Write HTML, render video. Skills are already in library/ (hyperframes, hyperframes-cli, media-use, reverse-any-video, style-sampling, slideshow, figma, remotion-to-hyperframes, hyperframes-registry)."
+  },
+  {
+   "name": "phone-harness",
+   "repo": "phone-harness/phone-harness",
+   "license": "mit",
+   "stars": 4989,
+   "category": "phone-control",
+   "install": "uv tool install --python 3.12 phone-harness  then  phone-harness skill  (hosted MCP: https://mcp.phone-harness.com/mcp)",
+   "cost": "local: free. Cloud phones: 5 cents per minute, Plus $20/mo, cloud iPhone $80/mo",
+   "device_control": true,
+   "what": "Claude sees the phone screen and taps, types and scrolls (iPhone via Mac iPhone Mirroring, Android via adb, or a rented cloud phone)."
+  },
+  {
+   "name": "pinky",
+   "repo": "DIYgod/pinky",
+   "license": "apache-2.0",
+   "stars": 2140,
+   "category": "phone-control",
+   "install": "desktop app from github.com/DIYgod/pinky/releases (brew install --cask diygod/tap/pinky), then Settings > Agents > Connect",
+   "cost": "free",
+   "device_control": true,
+   "what": "Same idea with the owner in the loop: every step shown live, risky steps need approval in Pinky's own gateway, owner can take over. Safer choice than phone-harness."
+  },
+  {
+   "name": "ryze-seo",
+   "repo": "Ryze-AI-Adgent/open-seo-mcp-skills",
+   "license": "mit",
+   "stars": 9771,
+   "category": "seo",
+   "install": "claude mcp add ryze --transport http https://connector.get-ryze.ai/mcp",
+   "cost": "free; reads your Search Console and GA4 after sign-in",
+   "device_control": false,
+   "what": "Keyword research, content briefs, AI-engine visibility, competitor gaps from real data."
+  }
+ ]
+}

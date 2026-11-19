@@ -1,0 +1,8 @@
+{
+  "query": "machine learning",
+  "productTypes": [
+    "COURSE"
+  ],
+  "maxItems": 25,
+  "mode": "search"
+}
