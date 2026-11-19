@@ -4,7 +4,7 @@
 |---|---|---|
 | catalog-skill | 15375 | `alloy find "…" --kind catalog-skill` |
 | power | 6129 | `alloy find "…" --kind power` |
-| reference | 1629 | `alloy find "…" --kind reference` |
+| reference | 1630 | `alloy find "…" --kind reference` |
 | script | 851 | `alloy find "…" --kind script` |
 | skill | 670 | `alloy find "…" --kind skill` |
 | superpower | 485 | `alloy find "…" --kind superpower` |

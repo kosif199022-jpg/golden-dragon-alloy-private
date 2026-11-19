@@ -1,13 +1,13 @@
 {
- "started": "2026-11-19 17:14:06",
- "source": "kosif199022-jpg/black-dragon-skill@f617a65",
- "source_head": "f617a65 2026-11-19T15:32:46+03:00 Merge pull request #28 from kosif199022-jpg/feat/golden-dragon-local-distillation-20261119",
- "runtime_files": 7226,
- "runtime_bytes": 216998715,
- "runtime_copied": 0,
- "runtime_digest": "f0fe161df12763f7825573fcc508d5bcd4532edad714b40094770989f2953539",
- "doc_units": 2457,
- "doc_files": 2641,
+ "started": "2026-11-19 18:22:53",
+ "source": "kosif199022-jpg/black-dragon-skill@7bf36b3",
+ "source_head": "7bf36b3 2026-11-19T19:14:26+03:00 Merge pull request #29 from kosif199022-jpg/feat/golden-dragon-alloy-20261119",
+ "runtime_files": 7228,
+ "runtime_bytes": 217009122,
+ "runtime_copied": 5,
+ "runtime_digest": "4222146830717bdf9de758c202ce7e5c0f699cc354897e66c5cc5fdcae38c8df",
+ "doc_units": 2458,
+ "doc_files": 2642,
  "route_examples_used": 219,
  "route_examples_hidden_test": 45,
  "roads": 43,
@@ -106,11 +106,11 @@
  "quarantined": 3,
  "ledger_missing_runtime": 0,
  "kb_bytes": 46870528,
- "units": 26363,
+ "units": 26364,
  "units_by_kind": {
   "catalog-skill": 15375,
   "power": 6129,
-  "reference": 1629,
+  "reference": 1630,
   "script": 851,
   "skill": 670,
   "superpower": 485,
@@ -131,7 +131,7 @@
   "module": 2
  },
  "units_by_status": {
-  "active": 25646,
+  "active": 25647,
   "review-before-run": 496,
   "private": 163,
   "merged": 40,
@@ -142,19 +142,19 @@
  "units_by_origin": {
   "catalog": 22074,
   "third-party": 2351,
-  "owner": 1373,
+  "owner": 1374,
   "fusion": 517,
   "branch": 41,
   "installed-pc": 7
  },
- "ledger_entries": 7504,
+ "ledger_entries": 7506,
  "conflicts": {
   "skill-version": 1,
   "lesson-near-duplicate": 1,
   "rule-near-duplicate": 39,
   "branch-newer": 7
  },
- "finished": "2026-11-19 17:16:47",
- "manifest_files": 88,
- "seconds": 162.3
+ "finished": "2026-11-19 18:23:03",
+ "manifest_files": 1854,
+ "seconds": 10.7
 }

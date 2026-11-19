@@ -1,25 +1,33 @@
 {
  "name": "golden-dragon-alloy",
- "version": "4.1.0",
- "source": "kosif199022-jpg/black-dragon-skill@f617a65",
- "runtime_files": 7226,
- "runtime_digest": "f0fe161df12763f7825573fcc508d5bcd4532edad714b40094770989f2953539",
+ "version": "4.2.0",
+ "source": "kosif199022-jpg/black-dragon-skill@7bf36b3",
+ "runtime_files": 7228,
+ "runtime_digest": "4222146830717bdf9de758c202ce7e5c0f699cc354897e66c5cc5fdcae38c8df",
  "files": {
   ".gitattributes": {
    "bytes": 9,
    "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
   },
+  ".github/workflows/private-memory-integrity.yml": {
+   "bytes": 820,
+   "sha256": "96656e67933a81fbbd6122ebf99ab5f6923ed7d62b0f2588e3a132d7e5c7e8ee"
+  },
   ".gitignore": {
    "bytes": 82,
    "sha256": "cea6248911dcefe367c77f744a96ef9fdcf2c07f5d16f6274ba2c34ad1679793"
   },
+  "MEMORY-RECOVERY.md": {
+   "bytes": 2697,
+   "sha256": "fb292d91e120ae7d7593f0ee1f7e40e57e83f5504dac0ebc37367ccd5d7c0652"
+  },
   "README.md": {
    "bytes": 2003,
-   "sha256": "9dde20bb8b8d553a0f85147404eafb20859c3c98e91fbe470f7db99b1bc151a5"
+   "sha256": "9255271674dd10f1dd26e2e39cf0c1f56f21519813f433c2b8f4c776e32cae47"
   },
   "SKILL.md": {
    "bytes": 18628,
-   "sha256": "64a34d2f8842ee6cc5c044757ac2b75f8b02b7f75ceaccb2569487f2cb923191"
+   "sha256": "226e582c5fcde42c55ede9a681e4d59f17d7b743a4725d4884ac19c35297f5ff"
   },
   "addons/addons.json": {
    "bytes": 3580,
@@ -2935,7 +2943,7 @@
   },
   "alloy.py": {
    "bytes": 25729,
-   "sha256": "b19beea397efaca141f5ed546c15345c48fd5ec6ab6be2444144bebfe9e2204a"
+   "sha256": "5c96aca801caf7ec7294ab2e0caed9c7f909177f64609d9fc435f2b24055d78b"
   },
   "branches/claude-sharp-ptolemy-mku5pf/PATCHES/.gitignore.diff": {
    "bytes": 233,
@@ -3225,6 +3233,10 @@
    "bytes": 5333,
    "sha256": "94bd0155f1d73f227ef21f797943b8ae9d2f80aaaff2b5079f943be3aa6f5b6f"
   },
+  "forge/memory_integrity.py": {
+   "bytes": 6866,
+   "sha256": "602048151d15eea893b4b01e982d1c076f0713311c3c5713e7f339aca3a43a42"
+  },
   "forge/owner_memory.py": {
    "bytes": 7543,
    "sha256": "4b6fd0ca3c4691a8ee0da59c0911ddcfa11d95f7309b9d7b3f07dcdaafa03355"
@@ -3249,29 +3261,33 @@
    "bytes": 6355,
    "sha256": "7890541b842e2630fb9e9a898b55a4fcf90ccf8ab16379745c3bb148a5d4f297"
   },
+  "forge/test_memory_integrity.py": {
+   "bytes": 3247,
+   "sha256": "010faec239f2a3ceefe178e84f8a905fc49ce71044941bb9a0910676db2f07e4"
+  },
   "forge/test_owner_memory.py": {
    "bytes": 2436,
    "sha256": "db478c3d59872cfe7931c1c4becc9e44bfdb0cb6e2f9b0cb2fe2a079ea8c56d3"
   },
   "kb/alloy.db": {
    "bytes": 55537664,
-   "sha256": "5f04b98b4bb251bbb3958a46622a284c56e61ada029a0deb3796cf68a85dc9c8"
+   "sha256": "31cacbb89f9d0107a1c48875383b4a32603422e26fd1551e12d0d40a8fe312e5"
   },
   "ledger/blend_report.json": {
-   "bytes": 7325,
-   "sha256": "5643cc3dddcb127447594363e6ab2e30a2cb1a8a99fc5925c7a89cdc73dcbbc2"
+   "bytes": 7154,
+   "sha256": "402a7558ec8956de01eec671ea948f386070b1fe60ebb4246c4e5a350a95b891"
   },
   "ledger/conflicts.json": {
-   "bytes": 7607,
-   "sha256": "fffdb5785a49b9afbcd0e8d1458f8fda9da5d1900f82c43442e4c5377b3151a5"
+   "bytes": 7308,
+   "sha256": "4e60c6e4e046be0c4a31ae70b00b658b8433586a28f5b72d8b13a0e38022a998"
   },
   "ledger/eval_test_once.txt": {
    "bytes": 364,
    "sha256": "b48a6c207297b34c0c0e3514b0753d054655b55dfef3a8efbf4032b944cab485"
   },
   "ledger/sources.jsonl": {
-   "bytes": 2090866,
-   "sha256": "8f472aa0193b6e7e0ff887fe6fb9b6175efd5e5558d92be3ea640aff58d88ef5"
+   "bytes": 2091387,
+   "sha256": "c030303b650d0f64eed69e5b7c24eae451dbc7e6c7ef4cf91d7f158cf1b6e27d"
   },
   "owner-memory/live/chats/c20261112-151000-2.md": {
    "bytes": 904,
@@ -3359,11 +3375,11 @@
   },
   "references/CAPABILITIES.md": {
    "bytes": 2210,
-   "sha256": "c846e8094ceb2b848a3ba803ffb4847eef6f28cc12d8f4df8fda8656d49b53ff"
+   "sha256": "d091dd5407356c0aa523c413401893f8faa3e9136b2552dc9324e1ab5e9d2652"
   },
   "references/CHANGELOG.md": {
-   "bytes": 1615,
-   "sha256": "54d645e5eea3fc219f52e6d438ee43a3edf204fb8a800bc9c72c7661459434fb"
+   "bytes": 3081,
+   "sha256": "508f00a8a75ad1d01d53dfd7110c10ee097aace95eefa5f6d82ff87ffed3451c"
   },
   "references/INSTALL.md": {
    "bytes": 4067,
