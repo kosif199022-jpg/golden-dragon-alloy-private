@@ -1,0 +1,37 @@
+MAVEN REELS: RIGHTS
+===================
+
+Maven Rights. Copyright (c) 2026 Maven. All rights reserved.
+Instagram: @maven.iqq
+YouTube:   maveniqq
+
+1. OWNER
+   Maven Reels belongs to Maven. That covers its name, instructions,
+   engine, scripts, reel format, kit, characters and graphic designs, style cards, examples
+   and documentation.
+
+2. WHAT YOU MAY DO
+   You may download Maven Reels for free and use it to make videos,
+   including videos you earn money from. The videos you make are yours.
+   You may change your own copy for your own use.
+
+3. WHAT YOU MAY NOT DO WITHOUT MAVEN'S WRITTEN PERMISSION
+   - Sell it, in whole or in part.
+   - Publish or share it, changed or unchanged, except by sharing
+     Maven's own link.
+   - Remove Maven's name or this folder, or present it as your own.
+
+4. THIRD-PARTY PARTS (not owned by Maven)
+   - IBM Plex Sans Arabic, Copyright IBM Corp., and Lalezar, Copyright
+     The Lalezar Project Authors, are in assets/fonts under the SIL Open
+     Font License 1.1. See OFL-FONTS.txt. They may not be sold on their own.
+   - Everything in the extras/ folder belongs to its authors and is shipped
+     under its own licence (MIT or Apache 2.0), kept in each folder. See
+     extras/README.md. Maven's rights do not cover it.
+   - Playwright, Chromium, ffmpeg and faster-whisper are separate tools
+     that you install under their own licences.
+
+5. NO WARRANTY
+   Maven Reels is provided "as is", without warranty of any kind.
+
+Permissions: contact Maven on Instagram @maven.iqq

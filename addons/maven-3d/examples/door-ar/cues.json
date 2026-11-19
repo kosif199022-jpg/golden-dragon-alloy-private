@@ -1,0 +1,16 @@
+{ "duck_db": -16,
+  "cues": [
+  {"t": 0.0,            "file": "LIB:transitions/whoosh_air.wav",       "gain": -3,  "max": 1.2, "fade": 0.3, "note": "aerial fly-in"},
+  {"t": "cut:2",        "file": "LIB:transitions/whoosh_fast.wav",      "gain": -7,  "align": "peak", "max": 1.0, "note": "whip into the corridor"},
+  {"t": "cut:2+0.25",   "file": "LIB:magic/glitter.wav",                "gain": -12, "max": 1.4, "fade": 0.5, "note": "doors shimmer"},
+  {"t": "cut:3+0.05",   "file": "LIB:ui/door_creak_open.wav",           "gain": -10, "max": 1.2, "fade": 0.3},
+  {"t": "cut:3+0.3",    "file": "LIB:magic/fairy_whoosh.wav",           "gain": -8,  "max": 1.0, "fade": 0.3, "note": "portal swirl"},
+  {"t": "cut:4",        "file": "sfx/m580.mp3",                         "gain": -11, "max": 1.6, "fade": 0.5, "note": "school bell (Mixkit 580)"},
+  {"t": "cut:5+0.4",    "file": "LIB:ui/door_creak_open.wav",           "gain": -9,  "max": 1.2, "fade": 0.3},
+  {"t": "cut:5+0.55",   "file": "LIB:magic/sparkle_wand.wav",           "gain": -10, "max": 0.8, "fade": 0.2},
+  {"t": "cut:6",        "file": "LIB:transitions/whoosh_sparkle.wav",   "gain": -8,  "align": "peak", "max": 0.9},
+  {"t": "cut:6+0.12",   "file": "sfx/m722.mp3",                         "gain": -8,  "max": 2.4, "fade": 0.6, "note": "royal fanfare (Mixkit 722)"},
+  {"t": "cut:7-0.02",   "file": "LIB:impacts/bass_hit.wav",             "gain": -12, "max": 0.7, "fade": 0.2, "note": "shock punch-in"},
+  {"t": "cut:8",        "file": "LIB:transitions/whoosh_arrow.wav",     "gain": -9,  "align": "peak", "max": 0.8},
+  {"t": "word:وصلت+0.55", "file": "LIB:impacts/cinematic_impact.wav",   "gain": -3,  "max": 1.8, "fade": 0.6, "note": "sting on the twist"}
+  ] }

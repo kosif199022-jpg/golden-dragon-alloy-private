@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>New reel - Maven Reels</title>
+<script src="KIT_URL"></script>
+<!-- words.js comes from: python scripts/timestamps.py vo.mp3 words.json -->
+<script src="words.js" onerror="window.VOICE=null"></script>
+</head>
+<body>
+<script>
+/* 1. The script, one line per beat. Each line gets one picture event. */
+const SCRIPT = [
+  "السطر الأول",
+  "السطر الثاني",
+];
+const TM = R.timing(SCRIPT, window.VOICE, { wps: 2.5, gap: .35 });
+const T = TM.lines;
+const W = (line, n) => TM.words[SCRIPT.slice(0, line).reduce((a, l) => a + l.split(/\s+/).length, 0) + n][1];
+const END = TM.end + 2;
+
+/* 2. The reel and its world (copy the look from the style card) */
+const reel = R.reel({ w: 1080, h: 1920, fps: 30, lang: "ar", duration: END, bg: "#2d353c" });
+const G = 1700;
+const cam = R.world(reel, 4000, 3400);
+const world = cam.el;
+R.sky(reel, world, { w: 4000, h: G });
+R.street(world, 0, G, 4000, { h: 1700 });
+
+/* 3. One event per line: R.drop / R.popIn / R.person(...).move / R.phone / R.notify ... */
+
+/* 4. Camera, dock, captions, end card */
+cam.to(0, 800, G - 300, 1).to(END, 800, G - 300, 1.1);
+R.caption(reel, TM.words, { y: 400, size: 132, ends: TM.ends, hold: .5 });
+</script>
+</body>
+</html>

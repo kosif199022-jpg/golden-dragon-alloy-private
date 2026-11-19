@@ -1,0 +1,3 @@
+# Lines starting with # are notes and are not read aloud.
+# Formula: rule -> examples -> stakes -> hook -> "then one day" -> twist. ~4 words/s: 10 s = 38 words, 30 s = 115, 60 s = 230.
+In this world, every one of us gets a single wish. But nobody knows what it costs.

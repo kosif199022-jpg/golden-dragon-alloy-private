@@ -1,0 +1,6 @@
+{ "duck_db": -16,
+  "cues": [
+  {"t": 0.0,      "file": "LIB:transitions/whoosh_air.wav",  "gain": -3, "max": 1.2, "fade": 0.3, "note": "fly-in"},
+  {"t": "cut:2",  "file": "LIB:transitions/whoosh_fast.wav", "gain": -7, "align": "peak", "max": 1.0, "note": "whip"},
+  {"t": "cut:3",  "file": "LIB:impacts/bass_hit.wav",        "gain": -12, "max": 0.7, "note": "reaction punch-in"}
+  ] }

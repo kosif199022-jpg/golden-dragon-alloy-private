@@ -1,0 +1,11 @@
+{
+  "name": "maven-reels",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Copy the style of any reel and make new ones in code, Arabic first. By Maven: @maven.iqq on Instagram, maveniqq on YouTube.",
+  "author": "Maven",
+  "license": "SEE LICENSE IN rights/MAVEN-RIGHTS.txt",
+  "scripts": { "render": "node scripts/render.mjs" },
+  "dependencies": { "playwright": "^1.50.0" }
+}

@@ -1,0 +1,52 @@
+{
+ "about": "Skills the owner added to the alloy after the v4.0.0 blend. Indexed into kb/alloy.db by forge/addons.py; runtime/ is untouched. PRIVATE: some of these may not be published or shared (see rights).",
+ "addons": [
+  {
+   "id": "maven-reels",
+   "added": "2026-11-19",
+   "source": "upload maven-reels.zip (Maven, Instagram @maven.iqq)",
+   "license": "Maven Rights: free personal use, may change own copy; NO publishing, sharing or selling (rights/MAVEN-RIGHTS.txt). extras/ under their own MIT/Apache licences.",
+   "private_only": true,
+   "triggers": "انسخ ستايل الريل، اعمل ريل بنفس ستايل الفيديو ده، ستايل كارت، ريل إعلان براند، قصة مؤسس، برومو تطبيق، كابشن كلمة كلمة عربي، copy reel style, style card, brand ad reel, founder story, app promo, word by word arabic captions"
+  },
+  {
+   "id": "maven-3d",
+   "added": "2026-11-19",
+   "source": "upload maven-3d-skill.zip (Maven)",
+   "license": "Maven (same owner as maven-reels): treat as personal use only, no publishing. Fonts Lalezar and Poppins under SIL OFL (engine/fonts).",
+   "private_only": true,
+   "triggers": "في العالم ده، قصص روبلوكس، شخصيات مكعبة ثلاثي الأبعاد، شورتس قصة ثلاثي الأبعاد، كابشن كلمة واحدة، in this world story, roblox style 3d story shorts, blocky avatar"
+  },
+  {
+   "id": "trickat-stickman",
+   "added": "2026-11-19",
+   "source": "upload trickat-stickman.zip (Trickat; based on ReachMora 2D Long-Form and aivxer's 2D animation skill)",
+   "license": "Keep the Trickat credit when sharing (CREDITS.md). Fonts OFL / Apache 2.0.",
+   "private_only": false,
+   "triggers": "ستيك مان عربي، فيديو يوتيوب كرتون عربي من تعليق صوتي وملف SRT، قناة بدون وجه، رسوم حبر على ورق، أنميشن عربي 16:9، arabic stickman youtube, voiceover plus srt animation, faceless channel"
+  },
+  {
+   "id": "cartoon-audio-short",
+   "added": "2026-11-19",
+   "source": "kosif-tool/.claude/skills/cartoon-audio-short (newer copy of the uploaded SKILL.md, with kit/); characters from mromidev/claude-animated-shorts (MIT)",
+   "license": "Owner's skill; vendored three.js and claude-animated-shorts under MIT (kit/vendor).",
+   "private_only": false,
+   "triggers": "فيديو كرتون، قصة متحركة، أنميشن، شورتس كرتون، 10 أفكار، سكريبت قصة، حوّل الفويس أوفر لكرتون، cartoon short, animated story, 10 video ideas, voiceover to cartoon"
+  },
+  {
+   "id": "clay-film-kitten-rescue",
+   "added": "2026-11-19",
+   "source": "upload kitten_rescue_code.zip (owner's code project)",
+   "license": "Owner's project. three.js MIT, GSAP standard licence, Vite MIT.",
+   "private_only": false,
+   "triggers": "فيلم صلصال، كلايميشن، صلصال ثلاثي الأبعاد، شخصيات صلصال، قصة القطة والراجل، clay film, claymation, plasticine 3d short, three.js gsap film"
+  }
+ ],
+ "already_in_alloy": {
+  "living-site": "runtime/engine/skills/library/living-site (identical)",
+  "saas-animation": "runtime/engine/skills/library/saas-animation (identical)",
+  "faceless-shorts": "runtime/engine/skills/library/faceless-shorts (identical)",
+  "arabic-minimal-reels": "runtime/engine/skills/library/arabic-minimal-reels (identical)",
+  "Cinema C V31 SmartMedia": "runtime/tools/cinema-c/v31_smartmedia (identical; V35 and V36 are newer there)"
+ }
+}

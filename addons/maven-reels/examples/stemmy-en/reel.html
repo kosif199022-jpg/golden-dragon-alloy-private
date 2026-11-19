@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Stemmy - founder story reel (Maven Reels example, English)</title>
+<!-- Style: references/style-cards/founder-story.md. Stemmy is a made-up brand.
+     Voice: Kokoro af_heart (vo.mp3), word times in words.js.
+     Render: node scripts/render.mjs examples/stemmy-en/reel.html out.mp4 --voice examples/stemmy-en/vo.mp3 -->
+<script src="../../kit/reel.js"></script>
+<script src="words.js" onerror="window.VOICE=null"></script>
+</head>
+<body>
+<script>
+const SCRIPT = [
+  "I opened a tiny flower shop on the corner.",
+  "My first customer bought one red rose, and left smiling.",
+  "Then word got out.",
+  "And on Valentine's Day, the line went around the block.",
+  "By noon, the roses were gone.",
+  "So I built Stemmy.",
+  "You pick your bouquet from the couch.",
+  "We cut it fresh the moment you order.",
+  "And your phone pings when it's ready.",
+  "Walk in, grab it, walk out.",
+  "Stemmy. Fresh flowers, no line.",
+];
+const TM = R.timing(SCRIPT, window.VOICE, { wps: 2.8, gap: .3 });
+const T = TM.lines;
+const W = (line, n) => TM.words[SCRIPT.slice(0, line).reduce((a, l) => a + l.split(/\s+/).length, 0) + n][1];
+const END = TM.end + 2.2;
+
+const reel = R.reel({ w: 1080, h: 1920, fps: 30, lang: "en", duration: END, bg: "#2d353c" });
+const G = 1700;
+const cam = R.world(reel, 7300, 3400);
+const world = cam.el;
+const ROSE = "#d9445e", PINK = "#f28ab0", LEAF = "#2f7d5b";
+
+/* ---- the street, pink at Valentine's ---- */
+R.sky(reel, world, { w: 3900, h: G, top: "#8cc6ec", bottom: "#e9f5fb" });
+const valentine = R.box(world, 0, 0, 3900, G, { background: "linear-gradient(#f7a1c0, #ffe3ec)" });
+reel.on(t => { valentine.style.opacity = R.k(t, [[0, 0], [T[3] - .1, 0], [T[3] + .5, .75], [T[5] - .1, .75], [T[5] + .01, 0, "linear"]]); });
+R.skyline(world, 0, G - 40, 3900, { color: "#cfdde8" });
+R.street(world, 0, G, 3900, { h: 1700 });
+for (const x of [200, 1560, 2500, 3300]) R.palm(world, x, G + 4, 1.2);
+for (const x of [1380, 2950]) R.bush(world, x, G + 6, 1.1);
+
+/* ---- the shop builds itself ---- */
+const shop = R.shop(world, 760, G, { w: 720, h: 600, sign: "Flowers", color: LEAF, wall: "#fbefe4", awning: PINK, signW: 420 });
+R.drop(reel, shop.parts.wall, W(0, 1), { height: 220 });
+R.drop(reel, shop.parts.window, W(0, 2));
+R.drop(reel, shop.parts.door, W(0, 3) + .05);
+R.drop(reel, shop.parts.awning, W(0, 4) - .05, { height: 120 });
+R.drop(reel, shop.parts.sign, W(0, 5) + .05, { height: 260 });
+// flower buckets out front; at noon they empty
+const buckets = [[480, ROSE, "rose"], [600, "#ffffff", "daisy"], [1110, "#f6c14b", "tulip"], [1230, ROSE, "rose"]].map(([x, c, kind], i) => {
+  const b = R.bucket(world, x, G + 40, { color: c, kind, s: 1.05 });
+  R.drop(reel, b, W(0, 7) + i * .1, { height: 140 });
+  return b;
+});
+const windowFlowers = R.svg(shop.root, 300, 120, `<g filter="url(#soft)">${[0, 1, 2, 3, 4].map(i => R.flowerSvg(40 + i * 56, 70, 22, i % 2 ? PINK : ROSE, i % 3 === 1 ? "tulip" : "rose")).join("")}</g>`, { x: 60, y: 210 });
+R.popIn(reel, windowFlowers, W(0, 8), { note: "flowers" });
+const florist = R.person(reel, world, 560, G - 40, { shirt: "#ffffff", apron: LEAF, skin: R.SKIN[0], hair: "#7a3b1e", s: 1.05 });
+florist.show(W(0, 8) + .1);
+R.popIn(reel, florist.body, W(0, 8) + .1, { sound: false });
+florist.waveAt(T[1] + .1, 1);
+// roses go at noon
+reel.on(t => {
+  const gone = R.ease.in(R.clamp((t - W(4, 3)) / .5));
+  windowFlowers.style.opacity = t < T[5] ? 1 - gone : 1;
+  for (const b of buckets) b.flowers.style.transform = `scale(${t < T[5] ? 1 - gone : 1})`;
+});
+
+/* ---- the first customer: one red rose ---- */
+const c1 = R.person(reel, world, 1700, G + 10, { shirt: "#4f7be8", skin: R.SKIN[2] });
+c1.face(-1).show(T[1] - .2, W(1, 5)).move(T[1], W(1, 4) - .1, -720);
+const c1b = R.person(reel, world, 980, G + 10, { shirt: "#4f7be8", skin: R.SKIN[2] });
+c1b.show(W(1, 5), T[2] + .7).move(W(1, 7), T[2] + .7, 820);
+R.svg(c1b.root, 120, 300, `<g filter="url(#soft)"><path d="M104 196 L112 120" stroke="${LEAF}" stroke-width="5"/>${R.flowerSvg(112, 112, 16, ROSE, "rose")}</g>`);
+R.popIn(reel, c1b.root.lastChild, W(1, 5), { origin: "90% 60%", note: "rose" });
+
+/* ---- word got out: hearts around the sign ---- */
+for (let i = 0; i < 6; i++) {
+  const h = R.svg(world, 80, 80, `<g transform="scale(3.2)" filter="url(#soft)"><path d="M12 21s-7.5-4.8-7.5-10.6a4.2 4.2 0 0 1 7.5-2.6 4.2 4.2 0 0 1 7.5 2.6C19.5 16.2 12 21 12 21z" fill="${i % 2 ? PINK : ROSE}"/></g>`, { x: 380 + i * 135, y: G - 840 - (i % 2) * 70 });
+  R.popIn(reel, h, W(2, 1) + i * .07, { origin: "50% 50%", out: T[4], sound: i === 0, note: "hearts" });
+}
+cam.punch(W(2, 3), .05);
+
+/* ---- Valentine's: the line around the block ---- */
+const shirts = ["#e85d4a", "#4f7be8", "#f2b33d", "#8a5cd6", "#2fb3a6", "#e86fa6", "#5a9e3a", "#f07c2c", "#3c5bb5", "#c0392b", "#16a085", "#d35400", "#9b59b6", "#27ae60"];
+const queue = shirts.map((sh, i) => {
+  const p = R.person(reel, world, 1350 + i * 128, G + 14 + (i % 2) * 6, { shirt: sh, skin: R.SKIN[i % 4], hair: i % 3 ? "#2b1d14" : "#6b3a1e", s: .95 });
+  const at = W(3, 5) + i * .09;
+  p.face(-1).show(at, T[5]);
+  R.popIn(reel, p.body, at, { sound: i % 4 === 0, note: "person" });
+  return p;
+});
+// sad at noon
+const sadFaces = queue.slice(0, 6).map((p, i) => {
+  const f = R.svg(p.root, 120, 300, `<circle cx="60" cy="70" r="44" fill="${R.SKIN[i % 4]}"/><circle cx="45" cy="72" r="6" fill="#2a1a10"/><circle cx="75" cy="72" r="6" fill="#2a1a10"/><path d="M48 98 q12 -10 24 0" stroke="#3a2418" stroke-width="4" fill="none" stroke-linecap="round"/>`);
+  reel.on(t => { f.style.visibility = t >= W(4, 4) ? "visible" : "hidden"; });
+  return f;
+});
+const sold = R.svg(world, 330, 150, `<g filter="url(#soft)"><rect width="330" height="130" rx="22" fill="#c0392b"/><rect x="8" y="8" width="314" height="114" rx="16" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="10 8"/><text x="165" y="92" text-anchor="middle" font-family="Lalezar" font-size="76" fill="#fff">SOLD OUT</text></g>`, { x: 840, y: G - 560 });
+R.popIn(reel, sold, W(4, 5), { origin: "50% 0%", out: T[5], note: "sold out" });
+cam.punch(W(4, 5), .06);
+
+/* ---- home: the couch ---- */
+const HX = 4300;
+R.room(world, HX - 100, G - 1800, 1400, 2400, { wall: "#f7e6ee", floor: "#c9a27e" });
+R.sofa(world, HX + 600, G + 40, 1.5, "#5b7fd6");
+const user = R.person(reel, world, HX + 600, G - 10, { shirt: "#f07c2c", skin: R.SKIN[1], hair: "#2b1d14", s: 1.2 });
+user.show(T[5] - .01);
+R.svg(user.root, 120, 300, `<rect x="70" y="150" width="30" height="52" rx="7" fill="#1c2024"/><rect x="74" y="155" width="22" height="40" rx="4" fill="#f9c6d6"/>`);
+user.waveAt(T[8] + .2, .6);
+R.bucket(world, HX + 1060, G + 60, { color: PINK, kind: "tulip", s: 1.2 });
+
+/* ---- back room of the shop: cut fresh ---- */
+const BX = 6500;
+R.room(world, BX - 500, G - 1800, 1100, 2400, { wall: "#e9f4ee", floor: "#b8c4bd" });
+const florist2 = R.person(reel, world, BX + 230, G - 10, { shirt: "#ffffff", apron: LEAF, skin: R.SKIN[0], hair: "#7a3b1e", s: 1.4 });   // behind the bench
+const bench = R.svg(world, 700, 200, `<g filter="url(#soft)"><rect width="700" height="60" rx="14" fill="${R.clay("#9a6b47")}"/><rect x="40" y="60" width="26" height="140" fill="#7a5235"/><rect x="634" y="60" width="26" height="140" fill="#7a5235"/></g>`, { x: BX - 350, y: G - 200 });
+const stems = R.bucket(world, BX - 220, G - 190, { color: ROSE, kind: "rose", s: 1.2 });
+const made = R.bouquet(world, BX + 20, G - 196, { s: 1.5 });
+R.popIn(reel, made, W(7, 3), { note: "bouquet" });
+const scissors = R.svg(world, 120, 120, `<g transform="scale(4)" fill="none" stroke="#5b6670" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8 16L19 3M16 16L5 3"/></g>`, { x: BX + 60, y: G - 420 });
+R.anim(reel, scissors, { r: [[0, 0], [W(7, 2), 0], [W(7, 2) + .15, -25], [W(7, 2) + .3, 0], [W(7, 2) + .45, -25], [W(7, 2) + .6, 0]] }, { ox: "50%", oy: "50%" });
+reel.cue(W(7, 2) + .1, "snip", "scissors");
+bench.style.zIndex = 2; for (const n of [stems, made, scissors]) n.style.zIndex = 3;   // bench in front of the florist
+
+/* ---- walk in, grab it, walk out ---- */
+const hero = R.person(reel, world, 1900, G + 10, { shirt: "#f07c2c", skin: R.SKIN[1], hair: "#2b1d14" });
+hero.face(-1).show(T[9] - .01, W(9, 2)).move(T[9], W(9, 2), -880);
+const heroBack = R.person(reel, world, 1020, G + 10, { shirt: "#f07c2c", skin: R.SKIN[1], hair: "#2b1d14" });
+heroBack.show(W(9, 2)).move(W(9, 4), END, 1100);
+const hb = R.bouquet(heroBack.root, 100, 220, { s: .55 });
+R.popIn(reel, hb, W(9, 2) + .05, { origin: "50% 100%", note: "grab" });
+
+/* ---- camera ---- */
+cam.to(0, 760, G - 330, .95)
+   .to(W(0, 7), 760, G - 300, 1.2, "soft")
+   .to(T[1], 900, G - 300, 1.22)
+   .to(T[2], 900, G - 330, 1.15)
+   .to(T[3], 1150, G - 330, 1.0)
+   .to(W(3, 5), 1500, G - 320, .9)
+   .to(T[4] - .2, 2300, G - 300, .78, "inOut")
+   .to(T[4] + .2, 1050, G - 330, 1.12)
+   .to(T[5] - .001, 1000, G - 330, 1.15)
+   .to(T[5], HX + 600, G - 330, 1.12)             // cut: home
+   .to(T[7] - .001, HX + 600, G - 300, 1.2, "linear")
+   .to(T[7], BX, G - 420, 1.15)                   // cut: back room
+   .to(T[8] - .001, BX, G - 400, 1.25, "linear")
+   .to(T[8], HX + 600, G - 300, 1.2)              // cut: home, the ping
+   .to(T[9] - .001, HX + 600, G - 290, 1.25, "linear")
+   .to(T[9], 1300, G - 300, 1.05)                 // cut: the street
+   .to(T[10], 1000, G - 300, .98)
+   .to(END, 1000, G - 280, .9, "soft");
+
+/* ---- the Stemmy app ---- */
+const ph = R.phone(reel, reel.stage, 540, 2010, { w: 400 });
+const S = ph.screen;
+const pick = ["#d9445e", "#f28ab0", "#f6c14b", "#ffffff"];
+S.insertAdjacentHTML("beforeend", `
+<div style="padding:70px 24px 0;font-family:'IBM Plex Sans Arabic'">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div style="font:44px Lalezar;color:${ROSE}">Stemmy</div>
+    <div style="font-size:.66em;background:#fde7ee;color:${ROSE};border-radius:99px;padding:4px 12px">● Open</div>
+  </div>
+  <div style="opacity:.6;font-size:.72em;margin-top:2px">Corner Flowers · cut to order</div>
+  <div id="grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+    ${pick.map((c, i) => `<div class="opt" style="background:#fff;border-radius:18px;padding:8px;box-shadow:0 4px 12px rgba(0,0,0,.07);border:3px solid transparent;text-align:center"><svg viewBox="0 0 60 50" width="100%" height="64">${R.flowerSvg(18, 26, 11, c, i === 2 ? "tulip" : "rose")}${R.flowerSvg(42, 26, 11, c, i === 1 ? "daisy" : "rose")}${R.flowerSvg(30, 16, 12, c, "rose")}</svg><div style="font-size:.6em;font-weight:600">${["Red roses", "Blush", "Sunny", "White"][i]}</div></div>`).join("")}
+  </div>
+  <div id="status" style="margin-top:14px;background:#fff;border-radius:18px;padding:12px 14px;box-shadow:0 4px 12px rgba(0,0,0,.07);font-size:.7em">
+    <div style="display:flex;justify-content:space-between"><span id="stxt">Pick a bouquet</span><span id="smin" style="font-weight:600;color:${ROSE}"></span></div>
+    <div style="margin-top:8px;height:10px;border-radius:99px;background:#f6e1e8;overflow:hidden"><div id="bar" style="height:100%;width:0;background:${ROSE};border-radius:99px"></div></div>
+  </div>
+</div>`);
+const opts = [...S.querySelectorAll(".opt")], stxt = S.querySelector("#stxt"), smin = S.querySelector("#smin"), bar = S.querySelector("#bar");
+reel.on(t => {
+  const shown = (t >= T[5] && t < T[7]) || (t >= T[8] && t < T[9]);
+  const enter = t < T[7] ? T[5] + .1 : T[8];
+  const up = R.pop(t, enter, .55);
+  ph.root.style.visibility = shown ? "visible" : "hidden";
+  ph.root.style.transform = `translateY(${(1 - up) * 900}px) rotate(${(1 - up) * 6}deg)`;
+  const chosen = t >= W(6, 3);
+  opts.forEach((o, i) => { o.style.borderColor = chosen && i === 0 ? ROSE : "transparent"; o.style.transform = chosen && i === 0 && t < W(6, 3) + .15 ? "scale(.93)" : "scale(1)"; });
+  const state = t < W(6, 3) ? 0 : t < T[8] ? 1 : 2;
+  const label = ["Pick a bouquet", "Ordered · cutting now", "Ready for pick-up"][state];
+  if (stxt.textContent !== label) stxt.textContent = label;
+  smin.textContent = state === 2 ? "✓" : state === 1 ? "8 min" : "";
+  bar.style.width = (state === 0 ? 0 : state === 1 ? 35 : 100) + "%";
+});
+reel.cue(W(6, 3) - .08, "tap", "pick bouquet");
+R.notify(reel, ph, W(8, 3), "Your bouquet is ready", "Red roses · Corner Flowers", { accent: ROSE, icon: "flower" });
+
+/* ---- dock, captions, end card ---- */
+R.dock(reel, [
+  { icon: "store", at: W(0, 1) }, { icon: "heart", at: W(2, 1) }, { icon: "people", at: W(3, 5) }, { icon: "sad", at: W(4, 4), color: "#e05a4a" },
+  { icon: "phone", at: T[5] + .1 }, { icon: "flower", at: W(6, 3) }, { icon: "bell", at: W(8, 3) }, { icon: "check", at: W(9, 2), color: "#4cc276" },
+], { from: W(0, 7), accent: "#f5a3c0" });
+R.caption(reel, TM.words.map(([w, t]) => [w.replace(/[.,]$/, ""), t]), { y: 400, size: 128, until: T[10] + .1, ends: TM.ends, hold: .45 });
+R.endcard(reel, W(10, 1), { name: "Stemmy", tagline: "Fresh flowers, no line", color: ROSE, icon: "flower" });
+</script>
+</body>
+</html>

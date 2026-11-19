@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<title>تنّور - founder story reel (Maven Reels example)</title>
+<!-- Style copied from a reference: references/style-cards/founder-story.md
+     Brand is made up for the demo. Times come from words.js (the voice) when it exists, otherwise from 2.6 words a second. -->
+<script src="../../kit/reel.js"></script>
+<script src="words.js" onerror="window.VOICE=null"></script>
+</head>
+<body>
+<script>
+const SCRIPT = [
+  "فتحت فرن صمون بالمنطقة",
+  "أول زبون إجا، أخذ صمونتين وراح",
+  "بس صمونّا اشتهر",
+  "وصار الناس يجون من الفجر",
+  "والطابور وصل لآخر الشارع",
+  "واللي يجي متأخر يلگاه خلص",
+  "فسوّيت تنّور",
+  "تحجز صمونك وانت بالبيت",
+  "والتطبيق يحسبلك شوكت تطلع الصينية",
+  "ومن يصير حار يوصلك إشعار",
+  "تجي تستلم وترجع",
+  "تنّور، صمونك محجوز",
+];
+const TM = R.timing(SCRIPT, window.VOICE, { wps: 2.5, gap: .35 });
+const T = TM.lines;                         // T[i] = when line i starts
+const W = (line, n) => TM.words[SCRIPT.slice(0, line).reduce((a, l) => a + l.split(/\s+/).length, 0) + n][1];   // word n of a line
+const END = TM.end + 2.4;
+
+const reel = R.reel({ w: 1080, h: 1920, fps: 30, lang: "ar", duration: END, bg: "#2d353c" });
+const G = 1700;                              // ground line in the world
+const cam = R.world(reel, 5400, 3400);
+const world = cam.el;
+
+/* ---- the street ---- */
+R.sky(reel, world, { w: 3900, h: G, night: [[0, 0], [T[3] - .2, 0], [T[3] + .6, .85], [T[5] + 1.2, .85], [T[6], 0, "linear"], [T[10] - .01, 0]] });
+R.skyline(world, 0, G - 40, 3900, { color: "#c7d9e6" });
+R.street(world, 0, G, 3900, { h: 1700 });
+for (const x of [170, 1500, 2350, 3200]) R.palm(world, x, G + 4, 1.25);
+for (const x of [330, 1330, 2900]) R.bush(world, x, G + 6, 1.1);
+
+/* ---- the bakery, built piece by piece ---- */
+const shop = R.shop(world, 760, G, { w: 720, h: 600, sign: "فرن الحي", color: "#a2512b", wall: "#f6e7c8", awning: "#d9534f" });
+R.drop(reel, shop.parts.wall, W(0, 0), { height: 220 });
+R.drop(reel, shop.parts.window, W(0, 1) - .1);
+R.drop(reel, shop.parts.door, W(0, 1) + .05);
+R.drop(reel, shop.parts.awning, W(0, 2) - .05, { height: 120 });
+R.drop(reel, shop.parts.sign, W(0, 2) + .15, { height: 260 });
+// bread trays in the window
+const trays = R.svg(shop.root, 300, 120, `<g filter="url(#soft)">${[0, 1, 2, 3, 4].map(i => `<ellipse cx="${36 + i * 56}" cy="80" rx="26" ry="16" fill="${R.clay("#e3a75c")}"/><path d="M${24 + i * 56} 78 q12 -10 24 0" stroke="#b9772f" stroke-width="3" fill="none"/>`).join("")}</g>`, { x: 60, y: 210 });
+R.popIn(reel, trays, W(0, 3), { note: "bread" });
+const baker = R.person(reel, world, 560, G - 40, { shirt: "#ffffff", apron: "#a2512b", skin: R.SKIN[1], beard: true, s: 1.05 });
+baker.show(W(0, 3) + .1);
+R.popIn(reel, baker.body, W(0, 3) + .1, { sound: false });
+baker.waveAt(T[1] + .1, 1.0);
+
+/* ---- first customer: comes, takes two, goes ---- */
+const c1 = R.person(reel, world, 1500, G + 10, { shirt: "#3aa66a", skin: R.SKIN[0], hair: "#4a3020" });
+c1.face(-1).show(T[1] - .2, T[2] + .2).move(T[1], W(1, 2) + .1, -560);
+const bag = R.svg(world, 90, 70, `<g filter="url(#soft)"><rect x="8" y="14" width="74" height="52" rx="10" fill="#f3e2c3"/><ellipse cx="32" cy="16" rx="18" ry="10" fill="#e3a75c"/><ellipse cx="58" cy="14" rx="18" ry="10" fill="#d9964a"/></g>`, { x: 930, y: G - 300 });
+R.popIn(reel, bag, W(1, 3), { origin: "50% 50%", out: W(1, 5) - .1, note: "bag" });
+const c1b = R.person(reel, world, 940, G + 10, { shirt: "#3aa66a", skin: R.SKIN[0], hair: "#4a3020" });
+c1b.show(W(1, 5) - .05, T[2] + .6).move(W(1, 5), T[2] + .6, 700);
+
+/* ---- famous: stars around the sign ---- */
+for (let i = 0; i < 5; i++) {
+  const st = R.svg(world, 70, 70, `<g transform="scale(2.9)" filter="url(#soft)"><path d="${"M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"}" fill="#f5c84b" stroke="#e0a92a" stroke-width="1"/></g>`, { x: 420 + i * 150, y: G - 820 - (i % 2) * 60 });
+  R.popIn(reel, st, W(2, 2) + i * .07, { origin: "50% 50%", out: T[3] + .6, sound: i === 0, note: "stars" });
+}
+cam.punch(W(2, 2), .05);
+
+/* ---- the queue, at dawn ---- */
+const shirts = ["#e85d4a", "#4f7be8", "#f2b33d", "#8a5cd6", "#2fb3a6", "#e86fa6", "#5a9e3a", "#f07c2c", "#3c5bb5", "#c0392b", "#16a085", "#d35400"];
+const queue = [];
+for (let i = 0; i < 12; i++) {
+  const x = 1180 + i * 125;
+  const p = R.person(reel, world, x, G + 14 + (i % 2) * 6, { shirt: shirts[i], skin: R.SKIN[i % 4], hair: i % 3 ? "#2b1d14" : "#5a3a22", beard: i % 4 === 1, s: .95 });
+  const at = W(3, 1) + i * .11;
+  p.face(-1).show(at, T[10] - .01);
+  R.popIn(reel, p.body, at, { sound: i % 4 === 0, note: "person" });
+  queue.push(p);
+}
+// late guy at the end, sad
+const late = R.person(reel, world, 2900, G + 16, { shirt: "#7f8c8d", skin: R.SKIN[2], face: "sad" });
+late.face(-1).show(T[5] - .1, T[6]).move(T[5], W(5, 2), -380);
+const sold = R.svg(world, 260, 150, `<g filter="url(#soft)"><rect width="260" height="130" rx="22" fill="#c0392b"/><rect x="8" y="8" width="244" height="114" rx="16" fill="none" stroke="#fff" stroke-width="4" stroke-dasharray="10 8"/><text x="130" y="96" text-anchor="middle" font-family="Lalezar" font-size="84" fill="#fff">خلص</text></g>`, { x: 875, y: G - 560 });
+R.popIn(reel, sold, W(5, 4), { origin: "50% 0%", out: T[6], note: "sold out" });
+cam.punch(W(5, 4), .06);
+
+/* ---- home: on the sofa with the phone ---- */
+const HX = 4200;
+R.room(world, HX - 100, G - 1800, 1400, 2400, { wall: "#f3e3c8", floor: "#c48f5e" });
+R.sofa(world, HX + 600, G + 40, 1.5, "#3d6fd1");
+const user = R.person(reel, world, HX + 600, G - 10, { shirt: "#f07c2c", skin: R.SKIN[1], s: 1.2 });
+user.show(T[6] - .01);
+R.svg(user.root, 120, 300, `<rect x="70" y="150" width="30" height="52" rx="7" fill="#1c2024"/><rect x="74" y="155" width="22" height="40" rx="4" fill="#9fd3c7"/>`);
+user.waveAt(W(7, 1) - .2, .5);
+const lamp = R.svg(world, 120, 420, `<g filter="url(#soft)"><rect x="56" y="80" width="8" height="320" fill="#6b4a2f"/><path d="M20 90 L100 90 L84 10 L36 10Z" fill="#f6d27a"/><ellipse cx="60" cy="400" rx="44" ry="12" fill="#6b4a2f"/></g>`, { x: HX + 960, y: G - 380 });
+
+/* ---- back on the street, daytime: walks in, takes it, walks home ---- */
+const hero = R.person(reel, world, 1900, G + 10, { shirt: "#f07c2c", skin: R.SKIN[1], s: 1.0 });
+hero.face(-1).show(T[10] - .01).move(T[10], W(10, 1), -840);
+const heroBack = R.person(reel, world, 1060, G + 10, { shirt: "#f07c2c", skin: R.SKIN[1], s: 1.0 });
+heroBack.show(W(10, 1) + .02).move(W(10, 2) - .05, END, 900);
+R.popIn(reel, R.svg(heroBack.root, 90, 70, `<g filter="url(#soft)"><rect x="8" y="14" width="74" height="52" rx="10" fill="#f3e2c3"/><ellipse cx="32" cy="16" rx="18" ry="10" fill="#e3a75c"/><ellipse cx="58" cy="14" rx="18" ry="10" fill="#d9964a"/></g>`, { x: 70, y: 150 }), W(10, 1) + .05, { origin: "50% 50%", note: "bag" });
+hero.root.style.visibility = "visible";
+reel.on(t => { hero.root.style.display = t >= W(10, 1) + .02 ? "none" : ""; });
+
+/* ---- camera ---- */
+cam.to(0, 760, G - 330, .95)
+   .to(W(0, 3), 760, G - 300, 1.22, "soft")
+   .to(T[1], 880, G - 300, 1.25)
+   .to(T[2], 880, G - 330, 1.2)
+   .to(T[3], 1100, G - 330, 1.05)
+   .to(T[4], 1350, G - 320, .95)
+   .to(W(4, 3), 2050, G - 300, .82, "inOut")
+   .to(T[5], 2250, G - 300, .85)
+   .to(W(5, 3), 1000, G - 330, 1.15)
+   .to(T[6] - .001, 1000, G - 330, 1.15)
+   .to(T[6], HX + 600, G - 330, 1.12)            // cut to home
+   .to(T[10] - .001, HX + 600, G - 300, 1.22, "linear")
+   .to(T[10], 1300, G - 300, 1.05)                // cut back to the street
+   .to(T[11], 1000, G - 300, 1.0)
+   .to(END, 1000, G - 280, .92, "soft");
+
+/* ---- the phone with the app (screen-space, slides up from the bottom) ---- */
+const ph = R.phone(reel, reel.stage, 540, 2010, { w: 400 });
+const S = ph.screen;
+S.insertAdjacentHTML("beforeend", `
+<div style="padding:70px 26px 0">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div style="font:44px Lalezar;color:#a2512b">تنّور</div>
+    <div style="font-size:.7em;background:#fbe9dc;color:#a2512b;border-radius:99px;padding:4px 12px">● مفتوح</div>
+  </div>
+  <div style="margin-top:14px;font-weight:600">فرن الحي</div>
+  <div style="opacity:.6;font-size:.75em">صمون حار كل ٢٠ دقيقة</div>
+  <div id="card" style="margin-top:18px;background:#fff;border-radius:22px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.08)">
+    <div style="display:flex;gap:12px">
+      <div style="flex:1;background:#a2512b;color:#fff;border-radius:16px;padding:10px;text-align:center"><div style="font-size:.6em;opacity:.8">صموناتك</div><div style="font:600 46px 'IBM Plex Sans Arabic'">١٠</div></div>
+      <div style="flex:1;background:#fbe9dc;color:#a2512b;border-radius:16px;padding:10px;text-align:center"><div style="font-size:.6em;opacity:.8">الصينية بعد</div><div style="font:600 46px 'IBM Plex Sans Arabic'"><span id="mins">١٨</span></div></div>
+    </div>
+    <div style="margin-top:14px;height:12px;border-radius:99px;background:#f1e6dc;overflow:hidden"><div id="bar" style="height:100%;width:10%;background:#e3a75c;border-radius:99px"></div></div>
+    <div style="margin-top:8px;font-size:.62em;opacity:.65;text-align:center">دقيقة · الوقت محسوب من الفرن</div>
+  </div>
+  <div id="btn" style="margin-top:18px;background:#a2512b;color:#fff;border-radius:18px;padding:14px;text-align:center;font-weight:600">احجز صمونك</div>
+</div>`);
+const btn = S.querySelector("#btn"), bar = S.querySelector("#bar"), card = S.querySelector("#card");
+R.count(reel, S.querySelector("#mins"), [[0, 18], [T[8], 18], [T[9] + .2, 3, "inOut"], [T[9] + .6, 0]], { digits: "arab" });
+reel.on(t => {
+  const up = R.pop(t, T[6] + .1, .55), down = R.ease.in(R.clamp((t - (T[10] - .35)) / .35));
+  ph.root.style.transform = `translateY(${(1 - up) * 900 + down * 1000}px) rotate(${(1 - up) * 6}deg)`;
+  ph.root.style.visibility = t < T[6] || t > T[10] + .1 ? "hidden" : "visible";
+  const booked = t >= W(7, 1);
+  const label = booked ? R.icon("check", 30, "#fff", 2.6) + " محجوز" : "احجز صمونك";
+  if (btn.dataset.l !== label) { btn.innerHTML = label; btn.dataset.l = label; btn.style.display = "flex"; btn.style.justifyContent = "center"; btn.style.alignItems = "center"; btn.style.gap = "8px"; }
+  btn.style.background = booked ? "#2e9d5b" : "#a2512b";
+  btn.style.transform = `scale(${t >= W(7, 1) - .12 && t < W(7, 1) + .1 ? .93 : 1})`;
+  card.style.opacity = t >= W(7, 1) ? 1 : .35;
+  bar.style.width = R.k(t, [[0, 10], [T[8], 10], [T[9] + .6, 100, "inOut"]]) + "%";
+});
+reel.cue(W(7, 1) - .1, "tap", "book button");
+R.notify(reel, ph, W(9, 3), "صمونك حار 🔥", "طلعت الصينية، تعال استلم", { accent: "#a2512b", icon: "fire" });
+
+/* ---- story dock and captions ---- */
+R.dock(reel, [
+  { icon: "store", at: W(0, 0) }, { icon: "star", at: W(2, 2) }, { icon: "people", at: W(3, 1) }, { icon: "sad", at: W(5, 4), color: "#e05a4a" },
+  { icon: "phone", at: T[6] + .1 }, { icon: "clock", at: T[8] }, { icon: "bell", at: W(9, 3) }, { icon: "check", at: T[10], color: "#4cc276" },
+], { from: W(0, 3), accent: "#f0c26b" });
+R.caption(reel, TM.words, { y: 400, size: 132, until: T[11] + .1, ends: TM.ends, hold: .5 });
+R.endcard(reel, W(11, 1), { name: "تنّور", tagline: "صمونك محجوز · قريباً", color: "#a2512b", icon: "bread" });
+</script>
+</body>
+</html>

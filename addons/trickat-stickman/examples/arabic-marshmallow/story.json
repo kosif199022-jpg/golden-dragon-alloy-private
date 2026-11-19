@@ -1,0 +1,28 @@
+{
+  "title": "اختبار المارشميلو وفلوسك",
+  "mood": "mystery",
+  "cast": {
+    "mia": {"skin": "fair", "outfit": "dress", "color": "#F2C14E", "hair": "bun", "hair_col": "#6B4A2A"},
+    "doc": {"skin": "light", "outfit": "suit", "color": "#5B5B66", "tie": "#2F6B4E", "hair": "short", "hair_col": "#8A8A92", "glasses": true, "beard": true},
+    "sam": {"skin": "brown", "outfit": "hoodie", "color": "#2F7A5A", "shirt": "#E8E0D0", "hair": "curly", "hair_col": "#1C1B22"},
+    "rex": {"skin": "tan", "outfit": "tshirt", "color": "#C8242C", "hair": "slick", "hair_col": "#2A1E16", "hat": "cap", "hat_col": "#2B2D3C"}
+  },
+  "shots": [
+    {"kind": "wide", "s": [0], "set": "street", "time": "night", "shop": "سوبر ماركت", "tag": "القاهرة · 2024", "chars": [{"id": "sam", "x": 760, "emotion": "shocked", "pose": "point", "face": 0.6}], "props": [{"icon": "money", "x": 1180, "y": 900, "s": 0.5, "at": "مية"}], "labels": [{"text": "100 جنيه!", "at": "مية", "color": "lime", "x": 1400, "y": 330}]},
+    {"kind": "closeup", "s": [1], "who": "sam", "set": "street", "time": "night", "emotion": "thinking", "pose": "think", "bubble": {"icon": "money", "at": "هتستنى"}},
+    {"kind": "title", "text": "التجربة", "sub": "الفصل الأول"},
+    {"kind": "skyline", "s": [2], "time": "day", "tag": "ستانفورد · 1969"},
+    {"kind": "wide", "s": [3], "set": "office", "era": "old", "time": "night", "calendar": "سنة 1969", "chars": [{"id": "doc", "x": 1000, "emotion": "thinking", "pose": "explain", "face": -0.4}], "lower_third": {"name": "عالم نفس", "sub": "جامعة ستانفورد", "at": "نفس"}, "stamp": {"text": "تجربة غريبة", "at": "غريبة", "x": 1450, "y": 380}},
+    {"kind": "icon", "s": [4], "icons": [{"name": "marshmallow", "label": "قطعة واحدة", "at": "قطعة"}]},
+    {"kind": "versus", "s": [5], "left": {"who": "rex", "title": "دلوقتي = 1", "emotion": "greedy", "at": "لو"}, "right": {"who": "mia", "title": "استنى = 2", "emotion": "smug", "at": "هتاخد"}},
+    {"kind": "crowd", "s": [6], "count": 18, "emotion": "happy", "highlight": "mia", "at": "دقيقة"},
+    {"kind": "chart", "s": [7], "who": "doc", "board": "chalk", "chart": {"type": "bar", "values": [1, 1.5], "labels": ["أكلوها", "استنوا"], "title": "الدرجات في المتوسط", "show_values": false, "at": "أعلى"}},
+    {"kind": "title", "s": [8], "text": "طب إيه علاقة ده بفلوسك؟"},
+    {"kind": "counter", "s": [9, 10], "value": {"from": 0, "to": 140000, "prefix": "$", "at": "يوصلوا"}, "caption": "200 دولار في الشهر لمدة 30 سنة", "icon": "coins", "compare": {"text": "إنت حطيت: 72,000$", "at": "دولار"}},
+    {"kind": "list", "s": [11], "number": 1, "text": "خبي المارشميلو", "who": "mia", "emotion": "smug"},
+    {"kind": "table", "s": [12], "hand": "sam", "items": [{"type": "phone", "messages": ["تم تحويل 200$ للتوفير", "الرصيد: 1,250$"]}, {"type": "receipt", "title": "كشف حساب", "rows": [["إيجار", "$400"], ["أكل", "$150"], ["توفير", "$200"]], "text": "$750", "at": "الشهر"}]},
+    {"kind": "walk", "s": [13], "set": "street", "time": "dusk", "shop": "تخفيضات", "chars": [{"id": "rex", "emotion": "happy", "pose": "hold", "beats": [{"at": "والتاني", "emotion": "worried", "pose": "idle"}]}], "labels": [{"text": "بيصرف كله", "at": "بيصرف", "color": "lime", "x": 1350, "y": 300}]},
+    {"kind": "table", "s": [14], "items": [{"type": "newspaper", "title": "أخبار الفلوس", "text": "الفرق هيبقى ضخم", "ring_at": "ضخم"}]},
+    {"kind": "wide", "s": [15], "set": "home", "time": "night", "chars": [{"id": "mia", "x": 760, "s": 0.8, "emotion": "happy", "pose": "celebrate", "face": 0.5}], "props": [{"icon": "marshmallow", "x": 1200, "y": 900, "s": 0.55, "n": 2}], "polaroid": {"at": "وخد", "who": "mia", "caption": "استنى... وخد الاتنين."}}
+  ]
+}

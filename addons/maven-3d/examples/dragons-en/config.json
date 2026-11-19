@@ -1,0 +1,1 @@
+{ "lang": "en", "engine": "kokoro", "voice": "am_liam", "speed": 1.18, "maxGap": 0.18, "fps": 240, "lufs": -14, "true_peak": -1.8, "keepCaps": ["Leo"] }
