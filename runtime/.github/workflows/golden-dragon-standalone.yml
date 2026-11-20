@@ -1,0 +1,79 @@
+name: Golden Dragon standalone source build
+on:
+  push:
+    branches:
+      - feat/golden-dragon-runtime-ledger-20261118
+    paths:
+      - apps/golden-dragon/forge/unified_core/**
+      - apps/golden-dragon/forge/make_golden_dragon.py
+      - apps/golden-dragon/app/**
+      - .github/workflows/golden-dragon-standalone.yml
+  pull_request:
+    paths:
+      - apps/golden-dragon/forge/unified_core/**
+      - apps/golden-dragon/forge/make_golden_dragon.py
+      - apps/golden-dragon/app/**
+permissions:
+  contents: read
+jobs:
+  standalone-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest
+      - name: Verify standalone source, native registry, and real fused dispatch
+        run: |
+          python -B -m pytest apps/golden-dragon/forge/unified_core/tests -q -p no:cacheprovider --tb=short
+
+      - name: Generate independent Golden Dragon source artifact
+        env:
+          TMPDIR: ${{ runner.temp }}
+        run: |
+          python -B apps/golden-dragon/forge/unified_core/build_standalone.py \
+            --out "${{ runner.temp }}/golden-dragon-standalone"
+          python -B apps/golden-dragon/forge/unified_core/build_standalone.py --out "${{ runner.temp }}/golden-dragon-standalone" --verify
+          python -B - <<'PY'
+          import json, os
+          from pathlib import Path
+          source = Path(os.environ["RUNNER_TEMP"]) / "golden-dragon-standalone"
+          manifest = json.loads((source / "standalone-manifest.json").read_text(encoding="utf-8"))
+          assert manifest["requires_sibling_forges"] is False
+          assert manifest["runtime_capabilities_all_verified"] is False
+          assert "native_registry.py" in manifest["files"]
+          assert len(manifest["files"]) > 25
+          print("Standalone source verification: PASS, files:", len(manifest["files"]))
+          PY
+      - name: Upload standalone source for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-dragon-standalone-source
+          path: ${{ runner.temp }}/golden-dragon-standalone/
+          if-no-files-found: error
+          retention-days: 7
+
+  windows-standalone:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest
+      - name: Run standalone-native and registry checks on Windows
+        shell: pwsh
+        run: |
+          python -B -m pytest apps/golden-dragon/forge/unified_core/tests -q -p no:cacheprovider --tb=short
+      - name: Compose independent Windows source without sibling forges
+        shell: pwsh
+        run: |
+          $env:TMP = $env:RUNNER_TEMP
+          $env:TEMP = $env:RUNNER_TEMP
+          python -B apps/golden-dragon/forge/unified_core/build_standalone.py --out (Join-Path $env:RUNNER_TEMP "golden-dragon-standalone")
+          if ($LASTEXITCODE -ne 0) { throw "Independent source build failed" }
+          python -B apps/golden-dragon/forge/unified_core/build_standalone.py --out (Join-Path $env:RUNNER_TEMP "golden-dragon-standalone") --verify
+          if ($LASTEXITCODE -ne 0) { throw "Standalone source integrity check failed" }

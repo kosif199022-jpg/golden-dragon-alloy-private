@@ -1,0 +1,71 @@
+{
+  "title": "Chaichi - first glass free (Maven Toon example, Arabic captions only)",
+  "fps": 30,
+  "end_pad": 0.67,
+  "lowercase": false,
+  "scenes": [
+    {
+      "id": "setup", "start_word": 0, "set": "chaikhana", "mood": "interior",
+      "cast": [
+        {"id": "shop", "type": "shopkeeper", "x": 520, "y": 1640, "scale": 1.0, "z": 1.0, "face": 0.3, "dir": 1, "pose": "arms_crossed", "expr": "smug"},
+        {"id": "chaichi", "type": "chaichi", "x": 790, "y": 1590, "scale": 1.0, "z": 1.0, "face": -0.35, "dir": -1, "pose": "hold", "expr": "happy"},
+        {"id": "hajji", "type": "hajji", "x": 280, "y": 1740, "scale": 1.1, "z": 1.0, "face": 0.4, "dir": 1, "expr": "neutral"},
+        {"id": "cat", "type": "cat", "x": 620, "y": 1850, "scale": 0.6, "z": 1.0, "dir": -1, "pose": "sit"}
+      ],
+      "keys": [
+        {"w": 0, "frame": [700, 1280, 800]},
+        {"w": 3, "frame": "chaichi"},
+        {"w": 7, "frame": [480, 1360, 1500]},
+        {"w": 9, "frame": "shop:face"}
+      ],
+      "acts": [
+        {"w": 0, "who": "chaichi", "hold": "tea"},
+        {"w": 7, "who": "hajji", "expr": "laughing"},
+        {"w": 7, "who": "shop", "pose": "point", "expr": "laughing"},
+        {"w": 9, "who": "shop", "expr": "smug", "talk": true},
+        {"w": 10, "who": "chaichi", "expr": "deadpan"},
+        {"w": 11, "who": "shop", "talk": false}
+      ]
+    },
+    {
+      "id": "crowd", "start_word": 12, "set": "souq", "mood": "day",
+      "cast": [
+        {"id": "camel", "type": "camel", "x": 820, "y": 1250, "scale": 0.42, "z": 1.0, "dir": -1, "pose": "walk"},
+        {"id": "fallah", "type": "fallah", "x": 600, "y": 1500, "scale": 1.2, "z": 1.0, "face": -0.2, "dir": -1, "pose": "walk"},
+        {"id": "mom", "type": "mom", "x": 300, "y": 1580, "scale": 1.3, "z": 1.0, "face": 0.3, "dir": 1, "pose": "walk"},
+        {"id": "student", "type": "student", "x": 800, "y": 1660, "scale": 1.4, "z": 1.0, "face": -0.3, "dir": -1, "pose": "walk"},
+        {"id": "hajjiya", "type": "hajjiya", "x": 160, "y": 1760, "scale": 1.5, "z": 1.0, "face": 0.3, "dir": 1, "pose": "walk"}
+      ],
+      "keys": [
+        {"w": 12, "frame": [540, 1240, 1800]},
+        {"w": 15, "frame": [520, 1220, 1350]}
+      ],
+      "acts": [
+        {"w": 12, "who": "camel", "x": 700, "dur": 3.0},
+        {"w": 12, "who": "fallah", "x": 470, "dur": 3.0},
+        {"w": 12, "who": "mom", "x": 420, "dur": 3.0},
+        {"w": 12, "who": "student", "x": 660, "dur": 3.0},
+        {"w": 12, "who": "hajjiya", "x": 300, "dur": 3.0}
+      ]
+    },
+    {
+      "id": "explain", "start_word": 18, "set": "chaikhana", "mood": "golden", "calm": true, "bloom": 0.7,
+      "cast": [
+        {"id": "chaichi", "type": "chaichi", "x": 800, "y": 1590, "scale": 1.0, "z": 1.0, "face": -0.35, "dir": -1, "pose": "stand", "expr": "sly", "prop": "teapot"},
+        {"id": "hajji", "type": "hajji", "x": 380, "y": 1720, "scale": 1.1, "z": 1.0, "face": 0.4, "dir": 1, "pose": "hold", "expr": "happy"}
+      ],
+      "keys": [
+        {"w": 18, "frame": [470, 1290, 820]},
+        {"w": 20, "frame": "hajji"},
+        {"w": 25, "frame": [560, 1360, 1400]},
+        {"w": 27, "frame": "chaichi:face"}
+      ],
+      "acts": [
+        {"w": 18, "who": "hajji", "hold": "tea"},
+        {"w": 25, "who": "hajji", "pose": "point", "expr": "happy", "talk": true},
+        {"w": 26, "who": "hajji", "talk": false},
+        {"w": 27, "who": "chaichi", "pose": "hold", "prop": "tray", "expr": "sly"}
+      ]
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Golden Dragon Alloy — full private build and continuing memory
 
 **Repository visibility: PRIVATE. Never make public.** This repository
-contains the full 255 MB unpacked skill, its 7,228 runtime files, its original
+contains the full 255 MB unpacked skill, its 7,387 runtime files, its original
 26,363-unit knowledge database including all 163 private memory units, and
 the owner's live local learning snapshots (chats, lessons, plans and guards).
 

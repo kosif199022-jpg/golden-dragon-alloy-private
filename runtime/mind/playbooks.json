@@ -250,6 +250,52 @@
    ]
   },
   {
+   "id": "maven-toon",
+   "domain": "video",
+   "ar": "شورت كرتون 2D بحكاية (Maven Toon): سكربت، ستوري بورد، رندر، كابشن عربي على الكلمة",
+   "en": "2D cartoon story Short with Maven Toon: script, storyboard, render, word-timed Arabic captions",
+   "triggers": "مافن ميفن maven toon شورت كرتون حكايه كرتون قصه كرتون كرتون بالقصه كرتون على الفويس شخصيات كرتون ديكور مرسوم كابشن بس story short cartoon short 2d cartoon captions only",
+   "steps": [
+    "Maven Toon جوه المستودع (engine/skills/maven-toon): $R mtoon where ← $R mtoon fonts (مرة واحدة).",
+    "$R mtoon doctor ← ناقص؟ pip install -r engine/skills/maven-toon/requirements.txt في venv (ولينكس: apt-get install libegl1).",
+    "السكربت بالمصري: هوك ≤7 ← تصعيد ← «تعرف ليه؟» ← قفلة ≤9، و$R mtoon script-eg PROJECT --seconds N لازم يعدّي. اعرضه بسطر لكل جملة قبل الفويس.",
+    "$R mtoon run words PROJECT (أو silent للكابشن بس) ← اكتب storyboard.json من LIBRARY.md وSTYLE.md في النسخة.",
+    "$R mtoon run plan ← stills ← ناقد ≥8/10 ← 3 stills لصاحب الشغل ← $R mtoon render (كل الأنوية، كرّر لحد DONE) ← join ← check.",
+    "$R mtoon credit PROJECT ← $R mtoon gate PROJECT/final_credit.mp4 ← صفحة التحميل (tools/video-page)."
+   ],
+   "skills": [
+    "maven-toon-bridge",
+    "arena-gate",
+    "sync-guard",
+    "motion-cartoon",
+    "animation-principles"
+   ],
+   "powers": [],
+   "ask": [
+    "pip install على اللابتوب (~400 MB)",
+    "تنزيل موديل whisper أول مرة",
+    "أي موسيقى مش من صاحب الشغل"
+   ],
+   "gates": [
+    "script-eg ✓",
+    "stills ≥ 8/10",
+    "toon.py check ✓",
+    "mtoon gate ✓",
+    "rd.py arena gate ✓"
+   ],
+   "pitfalls": [
+    "الخطوط ماتترفعش: mtoon fonts بيجيبها",
+    "المشروع برّه فولدر المهارة",
+    "فويس متسجل = الكلام ثابت",
+    "ميار: مفيش وش AI"
+   ],
+   "phrases": [
+    "اعمل شورت كرتون",
+    "حكاية كرتون بصوتي",
+    "Maven Toon"
+   ]
+  },
+  {
    "id": "voice",
    "domain": "audio",
    "ar": "صوت: تعليق، تفريغ، تنضيف، فصل موسيقى",

@@ -1,19 +1,19 @@
 # تقرير الصهر — إزاي المستودع كله بقى السبيكة
 
-- **المصدر:** `f617a65 2026-11-19T15:32:46+03:00 Merge pull request #28 from kosif199022-jpg/feat/golden-dragon-local-distillation-20261119`
-- **الوقت:** 2026-11-19 17:14:06 ← 2026-11-19 17:16:47 (162.3 ث للخلط)
-- **غرفة الماكينات:** 7,226 ملف (217 ميجا) مطابقة لـ main بالبايت · بصمتها `f0fe161df12763f7…`
-- **الدفتر:** 7,504 سطر (كل ملفات main + كل ملفات الفروع والجهاز)، والناقص من main = 0
-- **قاعدة المعرفة:** 26,363 وحدة في `kb/alloy.db` (46.9 ميجا)
+- **المصدر:** `0a5436e 2026-11-20T20:37:53+03:00 Merge pull request #33 from kosif199022-jpg/claude/golden-dragon-warehouse-restaurant-imnzph`
+- **الوقت:** 2026-11-20 17:38:24 ← 2026-11-20 17:38:34 (10.2 ث للخلط)
+- **غرفة الماكينات:** 7,387 ملف (221 ميجا) مطابقة لـ main بالبايت · بصمتها `605710fc27553b37…`
+- **الدفتر:** 7,387 سطر (كل ملفات main + كل ملفات الفروع والجهاز)، والناقص من main = 0
+- **قاعدة المعرفة:** 26,393 وحدة في `kb/alloy.db` (46.7 ميجا)
 
 ## الوحدات
 | النوع | العدد |
 |---|---|
 | catalog-skill | 15,375 |
 | power | 6,129 |
-| reference | 1,629 |
-| script | 851 |
-| skill | 670 |
+| reference | 1,640 |
+| script | 874 |
+| skill | 672 |
 | superpower | 485 |
 | tool | 321 |
 | lesson | 222 |
@@ -21,60 +21,47 @@
 | lib | 154 |
 | rule | 134 |
 | thinking | 51 |
-| road | 43 |
+| road | 44 |
 | re | 34 |
 | program | 32 |
 | cmd | 29 |
 | engine | 15 |
 | studio | 10 |
 | mcp | 7 |
-| patch | 7 |
 | module | 2 |
 
 | الحالة | العدد | المعنى |
 |---|---|---|
-| active | 25,646 | شغّالة |
+| active | 25,689 | شغّالة |
 | review-before-run | 496 | سكربت طرف تالت: يتقري قبل --yes |
 | private | 163 | ذاكرة المحادثات (مخفية من البحث العادي) |
 | merged | 40 | اتدمجت في وحدة تانية شبهها (ومذكورة جنبها) |
-| superseded | 8 | فيه نسخة أحدث (مذكورة) |
-| staged | 7 | patch من فرع مستني التطبيق |
 | quarantined | 3 | معزولة بقاعدة (cookie-copy) |
+| superseded | 2 | فيه نسخة أحدث (مذكورة) |
 
 | المصدر | العدد |
 |---|---|
 | catalog | 22,074 |
 | third-party | 2,351 |
-| owner | 1,373 |
+| owner | 1,444 |
 | fusion | 517 |
-| branch | 41 |
 | installed-pc | 7 |
 
 ## الدمج والتكرار
-- **المستندات:** 2,641 ملف Markdown ← 2,457 وحدة (المتطابق بالبايت بقى وحدة واحدة بكل مصادره).
+- **المستندات:** 2,659 ملف Markdown ← 2,470 وحدة (المتطابق بالبايت بقى وحدة واحدة بكل مصادره).
 - **القواعد:** 134 من 5 أماكن، منها 39 نسخة شبه مطابقة اتدمجت (أضعف تشابه اتدمج 0.913، يعني نفس القاعدة بـ `$W` بدل `$R`).
 - **الدروس:** 222، منها 1 مكرر (`s09` كان متكرر برقمه في `lessons_seed.jsonl`).
-- **الطرق:** 38 طريق × 43 وصفة ← 43 طريق منصهر. أمثلة الطلبات الحقيقية: 219 اتحطت جوه الطرق، و45 من مجموعة test اتشالت عشان القياس يفضل نضيف.
+- **الطرق:** 39 طريق × 43 وصفة ← 44 طريق منصهر. أمثلة الطلبات الحقيقية: 219 اتحطت جوه الطرق، و45 من مجموعة test اتشالت عشان القياس يفضل نضيف.
 - **فهرس الانصهار:** 1,101 وحدة، منها 539 اتلزقت في مهارات المستودع نفسها، و524 وحدة جديدة.
 - **الكتالوج:** 22,404 عنصر، منها 330 اتلزقت في مهارات موجودة.
-- **سكربتات بتشتغل:** 851.
-- **التعارضات المحلولة (`ledger/conflicts.json`):** skill-version = 1 · lesson-near-duplicate = 1 · rule-near-duplicate = 39 · branch-newer = 7
+- **سكربتات بتشتغل:** 874.
+- **التعارضات المحلولة (`ledger/conflicts.json`):** skill-version = 2 · lesson-near-duplicate = 1 · rule-near-duplicate = 39
+  - `golden-dragon-fusion`: اتساب `.agents/skills/golden-dragon-fusion/SKILL.md` (الأحدث)، و`.claude/skills/golden-dragon-fusion/SKILL.md` بقت superseded.
   - `hf-blender-render`: اتساب `engine/skills/hf-blender-render/SKILL.md` (الأحدث)، و`engine/resources/hf-blender-render/SKILL.md` بقت superseded.
 
 ## الفروع والجهاز
 | المصدر | الحكم | اتاخد | patches | مااتاخدش | ملاحظة |
 |---|---|---|---|---|---|
-| `claude/sharp-ptolemy-mku5pf` | UNIQUE-BLEND | 0 | 1 | 0 | Three .gitignore lines that ignore .arena/, the per-session runtime folder written by main |
-| `codex/golden-dragon-fusion-cli` | UNIQUE-BLEND | 7 | 2 | 0 | (1) Motion Reel engine fixes: type.js sets dir=auto and normal letter-spacing on RTL lines |
-| `codex/golden-fusion-json-find` | UNIQUE-BLEND | 0 | 1 | 0 | `dragon_fusion.py find ... --json` prints the raw JSON result list; adds validation for -- |
-| `feat/golden-anatomy-bridge-20261117` | SUPERSEDED | 0 | 0 | 8 | An earlier, independent bridge to Anatomy (wheresryan22/anatomy, MIT): forge/modules/gd_an |
-| `feat/golden-claude-app` | UNIQUE-BLEND | 7 | 0 | 0 | apps/golden-dragon/claude-app/: turns plain Claude Code into the Golden Dragon without the |
-| `feat/golden-dragon-runtime-ledger-20261118` | UNIQUE-BLEND | 21 | 0 | 10 | forge/unified_core/ (experimental 'native unified core'). runtime.py: GoldenDragonCore.exe |
-| `feat/golden-dragon-skill-distillation` | SUPERSEDED | 0 | 0 | 13 | distill_skills.py (static SKILL.md section extractor with provenance, 2 MB cap, skips syml |
-| `feature/golden-dragon-fusion-share` | UNIQUE-BLEND | 26 | 0 | 28 | The newer state of the portable 'golden-dragon-fusion' skill that main holds in an earlier |
-| `feature/golden-dragon-maven-bridge-20261118` | SUPERSEDED | 0 | 0 | 4 | integrations/maven_bridge.py: doctor/analyze/new/render wrapper around a privately license |
-| `golden-dragon-v3.5.2-stale-review` | UNIQUE-BLEND | 0 | 3 | 11 | auto-update runs pip install -U without asking (dragon rule §2): make it opt-in before app |
-| `laptop-installed` | UNIQUE-BLEND | 1 | 0 | 135 | ميزة «API مخصص» (OpenRouter وأي مزوّد متوافق مع OpenAI) اتعملت على اللابتوب 2026-11-19 ومش |
 
 - **SUPERSEDED (3):** شغلها موجود في main بشكل أكمل. ملفاتها متسجّلة في الدفتر «not-taken» ومعاها السبب.
 - **الـ patches (7)** محفوظة في `branches/*/PATCHES/`، ومش متطبّقة على `runtime/`. تطبيقها خطوة إصدار: `git apply --3way` في نسخة من المستودع، وبعدين `tools/dragon-maint/manifests.py`، وبعدين selftest، وبعدين أرضية الراوتر. **patch الـ yt-dlp بيحدّث من غير ما يسأل (ضد قاعدة §2): لازم يبقى اختياري الأول.**

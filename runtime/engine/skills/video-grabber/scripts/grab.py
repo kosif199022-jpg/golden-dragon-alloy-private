@@ -790,8 +790,12 @@ def grab_one(url: str, a, out: Path, pool_holder: dict) -> dict:
     if a.sniff:
         res = {"kind": "unsupported", "files": [], "error": "--sniff: yt-dlp skipped"}
     else:
+        maybe_refresh_stale(a)
         res = try_ytdlp(url, a, out, fixed_proxy)
         note("yt-dlp", res, fixed_proxy)
+        if res["kind"] in RETRY_AFTER_UPDATE and refresh_ytdlp(a, f"download failed ({res['kind']})"):
+            res = try_ytdlp(url, a, out, fixed_proxy)
+            note("yt-dlp after update", res, fixed_proxy)
     if res["kind"] == "ok":
         return finish(res, "yt-dlp" + ("+proxy" if fixed_proxy else ""))
     kind = res["kind"]
@@ -921,6 +925,100 @@ def info_one(url: str, a) -> dict:
 
 # --------------------------------------------------------------------------- update
 
+# yt-dlp breaks whenever a site changes; an old copy is the most common cause of a failed download
+# (2026-11-16: an Instagram link failed only because yt-dlp was months old). So before the first
+# yt-dlp attempt an old copy is refreshed, and after a failure yt-dlp is refreshed once and the
+# attempt repeated if the version really changed. Only an already installed yt-dlp is upgraded.
+# Dragon rule §2: installing needs the owner's explicit yes, so this is OFF by default and runs only
+# with --auto-update or VG_AUTOUPDATE=1 (and never with --no-auto-update / VG_NO_AUTOUPDATE / KOSIF_NO_AUTOINSTALL).
+# Without it the grabber only says that yt-dlp is old and prints the update command.
+STALE_DAYS = 30
+RETRY_AFTER_UPDATE = {"failed", "unsupported", "forbidden", "login_required"}
+_refresh_state = {"done": False}
+
+
+def ytdlp_version() -> str:
+    try:
+        r = subprocess.run(ytdlp_cmd() + ["--version"], capture_output=True, text=True, timeout=60)
+        return (r.stdout or "").strip()
+    except (OSError, subprocess.TimeoutExpired, SystemExit):
+        return ""
+
+
+def ytdlp_age_days(version: str, today: _dt.date | None = None) -> int | None:
+    """yt-dlp versions are dates (2026.11.02 or 2026.11.02.123456); None when it cannot be read."""
+    m = re.match(r"(\d{4})\.(\d{1,2})\.(\d{1,2})", version or "")
+    if not m:
+        return None
+    try:
+        built = _dt.date(int(m[1]), int(m[2]), int(m[3]))
+    except ValueError:
+        return None
+    return ((today or _dt.date.today()) - built).days
+
+
+def auto_update_allowed(a) -> bool:
+    if getattr(a, "no_auto_update", False) or os.environ.get("VG_NO_AUTOUPDATE") or os.environ.get("KOSIF_NO_AUTOINSTALL"):
+        return False
+    return bool(getattr(a, "auto_update", False) or os.environ.get("VG_AUTOUPDATE") == "1")
+
+
+_hinted = {"done": False}
+
+
+def update_hint(reason: str) -> None:
+    """Opt-in is off: say it once, with the exact command, and change nothing."""
+    if not _hinted["done"]:
+        _hinted["done"] = True
+        log(f"[update] yt-dlp {reason}: an update may fix it. With the owner's yes: grab.py --update "
+            "(or rerun with --auto-update)")
+
+
+def _upgrade_ytdlp() -> None:
+    """pip -U for this Python (falls back to --user); a standalone yt-dlp program also gets its own -U."""
+    base = [sys.executable, "-m", "pip", "install", "-U", "--quiet", "--disable-pip-version-check", "yt-dlp[default]"]
+    for extra in ([], ["--user"]):
+        try:
+            r = subprocess.run(base + extra, capture_output=True, text=True, timeout=300, env=child_env())
+        except (OSError, subprocess.TimeoutExpired):
+            break
+        if r.returncode == 0:
+            break
+    try:
+        cmd = ytdlp_cmd()
+    except SystemExit:
+        return
+    if cmd[0] != sys.executable:  # yt-dlp.exe / winget / standalone binary: pip does not touch it
+        try:
+            subprocess.run(cmd + ["-U"], capture_output=True, text=True, timeout=300, env=child_env())
+        except (OSError, subprocess.TimeoutExpired):
+            pass
+
+
+def refresh_ytdlp(a, reason: str) -> bool:
+    """Upgrade yt-dlp at most once per run. True only when the version actually changed."""
+    if _refresh_state["done"]:
+        return False
+    if not auto_update_allowed(a):
+        update_hint(reason)
+        return False
+    _refresh_state["done"] = True
+    old = ytdlp_version()
+    log(f"[update] yt-dlp {old or '?'}: {reason} -> updating ...")
+    _upgrade_ytdlp()
+    new = ytdlp_version()
+    log(f"[update] yt-dlp {old or '?'} -> {new or '?'}")
+    return bool(new) and new != old
+
+
+def maybe_refresh_stale(a) -> None:
+    if _refresh_state["done"]:
+        return
+    age = ytdlp_age_days(ytdlp_version())
+    if age is not None and age > STALE_DAYS:
+        refresh_ytdlp(a, f"{age} days old")
+
+
 def update() -> int:
     log("[update] python -m pip install -U \"yt-dlp[default]\" (includes yt-dlp-ejs for YouTube)")
     r = subprocess.run([sys.executable, "-m", "pip", "install", "-U", "--disable-pip-version-check",
@@ -962,6 +1060,9 @@ def parse_args(argv=None):
     ap.add_argument("--info", action="store_true", help="only show metadata, no download")
     ap.add_argument("--json", action="store_true", help="stdout carries only the JSON summary")
     ap.add_argument("--update", action="store_true", help="pip install -U yt-dlp and exit")
+    ap.add_argument("--auto-update", action="store_true",
+                    help="with the owner's yes: refresh yt-dlp when older than 30 days or once after a failure (off by default)")
+    ap.add_argument("--no-auto-update", action="store_true", help="never refresh yt-dlp on its own (wins over --auto-update)")
     a = ap.parse_args(argv)
     if a.proxy == "none":
         a.proxy = "none"

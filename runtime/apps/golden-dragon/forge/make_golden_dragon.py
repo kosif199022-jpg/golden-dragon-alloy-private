@@ -161,10 +161,20 @@ def scholars_section():
     the per-request tools, their steps and their critic questions come from `fusion brief` / `fusion check`."""
     f = GD / "analysis" / "thinking_toolkit.json"
     if not f.is_file():
+        f = FUSION / "thinking.json"  # self-contained fallback: equivalent 22 tools / 8 steps
+    if not f.is_file():
         raise SystemExit(f"✗ صندوق أدوات التفكير مش موجود: {f}")
     tk = json.loads(f.read_text(encoding="utf-8"))
-    from build_fusion import merge_books        # + the tools and «سبل التفكير» distilled from king's books (data\\thinking_books.json)
-    tk = merge_books(tk)
+    # The older source tree has no thinking_books.json or merge_books helper.
+    # Preserve the existing verified toolkit instead of inventing book entries.
+    import build_fusion as _fusion_builder
+    _books = FORGE / "data" / "thinking_books.json"
+    if hasattr(_fusion_builder, "merge_books"):
+        tk = _fusion_builder.merge_books(tk)
+    elif _books.is_file():
+        raise SystemExit("thinking_books.json exists but merge_books is missing; refusing to drop tools")
+    else:
+        log.append("  thinkers: optional book overlay absent; kept existing toolkit")
     tools, proto = tk.get("tools") or [], tk.get("protocol_ar") or []
     if len(proto) != 8 or len(tools) < 12:      # the protocol in fusion_section is written for these 8 steps
         raise SystemExit(f"✗ thinking_toolkit.json اتغيّر شكله: {len(proto)} خطوة و{len(tools)} أداة (المتوقع 8 خطوات)")
@@ -209,10 +219,19 @@ FUSION_TOOL = '''    tool("fusion", "Golden Dragon fusion core: ONE index of eve
          "imagination, deep, creative, logic/probability, step by step, analysis, decision; query = a path or empty for the map). 'discover' = walk the owner's folders now and "
          "add every skill, plugin, MCP server, program, shortcut, script, tool folder, repo and skill archive to the index (run it "
          "when doctor says the PC catalog is missing or stale, or the owner added something); 'local' = list that catalog "
-         "(optional kind). Read-only except discover, which writes only its own catalog in %APPDATA%\\\\GoldenDragon.",
+         "(optional kind). 'audit' = passive catalog evidence and recipe-link verification without running indexed tools. "
+         "'probe_media' = inspect ONE local audio/video file using FFprobe (path required; no network or transcode). "
+         "'inspect_binary_imports' = static REA PE import scan of ONE local Windows binary (path required; no execution). "
+         "'transcode_media' = FFmpeg convert local audio/video to a NEW TEMP file (path and optional profile; never overwrite input). "
+         "'native_status' = list ONLY explicitly implemented adapters and passive prerequisites (not proof of runtime success). "
+         "'native_exec' = invoke one registered native operation using 'operation' and optional local 'path'; "
+         "creating a new temporary output requires approve_new_file=true. "
+         "Native operation blender.render creates a fixed mechanical_gear or machine_piston scene using Blender; "
+         "pass preset and resolution=256,512,1024; no user scripts. "
+         "Read-only except discover, which writes only its own catalog in %APPDATA%\\\\GoldenDragon.",
          {"action": {"type": "string", "enum": ["brief", "route", "check", "find", "show", "recipes", "doctor", "lessons", "think", "stats",
-                                                "discover", "local"]},
-          "query": S, "draft": S, "id": S, "kind": S, "limit": {"type": "integer", "minimum": 1, "maximum": 30}}, ["action"]),
+                                                "discover", "local", "audit", "probe_media", "inspect_binary_imports", "transcode_media", "native_status", "native_exec"]},
+          "query": S, "draft": S, "id": S, "kind": S, "path": S, "profile": S, "preset": S, "resolution": {"type":"integer", "enum":[256,512,1024]}, "operation": S, "approve_new_file": {"type":"boolean"}, "limit": {"type": "integer", "minimum": 1, "maximum": 30}}, ["action"]),
 '''
 
 FUSION_DISPATCH = '''def fusion_dispatch(a):
@@ -249,8 +268,60 @@ FUSION_DISPATCH = '''def fusion_dispatch(a):
             return fz.md_discover(), False
         if act == "local":
             return fz.md_local(a.get("kind") or None, int(a.get("limit") or 40)), False
-        raise ValueError("INVALID_JSON: action must be brief, route, check, find, show, recipes, doctor, lessons, think, stats, discover or local")
-    except (KeyError, FileNotFoundError) as e:
+        if act == "native_status":
+            from pathlib import Path as _Path
+            import native_registry as _native
+            return _native.native_report_json(_Path(__file__).resolve().parent), False
+        if act == "native_exec":
+            from pathlib import Path as _Path
+            import native_registry as _native
+            operation = (a.get("operation") or "").strip()
+            if not operation:
+                raise ValueError("INVALID_JSON: operation is required for native_exec")
+            outcome = _native.native_execute(
+                _Path(__file__).resolve().parent, operation,
+                local_path=a.get("path"), profile=a.get("profile") or "mp4-compatible",
+                preset=a.get("preset") or "mechanical_gear", resolution=a.get("resolution") or 512,
+                approve_new_file=a.get("approve_new_file") is True)
+            return json.dumps(outcome, ensure_ascii=False), False
+        if act == "audit":
+            from pathlib import Path as _Path
+            import gd_runtime as _gd_runtime
+            _here = _Path(__file__).resolve().parent
+            _core = _gd_runtime.GoldenDragonCore(
+                _here, _here / "fusion" / "index.json",
+                _here / "fusion" / "recipes.json")
+            return json.dumps(_core.execute("catalog.audit"), ensure_ascii=False), False
+        if act == "inspect_binary_imports":
+            import gd_runtime as _gd_runtime
+            from pathlib import Path as _Path
+            _local_path = (a.get("path") or "").strip()
+            if not _local_path:
+                raise ValueError("INVALID_JSON: path is required for inspect_binary_imports")
+            _core = _gd_runtime.GoldenDragonCore(_Path(__file__).resolve().parent,
+                                                  binary=_Path(_local_path))
+            return json.dumps(_core.execute("binary.imports"), ensure_ascii=False), False
+        if act == "transcode_media":
+            import gd_runtime as _gd_runtime
+            from pathlib import Path as _Path
+            _local_path = (a.get("path") or "").strip()
+            if not _local_path:
+                raise ValueError("INVALID_JSON: path is required for transcode_media")
+            _core = _gd_runtime.GoldenDragonCore(_Path(__file__).resolve().parent,
+                                                  media=_Path(_local_path),
+                                                  profile=a.get("profile") or "mp4-compatible")
+            return json.dumps(_core.execute("media.transcode"), ensure_ascii=False), False
+        if act == "probe_media":
+            import gd_runtime as _gd_runtime
+            from pathlib import Path as _Path
+            _local_path = (a.get("path") or "").strip()
+            if not _local_path:
+                raise ValueError("INVALID_JSON: path is required for probe_media")
+            _core = _gd_runtime.GoldenDragonCore(_Path(__file__).resolve().parent,
+                                                  media=_Path(_local_path))
+            return json.dumps(_core.execute("media.probe"), ensure_ascii=False), False
+        raise ValueError("INVALID_JSON: action must be brief, route, check, find, show, recipes, doctor, lessons, think, stats, discover, local, audit, probe_media, inspect_binary_imports, transcode_media, native_status or native_exec")
+    except (KeyError, FileNotFoundError, ValueError, OSError, ImportError) as e:
         return f"✗ {e.args[0] if e.args else e}", True
 
 
@@ -291,6 +362,17 @@ SEED_NEW = 'for n in ("GoldenBird", "WhiteBird", "BlackDragon") if (dst.parent /
 
 def patch_app(t, counts, n_recipes, lessons):
     t = rename(t, "app.py")
+    # Avoid loading the Anthropic SDK's ~25s dependency chain before the GUI opens.
+    # First actual API call still imports the genuine SDK, preserving behavior.
+    t = sub(t, "\nimport anthropic\n",
+            "\nimport importlib as _gd_importlib\n"
+            "class _GoldenLazyAnthropic:\n"
+            "    def __getattr__(self, attr):\n"
+            "        module = _gd_importlib.import_module('anthropic')\n"
+            "        globals()['anthropic'] = module\n"
+            "        return getattr(module, attr)\n"
+            "anthropic = _GoldenLazyAnthropic()\n",
+            1, "lazy-load Anthropic SDK at first API request")
     t = sub(t, "generated from the Black Dragon app by forge/make_white_bird.py + forge/make_golden_bird.py.",
             "generated from the Black Dragon app by forge/make_white_bird.py + forge/make_golden_bird.py + forge/make_golden_dragon.py.",
             1, "docstring")
@@ -353,7 +435,7 @@ def patch_build(t):
     codes_gd = ",".join(f"0x{ord(c):x}" for c in NAME_GD)
     t = sub(t, codes_gb, codes_gd, 1, "shortcut name")
     t = sub(t, '--add-data "$here\\golden;golden"', '--add-data "$here\\golden;golden" --add-data "$here\\fusion;fusion"', 1, "bundle fusion data")
-    t = sub(t, "--hidden-import golden_tools", "--hidden-import golden_tools --hidden-import dragon_fusion --hidden-import gd_discover", 1, "bundle dragon_fusion")
+    t = sub(t, "--hidden-import golden_tools", "--hidden-import golden_tools --hidden-import anthropic --hidden-import dragon_fusion --hidden-import gd_discover --hidden-import gd_runtime --hidden-import capability_ledger --hidden-import audit_tree --hidden-import native_registry --hidden-import blender_engine", 1, "bundle dragon_fusion and unified runtime")
     return t
 
 
@@ -476,6 +558,12 @@ def main():
     an = importlib.util.module_from_spec(_an_spec)
     _an_spec.loader.exec_module(an)
     write(tmp / "app.py", an.patch_app(read(tmp / "app.py"), sub))
+    # 2026-11-19 (before the knowledge patch, which adds a second </style>) gd_patches\gd_custom_api.py: 🔌 API مخصص (OpenRouter or any OpenAI-compatible site); key in the Windows keyring
+    _cx_spec = importlib.util.spec_from_file_location("gd_custom_api", FORGE / "gd_patches" / "gd_custom_api.py")
+    cx = importlib.util.module_from_spec(_cx_spec)
+    _cx_spec.loader.exec_module(cx)
+    write(tmp / "app.py", cx.patch_app(read(tmp / "app.py"), sub))
+    write(tmp / "ui/index.html", cx.patch_ui(read(tmp / "ui/index.html"), sub))
     # Independent verified read-only knowledge runtime (committed source + bundle).
     _kk_spec = importlib.util.spec_from_file_location("gd_knowledge", FORGE / "gd_patches" / "gd_knowledge.py")
     kk = importlib.util.module_from_spec(_kk_spec)
@@ -494,6 +582,10 @@ def main():
     shutil.copy2(FORGE / "modules" / "gd_discover.py", tmp / "gd_discover.py")      # 2026-11-16: «discover» (PC catalog)
     shutil.copy2(FORGE / "modules" / "anatomy_bridge.py", tmp / "anatomy_bridge.py")  # user-installed MIT kit, opt-in
     shutil.copy2(FORGE / "modules" / "gd_core_integrations.py", tmp / "gd_core_integrations.py")  # viral video + replica core
+    # Native unified core (read-only): no MCP bridge, imported by the fusion audit action.
+    for module in ("runtime.py", "capability_ledger.py", "audit_tree.py", "native_registry.py", "blender_engine.py"):
+        shutil.copy2(FORGE / "unified_core" / module,
+                     tmp / ("gd_runtime.py" if module == "runtime.py" else module))
     (tmp / "golden").mkdir()
     for f in ("library.json", "studio.json"):
         shutil.copy2(gb.DATA / f, tmp / "golden" / f)

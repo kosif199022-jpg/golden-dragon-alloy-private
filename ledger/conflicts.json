@@ -1,6 +1,15 @@
 [
  {
   "kind": "skill-version",
+  "name": "golden-dragon-fusion",
+  "kept": ".agents/skills/golden-dragon-fusion/SKILL.md",
+  "superseded": [
+   ".claude/skills/golden-dragon-fusion/SKILL.md"
+  ],
+  "rule": "newest last-commit wins; ties -> longer text; older kept as superseded"
+ },
+ {
+  "kind": "skill-version",
   "name": "hf-blender-render",
   "kept": "engine/skills/hf-blender-render/SKILL.md",
   "superseded": [
@@ -247,54 +256,5 @@
   "kept": "rule:rd-10-3",
   "merged": "rule:wd-39",
   "similarity": 1.0
- },
- {
-  "kind": "branch-newer",
-  "path": ".agents/skills/golden-dragon-fusion/SKILL.md",
-  "kept": "skill:golden-dragon-fusion@branches/feature-golden-dragon-fusion-share",
-  "superseded": "skill:golden-dragon-fusion",
-  "rule": "branch commit newer than main's last commit for the same path"
- },
- {
-  "kind": "branch-newer",
-  "path": ".agents/skills/golden-dragon-fusion/references/combined.md",
-  "kept": "doc:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/combined.md",
-  "superseded": "doc:.agents/skills/golden-dragon-fusion/references/combined.md",
-  "rule": "branch commit newer than main's last commit for the same path"
- },
- {
-  "kind": "branch-newer",
-  "path": ".agents/skills/golden-dragon-fusion/references/working-method.md",
-  "kept": "doc:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/working-method.md",
-  "superseded": "doc:.agents/skills/golden-dragon-fusion/references/working-method.md",
-  "rule": "branch commit newer than main's last commit for the same path"
- },
- {
-  "kind": "branch-newer",
-  "path": ".agents/skills/golden-dragon-fusion/scripts/distil.py",
-  "kept": "script:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/distil.py",
-  "superseded": "script:.agents/skills/golden-dragon-fusion/scripts/distil.py",
-  "rule": "branch commit newer than main's last commit for the same path"
- },
- {
-  "kind": "branch-newer",
-  "path": ".agents/skills/golden-dragon-fusion/scripts/fusion.py",
-  "kept": "script:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/fusion.py",
-  "superseded": "script:.agents/skills/golden-dragon-fusion/scripts/fusion.py",
-  "rule": "branch commit newer than main's last commit for the same path"
- },
- {
-  "kind": "branch-newer",
-  "path": ".agents/skills/golden-dragon-fusion/scripts/render_vertical.py",
-  "kept": "script:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/render_vertical.py",
-  "superseded": "script:.agents/skills/golden-dragon-fusion/scripts/render_vertical.py",
-  "rule": "branch commit newer than main's last commit for the same path"
- },
- {
-  "kind": "branch-newer",
-  "path": ".agents/skills/golden-dragon-fusion/scripts/request.py",
-  "kept": "script:branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/request.py",
-  "superseded": "script:.agents/skills/golden-dragon-fusion/scripts/request.py",
-  "rule": "branch commit newer than main's last commit for the same path"
  }
 ]
