@@ -905,6 +905,8 @@ def write_manifest(out: Path, report: dict) -> dict:
         if rel_dir == "runtime" or rel_dir.startswith("runtime/") or "__pycache__" in rel_dir:
             dn[:] = []
             continue
+        if rel_dir == ".":
+            dn[:] = [d for d in dn if d != ".git"]   # a blend run inside a git checkout must not fingerprint git's own files
         for n in fn:
             rel = (n if rel_dir == "." else f"{rel_dir}/{n}")
             if rel == "MANIFEST.json":
