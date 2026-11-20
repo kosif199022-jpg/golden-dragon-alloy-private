@@ -9,6 +9,10 @@
 #   downbeats every 4th beat; phase 0–3 chosen by sustained 20–150 Hz energy after the beat (bar-level bass roots).
 # With --stem (a drums/kick stem of the same music) hits and beats are measured on the stem, downbeats on the mix.
 import json, sys, os
+# Use portable Numba kernels on Windows to avoid CPU-specific native crashes.
+if os.name == 'nt':
+    os.environ.setdefault('NUMBA_CPU_NAME', 'generic')
+
 import numpy as np, librosa
 from scipy.signal import butter, sosfilt
 

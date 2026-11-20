@@ -7,6 +7,8 @@
   function line(parent, text, o = {}) {
     const el = C.el('div', { class: `line ${o.cls || 'display'}`, style:
       `left:${o.x || 0}px;top:${o.y || 0}px;font-size:${o.size || 160}px;${o.color ? `color:${o.color};` : ''}` }, parent);
+    el.dir = 'auto';
+    if (getComputedStyle(el).direction === 'rtl') el.style.letterSpacing = 'normal';
     const words = text.split(' ').map((w, i) => {
       const s = C.el('span', { class: 'word' }, el, w);
       if (o.accent && o.accent.includes(i)) s.style.color = 'var(--accent)';

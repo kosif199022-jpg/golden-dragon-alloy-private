@@ -745,6 +745,43 @@
 
 ---
 
+# شورت كرتون 2D بحكاية (Maven Toon): سكربت، ستوري بورد، رندر، كابشن عربي على الكلمة — 2D cartoon story Short with Maven Toon: script, storyboard, render, word-timed Arabic captions
+- الطريق: `maven-toon` · المجال: video · الوصفات المنصهرة: —
+- بيتفعّل بكلام زي: مافن ميفن maven toon شورت كرتون حكايه كرتون قصه كرتون كرتون بالقصه كرتون على الفويس شخصيات كرتون ديكور مرسوم كابشن بس story short cartoon short 2d cartoon captions only
+- عبارات: اعمل شورت كرتون · حكاية كرتون بصوتي · Maven Toon
+
+## اسأل قبل ما تبدأ (لو مش معروف من الملفات)
+- pip install على اللابتوب (~400 MB)
+- تنزيل موديل whisper أول مرة
+- أي موسيقى مش من صاحب الشغل
+
+## الخطوات (طريق العقل المقاس)
+1. Maven Toon جوه المستودع (engine/skills/maven-toon): $R mtoon where ← $R mtoon fonts (مرة واحدة).
+2. $R mtoon doctor ← ناقص؟ pip install -r engine/skills/maven-toon/requirements.txt في venv (ولينكس: apt-get install libegl1).
+3. السكربت بالمصري: هوك ≤7 ← تصعيد ← «تعرف ليه؟» ← قفلة ≤9، و$R mtoon script-eg PROJECT --seconds N لازم يعدّي. اعرضه بسطر لكل جملة قبل الفويس.
+4. $R mtoon run words PROJECT (أو silent للكابشن بس) ← اكتب storyboard.json من LIBRARY.md وSTYLE.md في النسخة.
+5. $R mtoon run plan ← stills ← ناقد ≥8/10 ← 3 stills لصاحب الشغل ← $R mtoon render (كل الأنوية، كرّر لحد DONE) ← join ← check.
+6. $R mtoon credit PROJECT ← $R mtoon gate PROJECT/final_credit.mp4 ← صفحة التحميل (tools/video-page).
+
+## بوابات قبل التسليم
+- script-eg ✓
+- stills ≥ 8/10
+- toon.py check ✓
+- mtoon gate ✓
+- rd.py arena gate ✓
+
+## مطبات اتعلّمناها
+- الخطوط ماتترفعش: mtoon fonts بيجيبها
+- المشروع برّه فولدر المهارة
+- فويس متسجل = الكلام ثابت
+- ميار: مفيش وش AI
+
+## المهارات والقدرات
+- مهارات: maven-toon-bridge, arena-gate, sync-guard, motion-cartoon, animation-principles
+- قدرات: 
+
+---
+
 # موشن جرافيك بالكود (HTML أو SVG ← فيديو) — code-built motion graphics rendered to video
 - الطريق: `motion-code` · المجال: motion · الوصفات المنصهرة: `motion-html-film`, `logo-intro`, `data-chart`
 - بيتفعّل بكلام زي: موشن جرافيك تايتل عنوان متحرك انيميشن بالكود html svg لوجو متحرك saas اعلان منتج motion graphics title animation explainer kinetic typography جرافك انميشن وانميشن

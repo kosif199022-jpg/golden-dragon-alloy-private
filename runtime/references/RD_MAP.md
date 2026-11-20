@@ -37,6 +37,7 @@
 | `krita` | krita-draw: render scene.json | layers file.kra | info (draw with code inside the real Krita) |
 | `sync` | sync-guard: words, check, fix, onsets, script, grid, selftest (captions and motion on the spoken word) |
 | `md` | doc-reader (v3.3): convert, batch, doctor, exts, install, selftest (any PDF, Word, PowerPoint, Excel, HTML, EPUB… → Markdown with Microsoft MarkItDown, MIT) |
+| `mtoon` | maven-toon-bridge (v3.5.6): install, where, doctor, fonts, render, run, script-eg, credit, gate, selftest (the owner's private Maven Toon copy + Egyptian script check, credit, export gate) |
 | `arena` | arena-gate (v2.19): size, start, jobs, next, collect, advance, winner, skip, gate, selftest (the arena is a required step: competing copies, bracket, judge) |
 | `consent` | consent gate: which outward actions this message explicitly approves or forbids («كمل» approves none) |
 | `gold` | Golden Bird: studio list/show/install/cmd · lib find/show/kit/stats · sync · protocol · where · selftest |
@@ -50,7 +51,7 @@
 | `recall` | يفتكر من المحادثات القديمة |
 | `intel` | مستودعات ومعلومات تخص الطلب |
 
-## مهارات المحرك (46)
+## مهارات المحرك (48)
 
 | المسار | بيعمل إيه |
 |---|---|
@@ -80,6 +81,8 @@
 | `engine/skills/kosif-black-dragon-ultra` | التنين الأسود الفائق — one front door to all 21 KOSIF modules: video montage, motion/web films, voice-over and subtitles, reels and hooks, Kling promp… |
 | `engine/skills/kosif-downloads` | KOSIF «كوسيف» — مدير تحميل مسرّع زي Internet Download Manager مدموج في التنين الأسود. |
 | `engine/skills/krita-draw` | Draw and paint with code through the real Krita installed on this PC, with no GUI. |
+| `engine/skills/maven-toon` | Maven Toon, by Maven (@maven.iqq). |
+| `engine/skills/maven-toon-bridge` | التنين الذهبي بيشغّل نسخة صاحب الشغل الخاصة من Maven Toon (مهارة Maven @maven.iqq: شورتس كرتون 2D رأسي 1080×1920، شخصيات بحبر وديكورات مرسومة بعمق، إض… |
 | `engine/skills/media-hunter` | Media Hunter within Black Dragon: search currently integrated open/free media APIs for footage and photos, discover complementary site-search links fo… |
 | `engine/skills/montage-arena` | حلبة المونتاج — مجلس خبراء مونتاج صدامي. |
 | `engine/skills/montage-repos-hub` | Index of the downloaded open-source montage repos and their agent skills in C:\Users\cinde\dragon-repos (video-use, hyperframes, Remotion skills, cut-… |
@@ -128,7 +131,7 @@
 | `tools/link-collector` | collect-links.js: يجمع الروابط من صفحة بمتصفح Chromium حقيقي (--filter، --same-site، --json) |
 | `tools/video-page` | video_page.py: صفحة تحميل لكل فيديو (زر أعلى جودة بايت ببايت، نسخة خفيفة، كابشن) ومكتبة «فيديوهات الكوسف» (build، hub-add، check) |
 
-## مكتبة المهارات الخارجية: `library/` (589 مهارة)
+## مكتبة المهارات الخارجية: `library/` (590 مهارة)
 
 بتتدوّر بـ `rd.py skills find …` وبتتثبت بـ `rd.py skills install NAME --yes`. القايمة كاملة: `references/RD_LIBRARY.md`.
 

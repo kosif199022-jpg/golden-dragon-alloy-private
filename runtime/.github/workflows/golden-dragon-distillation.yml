@@ -1,0 +1,36 @@
+name: Golden Dragon Distillation Tests
+on:
+  pull_request:
+    paths:
+      - 'apps/golden-dragon/forge/distill_skills.py'
+      - 'apps/golden-dragon/forge/query_distilled.py'
+      - 'apps/golden-dragon/forge/build_unified_skill.py'
+      - 'apps/golden-dragon/forge/review_similar_skills.py'
+      - 'apps/golden-dragon/forge/modules/gd_distilled_bridge.py'
+      - 'apps/golden-dragon/forge/modules/dragon_fusion.py'
+      - 'apps/golden-dragon/tests/test_distill_skills.py'
+      - 'apps/golden-dragon/tests/test_query_distilled.py'
+      - 'apps/golden-dragon/tests/test_review_similar_skills.py'
+      - 'apps/golden-dragon/tests/test_distilled_bridge.py'
+      - 'apps/golden-dragon/tests/test_build_unified_skill.py'
+      - '.github/workflows/golden-dragon-distillation.yml'
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run isolated distillation tests
+        run: |
+          python -m unittest discover -s apps/golden-dragon/tests -p 'test_distill_skills.py' -v
+          python -m unittest discover -s apps/golden-dragon/tests -p 'test_query_distilled.py' -v
+          python -m unittest discover -s apps/golden-dragon/tests -p 'test_review_similar_skills.py' -v
+          python -m unittest discover -s apps/golden-dragon/tests -p 'test_distilled_bridge.py' -v
+          python -m unittest discover -s apps/golden-dragon/tests -p 'test_build_unified_skill.py' -v
+      - name: Compile source files
+        run: python -m py_compile apps/golden-dragon/forge/build_unified_skill.py apps/golden-dragon/forge/distill_skills.py apps/golden-dragon/forge/query_distilled.py apps/golden-dragon/forge/review_similar_skills.py apps/golden-dragon/forge/modules/gd_distilled_bridge.py apps/golden-dragon/forge/modules/dragon_fusion.py

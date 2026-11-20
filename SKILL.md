@@ -1,11 +1,11 @@
 ---
 name: golden-dragon-alloy
-description: "التنين الذهبي — السبيكة (Golden Dragon Alloy v4.2): مستودع التنين كله متصهر في مهارة واحدة: باب واحد alloy.py لكل الأوامر والمحركات، ومعرفة واحدة (26 ألف وحدة: 679 مهارة والمراجع و43 طريق و221 درس و134 قاعدة و51 أداة تفكير والكتالوج) بمصدر ورخصة كل حاجة، والعقل المقاس وسلّم «صح من أول مرة». Use first when the user says «التنين» (الذهبي، الأسود، الأحمر، الأبيض) or Golden/Black/Red/White Dragon، «السبيكة»، «قدراتك»، «فكّر كويس»، «مونتاج» or «مونتاتج»، «اعمل فيديو» or «فديو»، «ريلز»، «موشن جرافيك»، «كرتون» or «أنمي»، «محاكي ماكينة»، «حلل» or «هندسة عكسية»، «طابق»، «اصنع تطبيق»، «حوّله لمهارة»، «فين الملف»، «اتعلم من غلطك»، Blender 3D، «رندر على السحابة»، or sends TikTok, Instagram or YouTube links with an edit request, Arabic typed on an English keyboard, or a document. Works on the owner's Windows laptop (everything) and in the cloud (knowledge, roads, rules; the measured router and engines need runtime/)."
+description: "التنين الذهبي — السبيكة (Golden Dragon Alloy v4.3): مستودع التنين كله وكل فروعه متصهرين في مهارة واحدة: باب واحد alloy.py لكل الأوامر والمحركات، ومعرفة واحدة (26 ألف وحدة: 749 مهارة والمراجع و44 طريق و222 درس و134 قاعدة و51 أداة تفكير والكتالوج) بمصدر ورخصة كل حاجة، والعقل المقاس وسلّم «صح من أول مرة». Use first when the user says «التنين» (الذهبي، الأسود، الأحمر، الأبيض) or Golden/Black/Red/White Dragon، «السبيكة»، «قدراتك»، «فكّر كويس»، «مونتاج» or «مونتاتج»، «اعمل فيديو» or «فديو»، «ريلز»، «موشن جرافيك»، «كرتون» or «أنمي»، «شورت كرتون بحكاية» or Maven Toon، «محاكي ماكينة»، «حلل» or «هندسة عكسية»، «طابق»، «اصنع تطبيق»، «حوّله لمهارة»، «فين الملف»، «اتعلم من غلطك»، Blender 3D، «رندر على السحابة»، or sends TikTok, Instagram or YouTube links with an edit request, Arabic typed on an English keyboard, or a document. Works on the owner's Windows laptop (everything) and in the cloud (knowledge, roads, rules; the measured router and engines need runtime/)."
 ---
 
-# التنين الذهبي — السبيكة (Golden Dragon Alloy) v4.2.0
+# التنين الذهبي — السبيكة (Golden Dragon Alloy) v4.3.0
 
-> المستودع كله (main `7bf36b3` + 7 فروع ماكانتش مدموجة) اتحط في الخلاط. 7,228 ملف و679 `SKILL.md` بقوا مهارة واحدة: **باب واحد، معرفة واحدة، كتاب قواعد واحد، كتاب طرق واحد، دفتر واحد**. والكود الشغّال نفسه في غرفة الماكينات `runtime/`، مطابق لـ main بالبايت، علشان أي أمر قديم يفضل شغّال.
+> المستودع كله (main `0a5436e`، v3.5.8) اتحط في الخلاط، ومعاه **كل الـ 27 فرع**. الفروع اتصهرت في main نفسه الأول، فمفيش ولا فرع مستني على جنب. 7,387 ملف و749 `SKILL.md` بقوا مهارة واحدة: **باب واحد، معرفة واحدة، كتاب قواعد واحد، كتاب طرق واحد، دفتر واحد**. والكود الشغّال نفسه في غرفة الماكينات `runtime/`، مطابق لـ main بالبايت، علشان أي أمر قديم يفضل شغّال.
 
 `$A` = `python -X utf8 "${CLAUDE_SKILL_DIR}/alloy.py"` (في claude.ai أو أي sandbox: `python alloy.py` من مجلد المهارة).
 
@@ -65,8 +65,8 @@ description: "التنين الذهبي — السبيكة (Golden Dragon Alloy 
 | 157 درس، و65 درس انصهار | `references/LESSONS.md` |
 | 22 + 44 أداة تفكير، و7 سبل | `references/THINKING.md` |
 | 3 فهارس منفصلة (الانصهار 1,101، والكتالوج 22,404، و679 `SKILL.md`)، ومعاهم المراجع والعقل | `kb/alloy.db`: 26,362 وحدة وبحث واحد. كل وحدة معاها مصدرها ورخصتها وحالتها، والمتكرر بالبايت بقى وحدة واحدة |
-| 10 فروع مادخلتش main | `branches/`: 61 ملف جديد، و7 تعديلات (patch) محفوظة، وفيه 3 فروع main غطّاها |
-| 7,228 ملف | `runtime/` بالبايت، وكل ملف مكانه في `ledger/sources.jsonl` |
+| 10 فروع مادخلتش main، وميزة «API مخصص» وتصليح claude-app اللي كانوا على اللابتوب بس | اتصهروا كلهم في main (PRs #31 و#33)، فـ `branches/` اتشال. تاريخه في git (v4.2.0) |
+| 7,387 ملف | `runtime/` بالبايت، وكل ملف مكانه في `ledger/sources.jsonl` |
 
 **القياس على طلبات صاحب الشغل الحقيقية** (المجموعة المخفية test: 112 طلب، ومقيّمين اتنين عُميان، واتقاست مرة واحدة):
 
@@ -133,8 +133,8 @@ description: "التنين الذهبي — السبيكة (Golden Dragon Alloy 
 - **فيها:** العقل `runtime/scripts/rd.py` ومعاه `mind/`، والمحرك `runtime/engine/SKILL.md`، والوحدات (سينما وفائق)، والتنين الأبيض، وتطبيقات ويندوز التلاتة، والأدوات، ومكتبة 605 مهارة.
 - **الخريطة القديمة كاملة:** `runtime/references/RD_MAP.md`.
 - **من غير تعديل:** فحص البصمات والـ selftest بتوعها بيعدّوا في مكانها الجديد.
-- **حاجات الفروع:** موجودة في `branches/` جنبها، مش جواها. تطبيقها خطوة إصدار: patch، وبعدين manifests، وبعدين selftest، وبعدين أرضية الراوتر. شوف `ledger/conflicts.json` والتقرير.
+- **الفروع:** من v4.3 مفيش فروع على جنب. أي فرع جديد يتدمج في main الأول (PR)، وبعدين يتعاد الصهر. التعارضات المتبقية (قواعد ودروس شبه مكررة) في `ledger/conflicts.json` والتقرير.
 
 ## إعادة الصهر والتثبيت
-- **إعادة الصهر بعد ما المستودع يتغيّر:** هات نسخة من المستودع، وشغّل `forge/take_branches.py` للفروع، وبعدين `forge/blend.py`، وبعدين `$A selftest`. القياس بـ `forge/eval_route.py` (dev للضبط، وtest مرة واحدة).
+- **إعادة الصهر بعد ما المستودع يتغيّر:** ادمج الفروع في main، وهات نسخة منه، وشغّل `forge/blend.py --src <النسخة> --out .`، وبعدين `forge/addons.py`، وبعدين `forge/report.py`، وبعدين `$A selftest`. (`forge/take_branches.py` لسه موجود لو فيه فرع لازم يفضل برّه main). القياس بـ `forge/eval_route.py` (dev للضبط، وtest مرة واحدة).
 - **التثبيت مكان `golden-dragon`:** في `references/INSTALL.md`، فيه نسخة احتياطية، ونقل الحاجات اللي على اللابتوب بس، ووصلات للمسارات القديمة، وطريقة الرجوع. **بموافقة صريحة بس.**

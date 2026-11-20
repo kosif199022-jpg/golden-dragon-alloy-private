@@ -1,0 +1,30 @@
+name: Golden Dragon Anatomy bridge
+on:
+  pull_request:
+    paths:
+      - "apps/golden-dragon/forge/modules/gd_anatomy.py"
+      - "apps/golden-dragon/forge/gd_patches/gd_anatomy.py"
+      - "apps/golden-dragon/forge/make_golden_dragon.py"
+      - "apps/golden-dragon/forge/build_fusion.py"
+      - "apps/golden-dragon/forge/recipes.py"
+      - "apps/golden-dragon/tests/test_anatomy.py"
+      - ".github/workflows/golden-anatomy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  anatomy-offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test runner
+        run: python -m pip install pytest
+      - name: Run isolated offline bridge tests
+        working-directory: apps/golden-dragon
+        run: python -m pytest -q tests/test_anatomy.py

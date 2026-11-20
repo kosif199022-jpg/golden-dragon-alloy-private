@@ -1,0 +1,321 @@
+{
+ "title": "Grandma's roof (Maven Toon English demo)",
+ "fps": 30,
+ "end_pad": 0.8,
+ "lowercase": true,
+ "scenes": [
+  {
+   "id": "setup",
+   "start_word": 0,
+   "set": "rooftop",
+   "mood": "sunset",
+   "cast": [
+    {
+     "id": "grandma",
+     "type": "grandma",
+     "x": 700,
+     "y": 1720,
+     "scale": 1.05,
+     "z": 1.0,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "hips",
+     "expr": "happy"
+    },
+    {
+     "id": "cat",
+     "type": "cat",
+     "x": 330,
+     "y": 1800,
+     "scale": 0.6,
+     "z": 1.0,
+     "dir": 1,
+     "pose": "sit"
+    }
+   ],
+   "keys": [
+    {
+     "w": 0,
+     "frame": [
+      700,
+      1330,
+      820
+     ]
+    },
+    {
+     "w": 2,
+     "frame": [
+      560,
+      1300,
+      1500
+     ]
+    },
+    {
+     "w": 9,
+     "frame": "grandma:face"
+    }
+   ],
+   "acts": [
+    {
+     "w": 9,
+     "who": "grandma",
+     "pose": "shrug",
+     "expr": "deadpan"
+    }
+   ]
+  },
+  {
+   "id": "street",
+   "start_word": 12,
+   "set": "street",
+   "mood": "day",
+   "cast": [
+    {
+     "id": "mom",
+     "type": "mom",
+     "x": 330,
+     "y": 1700,
+     "scale": 1.0,
+     "z": 1.0,
+     "face": 0.3,
+     "dir": 1,
+     "expr": "shocked"
+    },
+    {
+     "id": "shop",
+     "type": "shopkeeper",
+     "x": 760,
+     "y": 1720,
+     "scale": 1.0,
+     "z": 1.0,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "point",
+     "expr": "laughing"
+    }
+   ],
+   "keys": [
+    {
+     "w": 12,
+     "frame": "two"
+    },
+    {
+     "w": 15,
+     "frame": "shop:face"
+    }
+   ],
+   "acts": [
+    {
+     "w": 15,
+     "who": "shop",
+     "talk": true
+    },
+    {
+     "w": 17,
+     "who": "mom",
+     "expr": "laughing",
+     "pose": "cheer"
+    }
+   ]
+  },
+  {
+   "id": "night",
+   "start_word": 18,
+   "set": "rooftop",
+   "mood": "night",
+   "cast": [
+    {
+     "id": "kid",
+     "type": "student",
+     "x": 1150,
+     "y": 1780,
+     "scale": 1.0,
+     "z": 1.0,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "scared"
+    },
+    {
+     "id": "grandma",
+     "type": "grandma",
+     "x": 90,
+     "y": 1700,
+     "scale": 1.0,
+     "z": 1.0,
+     "face": -0.2,
+     "dir": -1,
+     "pose": "stand",
+     "expr": "happy",
+     "look": [
+      0,
+      -1
+     ]
+    }
+   ],
+   "keys": [
+    {
+     "w": 18,
+     "frame": [
+      600,
+      1300,
+      1900
+     ]
+    },
+    {
+     "w": 21,
+     "frame": "kid"
+    },
+    {
+     "w": 26,
+     "frame": [
+      640,
+      1450,
+      1300
+     ]
+    },
+    {
+     "w": 30,
+     "frame": "grandma:face"
+    }
+   ],
+   "acts": [
+    {
+     "w": 21,
+     "who": "kid",
+     "x": 640,
+     "dur": 1.6
+    },
+    {
+     "w": 26,
+     "who": "kid",
+     "expr": "shocked"
+    },
+    {
+     "w": 30,
+     "who": "grandma",
+     "pose": "think",
+     "expr": "happy"
+    }
+   ]
+  },
+  {
+   "id": "explain",
+   "start_word": 37,
+   "set": "rooftop",
+   "mood": "golden",
+   "calm": true,
+   "bloom": 0.7,
+   "cast": [
+    {
+     "id": "kid",
+     "type": "student",
+     "x": 440,
+     "y": 1760,
+     "scale": 1.0,
+     "z": 1.0,
+     "face": 0.3,
+     "dir": 1,
+     "expr": "neutral"
+    },
+    {
+     "id": "grandma",
+     "type": "grandma",
+     "x": 760,
+     "y": 1700,
+     "scale": 1.05,
+     "z": 1.0,
+     "face": -0.3,
+     "dir": -1,
+     "pose": "point",
+     "expr": "happy"
+    }
+   ],
+   "keys": [
+    {
+     "w": 37,
+     "frame": "grandma:face"
+    },
+    {
+     "w": 39,
+     "frame": "two"
+    }
+   ],
+   "acts": [
+    {
+     "w": 37,
+     "who": "grandma",
+     "talk": true
+    },
+    {
+     "w": 42,
+     "who": "grandma",
+     "talk": false,
+     "pose": "hips"
+    },
+    {
+     "w": 39,
+     "who": "kid",
+     "expr": "shocked"
+    }
+   ]
+  },
+  {
+   "id": "ending",
+   "start_word": 43,
+   "set": "rooftop",
+   "mood": "dawn",
+   "calm": true,
+   "cast": [
+    {
+     "id": "kid",
+     "type": "student",
+     "x": 460,
+     "y": 1760,
+     "scale": 1.0,
+     "z": 1.0,
+     "face": 0.4,
+     "dir": 1,
+     "expr": "happy",
+     "look": [
+      0.4,
+      -1
+     ]
+    },
+    {
+     "id": "grandma",
+     "type": "grandma",
+     "x": 720,
+     "y": 1720,
+     "scale": 1.05,
+     "z": 1.0,
+     "face": -0.2,
+     "dir": -1,
+     "expr": "happy",
+     "look": [
+      -0.4,
+      -1
+     ]
+    }
+   ],
+   "keys": [
+    {
+     "w": 43,
+     "frame": [
+      600,
+      1500,
+      900
+     ]
+    },
+    {
+     "w": 47,
+     "frame": [
+      560,
+      1150,
+      1900
+     ]
+    }
+   ]
+  }
+ ]
+}

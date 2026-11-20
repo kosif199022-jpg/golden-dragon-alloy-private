@@ -1,3 +1,11 @@
 __pycache__/
 *.pyc
 tools/cinema-c/harness_run/
+# maven-toon: fonts are fetched by `rd.py mtoon fonts` (no fonts in the repo); caches and models stay local
+engine/skills/maven-toon/engine/fonts/*.ttf
+engine/skills/maven-toon/**/.cache/
+engine/skills/maven-toon/**/.models/
+engine/skills/maven-toon/.venv/
+
+# rd.py arena runtime state (per-session, not source)
+.arena/

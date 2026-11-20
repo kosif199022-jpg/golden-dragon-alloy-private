@@ -1,10 +1,126 @@
 {
  "name": "golden-dragon-alloy",
- "version": "4.2.0",
- "source": "kosif199022-jpg/black-dragon-skill@7bf36b3",
- "runtime_files": 7228,
- "runtime_digest": "4222146830717bdf9de758c202ce7e5c0f699cc354897e66c5cc5fdcae38c8df",
+ "version": "4.3.0",
+ "source": "kosif199022-jpg/black-dragon-skill@0a5436e",
+ "runtime_files": 7387,
+ "runtime_digest": "605710fc27553b3722dd272a5bbb71d8f68817e62b0c781dfd9fc1f40c4c7910",
  "files": {
+  ".git/HEAD": {
+   "bytes": 21,
+   "sha256": "28d25bf82af4c0e2b72f50959b2beb859e3e60b9630a5e8c603dad4ddb2b6e80"
+  },
+  ".git/config": {
+   "bytes": 289,
+   "sha256": "c0f7ed6b645d8fce0d46f3b21f546ffd8633e0d8ffd73f872676bbb4463fffd7"
+  },
+  ".git/description": {
+   "bytes": 73,
+   "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee"
+  },
+  ".git/hooks/applypatch-msg.sample": {
+   "bytes": 478,
+   "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7"
+  },
+  ".git/hooks/commit-msg.sample": {
+   "bytes": 896,
+   "sha256": "1f74d5e9292979b573ebd59741d46cb93ff391acdd083d340b94370753d92437"
+  },
+  ".git/hooks/fsmonitor-watchman.sample": {
+   "bytes": 4726,
+   "sha256": "e0549964e93897b519bd8e333c037e51fff0f88ba13e086a331592bf801fa1d0"
+  },
+  ".git/hooks/post-update.sample": {
+   "bytes": 189,
+   "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5"
+  },
+  ".git/hooks/pre-applypatch.sample": {
+   "bytes": 424,
+   "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475"
+  },
+  ".git/hooks/pre-commit.sample": {
+   "bytes": 1643,
+   "sha256": "f9af7d95eb1231ecf2eba9770fedfa8d4797a12b02d7240e98d568201251244a"
+  },
+  ".git/hooks/pre-merge-commit.sample": {
+   "bytes": 416,
+   "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53"
+  },
+  ".git/hooks/pre-push.sample": {
+   "bytes": 1374,
+   "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a"
+  },
+  ".git/hooks/pre-rebase.sample": {
+   "bytes": 4898,
+   "sha256": "4febce867790052338076f4e66cc47efb14879d18097d1d61c8261859eaaa7b3"
+  },
+  ".git/hooks/pre-receive.sample": {
+   "bytes": 544,
+   "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989"
+  },
+  ".git/hooks/prepare-commit-msg.sample": {
+   "bytes": 1492,
+   "sha256": "e9ddcaa4189fddd25ed97fc8c789eca7b6ca16390b2392ae3276f0c8e1aa4619"
+  },
+  ".git/hooks/push-to-checkout.sample": {
+   "bytes": 2783,
+   "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f"
+  },
+  ".git/hooks/sendemail-validate.sample": {
+   "bytes": 2308,
+   "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92"
+  },
+  ".git/hooks/update.sample": {
+   "bytes": 3650,
+   "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106"
+  },
+  ".git/index": {
+   "bytes": 1082448,
+   "sha256": "ea2abd3bf2733598ab7a45cc74c9498e816b75d33f55c0683fd04c3528ba3b78"
+  },
+  ".git/info/exclude": {
+   "bytes": 240,
+   "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1"
+  },
+  ".git/logs/HEAD": {
+   "bytes": 205,
+   "sha256": "585eccbfa1d565a45118182f7ad9233692e3136a2cc1a213d530ea59179eba04"
+  },
+  ".git/logs/refs/heads/main": {
+   "bytes": 205,
+   "sha256": "585eccbfa1d565a45118182f7ad9233692e3136a2cc1a213d530ea59179eba04"
+  },
+  ".git/logs/refs/remotes/origin/HEAD": {
+   "bytes": 205,
+   "sha256": "585eccbfa1d565a45118182f7ad9233692e3136a2cc1a213d530ea59179eba04"
+  },
+  ".git/objects/pack/pack-0ffb2e527cdbc08459f71d2aad52c6b68591ac86.idx": {
+   "bytes": 270348,
+   "sha256": "96beb7997d264c6d5c52c602564a1e4ffeb79e0ed7610970216fa1567340f25f"
+  },
+  ".git/objects/pack/pack-0ffb2e527cdbc08459f71d2aad52c6b68591ac86.pack": {
+   "bytes": 132651298,
+   "sha256": "07d81fc56b7c271771d3a3b3f51b1c814ee3daf4376a9b227cc990f57c05d1d5"
+  },
+  ".git/objects/pack/pack-0ffb2e527cdbc08459f71d2aad52c6b68591ac86.rev": {
+   "bytes": 38520,
+   "sha256": "64e48b2db2a22148b1a94ffcf0644143af1121a65d1bae078846cb916eb74f5b"
+  },
+  ".git/packed-refs": {
+   "bytes": 112,
+   "sha256": "7d89a42354e18d66855cda3d240bf63970b55ddf4274f571273af1d34db200c5"
+  },
+  ".git/refs/heads/main": {
+   "bytes": 41,
+   "sha256": "dd9932cc4edb01531b3736fa36b2e860ae7c2e4dc8e1fec85dc07eee73beabdf"
+  },
+  ".git/refs/remotes/origin/HEAD": {
+   "bytes": 30,
+   "sha256": "2bb6a24aa0fc6c484100f5d51a29bbad841cd2c755f5d93faa204e5dbb4eb2b4"
+  },
+  ".git/shallow": {
+   "bytes": 41,
+   "sha256": "dd9932cc4edb01531b3736fa36b2e860ae7c2e4dc8e1fec85dc07eee73beabdf"
+  },
   ".gitattributes": {
    "bytes": 9,
    "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992"
@@ -23,11 +139,11 @@
   },
   "README.md": {
    "bytes": 2003,
-   "sha256": "9255271674dd10f1dd26e2e39cf0c1f56f21519813f433c2b8f4c776e32cae47"
+   "sha256": "bc20a02c2ff9a01d4b3151eec5f35d3f38510eedd5753ff4addf9a7fc8e5ddae"
   },
   "SKILL.md": {
-   "bytes": 18628,
-   "sha256": "226e582c5fcde42c55ede9a681e4d59f17d7b743a4725d4884ac19c35297f5ff"
+   "bytes": 19091,
+   "sha256": "6996288fd971b6d7541122324626674614c947abd2f39b2978b9473dbef8d78a"
   },
   "addons/addons.json": {
    "bytes": 3580,
@@ -2943,283 +3059,7 @@
   },
   "alloy.py": {
    "bytes": 25729,
-   "sha256": "5c96aca801caf7ec7294ab2e0caed9c7f909177f64609d9fc435f2b24055d78b"
-  },
-  "branches/claude-sharp-ptolemy-mku5pf/PATCHES/.gitignore.diff": {
-   "bytes": 233,
-   "sha256": "6dc885c995b4633813635568143eda96db13e41019b6cecd1862752a34844a70"
-  },
-  "branches/codex-golden-dragon-fusion-cli/PATCHES/engine__skills__library__motion-reel__.claude__skills__motion-reel__engine__type.js.diff": {
-   "bytes": 911,
-   "sha256": "aeff1d98c22b17f280c20fbf971f3ff77500acb8b9ba7992b0c65248ae57eb79"
-  },
-  "branches/codex-golden-dragon-fusion-cli/PATCHES/engine__skills__library__motion-reel__.claude__skills__motion-reel__scripts__beats.py.diff": {
-   "bytes": 876,
-   "sha256": "80f685a5882f5ed983240302f6223ff07a0247e7e19643b4fab39479ba1c4a1c"
-  },
-  "branches/codex-golden-dragon-fusion-cli/apps/golden-dragon/golden_codex.py": {
-   "bytes": 3102,
-   "sha256": "5fa5f95a37cf01a46cf76887f44ffed371ff687651563a54322e4f5313b0d0ad"
-  },
-  "branches/codex-golden-dragon-fusion-cli/engine/skills/library/motion-reel/presets/golden-dragon-cinematic/preset.jsonc": {
-   "bytes": 499,
-   "sha256": "af55934595ea5cd77826c73b6bb380ae0fd6fd87a2edc4c7c5853193068be68a"
-  },
-  "branches/codex-golden-dragon-fusion-cli/engine/skills/library/motion-reel/presets/golden-dragon-clay/preset.jsonc": {
-   "bytes": 492,
-   "sha256": "2f8eef93c97603f8bfef2eabad78ec5f00c86ed561e5cd65e171272585296681"
-  },
-  "branches/codex-golden-dragon-fusion-cli/engine/skills/library/motion-reel/presets/golden-dragon-documentary/preset.jsonc": {
-   "bytes": 503,
-   "sha256": "d519639d1150020dddd397ec6971e83f47739ccf78ea48825283f4d30e934995"
-  },
-  "branches/codex-golden-dragon-fusion-cli/engine/skills/library/motion-reel/presets/golden-dragon-kinetic-type/preset.jsonc": {
-   "bytes": 528,
-   "sha256": "077967a2a792499688e36e8f3ef41375465f34763c8afd235be3a2780b921c11"
-  },
-  "branches/codex-golden-dragon-fusion-cli/engine/skills/library/motion-reel/presets/golden-dragon-product/preset.jsonc": {
-   "bytes": 502,
-   "sha256": "b537c2c93dc36f9be5de82b0050fed6dac7cefb3ee96c872eaa70a740246d4c8"
-  },
-  "branches/codex-golden-dragon-fusion-cli/engine/skills/library/motion-reel/presets/golden-dragon-whiteboard/preset.jsonc": {
-   "bytes": 503,
-   "sha256": "90161d2af8eb5a6decd0b30308cdf3880fda031ef9d61bac6a6c36dac7314ab6"
-  },
-  "branches/codex-golden-fusion-json-find/PATCHES/apps__golden-dragon__forge__modules__dragon_fusion.py.diff": {
-   "bytes": 2382,
-   "sha256": "e7c4941b95e48b3191d2cea101912609ffdb01a9043823d440bb899caeedd054"
-  },
-  "branches/feat-golden-claude-app/apps/golden-dragon/claude-app/INVENTORY.md": {
-   "bytes": 11311,
-   "sha256": "332dd7b3a618f06f1f5d9a3c07fa6d67eff106c58b614eeb7082495c084be4ae"
-  },
-  "branches/feat-golden-claude-app/apps/golden-dragon/claude-app/README.md": {
-   "bytes": 3251,
-   "sha256": "d5a64bd302730b36a031de3d6a82fd5a3d26738f904bb57b478a85c32a05ebb4"
-  },
-  "branches/feat-golden-claude-app/apps/golden-dragon/claude-app/brief_hook.py": {
-   "bytes": 2258,
-   "sha256": "d5d777725f30058debd2cd0a827ba3154ee518d86876d9e4db94e8c7c799efbf"
-  },
-  "branches/feat-golden-claude-app/apps/golden-dragon/claude-app/gen_prompt.py": {
-   "bytes": 9605,
-   "sha256": "4d5bb1e9eb952b585ca2b08a9a2fa9071b35b2293695cd4fe21593a483f0946c"
-  },
-  "branches/feat-golden-claude-app/apps/golden-dragon/claude-app/golden_mcp.py": {
-   "bytes": 31928,
-   "sha256": "a3e118231174c0cae257bc2e4c6b8396a2ce6e3e89d454797db84dc3d96355fe"
-  },
-  "branches/feat-golden-claude-app/apps/golden-dragon/claude-app/install.py": {
-   "bytes": 15256,
-   "sha256": "e663cb1d4f5569cec467edfa00c0a6bd090e84017a2e061908921aa98a437782"
-  },
-  "branches/feat-golden-claude-app/apps/golden-dragon/claude-app/tests/test_claude_app.py": {
-   "bytes": 11054,
-   "sha256": "6d65cba1e3405971835bdd25314e59c5140466cd29217eab119172e6219541b5"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/audit_tree.py": {
-   "bytes": 3043,
-   "sha256": "de66958e6222caa3f8e986b8ad39903b2230a7eb9aecb62aac4e9290f026f113"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/blender_engine.py": {
-   "bytes": 7190,
-   "sha256": "6c35f2ba740a479c0bb16a6b839eaf4eb87021da9a83cc8bfee63b3fd942b6f5"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/capability_ledger.py": {
-   "bytes": 5773,
-   "sha256": "586b93ed0ec042babb23a5322acea837e154daed8aa7a7e299575afcf855b67c"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/map_dependencies.py": {
-   "bytes": 4475,
-   "sha256": "67d8b61fa7d7e1cd4bbdcaa45a6f039292143eefd6bd92e8aa69874c5087b52d"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/native_registry.py": {
-   "bytes": 6036,
-   "sha256": "8535d0331b415b91467983560ab49710c89366a3473e044c48857ac92f58ec96"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/runtime.py": {
-   "bytes": 16374,
-   "sha256": "71b97e5dcc946fa94096e3676f058446499b7e312cc43345e4fa80ea273ec856"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_binary_imports.py": {
-   "bytes": 2793,
-   "sha256": "8856083e59e2df652c91dd51975c4d61d650858b30f9a6a49cfb300aec5a1791"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_blender_engine.py": {
-   "bytes": 2770,
-   "sha256": "a509e9cb07b1065394196d29cd17aca39cc5137d232e5b7517dd01282c281a4b"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_build_selfcontained.py": {
-   "bytes": 2038,
-   "sha256": "010221c80bba357528751ac76fc5d6bc991a9e7446cd9409cc4797de8c8f20e2"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_build_standalone.py": {
-   "bytes": 4594,
-   "sha256": "c1f56519b172716b2d536b05389458b90ac01681ec478a168d6ac2389ec4d45b"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_capability_ledger.py": {
-   "bytes": 2214,
-   "sha256": "6222b060b087d237cffa52c551bfa3e71a1ff1cc1c474566dcd0eaef701006fe"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_forge_wiring.py": {
-   "bytes": 1965,
-   "sha256": "5b7f15ec71e681c41f493d1e68a6c13955e543e1becfdca7104ca209306b63da"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_lazy_anthropic.py": {
-   "bytes": 2437,
-   "sha256": "43c6df71f65ca68c89d51b4c26ca0221ff936889242f899097a85b2fb5833d25"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_media_probe.py": {
-   "bytes": 3476,
-   "sha256": "4bee4d0b4669abc059a725a486cff5ffb4eed60e286b113669558794fdc533f1"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_media_transcode.py": {
-   "bytes": 2975,
-   "sha256": "9d7c123d4221856741e8cef42efbbbd821c0137c68fe30e06d3f36aab58c1ebb"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_native_registry.py": {
-   "bytes": 4229,
-   "sha256": "a058d0450066f3f1627f84e63271e6bb469a741f1d358fcc2249459de2c6b4b0"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_runtime.py": {
-   "bytes": 1724,
-   "sha256": "0c2d431234c6b3b5370718a6f187ce1eb6f42da74f5bc2f862b0f0064d7e721a"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_standalone_native_dispatch.py": {
-   "bytes": 2791,
-   "sha256": "88616ff93b3009b2224da7789a2316c257e493bf8e6a750b96e5a86f004b9dc9"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/forge/unified_core/tests/test_verify_unified_bundle.py": {
-   "bytes": 2143,
-   "sha256": "04084139f6b5dd0e31d5458d1539a8836d0eed655f5595a2320a8f4b87945e0b"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/integrations/README.md": {
-   "bytes": 1536,
-   "sha256": "9d73b85b88377223b130c8377dbee06ac13e479fd362fd94d2250d88a3367694"
-  },
-  "branches/feat-golden-dragon-runtime-ledger-20261118/apps/golden-dragon/integrations/maven_bridge.py": {
-   "bytes": 2952,
-   "sha256": "8d40984aacf29cfcf89984aab552f58468e39c873c4b0c598ab80d52c581c6d8"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/SKILL.md": {
-   "bytes": 3963,
-   "sha256": "e854de12c4e88208bb6b161928466d1629690971a7bc339d507a05d45cc51fb9"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/combined.md": {
-   "bytes": 349577,
-   "sha256": "45ab11e93c900a71d17c2498d7f910741d36e4840b8720f549a14e324ba51f03"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/home-coverage.json": {
-   "bytes": 289,
-   "sha256": "21a7da41795a35f8a256af8f77e47ff59b05dbcf9622ecf1f18152849f9e0ece"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/linked-media.md": {
-   "bytes": 631,
-   "sha256": "2dc35840101eb8d85c71e4968798444e74fe2b661ca1c7f2e352d5698a141c7b"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/recipes.json": {
-   "bytes": 32969,
-   "sha256": "c0d716580289b64b7476222f7f788bb3533469ef314bb803a8ba1f8520b45cbe"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/source-methods.md": {
-   "bytes": 893,
-   "sha256": "9ad47625f68ef8e6d12941f71a1128d7073e874f397b401435b194145bdc67d2"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/source-snapshot.md": {
-   "bytes": 982,
-   "sha256": "bf95ba00e5928386a529a49300b65d8ee1fdb51539ef6a89de87d6bda53a7e8c"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/references/working-method.md": {
-   "bytes": 1113,
-   "sha256": "e33c5c8de72cd9a834918305f780ec8dc9d1d89dce981321605720e13f64b1df"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/build_runtime.py": {
-   "bytes": 705,
-   "sha256": "25299b448f7cdd9f33c2a78c59495aab8ea8db0ce85806203cd029d68570cc61"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/captions.py": {
-   "bytes": 1346,
-   "sha256": "61a0fbf031be5b833c5dec577f8c4107ef514eb6b9e26a924dbccf3b054162c5"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/codebook.py": {
-   "bytes": 6215,
-   "sha256": "49cbdfe3c4b3fe3e4643fce8fc2c6cc4ee13c549d363c87f6155c6b2c581daec"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/compile_policy.py": {
-   "bytes": 4413,
-   "sha256": "97c9847b436a1709565aaaaa3683812fbec07d7f31ab8cfbee6cc2dc7e5571f7"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/compose.py": {
-   "bytes": 1538,
-   "sha256": "1dbf469785f5570ab437b7f734a2a6cae3990ad0b47cdca9862212472525ebc6"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/coverage_snapshot.py": {
-   "bytes": 2517,
-   "sha256": "0efe9db8b838263e44df67af6f8c4045d57674cf658038c6bba06ed78ca548ac"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/distil.py": {
-   "bytes": 3298,
-   "sha256": "892447d847fae971a5541a7c29d24aa53a2fb57ceba9e9c52cb81e155dbf997f"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/experience.py": {
-   "bytes": 2963,
-   "sha256": "c0ff186dd9f60ba56c0ba9247661c26073deda29c9b72da42981ad4624cc96c3"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/fusion.py": {
-   "bytes": 1300,
-   "sha256": "9114caa3caa166a337c29a11dd573bf3c00c0622e5c178c92faa49c35b043a45"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/home_coverage.py": {
-   "bytes": 2561,
-   "sha256": "559e586b013a17b7b0b6a9b58c952c8827a9536b05e10ebfcc3c9aff6bd12309"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/inventory_reel.py": {
-   "bytes": 2976,
-   "sha256": "0ec0b3d785fc84b4b4020a42a700e0caa37a1e372a95462235bc49f27f65236e"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/methods.py": {
-   "bytes": 2288,
-   "sha256": "72fdb918b54d64c8e38b3af34ecd340d409bf0ea382f47c3b18a9329d7f76ca1"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/policy.json": {
-   "bytes": 4058,
-   "sha256": "f4672a57a0ed0119ecdcbb5f53ddb5addff834fd50dc8d248afd6324004b1e77"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/production_method.py": {
-   "bytes": 1296,
-   "sha256": "169c0a1eea9db6fc8f5916bc3a439a882a6ed480ee714cc219b61d349ff8af54"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/render_vertical.py": {
-   "bytes": 1858,
-   "sha256": "be03ed703d37802d00c7718f0038f051f22baa91c12437b91e514137571a29d1"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/request.py": {
-   "bytes": 3273,
-   "sha256": "5bfa629527f39ac348a109b49703cf554c6dee450b29212c6ecd743aa6fa6751"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/source_map.py": {
-   "bytes": 5026,
-   "sha256": "3618816121d638405cb0a62ca871f4b15ee56158849ec87d3eb51099aef18b6c"
-  },
-  "branches/feature-golden-dragon-fusion-share/.agents/skills/golden-dragon-fusion/scripts/srt_words.py": {
-   "bytes": 847,
-   "sha256": "b1c04dba958cc486062e0b2f59a2f8cadea1421bce950d03940772535865813e"
-  },
-  "branches/golden-dragon-v3.5.2-stale-review/PATCHES/engine__skills__video-grabber__SKILL.md.diff": {
-   "bytes": 949,
-   "sha256": "e819e873e0978810bfe075a39cefe06a6526212442c257722ef40fbb225aa8f2"
-  },
-  "branches/golden-dragon-v3.5.2-stale-review/PATCHES/engine__skills__video-grabber__scripts__grab.py.diff": {
-   "bytes": 5072,
-   "sha256": "2099610ff81e309e465a7a8b6fd84580c79e9a45332e0b0d5c91d449cba6a93e"
-  },
-  "branches/golden-dragon-v3.5.2-stale-review/PATCHES/engine__skills__video-grabber__tests__grab__test_grab.py.diff": {
-   "bytes": 4233,
-   "sha256": "279632a7e6ca1a9da0aac684777ce817b9a5b752591a2102844d282d5931a1f9"
-  },
-  "branches/laptop-installed/apps/golden-dragon/forge/gd_patches/gd_custom_api.py": {
-   "bytes": 46833,
-   "sha256": "be25b272fd72940897624ec43f6e96f408782977209474d735c9b19d63e80158"
+   "sha256": "4cbf9f79c9dfc099ed7e5558719afdf56f58e3445b872e15bf55df97602bd91f"
   },
   "forge/addons.py": {
    "bytes": 10191,
@@ -3254,8 +3094,8 @@
    "sha256": "a7d50d29870eb924a6a2623dd3e046fe86b840c3751a6a4c3356b5723acd4f4e"
   },
   "forge/take.json": {
-   "bytes": 54450,
-   "sha256": "92a4cfd894d4322515800da8d72620a731d086279b7435ad88028163abd9ec45"
+   "bytes": 3,
+   "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
   },
   "forge/take_branches.py": {
    "bytes": 6355,
@@ -3270,24 +3110,24 @@
    "sha256": "db478c3d59872cfe7931c1c4becc9e44bfdb0cb6e2f9b0cb2fe2a079ea8c56d3"
   },
   "kb/alloy.db": {
-   "bytes": 55537664,
-   "sha256": "31cacbb89f9d0107a1c48875383b4a32603422e26fd1551e12d0d40a8fe312e5"
+   "bytes": 55394304,
+   "sha256": "3d324c108996e9ddd291e19ca39aaffb9b7f16940f7151e77c55f9f33456cd65"
   },
   "ledger/blend_report.json": {
-   "bytes": 7154,
-   "sha256": "402a7558ec8956de01eec671ea948f386070b1fe60ebb4246c4e5a350a95b891"
+   "bytes": 1805,
+   "sha256": "903e9164351f31a11043ab69b96980b151aec79b00c06611c3e8cc03423275c1"
   },
   "ledger/conflicts.json": {
-   "bytes": 7308,
-   "sha256": "4e60c6e4e046be0c4a31ae70b00b658b8433586a28f5b72d8b13a0e38022a998"
+   "bytes": 4997,
+   "sha256": "8fb9afb8466cb86e38a7ee08a1b24f0d34931b612a893700fb6c9f17e9ef720a"
   },
   "ledger/eval_test_once.txt": {
    "bytes": 364,
    "sha256": "b48a6c207297b34c0c0e3514b0753d054655b55dfef3a8efbf4032b944cab485"
   },
   "ledger/sources.jsonl": {
-   "bytes": 2091387,
-   "sha256": "c030303b650d0f64eed69e5b7c24eae451dbc7e6c7ef4cf91d7f158cf1b6e27d"
+   "bytes": 2019743,
+   "sha256": "f57d25c53a1f1ac7c2c599c9d2a9701a8629f9c6cbebace0206ef24b621768b4"
   },
   "owner-memory/live/chats/c20261112-151000-2.md": {
    "bytes": 904,
@@ -3370,16 +3210,16 @@
    "sha256": "e6335f867ff7bdc314d7e72add8ab4a976a5c16043beb69c5eff44a0c5d9d402"
   },
   "references/BLEND_REPORT.md": {
-   "bytes": 8609,
-   "sha256": "3b97729643a5a77e1f0b663437326d888b2e0b492a75437f4e0d0d04861dc0db"
+   "bytes": 6876,
+   "sha256": "9fa2461ca54a4568ad8ba1baccbca6f22d6a89b4dff706c9c5173565abfc2b47"
   },
   "references/CAPABILITIES.md": {
-   "bytes": 2210,
-   "sha256": "d091dd5407356c0aa523c413401893f8faa3e9136b2552dc9324e1ab5e9d2652"
+   "bytes": 2162,
+   "sha256": "4e66034906fb7754f06aff13942cc7258dd465247fc9cd09bcb1e8d31c594b16"
   },
   "references/CHANGELOG.md": {
-   "bytes": 3081,
-   "sha256": "508f00a8a75ad1d01d53dfd7110c10ee097aace95eefa5f6d82ff87ffed3451c"
+   "bytes": 4416,
+   "sha256": "0b22a154faa2e86931a06aa43d80d10f08cd6622c0372320fbf3d266ea072064"
   },
   "references/INSTALL.md": {
    "bytes": 4067,
@@ -3390,8 +3230,8 @@
    "sha256": "9fd3a7e1ace484293c45d92a27251e4be2649ae4209d220900858be416f30bb5"
   },
   "references/ROADS.md": {
-   "bytes": 161249,
-   "sha256": "9035d8edbb447d7d41848eb6be332ef920466b84eb22f51065bd1f9c90abce60"
+   "bytes": 163669,
+   "sha256": "b9d558c26d74e798ff1a31c140ff3ef158a0eed80a638d43220d35440b2d2a18"
   },
   "references/RULES.md": {
    "bytes": 31358,

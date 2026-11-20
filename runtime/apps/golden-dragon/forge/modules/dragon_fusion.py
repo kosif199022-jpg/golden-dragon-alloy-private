@@ -20,7 +20,7 @@
            questions to answer with evidence from the draft.
 
 CLI (the subscription mode runs commands instead of app tools):
-  python -X utf8 dragon_fusion.py brief "..." | route "..." | find "..." [--kind K] [--limit N] | show ID | recipes
+  python -X utf8 dragon_fusion.py brief "..." | route "..." | find "..." [--kind K] [--limit N] [--json] | show ID | recipes
                                   | doctor | stats | lessons "..." | check --request "..." --draft FILE|-
                                   | discover | local [KIND] | think ["سبيل"]
   think    «سبل التفكير» (من كتب Kahneman وGreetham وJaynes والمسرحية والـ IFRS): الخيال، العميق، الإبداعي، المنطق والاحتمال،
@@ -50,6 +50,16 @@ STATUS_AR = {"ok": "✓", "older": "إصدار أقدم", "partial": "ناقصه
              "needs-setup": "يحتاج تجهيز", "local": "على الجهاز", "copy": "نسخة برّه المتثبّت", "archive": "مضغوط/مش متثبّت"}
 PENALTY = {"older": 0.15, "missing": 0.6, "partial": 0.85, "local": 0.9, "copy": 0.5, "archive": 0.45}
 PC_KINDS = ("pc-skill", "pc-plugin", "pc-mcp", "pc-app", "pc-tool", "pc-script", "pc-repo", "pc-pack")
+
+def distilled_knowledge(query, limit=5):
+    """Optional source-aware skill knowledge; never executes retrieved text."""
+    try:
+        from gd_distilled_bridge import distilled_search
+        return distilled_search(query, limit=limit)
+    except ImportError:
+        return {"enabled": False, "results": [], "reason": "bridge_unavailable"}
+
+
 
 try:                                          # «discover»: what this PC has beyond the build-time index (local catalog)
     import gd_discover as _gdd
@@ -929,16 +939,29 @@ def main(argv):
         if act == "route" and rest:
             print(md_route(" ".join(rest)))
         elif act == "find" and rest:
+            as_json = "--json" in rest
+            if as_json:
+                rest.remove("--json")
             kind, limit = None, 10
             if "--kind" in rest:
                 i = rest.index("--kind")
+                if i + 1 >= len(rest) or rest[i + 1].startswith("--"):
+                    raise ValueError("--kind requires a unit kind")
                 kind = rest[i + 1]
                 rest = rest[:i] + rest[i + 2:]
             if "--limit" in rest:
                 i = rest.index("--limit")
+                if i + 1 >= len(rest):
+                    raise ValueError("--limit requires a number")
                 limit = int(rest[i + 1])
+                if limit < 1:
+                    raise ValueError("--limit must be positive")
                 rest = rest[:i] + rest[i + 2:]
-            print(md_find(" ".join(rest), kind, limit))
+            query = " ".join(rest)
+            if as_json:
+                print(json.dumps(find(query, kind, limit), ensure_ascii=False))
+            else:
+                print(md_find(query, kind, limit))
         elif act == "show" and rest:
             print(md_show(rest[0]))
         elif act == "recipes":
@@ -949,6 +972,8 @@ def main(argv):
             print(md_discover())
         elif act == "local":
             print(md_local(rest[0] if rest else None))
+        elif act == "knowledge" and rest:
+            print(json.dumps(distilled_knowledge(" ".join(rest)), ensure_ascii=False, indent=2))
         elif act == "stats":
             print(json.dumps(stats(), ensure_ascii=False))
         elif act == "lessons":

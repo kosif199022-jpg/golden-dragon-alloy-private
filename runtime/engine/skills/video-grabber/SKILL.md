@@ -85,6 +85,7 @@ Reports `captcha: true` / `drm: true` instead of bypassing them. `--headful --pr
 | `private` / `removed` | Check the link; private needs an account that has access (cookies) |
 | `tls` / `network` | Retry; check proxy; `--update` |
 | YouTube extraction breaks | `python grab.py --update` (needs Deno/Node for YouTube JS challenges — installed) |
+| Old yt-dlp | Off by default (rule §2: installing needs a yes). The grabber says yt-dlp is old and prints `grab.py --update`. With the owner's yes: `--auto-update` (or `VG_AUTOUPDATE=1`) refreshes it before the first try when older than 30 days, and once after a failed try (retried only if the version changed). `--no-auto-update` always wins |
 | Editor can't open the file (AV1/VP9/Opus) | `--compat` |
 
 Details: `references/downloader.md` (options, JSON fields, internals) · `references/sites.md` (per-site notes).

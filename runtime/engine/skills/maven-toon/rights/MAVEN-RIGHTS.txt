@@ -1,0 +1,46 @@
+MAVEN TOON: RIGHTS
+==================
+
+Maven Rights. Copyright (c) 2026 Maven. All rights reserved (for the Maven parts listed in 1).
+Instagram: @maven.iqq
+YouTube:   maveniqq
+Telegram:  t.me/Maveniq
+
+1. OWNER
+   These parts of Maven Toon belong to Maven: the name "Maven Toon", the
+   instructions (SKILL.md, PROMPTS.md, references/script-ar.md and the Maven
+   sections of references/LIBRARY.md), the Arabic script method, the Maven
+   cast and animals (engine/cast_iq.py), the Maven sets (engine/sets_iq.py),
+   the Arabic text, caption and timing support, the script checker
+   (engine/scriptcheck.py), the library sheets (engine/library.py), the
+   examples and the preview images.
+
+2. WHAT YOU MAY DO
+   You may download Maven Toon for free and use it to make videos, including
+   videos you earn money from. The videos you make are yours. You may change
+   your own copy for your own use.
+
+3. WHAT YOU MAY NOT DO WITHOUT MAVEN'S WRITTEN PERMISSION
+   - Sell the Maven parts, in whole or in part.
+   - Publish or share the Maven parts, changed or unchanged, except by
+     sharing Maven's own link.
+   - Remove Maven's name or this folder, or present the Maven parts as your
+     own.
+
+4. THE ENGINE UNDERNEATH (not owned by Maven)
+   The rendering engine is based on toon2d-shorts, Copyright (c) 2026
+   toon2d-shorts contributors, under the MIT licence
+   (rights/toon2d-shorts-MIT.txt). Those files keep the MIT licence; nothing
+   in this file limits what the MIT licence allows for them.
+
+5. OTHER THIRD-PARTY PARTS
+   - Fonts in engine/fonts: Poppins ExtraBold and Lalezar, SIL Open Font
+     License 1.1 (OFL-*.txt there). They may not be sold on their own.
+   - skia-python, numpy, imageio-ffmpeg (with ffmpeg), faster-whisper and
+     Pillow are installed by pip under their own licences.
+   Details: rights/THIRD_PARTY.md
+
+6. NO WARRANTY
+   Maven Toon is provided "as is", without warranty of any kind.
+
+Permissions: contact Maven on Instagram @maven.iqq

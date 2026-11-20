@@ -26,7 +26,7 @@ It reads and advises; it never installs, publishes, spends or deletes."""
 import argparse, datetime, hashlib, json, math, os, re, shutil, subprocess, sys, types
 from pathlib import Path
 
-VERSION = "3.5.4"
+VERSION = "3.5.8"
 ROOT = Path(__file__).resolve().parent.parent
 ENGINE = ROOT / "engine"
 MIND = ROOT / "mind"
@@ -1705,6 +1705,7 @@ def main():
     s = sub.add_parser("krita", help="krita-draw: render scene.json | layers file.kra | info (draw with code inside the real Krita)"); s.add_argument("args", nargs=argparse.REMAINDER)
     s = sub.add_parser("sync", help="sync-guard: words, check, fix, onsets, script, grid, selftest (captions and motion on the spoken word)"); s.add_argument("args", nargs=argparse.REMAINDER)
     s = sub.add_parser("md", help="doc-reader (v3.3): convert, batch, doctor, exts, install, selftest (any PDF, Word, PowerPoint, Excel, HTML, EPUB… → Markdown with Microsoft MarkItDown, MIT)"); s.add_argument("args", nargs=argparse.REMAINDER)
+    s = sub.add_parser("mtoon", help="maven-toon-bridge (v3.5.6): install, where, doctor, fonts, render, run, script-eg, credit, gate, selftest (the owner's private Maven Toon copy + Egyptian script check, credit, export gate)"); s.add_argument("args", nargs=argparse.REMAINDER)
     s = sub.add_parser("arena", help="arena-gate (v2.19): size, start, jobs, next, collect, advance, winner, skip, gate, selftest (the arena is a required step: competing copies, bracket, judge)"); s.add_argument("args", nargs=argparse.REMAINDER)
     s = sub.add_parser("consent", help="consent gate: which outward actions this message explicitly approves or forbids («كمل» approves none)"); s.add_argument("q")
     s = sub.add_parser("gold", help="Golden Bird: studio list/show/install/cmd · lib find/show/kit/stats · sync · protocol · where · selftest"); s.add_argument("args", nargs=argparse.REMAINDER)
@@ -1927,11 +1928,11 @@ def main():
         raise SystemExit(subprocess.call([sys.executable, "-X", "utf8", str(ROOT / "engine" / "skills" / "insta-reader" / "scripts" / "ig.py")] + (a.args or ["--help"])))
     elif a.cmd == "agents":
         raise SystemExit(subprocess.call([sys.executable, "-X", "utf8", str(ROOT / "scripts" / "rd_agents.py")] + (a.args or ["list"])))
-    elif a.cmd in ("dcm", "desktop", "think", "ref", "sync", "krita", "mind", "hypit", "insta", "arena", "gold", "md"):
+    elif a.cmd in ("dcm", "desktop", "think", "ref", "sync", "krita", "mind", "hypit", "insta", "arena", "gold", "md", "mtoon"):
         sk = {"dcm": ("dragon-character-memory", "dcm.py"), "desktop": ("blackdragon-desktop-bridge", "bridge.py"), "think": ("planning-mind", "plan.py"),
               "ref": ("reference-lock", "reflock.py"), "sync": ("sync-guard", "syncguard.py"),
               "krita": ("krita-draw", "krita_draw.py"), "mind": ("claude-mind", "mind.py"), "hypit": ("hypit-run", "hypit_rd.py"),
-              "insta": ("insta-reader", "insta.py"), "arena": ("arena-gate", "arena_gate.py"), "gold": ("golden-bird", "gold.py"), "md": ("doc-reader", "docmd.py")}[a.cmd]
+              "insta": ("insta-reader", "insta.py"), "arena": ("arena-gate", "arena_gate.py"), "gold": ("golden-bird", "gold.py"), "md": ("doc-reader", "docmd.py"), "mtoon": ("maven-toon-bridge", "mtoon.py")}[a.cmd]
         if a.cmd == "think" and a.args and a.args[0] in ("start", "revise", "check", "time", "mistake", "mistakes", "pipeline-selftest"):
             sk = ("planning-mind", "think.py")      # v2.9: the think-and-plan pipeline; the other words go to plan.py
             if a.args[0] == "pipeline-selftest":
@@ -2024,7 +2025,7 @@ def main():
                     bad.append(f"blind chats eval: top-3 {t3}/{len(blind)} < 85%")
         except Exception as e:
             bad.append(f"rd_chats: {e}")
-        for sk, sc in (("reference-lock", "reflock.py"), ("sync-guard", "syncguard.py"), ("hypit-run", "hypit_rd.py"), ("insta-reader", "insta.py"), ("arena-gate", "arena_gate.py"), ("golden-bird", "gold.py"), ("doc-reader", "docmd.py")):    # v2.9.1: exact reference + caption sync guards
+        for sk, sc in (("reference-lock", "reflock.py"), ("sync-guard", "syncguard.py"), ("hypit-run", "hypit_rd.py"), ("insta-reader", "insta.py"), ("arena-gate", "arena_gate.py"), ("golden-bird", "gold.py"), ("doc-reader", "docmd.py"), ("maven-toon-bridge", "mtoon.py")):    # v2.9.1: exact reference + caption sync guards
             gp = ROOT / "engine" / "skills" / sk / "scripts" / sc
             if gp.is_file():
                 r = subprocess.run([sys.executable, "-X", "utf8", str(gp), "selftest"], capture_output=True, text=True, encoding="utf-8", errors="replace",

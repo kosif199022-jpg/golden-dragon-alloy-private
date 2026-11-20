@@ -25,7 +25,7 @@ import unicodedata
 import zlib
 from pathlib import Path
 
-VERSION = "4.2.0"
+VERSION = "4.3.0"
 ROOT = Path(__file__).resolve().parent
 RUNTIME = ROOT / "runtime"
 KB = ROOT / "kb" / "alloy.db"
