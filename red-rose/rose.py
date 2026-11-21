@@ -14,6 +14,8 @@ from verify_media import verify_video
 from identity import apply_profiles
 from lip_sync import levels_from_audio, apply_lipsync
 from visemes import estimate_words_from_srt, apply_visemes, validate_words
+from pipeline_v15 import render_project
+from capability_runtime import list_capabilities, plan_task, execute as run_capability, audit_summary
 
 def connect(path):
     p=Path(path).expanduser(); p.parent.mkdir(parents=True,exist_ok=True)
@@ -63,44 +65,21 @@ def main(argv=None):
     x=sub.add_parser('fuse-search'); x.add_argument('query'); x.add_argument('--limit',type=int,default=20)
     sub.add_parser('fuse-stats')
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
+    sub.add_parser('capabilities')
+    sub.add_parser('capability-audit')
+    x=sub.add_parser('capability-plan'); x.add_argument('task')
+    x=sub.add_parser('capability-run'); x.add_argument('capability_id'); x.add_argument('params_json'); x.add_argument('--approve-write',action='store_true')
     args=a.parse_args(argv)
     if args.command=='verify':
         print(json.dumps(verify_video(args.video,expected_fps=args.fps,width=args.width,height=args.height),ensure_ascii=False)); return
     if args.command=='produce':
-        shots=json.loads(Path(args.storyboard_json).read_text(encoding='utf-8'))
-        if args.srt: shots=apply_captions(shots,parse_srt(Path(args.srt).read_text(encoding='utf-8-sig')))
-        identities={}
-        if args.profiles:
-            shots,identities=apply_profiles(shots,json.loads(Path(args.profiles).read_text(encoding='utf-8')))
-        sync=None
-        if args.viseme_sync and not args.lip_sync:
-            raise ValueError('--viseme-sync requires --lip-sync for silence gating')
-        if args.words_json and not args.viseme_sync:
-            raise ValueError('--words-json requires --viseme-sync')
-        if args.lip_sync:
-            if not args.audio: raise ValueError('--lip-sync requires --audio with speech')
-            shots,sync=apply_lipsync(shots,levels_from_audio(args.audio))
-            if not sync['processed_shots']: raise ValueError('no director2d/ik2d shot found for lip sync')
-        viseme_report=None
-        if args.viseme_sync:
-            total=sum(float(s['duration']) for s in shots)
-            if args.words_json:
-                words=validate_words(json.loads(Path(args.words_json).read_text(encoding='utf-8')),total)
-                timing_source='provided_word_timestamps'
-            elif args.srt:
-                words=estimate_words_from_srt(parse_srt(Path(args.srt).read_text(encoding='utf-8-sig')),total)
-                timing_source='estimated_from_srt_cues'
-            else: raise ValueError('--viseme-sync requires --words-json or --srt')
-            shots,viseme_report=apply_visemes(shots,words)
-            viseme_report['timing_source']=timing_source
-        result=produce(shots,args.output,args.fps,args.width,args.height,args.audio)
-        result['locked_characters']=identities
-        if sync: result['voice_sync']=sync
-        if viseme_report: result['viseme_sync']=viseme_report
-        manifest=Path(args.output).resolve()/'manifest.json'
-        manifest.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
-        result['style_save_question']='تحب تحفظ ستايل الفيديو؟ وباسم إيه؟ احفظه بأمر style-save.'
+        result=render_project(args.storyboard_json,args.output,fps=args.fps,width=args.width,
+                              height=args.height,audio=args.audio,srt=args.srt,
+                              lip_sync=args.lip_sync,viseme_sync=args.viseme_sync,
+                              profiles=args.profiles,words_json=args.words_json)
         print(json.dumps(result,ensure_ascii=False)); return
+    if args.command=='capabilities':
+        print(json.dumps(list_capabilities(),ensure_ascii=False)); return
     if args.command=='plan': print(json.dumps({'task':args.task,'steps':['inspect','plan','execute','verify','learn'],'status':'planned_not_executed'},ensure_ascii=False)); return
     with closing(connect(args.db)) as db:
         if args.command=='doctor': result={'memory':'ready','knowledge_documents':db.execute('SELECT count(*) FROM knowledge').fetchone()[0],'legacy_skill_runtime_required':False}
@@ -116,6 +95,9 @@ def main(argv=None):
         elif args.command=='fuse-search': result=find_fused(db,args.query,args.limit)
         elif args.command=='fuse-stats': result=stats_fused(db)
         elif args.command=='route': result=route_knowledge(db,args.task,args.limit)
+        elif args.command=='capability-audit': result=audit_summary(db)
+        elif args.command=='capability-plan': result=plan_task(db,args.task)
+        elif args.command=='capability-run': result=run_capability(db,args.capability_id,json.loads(args.params_json),approve_write=args.approve_write)
         elif args.command=='sources': result=[dict(zip(('source','sha256','origin','revision','license'),r)) for r in db.execute('SELECT * FROM source_links ORDER BY origin,source LIMIT 1000')]
         elif args.command=='render':
             saved=load_style(db,args.style) if args.style else None
