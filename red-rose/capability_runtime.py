@@ -56,14 +56,20 @@ import motion_v27
 import typemotion_v27
 import graphics_v27
 import studio_v27
+import net_v28
+import bridges_v28
+import prompts_v28
+import playbooks_v28
 
 # File/media/database adapters: per-op EFFECTS; writes need the owner's --approve-write.
 IO_ADAPTERS = {'knowledge.store': knowledge_v25, 'database.manage': database_v25,
                'video.analyze': media_analysis_v25, 'video.edit': editing_v25,
                'audio.process': audio_v25, 'automation.run': automation_v25,
-               'release.verify': release_v26, 'studio.render': studio_v27}
+               'release.verify': release_v26, 'studio.render': studio_v27,
+               'net.fetch': net_v28, 'app.bridge': bridges_v28, 'playbook.library': playbooks_v28}
 # Adapters the owner asked to ship without tests (2026-11-22); release checks list them apart.
-CODED_UNTESTED = ('motion.core', 'text.motion', 'graphics.motion', 'studio.render')
+CODED_UNTESTED = ('motion.core', 'text.motion', 'graphics.motion', 'studio.render',
+                  'net.fetch', 'app.bridge', 'prompt.prepare', 'playbook.library')
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
 PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
@@ -79,7 +85,7 @@ PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
                 'security.guard': security_v24,
                 # V27 motion fusion (coded; owner asked for no tests): pure SVG generators.
                 'motion.core': motion_v27, 'text.motion': typemotion_v27,
-                'graphics.motion': graphics_v27}
+                'graphics.motion': graphics_v27, 'prompt.prepare': prompts_v28}
 from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fusion_frame, render_video as fusion_render, iphone_export, PRESETS
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
@@ -138,6 +144,10 @@ REGISTRY = {
  'text.motion': ('Kinetic typography (coded, untested): 15 Arabic-safe styles (words never split into letters), captions, karaoke from supplied timings, SRT, lower thirds, platform canvases', 'read', 'builtin'),
  'graphics.motion': ('Motion graphics (coded, untested): shape morph, draw-on, neon (on request), textures (on request), particles, data viz, schematic route maps, explainers, retro pixel, UI mocks, brand reveals', 'read', 'builtin'),
  'studio.render': ('Timeline studio (coded, untested): validate and preview layered timelines, approved MP4 render with measured AAC mix and ducking, named grades only on owner request, LUT text, delivery check', 'mixed', 'ffmpeg'),
+ 'net.fetch': ('Network (coded, untested): allow-listed HTTPS pages/files/crawl/links, robots and rate limits, yt-dlp for owned or licensed media, GitHub repo info; every connection needs --approve-write', 'mixed', 'builtin'),
+ 'app.bridge': ('Outside programs (coded, untested): detect, Blender headless scripts and renders, After Effects JSX, EDL/FCPXML, local TTS (piper/espeak) from owner text, Remotion file map', 'mixed', 'builtin'),
+ 'prompt.prepare': ('Paid-generation preparation (coded, untested): image/video/music/voice prompts, neutral styles, cost estimates, approval requests; never calls a service', 'read', 'builtin'),
+ 'playbook.library': ('Catalog skills as playbooks (coded, untested): parse descriptions, build a local FTS playbook index (approved write), search, plan from a playbook', 'mixed', 'builtin'),
  'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
@@ -253,6 +263,14 @@ ALIASES = {
  'رندر': ('studio.render','video.produce'),
  'تلوين': ('studio.render',),
  'ميكس': ('studio.render','audio.process'),
+ 'تحميل': ('net.fetch',),
+ 'رابط': ('net.fetch',),
+ 'بلندر': ('app.bridge',),
+ 'blender': ('app.bridge',),
+ 'برومبت': ('prompt.prepare',),
+ 'prompt': ('prompt.prepare',),
+ 'خطة تشغيل': ('playbook.library',),
+ 'playbook': ('playbook.library',),
  'موشن': ('motion.core','graphics.motion','text.motion','studio.render'),
  '1400': ('roadmap.status',),
  'خطة': ('roadmap.status',),

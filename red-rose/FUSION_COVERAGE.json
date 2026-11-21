@@ -4,25 +4,29 @@
   "native": 15180,
   "guidance": 3305,
   "meta_catalog": 1169,
-  "network": 2727,
-  "paid": 466,
-  "external_app": 302,
-  "missing": 2526
+  "playbook": 2526,
+  "native_gated": 2727,
+  "prepared_gated": 466,
+  "bridge": 302,
+  "network": 0,
+  "paid": 0,
+  "external_app": 0,
+  "missing": 0
  },
  "by_kind": {
   "catalog-skill": {
    "native": 8716,
-   "missing": 2277,
+   "playbook": 2277,
    "guidance": 1430,
-   "network": 2520,
-   "external_app": 127,
-   "paid": 289
+   "native_gated": 2520,
+   "bridge": 127,
+   "prepared_gated": 289
   },
   "power": {
    "native": 5448,
-   "paid": 128,
-   "network": 70,
-   "external_app": 94,
+   "prepared_gated": 128,
+   "native_gated": 70,
+   "bridge": 94,
    "meta_catalog": 288,
    "guidance": 101
   },
@@ -30,11 +34,11 @@
    "guidance": 1627
   },
   "skill": {
-   "paid": 31,
-   "external_app": 50,
+   "prepared_gated": 31,
+   "bridge": 50,
    "native": 357,
-   "network": 110,
-   "missing": 79,
+   "native_gated": 110,
+   "playbook": 79,
    "guidance": 42
   },
   "superpower": {
@@ -45,21 +49,21 @@
   },
   "tool": {
    "native": 190,
-   "missing": 83,
+   "playbook": 83,
    "guidance": 8,
-   "external_app": 17,
-   "network": 15,
-   "paid": 8
+   "bridge": 17,
+   "native_gated": 15,
+   "prepared_gated": 8
   },
   "lesson": {
    "native": 222
   },
   "lib": {
-   "missing": 34,
+   "playbook": 34,
    "native": 95,
-   "external_app": 8,
-   "network": 9,
-   "paid": 6,
+   "bridge": 8,
+   "native_gated": 9,
+   "prepared_gated": 6,
    "guidance": 2
   },
   "rule": {
@@ -72,15 +76,15 @@
    "guidance": 43
   },
   "re": {
-   "missing": 33,
+   "playbook": 33,
    "native": 1
   },
   "program": {
-   "missing": 17,
-   "external_app": 4,
+   "playbook": 17,
+   "bridge": 4,
    "native": 9,
    "guidance": 1,
-   "network": 1
+   "native_gated": 1
   },
   "cmd": {
    "meta_catalog": 29
@@ -90,53 +94,34 @@
   },
   "studio": {
    "native": 8,
-   "external_app": 2
+   "bridge": 2
   },
   "mcp": {
-   "network": 1,
-   "missing": 3,
-   "paid": 3
+   "native_gated": 1,
+   "playbook": 3,
+   "prepared_gated": 3
   },
   "module": {
-   "network": 1,
-   "paid": 1
+   "native_gated": 1,
+   "prepared_gated": 1
   }
  },
- "fusable_units": 22180,
+ "fusable_units": 25675,
  "fused_or_absorbed_units": 19654,
- "fusion_ratio_of_fusable": 0.8861,
- "missing_families_top": [
-  [
-   "CATALOG-SKILL:unrouted",
-   2277
-  ],
-  [
-   "TOOL:unrouted",
-   83
-  ],
-  [
-   "SKILL:unrouted",
-   79
-  ],
-  [
-   "LIB:unrouted",
-   34
-  ],
-  [
-   "RE:unrouted",
-   33
-  ],
-  [
-   "PROGRAM:unrouted",
-   17
-  ],
-  [
-   "MCP:unrouted",
-   3
-  ]
- ],
+ "fusion_ratio_of_fusable": 0.7655,
+ "units_with_red_rose_path": 25675,
+ "path_ratio_of_all_units": 1.0,
+ "path_breakdown": {
+  "native_or_absorbed": 19654,
+  "playbook": 2526,
+  "gated_or_bridged": 3495,
+  "missing": 0
+ },
+ "missing_families_top": [],
  "adapters_used": {
   "knowledge.store": 3753,
+  "net.fetch": 2727,
+  "playbook.library": 2526,
   "app.build": 1968,
   "studio.render": 1843,
   "design.layout": 1733,
@@ -156,10 +141,12 @@
   "text.motion": 681,
   "math.geometry": 608,
   "governance.audit": 509,
+  "prompt.prepare": 466,
   "learning.evolve": 465,
   "automation.run": 385,
   "video.verify": 384,
   "memory.recall": 356,
+  "app.bridge": 302,
   "roadmap.status": 288,
   "character.animate": 210,
   "physics.simulate": 188,
@@ -172,7 +159,7 @@
  },
  "method": "keyword/prefix classification (heuristic); native = adapter exists, not every legacy behaviour reproduced",
  "measured_on": "2026-11-22",
- "registry_adapters": 55,
+ "registry_adapters": 59,
  "source": "local private fused_knowledge table, read-only; only aggregate counts are stored here",
  "adapters_coded_untested_v27": [
   "motion.core",

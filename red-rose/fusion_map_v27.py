@@ -20,7 +20,16 @@ from __future__ import annotations
 import re
 from collections import Counter, defaultdict
 
-CATEGORIES = ('native', 'guidance', 'meta_catalog', 'network', 'paid', 'external_app', 'missing')
+CATEGORIES = ('native', 'guidance', 'meta_catalog', 'playbook', 'native_gated', 'prepared_gated',
+              'bridge', 'network', 'paid', 'external_app', 'missing')
+# V28: when these adapters exist, the outward-facing categories get an honest Red Rose path:
+#   network      -> native_gated   (net.fetch: code exists, every connection needs --approve-write)
+#   paid         -> prepared_gated (prompt.prepare: prompts/cost/approval request; never spends)
+#   external_app -> bridge         (app.bridge: drives an installed outside program on approval)
+#   unrouted catalog/skill/tool rows -> playbook (playbook.library: analysed into followable playbooks)
+UPGRADES = {'network': ('native_gated', 'net.fetch'), 'paid': ('prepared_gated', 'prompt.prepare'),
+            'external_app': ('bridge', 'app.bridge')}
+PLAYBOOK_KINDS = {'catalog-skill', 'skill', 'tool', 'lib', 're', 'program', 'mcp'}
 
 # Numbered-power family prefix -> (category, adapters). Adapters must exist in REGISTRY.
 FAMILIES = {
@@ -155,7 +164,13 @@ def classify(kind, title, summary='', *, registry=None):
     if registry is not None and fam[1] == 'native':
         absent = [a for a in fam[2] if a not in registry]
         if absent:
-            return (fam[0], 'missing', [a for a in fam[2] if a in registry])
+            fam = (fam[0], 'missing', [a for a in fam[2] if a in registry])
+    if registry is not None:
+        if fam[1] in UPGRADES and UPGRADES[fam[1]][1] in registry:
+            cat, adapter = UPGRADES[fam[1]]
+            fam = (fam[0], cat, [adapter])
+        elif fam[1] == 'missing' and kind in PLAYBOOK_KINDS and 'playbook.library' in registry:
+            fam = (fam[0], 'playbook', ['playbook.library'])
     return fam
 
 
@@ -175,6 +190,8 @@ def coverage(rows, *, registry=None):
             adapters_used[a] += 1
     fusable = total - by_cat['network'] - by_cat['paid'] - by_cat['external_app']
     native = by_cat['native'] + by_cat['meta_catalog'] + by_cat['guidance']
+    absorbed = native + by_cat['playbook']
+    gated = by_cat['native_gated'] + by_cat['prepared_gated'] + by_cat['bridge']
     missing_fams = sorted(((f, n) for f, n in fam_counts.items() if fam_cat[f] == 'missing'), key=lambda x: -x[1])
     return {
         'total_units': total,
@@ -183,6 +200,10 @@ def coverage(rows, *, registry=None):
         'fusable_units': fusable,
         'fused_or_absorbed_units': native,
         'fusion_ratio_of_fusable': round(native / fusable, 4) if fusable else None,
+        'units_with_red_rose_path': absorbed + gated,
+        'path_ratio_of_all_units': round((absorbed + gated) / total, 4) if total else None,
+        'path_breakdown': {'native_or_absorbed': native, 'playbook': by_cat['playbook'],
+                           'gated_or_bridged': gated, 'missing': by_cat['missing']},
         'missing_families_top': missing_fams[:25],
         'adapters_used': dict(adapters_used.most_common()),
         'method': 'keyword/prefix classification (heuristic); native = adapter exists, not every legacy behaviour reproduced',
