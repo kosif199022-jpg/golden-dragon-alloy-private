@@ -15,6 +15,7 @@ from identity import apply_profiles
 from lip_sync import levels_from_audio, apply_lipsync
 from visemes import estimate_words_from_srt, apply_visemes, validate_words
 from pipeline_v15 import render_project
+from scene_edit_v16 import analyze_cuts
 from capability_runtime import list_capabilities, plan_task, execute as run_capability, audit_summary
 
 def connect(path):
@@ -69,6 +70,8 @@ def main(argv=None):
     x=sub.add_parser('fuse-search'); x.add_argument('query'); x.add_argument('--limit',type=int,default=20)
     sub.add_parser('fuse-stats')
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
+    x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
+    x=sub.add_parser('recut'); x.add_argument('source'); x.add_argument('edl_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--approve-write',action='store_true')
     sub.add_parser('capabilities')
     sub.add_parser('capability-audit')
     x=sub.add_parser('capability-plan'); x.add_argument('task')
@@ -81,6 +84,14 @@ def main(argv=None):
                               height=args.height,audio=args.audio,srt=args.srt,
                               lip_sync=args.lip_sync,viseme_sync=args.viseme_sync,
                               profiles=args.profiles,words_json=args.words_json)
+        print(json.dumps(result,ensure_ascii=False)); return
+    if args.command=='scene-analyze':
+        print(json.dumps(analyze_cuts(args.source,threshold=args.threshold,sample_fps=args.sample_fps,min_shot_seconds=args.min_shot_seconds),ensure_ascii=False)); return
+    if args.command=='recut':
+        edl=json.loads(Path(args.edl_json).expanduser().read_text(encoding='utf-8'))
+        with closing(connect(args.db)) as db:
+            result=run_capability(db,'video.recut',{'source':args.source,'segments':edl,
+                        'output':args.output,'fps':args.fps},approve_write=args.approve_write)
         print(json.dumps(result,ensure_ascii=False)); return
     if args.command=='capabilities':
         print(json.dumps(list_capabilities(),ensure_ascii=False)); return
