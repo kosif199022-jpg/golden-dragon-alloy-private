@@ -1,4 +1,4 @@
-# الوردة الحمراء 🌹 V13 — Independent, editable video prototype + offline knowledge
+# الوردة الحمراء 🌹 V15 — Independent, editable video prototype + offline knowledge
 
 **Project status:** working local prototype, NOT full fusion of the Golden/Black Dragon engines. The owner's approval of 1,400 design requirements is not evidence of 1,400 implemented abilities.
 
