@@ -41,6 +41,21 @@ import design_v23
 import characters_v23
 import modeling3d_v23
 import web_offline_v23
+import libraries_v24
+import appbuilder_v24
+import vfx_v24
+import security_v24
+import knowledge_v25
+import database_v25
+import media_analysis_v25
+import editing_v25
+import audio_v25
+import automation_v25
+
+# File/media/database adapters: per-op EFFECTS; writes need the owner's --approve-write.
+IO_ADAPTERS = {'knowledge.store': knowledge_v25, 'database.manage': database_v25,
+               'video.analyze': media_analysis_v25, 'video.edit': editing_v25,
+               'audio.process': audio_v25, 'automation.run': automation_v25}
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
 PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
@@ -51,7 +66,9 @@ PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
                 'learning.evolve': learning_v22, 'compose.pipeline': compose_v22,
                 'style.draw': styles_v23, 'design.layout': design_v23,
                 'character.animate': characters_v23, 'model3d.build': modeling3d_v23,
-                'web.offline': web_offline_v23}
+                'web.offline': web_offline_v23, 'library.evaluate': libraries_v24,
+                'app.build': appbuilder_v24, 'vfx.compose': vfx_v24,
+                'security.guard': security_v24}
 from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fusion_frame, render_video as fusion_render, iphone_export, PRESETS
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
@@ -95,6 +112,16 @@ REGISTRY = {
  'character.animate': ('2D character animation data: skeleton FK, walk and run cycles, expressions, rule-based visemes, landmark smoothing, identity lock, grip, secondary motion, crowd layers', 'read', 'builtin'),
  'model3d.build': ('CPU-only 3D: meshes and interference, car steering, cloth, camera, skinning, UV atlas, area light, OBJ/glTF text export, LOD, cutaway', 'read', 'builtin'),
  'web.offline': ('Offline web building blocks on supplied pages only: allow-list, robots policy, OEM numbers, dated prices, HTML text, citations, dedupe, retry policy, JSON export, data licence (no network)', 'read', 'builtin'),
+ 'library.evaluate': ('Free-library evaluation from supplied metadata: SPDX licence duties, tool benchmarks, SVG/animation/WebGL/audio/CV/shot-detection comparisons, lockfiles, Arabic shaping stacks (not legal advice)', 'read', 'builtin'),
+ 'app.build': ('In-memory app generation: scaffolds, RTL HTML, OpenAPI, SQLite DDL with safe migrations, signed session tokens, router specs, generated tests, docs, manifests, deploy plans (nothing written)', 'read', 'builtin'),
+ 'vfx.compose': ('Code VFX on small arrays: tracking, rain, shadows, heat haze, limited bloom, snow vortex, linear alpha compositing, parallax, inpainting, sparks; footage only on owner request', 'read', 'builtin'),
+ 'security.guard': ('Defensive checks: secret/private-store scan, injection-as-data, output path guard, resource caps, seeded fuzzing, SBOM advisories, hash manifests, rollback plans, explicit publish gate', 'read', 'builtin'),
+ 'knowledge.store': ('Local licensed knowledge in SQLite: sources with hashes, Arabic/English FTS5, read-only legacy summaries, consented owner instructions, versioned errors, conflicts, trust, search receipts, safe migrations, workspaces', 'mixed', 'builtin'),
+ 'database.manage': ('SQLite data work: constrained schemas, tenant-filtered queries, index plans, contradiction rules, reversible migrations, strict CSV/JSON import, masked sensitive fields, backup/restore, monthly series, lineage', 'mixed', 'builtin'),
+ 'video.analyze': ('Read-only frame analysis on local media: cut evaluation, motion, saliency crop, perceptual duplicates, sharpness, colour stats, PSNR+SSIM with context, letterbox detection', 'mixed', 'ffmpeg'),
+ 'video.edit': ('Editing on local footage: beat-snapped cuts (rights confirmed), story arc, pacing, approved AAC crossfade render, stabilisation estimate, colour match proposal, 9:16 reframe track', 'mixed', 'ffmpeg'),
+ 'audio.process': ('Audio on local files: LUFS/true-peak, approved denoise/extract/crossfade/normalise renders, trusted word timing, A/V sync, pause-trim EDL, rights records', 'mixed', 'ffmpeg'),
+ 'automation.run': ('Bounded automation in a work dir: allow-listed commands without shell, resumable queue, bounded pool, timeouts without partial files, perf log, retry policy, render QA, release gate, receipts', 'mixed', 'ffmpeg'),
  'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
@@ -189,6 +216,15 @@ ALIASES = {
  'موقع': ('web.offline',),
  'html': ('web.offline',),
  'قطع غيار': ('web.offline',),
+ 'مكتبة': ('library.evaluate',),
+ 'رخصة': ('library.evaluate','governance.audit'),
+ 'تطبيق': ('app.build',),
+ 'api': ('app.build',),
+ 'مؤثرات': ('vfx.compose',),
+ 'vfx': ('vfx.compose',),
+ 'أمان': ('security.guard',),
+ 'أمن': ('security.guard',),
+ 'نشر': ('security.guard',),
  '1400': ('roadmap.status',),
  'خطة': ('roadmap.status',),
  'تقدم': ('roadmap.status',),
@@ -279,7 +315,27 @@ def execute(db, capability, params, *, approve_write=False):
     if effect=='write' and not approve_write:
         return {'capability':capability,'status':'approval_required',
                 'detail':'Use --approve-write after reviewing output destination; nothing executed.'}
-    if capability=='fusion.route':
+    if capability in IO_ADAPTERS:
+        # File/media/database modules: the effect is decided per op, and only the
+        # owner's --approve-write flag can authorise a write. A caller-supplied
+        # approve_write inside params is discarded so nothing can approve itself.
+        _guard_keys(params,('op','params'),('op',))
+        module=IO_ADAPTERS[capability]
+        op=params['op']
+        if op not in module.OPS:
+            raise ValueError('unknown op for '+capability+'; allowed: '+', '.join(module.OPS))
+        inner=dict(params.get('params',{}))
+        if not isinstance(params.get('params',{}),dict):
+            raise ValueError('params must be an object')
+        inner.pop('approve_write',None)
+        effect=module.EFFECTS[op]
+        if effect=='write':
+            if not approve_write:
+                return {'capability':capability,'op':op,'status':'approval_required','effect':'write',
+                        'detail':'Use --approve-write after reviewing output destination; nothing executed.'}
+            inner['approve_write']=True
+        output=module.run(op,inner)
+    elif capability=='fusion.route':
         _guard_keys(params,('from','to','samples'),('from','to'))
         output=greatcircle(params['from'],params['to'],params.get('samples',25))
     elif capability=='fusion.plan':

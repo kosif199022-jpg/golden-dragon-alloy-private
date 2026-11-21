@@ -19,7 +19,8 @@ ROOT = Path(__file__).resolve().parent
 PURE_MODULES = ('physics_v20', 'geometry_v20', 'science_v20', 'thinking_v21',
                 'decision_v21', 'code_analysis_v21', 'accounting_v21', 'governance_v22',
                 'architecture_v22', 'agents_v22', 'learning_v22', 'compose_v22',
-                'styles_v23', 'design_v23', 'characters_v23', 'modeling3d_v23', 'web_offline_v23')
+                'styles_v23', 'design_v23', 'characters_v23', 'modeling3d_v23', 'web_offline_v23',
+                'libraries_v24', 'appbuilder_v24', 'vfx_v24', 'security_v24')
 # compose_v22 is allowed to import the pure modules above; nothing else from the project.
 FORBIDDEN_IMPORTS = {'subprocess', 'socket', 'urllib', 'http', 'shutil', 'os', 'sqlite3', 'ctypes'}
 
@@ -136,6 +137,56 @@ class PureModuleContractTests(unittest.TestCase):
                     self.assertLess(elapsed, 3.0, f'{name}.{op} took {elapsed:.2f}s')
                     json.dumps(out)
                     self.assertTrue(out['assumptions'] and out['limits'])
+
+
+IO_MODULES = ('knowledge_v25', 'database_v25', 'media_analysis_v25', 'editing_v25',
+              'audio_v25', 'automation_v25')
+NETWORK_IMPORTS = {'socket', 'urllib', 'http', 'requests', 'ctypes', 'ftplib', 'smtplib'}
+
+
+class IOModuleSafetyTests(unittest.TestCase):
+    """File/media modules may touch disk, never the network or a shell."""
+
+    def test_no_network_no_shell_and_declared_effects(self):
+        for name in IO_MODULES:
+            with self.subTest(module=name):
+                tree = ast.parse((ROOT / f'{name}.py').read_text(encoding='utf-8'))
+                imported = set()
+                for node in ast.walk(tree):
+                    if isinstance(node, ast.Import):
+                        imported |= {a.name.split('.')[0] for a in node.names}
+                    elif isinstance(node, ast.ImportFrom) and node.module:
+                        imported.add(node.module.split('.')[0])
+                    elif isinstance(node, ast.Call):
+                        fn = node.func
+                        dotted = (f'{getattr(fn.value, "id", "")}.{fn.attr}' if isinstance(fn, ast.Attribute)
+                                  else getattr(fn, 'id', ''))
+                        self.assertNotIn(dotted, ('os.system', 'os.popen', 'exec', 'eval'), name)
+                        for kw in node.keywords:
+                            if kw.arg == 'shell':
+                                self.assertFalse(isinstance(kw.value, ast.Constant) and kw.value.value is True,
+                                                 f'{name} uses shell=True')
+                self.assertFalse(imported & NETWORK_IMPORTS, imported & NETWORK_IMPORTS)
+                module = importlib.import_module(name)
+                self.assertTrue(1 <= len(module.TOPICS) <= 10)
+                self.assertTrue(set(module.TOPICS.values()) <= set(module.OPS))
+                self.assertEqual(set(module.EFFECTS), set(module.OPS), f'{name}: EFFECTS must cover every op')
+                self.assertTrue(set(module.EFFECTS.values()) <= {'read', 'write'})
+                with self.assertRaises(ValueError):
+                    module.run('not_an_op', {})
+
+    def test_write_ops_need_owner_approval_through_registry(self):
+        import sqlite3
+        from contextlib import closing
+        from capability_runtime import execute, IO_ADAPTERS
+        with tempfile.TemporaryDirectory() as tmp, closing(sqlite3.connect(Path(tmp) / 'a.db')) as db:
+            for cap, module in IO_ADAPTERS.items():
+                writes = [op for op, eff in module.EFFECTS.items() if eff == 'write']
+                if not writes:
+                    continue
+                with self.subTest(cap=cap, op=writes[0]):
+                    out = execute(db, cap, {'op': writes[0], 'params': {'approve_write': True}})
+                    self.assertEqual(out['status'], 'approval_required')
 
 
 class RegistryDispatchTests(unittest.TestCase):

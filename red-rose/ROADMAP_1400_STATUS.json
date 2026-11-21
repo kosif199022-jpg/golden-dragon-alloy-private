@@ -901,6 +901,156 @@
    ],
    "evidence": "styles_v23.style_descriptor: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
+  "07.01": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "licence_check",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.licence_check: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.02": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "tool_benchmark",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.tool_benchmark: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.03": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "vector_lib_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.vector_lib_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.04": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "web_anim_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.web_anim_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.05": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "webgl_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.webgl_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.06": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "audio_lib_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.audio_lib_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.07": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "cv_lib_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.cv_lib_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.08": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "shot_detect_compare",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.shot_detect_compare: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.09": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "lockfile",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.lockfile: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.10": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "arabic_shaping_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.arabic_shaping_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
   "08.01": {
    "status": "unit_tested",
    "module": "physics_v20",
@@ -1201,6 +1351,156 @@
    ],
    "evidence": "decision_v21.decision_record: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
+  "10.01": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "scaffold",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.scaffold: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.02": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "rtl_ui",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.rtl_ui: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.03": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "openapi_spec",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.openapi_spec: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.04": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "sql_schema",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.sql_schema: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.05": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "session_tokens",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.session_tokens: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.06": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "router_spec",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.router_spec: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.07": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "feature_tests",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.feature_tests: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.08": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "docs_from_code",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.docs_from_code: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.09": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "package_manifest",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.package_manifest: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.10": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "deploy_plan",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.deploy_plan: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
   "11.01": {
    "status": "unit_tested",
    "module": "code_analysis_v21",
@@ -1350,6 +1650,146 @@
     "performance"
    ],
    "evidence": "code_analysis_v21.diff_review: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "12.01": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "index_source",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.index_source (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.02": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "search_fts",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.search_fts (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.03": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "legacy_summaries",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.legacy_summaries (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.04": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "owner_instructions",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.owner_instructions (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.05": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "error_memory",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.error_memory (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.06": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "reference_conflicts",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.reference_conflicts (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.07": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "trust_score",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.trust_score (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.08": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "search_receipt",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.search_receipt (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.09": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "migrate_memory",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.migrate_memory (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "12.10": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "workspace_isolation",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "knowledge_v25.workspace_isolation (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
   },
   "13.01": {
    "status": "unit_tested",
@@ -1693,6 +2133,118 @@
    ],
    "evidence": "trim+concat; output verified H.264/AAC and duration; write needs --approve-write; never overwrites."
   },
+  "15.04": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "beat_sync_cuts",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "editing_v25.beat_sync_cuts (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "15.05": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "story_arc",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "editing_v25.story_arc (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "15.06": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "pacing_balance",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "editing_v25.pacing_balance (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "15.07": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "safe_crossfade",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "editing_v25.safe_crossfade (write): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "15.08": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "stabilize_estimate",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "editing_v25.stabilize_estimate (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "15.09": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "colour_match",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "editing_v25.colour_match (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "15.10": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "vertical_reframe",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "editing_v25.vertical_reframe (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "16.01": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "loudness",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "audio_v25.loudness (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
   "16.02": {
    "status": "unit_tested",
    "module": "audio_scene_v17",
@@ -1707,6 +2259,34 @@
    ],
    "evidence": "FFmpeg silencedetect start/end checked against a synthetic tone gap."
   },
+  "16.03": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "denoise",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "audio_v25.denoise (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "16.04": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "word_alignment",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "audio_v25.word_alignment (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
   "16.05": {
    "status": "unit_tested",
    "module": "lip_sync",
@@ -1718,6 +2298,226 @@
     "acceptance"
    ],
    "evidence": "20 Hz RMS envelope; test_silence_never_invents_speech keeps the mouth closed in silence."
+  },
+  "16.06": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "extract_pcm",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "audio_v25.extract_pcm (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "16.07": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "cut_crossfade",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "audio_v25.cut_crossfade (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "16.08": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "av_sync",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "audio_v25.av_sync (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "16.09": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "pause_trim",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "audio_v25.pause_trim (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "16.10": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "audio_rights",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "audio_v25.audio_rights (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "17.01": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "track_point",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.track_point: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.02": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "rain_light",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.rain_light: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.03": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "cast_shadow",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.cast_shadow: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.04": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "heat_haze",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.heat_haze: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.05": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "neon_bloom",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.neon_bloom: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.06": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "snow_vortex",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.snow_vortex: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.07": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "alpha_composite",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.alpha_composite: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.08": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "parallax_layers",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.parallax_layers: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.09": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "inpaint_mask",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.inpaint_mask: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.10": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "sparks",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.sparks: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
   "18.01": {
    "status": "unit_tested",
@@ -2032,6 +2832,76 @@
    ],
    "evidence": "FFprobe + full decode; mismatching fps/size rejected."
   },
+  "20.02": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "scene_cuts_eval",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "media_analysis_v25.scene_cuts_eval (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "20.03": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "motion_stats",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "media_analysis_v25.motion_stats (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "20.04": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "saliency_point",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "media_analysis_v25.saliency_point (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "20.05": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "perceptual_dupes",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "media_analysis_v25.perceptual_dupes (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "20.06": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "sharpness",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "media_analysis_v25.sharpness (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
   "20.07": {
    "status": "unit_tested",
    "module": "shot_quality_v19",
@@ -2047,6 +2917,90 @@
    ],
    "evidence": "Crushed/blown luma fractions per shot; black and white shots flagged; source hash unchanged; 60 s 720p in about 4 s."
   },
+  "20.08": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "colour_stats",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "media_analysis_v25.colour_stats (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "20.09": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "quality_compare",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "media_analysis_v25.quality_compare (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "20.10": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "frame_borders",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "media_analysis_v25.frame_borders (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "21.01": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "run_command",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.run_command (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "21.02": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "task_queue",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.task_queue (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "21.03": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "bounded_pool",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.bounded_pool (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
   "21.04": {
    "status": "unit_tested",
    "module": "capability_runtime",
@@ -2060,6 +3014,90 @@
     "permission"
    ],
    "evidence": "Write effects return approval_required without --approve-write; nothing executed."
+  },
+  "21.05": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "timeout_cancel",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.timeout_cancel (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "21.06": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "perf_log",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.perf_log (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "21.07": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "smart_retry",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.smart_retry (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "21.08": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "render_qa",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.render_qa (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "21.09": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "release_gate",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.release_gate (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "21.10": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "execution_receipt",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "automation_v25.execution_receipt (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
   },
   "22.01": {
    "status": "unit_tested",
@@ -2211,6 +3249,146 @@
    ],
    "evidence": "web_offline_v23.data_licence: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
+  "23.01": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "safe_schema",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.safe_schema (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.02": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "tenant_query",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.tenant_query (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.03": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "index_plan",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.index_plan (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.04": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "record_conflicts",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.record_conflicts (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.05": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "safe_migration",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.safe_migration (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.06": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "import_tabular",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.import_tabular (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.07": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "protect_sensitive",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.protect_sensitive (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.08": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "backup_restore",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.backup_restore (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.09": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "time_series",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.time_series (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
+  "23.10": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "lineage",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "database_v25.lineage (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+  },
   "24.01": {
    "status": "unit_tested",
    "module": "accounting_v21",
@@ -2361,6 +3539,21 @@
    ],
    "evidence": "accounting_v21.journal_approval: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
+  "25.01": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "secret_ci_scan",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.secret_ci_scan: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
   "25.02": {
    "status": "unit_tested",
    "module": "capability_runtime",
@@ -2374,6 +3567,126 @@
     "permission"
    ],
    "evidence": "Explicit read/write effect per adapter; write refused before approval."
+  },
+  "25.03": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "injection_readme",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.injection_readme: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.04": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "output_path_guard",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.output_path_guard: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.05": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "resource_limits",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.resource_limits: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.06": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "fuzz_inputs",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.fuzz_inputs: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.07": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "sbom",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.sbom: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.08": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "output_hashing",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.output_hashing: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.09": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "rollback_plan",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.rollback_plan: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.10": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "publish_gate",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.publish_gate: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
   "26.01": {
    "status": "unit_tested",
