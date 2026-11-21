@@ -1,0 +1,183 @@
+{
+ "total_units": 25675,
+ "by_category": {
+  "native": 15180,
+  "guidance": 3305,
+  "meta_catalog": 1169,
+  "network": 2727,
+  "paid": 466,
+  "external_app": 302,
+  "missing": 2526
+ },
+ "by_kind": {
+  "catalog-skill": {
+   "native": 8716,
+   "missing": 2277,
+   "guidance": 1430,
+   "network": 2520,
+   "external_app": 127,
+   "paid": 289
+  },
+  "power": {
+   "native": 5448,
+   "paid": 128,
+   "network": 70,
+   "external_app": 94,
+   "meta_catalog": 288,
+   "guidance": 101
+  },
+  "reference": {
+   "guidance": 1627
+  },
+  "skill": {
+   "paid": 31,
+   "external_app": 50,
+   "native": 357,
+   "network": 110,
+   "missing": 79,
+   "guidance": 42
+  },
+  "superpower": {
+   "meta_catalog": 485
+  },
+  "script": {
+   "meta_catalog": 352
+  },
+  "tool": {
+   "native": 190,
+   "missing": 83,
+   "guidance": 8,
+   "external_app": 17,
+   "network": 15,
+   "paid": 8
+  },
+  "lesson": {
+   "native": 222
+  },
+  "lib": {
+   "missing": 34,
+   "native": 95,
+   "external_app": 8,
+   "network": 9,
+   "paid": 6,
+   "guidance": 2
+  },
+  "rule": {
+   "native": 134
+  },
+  "thinking": {
+   "guidance": 51
+  },
+  "road": {
+   "guidance": 43
+  },
+  "re": {
+   "missing": 33,
+   "native": 1
+  },
+  "program": {
+   "missing": 17,
+   "external_app": 4,
+   "native": 9,
+   "guidance": 1,
+   "network": 1
+  },
+  "cmd": {
+   "meta_catalog": 29
+  },
+  "engine": {
+   "meta_catalog": 15
+  },
+  "studio": {
+   "native": 8,
+   "external_app": 2
+  },
+  "mcp": {
+   "network": 1,
+   "missing": 3,
+   "paid": 3
+  },
+  "module": {
+   "network": 1,
+   "paid": 1
+  }
+ },
+ "fusable_units": 22180,
+ "fused_or_absorbed_units": 19654,
+ "fusion_ratio_of_fusable": 0.8861,
+ "missing_families_top": [
+  [
+   "CATALOG-SKILL:unrouted",
+   2277
+  ],
+  [
+   "TOOL:unrouted",
+   83
+  ],
+  [
+   "SKILL:unrouted",
+   79
+  ],
+  [
+   "LIB:unrouted",
+   34
+  ],
+  [
+   "RE:unrouted",
+   33
+  ],
+  [
+   "PROGRAM:unrouted",
+   17
+  ],
+  [
+   "MCP:unrouted",
+   3
+  ]
+ ],
+ "adapters_used": {
+  "knowledge.store": 3753,
+  "app.build": 1968,
+  "studio.render": 1843,
+  "design.layout": 1733,
+  "architecture.check": 1669,
+  "code.analyze": 1642,
+  "style.draw": 1616,
+  "motion.core": 1516,
+  "agents.coordinate": 1337,
+  "database.manage": 1336,
+  "video.edit": 1271,
+  "thinking.reason": 1239,
+  "graphics.motion": 1184,
+  "decision.make": 1067,
+  "accounting.check": 959,
+  "audio.process": 883,
+  "security.guard": 852,
+  "text.motion": 681,
+  "math.geometry": 608,
+  "governance.audit": 509,
+  "learning.evolve": 465,
+  "automation.run": 385,
+  "video.verify": 384,
+  "memory.recall": 356,
+  "roadmap.status": 288,
+  "character.animate": 210,
+  "physics.simulate": 188,
+  "video.analyze": 160,
+  "model3d.build": 115,
+  "science.compute": 114,
+  "vfx.compose": 87,
+  "fusion.route": 63,
+  "library.evaluate": 2
+ },
+ "method": "keyword/prefix classification (heuristic); native = adapter exists, not every legacy behaviour reproduced",
+ "measured_on": "2026-11-22",
+ "registry_adapters": 55,
+ "source": "local private fused_knowledge table, read-only; only aggregate counts are stored here",
+ "adapters_coded_untested_v27": [
+  "motion.core",
+  "text.motion",
+  "graphics.motion",
+  "studio.render"
+ ]
+}

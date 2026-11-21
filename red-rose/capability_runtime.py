@@ -52,12 +52,16 @@ import editing_v25
 import audio_v25
 import automation_v25
 import release_v26
+import motion_v27
+import typemotion_v27
+import graphics_v27
+import studio_v27
 
 # File/media/database adapters: per-op EFFECTS; writes need the owner's --approve-write.
 IO_ADAPTERS = {'knowledge.store': knowledge_v25, 'database.manage': database_v25,
                'video.analyze': media_analysis_v25, 'video.edit': editing_v25,
                'audio.process': audio_v25, 'automation.run': automation_v25,
-               'release.verify': release_v26}
+               'release.verify': release_v26, 'studio.render': studio_v27}
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
 PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
@@ -70,7 +74,10 @@ PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
                 'character.animate': characters_v23, 'model3d.build': modeling3d_v23,
                 'web.offline': web_offline_v23, 'library.evaluate': libraries_v24,
                 'app.build': appbuilder_v24, 'vfx.compose': vfx_v24,
-                'security.guard': security_v24}
+                'security.guard': security_v24,
+                # V27 motion fusion (coded; owner asked for no tests): pure SVG generators.
+                'motion.core': motion_v27, 'text.motion': typemotion_v27,
+                'graphics.motion': graphics_v27}
 from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fusion_frame, render_video as fusion_render, iphone_export, PRESETS
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
@@ -125,6 +132,10 @@ REGISTRY = {
  'audio.process': ('Audio on local files: LUFS/true-peak, approved denoise/extract/crossfade/normalise renders, trusted word timing, A/V sync, pause-trim EDL, rights records', 'mixed', 'ffmpeg'),
  'automation.run': ('Bounded automation in a work dir: allow-listed commands without shell, resumable queue, bounded pool, timeouts without partial files, perf log, retry policy, render QA, release gate, receipts', 'mixed', 'ffmpeg'),
  'release.verify': ('Final integration: independence audit, registry reality, 1,400 closure matrix, approved end-to-end MP4, device checklist, load test, release privacy, human edit rubric, portable release with smoke test, handoff resume', 'mixed', 'ffmpeg'),
+ 'motion.core': ('Motion core (coded, untested): 36 easings, keyframe tracks, 27 transitions as SVG, 12 camera moves, beat-timed transitions', 'read', 'builtin'),
+ 'text.motion': ('Kinetic typography (coded, untested): 15 Arabic-safe styles (words never split into letters), captions, karaoke from supplied timings, SRT, lower thirds, platform canvases', 'read', 'builtin'),
+ 'graphics.motion': ('Motion graphics (coded, untested): shape morph, draw-on, neon (on request), textures (on request), particles, data viz, schematic route maps, explainers, retro pixel, UI mocks, brand reveals', 'read', 'builtin'),
+ 'studio.render': ('Timeline studio (coded, untested): validate and preview layered timelines, approved MP4 render with measured AAC mix and ducking, named grades only on owner request, LUT text, delivery check', 'mixed', 'ffmpeg'),
  'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
@@ -228,6 +239,19 @@ ALIASES = {
  'أمان': ('security.guard',),
  'أمن': ('security.guard',),
  'نشر': ('security.guard',),
+ 'انتقال': ('motion.core',),
+ 'انتقالات': ('motion.core',),
+ 'كاميرا': ('motion.core','math.geometry'),
+ 'كتابة متحركة': ('text.motion',),
+ 'كابشن': ('text.motion',),
+ 'ترجمة': ('text.motion',),
+ 'نيون': ('graphics.motion',),
+ 'خريطة': ('graphics.motion',),
+ 'رسم بياني': ('graphics.motion',),
+ 'رندر': ('studio.render','video.produce'),
+ 'تلوين': ('studio.render',),
+ 'ميكس': ('studio.render','audio.process'),
+ 'موشن': ('motion.core','graphics.motion','text.motion','studio.render'),
  '1400': ('roadmap.status',),
  'خطة': ('roadmap.status',),
  'تقدم': ('roadmap.status',),
