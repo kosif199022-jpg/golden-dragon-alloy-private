@@ -1,0 +1,13 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+*.sqlite*
+*.db
+*.mp4
+*.wav
+*.mp3
+*.env
+.env*
+owner-memory/
+private/
+credentials/

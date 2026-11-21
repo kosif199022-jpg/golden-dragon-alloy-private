@@ -1,0 +1,23 @@
+[
+  {
+    "duration": 2.5,
+    "recipe": {
+      "mode": "director2d",
+      "title": "THE JOURNEY",
+      "palette": {"sky":"#111b35","horizon":"#db8d80","distant":"#516581","middle":"#304b64","ground":"#152c3a","light":"#ffcf91"},
+      "camera": {"pan_keys":[{"t":0,"value":-0.14},{"t":1,"value":0.16}],"zoom_keys":[{"t":0,"value":1.00},{"t":1,"value":1.15}]},
+      "actor": {"x_keys":[{"t":0,"value":0.34},{"t":1,"value":0.52}],"y_keys":[{"t":0,"value":0.73},{"t":1,"value":0.71}],"scale_keys":[{"t":0,"value":1.12},{"t":1,"value":1.25}],"gait":1.7,"coat":"#bf5068","skin":"#e9ba91","hair":"#252030","trousers":"#1f2a3e"}
+    }
+  },
+  {
+    "duration": 2.5,
+    "transition":"fade",
+    "recipe": {
+      "mode": "director2d",
+      "title": "RED ROSE",
+      "palette": {"sky":"#191a36","horizon":"#8c7799","distant":"#444a75","middle":"#353c59","ground":"#142636","light":"#f9d2bd"},
+      "camera": {"pan_keys":[{"t":0,"value":0.15},{"t":1,"value":-0.12}],"zoom_keys":[{"t":0,"value":1.09},{"t":1,"value":1.26}]},
+      "actor": {"x_keys":[{"t":0,"value":0.42},{"t":1,"value":0.63}],"y_keys":[{"t":0,"value":0.71},{"t":1,"value":0.71}],"scale_keys":[{"t":0,"value":1.27},{"t":1,"value":1.34}],"gait":1.5,"coat":"#c97e8f","skin":"#eac0a1","hair":"#282033","trousers":"#243449"}
+    }
+  }
+]
