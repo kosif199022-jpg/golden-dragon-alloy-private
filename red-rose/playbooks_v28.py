@@ -46,7 +46,7 @@ MAX_SUMMARY = 20_000
 MAX_QUERY = 500
 MAX_ROWS = 1_000_000
 MAX_LIST = 12
-SCHEMA_VERSION = 'playbooks_v28/1'
+SCHEMA_VERSION = 'playbooks_v28/2'
 
 PRIVATE_DIR = Path.home() / '.red-rose'
 
@@ -383,6 +383,66 @@ def _domain(kind, title, summary):
     return domain, category, family, list(adapters)
 
 
+_LEAD_VERB = re.compile(
+    r'^(?:generate|create|build|write|produce|convert|scaffold|draft|design|make|render|export|'
+    r'compose|compile|estimate|compute|calculate|summari[sz]e|plan|prepare)s?\s+(?:an?\s+|the\s+)?'
+    r'(?P<obj>[^,.;:—–()]{3,80}?)(?=\s+(?:for|from|with|using|into|to|that|which|by|in|on)\b|[,.;:—–(]|$)',
+    re.I)
+_IN_CUE = re.compile(r'\b(?:from|given|using|on|of)\s+(?:an?\s+|the\s+|your\s+)?'
+                     r'(?P<obj>[^,.;:—–()]{3,60}?)(?=\s+(?:and|to|for|with|into|that|by|in)\b|[,.;:—–(]|$)', re.I)
+
+
+def _humanise_title(title):
+    words = re.sub(r'^[0-9]+[-_ ]+', '', title or '')
+    words = re.sub(r'[-_/]+', ' ', words).strip()
+    return (words[:1].upper() + words[1:]) if words else None
+
+
+def _template_steps(domain, adapters, outputs):
+    """Red Rose's own generic procedure; stored apart and never attributed to the source text."""
+    adapter = adapters[0] if adapters else None
+    out = outputs[0] if outputs else 'the deliverable'
+    steps = ['Restate the request as a task contract (task, deliverable, constraints, done-when)',
+             'Collect and validate the inputs; ask one question only if a required input is missing']
+    if adapter:
+        steps.append(f'Run the matching Red Rose adapter: {adapter} (writes only with --approve-write)')
+    else:
+        steps.append('Do the work as an agent step following the goal; no native adapter is mapped')
+    steps += [f'Check {out} against the goal and record measured evidence',
+              'Report the result first, then limits and anything not verified']
+    return steps
+
+
+def _enrich(title, goal, inputs, outputs, steps, checks, triggers, domain, adapters):
+    """Fill gaps from the same text or from Red Rose templates, labelling every inference."""
+    derived = []
+    goal_source = 'source'
+    if not goal:
+        goal = _humanise_title(title)
+        goal_source = 'title' if goal else 'none'
+        if goal:
+            derived.append('goal<-title')
+    if not outputs and goal:
+        m = _LEAD_VERB.search(goal.strip())
+        if m:
+            outputs = [m.group('obj').strip()]
+            derived.append('outputs<-goal verb object')
+    if not inputs and goal:
+        m = _IN_CUE.search(goal)
+        if m:
+            inputs = [m.group('obj').strip()]
+            derived.append('inputs<-goal preposition phrase')
+    template = [] if steps else _template_steps(domain, adapters, outputs)
+    filled = sum(1 for v in (goal, triggers, inputs, steps or template, checks, outputs) if v)
+    return {'goal': goal, 'inputs': inputs, 'outputs': outputs, 'template_steps': template,
+            'steps_source': 'source' if steps else 'red_rose_template', 'goal_source': goal_source,
+            'derived_fields': derived, 'completeness': round(filled / len(FIELDS), 3)}
+
+
+def _base_record():
+    return {}
+
+
 def _parse(title, summary, kind):
     """Core pure heuristic (inputs already validated/coerced to str)."""
     title = _clean(title)
@@ -428,7 +488,11 @@ def _parse(title, summary, kind):
     domain, category, family, adapters = _domain(kind, title, summary)
     found = sum(1 for v in (goal, triggers, inputs, steps, checks, outputs) if v)
     conf = _confidence(found)
-    return {
+    extra = _enrich(title, goal, inputs, outputs, steps, checks, triggers, domain, adapters)
+    goal = extra.pop('goal')
+    inputs = extra.pop('inputs')
+    outputs = extra.pop('outputs')
+    return {**_base_record(), **extra,
         'id': 'pb_' + source_sha[:20],
         'title': title[:MAX_TITLE],
         'goal': goal,
@@ -494,15 +558,18 @@ _PB_SCHEMA = [
     'goal TEXT, triggers TEXT NOT NULL, inputs TEXT NOT NULL, steps TEXT NOT NULL, checks TEXT NOT NULL, '
     'outputs TEXT NOT NULL, domain TEXT NOT NULL, category TEXT NOT NULL, family TEXT NOT NULL, '
     'related_adapters TEXT NOT NULL, confidence REAL NOT NULL, band TEXT NOT NULL, flags TEXT NOT NULL, '
-    'kind TEXT NOT NULL, license TEXT, source_sha256 TEXT NOT NULL)',
+    'kind TEXT NOT NULL, license TEXT, source_sha256 TEXT NOT NULL, template_steps TEXT NOT NULL, '
+    'steps_source TEXT NOT NULL, goal_source TEXT NOT NULL, derived_fields TEXT NOT NULL, '
+    'completeness REAL NOT NULL)',
     'CREATE INDEX playbooks_domain ON playbooks(domain)',
     'CREATE INDEX playbooks_band ON playbooks(band)',
     "CREATE VIRTUAL TABLE playbooks_fts USING fts5(title, goal, triggers, steps, tokenize='unicode61')",
 ]
 _PB_COLS = ('id', 'title', 'goal', 'triggers', 'inputs', 'steps', 'checks', 'outputs', 'domain',
             'category', 'family', 'related_adapters', 'confidence', 'band', 'flags', 'kind', 'license',
-            'source_sha256')
-_JSON_COLS = frozenset({'triggers', 'inputs', 'steps', 'checks', 'outputs', 'related_adapters', 'flags'})
+            'source_sha256', 'template_steps', 'steps_source', 'goal_source', 'derived_fields', 'completeness')
+_JSON_COLS = frozenset({'triggers', 'inputs', 'steps', 'checks', 'outputs', 'related_adapters', 'flags',
+                        'template_steps', 'derived_fields'})
 
 
 def _as_text(value, limit):
