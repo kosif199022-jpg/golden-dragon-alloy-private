@@ -231,3 +231,6 @@ python rose.py recut footage.mp4 edits.json new.mp4 --approve-write
 ```
 
 Evidence and limits are in `CAPABILITY_LEDGER_V19.md`: 185 local tests passed; measurements are technical proxies, not focus, composition, story or aesthetic judgement, and the thresholds have not been tuned on real footage.
+## V20 — five user-supplied media archives distilled to one independent runtime
+
+Five source ZIP files were inspected and SHA256-registered in SOURCE_FUSION_AUDIT_V20.json. Original independently written fusion_studio_v20.py adds 5 registered native adapters: fusion.route, fusion.plan, fusion.frame (read-only), fusion.render and media.iphone_export (write approval required). See FUSION_V20_GUIDE.md for CLI usage and limitations. This is partial independent reimplementation, NOT wholesale functional equivalence or legacy engine invocation. V19 PR #16/#17 remain separate open developments.

@@ -85,3 +85,6 @@ Before new work, run \`python rose.py question-audit\` and inspect \`QA_TRACEABI
 - `video.shot_score` (read): `python rose.py shot-score footage.mp4`. Returns per-shot `mean_luma`, clipping fractions, `detail`, `motion`, `audible_fraction`, flags, a ranked list and a `suggested_edl`.
 - Shots flagged `too_dark`, `too_bright` or `clipped` are left out of the proposal; `low_detail`, `static` and `high_motion` are reported only.
 - Present the flags and scores to the user as measurements, never as "best shots". No focus, composition, face or story understanding exists. Export only through an approved `video.recut`.
+## V20 — owner-supplied archive distillation
+
+Start with FUSION_V20_GUIDE.md and SOURCE_FUSION_AUDIT_V20.json. Use fusion.plan/fusion.route/fusion.frame to inspect and preview an original clay+map storyboard. fusion.render and media.iphone_export require an explicit approved destination and must never overwrite. Five ZIP archive engines are source references, not called at runtime. This is a real but partial V20 independent prototype; do not claim full fusion, physical iPhone playback, or real satellite imagery.

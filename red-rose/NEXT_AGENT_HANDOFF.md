@@ -135,3 +135,6 @@ PR/merge state: PR #17 مفتوح وغير مدموج. تنبيه: PR #16 (فر�
 - ذاكرة الوردة المحلية: جدول `memories` فارغ؛ `fused_knowledge` (25,675) أوصاف مهارات لا أسئلة.
 
 الخلاصة: النصوص موجودة فقط في المحادثة الأصلية خارج المستودع. **الحالة ما زالت `unresolved`**؛ المطلوب من المالك تصدير المحادثة أو مشاركتها، ثم تُحفظ النصوص حرفيًا بمصدرها قبل أي تنفيذ. لا تُنفَّذ ولا تُؤلَّف أسئلة غير موجودة.
+## 9. V20: independent five-source media fusion
+
+Five ZIP inputs were scanned and registered by SHA256. Native original fusion_studio_v20.py and its two tests add fusion.route, fusion.plan, fusion.frame, fusion.render and media.iphone_export, with 2 read-only storyboard/map actions, one read-only SVG frame, and 2 write-approval-gated outputs. V18 original baseline has 16 adapters; V20 branch proposes 21. Local standalone V17-source + V20 integration 174 tests passed; 2-second 24-frame synthetic clay/map video and iPhone-compatible transcode passed full decode. Verify GitHub CI and merged main before stating V20 is released. No fonts, raw source ZIPs, secrets or private SQLite were committed. Source archive fidelity is partial, not fully fused. V19 PR #16/#17 still overlap and require separate reconciliation.
