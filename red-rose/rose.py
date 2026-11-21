@@ -11,6 +11,8 @@ from speech import parse_srt, apply_captions
 from alloy_fusion import import_alloy, find_fused, stats_fused
 from knowledge_router import route as route_knowledge
 from verify_media import verify_video
+from identity import apply_profiles
+from lip_sync import levels_from_audio, apply_lipsync
 
 def connect(path):
     p=Path(path).expanduser(); p.parent.mkdir(parents=True,exist_ok=True)
@@ -53,7 +55,7 @@ def main(argv=None):
     x=sub.add_parser('style-show'); x.add_argument('name')
     sub.add_parser('style-list')
     x=sub.add_parser('render'); x.add_argument('output'); x.add_argument('--style'); x.add_argument('--duration',type=float,default=10); x.add_argument('--fps',type=int,default=24); x.add_argument('--width',type=int,default=540); x.add_argument('--height',type=int,default=960); x.add_argument('--mp4',action='store_true')
-    x=sub.add_parser('produce'); x.add_argument('storyboard_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--width',type=int,default=540); x.add_argument('--height',type=int,default=960); x.add_argument('--audio'); x.add_argument('--srt')
+    x=sub.add_parser('produce'); x.add_argument('storyboard_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--width',type=int,default=540); x.add_argument('--height',type=int,default=960); x.add_argument('--audio'); x.add_argument('--srt'); x.add_argument('--lip-sync',action='store_true'); x.add_argument('--profiles')
     sub.add_parser('sources')
     x=sub.add_parser('verify'); x.add_argument('video'); x.add_argument('--fps',type=float); x.add_argument('--width',type=int); x.add_argument('--height',type=int)
     x=sub.add_parser('fuse-alloy'); x.add_argument('source_db'); x.add_argument('--limit',type=int)
@@ -66,7 +68,19 @@ def main(argv=None):
     if args.command=='produce':
         shots=json.loads(Path(args.storyboard_json).read_text(encoding='utf-8'))
         if args.srt: shots=apply_captions(shots,parse_srt(Path(args.srt).read_text(encoding='utf-8-sig')))
+        identities={}
+        if args.profiles:
+            shots,identities=apply_profiles(shots,json.loads(Path(args.profiles).read_text(encoding='utf-8')))
+        sync=None
+        if args.lip_sync:
+            if not args.audio: raise ValueError('--lip-sync requires --audio with speech')
+            shots,sync=apply_lipsync(shots,levels_from_audio(args.audio))
+            if not sync['processed_shots']: raise ValueError('no director2d/ik2d shot found for lip sync')
         result=produce(shots,args.output,args.fps,args.width,args.height,args.audio)
+        result['locked_characters']=identities
+        if sync: result['voice_sync']=sync
+        manifest=Path(args.output).resolve()/'manifest.json'
+        manifest.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
         result['style_save_question']='تحب تحفظ ستايل الفيديو؟ وباسم إيه؟ احفظه بأمر style-save.'
         print(json.dumps(result,ensure_ascii=False)); return
     if args.command=='plan': print(json.dumps({'task':args.task,'steps':['inspect','plan','execute','verify','learn'],'status':'planned_not_executed'},ensure_ascii=False)); return

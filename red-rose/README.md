@@ -1,4 +1,4 @@
-# الوردة الحمراء 🌹 V11 — Independent, editable video prototype + offline knowledge
+# الوردة الحمراء 🌹 V13 — Independent, editable video prototype + offline knowledge
 
 **Project status:** working local prototype, NOT full fusion of the Golden/Black Dragon engines. The owner's approval of 1,400 design requirements is not evidence of 1,400 implemented abilities.
 
@@ -52,3 +52,19 @@ V10.1: 43 legacy local tests. V11: tests for keyframes, art-directed illustratio
 - Demo: python rose.py produce demo_v12.json output --fps 24 --width 540 --height 960
 - Locally verified on complete V12 bundle: 68/68 tests, five-second 120-frame MP4 FFprobe/FFmpeg QA.
 - This is stylized 2D animation, NOT automatic lip sync, 3D rigging or complete 1,400-capability fusion.
+
+## V13 — shared original character profile and approximate voice lip response
+
+V13 adds two independent components, integrated through `rose.py produce`:
+
+1. `identity.py` validates a named cartoon character profile with four hex colors (`skin`, `hair`, `coat`, `trousers`), uses a deterministic SHA256 fingerprint and applies it across all `director2d` shots with `actor.character_id`. A conflicting per-scene color or missing profile is rejected. This is **style consistency of a drawn figure**, not face recognition or preservation of a real person's appearance.
+2. `lip_sync.py` extracts RMS audio energy at 20 Hz via local FFmpeg decode and converts it into scene-local mouth keyframes (up to 64 per shot). Silence closes the mouth. It is amplitude-driven, **not** phoneme/viseme recognition, transcript generation, or word alignment. `--lip-sync` is opt-in and requires `--audio`, `director2d`, and `rig=ik2d`.
+
+Run:
+```bash
+python rose.py produce demo_v13.json out --fps 18 --width 432 --height 768 --audio voice.wav --lip-sync --profiles profiles_v13.json --srt demo_v13.srt
+python rose.py verify out/video.mp4 --fps 18 --width 432 --height 768
+python -W error::ResourceWarning -m unittest discover -v
+```
+
+**Evidence:** Local V13 tests: 82/82; two-scene 121-frame 432×768 MP4 with locally synthesized original spoken sample, AAC/H.264 passed independent FFprobe/FFmpeg verification. The demo eSpeak voice is not part of the built-in skill or this source repository. No personal SQLite database or legacy executable runtime is included. **Still unimplemented:** user-face fidelity, phoneme-level alignment, professional 3D, high-end editorial automation, full 1,400-requirement fusion.
