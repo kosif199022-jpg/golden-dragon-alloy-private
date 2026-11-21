@@ -1,0 +1,33 @@
+{
+  "version": "16.0.0",
+  "date": "2026-11-21",
+  "project": "red-rose",
+  "verified_local_tests": 146,
+  "test_command": "PYTHONWARNINGS=error::ResourceWarning python -m unittest discover -q",
+  "implemented_native_adapters": 13,
+  "new_adapters": [
+    "video.scene_analyze",
+    "video.recut"
+  ],
+  "memory_source_database_included": false,
+  "legacy_runtime_called": false,
+  "requirements_1400_implemented": false,
+  "demo_evidence": {
+    "source_shots": 3,
+    "cuts_detected": [
+      1.5,
+      3.0
+    ],
+    "edited_duration_seconds": 3.0,
+    "edited_frames": 72,
+    "resolution": "432x768",
+    "video_codec": "h264",
+    "audio_codec": "aac"
+  },
+  "limitations": [
+    "RGB cut heuristic is not semantic",
+    "Hard cuts only",
+    "No autonomous editorial AI",
+    "Source media needed for demos"
+  ]
+}
