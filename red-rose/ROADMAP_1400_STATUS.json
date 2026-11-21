@@ -16,6 +16,156 @@
    ],
    "evidence": "REGISTRY dispatch; unknown ids and parameters rejected (test_unknown_action_not_executable)."
   },
+  "04.01": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "first_principles",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.first_principles: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.02": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "alternatives",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.alternatives: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.03": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "causal",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.causal: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.04": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "decision_matrix",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.decision_matrix: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.05": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "premortem",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.premortem: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.06": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "budget_filter",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.budget_filter: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.07": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "plan_gaps",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.plan_gaps: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.08": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "lesson_match",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.lesson_match: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.09": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "poc_gate",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.poc_gate: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.10": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "aesthetic_decision",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.aesthetic_decision: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
   "05.01": {
    "status": "unit_tested",
    "module": "geometry_v20",
@@ -316,6 +466,306 @@
    ],
    "evidence": "physics_v20.particles: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
+  "09.01": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "intent_state",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.intent_state: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.02": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "confidence",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.confidence: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.03": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "tool_choice",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.tool_choice: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.04": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "phase_machine",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.phase_machine: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.05": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "blind_review",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.blind_review: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.06": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "resolve_conflict",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.resolve_conflict: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.07": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "failure_log",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.failure_log: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.08": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "route_tested",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.route_tested: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.09": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "incomplete_info",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.incomplete_info: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.10": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "decision_record",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.decision_record: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.01": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "syntax_check",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.syntax_check: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.02": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "import_cycles",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.import_cycles: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.03": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "duplicate_functions",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.duplicate_functions: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.04": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "resource_handling",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.resource_handling: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.05": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "secret_scan",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.secret_scan: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.06": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "race_check",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.race_check: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.07": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "traceback_repro",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.traceback_repro: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.08": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "complexity",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.complexity: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.09": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "boundary_cases",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.boundary_cases: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.10": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "diff_review",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.diff_review: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
   "15.01": {
    "status": "unit_tested",
    "module": "scene_edit_v16",
@@ -575,6 +1025,156 @@
     "permission"
    ],
    "evidence": "Write effects return approval_required without --approve-write; nothing executed."
+  },
+  "24.01": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "bank_reconcile",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.bank_reconcile: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.02": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "duplicate_invoices",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.duplicate_invoices: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.03": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "trial_balance",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.trial_balance: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.04": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "payroll_check",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.payroll_check: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.05": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "inventory_codes",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.inventory_codes: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.06": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "meat_costing",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.meat_costing: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.07": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "cash_flow",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.cash_flow: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.08": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "cost_allocation",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.cost_allocation: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.09": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "standards_checklist",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.standards_checklist: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.10": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "journal_approval",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.journal_approval: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
   "25.02": {
    "status": "unit_tested",

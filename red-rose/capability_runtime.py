@@ -27,10 +27,16 @@ import roadmap_1400
 import physics_v20
 import geometry_v20
 import science_v20
+import thinking_v21
+import decision_v21
+import code_analysis_v21
+import accounting_v21
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
 PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
-                'science.compute': science_v20}
+                'science.compute': science_v20, 'thinking.reason': thinking_v21,
+                'decision.make': decision_v21, 'code.analyze': code_analysis_v21,
+                'accounting.check': accounting_v21}
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
@@ -55,6 +61,10 @@ REGISTRY = {
  'physics.simulate': ('Deterministic motion physics: fall, collision, friction, spring, projectile, cloth, motion blur, flow, shading, particles', 'read', 'builtin'),
  'math.geometry': ('Scene geometry: transforms, perspective, curves, aspect fit, depth of field, two-bone IK, camera paths, homography, timecode, lens distortion', 'read', 'builtin'),
  'science.compute': ('Exact units, smoothed derivatives, Jacobian IK, intrinsics, quaternions, FFT, z-buffer, seeded RNG, ODE solvers, model reports', 'read', 'builtin'),
+ 'thinking.reason': ('Structured thinking: first principles, alternatives, causal do(), weighted decisions with sensitivity, pre-mortem, budgets, plan gaps, lessons, PoC gate, aesthetic review', 'read', 'builtin'),
+ 'decision.make': ('Decision rules: intent state, confidence labels, tool choice, phase machine, blind review, conflict priority, failure log, tested routing, gaps, auditable records', 'read', 'builtin'),
+ 'code.analyze': ('Static code analysis on supplied source text: syntax, import cycles, duplicates, resources, masked secrets, races, tracebacks, complexity, boundaries, diff review', 'read', 'builtin'),
+ 'accounting.check': ('Decimal checks on owner-supplied records: bank reconciliation, duplicate invoices, trial balance, payroll, item codes, costing, cash flow, allocation, checklists, approvals', 'read', 'builtin'),
 }
 ALIASES = {
  'video': ('video.scene_analyze','video.recut','video.preview','video.produce','video.verify'),
@@ -101,6 +111,22 @@ ALIASES = {
  'وحدات': ('science.compute',),
  'fft': ('science.compute',),
  'تردد': ('science.compute',),
+ 'بدائل': ('thinking.reason',),
+ 'سبب': ('thinking.reason',),
+ 'مصفوفة قرار': ('thinking.reason',),
+ 'قرار': ('decision.make','thinking.reason'),
+ 'ثقة': ('decision.make',),
+ 'تعارض': ('decision.make',),
+ 'كود': ('code.analyze',),
+ 'code': ('code.analyze',),
+ 'أسرار': ('code.analyze',),
+ 'diff': ('code.analyze',),
+ 'محاسبة': ('accounting.check',),
+ 'مطابقة': ('accounting.check',),
+ 'فواتير': ('accounting.check',),
+ 'ميزان': ('accounting.check',),
+ 'رواتب': ('accounting.check',),
+ 'تكلفة': ('accounting.check',),
  '1400': ('roadmap.status',),
  'خطة': ('roadmap.status',),
  'تقدم': ('roadmap.status',),

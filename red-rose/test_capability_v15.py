@@ -31,7 +31,7 @@ class CapabilityTest(unittest.TestCase):
 
     def test_native_adapter_registry_v16(self):
         records=list_capabilities()
-        self.assertEqual(len(records),21)
+        self.assertEqual(len(records),25)
         self.assertEqual({r['id'] for r in records},set(REGISTRY))
         self.assertTrue(all(r['status']=='adapter_implemented' for r in records))
 

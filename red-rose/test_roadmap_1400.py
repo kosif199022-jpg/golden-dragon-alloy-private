@@ -16,7 +16,8 @@ from question_bank import load_bank, summarize, find, SOURCE as DRAFT_SOURCE
 
 ROOT = Path(__file__).resolve().parent
 # Pure-computation modules built for the roadmap; each must expose TOPICS/OPS/run.
-PURE_MODULES = ('physics_v20', 'geometry_v20', 'science_v20')
+PURE_MODULES = ('physics_v20', 'geometry_v20', 'science_v20', 'thinking_v21',
+                'decision_v21', 'code_analysis_v21', 'accounting_v21')
 FORBIDDEN_IMPORTS = {'subprocess', 'socket', 'urllib', 'http', 'shutil', 'os', 'sqlite3', 'ctypes'}
 
 
@@ -80,7 +81,9 @@ class OwnerRoadmapTests(unittest.TestCase):
         self.assertEqual(answered['topic_key'], '15.01')
         self.assertTrue(answered['answered_in_tested_code'])
         self.assertTrue(answered['owner_approved'])
-        untouched = rm.explain_question(1151, registry=REGISTRY)  # 24.01 bank reconciliation
+        reconciled = rm.explain_question(1151, registry=REGISTRY)  # 24.01 bank reconciliation
+        self.assertTrue(reconciled['answered_in_tested_code'])
+        untouched = rm.explain_question(1051, registry=REGISTRY)  # 22.01 web data, not built
         self.assertFalse(untouched['answered_in_tested_code'])
         self.assertEqual(untouched['topic_status'], 'proposed')
         for bad in (0, 1401, '5', True):
