@@ -138,3 +138,38 @@ PR/merge state: PR #17 مفتوح وغير مدموج. تنبيه: PR #16 (فر�
 ## 9. V20: independent five-source media fusion
 
 Five ZIP inputs were scanned and registered by SHA256. Native original fusion_studio_v20.py and its two tests add fusion.route, fusion.plan, fusion.frame, fusion.render and media.iphone_export, with 2 read-only storyboard/map actions, one read-only SVG frame, and 2 write-approval-gated outputs. V18 original baseline has 16 adapters; V20 branch proposes 21. Local standalone V17-source + V20 integration 174 tests passed; 2-second 24-frame synthetic clay/map video and iPhone-compatible transcode passed full decode. Verify GitHub CI and merged main before stating V20 is released. No fonts, raw source ZIPs, secrets or private SQLite were committed. Source archive fidelity is partial, not fully fused. V19 PR #16/#17 still overlap and require separate reconciliation.
+
+## 10. خطة الـ1,400 المعتمدة من المالك — التنفيذ بالدفعات (ابدأ من هنا)
+
+**المصدر والاعتماد:** أرسل المالك `RED_ROSE_1400_QUESTIONS_WITH_ANSWERS.zip` يوم 2026-11-21 وكتب في الشات «نفذ الاجابات موافق على الكل». الملف محفوظ بلا تعديل في `questions/owner_1400/RED_ROSE_1400.json` (sha256 `0b878ab7…` يطابق مانيفست الأرشيف). الملف نفسه يقول إنه **صياغة جديدة** وليس النصوص الحرفية القديمة. الاعتماد يشمل الإجابات كقرارات تصميم فقط، ولا يشمل الرفع أو الدمج أو التثبيت أو الخدمات المدفوعة أو حذف ملفات المالك.
+
+**البنية:** 1,400 سؤال = 280 موضوعًا × 5 عدسات (العقد، الخوارزمية، اختبار القبول، الصلاحيات والخصوصية، الأداء). المتتبّع `roadmap_1400.py` + `ROADMAP_1400_STATUS.json` لا يرقّي موضوعًا إلا إذا وُجد الموديول والدالة وملف اختبار يستدعيها، ويُعاد التحقق عند كل تحميل.
+
+**الحالة المقاسة (فرع `red-rose/v20-roadmap-1400`، commit `b4d784b`):**
+
+| الدفعة | الفصول | الموديولات | المواضيع |
+|---|---|---|---:|
+| موجود قبلها | 02.02، 15.01–03، 16.02، 16.05، 20.01، 20.07، 21.04، 25.02، 26.01 | كود V15–V19 | 11 |
+| 1 | 05، 08، 19 | geometry_v20، physics_v20، science_v20 | 30 |
+| 2 | 04، 09، 11، 24 | thinking_v21، decision_v21، code_analysis_v21، accounting_v21 | 40 |
+| 3 | 01، 02 (9)، 03، 26 (9)، 27 | governance_v22، architecture_v22، agents_v22، learning_v22، compose_v22 | 48 |
+
+- **129 من 280 موضوعًا** و**632 من 1,400 سؤالًا** مُجابة في كود مختبر. المتبقي 768 سؤالًا (151 موضوعًا).
+- الاختبارات: `python -X utf8 -W error::ResourceWarning -m unittest discover` → **574 OK** (Windows 11، Python 3.12.10، FFmpeg 9.0.2).
+- السجل: **35 محوّلًا**؛ الموديولات الحسابية تعمل عبر `capability-run <adapter> '{"op":"…","params":{…}}'` وكلها read.
+- دليل حقيقي على المستودع: فحص الاستيراد القديم على 88 ملفًا = صفر استيراد لمحركات التنين/السبيكة؛ فحص التغليف على 149 ملفًا = لا قاعدة خاصة.
+- دُمج `main` (PR #18، محوّلات fusion) في الفرع، وأُصلح باج ويندوز في `fusion_studio_v20._font` (كان يبحث عن خطوط لينكس فقط فيسقط 5 اختبارات على ويندوز).
+- مسودة منفصلة: `questions/G01–G30.json` = 1,500 سؤال كتبها وكيل بطلب المالك، موسومة `agent-draft-not-user-approved`، لا تُحسب ضمن الـ1,400.
+
+**المتبقي (151 موضوعًا) بالترتيب المقترح:**
+1. محض بلا ملفات: 06 الاستايلات، 13 التصميم، 14 الشخصيات، 18 ثلاثي الأبعاد، 22 الويب (أجزاء أوفلاين فقط: robots وتحليل HTML وتطبيع الأرقام)، 10 التطبيقات (توليد في الذاكرة)، 25 الأمن (9)، 07 المكتبات (بيانات الرخص)، 17 المؤثرات (مصفوفات صغيرة).
+2. يحتاج ملفات وFFmpeg/SQLite (خارج `PURE_MODULES`، باختبارات مجلد مؤقت وبوابة كتابة): 12 المعرفة، 23 قواعد البيانات، 15 (7)، 16 (8)، 20 (8)، 21 (9)، ثم 28 التكامل النهائي.
+3. لا يُرقّى أي موضوع إلى `e2e_verified` بدون إيصال مخرج حقيقي (sha256).
+
+**أول أمر للوكيل التالي:**
+```bash
+cd red-rose && python rose.py roadmap && python -X utf8 -W error::ResourceWarning -m unittest discover
+```
+ثم اختر الفصل التالي من القائمة، واتبع نمط `physics_v20.py` (TOPICS/OPS/run)، وأضف المحوّل إلى `PURE_MODULES` و`REGISTRY`، وحدّث `ROADMAP_1400_STATUS.json` وعدّاد الاختبارين `test_capability_v15.py` و`test_qa_trace_v18.py`.
+
+**حالة الرفع:** الفرع محلي فقط وغير مرفوع. PR #17 (V19) مفتوح ومتعارض مع main بعد دمج #18؛ هذا الفرع يحتوي V19 + دمج main + الدفعات 1–3. PR #16 مفتوح ومكرر لـV19.

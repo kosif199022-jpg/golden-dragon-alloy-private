@@ -88,3 +88,9 @@ Before new work, run \`python rose.py question-audit\` and inspect \`QA_TRACEABI
 ## V20 — owner-supplied archive distillation
 
 Start with FUSION_V20_GUIDE.md and SOURCE_FUSION_AUDIT_V20.json. Use fusion.plan/fusion.route/fusion.frame to inspect and preview an original clay+map storyboard. fusion.render and media.iphone_export require an explicit approved destination and must never overwrite. Five ZIP archive engines are source references, not called at runtime. This is a real but partial V20 independent prototype; do not claim full fusion, physical iPhone playback, or real satellite imagery.
+
+## V20–V22 — owner-approved 1,400 roadmap
+
+- `python rose.py roadmap` reports verified progress; never state a higher figure than it prints.
+- Computation adapters (`physics.simulate`, `math.geometry`, `science.compute`, `thinking.reason`, `decision.make`, `code.analyze`, `accounting.check`, `governance.audit`, `architecture.check`, `agents.coordinate`, `learning.evolve`, `compose.pipeline`) are read-only and take data in parameters; each result carries `assumptions` and `limits` — pass those on to the owner.
+- `accounting.check` assists checks on owner-supplied records only; it gives no professional opinion and never files or pays.

@@ -37,3 +37,15 @@ python -W error::ResourceWarning -m unittest discover -v
 ```
 
 Read section 8 of `NEXT_AGENT_HANDOFF.md` and `CAPABILITY_LEDGER_V19.md` first. Verify whether V19 has actually been pushed and merged before assuming it is on `main`.
+
+## Roadmap 1400 first commands (owner-approved, 2026-11-21)
+
+```bash
+cd red-rose
+python rose.py roadmap                 # verified topics/questions answered in tested code
+python rose.py roadmap-topic 08.04     # one topic with its evidence
+python rose.py roadmap-question 351    # one of the 1,400 questions and whether it is answered
+python -X utf8 -W error::ResourceWarning -m unittest discover
+```
+
+Read section 10 of `NEXT_AGENT_HANDOFF.md` first. Numbers there are a snapshot; trust `python rose.py roadmap`.
