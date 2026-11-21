@@ -47,3 +47,8 @@ For video features, inspect `ffmpeg -version`, `ffprobe -version`, Python `cairo
 - [ ] PR link and merge status stated truthfully.
 
 **If work must stop:** leave a valid checkpoint in `NEXT_AGENT_HANDOFF.md`, keep the branch available, and list the first reproducible command. Do not say «صهر الكل» unless there is independently auditable evidence.
+
+
+## V18 traceability checkpoint
+
+Use \`python rose.py question-audit\` before taking a new roadmap item, and \`python rose.py question-trace A17\` to inspect the actual linked source and adapters. The source of truth is \`QA_TRACEABILITY.json\`, verified against the live native \`REGISTRY\`. **A01–A35 are paraphrases, not the literal 1–1400 original list.** No number of mapped rows proves those requirements complete. Treat \`qa.trace\` as read-only provenance tooling. Verify the current test count and branch before reporting any V18 CI result.
