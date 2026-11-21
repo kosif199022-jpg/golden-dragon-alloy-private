@@ -16,7 +16,8 @@ from lip_sync import levels_from_audio, apply_lipsync
 from visemes import estimate_words_from_srt, apply_visemes, validate_words
 from pipeline_v15 import render_project
 from scene_edit_v16 import analyze_cuts
-from capability_runtime import list_capabilities, plan_task, execute as run_capability, audit_summary
+from capability_runtime import list_capabilities, plan_task, execute as run_capability, audit_summary, REGISTRY
+from qa_trace import trace as trace_qa
 
 def connect(path):
     p=Path(path).expanduser(); p.parent.mkdir(parents=True,exist_ok=True)
@@ -74,6 +75,8 @@ def main(argv=None):
     x=sub.add_parser('timeline-analyze'); x.add_argument('source'); x.add_argument('--noise-db',type=float,default=-35); x.add_argument('--sample-fps',type=int,default=6)
     x=sub.add_parser('edit-suggest'); x.add_argument('source'); x.add_argument('--max-clips',type=int,default=3); x.add_argument('--max-duration',type=float,default=30); x.add_argument('--min-audible-ratio',type=float,default=.2)
     x=sub.add_parser('recut'); x.add_argument('source'); x.add_argument('edl_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--approve-write',action='store_true')
+    sub.add_parser('question-audit')
+    x=sub.add_parser('question-trace'); x.add_argument('question_id')
     sub.add_parser('capabilities')
     sub.add_parser('capability-audit')
     x=sub.add_parser('capability-plan'); x.add_argument('task')
@@ -106,6 +109,8 @@ def main(argv=None):
             result=run_capability(db,'video.recut',{'source':args.source,'segments':edl,
                         'output':args.output,'fps':args.fps},approve_write=args.approve_write)
         print(json.dumps(result,ensure_ascii=False)); return
+    if args.command in ('question-audit','question-trace'):
+        print(json.dumps(trace_qa(args.question_id if args.command=='question-trace' else None,registry=REGISTRY),ensure_ascii=False)); return
     if args.command=='capabilities':
         print(json.dumps(list_capabilities(),ensure_ascii=False)); return
     if args.command=='plan': print(json.dumps({'task':args.task,'steps':['inspect','plan','execute','verify','learn'],'status':'planned_not_executed'},ensure_ascii=False)); return

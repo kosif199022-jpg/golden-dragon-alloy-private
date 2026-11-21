@@ -198,3 +198,23 @@ python -W error::ResourceWarning -m unittest discover -v
 The existing `video.recut` remains approval-gated and creates new outputs only, with FFprobe/full-decode verification. Unit+integration evidence: local 154/154 tests and a three-color original video with audio only in the middle shot; cuts at 1 s and 2 s, quiet endpoints, proposed EDL 1–2 s, exported one-second H.264/AAC output after explicit approval.
 
 **Limitations:** no semantic scene understanding, speaker classification, true transcript, dialogue comprehension or AI montage. Local original footage and user SQLite data are never committed to GitHub. Reference descriptions are not executable skills; the full 1,400 requirements remain incomplete.
+
+
+## V18 — verifiable Q&A-to-capability trace (read only)
+
+\`QUESTIONS_AND_ANSWERS.md\` contains **35 paraphrased decisions** (A01–A35), not the original 1,400 individual questions. Their source classifications and current native capability relationships are in \`QA_TRACEABILITY.json\`; \`QUESTION_COVERAGE.json\` still marks the missing historical originals unresolved.
+
+New **read-only** native adapter \`qa.trace\` and database-free CLI commands:
+
+\`\`\`bash
+python rose.py question-audit
+python rose.py question-trace A17
+python rose.py capability-run qa.trace '{"question_id":"A27"}'
+python -W error::ResourceWarning -m unittest discover -v
+\`\`\`
+
+The first two commands do not open or create the user's private SQLite database. The normal \`capability-run\` path writes a locally hashed audit receipt, as do other native capabilities.
+
+The trace enforces that every linked capability belongs to the *current* \`capability_runtime.REGISTRY\`; it rejects unknown legacy/nonexecutable names, false verbatim-original flags, missing/extra Q&A IDs, or historical question numbers masquerading as recovered source text. A link means **partially related implementation**, not full requirement satisfaction. The original 1,400 questions have **not** been restored or implemented.
+
+The 16th adapter \`qa.trace\` provides project-level provenance and validation, not a new image/AI/video engine. Existing V17 video algorithms and limitations are unchanged.

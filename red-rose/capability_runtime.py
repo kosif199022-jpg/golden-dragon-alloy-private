@@ -21,9 +21,11 @@ from pipeline_v15 import prepare_project, render_project, budget
 from styles import list_styles
 from scene_edit_v16 import analyze_cuts, recut
 from audio_scene_v17 import detect_silences, timeline_analyze, suggest_edit
+from qa_trace import trace as qa_trace
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
+ 'qa.trace': ('Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A', 'read', 'builtin'),
  'knowledge.search': ('Search imported reference descriptions', 'read', 'database'),
  'knowledge.route': ('Match request to reference descriptions; not execute them', 'read', 'database'),
  'knowledge.stats': ('Count imported reference units', 'read', 'database'),
@@ -60,6 +62,12 @@ ALIASES = {
  'صوت': ('audio.analyze',),
  'بحث': ('knowledge.search','knowledge.route'),
  'knowledge': ('knowledge.search','knowledge.route'),
+ 'أسئلة': ('qa.trace',),
+ 'اجابات': ('qa.trace',),
+ 'إجابات': ('qa.trace',),
+ 'متطلبات': ('qa.trace',),
+ 'requirements': ('qa.trace',),
+ 'questions': ('qa.trace',),
  'معرفة': ('knowledge.search','knowledge.route'),
  'ذاكرة': ('memory.recall',),
  'memory': ('memory.recall',),
@@ -136,7 +144,10 @@ def execute(db, capability, params, *, approve_write=False):
     if effect=='write' and not approve_write:
         return {'capability':capability,'status':'approval_required',
                 'detail':'Use --approve-write after reviewing output destination; nothing executed.'}
-    if capability=='knowledge.search':
+    if capability=='qa.trace':
+        _guard_keys(params,('question_id',))
+        output=qa_trace(params.get('question_id'),registry=REGISTRY)
+    elif capability=='knowledge.search':
         _guard_keys(params,('query','limit'),('query',))
         output=find_fused(db,str(params['query']),int(params.get('limit',10)))
     elif capability=='knowledge.route':
