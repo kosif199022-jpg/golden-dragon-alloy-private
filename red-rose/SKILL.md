@@ -15,3 +15,8 @@ Use the ONE entrypoint: `python rose.py <command>`; inspect the README and `--he
 7. Separate proposed capabilities, authored code, passed unit tests, and evidence of end-to-end successful outputs.
 
 All 1,400 approved requirements are a design roadmap. This package implements only the tested subset documented in README.
+
+
+## V12 — articulated 2D character
+Use mode director2d and actor.rig="ik2d" for deterministic limb IK; optional blink_keys/mouth_keys follow {t,value,ease} tracks. Run demo_v12.json for 5-second proof.
+No legacy dragon runtime is called by the new rig. This remains a 2D animation prototype.
