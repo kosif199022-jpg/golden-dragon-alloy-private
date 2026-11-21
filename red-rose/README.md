@@ -1,4 +1,4 @@
-# الوردة الحمراء 🌹 V13 — Independent, editable video prototype + offline knowledge
+# الوردة الحمراء 🌹 V14 — Independent, editable video prototype + offline knowledge
 
 **Project status:** working local prototype, NOT full fusion of the Golden/Black Dragon engines. The owner's approval of 1,400 design requirements is not evidence of 1,400 implemented abilities.
 
@@ -68,3 +68,27 @@ python -W error::ResourceWarning -m unittest discover -v
 ```
 
 **Evidence:** Local V13 tests: 82/82; two-scene 121-frame 432×768 MP4 with locally synthesized original spoken sample, AAC/H.264 passed independent FFprobe/FFmpeg verification. The demo eSpeak voice is not part of the built-in skill or this source repository. No personal SQLite database or legacy executable runtime is included. **Still unimplemented:** user-face fidelity, phoneme-level alignment, professional 3D, high-end editorial automation, full 1,400-requirement fusion.
+
+## V14 — Text-guided mouth poses with silence gating
+
+Adds five illustrated mouth poses: **closed, wide, round, open and teeth**. The
+engine uses supplied word timestamps (JSON) or **estimated** word positions
+inside SRT caption intervals, combined with the existing 20-Hz audio-energy
+mouth track. This is **not** acoustic phoneme recognition or forced alignment.
+The SRT approach is not guaranteed to match individual words' real timing.
+
+```bash
+python rose.py produce demo_v13.json output-v14 \
+  --fps 18 --width 432 --height 768 \
+  --audio voice.wav --lip-sync --viseme-sync \
+  --profiles profiles_v13.json --srt demo_v13.srt
+```
+
+For externally timestamped words, use `--words-json words_v14_example.json`
+instead of estimating from SRT. `--words-json` requires `--viseme-sync`;
+`--viseme-sync` requires both `--lip-sync` and `--audio`. Word timing is
+absolute seconds; character mouth poses are still grapheme-derived heuristics.
+
+Tested in local V14 bundle: 93/93 tests. Video QA: 121 frames, 18 fps, 432x768,
+H.264 video + AAC audio, 6.72 seconds, FFprobe and FFmpeg verified. No private
+speech recording or private SQLite data uploaded to this repository.
