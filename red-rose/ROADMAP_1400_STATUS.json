@@ -177,9 +177,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "REGISTRY dispatch; unknown ids and parameters rejected (test_unknown_action_not_executable)."
+   "evidence": "REGISTRY dispatch; unknown ids and parameters rejected (test_unknown_action_not_executable). Performance: 30 timed calls, max 0.3992 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "02.03": {
    "status": "unit_tested",
@@ -1661,9 +1662,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.index_source (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.index_source (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 10 timed calls in test_knowledge_v25, max 0.022 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.02": {
    "status": "unit_tested",
@@ -1675,9 +1677,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.search_fts (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.search_fts (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 7 timed calls in test_knowledge_v25, max 0.0027 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.03": {
    "status": "unit_tested",
@@ -1689,9 +1692,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.legacy_summaries (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.legacy_summaries (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_knowledge_v25, max 0.0011 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.04": {
    "status": "unit_tested",
@@ -1703,9 +1707,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.owner_instructions (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.owner_instructions (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_knowledge_v25, max 0.0123 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.05": {
    "status": "unit_tested",
@@ -1717,9 +1722,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.error_memory (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.error_memory (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_knowledge_v25, max 0.0137 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.06": {
    "status": "unit_tested",
@@ -1731,9 +1737,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.reference_conflicts (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.reference_conflicts (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_knowledge_v25, max 0.016 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.07": {
    "status": "unit_tested",
@@ -1745,9 +1752,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.trust_score (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.trust_score (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 2 timed calls in test_knowledge_v25, max 0.0001 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.08": {
    "status": "unit_tested",
@@ -1759,9 +1767,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.search_receipt (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.search_receipt (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_knowledge_v25, max 0.0142 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.09": {
    "status": "unit_tested",
@@ -1773,9 +1782,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.migrate_memory (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.migrate_memory (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_knowledge_v25, max 0.0097 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "12.10": {
    "status": "unit_tested",
@@ -1787,9 +1797,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "knowledge_v25.workspace_isolation (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "knowledge_v25.workspace_isolation (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_knowledge_v25, max 0.0172 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "13.01": {
    "status": "unit_tested",
@@ -2101,9 +2112,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "Sampled RGB difference; cuts found at known boundaries of synthetic footage; read-only."
+   "evidence": "Sampled RGB difference; cuts found at known boundaries of synthetic footage; read-only. Performance: 7 timed calls, max 0.148 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.02": {
    "status": "unit_tested",
@@ -2115,9 +2127,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "Audible-fraction EDL proposal; states silence is not speech detection; read-only."
+   "evidence": "Audible-fraction EDL proposal; states silence is not speech detection; read-only. Performance: 8 timed calls, max 0.2916 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.03": {
    "status": "unit_tested",
@@ -2129,9 +2142,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "trim+concat; output verified H.264/AAC and duration; write needs --approve-write; never overwrites."
+   "evidence": "trim+concat; output verified H.264/AAC and duration; write needs --approve-write; never overwrites. Performance: 5 timed calls, max 0.3592 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.04": {
    "status": "unit_tested",
@@ -2143,9 +2157,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "editing_v25.beat_sync_cuts (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "editing_v25.beat_sync_cuts (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_editing_v25, max 0.1306 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.05": {
    "status": "unit_tested",
@@ -2157,9 +2172,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "editing_v25.story_arc (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "editing_v25.story_arc (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_editing_v25, max 0.0001 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.06": {
    "status": "unit_tested",
@@ -2171,9 +2187,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "editing_v25.pacing_balance (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "editing_v25.pacing_balance (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_editing_v25, max 0.0001 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.07": {
    "status": "unit_tested",
@@ -2185,9 +2202,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "editing_v25.safe_crossfade (write): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "editing_v25.safe_crossfade (write): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_editing_v25, max 0.7578 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.08": {
    "status": "unit_tested",
@@ -2199,9 +2217,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "editing_v25.stabilize_estimate (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "editing_v25.stabilize_estimate (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_editing_v25, max 2.9735 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.09": {
    "status": "unit_tested",
@@ -2213,9 +2232,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "editing_v25.colour_match (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "editing_v25.colour_match (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_editing_v25, max 0.2806 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "15.10": {
    "status": "unit_tested",
@@ -2227,9 +2247,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "editing_v25.vertical_reframe (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "editing_v25.vertical_reframe (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_editing_v25, max 0.1467 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.01": {
    "status": "unit_tested",
@@ -2241,9 +2262,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "audio_v25.loudness (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "audio_v25.loudness (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 9 timed calls in test_audio_v25, max 0.4392 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.02": {
    "status": "unit_tested",
@@ -2255,9 +2277,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "FFmpeg silencedetect start/end checked against a synthetic tone gap."
+   "evidence": "FFmpeg silencedetect start/end checked against a synthetic tone gap. Performance: 13 timed calls, max 0.1716 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.03": {
    "status": "unit_tested",
@@ -2269,9 +2292,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "audio_v25.denoise (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "audio_v25.denoise (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_audio_v25, max 0.5608 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.04": {
    "status": "unit_tested",
@@ -2283,9 +2307,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "audio_v25.word_alignment (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "audio_v25.word_alignment (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 10 timed calls in test_audio_v25, max 0.0023 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.05": {
    "status": "unit_tested",
@@ -2294,10 +2319,13 @@
    "test": "test_lip_sync_v13.py",
    "adapter": "audio.analyze",
    "lenses": [
+    "contract",
     "algorithm",
-    "acceptance"
+    "acceptance",
+    "permission",
+    "performance"
    ],
-   "evidence": "20 Hz RMS envelope; test_silence_never_invents_speech keeps the mouth closed in silence."
+   "evidence": "20 Hz RMS envelope; test_silence_never_invents_speech keeps the mouth closed in silence. Performance: 4 timed calls, max 0.1438 s (budget 60 s, test_perf_lens_v26.py). Contract: audio.analyze rejects unknown/missing params (test_perf_lens_v26.py). Permission: read effect; source hash and folder unchanged (test_perf_lens_v26.py)."
   },
   "16.06": {
    "status": "unit_tested",
@@ -2309,9 +2337,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "audio_v25.extract_pcm (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "audio_v25.extract_pcm (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_audio_v25, max 0.2665 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.07": {
    "status": "unit_tested",
@@ -2323,9 +2352,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "audio_v25.cut_crossfade (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "audio_v25.cut_crossfade (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_audio_v25, max 0.5524 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.08": {
    "status": "unit_tested",
@@ -2337,9 +2367,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "audio_v25.av_sync (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "audio_v25.av_sync (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_audio_v25, max 0.3736 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.09": {
    "status": "unit_tested",
@@ -2351,9 +2382,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "audio_v25.pause_trim (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "audio_v25.pause_trim (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_audio_v25, max 0.2104 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "16.10": {
    "status": "unit_tested",
@@ -2365,9 +2397,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "audio_v25.audio_rights (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "audio_v25.audio_rights (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 7 timed calls in test_audio_v25, max 0.0023 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "17.01": {
    "status": "unit_tested",
@@ -2826,11 +2859,13 @@
    "test": "test_verify_media.py",
    "adapter": "video.verify",
    "lenses": [
+    "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "FFprobe + full decode; mismatching fps/size rejected."
+   "evidence": "FFprobe + full decode; mismatching fps/size rejected. Performance: 1 timed calls, max 0.0688 s (budget 60 s, test_perf_lens_v26.py). Contract: video.verify rejects unknown/missing params and mismatched size (test_perf_lens_v26.py)."
   },
   "20.02": {
    "status": "unit_tested",
@@ -2842,9 +2877,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "media_analysis_v25.scene_cuts_eval (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "media_analysis_v25.scene_cuts_eval (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_media_analysis_v25, max 0.1636 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "20.03": {
    "status": "unit_tested",
@@ -2856,9 +2892,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "media_analysis_v25.motion_stats (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "media_analysis_v25.motion_stats (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_media_analysis_v25, max 0.1798 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "20.04": {
    "status": "unit_tested",
@@ -2870,9 +2907,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "media_analysis_v25.saliency_point (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "media_analysis_v25.saliency_point (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_media_analysis_v25, max 0.1501 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "20.05": {
    "status": "unit_tested",
@@ -2884,9 +2922,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "media_analysis_v25.perceptual_dupes (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "media_analysis_v25.perceptual_dupes (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_media_analysis_v25, max 0.6665 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "20.06": {
    "status": "unit_tested",
@@ -2898,9 +2937,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "media_analysis_v25.sharpness (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "media_analysis_v25.sharpness (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_media_analysis_v25, max 0.348 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "20.07": {
    "status": "unit_tested",
@@ -2927,9 +2967,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "media_analysis_v25.colour_stats (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "media_analysis_v25.colour_stats (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_media_analysis_v25, max 0.2959 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "20.09": {
    "status": "unit_tested",
@@ -2941,9 +2982,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "media_analysis_v25.quality_compare (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "media_analysis_v25.quality_compare (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_media_analysis_v25, max 0.5435 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "20.10": {
    "status": "unit_tested",
@@ -2955,9 +2997,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "media_analysis_v25.frame_borders (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "media_analysis_v25.frame_borders (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_media_analysis_v25, max 0.1589 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.01": {
    "status": "unit_tested",
@@ -2969,9 +3012,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.run_command (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.run_command (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 17 timed calls in test_automation_v25, max 0.5242 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.02": {
    "status": "unit_tested",
@@ -2983,9 +3027,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.task_queue (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.task_queue (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 13 timed calls in test_automation_v25, max 0.4013 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.03": {
    "status": "unit_tested",
@@ -2997,9 +3042,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.bounded_pool (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.bounded_pool (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_automation_v25, max 1.9305 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.04": {
    "status": "unit_tested",
@@ -3011,9 +3057,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "Write effects return approval_required without --approve-write; nothing executed."
+   "evidence": "Write effects return approval_required without --approve-write; nothing executed. Performance: 30 timed calls, max 0.3992 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.05": {
    "status": "unit_tested",
@@ -3025,9 +3072,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.timeout_cancel (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.timeout_cancel (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_automation_v25, max 1.026 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.06": {
    "status": "unit_tested",
@@ -3039,9 +3087,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.perf_log (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.perf_log (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_automation_v25, max 0.0568 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.07": {
    "status": "unit_tested",
@@ -3053,9 +3102,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.smart_retry (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.smart_retry (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_automation_v25, max 0.0001 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.08": {
    "status": "unit_tested",
@@ -3067,9 +3117,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.render_qa (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.render_qa (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_automation_v25, max 0.2974 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.09": {
    "status": "unit_tested",
@@ -3081,9 +3132,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.release_gate (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.release_gate (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_automation_v25, max 0.0261 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "21.10": {
    "status": "unit_tested",
@@ -3095,9 +3147,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "automation_v25.execution_receipt (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "automation_v25.execution_receipt (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_automation_v25, max 0.1351 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "22.01": {
    "status": "unit_tested",
@@ -3259,9 +3312,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.safe_schema (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.safe_schema (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.0093 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.02": {
    "status": "unit_tested",
@@ -3273,9 +3327,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.tenant_query (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.tenant_query (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 15 timed calls in test_database_v25, max 0.0052 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.03": {
    "status": "unit_tested",
@@ -3287,9 +3342,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.index_plan (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.index_plan (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 7 timed calls in test_database_v25, max 0.067 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.04": {
    "status": "unit_tested",
@@ -3301,9 +3357,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.record_conflicts (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.record_conflicts (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_database_v25, max 0.001 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.05": {
    "status": "unit_tested",
@@ -3315,9 +3372,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.safe_migration (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.safe_migration (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.0233 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.06": {
    "status": "unit_tested",
@@ -3329,9 +3387,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.import_tabular (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.import_tabular (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.0094 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.07": {
    "status": "unit_tested",
@@ -3343,9 +3402,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.protect_sensitive (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.protect_sensitive (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_database_v25, max 0.0058 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.08": {
    "status": "unit_tested",
@@ -3357,9 +3417,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.backup_restore (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.backup_restore (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.0217 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.09": {
    "status": "unit_tested",
@@ -3371,9 +3432,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.time_series (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.time_series (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.005 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "23.10": {
    "status": "unit_tested",
@@ -3385,9 +3447,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "database_v25.lineage (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance lens NOT counted: no per-op time budget measured yet."
+   "evidence": "database_v25.lineage (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 7 timed calls in test_database_v25, max 0.0214 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "24.01": {
    "status": "unit_tested",
@@ -3564,9 +3627,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "Explicit read/write effect per adapter; write refused before approval."
+   "evidence": "Explicit read/write effect per adapter; write refused before approval. Performance: 30 timed calls, max 0.3992 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "25.03": {
    "status": "unit_tested",
@@ -3698,9 +3762,10 @@
     "contract",
     "algorithm",
     "acceptance",
-    "permission"
+    "permission",
+    "performance"
    ],
-   "evidence": "Lesson requires an earlier executed audit id (source_audit_id); fake ids rejected."
+   "evidence": "Lesson requires an earlier executed audit id (source_audit_id); fake ids rejected. Performance: 30 timed calls, max 0.3992 s (budget 60 s, test_perf_lens_v26.py)."
   },
   "26.02": {
    "status": "unit_tested",
