@@ -13,3 +13,16 @@
 > **سلمّ تسليمًا موثقًا:** ماذا استلمت، ما الملفات/الكود الذي غيّرته، عدد الاختبارات بنتيجتها، أثر التغيير في سجل القدرات، رابط PR، هل دخل `main` بالفعل، ما بقي، وأول أمر مباشر للوكيل التالي. لا تكتفِ بعبارات «كملت» أو «خلص الصهر» بلا دليل.
 
 **ملاحظات:** قد تختلف أدوات الوكلاء بحسب بيئة ChatGPT أو Claude أو Codex أو Gemini. إذا لم تتوفر صلاحية الوصول أو الرندر أو GitHub، احفظ تقرير العائق ولا تدّعِ التنفيذ. اتبع تعليمات السلامة والخصوصية المعمول بها في بيئتك.
+
+
+## V18 first commands
+
+\`\`\`bash
+cd red-rose
+python rose.py question-audit
+python rose.py question-trace A17
+python rose.py capabilities
+python -W error::ResourceWarning -m unittest discover -v
+\`\`\`
+
+Use \`QA_TRACEABILITY.json\` to choose a missing documented goal and match it to actual code. Historical 1–1400 questions **remain unavailable verbatim** and must be recovered from original sources, not invented. The QA link module is metadata tooling, not all 1,400 implemented.
