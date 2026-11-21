@@ -357,8 +357,10 @@
     {
       "id": "A33",
       "assessment": "agent_guidance",
-      "linked_native_capabilities": [],
-      "limit_or_next_evidence": "تسجيل فجوات السؤال قبل اختلاق نصوص، مع توثيق مصدر أي استرجاع جديد.",
+      "linked_native_capabilities": [
+        "qa.trace"
+      ],
+      "limit_or_next_evidence": "تسجيل فجوات السؤال قبل اختلاق نصوص، مع توثيق مصدر أي استرجاع جديد. متابعة السجل الجديد متاحة عبر qa.trace، بلا ادعاء استعادة الأصل.",
       "original_question_verbatim": false,
       "original_answer_verbatim": false,
       "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
@@ -375,8 +377,10 @@
     {
       "id": "A35",
       "assessment": "agent_guidance",
-      "linked_native_capabilities": [],
-      "limit_or_next_evidence": "لا تثق في عداد ثابت؛ افحص REGISTRY وHEAD وCI من جديد.",
+      "linked_native_capabilities": [
+        "qa.trace"
+      ],
+      "limit_or_next_evidence": "لا تثق في عداد ثابت؛ افحص REGISTRY وHEAD وCI من جديد. متابعة السجل الجديد متاحة عبر qa.trace، بلا ادعاء استعادة الأصل.",
       "original_question_verbatim": false,
       "original_answer_verbatim": false,
       "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
