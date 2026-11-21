@@ -71,6 +71,8 @@ def main(argv=None):
     sub.add_parser('fuse-stats')
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
     x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
+    x=sub.add_parser('timeline-analyze'); x.add_argument('source'); x.add_argument('--noise-db',type=float,default=-35); x.add_argument('--sample-fps',type=int,default=6)
+    x=sub.add_parser('edit-suggest'); x.add_argument('source'); x.add_argument('--max-clips',type=int,default=3); x.add_argument('--max-duration',type=float,default=30); x.add_argument('--min-audible-ratio',type=float,default=.2)
     x=sub.add_parser('recut'); x.add_argument('source'); x.add_argument('edl_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--approve-write',action='store_true')
     sub.add_parser('capabilities')
     sub.add_parser('capability-audit')
@@ -87,6 +89,17 @@ def main(argv=None):
         print(json.dumps(result,ensure_ascii=False)); return
     if args.command=='scene-analyze':
         print(json.dumps(analyze_cuts(args.source,threshold=args.threshold,sample_fps=args.sample_fps,min_shot_seconds=args.min_shot_seconds),ensure_ascii=False)); return
+    if args.command in ('timeline-analyze','edit-suggest'):
+        ident='video.timeline_analyze' if args.command=='timeline-analyze' else 'video.edit_suggest'
+        params={'source':args.source}
+        if ident=='video.timeline_analyze':
+            params.update(noise_db=args.noise_db,sample_fps=args.sample_fps)
+        else:
+            params.update(max_clips=args.max_clips,max_duration=args.max_duration,
+                          min_audible_ratio=args.min_audible_ratio)
+        with closing(connect(args.db)) as db:
+            result=run_capability(db,ident,params)
+        print(json.dumps(result,ensure_ascii=False)); return
     if args.command=='recut':
         edl=json.loads(Path(args.edl_json).expanduser().read_text(encoding='utf-8'))
         with closing(connect(args.db)) as db:
