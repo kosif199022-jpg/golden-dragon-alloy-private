@@ -1,0 +1,173 @@
+[
+  {
+    "duration": 3.35,
+    "recipe": {
+      "mode": "director2d",
+      "title": "RED ROSE | SAME CHARACTER",
+      "palette": {
+        "sky": "#111e37",
+        "horizon": "#d88493",
+        "distant": "#465f81",
+        "middle": "#344761",
+        "ground": "#152a43",
+        "light": "#ffe8b8"
+      },
+      "camera": {
+        "zoom_keys": [
+          {
+            "t": 0,
+            "value": 0.9
+          },
+          {
+            "t": 1,
+            "value": 1.2
+          }
+        ],
+        "pan_keys": [
+          {
+            "t": 0,
+            "value": -0.1
+          },
+          {
+            "t": 1,
+            "value": 0.15
+          }
+        ]
+      },
+      "actor": {
+        "character_id": "rose-hero",
+        "rig": "ik2d",
+        "gait": 0.9,
+        "expression": "serious",
+        "x_keys": [
+          {
+            "t": 0,
+            "value": 0.38
+          },
+          {
+            "t": 1,
+            "value": 0.57
+          }
+        ],
+        "scale_keys": [
+          {
+            "t": 0,
+            "value": 1.6
+          },
+          {
+            "t": 1,
+            "value": 1.95
+          }
+        ],
+        "blink_keys": [
+          {
+            "t": 0,
+            "value": 0
+          },
+          {
+            "t": 0.55,
+            "value": 0
+          },
+          {
+            "t": 0.59,
+            "value": 1
+          },
+          {
+            "t": 0.64,
+            "value": 0
+          },
+          {
+            "t": 1,
+            "value": 0
+          }
+        ]
+      }
+    }
+  },
+  {
+    "duration": 3.35,
+    "transition": "fade",
+    "recipe": {
+      "mode": "director2d",
+      "title": "VOICE-REACTIVE LIP MOTION",
+      "palette": {
+        "sky": "#1b1836",
+        "horizon": "#e99b85",
+        "distant": "#6f668c",
+        "middle": "#4d486f",
+        "ground": "#211e3b",
+        "light": "#ffe5b6"
+      },
+      "camera": {
+        "zoom_keys": [
+          {
+            "t": 0,
+            "value": 1.2
+          },
+          {
+            "t": 1,
+            "value": 1.5
+          }
+        ],
+        "pan_keys": [
+          {
+            "t": 0,
+            "value": 0.1
+          },
+          {
+            "t": 1,
+            "value": -0.13
+          }
+        ]
+      },
+      "actor": {
+        "character_id": "rose-hero",
+        "rig": "ik2d",
+        "gait": 0.8,
+        "expression": "serious",
+        "x_keys": [
+          {
+            "t": 0,
+            "value": 0.45
+          },
+          {
+            "t": 1,
+            "value": 0.6
+          }
+        ],
+        "scale_keys": [
+          {
+            "t": 0,
+            "value": 1.85
+          },
+          {
+            "t": 1,
+            "value": 2
+          }
+        ],
+        "blink_keys": [
+          {
+            "t": 0,
+            "value": 0
+          },
+          {
+            "t": 0.48,
+            "value": 0
+          },
+          {
+            "t": 0.52,
+            "value": 1
+          },
+          {
+            "t": 0.56,
+            "value": 0
+          },
+          {
+            "t": 1,
+            "value": 0
+          }
+        ]
+      }
+    }
+  }
+]
