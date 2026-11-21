@@ -18,6 +18,7 @@ IO_TARGETS = {
     'knowledge_v25': 'test_knowledge_v25', 'database_v25': 'test_database_v25',
     'media_analysis_v25': 'test_media_analysis_v25', 'editing_v25': 'test_editing_v25',
     'audio_v25': 'test_audio_v25', 'automation_v25': 'test_automation_v25',
+    'release_v26': 'test_release_v26',
 }
 # Pre-roadmap code whose topics lacked the performance lens.
 LEGACY_TARGETS = {

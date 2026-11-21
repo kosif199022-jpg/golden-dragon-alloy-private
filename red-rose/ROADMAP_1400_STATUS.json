@@ -4051,6 +4051,156 @@
     "performance"
    ],
    "evidence": "compose_v22.originality_check: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "28.01": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "independence_audit",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.independence_audit (read): acceptance test in test_release_v26.py; Performance: 2 timed calls, max 6.6676 s (budget 60 s)."
+  },
+  "28.02": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "registry_reality",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.registry_reality (read): acceptance test in test_release_v26.py; Performance: 3 timed calls, max 1.7421 s (budget 60 s)."
+  },
+  "28.03": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "closure_matrix",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.closure_matrix (read): acceptance test in test_release_v26.py; Performance: 4 timed calls, max 0.1604 s (budget 60 s)."
+  },
+  "28.04": {
+   "status": "e2e_verified",
+   "module": "release_v26",
+   "symbol": "integrated_video",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "artifact_receipt": "sha256 67c7a7d8c79de90cff754790b1b8d7f0a0ae8467741425ae23ea76b35d5e3502 video.mp4 (h264 yuv420p 270x480, 24 frames, 2.000 s, full decode OK, frame inspected) made 2026-11-21 via release.verify with --approve-write; media kept out of git by policy",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.integrated_video (write): acceptance test in test_release_v26.py; Performance: 5 timed calls, max 5.085 s (budget 60 s)."
+  },
+  "28.05": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "device_checklist",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.device_checklist (read): acceptance test in test_release_v26.py; Performance: 7 timed calls, max 0.0202 s (budget 60 s). Acceptance lens NOT counted: needs device screenshots on phone and desktop; the op returns needs_human_* until the owner supplies it."
+  },
+  "28.06": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "load_test",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.load_test (read): acceptance test in test_release_v26.py; Performance: 5 timed calls, max 42.416 s (budget 60 s). Default is smoke scale; caps is opt-in. Known limit: pure-Python FFT at 65,536 samples takes about 8-30 s at caps on this machine."
+  },
+  "28.07": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "release_privacy",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.release_privacy (read): acceptance test in test_release_v26.py; Performance: 4 timed calls, max 27.8555 s (budget 60 s)."
+  },
+  "28.08": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "edit_rubric",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.edit_rubric (read): acceptance test in test_release_v26.py; Performance: 4 timed calls, max 0.0002 s (budget 60 s). Acceptance lens NOT counted: needs human reviewer scores against a licensed reference; the op returns needs_human_* until the owner supplies it."
+  },
+  "28.09": {
+   "status": "e2e_verified",
+   "module": "release_v26",
+   "symbol": "portable_release",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "artifact_receipt": "sha256 ec6f4a3d4459487db8f87e193ecb0c0e43622cf16b512c4b7ae6a252da7e9d7c red-rose-release.zip (195 members, no private stores), extracted copy hash-verified and CLI smoke test listed the adapters; 2026-11-21",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.portable_release (write): acceptance test in test_release_v26.py; Performance: 3 timed calls, max 8.8507 s (budget 60 s)."
+  },
+  "28.10": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "handoff_resume",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.handoff_resume (read): acceptance test in test_release_v26.py; Performance: 1 timed calls, max 0.5769 s (budget 60 s)."
   }
  }
 }

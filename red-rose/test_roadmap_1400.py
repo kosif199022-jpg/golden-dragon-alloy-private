@@ -93,7 +93,13 @@ class OwnerRoadmapTests(unittest.TestCase):
         if pending:
             untouched = rm.explain_question(pending[0]['question_ids']['contract'], registry=REGISTRY)
             self.assertFalse(untouched['answered_in_tested_code'])
-        self.assertEqual(untouched['topic_status'], 'proposed')
+            self.assertEqual(untouched['topic_status'], 'proposed')
+        # A lens without evidence never counts, even when its topic has code:
+        # 28.05 acceptance needs the owner's real device screenshots.
+        device = rm.topics()['28.05']['question_ids']['acceptance']
+        human = rm.explain_question(device, registry=REGISTRY)
+        if 'acceptance' not in (built.get('28.05') or {}).get('lenses', []):
+            self.assertFalse(human['answered_in_tested_code'])
         for bad in (0, 1401, '5', True):
             with self.subTest(bad=bad), self.assertRaises(ValueError):
                 rm.explain_question(bad, registry=REGISTRY)
@@ -140,7 +146,7 @@ class PureModuleContractTests(unittest.TestCase):
 
 
 IO_MODULES = ('knowledge_v25', 'database_v25', 'media_analysis_v25', 'editing_v25',
-              'audio_v25', 'automation_v25')
+              'audio_v25', 'automation_v25', 'release_v26')
 NETWORK_IMPORTS = {'socket', 'urllib', 'http', 'requests', 'ctypes', 'ftplib', 'smtplib'}
 
 

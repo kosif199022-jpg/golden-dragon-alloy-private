@@ -51,11 +51,13 @@ import media_analysis_v25
 import editing_v25
 import audio_v25
 import automation_v25
+import release_v26
 
 # File/media/database adapters: per-op EFFECTS; writes need the owner's --approve-write.
 IO_ADAPTERS = {'knowledge.store': knowledge_v25, 'database.manage': database_v25,
                'video.analyze': media_analysis_v25, 'video.edit': editing_v25,
-               'audio.process': audio_v25, 'automation.run': automation_v25}
+               'audio.process': audio_v25, 'automation.run': automation_v25,
+               'release.verify': release_v26}
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
 PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
@@ -122,6 +124,7 @@ REGISTRY = {
  'video.edit': ('Editing on local footage: beat-snapped cuts (rights confirmed), story arc, pacing, approved AAC crossfade render, stabilisation estimate, colour match proposal, 9:16 reframe track', 'mixed', 'ffmpeg'),
  'audio.process': ('Audio on local files: LUFS/true-peak, approved denoise/extract/crossfade/normalise renders, trusted word timing, A/V sync, pause-trim EDL, rights records', 'mixed', 'ffmpeg'),
  'automation.run': ('Bounded automation in a work dir: allow-listed commands without shell, resumable queue, bounded pool, timeouts without partial files, perf log, retry policy, render QA, release gate, receipts', 'mixed', 'ffmpeg'),
+ 'release.verify': ('Final integration: independence audit, registry reality, 1,400 closure matrix, approved end-to-end MP4, device checklist, load test, release privacy, human edit rubric, portable release with smoke test, handoff resume', 'mixed', 'ffmpeg'),
  'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {

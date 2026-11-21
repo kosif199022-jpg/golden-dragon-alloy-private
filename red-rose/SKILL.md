@@ -94,3 +94,9 @@ Start with FUSION_V20_GUIDE.md and SOURCE_FUSION_AUDIT_V20.json. Use fusion.plan
 - `python rose.py roadmap` reports verified progress; never state a higher figure than it prints.
 - Computation adapters (`physics.simulate`, `math.geometry`, `science.compute`, `thinking.reason`, `decision.make`, `code.analyze`, `accounting.check`, `governance.audit`, `architecture.check`, `agents.coordinate`, `learning.evolve`, `compose.pipeline`) are read-only and take data in parameters; each result carries `assumptions` and `limits` — pass those on to the owner.
 - `accounting.check` assists checks on owner-supplied records only; it gives no professional opinion and never files or pays.
+
+## V26 — file/media adapters and release checks
+
+- `knowledge.store`, `database.manage`, `video.analyze`, `video.edit`, `audio.process`, `automation.run`, `release.verify` decide read/write per op; any write returns `approval_required` until the owner passes `--approve-write`. An `approve_write` placed inside params is ignored.
+- They never use the network or a shell; inputs are local files and are never modified.
+- `release.verify` `device_checklist` and `edit_rubric` cannot pass without real human evidence — ask the owner for screenshots / review scores instead of claiming them.
