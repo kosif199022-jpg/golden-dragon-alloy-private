@@ -2,7 +2,7 @@
 name: red-rose
 description: "الوردة الحمراء 🌹 مستقلة لتخطيط المهام، ذاكرة SQLite، فهرسة آمنة لملخصات معرفة السبيكة، استايلات محفوظة بالاسم، وإخراج فيديو SVG/MP4 مع حركة كاميرا وشخصيات ثنائية الأبعاد واختبارات جودة."
 ---
-# الوردة الحمراء V13 🌹
+# الوردة الحمراء V14 🌹
 
 Use the ONE entrypoint: `python rose.py <command>`; inspect the README and `--help` before commands. No invocation of older Dragon skills at runtime.
 
@@ -26,3 +26,13 @@ No legacy dragon runtime is called by the new rig. This remains a 2D animation p
 - `--lip-sync --audio voice.wav` decodes the audio locally with FFmpeg. It converts 20-Hz RMS energy to `actor.mouth_keys` for `rig=ik2d` characters. It rejects conflicts with manual keys.
 - `python rose.py produce demo_v13.json out --fps 18 --width 432 --height 768 --audio voice.wav --lip-sync --profiles profiles_v13.json --srt demo_v13.srt`
 - This is **speech energy**, not word or phoneme synchronization. This locks **a stylized cartoon's palette**, NOT the identity of a real person's face. Prefer speech-only voice audio rather than music.
+
+## V14 — Text-assisted viseme animation
+
+- `--viseme-sync --lip-sync --audio PATH` uses original 2D mouth poses.
+- Provide `--srt CAPTIONS` (word timings inferred from caption durations) or
+  `--words-json WORDS` (word timings provided directly as seconds).
+- The existing voice-energy envelope closes the mouth in silence.
+- `visemes.py` supports Arabic and English grapheme classes but this is
+  **not** phoneme recognition, ASR, or precise forced speech alignment.
+- The original Golden/Black Dragon runtimes are never executed here.
