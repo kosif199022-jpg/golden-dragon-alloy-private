@@ -1,0 +1,22 @@
+[
+  {
+    "kind": "clay",
+    "title": "الوردة الحمراء",
+    "duration": 1,
+    "palette": "clay"
+  },
+  {
+    "kind": "map",
+    "title": "من جدة إلى الرياض",
+    "duration": 1,
+    "palette": "map",
+    "from": [
+      39.19,
+      21.49
+    ],
+    "to": [
+      46.67,
+      24.71
+    ]
+  }
+]
