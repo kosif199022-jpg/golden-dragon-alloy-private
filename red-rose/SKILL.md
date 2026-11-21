@@ -2,7 +2,7 @@
 name: red-rose
 description: "الوردة الحمراء 🌹 مستقلة لتخطيط المهام، ذاكرة SQLite، فهرسة آمنة لملخصات معرفة السبيكة، استايلات محفوظة بالاسم، وإخراج فيديو SVG/MP4 مع حركة كاميرا وشخصيات ثنائية الأبعاد واختبارات جودة."
 ---
-# الوردة الحمراء V14 🌹
+# الوردة الحمراء V13 🌹
 
 Use the ONE entrypoint: `python rose.py <command>`; inspect the README and `--help` before commands. No invocation of older Dragon skills at runtime.
 
@@ -16,23 +16,46 @@ Use the ONE entrypoint: `python rose.py <command>`; inspect the README and `--he
 
 All 1,400 approved requirements are a design roadmap. This package implements only the tested subset documented in README.
 
-
-## V12 — articulated 2D character
-Use mode director2d and actor.rig="ik2d" for deterministic limb IK; optional blink_keys/mouth_keys follow {t,value,ease} tracks. Run demo_v12.json for 5-second proof.
-No legacy dragon runtime is called by the new rig. This remains a 2D animation prototype.
+## V12 controls
+For new art-directed shots add `"mode":"director2d"`, then under `actor` set
+`"rig":"ik2d"` to enable a two-bone procedural character. `blink_keys` and
+`mouth_keys` follow normalized track fields `{t,value,ease}`. Use `demo_v12.json`
+as a reference, and execute `python rose.py produce demo_v12.json output --fps 24 --width 540 --height 960`.
+No legacy dragon is imported by the V12 rig. Treat the output as **stylized
+2D animation**, not photorealism, automatic lip sync, or 3D.
 
 ## V13 — persistent cartoon identity + opt-in voice activity animation
-- Define four color fields in `profiles_v13.json`; reference one named profile with `actor.character_id` in each director2d shot. `--profiles` rejects a missing character or color drift; a SHA256 profile signature remains in `project.json`.
-- `--lip-sync --audio voice.wav` decodes the audio locally with FFmpeg. It converts 20-Hz RMS energy to `actor.mouth_keys` for `rig=ik2d` characters. It rejects conflicts with manual keys.
+- Define a named character and four hex color fields (`skin`, `hair`, `coat`, `trousers`) in `profiles_v13.json`; reference it with `actor.character_id` in each `director2d` shot. With `--profiles`, color mismatch raises instead of silently drifting; a SHA256 profile signature is preserved in `project.json`.
+- `--lip-sync --audio voice.wav` decodes audio locally using FFmpeg, converts RMS voice energy at 20 Hz into 0..1 mouth keyframes on `actor.rig="ik2d"`; manual mouth keyframes conflict intentionally. Audio is not transcribed or sent to a remote service.
 - `python rose.py produce demo_v13.json out --fps 18 --width 432 --height 768 --audio voice.wav --lip-sync --profiles profiles_v13.json --srt demo_v13.srt`
-- This is **speech energy**, not word or phoneme synchronization. This locks **a stylized cartoon's palette**, NOT the identity of a real person's face. Prefer speech-only voice audio rather than music.
+- This is sound-energy motion (not lip-reading, phoneme or word alignment). A palette/rig lock is **not a human face identity lock**. Do not use music as speech input unless synchronized mouth movements to its amplitude are intentionally desired.
 
-## V14 — Text-assisted viseme animation
+## V14 viseme animation
+- `--viseme-sync` must accompany `--lip-sync --audio` and either `--srt` or
+  `--words-json`; for a reusable example see `words_v14_example.json`.
+- `visemes.py` derives five simplified *mouth poses* from Arabic/English text,
+  then uses RMS audio to close the mouth during silence. SRT cue word timings
+  are **estimated**; explicit word timestamps are accepted. Neither is
+  acoustic phoneme alignment.
+- The result is independent of the old dragons' runtimes. Verify the video
+  using the bundled `verify` command; this is still stylized 2D animation.
 
-- `--viseme-sync --lip-sync --audio PATH` uses original 2D mouth poses.
-- Provide `--srt CAPTIONS` (word timings inferred from caption durations) or
-  `--words-json WORDS` (word timings provided directly as seconds).
-- The existing voice-energy envelope closes the mouth in silence.
-- `visemes.py` supports Arabic and English grapheme classes but this is
-  **not** phoneme recognition, ASR, or precise forced speech alignment.
-- The original Golden/Black Dragon runtimes are never executed here.
+## V15 — audited standalone capability execution
+
+**Core invariant:** a reference from the migrated knowledge database never
+becomes an executable by name alone. Only names in `capability_runtime.REGISTRY`
+can execute. The unified CLI supports:
+
+- `capabilities`: 11 independent in-process adapters and dependency readiness.
+- `capability-plan TASK`: suggested native actions plus retrieved reference IDs;
+  this is a plan, *not* execution.
+- `capability-run ID PARAMS_JSON [--approve-write]`: explicit action dispatch.
+  Write operations are denied unless `--approve-write` is supplied.
+- `capability-audit`: counts previously executed actions and explicitly confirms
+  that 1,400 requirements have **not** all been verified.
+
+`learning.record` stores a new lesson **locally** only with a successful prior
+`audit_id` and explicit write approval. It does not train a model. The local
+SQLite memory database must not be included in skill bundles or Git commits.
+Video outputs require a dedicated directory, are capped before rendering, and
+cannot overwrite arbitrary folders. Do not import any legacy runtime modules.
