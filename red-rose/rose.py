@@ -77,6 +77,9 @@ def main(argv=None):
     x=sub.add_parser('recut'); x.add_argument('source'); x.add_argument('edl_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--approve-write',action='store_true')
     sub.add_parser('question-audit')
     x=sub.add_parser('question-trace'); x.add_argument('question_id')
+    x=sub.add_parser('fusion-plan'); x.add_argument('scenes_json'); x.add_argument('--fps',type=int,default=24); x.add_argument('--preset',default='iphone-vertical')
+    x=sub.add_parser('fusion-render'); x.add_argument('scenes_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--preset',default='iphone-vertical'); x.add_argument('--approve-write',action='store_true')
+    x=sub.add_parser('iphone-export'); x.add_argument('source'); x.add_argument('output'); x.add_argument('--preset',default='iphone-vertical'); x.add_argument('--approve-write',action='store_true')
     sub.add_parser('capabilities')
     sub.add_parser('capability-audit')
     x=sub.add_parser('capability-plan'); x.add_argument('task')
@@ -111,6 +114,18 @@ def main(argv=None):
         print(json.dumps(result,ensure_ascii=False)); return
     if args.command in ('question-audit','question-trace'):
         print(json.dumps(trace_qa(args.question_id if args.command=='question-trace' else None,registry=REGISTRY),ensure_ascii=False)); return
+    if args.command in ('fusion-plan','fusion-render','iphone-export'):
+        if args.command=='iphone-export':
+            action='media.iphone_export'
+            params={'source':args.source,'output':args.output,'preset':args.preset}
+        else:
+            scenes=json.loads(Path(args.scenes_json).expanduser().read_text(encoding='utf-8'))
+            action='fusion.plan' if args.command=='fusion-plan' else 'fusion.render'
+            params={'scenes':scenes,'fps':args.fps,'preset':args.preset}
+            if args.command=='fusion-render':params['output']=args.output
+        with closing(connect(args.db)) as db:
+            result=run_capability(db,action,params,approve_write=getattr(args,'approve_write',False))
+        print(json.dumps(result,ensure_ascii=False));return
     if args.command=='capabilities':
         print(json.dumps(list_capabilities(),ensure_ascii=False)); return
     if args.command=='plan': print(json.dumps({'task':args.task,'steps':['inspect','plan','execute','verify','learn'],'status':'planned_not_executed'},ensure_ascii=False)); return
