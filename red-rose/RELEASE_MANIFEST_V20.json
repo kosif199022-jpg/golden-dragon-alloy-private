@@ -1,0 +1,21 @@
+{
+  "project": "red-rose",
+  "version": "20.0-prototype",
+  "date": "2026-11-21",
+  "source_archives": 5,
+  "added_native_adapters": [
+    "fusion.route",
+    "fusion.plan",
+    "fusion.frame",
+    "fusion.render",
+    "media.iphone_export"
+  ],
+  "expected_registry_total_on_v18_base": 21,
+  "local_tests_on_v17_zip_plus_fusion": 174,
+  "local_e2e_verified": true,
+  "local_demo_frames": 24,
+  "local_demo_seconds": 2,
+  "original_5_engines_fully_fused": false,
+  "original_1400_requirements_implemented": false,
+  "v19_branches_still_separate": true
+}
