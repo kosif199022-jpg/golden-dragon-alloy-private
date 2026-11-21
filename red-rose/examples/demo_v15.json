@@ -1,0 +1,239 @@
+[
+  {
+    "duration": 1.0,
+    "recipe": {
+      "mode": "director2d",
+      "title": "RED ROSE | THE ENGINE",
+      "palette": {
+        "sky": "#131b39",
+        "horizon": "#d67f85",
+        "distant": "#596b87",
+        "middle": "#334d68",
+        "ground": "#152b3b",
+        "light": "#ffd29b"
+      },
+      "camera": {
+        "pan_keys": [
+          {
+            "t": 0,
+            "value": -0.12
+          },
+          {
+            "t": 1,
+            "value": 0.16
+          }
+        ],
+        "zoom_keys": [
+          {
+            "t": 0,
+            "value": 0.95
+          },
+          {
+            "t": 1,
+            "value": 1.17
+          }
+        ]
+      },
+      "actor": {
+        "rig": "ik2d",
+        "expression": "smile",
+        "gait": 1.7,
+        "x_keys": [
+          {
+            "t": 0,
+            "value": 0.32
+          },
+          {
+            "t": 1,
+            "value": 0.56
+          }
+        ],
+        "y_keys": [
+          {
+            "t": 0,
+            "value": 0.72
+          },
+          {
+            "t": 1,
+            "value": 0.7
+          }
+        ],
+        "scale_keys": [
+          {
+            "t": 0,
+            "value": 1.17
+          },
+          {
+            "t": 1,
+            "value": 1.32
+          }
+        ],
+        "blink_keys": [
+          {
+            "t": 0,
+            "value": 0
+          },
+          {
+            "t": 0.32,
+            "value": 0
+          },
+          {
+            "t": 0.38,
+            "value": 1
+          },
+          {
+            "t": 0.44,
+            "value": 0
+          },
+          {
+            "t": 1,
+            "value": 0
+          }
+        ],
+        "mouth_keys": [
+          {
+            "t": 0,
+            "value": 0
+          },
+          {
+            "t": 0.65,
+            "value": 0
+          },
+          {
+            "t": 0.78,
+            "value": 0.75
+          },
+          {
+            "t": 0.92,
+            "value": 0.12
+          },
+          {
+            "t": 1,
+            "value": 0
+          }
+        ],
+        "coat": "#bd4763",
+        "skin": "#e6b393",
+        "hair": "#29202f",
+        "trousers": "#1a2b47"
+      }
+    }
+  },
+  {
+    "duration": 1.0,
+    "transition": "fade",
+    "recipe": {
+      "mode": "director2d",
+      "title": "FROM KNOWLEDGE TO ACTION",
+      "palette": {
+        "sky": "#211637",
+        "horizon": "#eb9c8c",
+        "distant": "#805c88",
+        "middle": "#4d476c",
+        "ground": "#211f39",
+        "light": "#ffe3b6"
+      },
+      "camera": {
+        "pan_keys": [
+          {
+            "t": 0,
+            "value": 0.13
+          },
+          {
+            "t": 1,
+            "value": -0.16
+          }
+        ],
+        "zoom_keys": [
+          {
+            "t": 0,
+            "value": 1.13
+          },
+          {
+            "t": 1,
+            "value": 1.31
+          }
+        ]
+      },
+      "actor": {
+        "rig": "ik2d",
+        "expression": "surprised",
+        "gait": 1.15,
+        "x_keys": [
+          {
+            "t": 0,
+            "value": 0.44
+          },
+          {
+            "t": 1,
+            "value": 0.62
+          }
+        ],
+        "y_keys": [
+          {
+            "t": 0,
+            "value": 0.71
+          },
+          {
+            "t": 1,
+            "value": 0.68
+          }
+        ],
+        "scale_keys": [
+          {
+            "t": 0,
+            "value": 1.27
+          },
+          {
+            "t": 1,
+            "value": 1.38
+          }
+        ],
+        "blink_keys": [
+          {
+            "t": 0,
+            "value": 0
+          },
+          {
+            "t": 0.66,
+            "value": 0
+          },
+          {
+            "t": 0.72,
+            "value": 1
+          },
+          {
+            "t": 0.8,
+            "value": 0
+          },
+          {
+            "t": 1,
+            "value": 0
+          }
+        ],
+        "mouth_keys": [
+          {
+            "t": 0,
+            "value": 0.15
+          },
+          {
+            "t": 0.4,
+            "value": 1.0
+          },
+          {
+            "t": 0.7,
+            "value": 0.72
+          },
+          {
+            "t": 1,
+            "value": 0.15
+          }
+        ],
+        "coat": "#d26e88",
+        "skin": "#e9b897",
+        "hair": "#282036",
+        "trousers": "#252945"
+      }
+    }
+  }
+]
