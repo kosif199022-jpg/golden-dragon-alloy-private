@@ -1,4 +1,5 @@
 import tempfile, unittest
+from contextlib import closing
 from pathlib import Path
 from rose_v8 import dbopen, ingest, figure, storyboard
 class RoseV8Tests(unittest.TestCase):
@@ -10,7 +11,7 @@ class RoseV8Tests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    root=Path(d);(root/"lesson.md").write_text("useful learning")
    (root/"secret.env").write_text("password=hidden")
-   with dbopen(root/"db.sqlite") as db:
+   with closing(dbopen(root/"db.sqlite")) as db:
     self.assertEqual(ingest(db,root),1)
     self.assertEqual(ingest(db,root),0)
     self.assertEqual(db.execute("select count(*) from knowledge").fetchone()[0],1)
