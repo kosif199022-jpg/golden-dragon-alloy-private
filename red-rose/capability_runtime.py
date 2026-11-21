@@ -23,10 +23,19 @@ from scene_edit_v16 import analyze_cuts, recut
 from audio_scene_v17 import detect_silences, timeline_analyze, suggest_edit
 from qa_trace import trace as qa_trace
 from shot_quality_v19 import score_shots
+import roadmap_1400
+import physics_v20
+import geometry_v20
+import science_v20
+
+# Pure-computation adapters: one explicit op whitelist per module, no I/O.
+PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
+                'science.compute': science_v20}
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
  'qa.trace': ('Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A', 'read', 'builtin'),
+ 'roadmap.status': ('Report verified progress on the owner-approved 1,400-question roadmap by topic or question', 'read', 'builtin'),
  'knowledge.search': ('Search imported reference descriptions', 'read', 'database'),
  'knowledge.route': ('Match request to reference descriptions; not execute them', 'read', 'database'),
  'knowledge.stats': ('Count imported reference units', 'read', 'database'),
@@ -43,6 +52,9 @@ REGISTRY = {
  'video.preview': ('Validate storyboard and estimate bounded render work', 'read', 'cairosvg'),
  'video.produce': ('Render editable SVG storyboard to verified MP4', 'write', 'cairosvg'),
  'character.svg': ('Create standalone original IK character SVG', 'write', 'builtin'),
+ 'physics.simulate': ('Deterministic motion physics: fall, collision, friction, spring, projectile, cloth, motion blur, flow, shading, particles', 'read', 'builtin'),
+ 'math.geometry': ('Scene geometry: transforms, perspective, curves, aspect fit, depth of field, two-bone IK, camera paths, homography, timecode, lens distortion', 'read', 'builtin'),
+ 'science.compute': ('Exact units, smoothed derivatives, Jacobian IK, intrinsics, quaternions, FFT, z-buffer, seeded RNG, ODE solvers, model reports', 'read', 'builtin'),
 }
 ALIASES = {
  'video': ('video.scene_analyze','video.recut','video.preview','video.produce','video.verify'),
@@ -70,7 +82,28 @@ ALIASES = {
  'صوت': ('audio.analyze',),
  'بحث': ('knowledge.search','knowledge.route'),
  'knowledge': ('knowledge.search','knowledge.route'),
- 'أسئلة': ('qa.trace',),
+ 'أسئلة': ('qa.trace','roadmap.status'),
+ 'roadmap': ('roadmap.status',),
+ 'فيزياء': ('physics.simulate',),
+ 'physics': ('physics.simulate',),
+ 'جاذبية': ('physics.simulate',),
+ 'نابض': ('physics.simulate',),
+ 'جسيمات': ('physics.simulate',),
+ 'هندسة': ('math.geometry',),
+ 'geometry': ('math.geometry',),
+ 'منظور': ('math.geometry',),
+ 'timecode': ('math.geometry',),
+ 'تايم كود': ('math.geometry',),
+ 'عمق المجال': ('math.geometry',),
+ 'رياضيات': ('math.geometry','science.compute'),
+ 'علوم': ('science.compute',),
+ 'science': ('science.compute',),
+ 'وحدات': ('science.compute',),
+ 'fft': ('science.compute',),
+ 'تردد': ('science.compute',),
+ '1400': ('roadmap.status',),
+ 'خطة': ('roadmap.status',),
+ 'تقدم': ('roadmap.status',),
  'اجابات': ('qa.trace',),
  'إجابات': ('qa.trace',),
  'متطلبات': ('qa.trace',),
@@ -155,6 +188,22 @@ def execute(db, capability, params, *, approve_write=False):
     if capability=='qa.trace':
         _guard_keys(params,('question_id',))
         output=qa_trace(params.get('question_id'),registry=REGISTRY)
+    elif capability in PURE_MODULES:
+        _guard_keys(params,('op','params'),('op',))
+        module=PURE_MODULES[capability]
+        if params['op'] not in module.OPS:
+            raise ValueError('unknown op for '+capability+'; allowed: '+', '.join(module.OPS))
+        output=module.run(params['op'],params.get('params',{}))
+    elif capability=='roadmap.status':
+        _guard_keys(params,('topic','question'))
+        if 'topic' in params and 'question' in params:
+            raise ValueError('give topic or question, not both')
+        if 'topic' in params:
+            output=roadmap_1400.explain_topic(params['topic'],registry=REGISTRY)
+        elif 'question' in params:
+            output=roadmap_1400.explain_question(params['question'],registry=REGISTRY)
+        else:
+            output=roadmap_1400.summary(registry=REGISTRY)
     elif capability=='knowledge.search':
         _guard_keys(params,('query','limit'),('query',))
         output=find_fused(db,str(params['query']),int(params.get('limit',10)))

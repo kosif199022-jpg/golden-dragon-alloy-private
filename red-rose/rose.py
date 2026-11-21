@@ -76,6 +76,9 @@ def main(argv=None):
     x=sub.add_parser('edit-suggest'); x.add_argument('source'); x.add_argument('--max-clips',type=int,default=3); x.add_argument('--max-duration',type=float,default=30); x.add_argument('--min-audible-ratio',type=float,default=.2)
     x=sub.add_parser('shot-score'); x.add_argument('source'); x.add_argument('--max-clips',type=int,default=3); x.add_argument('--max-duration',type=float,default=30); x.add_argument('--sample-fps',type=int,default=6)
     x=sub.add_parser('recut'); x.add_argument('source'); x.add_argument('edl_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--approve-write',action='store_true')
+    sub.add_parser('roadmap')
+    x=sub.add_parser('roadmap-topic'); x.add_argument('topic')
+    x=sub.add_parser('roadmap-question'); x.add_argument('question',type=int)
     sub.add_parser('question-audit')
     x=sub.add_parser('question-trace'); x.add_argument('question_id')
     sub.add_parser('capabilities')
@@ -114,6 +117,12 @@ def main(argv=None):
         with closing(connect(args.db)) as db:
             result=run_capability(db,'video.recut',{'source':args.source,'segments':edl,
                         'output':args.output,'fps':args.fps},approve_write=args.approve_write)
+        print(json.dumps(result,ensure_ascii=False)); return
+    if args.command in ('roadmap','roadmap-topic','roadmap-question'):
+        import roadmap_1400
+        if args.command=='roadmap': result=roadmap_1400.summary(registry=REGISTRY)
+        elif args.command=='roadmap-topic': result=roadmap_1400.explain_topic(args.topic,registry=REGISTRY)
+        else: result=roadmap_1400.explain_question(args.question,registry=REGISTRY)
         print(json.dumps(result,ensure_ascii=False)); return
     if args.command in ('question-audit','question-trace'):
         print(json.dumps(trace_qa(args.question_id if args.command=='question-trace' else None,registry=REGISTRY),ensure_ascii=False)); return

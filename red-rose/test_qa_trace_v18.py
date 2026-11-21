@@ -22,7 +22,7 @@ class QATraceTests(unittest.TestCase):
         self.assertEqual(set(data), {f'A{i:02d}' for i in range(1,36)})
         self.assertEqual(coverage['historical_design_target'],1400)
         self.assertFalse(coverage['original_1400_question_archive_complete'])
-        self.assertEqual(len(REGISTRY),17)
+        self.assertEqual(len(REGISTRY),21)
         self.assertIn('qa.trace',REGISTRY)
         self.assertEqual(REGISTRY['qa.trace'][1],'read')
 

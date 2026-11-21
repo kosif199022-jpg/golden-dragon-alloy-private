@@ -1,0 +1,608 @@
+{
+ "schema_version": 1,
+ "note": "Only topics with real code are listed; every entry is re-verified by roadmap_1400.load_status. Topics not listed are 'proposed'.",
+ "topics": {
+  "02.02": {
+   "status": "unit_tested",
+   "module": "capability_runtime",
+   "symbol": "execute",
+   "test": "test_capability_v15.py",
+   "adapter": null,
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "REGISTRY dispatch; unknown ids and parameters rejected (test_unknown_action_not_executable)."
+  },
+  "05.01": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "transform",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.transform: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.02": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "perspective",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.perspective: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.03": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "curves",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.curves: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.04": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "aspect_fit",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.aspect_fit: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.05": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "depth_of_field",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.depth_of_field: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.06": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "ik_two_bone",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.ik_two_bone: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.07": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "camera_path",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.camera_path: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.08": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "homography",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.homography: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.09": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "timecode",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.timecode: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.10": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "lens_distortion",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.lens_distortion: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.01": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "fall",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.fall: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.02": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "collide",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.collide: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.03": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "friction",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.friction: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.04": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "spring",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.spring: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.05": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "projectile",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.projectile: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.06": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "cloth",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.cloth: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.07": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "motion_blur",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.motion_blur: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.08": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "flow",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.flow: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.09": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "shading",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.shading: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.10": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "particles",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.particles: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "15.01": {
+   "status": "unit_tested",
+   "module": "scene_edit_v16",
+   "symbol": "analyze_cuts",
+   "test": "test_scene_edit_v16.py",
+   "adapter": "video.scene_analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "Sampled RGB difference; cuts found at known boundaries of synthetic footage; read-only."
+  },
+  "15.02": {
+   "status": "unit_tested",
+   "module": "audio_scene_v17",
+   "symbol": "suggest_edit",
+   "test": "test_audio_scene_v17.py",
+   "adapter": "video.edit_suggest",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "Audible-fraction EDL proposal; states silence is not speech detection; read-only."
+  },
+  "15.03": {
+   "status": "unit_tested",
+   "module": "scene_edit_v16",
+   "symbol": "recut",
+   "test": "test_scene_edit_v16.py",
+   "adapter": "video.recut",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "trim+concat; output verified H.264/AAC and duration; write needs --approve-write; never overwrites."
+  },
+  "16.02": {
+   "status": "unit_tested",
+   "module": "audio_scene_v17",
+   "symbol": "detect_silences",
+   "test": "test_audio_scene_v17.py",
+   "adapter": "video.timeline_analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "FFmpeg silencedetect start/end checked against a synthetic tone gap."
+  },
+  "16.05": {
+   "status": "unit_tested",
+   "module": "lip_sync",
+   "symbol": "levels_from_audio",
+   "test": "test_lip_sync_v13.py",
+   "adapter": "audio.analyze",
+   "lenses": [
+    "algorithm",
+    "acceptance"
+   ],
+   "evidence": "20 Hz RMS envelope; test_silence_never_invents_speech keeps the mouth closed in silence."
+  },
+  "19.01": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "units",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.units: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.02": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "derivative",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.derivative: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.03": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "jacobian_ik",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.jacobian_ik: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.04": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "intrinsics",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.intrinsics: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.05": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "quaternion",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.quaternion: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.06": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "spectrum",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.spectrum: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.07": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "zbuffer",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.zbuffer: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.08": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "rng",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.rng: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.09": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "ode",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.ode: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.10": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "model_report",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.model_report: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "20.01": {
+   "status": "unit_tested",
+   "module": "verify_media",
+   "symbol": "verify_video",
+   "test": "test_verify_media.py",
+   "adapter": "video.verify",
+   "lenses": [
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "FFprobe + full decode; mismatching fps/size rejected."
+  },
+  "20.07": {
+   "status": "unit_tested",
+   "module": "shot_quality_v19",
+   "symbol": "score_shots",
+   "test": "test_shot_quality_v19.py",
+   "adapter": "video.shot_score",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "Crushed/blown luma fractions per shot; black and white shots flagged; source hash unchanged; 60 s 720p in about 4 s."
+  },
+  "21.04": {
+   "status": "unit_tested",
+   "module": "capability_runtime",
+   "symbol": "execute",
+   "test": "test_capability_v15.py",
+   "adapter": "video.recut",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "Write effects return approval_required without --approve-write; nothing executed."
+  },
+  "25.02": {
+   "status": "unit_tested",
+   "module": "capability_runtime",
+   "symbol": "execute",
+   "test": "test_capability_v15.py",
+   "adapter": null,
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "Explicit read/write effect per adapter; write refused before approval."
+  },
+  "26.01": {
+   "status": "unit_tested",
+   "module": "capability_runtime",
+   "symbol": "execute",
+   "test": "test_capability_v15.py",
+   "adapter": "learning.record",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission"
+   ],
+   "evidence": "Lesson requires an earlier executed audit id (source_audit_id); fake ids rejected."
+  }
+ }
+}
