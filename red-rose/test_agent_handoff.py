@@ -33,7 +33,7 @@ class AgentHandoffContractTests(unittest.TestCase):
     def test_grounded_qa_summary_count(self):
         markdown = (DIR / "QUESTIONS_AND_ANSWERS.md").read_text(encoding="utf-8")
         data = json.loads((DIR / "QUESTION_COVERAGE.json").read_text(encoding="utf-8"))
-        ids = re.findall(r"^### (A\\d{2}) — ", markdown, flags=re.MULTILINE)
+        ids = re.findall(r"^### (A\d{2}) — ", markdown, flags=re.MULTILINE)
         self.assertEqual(len(ids), data["confirmed_answer_paraphrases"])
         self.assertEqual(len(ids), len(set(ids)), "Duplicate question IDs")
         self.assertEqual(ids, [f"A{i:02d}" for i in range(1, len(ids)+1)])
