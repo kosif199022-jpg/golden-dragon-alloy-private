@@ -79,3 +79,9 @@ cannot overwrite arbitrary folders. Do not import any legacy runtime modules.
 ## V18 — Q&A provenance and evidence routing
 
 Before new work, run \`python rose.py question-audit\` and inspect \`QA_TRACEABILITY.json\`; for an existing paraphrased decision run \`python rose.py question-trace A17\`. The new read-only \`qa.trace\` adapter is available through \`capability-run\` too. Trace IDs **A01–A35 are summary IDs, NOT the original 1–1400 questions**. Do not invent missing source text, mark linked capabilities as complete, or claim auto-execution of imported reference material.
+
+## V19 — per-shot technical quality
+
+- `video.shot_score` (read): `python rose.py shot-score footage.mp4`. Returns per-shot `mean_luma`, clipping fractions, `detail`, `motion`, `audible_fraction`, flags, a ranked list and a `suggested_edl`.
+- Shots flagged `too_dark`, `too_bright` or `clipped` are left out of the proposal; `low_detail`, `static` and `high_motion` are reported only.
+- Present the flags and scores to the user as measurements, never as "best shots". No focus, composition, face or story understanding exists. Export only through an approved `video.recut`.

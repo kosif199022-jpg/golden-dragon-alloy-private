@@ -254,9 +254,10 @@
         "video.recut",
         "video.preview",
         "video.produce",
-        "video.verify"
+        "video.verify",
+        "video.shot_score"
       ],
-      "limit_or_next_evidence": "محركات فيديو فعلية؛ الفهم السينمائي الدلالي والإبداع التحريري المتقدم غير مثبتين.",
+      "limit_or_next_evidence": "محركات فيديو فعلية + قياس تقني للقطات (إضاءة/تفاصيل/حركة) في V19؛ الفهم السينمائي الدلالي والتكوين والإبداع التحريري المتقدم غير مثبتين.",
       "original_question_verbatim": false,
       "original_answer_verbatim": false,
       "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
@@ -291,9 +292,10 @@
       "linked_native_capabilities": [
         "video.scene_analyze",
         "video.timeline_analyze",
-        "video.edit_suggest"
+        "video.edit_suggest",
+        "video.shot_score"
       ],
-      "limit_or_next_evidence": "القطوعات والصمت خوارزميات؛ لا يوجد فهم معاني المشهد أو الحوار.",
+      "limit_or_next_evidence": "القطوعات والصمت وقياسات اللقطة (V19) خوارزميات على نسخة مصغّرة؛ لا يوجد فهم معاني المشهد أو الحوار.",
       "original_question_verbatim": false,
       "original_answer_verbatim": false,
       "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"

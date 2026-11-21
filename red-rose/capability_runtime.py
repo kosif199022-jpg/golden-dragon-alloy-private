@@ -22,6 +22,7 @@ from styles import list_styles
 from scene_edit_v16 import analyze_cuts, recut
 from audio_scene_v17 import detect_silences, timeline_analyze, suggest_edit
 from qa_trace import trace as qa_trace
+from shot_quality_v19 import score_shots
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
@@ -38,6 +39,7 @@ REGISTRY = {
  'video.recut': ('Join approved source time ranges into a verified original-media MP4', 'write', 'ffmpeg'),
  'video.timeline_analyze': ('Combine approximate visual scene cuts with acoustic silence intervals', 'read', 'ffmpeg'),
  'video.edit_suggest': ('Suggest reviewable EDL based on acoustic activity and scene boundaries', 'read', 'ffmpeg'),
+ 'video.shot_score': ('Measure per-shot exposure, clipping, detail and motion; rank shots into a reviewable EDL', 'read', 'ffmpeg'),
  'video.preview': ('Validate storyboard and estimate bounded render work', 'read', 'cairosvg'),
  'video.produce': ('Render editable SVG storyboard to verified MP4', 'write', 'cairosvg'),
  'character.svg': ('Create standalone original IK character SVG', 'write', 'builtin'),
@@ -59,6 +61,12 @@ ALIASES = {
  'silence': ('video.timeline_analyze','video.edit_suggest'),
  'صمت': ('video.timeline_analyze','video.edit_suggest'),
  'تلقائي': ('video.edit_suggest',),
+ 'quality': ('video.shot_score',),
+ 'جودة': ('video.shot_score',),
+ 'لقطات': ('video.shot_score','video.scene_analyze'),
+ 'shots': ('video.shot_score','video.scene_analyze'),
+ 'exposure': ('video.shot_score',),
+ 'إضاءة': ('video.shot_score',),
  'صوت': ('audio.analyze',),
  'بحث': ('knowledge.search','knowledge.route'),
  'knowledge': ('knowledge.search','knowledge.route'),
@@ -230,6 +238,13 @@ def execute(db, capability, params, *, approve_write=False):
         output=suggest_edit(params['source'],max_clips=params.get('max_clips',3),
                 max_duration=params.get('max_duration',30.),
                 min_audible_ratio=params.get('min_audible_ratio',.20),
+                threshold=params.get('threshold',.23),
+                sample_fps=params.get('sample_fps',6),noise_db=params.get('noise_db',-35),
+                min_silence=params.get('min_silence',.30))
+    elif capability=='video.shot_score':
+        _guard_keys(params,('source','max_clips','max_duration','threshold','sample_fps','noise_db','min_silence'),('source',))
+        output=score_shots(params['source'],max_clips=params.get('max_clips',3),
+                max_duration=params.get('max_duration',30.),
                 threshold=params.get('threshold',.23),
                 sample_fps=params.get('sample_fps',6),noise_db=params.get('noise_db',-35),
                 min_silence=params.get('min_silence',.30))

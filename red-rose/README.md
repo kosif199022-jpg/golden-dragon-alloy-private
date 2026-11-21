@@ -218,3 +218,16 @@ The first two commands do not open or create the user's private SQLite database.
 The trace enforces that every linked capability belongs to the *current* \`capability_runtime.REGISTRY\`; it rejects unknown legacy/nonexecutable names, false verbatim-original flags, missing/extra Q&A IDs, or historical question numbers masquerading as recovered source text. A link means **partially related implementation**, not full requirement satisfaction. The original 1,400 questions have **not** been restored or implemented.
 
 The 16th adapter \`qa.trace\` provides project-level provenance and validation, not a new image/AI/video engine. Existing V17 video algorithms and limitations are unchanged.
+
+## V19 — measured per-shot technical quality (read only)
+
+New native read-only adapter `video.shot_score` (17 registered adapters). It measures exposure, black/white clipping, coarse detail and motion for every detected shot on a 64x36 grayscale proxy, joins the V17 audible fraction, ranks the shots and returns a reviewable `suggested_edl`. It never writes; exporting still needs an approved `video.recut`.
+
+```bash
+python rose.py shot-score footage.mp4 --max-clips 3
+python rose.py capability-run video.shot_score '{"source":"footage.mp4","max_duration":20}'
+# review the EDL, save it as edits.json, then only with approval:
+python rose.py recut footage.mp4 edits.json new.mp4 --approve-write
+```
+
+Evidence and limits are in `CAPABILITY_LEDGER_V19.md`: 185 local tests passed; measurements are technical proxies, not focus, composition, story or aesthetic judgement, and the thresholds have not been tuned on real footage.

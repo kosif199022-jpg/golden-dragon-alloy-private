@@ -105,3 +105,23 @@ PR/merge state:
 A new, intentionally narrow native **read-only** adapter \`qa.trace\` was added to query the documented A01–A35 paraphrases, backed by \`QA_TRACEABILITY.json\` and checked against the runtime registry. It also exposes \`question-audit\` and \`question-trace A17\` without requiring a local SQLite database. This is **not** restoration of historical question texts.
 
 The **V17 snapshot above remains historical**: 15 native adapters and 154 local tests at that previous release. V18 changes the registry to 16 and adds regression coverage; the next agent must obtain the CI run result on the exact V18 commit before claiming it passed. New code: \`qa_trace.py\`, \`test_qa_trace_v18.py\`; main requirement is proof that a mapped ID is registered and missing verbatim sources are not fabricated.
+
+## 8. V19 checkpoint — per-shot technical quality (P3, partial)
+
+```text
+المهمة: P3 — قياس تقني فعلي للقطات وربطه بالصوت، والناتج EDL للمراجعة فقط.
+اسم الفرع: main محلي (working tree غير مرفوع) — لم يُنشأ فرع ولا PR بعد.
+HEAD commit الأساس: 5ce29c33ebf2df0c1ea9b915104f469736fc18d0
+ملفات جديدة: shot_quality_v19.py, test_shot_quality_v19.py, CAPABILITY_LEDGER_V19.md, RELEASE_MANIFEST_V19.json
+ملفات تغيّرت: capability_runtime.py, rose.py, test_capability_v15.py, test_qa_trace_v18.py, QA_TRACEABILITY.json, README.md, SKILL.md, START_NEXT_AGENT.md, NEXT_AGENT_HANDOFF.md
+اختبارات: python -W error::ResourceWarning -m unittest discover → 185 OK (172 قبل التغيير + 13) على Windows 11 / Python 3.12.10 / FFmpeg 9.0.2
+مخرجات: تقرير JSON فقط (لا ملفات وسائط)؛ الأرقام المقاسة في CAPABILITY_LEDGER_V19.md
+بوابات الأمان: المحوّل read؛ يرفض المعاملات غير المعروفة والروابط؛ التصدير ما زال عبر video.recut بموافقة
+CI: لم يُشغَّل — التغيير غير مرفوع
+PR/merge state: لا يوجد PR؛ لم يدخل main على GitHub
+ماذا اكتمل فعلًا: المحوّل رقم 17 video.shot_score وأمر shot-score واختباراته وتوثيقه
+العيوب والمتبقي: العتبات غير مُعايرة على لقطات كاميرا حقيقية؛ لا قياس تكوين/وجوه/تركيز؛ P1 (استرداد نصوص 1–1400) ما زال unresolved؛ P4 لم يبدأ
+أول أمر للوكيل التالي: cd red-rose && python rose.py shot-score <فيديو محلي مصرّح به> ثم قارن الأعلام بالمشاهدة الفعلية وعاير LIMITS باختبار جديد
+```
+
+**التالي المقترح:** (1) رفع هذا التغيير على فرع + PR وتشغيل CI بعد موافقة المالك. (2) معايرة `LIMITS` على لقطات حقيقية مصرّح بها. (3) P4: اختبار رندر 9:16 وترجمات عربية RTL.

@@ -26,3 +26,14 @@ python -W error::ResourceWarning -m unittest discover -v
 \`\`\`
 
 Use \`QA_TRACEABILITY.json\` to choose a missing documented goal and match it to actual code. Historical 1–1400 questions **remain unavailable verbatim** and must be recovered from original sources, not invented. The QA link module is metadata tooling, not all 1,400 implemented.
+
+## V19 first commands
+
+```bash
+cd red-rose
+python rose.py capabilities            # expect 17 adapters incl. video.shot_score
+python rose.py shot-score VIDEO.mp4    # read-only measurements + reviewable EDL
+python -W error::ResourceWarning -m unittest discover -v
+```
+
+Read section 8 of `NEXT_AGENT_HANDOFF.md` and `CAPABILITY_LEDGER_V19.md` first. Verify whether V19 has actually been pushed and merged before assuming it is on `main`.
