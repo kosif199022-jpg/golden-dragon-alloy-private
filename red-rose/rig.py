@@ -7,6 +7,7 @@ from __future__ import annotations
 import math
 from camera import _color
 from motion_tracks import scalar
+from visemes import sample_viseme
 
 
 def two_bone(start, target, upper, lower, bend=1):
@@ -90,7 +91,23 @@ def rig_character(x: float, y: float, k: float, phase: float, recipe: dict) -> s
     eye_h=max(.6,3.0*(1-eyes))
     for eyex in (-7,9):
         out.append(f'<ellipse cx="{lean+eyex:.2f}" cy="-87" rx="2.2" ry="{eye_h:.2f}" fill="#30212d"/>')
-    if mouth>.32 or expression=='surprised':
+    viseme_keys = recipe.get('viseme_keys')
+    if viseme_keys is not None:
+        pose=sample_viseme(viseme_keys, phase)
+        # The energy track explicitly closes the lips during silence.
+        if mouth <= .12 or pose == 'closed' or pose == 'neutral':
+            out.append(f'<path d="M {lean-6:.2f} -76 L {lean+7:.2f} -76" fill="none" stroke="#744353" stroke-width="2.3"/>')
+        elif pose == 'round':
+            r=2.2+2.7*mouth
+            out.append(f'<ellipse cx="{lean+1.2:.2f}" cy="-76" rx="{r*.8:.2f}" ry="{r:.2f}" fill="#743748"/>')
+        elif pose == 'wide':
+            out.append(f'<ellipse cx="{lean+1.2:.2f}" cy="-76" rx="{3+6*mouth:.2f}" ry="{1.8+2.1*mouth:.2f}" fill="#743748"/>')
+        elif pose == 'teeth':
+            out.append(f'<rect x="{lean-7:.2f}" y="-79" width="16" height="{2+3*mouth:.2f}" rx="1.8" fill="#f7e9d7" stroke="#8b5562" stroke-width=".65"/>')
+        else:
+            radius=2.0+6*mouth
+            out.append(f'<ellipse cx="{lean+1.2:.2f}" cy="-76" rx="{radius*.55:.2f}" ry="{radius:.2f}" fill="#744353"/>')
+    elif mouth>.32 or expression=='surprised':
         radius=2.0+6*max(mouth,.5 if expression=='surprised' else mouth)
         out.append(f'<ellipse cx="{lean+1.2:.2f}" cy="-76" rx="{radius*.55:.2f}" ry="{radius:.2f}" fill="#744353"/>')
     elif expression=='serious':
