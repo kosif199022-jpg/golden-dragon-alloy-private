@@ -1,4 +1,6 @@
-# الوردة الحمراء 🌹 V16 — Independent, editable video prototype + offline knowledge
+# الوردة الحمراء 🌹 V17 — Independent, editable video prototype + offline knowledge
+
+**Incoming agents:** Read [AGENTS.md](AGENTS.md), [NEXT_AGENT_HANDOFF.md](NEXT_AGENT_HANDOFF.md), [QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md) and [QUESTION_COVERAGE.json](QUESTION_COVERAGE.json) **before modifying code**. The 35 Q&A entries are attributed *paraphrases*, not the complete historical 1–1400 questions; never invent the missing original texts.
 
 **Project status:** working local prototype, NOT full fusion of the Golden/Black Dragon engines. The owner's approval of 1,400 design requirements is not evidence of 1,400 implemented abilities.
 

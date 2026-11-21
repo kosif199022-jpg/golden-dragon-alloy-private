@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "last_reviewed_on": "2026-11-21",
+  "project": "red-rose",
+  "scope": "Audit of source completeness, not a claim that the historical question texts have been preserved.",
+  "historical_design_target": 1400,
+  "historical_question_status": [
+    {
+      "range": "1-400",
+      "start": 1,
+      "end": 400,
+      "reported_prior_status": "Questions/requirements discussed and approved previously",
+      "verbatim_questions_in_this_repo": "not recovered as a verified complete list",
+      "verbatim_answers_in_this_repo": "not recovered as a verified complete list",
+      "implementation": "not inferred from approval",
+      "next_action": "Find original dated question-and-answer messages/files and quote with source reference"
+    },
+    {
+      "range": "401-450",
+      "start": 401,
+      "end": 450,
+      "reported_prior_status": "50 additional detailed questions reported from earlier discussions",
+      "verbatim_questions_in_this_repo": "not recovered as a verified complete list",
+      "verbatim_answers_in_this_repo": "not recovered as a verified complete list",
+      "implementation": "not inferred from approval",
+      "next_action": "Recover detailed originals and preserve attribution"
+    },
+    {
+      "range": "451-1400",
+      "start": 451,
+      "end": 1400,
+      "reported_prior_status": "Themes and proposals approved; full individual question texts were not documented here",
+      "verbatim_questions_in_this_repo": "not recovered",
+      "verbatim_answers_in_this_repo": "not recovered",
+      "implementation": "not inferred from approval",
+      "next_action": "Recover if they exist; otherwise draft clearly labeled proposals and obtain review before marking answered"
+    }
+  ],
+  "confirmed_user_requested_topics": [
+    "Advanced thinking and creativity (50-question request)",
+    "Mathematics and dimensions for art/montage (50-question request)",
+    "Drawing styles (50-question request)",
+    "Free-to-use libraries with license review (50-question request)",
+    "Physics for montage (50-question request)",
+    "Large additional ability/requirement roadmap (~1000 topics/questions)"
+  ],
+  "confirmed_answer_paraphrases": 35,
+  "question_answer_record": "QUESTIONS_AND_ANSWERS.md",
+  "original_1400_question_archive_complete": false,
+  "source_distinction": [
+    "user-directive-paraphrase",
+    "repo-verified",
+    "agent-guidance",
+    "unresolved"
+  ],
+  "measured_implementation_at_v17": {
+    "registered_native_capabilities": 15,
+    "local_tests_passed": 154,
+    "source": "capability_runtime.py and RELEASE_MANIFEST_V17.json",
+    "all_1400_implemented": false
+  },
+  "measured_local_knowledge_at_v10": {
+    "summaries_imported": 25675,
+    "private_local_only": true,
+    "summary_not_executable": true,
+    "availability_on_current_machine": "must reverify"
+  },
+  "safety_rules": [
+    "Never infer implementation from approval",
+    "Never invent original questions or answers",
+    "Never upload source SQLite, owner memory or credentials",
+    "Do not call legacy skills at runtime",
+    "Do not interpret prior general approval as payment/deletion/publishing authorization"
+  ],
+  "next_agent_start": "AGENTS.md then NEXT_AGENT_HANDOFF.md then QUESTIONS_AND_ANSWERS.md"
+}
