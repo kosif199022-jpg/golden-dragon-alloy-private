@@ -1,0 +1,18 @@
+{
+  "name": "red-rose",
+  "version": "18.0",
+  "date": "2026-11-21",
+  "base_release": "V17; 15 adapters, 164 tests at the V17 documentation PR including 4 agent-handoff tests",
+  "registered_adapters_target_at_v18": 16,
+  "new_native_adapter": "qa.trace",
+  "new_commands": [
+    "question-audit",
+    "question-trace"
+  ],
+  "paraphrased_qa_records": 35,
+  "historical_1400_question_archive_complete": false,
+  "historical_1400_requirements_executed": false,
+  "current_implementation_claim": "Capability links are partial/relevant relationships, not proof of requirement completion",
+  "release_verification": "Use live HEAD, python -W error::ResourceWarning -m unittest discover -v, and GitHub CI; do not infer final count from this manifest",
+  "private_memory_in_source_control": false
+}
