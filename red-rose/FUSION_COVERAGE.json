@@ -1,0 +1,170 @@
+{
+ "total_units": 25675,
+ "by_category": {
+  "native": 15180,
+  "guidance": 3305,
+  "meta_catalog": 1169,
+  "playbook": 2526,
+  "native_gated": 2727,
+  "prepared_gated": 466,
+  "bridge": 302,
+  "network": 0,
+  "paid": 0,
+  "external_app": 0,
+  "missing": 0
+ },
+ "by_kind": {
+  "catalog-skill": {
+   "native": 8716,
+   "playbook": 2277,
+   "guidance": 1430,
+   "native_gated": 2520,
+   "bridge": 127,
+   "prepared_gated": 289
+  },
+  "power": {
+   "native": 5448,
+   "prepared_gated": 128,
+   "native_gated": 70,
+   "bridge": 94,
+   "meta_catalog": 288,
+   "guidance": 101
+  },
+  "reference": {
+   "guidance": 1627
+  },
+  "skill": {
+   "prepared_gated": 31,
+   "bridge": 50,
+   "native": 357,
+   "native_gated": 110,
+   "playbook": 79,
+   "guidance": 42
+  },
+  "superpower": {
+   "meta_catalog": 485
+  },
+  "script": {
+   "meta_catalog": 352
+  },
+  "tool": {
+   "native": 190,
+   "playbook": 83,
+   "guidance": 8,
+   "bridge": 17,
+   "native_gated": 15,
+   "prepared_gated": 8
+  },
+  "lesson": {
+   "native": 222
+  },
+  "lib": {
+   "playbook": 34,
+   "native": 95,
+   "bridge": 8,
+   "native_gated": 9,
+   "prepared_gated": 6,
+   "guidance": 2
+  },
+  "rule": {
+   "native": 134
+  },
+  "thinking": {
+   "guidance": 51
+  },
+  "road": {
+   "guidance": 43
+  },
+  "re": {
+   "playbook": 33,
+   "native": 1
+  },
+  "program": {
+   "playbook": 17,
+   "bridge": 4,
+   "native": 9,
+   "guidance": 1,
+   "native_gated": 1
+  },
+  "cmd": {
+   "meta_catalog": 29
+  },
+  "engine": {
+   "meta_catalog": 15
+  },
+  "studio": {
+   "native": 8,
+   "bridge": 2
+  },
+  "mcp": {
+   "native_gated": 1,
+   "playbook": 3,
+   "prepared_gated": 3
+  },
+  "module": {
+   "native_gated": 1,
+   "prepared_gated": 1
+  }
+ },
+ "fusable_units": 25675,
+ "fused_or_absorbed_units": 19654,
+ "fusion_ratio_of_fusable": 0.7655,
+ "units_with_red_rose_path": 25675,
+ "path_ratio_of_all_units": 1.0,
+ "path_breakdown": {
+  "native_or_absorbed": 19654,
+  "playbook": 2526,
+  "gated_or_bridged": 3495,
+  "missing": 0
+ },
+ "missing_families_top": [],
+ "adapters_used": {
+  "knowledge.store": 3753,
+  "net.fetch": 2727,
+  "playbook.library": 2526,
+  "app.build": 1968,
+  "studio.render": 1843,
+  "design.layout": 1733,
+  "architecture.check": 1669,
+  "code.analyze": 1642,
+  "style.draw": 1616,
+  "motion.core": 1516,
+  "agents.coordinate": 1337,
+  "database.manage": 1336,
+  "video.edit": 1271,
+  "thinking.reason": 1239,
+  "graphics.motion": 1184,
+  "decision.make": 1067,
+  "accounting.check": 959,
+  "audio.process": 883,
+  "security.guard": 852,
+  "text.motion": 681,
+  "math.geometry": 608,
+  "governance.audit": 509,
+  "prompt.prepare": 466,
+  "learning.evolve": 465,
+  "automation.run": 385,
+  "video.verify": 384,
+  "memory.recall": 356,
+  "app.bridge": 302,
+  "roadmap.status": 288,
+  "character.animate": 210,
+  "physics.simulate": 188,
+  "video.analyze": 160,
+  "model3d.build": 115,
+  "science.compute": 114,
+  "vfx.compose": 87,
+  "fusion.route": 63,
+  "library.evaluate": 2
+ },
+ "method": "keyword/prefix classification (heuristic); native = adapter exists, not every legacy behaviour reproduced",
+ "measured_on": "2026-11-22",
+ "registry_adapters": 59,
+ "source": "local private fused_knowledge table, read-only; only aggregate counts are stored here",
+ "adapters_coded_untested_v27": [
+  "motion.core",
+  "text.motion",
+  "graphics.motion",
+  "studio.render"
+ ]
+}

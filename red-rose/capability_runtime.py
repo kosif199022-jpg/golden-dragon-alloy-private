@@ -22,11 +22,76 @@ from styles import list_styles
 from scene_edit_v16 import analyze_cuts, recut
 from audio_scene_v17 import detect_silences, timeline_analyze, suggest_edit
 from qa_trace import trace as qa_trace
+from shot_quality_v19 import score_shots
+import roadmap_1400
+import physics_v20
+import geometry_v20
+import science_v20
+import thinking_v21
+import decision_v21
+import code_analysis_v21
+import accounting_v21
+import governance_v22
+import architecture_v22
+import agents_v22
+import learning_v22
+import compose_v22
+import styles_v23
+import design_v23
+import characters_v23
+import modeling3d_v23
+import web_offline_v23
+import libraries_v24
+import appbuilder_v24
+import vfx_v24
+import security_v24
+import knowledge_v25
+import database_v25
+import media_analysis_v25
+import editing_v25
+import audio_v25
+import automation_v25
+import release_v26
+import motion_v27
+import typemotion_v27
+import graphics_v27
+import studio_v27
+import net_v28
+import bridges_v28
+import prompts_v28
+import playbooks_v28
+
+# File/media/database adapters: per-op EFFECTS; writes need the owner's --approve-write.
+IO_ADAPTERS = {'knowledge.store': knowledge_v25, 'database.manage': database_v25,
+               'video.analyze': media_analysis_v25, 'video.edit': editing_v25,
+               'audio.process': audio_v25, 'automation.run': automation_v25,
+               'release.verify': release_v26, 'studio.render': studio_v27,
+               'net.fetch': net_v28, 'app.bridge': bridges_v28, 'playbook.library': playbooks_v28}
+# Adapters the owner asked to ship without tests (2026-11-22); release checks list them apart.
+CODED_UNTESTED = ('motion.core', 'text.motion', 'graphics.motion', 'studio.render',
+                  'net.fetch', 'app.bridge', 'prompt.prepare', 'playbook.library')
+
+# Pure-computation adapters: one explicit op whitelist per module, no I/O.
+PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
+                'science.compute': science_v20, 'thinking.reason': thinking_v21,
+                'decision.make': decision_v21, 'code.analyze': code_analysis_v21,
+                'accounting.check': accounting_v21, 'governance.audit': governance_v22,
+                'architecture.check': architecture_v22, 'agents.coordinate': agents_v22,
+                'learning.evolve': learning_v22, 'compose.pipeline': compose_v22,
+                'style.draw': styles_v23, 'design.layout': design_v23,
+                'character.animate': characters_v23, 'model3d.build': modeling3d_v23,
+                'web.offline': web_offline_v23, 'library.evaluate': libraries_v24,
+                'app.build': appbuilder_v24, 'vfx.compose': vfx_v24,
+                'security.guard': security_v24,
+                # V27 motion fusion (coded; owner asked for no tests): pure SVG generators.
+                'motion.core': motion_v27, 'text.motion': typemotion_v27,
+                'graphics.motion': graphics_v27, 'prompt.prepare': prompts_v28}
 from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fusion_frame, render_video as fusion_render, iphone_export, PRESETS
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
  'qa.trace': ('Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A', 'read', 'builtin'),
+ 'roadmap.status': ('Report verified progress on the owner-approved 1,400-question roadmap by topic or question', 'read', 'builtin'),
  'fusion.route': ('Generate spherical route coordinates without imagery', 'read', 'builtin'),
  'fusion.plan': ('Plan original clay/map shots in explicit frames', 'read', 'builtin'),
  'fusion.frame': ('Generate an original illustrated SVG frame', 'read', 'pillow_cairosvg'),
@@ -44,9 +109,46 @@ REGISTRY = {
  'video.recut': ('Join approved source time ranges into a verified original-media MP4', 'write', 'ffmpeg'),
  'video.timeline_analyze': ('Combine approximate visual scene cuts with acoustic silence intervals', 'read', 'ffmpeg'),
  'video.edit_suggest': ('Suggest reviewable EDL based on acoustic activity and scene boundaries', 'read', 'ffmpeg'),
+ 'video.shot_score': ('Measure per-shot exposure, clipping, detail and motion; rank shots into a reviewable EDL', 'read', 'ffmpeg'),
  'video.preview': ('Validate storyboard and estimate bounded render work', 'read', 'cairosvg'),
  'video.produce': ('Render editable SVG storyboard to verified MP4', 'write', 'cairosvg'),
  'character.svg': ('Create standalone original IK character SVG', 'write', 'builtin'),
+ 'physics.simulate': ('Deterministic motion physics: fall, collision, friction, spring, projectile, cloth, motion blur, flow, shading, particles', 'read', 'builtin'),
+ 'math.geometry': ('Scene geometry: transforms, perspective, curves, aspect fit, depth of field, two-bone IK, camera paths, homography, timecode, lens distortion', 'read', 'builtin'),
+ 'science.compute': ('Exact units, smoothed derivatives, Jacobian IK, intrinsics, quaternions, FFT, z-buffer, seeded RNG, ODE solvers, model reports', 'read', 'builtin'),
+ 'thinking.reason': ('Structured thinking: first principles, alternatives, causal do(), weighted decisions with sensitivity, pre-mortem, budgets, plan gaps, lessons, PoC gate, aesthetic review', 'read', 'builtin'),
+ 'decision.make': ('Decision rules: intent state, confidence labels, tool choice, phase machine, blind review, conflict priority, failure log, tested routing, gaps, auditable records', 'read', 'builtin'),
+ 'code.analyze': ('Static code analysis on supplied source text: syntax, import cycles, duplicates, resources, masked secrets, races, tracebacks, complexity, boundaries, diff review', 'read', 'builtin'),
+ 'accounting.check': ('Decimal checks on owner-supplied records: bank reconciliation, duplicate invoices, trial balance, payroll, item codes, costing, cash flow, allocation, checklists, approvals', 'read', 'builtin'),
+ 'governance.audit': ('Skill governance: contracts, provenance cards, copy guard, overlaps, legacy-import audit, adapter reality, passports, approval lifecycle, snapshots, completion matrix', 'read', 'builtin'),
+ 'architecture.check': ('Architecture checks: CLI spec, versioned messages, distribution guard, dependency status, redacted config, cache keys, checkpoint resume, path portability, SemVer migrations', 'read', 'builtin'),
+ 'agents.coordinate': ('Agent coordination: task contract, stage DAG, roster, safe batches, critique, handoff check, injection guard, claim check, progress monitor, rigor level', 'read', 'builtin'),
+ 'learning.evolve': ('Evidence-based learning: similar errors, lesson ranking, reviewed rule proposals, capability gaps, regression cases, rule versions, lesson benefit, local-only guard, forget plans', 'read', 'builtin'),
+ 'style.draw': ('Code-drawn styles as SVG: palette lock, rough lines, clay, flat cartoon, machine drawing, watercolour, mono, reference sheet, style guide, neutral descriptors', 'read', 'builtin'),
+ 'design.layout': ('Design checks and SVG: thirds and balance, landscapes, three-point light, palettes with WCAG contrast, Arabic RTL text prep, logo similarity, posters, interiors, horizon, continuity', 'read', 'builtin'),
+ 'character.animate': ('2D character animation data: skeleton FK, walk and run cycles, expressions, rule-based visemes, landmark smoothing, identity lock, grip, secondary motion, crowd layers', 'read', 'builtin'),
+ 'model3d.build': ('CPU-only 3D: meshes and interference, car steering, cloth, camera, skinning, UV atlas, area light, OBJ/glTF text export, LOD, cutaway', 'read', 'builtin'),
+ 'web.offline': ('Offline web building blocks on supplied pages only: allow-list, robots policy, OEM numbers, dated prices, HTML text, citations, dedupe, retry policy, JSON export, data licence (no network)', 'read', 'builtin'),
+ 'library.evaluate': ('Free-library evaluation from supplied metadata: SPDX licence duties, tool benchmarks, SVG/animation/WebGL/audio/CV/shot-detection comparisons, lockfiles, Arabic shaping stacks (not legal advice)', 'read', 'builtin'),
+ 'app.build': ('In-memory app generation: scaffolds, RTL HTML, OpenAPI, SQLite DDL with safe migrations, signed session tokens, router specs, generated tests, docs, manifests, deploy plans (nothing written)', 'read', 'builtin'),
+ 'vfx.compose': ('Code VFX on small arrays: tracking, rain, shadows, heat haze, limited bloom, snow vortex, linear alpha compositing, parallax, inpainting, sparks; footage only on owner request', 'read', 'builtin'),
+ 'security.guard': ('Defensive checks: secret/private-store scan, injection-as-data, output path guard, resource caps, seeded fuzzing, SBOM advisories, hash manifests, rollback plans, explicit publish gate', 'read', 'builtin'),
+ 'knowledge.store': ('Local licensed knowledge in SQLite: sources with hashes, Arabic/English FTS5, read-only legacy summaries, consented owner instructions, versioned errors, conflicts, trust, search receipts, safe migrations, workspaces', 'mixed', 'builtin'),
+ 'database.manage': ('SQLite data work: constrained schemas, tenant-filtered queries, index plans, contradiction rules, reversible migrations, strict CSV/JSON import, masked sensitive fields, backup/restore, monthly series, lineage', 'mixed', 'builtin'),
+ 'video.analyze': ('Read-only frame analysis on local media: cut evaluation, motion, saliency crop, perceptual duplicates, sharpness, colour stats, PSNR+SSIM with context, letterbox detection', 'mixed', 'ffmpeg'),
+ 'video.edit': ('Editing on local footage: beat-snapped cuts (rights confirmed), story arc, pacing, approved AAC crossfade render, stabilisation estimate, colour match proposal, 9:16 reframe track', 'mixed', 'ffmpeg'),
+ 'audio.process': ('Audio on local files: LUFS/true-peak, approved denoise/extract/crossfade/normalise renders, trusted word timing, A/V sync, pause-trim EDL, rights records', 'mixed', 'ffmpeg'),
+ 'automation.run': ('Bounded automation in a work dir: allow-listed commands without shell, resumable queue, bounded pool, timeouts without partial files, perf log, retry policy, render QA, release gate, receipts', 'mixed', 'ffmpeg'),
+ 'release.verify': ('Final integration: independence audit, registry reality, 1,400 closure matrix, approved end-to-end MP4, device checklist, load test, release privacy, human edit rubric, portable release with smoke test, handoff resume', 'mixed', 'ffmpeg'),
+ 'motion.core': ('Motion core (coded, untested): 36 easings, keyframe tracks, 27 transitions as SVG, 12 camera moves, beat-timed transitions', 'read', 'builtin'),
+ 'text.motion': ('Kinetic typography (coded, untested): 15 Arabic-safe styles (words never split into letters), captions, karaoke from supplied timings, SRT, lower thirds, platform canvases', 'read', 'builtin'),
+ 'graphics.motion': ('Motion graphics (coded, untested): shape morph, draw-on, neon (on request), textures (on request), particles, data viz, schematic route maps, explainers, retro pixel, UI mocks, brand reveals', 'read', 'builtin'),
+ 'studio.render': ('Timeline studio (coded, untested): validate and preview layered timelines, approved MP4 render with measured AAC mix and ducking, named grades only on owner request, LUT text, delivery check', 'mixed', 'ffmpeg'),
+ 'net.fetch': ('Network (coded, untested): allow-listed HTTPS pages/files/crawl/links, robots and rate limits, yt-dlp for owned or licensed media, GitHub repo info; every connection needs --approve-write', 'mixed', 'builtin'),
+ 'app.bridge': ('Outside programs (coded, untested): detect, Blender headless scripts and renders, After Effects JSX, EDL/FCPXML, local TTS (piper/espeak) from owner text, Remotion file map', 'mixed', 'builtin'),
+ 'prompt.prepare': ('Paid-generation preparation (coded, untested): image/video/music/voice prompts, neutral styles, cost estimates, approval requests; never calls a service', 'read', 'builtin'),
+ 'playbook.library': ('Catalog skills as playbooks (coded, untested): parse descriptions, build a local FTS playbook index (approved write), search, plan from a playbook', 'mixed', 'builtin'),
+ 'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
  'صلصال': ('fusion.plan','fusion.frame','fusion.render'),
@@ -69,10 +171,110 @@ ALIASES = {
  'silence': ('video.timeline_analyze','video.edit_suggest'),
  'صمت': ('video.timeline_analyze','video.edit_suggest'),
  'تلقائي': ('video.edit_suggest',),
+ 'quality': ('video.shot_score',),
+ 'جودة': ('video.shot_score',),
+ 'لقطات': ('video.shot_score','video.scene_analyze'),
+ 'shots': ('video.shot_score','video.scene_analyze'),
+ 'exposure': ('video.shot_score',),
+ 'إضاءة': ('video.shot_score',),
  'صوت': ('audio.analyze',),
  'بحث': ('knowledge.search','knowledge.route'),
  'knowledge': ('knowledge.search','knowledge.route'),
- 'أسئلة': ('qa.trace',),
+ 'أسئلة': ('qa.trace','roadmap.status'),
+ 'roadmap': ('roadmap.status',),
+ 'فيزياء': ('physics.simulate',),
+ 'physics': ('physics.simulate',),
+ 'جاذبية': ('physics.simulate',),
+ 'نابض': ('physics.simulate',),
+ 'جسيمات': ('physics.simulate',),
+ 'هندسة': ('math.geometry',),
+ 'geometry': ('math.geometry',),
+ 'منظور': ('math.geometry',),
+ 'timecode': ('math.geometry',),
+ 'تايم كود': ('math.geometry',),
+ 'عمق المجال': ('math.geometry',),
+ 'رياضيات': ('math.geometry','science.compute'),
+ 'علوم': ('science.compute',),
+ 'science': ('science.compute',),
+ 'وحدات': ('science.compute',),
+ 'fft': ('science.compute',),
+ 'تردد': ('science.compute',),
+ 'بدائل': ('thinking.reason',),
+ 'سبب': ('thinking.reason',),
+ 'مصفوفة قرار': ('thinking.reason',),
+ 'قرار': ('decision.make','thinking.reason'),
+ 'ثقة': ('decision.make',),
+ 'تعارض': ('decision.make',),
+ 'كود': ('code.analyze',),
+ 'code': ('code.analyze',),
+ 'أسرار': ('code.analyze',),
+ 'diff': ('code.analyze',),
+ 'محاسبة': ('accounting.check',),
+ 'مطابقة': ('accounting.check',),
+ 'فواتير': ('accounting.check',),
+ 'ميزان': ('accounting.check',),
+ 'رواتب': ('accounting.check',),
+ 'تكلفة': ('accounting.check',),
+ 'حوكمة': ('governance.audit',),
+ 'ترخيص': ('governance.audit',),
+ 'نسب': ('governance.audit',),
+ 'معمارية': ('architecture.check',),
+ 'إعدادات': ('architecture.check',),
+ 'ترحيل': ('architecture.check',),
+ 'وكلاء': ('agents.coordinate',),
+ 'تسليم': ('agents.coordinate',),
+ 'حقن': ('agents.coordinate',),
+ 'دروس': ('learning.evolve','memory.recall'),
+ 'نسيان': ('learning.evolve',),
+ 'دمج': ('compose.pipeline',),
+ 'طبقات': ('compose.pipeline',),
+ 'رسم': ('style.draw','character.svg'),
+ 'استايل': ('style.draw',),
+ 'ألوان': ('style.draw','design.layout'),
+ 'تصميم': ('design.layout',),
+ 'ملصق': ('design.layout',),
+ 'شعار': ('design.layout',),
+ 'مشي': ('character.animate',),
+ 'تعبيرات': ('character.animate',),
+ '3d': ('model3d.build',),
+ 'ثلاثي': ('model3d.build',),
+ 'مجسم': ('model3d.build',),
+ 'موقع': ('web.offline',),
+ 'html': ('web.offline',),
+ 'قطع غيار': ('web.offline',),
+ 'مكتبة': ('library.evaluate',),
+ 'رخصة': ('library.evaluate','governance.audit'),
+ 'تطبيق': ('app.build',),
+ 'api': ('app.build',),
+ 'مؤثرات': ('vfx.compose',),
+ 'vfx': ('vfx.compose',),
+ 'أمان': ('security.guard',),
+ 'أمن': ('security.guard',),
+ 'نشر': ('security.guard',),
+ 'انتقال': ('motion.core',),
+ 'انتقالات': ('motion.core',),
+ 'كاميرا': ('motion.core','math.geometry'),
+ 'كتابة متحركة': ('text.motion',),
+ 'كابشن': ('text.motion',),
+ 'ترجمة': ('text.motion',),
+ 'نيون': ('graphics.motion',),
+ 'خريطة': ('fusion.route','graphics.motion'),
+ 'رسم بياني': ('graphics.motion',),
+ 'رندر': ('studio.render','video.produce'),
+ 'تلوين': ('studio.render',),
+ 'ميكس': ('studio.render','audio.process'),
+ 'تحميل': ('net.fetch',),
+ 'رابط': ('net.fetch',),
+ 'بلندر': ('app.bridge',),
+ 'blender': ('app.bridge',),
+ 'برومبت': ('prompt.prepare',),
+ 'prompt': ('prompt.prepare',),
+ 'خطة تشغيل': ('playbook.library',),
+ 'playbook': ('playbook.library',),
+ 'موشن': ('motion.core','graphics.motion','text.motion','studio.render'),
+ '1400': ('roadmap.status',),
+ 'خطة': ('roadmap.status',),
+ 'تقدم': ('roadmap.status',),
  'اجابات': ('qa.trace',),
  'إجابات': ('qa.trace',),
  'متطلبات': ('qa.trace',),
@@ -160,7 +362,27 @@ def execute(db, capability, params, *, approve_write=False):
     if effect=='write' and not approve_write:
         return {'capability':capability,'status':'approval_required',
                 'detail':'Use --approve-write after reviewing output destination; nothing executed.'}
-    if capability=='fusion.route':
+    if capability in IO_ADAPTERS:
+        # File/media/database modules: the effect is decided per op, and only the
+        # owner's --approve-write flag can authorise a write. A caller-supplied
+        # approve_write inside params is discarded so nothing can approve itself.
+        _guard_keys(params,('op','params'),('op',))
+        module=IO_ADAPTERS[capability]
+        op=params['op']
+        if op not in module.OPS:
+            raise ValueError('unknown op for '+capability+'; allowed: '+', '.join(module.OPS))
+        inner=dict(params.get('params',{}))
+        if not isinstance(params.get('params',{}),dict):
+            raise ValueError('params must be an object')
+        inner.pop('approve_write',None)
+        effect=module.EFFECTS[op]
+        if effect=='write':
+            if not approve_write:
+                return {'capability':capability,'op':op,'status':'approval_required','effect':'write',
+                        'detail':'Use --approve-write after reviewing output destination; nothing executed.'}
+            inner['approve_write']=True
+        output=module.run(op,inner)
+    elif capability=='fusion.route':
         _guard_keys(params,('from','to','samples'),('from','to'))
         output=greatcircle(params['from'],params['to'],params.get('samples',25))
     elif capability=='fusion.plan':
@@ -186,6 +408,22 @@ def execute(db, capability, params, *, approve_write=False):
     elif capability=='qa.trace':
         _guard_keys(params,('question_id',))
         output=qa_trace(params.get('question_id'),registry=REGISTRY)
+    elif capability in PURE_MODULES:
+        _guard_keys(params,('op','params'),('op',))
+        module=PURE_MODULES[capability]
+        if params['op'] not in module.OPS:
+            raise ValueError('unknown op for '+capability+'; allowed: '+', '.join(module.OPS))
+        output=module.run(params['op'],params.get('params',{}))
+    elif capability=='roadmap.status':
+        _guard_keys(params,('topic','question'))
+        if 'topic' in params and 'question' in params:
+            raise ValueError('give topic or question, not both')
+        if 'topic' in params:
+            output=roadmap_1400.explain_topic(params['topic'],registry=REGISTRY)
+        elif 'question' in params:
+            output=roadmap_1400.explain_question(params['question'],registry=REGISTRY)
+        else:
+            output=roadmap_1400.summary(registry=REGISTRY)
     elif capability=='knowledge.search':
         _guard_keys(params,('query','limit'),('query',))
         output=find_fused(db,str(params['query']),int(params.get('limit',10)))
@@ -269,6 +507,13 @@ def execute(db, capability, params, *, approve_write=False):
         output=suggest_edit(params['source'],max_clips=params.get('max_clips',3),
                 max_duration=params.get('max_duration',30.),
                 min_audible_ratio=params.get('min_audible_ratio',.20),
+                threshold=params.get('threshold',.23),
+                sample_fps=params.get('sample_fps',6),noise_db=params.get('noise_db',-35),
+                min_silence=params.get('min_silence',.30))
+    elif capability=='video.shot_score':
+        _guard_keys(params,('source','max_clips','max_duration','threshold','sample_fps','noise_db','min_silence'),('source',))
+        output=score_shots(params['source'],max_clips=params.get('max_clips',3),
+                max_duration=params.get('max_duration',30.),
                 threshold=params.get('threshold',.23),
                 sample_fps=params.get('sample_fps',6),noise_db=params.get('noise_db',-35),
                 min_silence=params.get('min_silence',.30))

@@ -80,16 +80,23 @@ def plan(scenes,fps=24,preset='iphone-vertical'):
 @lru_cache(maxsize=3)
 def _font():
     from PIL import ImageFont
+    # Linux, Windows and macOS system fonts that contain Arabic glyphs.
     for p in ('/usr/share/fonts/truetype/noto/NotoSansArabic-Regular.ttf',
-              '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'):
+              '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',
+              'C:/Windows/Fonts/tahoma.ttf', 'C:/Windows/Fonts/arial.ttf',
+              'C:/Windows/Fonts/segoeui.ttf', '/Library/Fonts/Arial Unicode.ttf'):
         if Path(p).is_file():return ImageFont.truetype(p,38,layout_engine=ImageFont.Layout.RAQM)
     return ImageFont.load_default(size=32)
 
 def _caption(title,color):
-    from PIL import Image,ImageDraw
+    from PIL import Image,ImageDraw,ImageFont
     im=Image.new('RGBA',(540,112),(0,0,0,0))
-    direction='rtl' if any('\u0600'<=c<='\u08ff' for c in title) else 'ltr'
-    ImageDraw.Draw(im).text((270,53),title,font=_font(),anchor='mm',direction=direction,fill=color)
+    font=_font()
+    opts={}
+    # Text direction needs the RAQM layout engine; the bitmap fallback font has none.
+    if getattr(font,'layout_engine',None)==ImageFont.Layout.RAQM:
+        opts['direction']='rtl' if any('\u0600'<=c<='\u08ff' for c in title) else 'ltr'
+    ImageDraw.Draw(im).text((270,53),title,font=font,anchor='mm',fill=color,**opts)
     buf=io.BytesIO();im.save(buf,format='PNG')
     return base64.b64encode(buf.getvalue()).decode('ascii')
 

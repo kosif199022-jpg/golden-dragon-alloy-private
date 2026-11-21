@@ -1,0 +1,4206 @@
+{
+ "schema_version": 1,
+ "note": "Only topics with real code are listed; every entry is re-verified by roadmap_1400.load_status. Topics not listed are 'proposed'.",
+ "topics": {
+  "01.01": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "skill_contract",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.skill_contract: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.02": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "provenance_card",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.provenance_card: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.03": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "behaviour_compare",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.behaviour_compare: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.04": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "capability_overlap",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.capability_overlap: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.05": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "legacy_import_audit",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.legacy_import_audit: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py. Real-repo run 2026-11-21: 88 red-rose .py files audited; 0 imports of legacy engines (24 hits were red-rose's own alloy_fusion module, 1 a test string asserting kb/alloy.db is blocked)."
+  },
+  "01.06": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "adapter_reality",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.adapter_reality: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.07": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "capability_passport",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.capability_passport: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.08": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "approval_lifecycle",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.approval_lifecycle: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.09": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "snapshot_restore",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.snapshot_restore: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.10": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "completion_matrix",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.completion_matrix: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.01": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "cli_spec_check",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.cli_spec_check: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.02": {
+   "status": "unit_tested",
+   "module": "capability_runtime",
+   "symbol": "execute",
+   "test": "test_capability_v15.py",
+   "adapter": null,
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "REGISTRY dispatch; unknown ids and parameters rejected (test_unknown_action_not_executable). Performance: 30 timed calls, max 0.3992 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "02.03": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "message_schema",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.message_schema: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.04": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "distribution_guard",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.distribution_guard: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.05": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "dependency_status",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.dependency_status: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.06": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "config_redact",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.config_redact: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.07": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "cache_key",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.cache_key: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.08": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "checkpoint_resume",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.checkpoint_resume: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.09": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "path_portability",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.path_portability: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.10": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "semver_migrate",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.semver_migrate: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.01": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "task_contract",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.task_contract: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.02": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "stage_dag",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.stage_dag: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.03": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "agent_roster",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.agent_roster: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.04": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "parallel_plan",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.parallel_plan: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.05": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "solution_critique",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.solution_critique: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.06": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "handoff_check",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.handoff_check: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.07": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "injection_guard",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.injection_guard: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.08": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "claim_check",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.claim_check: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.09": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "progress_monitor",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.progress_monitor: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.10": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "rigor_mode",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.rigor_mode: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.01": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "first_principles",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.first_principles: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.02": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "alternatives",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.alternatives: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.03": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "causal",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.causal: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.04": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "decision_matrix",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.decision_matrix: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.05": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "premortem",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.premortem: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.06": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "budget_filter",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.budget_filter: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.07": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "plan_gaps",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.plan_gaps: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.08": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "lesson_match",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.lesson_match: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.09": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "poc_gate",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.poc_gate: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "04.10": {
+   "status": "unit_tested",
+   "module": "thinking_v21",
+   "symbol": "aesthetic_decision",
+   "test": "test_thinking_v21.py",
+   "adapter": "thinking.reason",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "thinking_v21.aesthetic_decision: native stdlib code; acceptance test in test_thinking_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.01": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "transform",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.transform: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.02": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "perspective",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.perspective: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.03": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "curves",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.curves: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.04": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "aspect_fit",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.aspect_fit: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.05": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "depth_of_field",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.depth_of_field: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.06": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "ik_two_bone",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.ik_two_bone: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.07": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "camera_path",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.camera_path: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.08": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "homography",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.homography: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.09": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "timecode",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.timecode: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "05.10": {
+   "status": "unit_tested",
+   "module": "geometry_v20",
+   "symbol": "lens_distortion",
+   "test": "test_geometry_v20.py",
+   "adapter": "math.geometry",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "geometry_v20.lens_distortion: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.01": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "palette_lock",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.palette_lock: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.02": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "rough_lines",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.rough_lines: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.03": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "clay_look",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.clay_look: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.04": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "flat_cartoon",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.flat_cartoon: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.05": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "machine_drawing",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.machine_drawing: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.06": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "watercolor",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.watercolor: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.07": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "mono_style",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.mono_style: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.08": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "reference_character",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.reference_character: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.09": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "style_guide_check",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.style_guide_check: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.10": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "style_descriptor",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.style_descriptor: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.01": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "licence_check",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.licence_check: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.02": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "tool_benchmark",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.tool_benchmark: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.03": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "vector_lib_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.vector_lib_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.04": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "web_anim_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.web_anim_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.05": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "webgl_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.webgl_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.06": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "audio_lib_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.audio_lib_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.07": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "cv_lib_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.cv_lib_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.08": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "shot_detect_compare",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.shot_detect_compare: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.09": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "lockfile",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.lockfile: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "07.10": {
+   "status": "unit_tested",
+   "module": "libraries_v24",
+   "symbol": "arabic_shaping_eval",
+   "test": "test_libraries_v24.py",
+   "adapter": "library.evaluate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "libraries_v24.arabic_shaping_eval: native stdlib code; acceptance test in test_libraries_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.01": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "fall",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.fall: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.02": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "collide",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.collide: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.03": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "friction",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.friction: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.04": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "spring",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.spring: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.05": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "projectile",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.projectile: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.06": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "cloth",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.cloth: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.07": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "motion_blur",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.motion_blur: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.08": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "flow",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.flow: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.09": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "shading",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.shading: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "08.10": {
+   "status": "unit_tested",
+   "module": "physics_v20",
+   "symbol": "particles",
+   "test": "test_physics_v20.py",
+   "adapter": "physics.simulate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "physics_v20.particles: native stdlib code; acceptance test in test_physics_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.01": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "intent_state",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.intent_state: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.02": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "confidence",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.confidence: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.03": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "tool_choice",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.tool_choice: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.04": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "phase_machine",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.phase_machine: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.05": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "blind_review",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.blind_review: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.06": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "resolve_conflict",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.resolve_conflict: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.07": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "failure_log",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.failure_log: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.08": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "route_tested",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.route_tested: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.09": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "incomplete_info",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.incomplete_info: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "09.10": {
+   "status": "unit_tested",
+   "module": "decision_v21",
+   "symbol": "decision_record",
+   "test": "test_decision_v21.py",
+   "adapter": "decision.make",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "decision_v21.decision_record: native stdlib code; acceptance test in test_decision_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.01": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "scaffold",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.scaffold: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.02": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "rtl_ui",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.rtl_ui: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.03": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "openapi_spec",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.openapi_spec: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.04": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "sql_schema",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.sql_schema: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.05": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "session_tokens",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.session_tokens: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.06": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "router_spec",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.router_spec: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.07": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "feature_tests",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.feature_tests: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.08": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "docs_from_code",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.docs_from_code: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.09": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "package_manifest",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.package_manifest: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "10.10": {
+   "status": "unit_tested",
+   "module": "appbuilder_v24",
+   "symbol": "deploy_plan",
+   "test": "test_appbuilder_v24.py",
+   "adapter": "app.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "appbuilder_v24.deploy_plan: native stdlib code; acceptance test in test_appbuilder_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.01": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "syntax_check",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.syntax_check: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.02": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "import_cycles",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.import_cycles: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.03": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "duplicate_functions",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.duplicate_functions: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.04": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "resource_handling",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.resource_handling: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.05": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "secret_scan",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.secret_scan: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.06": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "race_check",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.race_check: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.07": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "traceback_repro",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.traceback_repro: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.08": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "complexity",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.complexity: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.09": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "boundary_cases",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.boundary_cases: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "11.10": {
+   "status": "unit_tested",
+   "module": "code_analysis_v21",
+   "symbol": "diff_review",
+   "test": "test_code_analysis_v21.py",
+   "adapter": "code.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "code_analysis_v21.diff_review: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "12.01": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "index_source",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.index_source (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 10 timed calls in test_knowledge_v25, max 0.022 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.02": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "search_fts",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.search_fts (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 7 timed calls in test_knowledge_v25, max 0.0027 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.03": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "legacy_summaries",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.legacy_summaries (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_knowledge_v25, max 0.0011 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.04": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "owner_instructions",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.owner_instructions (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_knowledge_v25, max 0.0123 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.05": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "error_memory",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.error_memory (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_knowledge_v25, max 0.0137 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.06": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "reference_conflicts",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.reference_conflicts (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_knowledge_v25, max 0.016 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.07": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "trust_score",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.trust_score (read): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 2 timed calls in test_knowledge_v25, max 0.0001 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.08": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "search_receipt",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.search_receipt (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_knowledge_v25, max 0.0142 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.09": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "migrate_memory",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.migrate_memory (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_knowledge_v25, max 0.0097 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "12.10": {
+   "status": "unit_tested",
+   "module": "knowledge_v25",
+   "symbol": "workspace_isolation",
+   "test": "test_knowledge_v25.py",
+   "adapter": "knowledge.store",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "knowledge_v25.workspace_isolation (write): native code on local files/SQLite with acceptance test in test_knowledge_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_knowledge_v25, max 0.0172 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "13.01": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "frame_composition",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.frame_composition: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.02": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "landscape_layers",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.landscape_layers: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.03": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "three_point_light",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.three_point_light: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.04": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "palette_harmony",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.palette_harmony: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.05": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "arabic_text_layout",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.arabic_text_layout: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.06": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "logo_marks",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.logo_marks: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.07": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "poster_hierarchy",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.poster_hierarchy: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.08": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "interior_layout",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.interior_layout: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.09": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "horizon_fov",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.horizon_fov: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.10": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "continuity_diff",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.continuity_diff: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.01": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "skeleton",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.skeleton: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.02": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "walk_cycle",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.walk_cycle: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.03": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "run_cycle",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.run_cycle: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.04": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "expressions",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.expressions: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.05": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "viseme_track",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.viseme_track: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.06": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "landmark_smoothing",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.landmark_smoothing: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.07": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "identity_lock",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.identity_lock: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.08": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "hand_grip",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.hand_grip: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.09": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "secondary_motion",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.secondary_motion: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.10": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "crowd_layers",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.crowd_layers: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "15.01": {
+   "status": "unit_tested",
+   "module": "scene_edit_v16",
+   "symbol": "analyze_cuts",
+   "test": "test_scene_edit_v16.py",
+   "adapter": "video.scene_analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "Sampled RGB difference; cuts found at known boundaries of synthetic footage; read-only. Performance: 7 timed calls, max 0.148 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.02": {
+   "status": "unit_tested",
+   "module": "audio_scene_v17",
+   "symbol": "suggest_edit",
+   "test": "test_audio_scene_v17.py",
+   "adapter": "video.edit_suggest",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "Audible-fraction EDL proposal; states silence is not speech detection; read-only. Performance: 8 timed calls, max 0.2916 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.03": {
+   "status": "unit_tested",
+   "module": "scene_edit_v16",
+   "symbol": "recut",
+   "test": "test_scene_edit_v16.py",
+   "adapter": "video.recut",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "trim+concat; output verified H.264/AAC and duration; write needs --approve-write; never overwrites. Performance: 5 timed calls, max 0.3592 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.04": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "beat_sync_cuts",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "editing_v25.beat_sync_cuts (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_editing_v25, max 0.1306 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.05": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "story_arc",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "editing_v25.story_arc (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_editing_v25, max 0.0001 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.06": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "pacing_balance",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "editing_v25.pacing_balance (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_editing_v25, max 0.0001 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.07": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "safe_crossfade",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "editing_v25.safe_crossfade (write): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_editing_v25, max 0.7578 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.08": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "stabilize_estimate",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "editing_v25.stabilize_estimate (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_editing_v25, max 2.9735 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.09": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "colour_match",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "editing_v25.colour_match (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_editing_v25, max 0.2806 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "15.10": {
+   "status": "unit_tested",
+   "module": "editing_v25",
+   "symbol": "vertical_reframe",
+   "test": "test_editing_v25.py",
+   "adapter": "video.edit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "editing_v25.vertical_reframe (read): native code on local files/SQLite with acceptance test in test_editing_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_editing_v25, max 0.1467 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.01": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "loudness",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "audio_v25.loudness (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 9 timed calls in test_audio_v25, max 0.4392 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.02": {
+   "status": "unit_tested",
+   "module": "audio_scene_v17",
+   "symbol": "detect_silences",
+   "test": "test_audio_scene_v17.py",
+   "adapter": "video.timeline_analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "FFmpeg silencedetect start/end checked against a synthetic tone gap. Performance: 13 timed calls, max 0.1716 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.03": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "denoise",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "audio_v25.denoise (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_audio_v25, max 0.5608 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.04": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "word_alignment",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "audio_v25.word_alignment (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 10 timed calls in test_audio_v25, max 0.0023 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.05": {
+   "status": "unit_tested",
+   "module": "lip_sync",
+   "symbol": "levels_from_audio",
+   "test": "test_lip_sync_v13.py",
+   "adapter": "audio.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "20 Hz RMS envelope; test_silence_never_invents_speech keeps the mouth closed in silence. Performance: 4 timed calls, max 0.1438 s (budget 60 s, test_perf_lens_v26.py). Contract: audio.analyze rejects unknown/missing params (test_perf_lens_v26.py). Permission: read effect; source hash and folder unchanged (test_perf_lens_v26.py)."
+  },
+  "16.06": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "extract_pcm",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "audio_v25.extract_pcm (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_audio_v25, max 0.2665 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.07": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "cut_crossfade",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "audio_v25.cut_crossfade (write): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_audio_v25, max 0.5524 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.08": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "av_sync",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "audio_v25.av_sync (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_audio_v25, max 0.3736 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.09": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "pause_trim",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "audio_v25.pause_trim (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_audio_v25, max 0.2104 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "16.10": {
+   "status": "unit_tested",
+   "module": "audio_v25",
+   "symbol": "audio_rights",
+   "test": "test_audio_v25.py",
+   "adapter": "audio.process",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "audio_v25.audio_rights (read): native code on local files/SQLite with acceptance test in test_audio_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 7 timed calls in test_audio_v25, max 0.0023 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "17.01": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "track_point",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.track_point: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.02": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "rain_light",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.rain_light: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.03": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "cast_shadow",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.cast_shadow: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.04": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "heat_haze",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.heat_haze: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.05": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "neon_bloom",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.neon_bloom: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.06": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "snow_vortex",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.snow_vortex: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.07": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "alpha_composite",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.alpha_composite: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.08": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "parallax_layers",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.parallax_layers: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.09": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "inpaint_mask",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.inpaint_mask: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "17.10": {
+   "status": "unit_tested",
+   "module": "vfx_v24",
+   "symbol": "sparks",
+   "test": "test_vfx_v24.py",
+   "adapter": "vfx.compose",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "vfx_v24.sparks: native stdlib code; acceptance test in test_vfx_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.01": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "machine_mesh",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.machine_mesh: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.02": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "car_rig",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.car_rig: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.03": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "cloth3d",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.cloth3d: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.04": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "camera3d",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.camera3d: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.05": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "skinning",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.skinning: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.06": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "uv_atlas",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.uv_atlas: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.07": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "area_lighting",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.area_lighting: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.08": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "export_mesh",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.export_mesh: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.09": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "lod_budget",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.lod_budget: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.10": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "cutaway",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.cutaway: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.01": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "units",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.units: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.02": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "derivative",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.derivative: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.03": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "jacobian_ik",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.jacobian_ik: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.04": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "intrinsics",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.intrinsics: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.05": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "quaternion",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.quaternion: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.06": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "spectrum",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.spectrum: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.07": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "zbuffer",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.zbuffer: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.08": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "rng",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.rng: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.09": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "ode",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.ode: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "19.10": {
+   "status": "unit_tested",
+   "module": "science_v20",
+   "symbol": "model_report",
+   "test": "test_science_v20.py",
+   "adapter": "science.compute",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "science_v20.model_report: native stdlib code; acceptance test in test_science_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "20.01": {
+   "status": "unit_tested",
+   "module": "verify_media",
+   "symbol": "verify_video",
+   "test": "test_verify_media.py",
+   "adapter": "video.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "FFprobe + full decode; mismatching fps/size rejected. Performance: 1 timed calls, max 0.0688 s (budget 60 s, test_perf_lens_v26.py). Contract: video.verify rejects unknown/missing params and mismatched size (test_perf_lens_v26.py)."
+  },
+  "20.02": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "scene_cuts_eval",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "media_analysis_v25.scene_cuts_eval (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_media_analysis_v25, max 0.1636 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "20.03": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "motion_stats",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "media_analysis_v25.motion_stats (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_media_analysis_v25, max 0.1798 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "20.04": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "saliency_point",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "media_analysis_v25.saliency_point (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_media_analysis_v25, max 0.1501 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "20.05": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "perceptual_dupes",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "media_analysis_v25.perceptual_dupes (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_media_analysis_v25, max 0.6665 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "20.06": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "sharpness",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "media_analysis_v25.sharpness (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_media_analysis_v25, max 0.348 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "20.07": {
+   "status": "unit_tested",
+   "module": "shot_quality_v19",
+   "symbol": "score_shots",
+   "test": "test_shot_quality_v19.py",
+   "adapter": "video.shot_score",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "Crushed/blown luma fractions per shot; black and white shots flagged; source hash unchanged; 60 s 720p in about 4 s."
+  },
+  "20.08": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "colour_stats",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "media_analysis_v25.colour_stats (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_media_analysis_v25, max 0.2959 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "20.09": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "quality_compare",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "media_analysis_v25.quality_compare (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_media_analysis_v25, max 0.5435 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "20.10": {
+   "status": "unit_tested",
+   "module": "media_analysis_v25",
+   "symbol": "frame_borders",
+   "test": "test_media_analysis_v25.py",
+   "adapter": "video.analyze",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "media_analysis_v25.frame_borders (read): native code on local files/SQLite with acceptance test in test_media_analysis_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_media_analysis_v25, max 0.1589 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.01": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "run_command",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.run_command (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 17 timed calls in test_automation_v25, max 0.5242 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.02": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "task_queue",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.task_queue (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 13 timed calls in test_automation_v25, max 0.4013 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.03": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "bounded_pool",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.bounded_pool (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 3 timed calls in test_automation_v25, max 1.9305 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.04": {
+   "status": "unit_tested",
+   "module": "capability_runtime",
+   "symbol": "execute",
+   "test": "test_capability_v15.py",
+   "adapter": "video.recut",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "Write effects return approval_required without --approve-write; nothing executed. Performance: 30 timed calls, max 0.3992 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.05": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "timeout_cancel",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.timeout_cancel (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_automation_v25, max 1.026 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.06": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "perf_log",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.perf_log (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_automation_v25, max 0.0568 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.07": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "smart_retry",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.smart_retry (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_automation_v25, max 0.0001 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.08": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "render_qa",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.render_qa (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 6 timed calls in test_automation_v25, max 0.2974 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.09": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "release_gate",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.release_gate (read): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_automation_v25, max 0.0261 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "21.10": {
+   "status": "unit_tested",
+   "module": "automation_v25",
+   "symbol": "execution_receipt",
+   "test": "test_automation_v25.py",
+   "adapter": "automation.run",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "automation_v25.execution_receipt (write): native code on local files/SQLite with acceptance test in test_automation_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_automation_v25, max 0.1351 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "22.01": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "permitted_extract",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.permitted_extract: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.02": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "crawl_policy",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.crawl_policy: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.03": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "oem_normalise",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.oem_normalise: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.04": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "price_records",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.price_records: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.05": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "html_text",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.html_text: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.06": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "source_link",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.source_link: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.07": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "dedupe_content",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.dedupe_content: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.08": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "retry_policy",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.retry_policy: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.09": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "export_json",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.export_json: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.10": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "data_licence",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.data_licence: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "23.01": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "safe_schema",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.safe_schema (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.0093 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.02": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "tenant_query",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.tenant_query (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 15 timed calls in test_database_v25, max 0.0052 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.03": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "index_plan",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.index_plan (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 7 timed calls in test_database_v25, max 0.067 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.04": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "record_conflicts",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.record_conflicts (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 4 timed calls in test_database_v25, max 0.001 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.05": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "safe_migration",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.safe_migration (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.0233 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.06": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "import_tabular",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.import_tabular (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.0094 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.07": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "protect_sensitive",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.protect_sensitive (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 5 timed calls in test_database_v25, max 0.0058 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.08": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "backup_restore",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.backup_restore (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.0217 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.09": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "time_series",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.time_series (read): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 8 timed calls in test_database_v25, max 0.005 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "23.10": {
+   "status": "unit_tested",
+   "module": "database_v25",
+   "symbol": "lineage",
+   "test": "test_database_v25.py",
+   "adapter": "database.manage",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "database_v25.lineage (write): native code on local files/SQLite with acceptance test in test_database_v25.py (synthetic media/DBs in temp dirs, inputs hash-checked unchanged); no network, no shell; writes need --approve-write through the registry. Performance: 7 timed calls in test_database_v25, max 0.0214 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "24.01": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "bank_reconcile",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.bank_reconcile: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.02": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "duplicate_invoices",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.duplicate_invoices: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.03": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "trial_balance",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.trial_balance: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.04": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "payroll_check",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.payroll_check: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.05": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "inventory_codes",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.inventory_codes: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.06": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "meat_costing",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.meat_costing: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.07": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "cash_flow",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.cash_flow: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.08": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "cost_allocation",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.cost_allocation: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.09": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "standards_checklist",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.standards_checklist: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "24.10": {
+   "status": "unit_tested",
+   "module": "accounting_v21",
+   "symbol": "journal_approval",
+   "test": "test_accounting_v21.py",
+   "adapter": "accounting.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "accounting_v21.journal_approval: native stdlib code; acceptance test in test_accounting_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.01": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "secret_ci_scan",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.secret_ci_scan: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.02": {
+   "status": "unit_tested",
+   "module": "capability_runtime",
+   "symbol": "execute",
+   "test": "test_capability_v15.py",
+   "adapter": null,
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "Explicit read/write effect per adapter; write refused before approval. Performance: 30 timed calls, max 0.3992 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "25.03": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "injection_readme",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.injection_readme: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.04": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "output_path_guard",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.output_path_guard: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.05": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "resource_limits",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.resource_limits: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.06": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "fuzz_inputs",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.fuzz_inputs: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.07": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "sbom",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.sbom: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.08": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "output_hashing",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.output_hashing: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.09": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "rollback_plan",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.rollback_plan: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "25.10": {
+   "status": "unit_tested",
+   "module": "security_v24",
+   "symbol": "publish_gate",
+   "test": "test_security_v24.py",
+   "adapter": "security.guard",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "security_v24.publish_gate: native stdlib code; acceptance test in test_security_v24.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.01": {
+   "status": "unit_tested",
+   "module": "capability_runtime",
+   "symbol": "execute",
+   "test": "test_capability_v15.py",
+   "adapter": "learning.record",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "Lesson requires an earlier executed audit id (source_audit_id); fake ids rejected. Performance: 30 timed calls, max 0.3992 s (budget 60 s, test_perf_lens_v26.py)."
+  },
+  "26.02": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "similar_errors",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.similar_errors: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.03": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "rank_lessons",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.rank_lessons: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.04": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "rule_proposal",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.rule_proposal: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.05": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "capability_gaps",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.capability_gaps: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.06": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "regression_from_defect",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.regression_from_defect: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.07": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "rule_versions",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.rule_versions: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.08": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "lesson_benefit",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.lesson_benefit: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.09": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "local_only_guard",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.local_only_guard: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.10": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "forget_request",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.forget_request: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.01": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "layer_composer",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.layer_composer: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.02": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "audio_scene_edl",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.audio_scene_edl: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.03": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "ik_physics",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.ik_physics: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.04": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "retrieve_then_dispatch",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.retrieve_then_dispatch: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.05": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "accounting_workflow",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.accounting_workflow: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.06": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "variations",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.variations: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.07": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "critic_roles",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.critic_roles: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.08": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "generic_contract",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.generic_contract: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.09": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "capability_proposal",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.capability_proposal: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.10": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "originality_check",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.originality_check: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "28.01": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "independence_audit",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.independence_audit (read): acceptance test in test_release_v26.py; Performance: 2 timed calls, max 6.6676 s (budget 60 s)."
+  },
+  "28.02": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "registry_reality",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.registry_reality (read): acceptance test in test_release_v26.py; Performance: 3 timed calls, max 1.7421 s (budget 60 s)."
+  },
+  "28.03": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "closure_matrix",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.closure_matrix (read): acceptance test in test_release_v26.py; Performance: 4 timed calls, max 0.1604 s (budget 60 s)."
+  },
+  "28.04": {
+   "status": "e2e_verified",
+   "module": "release_v26",
+   "symbol": "integrated_video",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "artifact_receipt": "sha256 67c7a7d8c79de90cff754790b1b8d7f0a0ae8467741425ae23ea76b35d5e3502 video.mp4 (h264 yuv420p 270x480, 24 frames, 2.000 s, full decode OK, frame inspected) made 2026-11-21 via release.verify with --approve-write; media kept out of git by policy",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.integrated_video (write): acceptance test in test_release_v26.py; Performance: 5 timed calls, max 5.085 s (budget 60 s)."
+  },
+  "28.05": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "device_checklist",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.device_checklist (read): acceptance test in test_release_v26.py; Performance: 7 timed calls, max 0.0202 s (budget 60 s). Acceptance lens NOT counted: needs device screenshots on phone and desktop; the op returns needs_human_* until the owner supplies it."
+  },
+  "28.06": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "load_test",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.load_test (read): acceptance test in test_release_v26.py; Performance: 5 timed calls, max 42.416 s (budget 60 s). Default is smoke scale; caps is opt-in. Known limit: pure-Python FFT at 65,536 samples takes about 8-30 s at caps on this machine."
+  },
+  "28.07": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "release_privacy",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.release_privacy (read): acceptance test in test_release_v26.py; Performance: 4 timed calls, max 27.8555 s (budget 60 s)."
+  },
+  "28.08": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "edit_rubric",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.edit_rubric (read): acceptance test in test_release_v26.py; Performance: 4 timed calls, max 0.0002 s (budget 60 s). Acceptance lens NOT counted: needs human reviewer scores against a licensed reference; the op returns needs_human_* until the owner supplies it."
+  },
+  "28.09": {
+   "status": "e2e_verified",
+   "module": "release_v26",
+   "symbol": "portable_release",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "artifact_receipt": "sha256 ec6f4a3d4459487db8f87e193ecb0c0e43622cf16b512c4b7ae6a252da7e9d7c red-rose-release.zip (195 members, no private stores), extracted copy hash-verified and CLI smoke test listed the adapters; 2026-11-21",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.portable_release (write): acceptance test in test_release_v26.py; Performance: 3 timed calls, max 8.8507 s (budget 60 s)."
+  },
+  "28.10": {
+   "status": "unit_tested",
+   "module": "release_v26",
+   "symbol": "handoff_resume",
+   "test": "test_release_v26.py",
+   "adapter": "release.verify",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "release_v26.handoff_resume (read): acceptance test in test_release_v26.py; Performance: 1 timed calls, max 0.5769 s (budget 60 s)."
+  }
+ }
+}

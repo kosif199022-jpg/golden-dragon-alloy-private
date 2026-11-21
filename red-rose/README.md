@@ -219,6 +219,46 @@ The trace enforces that every linked capability belongs to the *current* \`capab
 
 The 16th adapter \`qa.trace\` provides project-level provenance and validation, not a new image/AI/video engine. Existing V17 video algorithms and limitations are unchanged.
 
+## V19 — measured per-shot technical quality (read only)
+
+New native read-only adapter `video.shot_score` (17 registered adapters). It measures exposure, black/white clipping, coarse detail and motion for every detected shot on a 64x36 grayscale proxy, joins the V17 audible fraction, ranks the shots and returns a reviewable `suggested_edl`. It never writes; exporting still needs an approved `video.recut`.
+
+```bash
+python rose.py shot-score footage.mp4 --max-clips 3
+python rose.py capability-run video.shot_score '{"source":"footage.mp4","max_duration":20}'
+# review the EDL, save it as edits.json, then only with approval:
+python rose.py recut footage.mp4 edits.json new.mp4 --approve-write
+```
+
+Evidence and limits are in `CAPABILITY_LEDGER_V19.md`: 185 local tests passed; measurements are technical proxies, not focus, composition, story or aesthetic judgement, and the thresholds have not been tuned on real footage.
 ## V20 — five user-supplied media archives distilled to one independent runtime
 
 Five source ZIP files were inspected and SHA256-registered in SOURCE_FUSION_AUDIT_V20.json. Original independently written fusion_studio_v20.py adds 5 registered native adapters: fusion.route, fusion.plan, fusion.frame (read-only), fusion.render and media.iphone_export (write approval required). See FUSION_V20_GUIDE.md for CLI usage and limitations. This is partial independent reimplementation, NOT wholesale functional equivalence or legacy engine invocation. V19 PR #16/#17 remain separate open developments.
+
+## V20–V22 roadmap — owner-approved 1,400 questions, executed in batches
+
+The owner approved all 1,400 suggested answers on 2026-11-21. They are stored unchanged in `questions/owner_1400/` and tracked per topic by `roadmap_1400.py`; a topic counts only with a real module, symbol and passing test.
+
+New read adapters (stdlib only, no file or network I/O), each called as `python rose.py capability-run <id> '{"op":"…","params":{…}}'`:
+
+| adapter | module | chapter |
+|---|---|---|
+| `physics.simulate` | physics_v20 | 08 motion physics |
+| `math.geometry` | geometry_v20 | 05 maths and dimensions |
+| `science.compute` | science_v20 | 19 maths and science |
+| `thinking.reason` | thinking_v21 | 04 thinking and creativity |
+| `decision.make` | decision_v21 | 09 decisions |
+| `code.analyze` | code_analysis_v21 | 11 code analysis |
+| `accounting.check` | accounting_v21 | 24 accounting checks (no professional opinion) |
+| `governance.audit` | governance_v22 | 01 fusion governance |
+| `architecture.check` | architecture_v22 | 02 architecture |
+| `agents.coordinate` | agents_v22 | 03 agents and handoff |
+| `learning.evolve` | learning_v22 | 26 evidence-based learning |
+| `compose.pipeline` | compose_v22 | 27 combining capabilities |
+| `roadmap.status` | roadmap_1400 | progress on the 1,400 |
+
+Progress at commit `b4d784b`: 129 of 280 topics, 632 of 1,400 questions answered in tested code; 574 tests OK. Not complete. Run `python rose.py roadmap` for the live figure.
+
+## V26 — 1,400 roadmap: final measured state
+
+`python rose.py roadmap` reports **1,398 of 1,400** owner-approved questions answered in tested code (278 topics unit-tested, 2 end-to-end verified with sha256 receipts). The last two need the owner: real device screenshots (28.05) and a human edit review (28.08). New adapters since V23: `library.evaluate`, `app.build`, `vfx.compose`, `security.guard`, and the file/media adapters `knowledge.store`, `database.manage`, `video.analyze`, `video.edit`, `audio.process`, `automation.run`, `release.verify` (per-op read/write; every write needs `--approve-write`). 51 adapters in total.

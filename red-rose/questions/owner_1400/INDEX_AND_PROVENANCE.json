@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "total_new_questions": 1400,
+  "total_new_proposed_answers": 1400,
+  "chapters": [
+    {
+      "chapter_number": 1,
+      "title": "الرؤية والصهر والاستقلال",
+      "range": "1-50",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 2,
+      "title": "الهندسة المعمارية للمهارة",
+      "range": "51-100",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 3,
+      "title": "الوكلاء والتنسيق والتسليم",
+      "range": "101-150",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 4,
+      "title": "التفكير والإبداع المتقدم",
+      "range": "151-200",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 5,
+      "title": "الرياضيات والأبعاد للمونتاج",
+      "range": "201-250",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 6,
+      "title": "استايلات الرسم والهوية",
+      "range": "251-300",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 7,
+      "title": "المكتبات المجانية والمصادر المفتوحة",
+      "range": "301-350",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 8,
+      "title": "الفيزياء والحركة السينمائية",
+      "range": "351-400",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 9,
+      "title": "الذكاء والتفكير واتخاذ القرارات",
+      "range": "401-450",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 10,
+      "title": "البرمجة وإنشاء التطبيقات",
+      "range": "451-500",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 11,
+      "title": "تحليل الأكواد والأخطاء وإصلاحها",
+      "range": "501-550",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 12,
+      "title": "البحث والمعرفة والذاكرة",
+      "range": "551-600",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 13,
+      "title": "الرسم والتصميم والهوية البصرية",
+      "range": "601-650",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 14,
+      "title": "الشخصيات والتحريك",
+      "range": "651-700",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 15,
+      "title": "المونتاج والإخراج السينمائي",
+      "range": "701-750",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 16,
+      "title": "الصوت والموسيقى والمزامنة",
+      "range": "751-800",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 17,
+      "title": "المؤثرات البصرية والمحاكاة",
+      "range": "801-850",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 18,
+      "title": "النمذجة والتحريك ثلاثي الأبعاد",
+      "range": "851-900",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 19,
+      "title": "الرياضيات والهندسة والعلوم",
+      "range": "901-950",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 20,
+      "title": "تحليل الصور والفيديو",
+      "range": "951-1000",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 21,
+      "title": "الأتمتة والتحكم والتنفيذ",
+      "range": "1001-1050",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 22,
+      "title": "الإنترنت والمواقع وجمع البيانات",
+      "range": "1051-1100",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 23,
+      "title": "قواعد البيانات وتحليل المعلومات",
+      "range": "1101-1150",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 24,
+      "title": "المحاسبة والمراجعة والأعمال",
+      "range": "1151-1200",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 25,
+      "title": "الأمن والخصوصية والاختبارات",
+      "range": "1201-1250",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 26,
+      "title": "التعلم المستمر وتطوير القدرات",
+      "range": "1251-1300",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 27,
+      "title": "الابتكار ودمج القدرات",
+      "range": "1301-1350",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    },
+    {
+      "chapter_number": 28,
+      "title": "التكامل والاختبار النهائي",
+      "range": "1351-1400",
+      "question_count": 50,
+      "origin": "newly_drafted_proposal"
+    }
+  ],
+  "question_structure": "28 chapters x 10 distinct features x 5 engineering angles",
+  "historical_red_rose_originals_recovered": false,
+  "historical_black_dragon_reference": {
+    "separate_legacy_source": true,
+    "filename": "BLACK_DRAGON_1000_QUESTIONS_301-1300.md",
+    "source_question_range": "301-1300",
+    "count_verified": 1000,
+    "approval_status_in_original_file": "proposals not approved when file authored",
+    "not_counted_in_1400": true
+  },
+  "citation_note": "The legacy 1000 source came from the user Library; no original Red Rose 1400-question transcript was located.",
+  "count_is_not_implementation": true,
+  "sample_question_ids": [
+    1,
+    400,
+    401,
+    450,
+    451,
+    1300,
+    1400
+  ]
+}

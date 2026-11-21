@@ -1,0 +1,30 @@
+{
+  "name": "red-rose",
+  "version": "19.0",
+  "date": "2026-11-21",
+  "base_commit": "5ce29c33ebf2df0c1ea9b915104f469736fc18d0",
+  "base_release": "V18; 16 adapters, 172 local tests measured on the base commit before this change",
+  "registered_adapters": 17,
+  "new_native_adapter": "video.shot_score",
+  "new_adapter_effect": "read",
+  "new_commands": [
+    "shot-score"
+  ],
+  "new_files": [
+    "shot_quality_v19.py",
+    "test_shot_quality_v19.py"
+  ],
+  "tests_local_passed": 185,
+  "tests_local_environment": "Windows 11, Python 3.12.10, FFmpeg 9.0.2, python -W error::ResourceWarning -m unittest discover",
+  "ci_result_on_this_change": "3 checks passed, 0 failed on PR #17 at commit affa7e5; re-verify on the latest commit",
+  "merged_to_main": false,
+  "requires_approval_to_export_with": [
+    "video.recut"
+  ],
+  "knowledge_reference_capabilities_are_executables": false,
+  "historical_1400_question_archive_complete": false,
+  "full_1400_requirements_implemented": false,
+  "private_memory_in_source_control": false,
+  "pull_request": 17,
+  "competing_open_pull_request": 16
+}

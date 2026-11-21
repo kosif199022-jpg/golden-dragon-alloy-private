@@ -106,6 +106,151 @@ A new, intentionally narrow native **read-only** adapter \`qa.trace\` was added 
 
 The **V17 snapshot above remains historical**: 15 native adapters and 154 local tests at that previous release. V18 changes the registry to 16 and adds regression coverage; the next agent must obtain the CI run result on the exact V18 commit before claiming it passed. New code: \`qa_trace.py\`, \`test_qa_trace_v18.py\`; main requirement is proof that a mapped ID is registered and missing verbatim sources are not fabricated.
 
+## 8. V19 checkpoint — per-shot technical quality (P3, partial)
+
+```text
+المهمة: P3 — قياس تقني فعلي للقطات وربطه بالصوت، والناتج EDL للمراجعة فقط.
+اسم الفرع: red-rose/v19-shot-quality — PR #17 مفتوح على main.
+HEAD commit الأساس: 5ce29c33ebf2df0c1ea9b915104f469736fc18d0
+ملفات جديدة: shot_quality_v19.py, test_shot_quality_v19.py, CAPABILITY_LEDGER_V19.md, RELEASE_MANIFEST_V19.json
+ملفات تغيّرت: capability_runtime.py, rose.py, test_capability_v15.py, test_qa_trace_v18.py, QA_TRACEABILITY.json, README.md, SKILL.md, START_NEXT_AGENT.md, NEXT_AGENT_HANDOFF.md
+اختبارات: python -W error::ResourceWarning -m unittest discover → 185 OK (172 قبل التغيير + 13) على Windows 11 / Python 3.12.10 / FFmpeg 9.0.2
+مخرجات: تقرير JSON فقط (لا ملفات وسائط)؛ الأرقام المقاسة في CAPABILITY_LEDGER_V19.md
+بوابات الأمان: المحوّل read؛ يرفض المعاملات غير المعروفة والروابط؛ التصدير ما زال عبر video.recut بموافقة
+CI: 3 فحوص ناجحة و0 فاشلة على PR #17 عند commit affa7e5 (أعد التحقق على آخر commit)
+PR/merge state: PR #17 مفتوح وغير مدموج. تنبيه: PR #16 (فرع feature/red-rose-v18-shot-quality-20261121، محوّل باسم video.shot_quality) مفتوح بنفس الميزة ويتعارض في shot_quality_v19.py — المالك يختار واحدًا فقط
+ماذا اكتمل فعلًا: المحوّل رقم 17 video.shot_score وأمر shot-score واختباراته وتوثيقه
+العيوب والمتبقي: العتبات غير مُعايرة على لقطات كاميرا حقيقية؛ لا قياس تكوين/وجوه/تركيز؛ P1 (استرداد نصوص 1–1400) ما زال unresolved؛ P4 لم يبدأ
+أول أمر للوكيل التالي: cd red-rose && python rose.py shot-score <فيديو محلي مصرّح به> ثم قارن الأعلام بالمشاهدة الفعلية وعاير LIMITS باختبار جديد
+```
+
+**التالي المقترح:** (1) قرار المالك بين PR #16 وPR #17 ثم الدمج بموافقته. (2) معايرة `LIMITS` على لقطات حقيقية مصرّح بها. (3) P4: اختبار رندر 9:16 وترجمات عربية RTL.
+
+### سجل البحث عن نصوص الأسئلة 1–1400 (2026-11-21، بلا نتيجة)
+
+طلب المالك تنفيذ «الـ1400 سؤال وإجاباتها المقترحة». بُحث عن النصوص في الأماكن التالية ولم توجد:
+
+- شجرة `main` كاملة (8,262 ملفًا) بالاسم والمحتوى، وقائمة الفروع وطلبات الدمج 1–17.
+- جهاز المالك: سطح المكتب والتنزيلات والمستندات (أسماء ملفات ونصوص)، ولا يوجد تصدير محادثات.
+- ذاكرة الوردة المحلية: جدول `memories` فارغ؛ `fused_knowledge` (25,675) أوصاف مهارات لا أسئلة.
+
+الخلاصة: النصوص موجودة فقط في المحادثة الأصلية خارج المستودع. **الحالة ما زالت `unresolved`**؛ المطلوب من المالك تصدير المحادثة أو مشاركتها، ثم تُحفظ النصوص حرفيًا بمصدرها قبل أي تنفيذ. لا تُنفَّذ ولا تُؤلَّف أسئلة غير موجودة.
 ## 9. V20: independent five-source media fusion
 
 Five ZIP inputs were scanned and registered by SHA256. Native original fusion_studio_v20.py and its two tests add fusion.route, fusion.plan, fusion.frame, fusion.render and media.iphone_export, with 2 read-only storyboard/map actions, one read-only SVG frame, and 2 write-approval-gated outputs. V18 original baseline has 16 adapters; V20 branch proposes 21. Local standalone V17-source + V20 integration 174 tests passed; 2-second 24-frame synthetic clay/map video and iPhone-compatible transcode passed full decode. Verify GitHub CI and merged main before stating V20 is released. No fonts, raw source ZIPs, secrets or private SQLite were committed. Source archive fidelity is partial, not fully fused. V19 PR #16/#17 still overlap and require separate reconciliation.
+
+## 10. خطة الـ1,400 المعتمدة من المالك — التنفيذ بالدفعات (ابدأ من هنا)
+
+**المصدر والاعتماد:** أرسل المالك `RED_ROSE_1400_QUESTIONS_WITH_ANSWERS.zip` يوم 2026-11-21 وكتب في الشات «نفذ الاجابات موافق على الكل». الملف محفوظ بلا تعديل في `questions/owner_1400/RED_ROSE_1400.json` (sha256 `0b878ab7…` يطابق مانيفست الأرشيف). الملف نفسه يقول إنه **صياغة جديدة** وليس النصوص الحرفية القديمة. الاعتماد يشمل الإجابات كقرارات تصميم فقط، ولا يشمل الرفع أو الدمج أو التثبيت أو الخدمات المدفوعة أو حذف ملفات المالك.
+
+**البنية:** 1,400 سؤال = 280 موضوعًا × 5 عدسات (العقد، الخوارزمية، اختبار القبول، الصلاحيات والخصوصية، الأداء). المتتبّع `roadmap_1400.py` + `ROADMAP_1400_STATUS.json` لا يرقّي موضوعًا إلا إذا وُجد الموديول والدالة وملف اختبار يستدعيها، ويُعاد التحقق عند كل تحميل.
+
+**الحالة المقاسة (فرع `red-rose/v20-roadmap-1400`، commit `b4d784b`):**
+
+| الدفعة | الفصول | الموديولات | المواضيع |
+|---|---|---|---:|
+| موجود قبلها | 02.02، 15.01–03، 16.02، 16.05، 20.01، 20.07، 21.04، 25.02، 26.01 | كود V15–V19 | 11 |
+| 1 | 05، 08، 19 | geometry_v20، physics_v20، science_v20 | 30 |
+| 2 | 04، 09، 11، 24 | thinking_v21، decision_v21، code_analysis_v21، accounting_v21 | 40 |
+| 3 | 01، 02 (9)، 03، 26 (9)، 27 | governance_v22، architecture_v22، agents_v22، learning_v22، compose_v22 | 48 |
+
+- **129 من 280 موضوعًا** و**632 من 1,400 سؤالًا** مُجابة في كود مختبر. المتبقي 768 سؤالًا (151 موضوعًا).
+- الاختبارات: `python -X utf8 -W error::ResourceWarning -m unittest discover` → **574 OK** (Windows 11، Python 3.12.10، FFmpeg 9.0.2).
+- السجل: **35 محوّلًا**؛ الموديولات الحسابية تعمل عبر `capability-run <adapter> '{"op":"…","params":{…}}'` وكلها read.
+- دليل حقيقي على المستودع: فحص الاستيراد القديم على 88 ملفًا = صفر استيراد لمحركات التنين/السبيكة؛ فحص التغليف على 149 ملفًا = لا قاعدة خاصة.
+- دُمج `main` (PR #18، محوّلات fusion) في الفرع، وأُصلح باج ويندوز في `fusion_studio_v20._font` (كان يبحث عن خطوط لينكس فقط فيسقط 5 اختبارات على ويندوز).
+- مسودة منفصلة: `questions/G01–G30.json` = 1,500 سؤال كتبها وكيل بطلب المالك، موسومة `agent-draft-not-user-approved`، لا تُحسب ضمن الـ1,400.
+
+**المتبقي (151 موضوعًا) بالترتيب المقترح:**
+1. محض بلا ملفات: 06 الاستايلات، 13 التصميم، 14 الشخصيات، 18 ثلاثي الأبعاد، 22 الويب (أجزاء أوفلاين فقط: robots وتحليل HTML وتطبيع الأرقام)، 10 التطبيقات (توليد في الذاكرة)، 25 الأمن (9)، 07 المكتبات (بيانات الرخص)، 17 المؤثرات (مصفوفات صغيرة).
+2. يحتاج ملفات وFFmpeg/SQLite (خارج `PURE_MODULES`، باختبارات مجلد مؤقت وبوابة كتابة): 12 المعرفة، 23 قواعد البيانات، 15 (7)، 16 (8)، 20 (8)، 21 (9)، ثم 28 التكامل النهائي.
+3. لا يُرقّى أي موضوع إلى `e2e_verified` بدون إيصال مخرج حقيقي (sha256).
+
+**أول أمر للوكيل التالي:**
+```bash
+cd red-rose && python rose.py roadmap && python -X utf8 -W error::ResourceWarning -m unittest discover
+```
+ثم اختر الفصل التالي من القائمة، واتبع نمط `physics_v20.py` (TOPICS/OPS/run)، وأضف المحوّل إلى `PURE_MODULES` و`REGISTRY`، وحدّث `ROADMAP_1400_STATUS.json` وعدّاد الاختبارين `test_capability_v15.py` و`test_qa_trace_v18.py`.
+
+**حالة الرفع:** الفرع محلي فقط وغير مرفوع. PR #17 (V19) مفتوح ومتعارض مع main بعد دمج #18؛ هذا الفرع يحتوي V19 + دمج main + الدفعات 1–3. PR #16 مفتوح ومكرر لـV19.
+
+## 11. خطة الـ1,400 — الحالة النهائية المقاسة (تحل محل أرقام القسم 10)
+
+**الفرع:** `red-rose/v20-roadmap-1400` (محلي، غير مرفوع). **المرجع الحي:** `python rose.py roadmap` — لا تنقل أرقامًا أعلى مما يطبعه.
+
+| المقياس | القيمة |
+|---|---:|
+| المواضيع (280) | 278 `unit_tested` + 2 `e2e_verified` |
+| الأسئلة المُجابة في كود مختبر | **1,398 من 1,400** |
+| المحوّلات في السجل | 51 (39 حسابية read، 7 ملفات/وسائط mixed، والباقي V15–V20) |
+| الاختبارات | `python -X utf8 -W error::ResourceWarning -m unittest discover` → **970 OK** (Windows 11، Python 3.12.10، FFmpeg 9.0.2، حوالي 3.5 دقيقة) |
+
+**الموضوعان المثبتان end-to-end بإيصال (sha256):**
+- 28.04 فيديو متكامل: `67c7a7d8…` (H.264، yuv420p، 270×480، 24 فريمًا، 2.000 ث، فك كامل، وفُحص فريم بالعين).
+- 28.09 إصدار محمول: `ec6f4a3d…` (195 ملفًا، لا قواعد خاصة، فُك وتطابقت البصمات وشُغّل الـCLI منه).
+- الوسائط نفسها لا تُرفع إلى Git حسب السياسة؛ الإيصال هو الدليل.
+
+**السؤالان الباقيان يحتاجان المالك لا الكود:**
+- 1,385 (28.05، عدسة القبول): لقطات شاشة حقيقية على هاتف وحاسوب.
+- 1,400 (28.08، عدسة القبول): تقييم بشري لجودة المونتاج مقابل مرجع مرخص.
+الأداتان جاهزتان (`release.verify` → `device_checklist` و`edit_rubric`) وتعيدان `needs_human_*` حتى يصل الدليل.
+
+**قيود مهمة اكتُشفت أثناء التنفيذ:**
+- FFT بايثون صافٍ على 65,536 عينة يستغرق 8–30 ث؛ صار `load_test` افتراضيًا على حجم smoke والحمل الأقصى بطلب صريح.
+- كل موديول يذكر حدوده في `limits` لكل نتيجة (مثلًا: لا فهم دلالي للمشاهد، لا تعرف على وجوه، لا رأي محاسبي مهني، لا اتصال بالشبكة).
+- أُصلح باج ويندوز في `fusion_studio_v20._font` القادم من PR #18.
+
+**الرفع:** لم يُرفع شيء من هذا الفرع. يحتوي V19 (PR #17) + دمج main (PR #18) + الدفعات 1–6 + الفصل 28. الرفع/PR يحتاج موافقة المالك الصريحة.
+
+**أول أمر للوكيل التالي:**
+```bash
+cd red-rose && python rose.py roadmap && python rose.py roadmap-topic 28.05
+```
+
+## 12. الصهر الكامل للسبيكة والتنين — V27 (2026-11-22)
+
+**طلب المالك:** «قم بالصهر الكامل فورا»، ثم أثناء العمل: «لا تختبر شيء، اكتفِ بالرأي المبدئي أنها تعمل، ومع تجربة الوردة الحمراء أصلحها». لذلك موديولات V27 **مكتوبة وغير مختبرة** (`coded`)؛ التحقق الوحيد: `py_compile` وتحميل `capability_runtime` بـ55 محوّلًا. أي عطل يظهر عند تجربة المالك يُصلَّح وقتها.
+
+**مقياس الصهر:** `fusion_map_v27.py` يصنّف كل وحدة من الـ25,675 (جدول `fused_knowledge` المحلي الخاص، قراءة فقط) إلى عائلة وفئة: native / guidance / meta_catalog / network / paid / external_app / missing. النتيجة الإجمالية في `FUSION_COVERAGE.json` (أعداد فقط، بلا نصوص خاصة):
+
+| الفئة | الوحدات |
+|---|---:|
+| native (محوّل أصلي موجود) | 15,180 |
+| guidance (منهج/قاعدة محفوظة كمعرفة) | 3,305 |
+| meta_catalog (أدوات فهرسة حلّ محلها السجل) | 1,169 |
+| network (يحتاج إنترنت؛ الوردة أوفلاين بقرار) | 2,727 |
+| paid (خدمة مدفوعة؛ ممنوعة بلا موافقة) | 466 |
+| external_app (Blender/Adobe/محرك صوت خارجي) | 302 |
+| missing | 2,526 |
+
+- **88.6%** من الوحدات القابلة للصهر (22,180) لها مقابل أصلي. التصنيف بالكلمات المفتاحية (تقريبي)، و«native» تعني وجود محوّل للعائلة لا إعادة كل سلوك قديم.
+- الناقص معظمه مهارات كتالوج عامة لمنتجات أطراف ثالثة (2,277) خارج مهمة الوردة.
+
+**المحوّلات الجديدة (coded، غير مختبرة):**
+- `motion.core` (motion_v27): 36 منحنى، 27 انتقالًا SVG، 12 حركة كاميرا، انتقالات على الإيقاع.
+- `text.motion` (typemotion_v27): 15 أسلوب كتابة متحركة لا يقطّع الحروف العربية، كابشن وكاريوكي من توقيتات مُعطاة، SRT، بطاقات أسماء، مقاسات المنصات.
+- `graphics.motion` (graphics_v27): تحويل أشكال، رسم الخط، نيون/خامات بالطلب فقط، جزيئات، رسوم بيانية، خرائط مسار تخطيطية، شروحات، بكسل، موك واجهات، كشف شعار.
+- `studio.render` (studio_v27): تايملاين بطبقات → معاينة SVG → رندر MP4 بموافقة مع ميكس AAC مقاس بالـLUFS وducking، 13 تلوينًا لا تُطبَّق إلا بطلب المالك، فحص تسليم. خيارات FFmpeg فيه كُتبت من الذاكرة ولم تُراجع — أول مرشح للإصلاح.
+
+**أول أمر لتجربة المالك:**
+```bash
+python rose.py capability-run studio.render '{"op":"example_timeline"}'
+python rose.py capability-run studio.render '{"op":"preview_frame","params":{"spec":<الناتج>,"t":1.0}}'
+```
+
+## 13. V28 — إكمال الصهر: النت والجسور والمدفوع وخطط التشغيل (2026-11-22)
+
+**طلب المالك:** «كمل كله وكل المحتوى حقوق ملكية لي حلله». أُضيفت 4 محوّلات (59 في السجل)، **مكتوبة وغير مختبرة** بطلب المالك؛ مُدرجة في `capability_runtime.CODED_UNTESTED` (8 محوّلات) ويعرضها `release.verify` منفصلة.
+
+| المحوّل | الموديول | يغطي | البوابة |
+|---|---|---|---|
+| `net.fetch` | net_v28 | DL/WEB/COLLECT/GITHUB/TIKTOK/INSTAGRAM… (2,727 وحدة) | كل اتصال `--approve-write` + قائمة نطاقات + robots + بلا كوكيز/دخول |
+| `app.bridge` | bridges_v28 | Blender/Adobe/NLE/Remotion/TTS (302) | تشغيل البرامج والكتابة بموافقة؛ يعيد `not_installed` بصدق |
+| `prompt.prepare` | prompts_v28 | GEN/SUNO/GEMINI/PROMPT (466) | لا يتصل بأي خدمة؛ يُنتج طلب موافقة لا يمكن اعتماده من داخله |
+| `playbook.library` | playbooks_v28 | مهارات الكتالوج (2,526 كانت ناقصة) | بناء الفهرس كتابة بموافقة؛ الذاكرة الخاصة تُفتح بعلم صريح فقط |
+
+**التحليل المنفّذ فعلًا:** `build_index` على `~/.red-rose/memory.sqlite3` (قراءة فقط، بإذن المالك) → `~/.red-rose/playbooks_v28.sqlite3` محليًا (لا يُرفع): **14,890 خطة تشغيل** من 16,527 صفًا (1,637 مكررًا دُمج)، الثقة: 982 عالية، 8,326 متوسطة، 5,582 ضعيفة؛ الدروس الخاصة مستبعدة. أُصلح عطل ظهر من أول استخدام: البحث كان يرفض الفهرس المشتق لأنه داخل `~/.red-rose`.
+
+**التغطية (`FUSION_COVERAGE.json`):** كل الـ25,675 وحدة لها طريق في الوردة، **لكن بأنواع مختلفة**: 19,654 أصلي/مُستوعب (76.5%)، 2,526 خطة تشغيل مستخلصة آليًا، 3,495 بموافقة أو جسر لبرنامج خارجي. «طريق» ≠ «مختبر».
+
+**قيود:** الاستخراج نصّي تقريبي (أهداف تُقطع أحيانًا)؛ الشبكة والجسور لم تُشغَّل قط؛ بعض أعلام yt-dlp وخيارات FFmpeg كُتبت من الذاكرة.

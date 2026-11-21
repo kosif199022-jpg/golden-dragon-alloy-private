@@ -74,7 +74,11 @@ def main(argv=None):
     x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
     x=sub.add_parser('timeline-analyze'); x.add_argument('source'); x.add_argument('--noise-db',type=float,default=-35); x.add_argument('--sample-fps',type=int,default=6)
     x=sub.add_parser('edit-suggest'); x.add_argument('source'); x.add_argument('--max-clips',type=int,default=3); x.add_argument('--max-duration',type=float,default=30); x.add_argument('--min-audible-ratio',type=float,default=.2)
+    x=sub.add_parser('shot-score'); x.add_argument('source'); x.add_argument('--max-clips',type=int,default=3); x.add_argument('--max-duration',type=float,default=30); x.add_argument('--sample-fps',type=int,default=6)
     x=sub.add_parser('recut'); x.add_argument('source'); x.add_argument('edl_json'); x.add_argument('output'); x.add_argument('--fps',type=int,default=24); x.add_argument('--approve-write',action='store_true')
+    sub.add_parser('roadmap')
+    x=sub.add_parser('roadmap-topic'); x.add_argument('topic')
+    x=sub.add_parser('roadmap-question'); x.add_argument('question',type=int)
     sub.add_parser('question-audit')
     x=sub.add_parser('question-trace'); x.add_argument('question_id')
     x=sub.add_parser('fusion-plan'); x.add_argument('scenes_json'); x.add_argument('--fps',type=int,default=24); x.add_argument('--preset',default='iphone-vertical')
@@ -106,11 +110,22 @@ def main(argv=None):
         with closing(connect(args.db)) as db:
             result=run_capability(db,ident,params)
         print(json.dumps(result,ensure_ascii=False)); return
+    if args.command=='shot-score':
+        with closing(connect(args.db)) as db:
+            result=run_capability(db,'video.shot_score',{'source':args.source,'max_clips':args.max_clips,
+                        'max_duration':args.max_duration,'sample_fps':args.sample_fps})
+        print(json.dumps(result,ensure_ascii=False)); return
     if args.command=='recut':
         edl=json.loads(Path(args.edl_json).expanduser().read_text(encoding='utf-8'))
         with closing(connect(args.db)) as db:
             result=run_capability(db,'video.recut',{'source':args.source,'segments':edl,
                         'output':args.output,'fps':args.fps},approve_write=args.approve_write)
+        print(json.dumps(result,ensure_ascii=False)); return
+    if args.command in ('roadmap','roadmap-topic','roadmap-question'):
+        import roadmap_1400
+        if args.command=='roadmap': result=roadmap_1400.summary(registry=REGISTRY)
+        elif args.command=='roadmap-topic': result=roadmap_1400.explain_topic(args.topic,registry=REGISTRY)
+        else: result=roadmap_1400.explain_question(args.question,registry=REGISTRY)
         print(json.dumps(result,ensure_ascii=False)); return
     if args.command in ('question-audit','question-trace'):
         print(json.dumps(trace_qa(args.question_id if args.command=='question-trace' else None,registry=REGISTRY),ensure_ascii=False)); return
