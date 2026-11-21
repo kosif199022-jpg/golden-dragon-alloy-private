@@ -16,7 +16,7 @@
   ],
   "tests_local_passed": 185,
   "tests_local_environment": "Windows 11, Python 3.12.10, FFmpeg 9.0.2, python -W error::ResourceWarning -m unittest discover",
-  "ci_result_on_this_change": "not run: change exists only in a local working tree, not pushed",
+  "ci_result_on_this_change": "3 checks passed, 0 failed on PR #17 at commit affa7e5; re-verify on the latest commit",
   "merged_to_main": false,
   "requires_approval_to_export_with": [
     "video.recut"
@@ -24,5 +24,7 @@
   "knowledge_reference_capabilities_are_executables": false,
   "historical_1400_question_archive_complete": false,
   "full_1400_requirements_implemented": false,
-  "private_memory_in_source_control": false
+  "private_memory_in_source_control": false,
+  "pull_request": 17,
+  "competing_open_pull_request": 16
 }
