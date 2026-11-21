@@ -1,4 +1,4 @@
-# الوردة الحمراء 🌹 V15 — Independent, editable video prototype + offline knowledge
+# الوردة الحمراء 🌹 V16 — Independent, editable video prototype + offline knowledge
 
 **Project status:** working local prototype, NOT full fusion of the Golden/Black Dragon engines. The owner's approval of 1,400 design requirements is not evidence of 1,400 implemented abilities.
 
@@ -153,3 +153,27 @@ turning an entry into a native adapter takes separate implementation and tests.
 The 1,400 detailed requirement statements have not been fully enumerated or
 mapped, so no completion percentage is justified. The current video character
 is an original stylized 2D rig, not photoreal footage or professional 3D.
+
+## V16 — Actual local footage cuts and real-media recut (2026-11-21)
+
+Two **new** native adapters bring the Red Rose's explicit capability registry to **13**:
+
+- `video.scene_analyze` (read): FFprobe metadata + FFmpeg sampled 80×45 RGB frames; detects large frame-wide differences. Outputs approximate cut times, strengths, shot boundaries and an editable segment list. This is **NOT** semantic scene understanding and may miss subtle cuts or mistake flashes for cuts.
+- `video.recut` (approved write): takes an explicit EDL (ordered `[{"start":0,"end":1}, ...]`), uses FFmpeg's trim/setpts/atrim/asetpts/concat to reassemble segments from a **local source video**, maintains an audio stream if present, encodes H.264/AAC and independently verifies full decode via FFprobe + FFmpeg. Does not overwrite an existing output. Up to 16 segments / 300 seconds of output.
+
+**Analyze, edit the plan, then explicitly approve the output**:
+
+```bash
+python rose.py scene-analyze /path/to/footage.mp4
+# Copy and reorder the `suggested_edl` list from the JSON output into edits.json
+python rose.py recut /path/to/footage.mp4 edits.json /path/to/edited.mp4 --fps 24
+# Result: approval_required; no video written
+python rose.py recut /path/to/footage.mp4 edits.json /path/to/edited.mp4 --fps 24 --approve-write
+python rose.py verify /path/to/edited.mp4 --fps 24
+```
+
+Alternatively use `capability-run video.scene_analyze` and `capability-run video.recut`. Unlike `video.produce`, these operations work directly with supplied **original media**, not synthetic SVG character frames. Source videos are analyzed locally and **not uploaded to GitHub**.
+
+**Verified demo:** a synthetic three-shot source with audio yielded cut marks at **1.50s** and **3.00s**. The reordered shot 3→shot 1 compilation was **3.0s, 72 frames, 432×768, H.264/AAC**, verified by FFprobe and full FFmpeg decode. The proof is synthetic footage (not a real-world film), and the algorithm performs hard cuts only; no optical-flow interpolation, cinematic transitions, automatic storyboarding, or professional editor replacement is claimed.
+
+**Tests:** V15 baseline 131/131 plus V16 feature/integration tests, total **146/146** locally on Linux with FFmpeg 7.1; resource warnings treated as failures. A blank/source-only Git checkout must re-run tests in CI before being declared portable. Knowledge summaries (25,675 on owner's PRIVATE local machine in an earlier migration) are NOT 25,675 executable tools. The 1,400-item requirements roadmap is NOT complete.
