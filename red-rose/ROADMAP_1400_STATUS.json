@@ -2,6 +2,171 @@
  "schema_version": 1,
  "note": "Only topics with real code are listed; every entry is re-verified by roadmap_1400.load_status. Topics not listed are 'proposed'.",
  "topics": {
+  "01.01": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "skill_contract",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.skill_contract: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.02": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "provenance_card",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.provenance_card: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.03": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "behaviour_compare",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.behaviour_compare: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.04": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "capability_overlap",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.capability_overlap: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.05": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "legacy_import_audit",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.legacy_import_audit: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py. Real-repo run 2026-11-21: 88 red-rose .py files audited; 0 imports of legacy engines (24 hits were red-rose's own alloy_fusion module, 1 a test string asserting kb/alloy.db is blocked)."
+  },
+  "01.06": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "adapter_reality",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.adapter_reality: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.07": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "capability_passport",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.capability_passport: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.08": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "approval_lifecycle",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.approval_lifecycle: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.09": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "snapshot_restore",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.snapshot_restore: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "01.10": {
+   "status": "unit_tested",
+   "module": "governance_v22",
+   "symbol": "completion_matrix",
+   "test": "test_governance_v22.py",
+   "adapter": "governance.audit",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "governance_v22.completion_matrix: native stdlib code; acceptance test in test_governance_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.01": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "cli_spec_check",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.cli_spec_check: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
   "02.02": {
    "status": "unit_tested",
    "module": "capability_runtime",
@@ -15,6 +180,276 @@
     "permission"
    ],
    "evidence": "REGISTRY dispatch; unknown ids and parameters rejected (test_unknown_action_not_executable)."
+  },
+  "02.03": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "message_schema",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.message_schema: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.04": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "distribution_guard",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.distribution_guard: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.05": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "dependency_status",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.dependency_status: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.06": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "config_redact",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.config_redact: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.07": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "cache_key",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.cache_key: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.08": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "checkpoint_resume",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.checkpoint_resume: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.09": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "path_portability",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.path_portability: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "02.10": {
+   "status": "unit_tested",
+   "module": "architecture_v22",
+   "symbol": "semver_migrate",
+   "test": "test_architecture_v22.py",
+   "adapter": "architecture.check",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "architecture_v22.semver_migrate: native stdlib code; acceptance test in test_architecture_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.01": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "task_contract",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.task_contract: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.02": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "stage_dag",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.stage_dag: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.03": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "agent_roster",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.agent_roster: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.04": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "parallel_plan",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.parallel_plan: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.05": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "solution_critique",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.solution_critique: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.06": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "handoff_check",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.handoff_check: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.07": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "injection_guard",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.injection_guard: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.08": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "claim_check",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.claim_check: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.09": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "progress_monitor",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.progress_monitor: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "03.10": {
+   "status": "unit_tested",
+   "module": "agents_v22",
+   "symbol": "rigor_mode",
+   "test": "test_agents_v22.py",
+   "adapter": "agents.coordinate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "agents_v22.rigor_mode: native stdlib code; acceptance test in test_agents_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
   "04.01": {
    "status": "unit_tested",
@@ -1203,6 +1638,291 @@
     "permission"
    ],
    "evidence": "Lesson requires an earlier executed audit id (source_audit_id); fake ids rejected."
+  },
+  "26.02": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "similar_errors",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.similar_errors: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.03": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "rank_lessons",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.rank_lessons: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.04": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "rule_proposal",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.rule_proposal: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.05": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "capability_gaps",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.capability_gaps: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.06": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "regression_from_defect",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.regression_from_defect: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.07": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "rule_versions",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.rule_versions: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.08": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "lesson_benefit",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.lesson_benefit: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.09": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "local_only_guard",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.local_only_guard: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "26.10": {
+   "status": "unit_tested",
+   "module": "learning_v22",
+   "symbol": "forget_request",
+   "test": "test_learning_v22.py",
+   "adapter": "learning.evolve",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "learning_v22.forget_request: native stdlib code; acceptance test in test_learning_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.01": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "layer_composer",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.layer_composer: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.02": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "audio_scene_edl",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.audio_scene_edl: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.03": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "ik_physics",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.ik_physics: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.04": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "retrieve_then_dispatch",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.retrieve_then_dispatch: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.05": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "accounting_workflow",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.accounting_workflow: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.06": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "variations",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.variations: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.07": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "critic_roles",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.critic_roles: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.08": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "generic_contract",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.generic_contract: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.09": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "capability_proposal",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.capability_proposal: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "27.10": {
+   "status": "unit_tested",
+   "module": "compose_v22",
+   "symbol": "originality_check",
+   "test": "test_compose_v22.py",
+   "adapter": "compose.pipeline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "compose_v22.originality_check: native stdlib code; acceptance test in test_compose_v22.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   }
  }
 }

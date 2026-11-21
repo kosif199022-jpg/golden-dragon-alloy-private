@@ -31,12 +31,19 @@ import thinking_v21
 import decision_v21
 import code_analysis_v21
 import accounting_v21
+import governance_v22
+import architecture_v22
+import agents_v22
+import learning_v22
+import compose_v22
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
 PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
                 'science.compute': science_v20, 'thinking.reason': thinking_v21,
                 'decision.make': decision_v21, 'code.analyze': code_analysis_v21,
-                'accounting.check': accounting_v21}
+                'accounting.check': accounting_v21, 'governance.audit': governance_v22,
+                'architecture.check': architecture_v22, 'agents.coordinate': agents_v22,
+                'learning.evolve': learning_v22, 'compose.pipeline': compose_v22}
 from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fusion_frame, render_video as fusion_render, iphone_export, PRESETS
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
@@ -71,6 +78,11 @@ REGISTRY = {
  'decision.make': ('Decision rules: intent state, confidence labels, tool choice, phase machine, blind review, conflict priority, failure log, tested routing, gaps, auditable records', 'read', 'builtin'),
  'code.analyze': ('Static code analysis on supplied source text: syntax, import cycles, duplicates, resources, masked secrets, races, tracebacks, complexity, boundaries, diff review', 'read', 'builtin'),
  'accounting.check': ('Decimal checks on owner-supplied records: bank reconciliation, duplicate invoices, trial balance, payroll, item codes, costing, cash flow, allocation, checklists, approvals', 'read', 'builtin'),
+ 'governance.audit': ('Skill governance: contracts, provenance cards, copy guard, overlaps, legacy-import audit, adapter reality, passports, approval lifecycle, snapshots, completion matrix', 'read', 'builtin'),
+ 'architecture.check': ('Architecture checks: CLI spec, versioned messages, distribution guard, dependency status, redacted config, cache keys, checkpoint resume, path portability, SemVer migrations', 'read', 'builtin'),
+ 'agents.coordinate': ('Agent coordination: task contract, stage DAG, roster, safe batches, critique, handoff check, injection guard, claim check, progress monitor, rigor level', 'read', 'builtin'),
+ 'learning.evolve': ('Evidence-based learning: similar errors, lesson ranking, reviewed rule proposals, capability gaps, regression cases, rule versions, lesson benefit, local-only guard, forget plans', 'read', 'builtin'),
+ 'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
  'صلصال': ('fusion.plan','fusion.frame','fusion.render'),
@@ -137,6 +149,19 @@ ALIASES = {
  'ميزان': ('accounting.check',),
  'رواتب': ('accounting.check',),
  'تكلفة': ('accounting.check',),
+ 'حوكمة': ('governance.audit',),
+ 'ترخيص': ('governance.audit',),
+ 'نسب': ('governance.audit',),
+ 'معمارية': ('architecture.check',),
+ 'إعدادات': ('architecture.check',),
+ 'ترحيل': ('architecture.check',),
+ 'وكلاء': ('agents.coordinate',),
+ 'تسليم': ('agents.coordinate',),
+ 'حقن': ('agents.coordinate',),
+ 'دروس': ('learning.evolve','memory.recall'),
+ 'نسيان': ('learning.evolve',),
+ 'دمج': ('compose.pipeline',),
+ 'طبقات': ('compose.pipeline',),
  '1400': ('roadmap.status',),
  'خطة': ('roadmap.status',),
  'تقدم': ('roadmap.status',),
