@@ -2,24 +2,17 @@
   "name": "red-rose",
   "version": "18.0",
   "date": "2026-11-21",
-  "base_commit": "fbf22d2b455db2ce509690bb477ca88495e9913a",
-  "registered_adapters": 16,
-  "tests_local_passed": 174,
-  "test_environment": "Windows 11, Python 3.12.10, FFmpeg 9.0.2 (gyan.dev), CairoSVG present",
-  "knowledge_reference_capabilities_are_executables": false,
-  "full_1400_requirements_implemented": false,
-  "new_adapters": [
-    "video.shot_quality"
+  "base_release": "V17; 15 adapters, 164 tests at the V17 documentation PR including 4 agent-handoff tests",
+  "registered_adapters_target_at_v18": 16,
+  "new_native_adapter": "qa.trace",
+  "new_commands": [
+    "question-audit",
+    "question-trace"
   ],
-  "handoff_plan_item": "P3 — measured per-shot technical evaluation with reviewable EDL output",
-  "requires_approval_to_export_with": [
-    "video.recut"
-  ],
-  "measured_performance": "120 s 1280x720 30 fps synthetic source analyzed in 8.4 s (sample_fps 4) on the test machine",
-  "limitations": [
-    "technical metrics only (detail, exposure, clipping, contrast, inter-frame motion)",
-    "low_detail cannot separate optical blur from flat subjects",
-    "thresholds tuned on synthetic FFmpeg sources, not calibrated on real footage",
-    "no faces, composition rules, story or aesthetic judgement"
-  ]
+  "paraphrased_qa_records": 35,
+  "historical_1400_question_archive_complete": false,
+  "historical_1400_requirements_executed": false,
+  "current_implementation_claim": "Capability links are partial/relevant relationships, not proof of requirement completion",
+  "release_verification": "Use live HEAD, python -W error::ResourceWarning -m unittest discover -v, and GitHub CI; do not infer final count from this manifest",
+  "private_memory_in_source_control": false
 }

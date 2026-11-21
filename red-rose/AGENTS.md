@@ -1,6 +1,6 @@
 # 🌹 AGENTS.md — Contract for EVERY Red Rose agent
 
-This file is an onboarding contract for ChatGPT, Claude Code, Codex, Gemini, Cursor, and other authorized coding agents. **No model-specific tools are guaranteed**; discover what is available and never pretend to have run a tool. Read these files in order: `NEXT_AGENT_HANDOFF.md` → `QUESTIONS_AND_ANSWERS.md` → `QUESTION_COVERAGE.json` → `SKILL.md` → `README.md` → `RELEASE_MANIFEST_V17.json` and `CAPABILITY_LEDGER_V17.md` (then the newest `RELEASE_MANIFEST_V*.json` / `CAPABILITY_LEDGER_V*.md`, currently V18) → `capability_runtime.py`.
+This file is an onboarding contract for ChatGPT, Claude Code, Codex, Gemini, Cursor, and other authorized coding agents. **No model-specific tools are guaranteed**; discover what is available and never pretend to have run a tool. Read these files in order: `NEXT_AGENT_HANDOFF.md` → `QUESTIONS_AND_ANSWERS.md` → `QUESTION_COVERAGE.json` → `SKILL.md` → `README.md` → `RELEASE_MANIFEST_V17.json` and `CAPABILITY_LEDGER_V17.md` (then the newest `RELEASE_MANIFEST_V*.json` / `CAPABILITY_LEDGER_V*.md`, currently V19) → `capability_runtime.py`.
 
 ## Source of truth and priority
 
@@ -47,3 +47,8 @@ For video features, inspect `ffmpeg -version`, `ffprobe -version`, Python `cairo
 - [ ] PR link and merge status stated truthfully.
 
 **If work must stop:** leave a valid checkpoint in `NEXT_AGENT_HANDOFF.md`, keep the branch available, and list the first reproducible command. Do not say «صهر الكل» unless there is independently auditable evidence.
+
+
+## V18 traceability checkpoint
+
+Use \`python rose.py question-audit\` before taking a new roadmap item, and \`python rose.py question-trace A17\` to inspect the actual linked source and adapters. The source of truth is \`QA_TRACEABILITY.json\`, verified against the live native \`REGISTRY\`. **A01–A35 are paraphrases, not the literal 1–1400 original list.** No number of mapped rows proves those requirements complete. Treat \`qa.trace\` as read-only provenance tooling. Verify the current test count and branch before reporting any V18 CI result.

@@ -1,4 +1,4 @@
-"""V18: measured per-shot technical quality on original synthetic FFmpeg footage."""
+"""V19: measured per-shot technical quality on original synthetic FFmpeg footage."""
 from __future__ import annotations
 from contextlib import closing
 import json
@@ -11,7 +11,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from shot_quality_v18 import shot_quality, frame_metrics, GRID_W, GRID_H
+from shot_quality_v19 import shot_quality, frame_metrics, GRID_W, GRID_H
 from capability_runtime import REGISTRY, execute, plan_task
 from verify_media import verify_video
 
@@ -123,7 +123,7 @@ class ShotQualityV18Tests(unittest.TestCase):
             self.assertEqual(plan['status'], 'planned_not_executed')
 
     def test_proposal_feeds_approval_gated_recut(self):
-        dest = self.dir / 'v18_best_shots.mp4'
+        dest = self.dir / 'v19_best_shots.mp4'
         with closing(sqlite3.connect(':memory:')) as db:
             params = {'source': str(self.source), 'segments': self.report['suggested_edl'],
                       'output': str(dest), 'fps': 12}

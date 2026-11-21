@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-11-21",
+  "title": "Attribution-first roadmap traceability index",
+  "scope": "A01-A35 are documented PARAPHRASES, not numbered original 1-1400 questions.",
+  "code_source": "capability_runtime.REGISTRY",
+  "truth_conditions": {
+    "linked_capabilities_are_real_registered_actions": true,
+    "link_proves_entire_question_implemented": false,
+    "original_1400_questions_recovered": false,
+    "original_1400_implemented": false,
+    "count_verified_at_runtime": true
+  },
+  "assessment_terms": {
+    "design_only": "User goal or approved design direction; no directly equivalent runtime feature",
+    "policy_verified": "Policy/gate supported by some code or repo guidance; still requires test evidence at current HEAD",
+    "original_not_recovered": "Exact historical question and answer texts are unavailable",
+    "related_partial": "One or more actual runtime actions relate to part of the goal only",
+    "historical_status": "Snapshot/historical statement, not a current implementation claim",
+    "agent_guidance": "Instructions drafted for incoming agents, not user-verbatim approval"
+  },
+  "evidence_scope": "All IDs are grounded in QUESTIONS_AND_ANSWERS.md. A mapped adapter is related, never a proof of full coverage.",
+  "rows": [
+    {
+      "id": "A01",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "اسم المهارة قرار معتمد، وليس قدرة تنفيذية.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A02",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "الاستقلالية مبدأ معماري؛ اختبارات الواجهات تفحص عدم استدعاء مهارات قديمة.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A03",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "الصهر الحقيقي يقتضي إعادة بناء محركات واختبارات، وليس ضم فهارس.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A04",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "مصادر التنين محفوظة؛ لا تُحذف أو تستدعى أثناء تشغيل الوردة.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A05",
+      "assessment": "policy_verified",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "الحاجز في capability_runtime.py يمنع الأوامر غير المسجلة؛ اختبارات سلبية متاحة.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A06",
+      "assessment": "historical_status",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "اعتماد الخطة لا يعني استعادة النصوص أو تنفيذ 1400 مطلب.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A07",
+      "assessment": "original_not_recovered",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "الأسئلة التفصيلية 1–450 غير مسترجعة كاملة بنصوصها؛ مطلوب مصدر أصلي.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A08",
+      "assessment": "original_not_recovered",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "نصوص 451–1400 الفردية غير مسترجعة؛ اعتماد المحاور ليس إجابات فردية.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A09",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "لا تُكرر الأسئلة المعتمدة؛ استرجع المصدر قبل طلب توضيح جديد.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A10",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "التفكير والإبداع محور معتمد؛ لا يوجد محرك يحقق كل الخمسين سؤالًا.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A11",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "character.svg",
+        "video.produce"
+      ],
+      "limit_or_next_evidence": "محرك IK والتحريك يطبقان جزءًا محدودًا من الهندسة وليس محور الرياضيات كله.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A12",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "character.svg",
+        "video.produce",
+        "style.list"
+      ],
+      "limit_or_next_evidence": "الرسم 2D والوصفات المسمّاة لا تمثل كل استايلات الرسم المطلوبة.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A13",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "طلب بحث المكتبات المجانية موجود؛ تدقيق ترخيص جميع المكتبات لم يكتمل.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A14",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "character.svg"
+      ],
+      "limit_or_next_evidence": "حسابات IK هندسية؛ لا توجد محاكاة فيزيائية سينمائية كاملة.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A15",
+      "assessment": "historical_status",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "خريطة 1000 قدرة خطة تصميم وليست ألف تنفيذ مثبت.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A16",
+      "assessment": "policy_verified",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "الموافقة على المقترحات السابقة ليست تفويضًا عامًا للدفع أو حذف الملفات.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A17",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "memory.recall",
+        "learning.record"
+      ],
+      "limit_or_next_evidence": "ذاكرة SQLite المحلية تتذكر الدروس الموثقة، ولا تعيد تدريب النموذج.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A18",
+      "assessment": "policy_verified",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "حماية قاعدة SQLite الخاصة وأسرار المستخدم شرط CI ومراجعة.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A19",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "knowledge.search",
+        "knowledge.route",
+        "knowledge.stats"
+      ],
+      "limit_or_next_evidence": "استرجاع ملخصات السبيكة يعمل دون تنفيذ مهاراتها القديمة.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A20",
+      "assessment": "historical_status",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "عدد 15 مُحوّلًا في V17 لقطة تاريخية؛ العدد الحالي يُحسب من REGISTRY.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A21",
+      "assessment": "historical_status",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "لا توجد أدلة تثبت تنفيذ كل المتطلبات الـ1400.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A22",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "تنسيق الوكلاء مطلب؛ لا تفترض وجود وكيل متعدد أو استخدامه بلا دليل.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A23",
+      "assessment": "design_only",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "إبلاغ التقدم أثناء العمل توجيه تعاون، وليس محرك تنفيذ.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A24",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "video.scene_analyze",
+        "video.timeline_analyze",
+        "video.edit_suggest",
+        "video.recut",
+        "video.preview",
+        "video.produce",
+        "video.verify"
+      ],
+      "limit_or_next_evidence": "محركات فيديو فعلية؛ الفهم السينمائي الدلالي والإبداع التحريري المتقدم غير مثبتين.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A25",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "character.svg",
+        "video.produce"
+      ],
+      "limit_or_next_evidence": "ثبات لوحة ألوان شخصية رسومية لا يساوي حفظ ملامح وجه إنسان في فيديو.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A26",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "audio.analyze",
+        "video.produce"
+      ],
+      "limit_or_next_evidence": "تزامن مستند إلى شدة الصوت والنص؛ لا يوجد alignment صوتي للحروف الفعلية.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A27",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "video.scene_analyze",
+        "video.timeline_analyze",
+        "video.edit_suggest"
+      ],
+      "limit_or_next_evidence": "القطوعات والصمت خوارزميات؛ لا يوجد فهم معاني المشهد أو الحوار.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A28",
+      "assessment": "policy_verified",
+      "linked_native_capabilities": [
+        "learning.record",
+        "video.recut",
+        "video.produce",
+        "character.svg"
+      ],
+      "limit_or_next_evidence": "الأوامر المُحدثة للملفات تحتاج موافقة كتابة صريحة في واجهة القدرات.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A29",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "video.verify",
+        "video.preview"
+      ],
+      "limit_or_next_evidence": "فحص مستقل ومخرجات فعلية؛ ليس كل القدرات مثبتًا باختبارات سينمائية.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A30",
+      "assessment": "related_partial",
+      "linked_native_capabilities": [
+        "video.verify",
+        "video.produce"
+      ],
+      "limit_or_next_evidence": "QA رقمي + عرض عينات؛ النجاح العددي لا يثبت جودة إبداعية احترافية.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A31",
+      "assessment": "policy_verified",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "المصادر القديمة غير موثوقة للتنفيذ؛ استخدامها للاسترشاد فقط.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A32",
+      "assessment": "agent_guidance",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "بدء العمل من AGENTS وNEXT_AGENT_HANDOFF وتحليل HEAD والاختبارات.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A33",
+      "assessment": "agent_guidance",
+      "linked_native_capabilities": [
+        "qa.trace"
+      ],
+      "limit_or_next_evidence": "تسجيل فجوات السؤال قبل اختلاق نصوص، مع توثيق مصدر أي استرجاع جديد. متابعة السجل الجديد متاحة عبر qa.trace، بلا ادعاء استعادة الأصل.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A34",
+      "assessment": "agent_guidance",
+      "linked_native_capabilities": [],
+      "limit_or_next_evidence": "تسليم قابل للمتابعة بين الوكلاء؛ لا تدعي العمل في الخلفية بلا عملية فعلية.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    },
+    {
+      "id": "A35",
+      "assessment": "agent_guidance",
+      "linked_native_capabilities": [
+        "qa.trace"
+      ],
+      "limit_or_next_evidence": "لا تثق في عداد ثابت؛ افحص REGISTRY وHEAD وCI من جديد. متابعة السجل الجديد متاحة عبر qa.trace، بلا ادعاء استعادة الأصل.",
+      "original_question_verbatim": false,
+      "original_answer_verbatim": false,
+      "link_basis": "related implementation or policy; NOT a one-to-one original 1400 requirement mapping"
+    }
+  ]
+}

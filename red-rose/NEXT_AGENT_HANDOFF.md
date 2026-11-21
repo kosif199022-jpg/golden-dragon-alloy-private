@@ -29,8 +29,6 @@
 
 `knowledge.search`, `knowledge.route`, `knowledge.stats`, `memory.recall`, `learning.record`, `style.list`, `audio.analyze`, `video.verify`, `video.scene_analyze`, `video.recut`, `video.timeline_analyze`, `video.edit_suggest`, `video.preview`, `video.produce`, `character.svg`.
 
-**V18 (بعد هذا الـ snapshot):** أُضيف `video.shot_quality` (read) → **16** محوّلًا. التفاصيل والأدلة في القسم 7 و`CAPABILITY_LEDGER_V18.md`.
-
 **لا تعتبر سجل قدرة = محرك مستقل متقدم أو وكيل AI.** `video.edit_suggest` اقتراح إحصائي لا يفهم القصة، و`visemes.py` ليس تعرفًا على فونيمات الصوت، و`identity.py` تثبيت ألوان شخصية كرتونية لا ملامح شخص حقيقي.
 
 ## 3. أوامر الاستلام والتحقق
@@ -101,18 +99,25 @@ PR/merge state:
 
 **موانع مطلقة:** لا كتابة فوق بيانات المستخدم أو نشرها بلا موافقة؛ لا حفظ أسرار في Git؛ لا نسبة أسئلة أو أجوبة إلى المستخدم بلا مصدر؛ لا الإيحاء بتفعيل 26 ألف قدرة أو إنجاز كل 1,400؛ لا حذف مستودعات المصدر أو استدعائها في تشغيل الوردة الحمراء.
 
-## 7. نقطة تفتيش V18 — قياس جودة اللقطات (P3، بند أول)
+
+## 7. V18 traceability continuation
+
+A new, intentionally narrow native **read-only** adapter \`qa.trace\` was added to query the documented A01–A35 paraphrases, backed by \`QA_TRACEABILITY.json\` and checked against the runtime registry. It also exposes \`question-audit\` and \`question-trace A17\` without requiring a local SQLite database. This is **not** restoration of historical question texts.
+
+The **V17 snapshot above remains historical**: 15 native adapters and 154 local tests at that previous release. V18 changes the registry to 16 and adds regression coverage; the next agent must obtain the CI run result on the exact V18 commit before claiming it passed. New code: \`qa_trace.py\`, \`test_qa_trace_v18.py\`; main requirement is proof that a mapped ID is registered and missing verbatim sources are not fabricated.
+
+## 8. نقطة تفتيش V19 — قياس جودة اللقطات (P3، بند أول)
 
 ```text
 المهمة: P3 — تقييم فعلي للقطات (تفاصيل/تعريض/تباين/حركة) بمخرج EDL قابل للمراجعة، بلا تعديل تلقائي.
-اسم الفرع: feature/red-rose-v18-shot-quality-20261121
-HEAD commit: انظر آخر commit على الفرع (القاعدة: fbf22d2b455db2ce509690bb477ca88495e9913a)
-ملفات تغيّرت: shot_quality_v18.py (جديد)، test_shot_quality_v18.py (جديد، 10 اختبارات)،
+اسم الفرع: feature/red-rose-v18-shot-quality-20261121 (اسم الفرع قديم؛ المحتوى V19 بعد دمج main)
+HEAD commit: انظر آخر commit على الفرع (مدموج مع main عند 5ce29c3 بعد PR #15)
+ملفات تغيّرت: shot_quality_v19.py (جديد)، test_shot_quality_v19.py (جديد، 10 اختبارات)،
   capability_runtime.py (تسجيل video.shot_quality + aliases: quality/جودة/لقطة/لقطات/shots)،
-  rose.py (أمر shot-quality)، test_capability_v15.py (العدد 15→16)،
-  RELEASE_MANIFEST_V18.json، CAPABILITY_LEDGER_V18.md، README.md، SKILL.md، AGENTS.md، هذا الملف.
-اختبارات أُجريت: python -W error::ResourceWarning -m unittest discover → 174/174 OK
-  (Windows 11، Python 3.12.10، FFmpeg 9.0.2). قبل التغيير: 164/164 على fbf22d2.
+  rose.py (أمر shot-quality)، test_capability_v15.py و test_qa_trace_v18.py (العدد 16→17)،
+  RELEASE_MANIFEST_V19.json، CAPABILITY_LEDGER_V19.md، README.md، SKILL.md، AGENTS.md، هذا الملف.
+اختبارات أُجريت: python -W error::ResourceWarning -m unittest discover → 182/182 OK
+  (Windows 11، Python 3.12.10، FFmpeg 9.0.2). قبل التغيير: 164 على fbf22d2 + 8 اختبارات qa.trace من PR #15.
 مخرجات موجودة فعلًا: لا يُرفع أي فيديو إلى Git (.gitignore). عيّنة QA محلية مؤقتة:
   recut للـEDL المقترح → H.264 160×96، 12fps، 12 كادر، 1.0s، QA passed،
   sha256 55c890d3c78bef968824a438f52f5deb950cf223bdf66615141e38e8a35c482b؛ كادر مفحوص بالعين.

@@ -1,4 +1,4 @@
-"""Red Rose V18: measured per-shot technical quality + reviewable EDL ranking.
+"""Red Rose V19: measured per-shot technical quality + reviewable EDL ranking.
 
 Native standard-library implementation over FFmpeg-decoded grayscale samples.
 It measures *technical* image properties only: fine detail (Laplacian energy),
@@ -17,7 +17,7 @@ from scene_edit_v16 import probe_source, analyze_cuts, validate_edl, _number, MA
 GRID_W, GRID_H = 96, 54
 
 # Fixed, documented thresholds (0..1 scale of 8-bit luma). Tuned on synthetic
-# FFmpeg test sources in test_shot_quality_v18.py; NOT calibrated on real footage.
+# FFmpeg test sources in test_shot_quality_v19.py; NOT calibrated on real footage.
 THRESHOLDS = {
     'low_detail': .012,      # mean |Laplacian| / 255
     'dark_mean': .16,        # mean luma below this -> underexposed

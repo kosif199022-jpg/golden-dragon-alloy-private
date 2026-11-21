@@ -1,0 +1,25 @@
+{
+  "name": "red-rose",
+  "version": "19.0",
+  "date": "2026-11-21",
+  "base_commit": "5ce29c3 (main after PR #15, V18 qa.trace)",
+  "registered_adapters": 17,
+  "tests_local_passed": 182,
+  "test_environment": "Windows 11, Python 3.12.10, FFmpeg 9.0.2 (gyan.dev), CairoSVG present",
+  "knowledge_reference_capabilities_are_executables": false,
+  "full_1400_requirements_implemented": false,
+  "new_adapters": [
+    "video.shot_quality"
+  ],
+  "handoff_plan_item": "P3 — measured per-shot technical evaluation with reviewable EDL output",
+  "requires_approval_to_export_with": [
+    "video.recut"
+  ],
+  "measured_performance": "120 s 1280x720 30 fps synthetic source analyzed in 8.4 s (sample_fps 4) on the test machine",
+  "limitations": [
+    "technical metrics only (detail, exposure, clipping, contrast, inter-frame motion)",
+    "low_detail cannot separate optical blur from flat subjects",
+    "thresholds tuned on synthetic FFmpeg sources, not calibrated on real footage",
+    "no faces, composition rules, story or aesthetic judgement"
+  ]
+}

@@ -1,20 +1,33 @@
-# 🌹 Capability ledger — V18
+# 🌹 V18 — attributed QA-to-code traceability ledger
 
-| Adapter | Effect | Local implementation | Test evidence |
-|---|---|---|---|
-| `video.shot_quality` | read | FFmpeg gray 96×54 samples → per-shot Laplacian detail, luma mean, crushed/blown fractions, luma std-dev, inter-frame motion; explainable weighted score; bounded EDL proposal | `test_shot_quality_v18.py` (10 tests) |
-| `video.recut` (V16) | approved write | unchanged; consumes the V18 EDL only with `--approve-write` | `test_shot_quality_v18.test_proposal_feeds_approval_gated_recut` |
+## Measured scope (to be reverified at current HEAD)
 
-Total: **16 registered native adapters**, not 16 autonomous agents. Imported knowledge summaries are still not executable capabilities.
+- `QUESTIONS_AND_ANSWERS.md`: 35 **paraphrased** user decisions / repo facts / agent guidance, each with evidence class; NOT the original 1,400 numbered questions.
+- `QUESTION_COVERAGE.json`: historical ranges 1–400, 401–450, 451–1400. Complete verbatim question/answer archives are **not recovered**.
+- `QA_TRACEABILITY.json`: all 35 summary IDs linked (where applicable) to native `capability_runtime.REGISTRY` IDs; any unregistered/legacy ID fails validation.
+- New `qa.trace`: read-only trace of A01–A35 and a no-DB summary command. This makes **16 registered adapters** on V18, not 16 independent AI agents.
+- `test_qa_trace_v18.py`: 8 new tests for source attribution, missing-original disclosure, mapped-ID validation, rejection of injected fake/legacy adapters, runtime dispatch with local audit, and CLI not creating a personal DB.
 
-## Measured evidence (exact commit in PR)
+## Evidence categories
 
-- Full suite: **174/174** passed, `python -W error::ResourceWarning -m unittest discover` (Windows 11, Python 3.12.10, FFmpeg 9.0.2). Baseline before the change: 164/164 on `fbf22d2`.
-- Synthetic fixture with 4 one-second shots: moving `testsrc2` → score 0.954, no flags; near-black → `underexposed, low_detail, low_contrast, static`, score 0.036; Gaussian-blurred bars → `low_detail, static`, score 0.464; white → `overexposed …`, score 0.0. Default proposal (`min_score` 0.5) = only shot 1 (0–1 s).
-- Same content sharp vs. `gblur=sigma=6`: Laplacian detail differs by more than 3×.
-- End-to-end CLI: `shot-quality` → EDL `[{"start":0.0,"end":1.0}]` → `recut` refused without approval → with `--approve-write` produced H.264 160×96, 12 fps, 12 frames, 1.0 s, QA passed; extracted frame visually inspected and shows the detailed test pattern, not the black/white/blurred shots.
-- Runtime: 120 s 1280×720 source analyzed in 8.4 s → roughly 42 s at the 600 s source limit.
+- `related_partial`: implemented native adapter(s) have **some relevance**; entire goal is not achieved.
+- `original_not_recovered`: exact historical Q&A source missing; never invent its content.
+- `design_only` and `historical_status`: no execution claim.
+- `policy_verified`: safety contract whose enforcement still needs code/test evidence on current HEAD.
+- `agent_guidance`: continuation instructions, not verbatim user answers.
 
-## Not claimed
+## Validation commands
 
-No blur-vs-flat-subject separation, no face/subject detection, no composition or aesthetic grading, no camera-shake estimate, no semantic or story understanding, no automatic edit. Thresholds were not calibrated on real footage. The full 1,400 requirements are not implemented.
+```bash
+cd red-rose
+python rose.py question-audit
+python rose.py question-trace A17
+python rose.py capabilities
+python -W error::ResourceWarning -m unittest discover -v
+```
+
+The 35 summary IDs are not a 35/1400 completion fraction. The V10 local summary migration count of 25,675 does not imply that these reference texts are executable. Video-quality features and 1,400 original requirements still have major outstanding work. This release is about **reproducible requirements provenance**, not a completed AI video engine or universal source fusion.
+
+## CI / review
+
+Do not merge before the Red Rose test workflow and private-memory guard pass on the same feature HEAD. Always verify the exact merged `main` ref and update next-agent handoff with its SHA.
