@@ -20,6 +20,7 @@ from rig import rig_character
 from pipeline_v15 import prepare_project, render_project, budget
 from styles import list_styles
 from scene_edit_v16 import analyze_cuts, recut
+from audio_scene_v17 import detect_silences, timeline_analyze, suggest_edit
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
@@ -33,6 +34,8 @@ REGISTRY = {
  'video.verify': ('Full decode and FFprobe check of local video', 'read', 'ffmpeg'),
  'video.scene_analyze': ('Detect approximate cuts in original local footage', 'read', 'ffmpeg'),
  'video.recut': ('Join approved source time ranges into a verified original-media MP4', 'write', 'ffmpeg'),
+ 'video.timeline_analyze': ('Combine approximate visual scene cuts with acoustic silence intervals', 'read', 'ffmpeg'),
+ 'video.edit_suggest': ('Suggest reviewable EDL based on acoustic activity and scene boundaries', 'read', 'ffmpeg'),
  'video.preview': ('Validate storyboard and estimate bounded render work', 'read', 'cairosvg'),
  'video.produce': ('Render editable SVG storyboard to verified MP4', 'write', 'cairosvg'),
  'character.svg': ('Create standalone original IK character SVG', 'write', 'builtin'),
@@ -40,17 +43,20 @@ REGISTRY = {
 ALIASES = {
  'video': ('video.scene_analyze','video.recut','video.preview','video.produce','video.verify'),
  'render': ('video.preview','video.produce'),
- 'cuts': ('video.scene_analyze','video.recut'),
+ 'cuts': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.recut'),
  'scene': ('video.scene_analyze',),
  'قص': ('video.scene_analyze','video.recut'),
  'edit': ('video.scene_analyze','video.recut'),
- 'مونتاج': ('video.scene_analyze','video.recut','video.preview','video.produce'),
- 'فيديو': ('video.scene_analyze','video.recut','video.preview','video.produce'),
+ 'مونتاج': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.recut','video.preview','video.produce'),
+ 'فيديو': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.recut','video.preview','video.produce'),
  'تحريك': ('character.svg','video.preview'),
  'character': ('character.svg',),
  'شخصية': ('character.svg',),
  'speech': ('audio.analyze',),
- 'audio': ('audio.analyze',),
+ 'audio': ('audio.analyze','video.timeline_analyze'),
+ 'silence': ('video.timeline_analyze','video.edit_suggest'),
+ 'صمت': ('video.timeline_analyze','video.edit_suggest'),
+ 'تلقائي': ('video.edit_suggest',),
  'صوت': ('audio.analyze',),
  'بحث': ('knowledge.search','knowledge.route'),
  'knowledge': ('knowledge.search','knowledge.route'),
@@ -203,6 +209,19 @@ def execute(db, capability, params, *, approve_write=False):
                             threshold=params.get('threshold',.23),
                             sample_fps=params.get('sample_fps',6),
                             min_shot_seconds=params.get('min_shot_seconds',.65))
+    elif capability=='video.timeline_analyze':
+        _guard_keys(params,('source','threshold','sample_fps','noise_db','min_silence'),('source',))
+        output=timeline_analyze(params['source'],threshold=params.get('threshold',.23),
+                sample_fps=params.get('sample_fps',6),noise_db=params.get('noise_db',-35),
+                min_silence=params.get('min_silence',.30))
+    elif capability=='video.edit_suggest':
+        _guard_keys(params,('source','max_clips','max_duration','min_audible_ratio','threshold','sample_fps','noise_db','min_silence'),('source',))
+        output=suggest_edit(params['source'],max_clips=params.get('max_clips',3),
+                max_duration=params.get('max_duration',30.),
+                min_audible_ratio=params.get('min_audible_ratio',.20),
+                threshold=params.get('threshold',.23),
+                sample_fps=params.get('sample_fps',6),noise_db=params.get('noise_db',-35),
+                min_silence=params.get('min_silence',.30))
     elif capability=='video.recut':
         _guard_keys(params,('source','segments','output','fps'),('source','segments','output'))
         output=recut(params['source'],params['segments'],params['output'],fps=params.get('fps',24))
