@@ -1,6 +1,6 @@
 # 🌹 AGENTS.md — Contract for EVERY Red Rose agent
 
-This file is an onboarding contract for ChatGPT, Claude Code, Codex, Gemini, Cursor, and other authorized coding agents. **No model-specific tools are guaranteed**; discover what is available and never pretend to have run a tool. Read these files in order: `NEXT_AGENT_HANDOFF.md` → `QUESTIONS_AND_ANSWERS.md` → `QUESTION_COVERAGE.json` → `SKILL.md` → `README.md` → `RELEASE_MANIFEST_V17.json` and `CAPABILITY_LEDGER_V17.md` → `capability_runtime.py`.
+This file is an onboarding contract for ChatGPT, Claude Code, Codex, Gemini, Cursor, and other authorized coding agents. **No model-specific tools are guaranteed**; discover what is available and never pretend to have run a tool. Read these files in order: `NEXT_AGENT_HANDOFF.md` → `QUESTIONS_AND_ANSWERS.md` → `QUESTION_COVERAGE.json` → `SKILL.md` → `README.md` → `RELEASE_MANIFEST_V17.json` and `CAPABILITY_LEDGER_V17.md` (then the newest `RELEASE_MANIFEST_V*.json` / `CAPABILITY_LEDGER_V*.md`, currently V18) → `capability_runtime.py`.
 
 ## Source of truth and priority
 

@@ -1,4 +1,4 @@
-# الوردة الحمراء 🌹 V17 — Independent, editable video prototype + offline knowledge
+# الوردة الحمراء 🌹 V18 — Independent, editable video prototype + offline knowledge
 
 **Incoming agents:** Read [AGENTS.md](AGENTS.md), [NEXT_AGENT_HANDOFF.md](NEXT_AGENT_HANDOFF.md), [QUESTIONS_AND_ANSWERS.md](QUESTIONS_AND_ANSWERS.md) and [QUESTION_COVERAGE.json](QUESTION_COVERAGE.json) **before modifying code**. The 35 Q&A entries are attributed *paraphrases*, not the complete historical 1–1400 questions; never invent the missing original texts.
 
@@ -198,3 +198,19 @@ python -W error::ResourceWarning -m unittest discover -v
 The existing `video.recut` remains approval-gated and creates new outputs only, with FFprobe/full-decode verification. Unit+integration evidence: local 154/154 tests and a three-color original video with audio only in the middle shot; cuts at 1 s and 2 s, quiet endpoints, proposed EDL 1–2 s, exported one-second H.264/AAC output after explicit approval.
 
 **Limitations:** no semantic scene understanding, speaker classification, true transcript, dialogue comprehension or AI montage. Local original footage and user SQLite data are never committed to GitHub. Reference descriptions are not executable skills; the full 1,400 requirements remain incomplete.
+
+## V18 — measured per-shot technical quality (2026-11-21)
+
+One new **read-only** native adapter brings the registry total to **16**:
+
+- `video.shot_quality`: for every detected shot, measures fine detail (Laplacian energy), exposure (mean luma, crushed/blown fractions), contrast (luma std-dev) and inter-frame motion on 96×54 gray samples. Each shot gets explainable flags (`low_detail`, `underexposed`, `overexposed`, `low_contrast`, `static`, `high_motion`) and a 0–1 technical score. The technically strongest shots are returned as a bounded EDL **proposal**; nothing is written.
+
+```bash
+python rose.py shot-quality /path/to/footage.mp4 --max-clips 3 --min-score .5
+# Review result.shots and result.suggested_edl, save the EDL array to edits.json
+python rose.py recut /path/to/footage.mp4 edits.json best-shots.mp4 --fps 24 --approve-write
+```
+
+Evidence: 174/174 local tests (Windows, FFmpeg 9.0.2); a 4-shot synthetic fixture where the detailed moving shot scores 0.95 and the black, white and blurred shots are flagged and excluded; approved recut verified (12 frames, 1.0 s) with a visually inspected frame. Details: `CAPABILITY_LEDGER_V18.md`.
+
+**Limitations:** technical metrics only. `low_detail` cannot tell optical blur from a flat subject; no faces, composition, story or aesthetics are judged; thresholds are tuned on synthetic sources, not real footage.

@@ -21,6 +21,7 @@ from pipeline_v15 import prepare_project, render_project, budget
 from styles import list_styles
 from scene_edit_v16 import analyze_cuts, recut
 from audio_scene_v17 import detect_silences, timeline_analyze, suggest_edit
+from shot_quality_v18 import shot_quality
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
@@ -36,6 +37,7 @@ REGISTRY = {
  'video.recut': ('Join approved source time ranges into a verified original-media MP4', 'write', 'ffmpeg'),
  'video.timeline_analyze': ('Combine approximate visual scene cuts with acoustic silence intervals', 'read', 'ffmpeg'),
  'video.edit_suggest': ('Suggest reviewable EDL based on acoustic activity and scene boundaries', 'read', 'ffmpeg'),
+ 'video.shot_quality': ('Measure per-shot detail, exposure, contrast and motion; propose reviewable EDL', 'read', 'ffmpeg'),
  'video.preview': ('Validate storyboard and estimate bounded render work', 'read', 'cairosvg'),
  'video.produce': ('Render editable SVG storyboard to verified MP4', 'write', 'cairosvg'),
  'character.svg': ('Create standalone original IK character SVG', 'write', 'builtin'),
@@ -43,11 +45,11 @@ REGISTRY = {
 ALIASES = {
  'video': ('video.scene_analyze','video.recut','video.preview','video.produce','video.verify'),
  'render': ('video.preview','video.produce'),
- 'cuts': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.recut'),
+ 'cuts': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.shot_quality','video.recut'),
  'scene': ('video.scene_analyze',),
  'قص': ('video.scene_analyze','video.recut'),
  'edit': ('video.scene_analyze','video.recut'),
- 'مونتاج': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.recut','video.preview','video.produce'),
+ 'مونتاج': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.shot_quality','video.recut','video.preview','video.produce'),
  'فيديو': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.recut','video.preview','video.produce'),
  'تحريك': ('character.svg','video.preview'),
  'character': ('character.svg',),
@@ -57,6 +59,11 @@ ALIASES = {
  'silence': ('video.timeline_analyze','video.edit_suggest'),
  'صمت': ('video.timeline_analyze','video.edit_suggest'),
  'تلقائي': ('video.edit_suggest',),
+ 'quality': ('video.shot_quality',),
+ 'جودة': ('video.shot_quality',),
+ 'لقطة': ('video.shot_quality',),
+ 'لقطات': ('video.shot_quality',),
+ 'shots': ('video.shot_quality',),
  'صوت': ('audio.analyze',),
  'بحث': ('knowledge.search','knowledge.route'),
  'knowledge': ('knowledge.search','knowledge.route'),
@@ -222,6 +229,13 @@ def execute(db, capability, params, *, approve_write=False):
                 threshold=params.get('threshold',.23),
                 sample_fps=params.get('sample_fps',6),noise_db=params.get('noise_db',-35),
                 min_silence=params.get('min_silence',.30))
+    elif capability=='video.shot_quality':
+        _guard_keys(params,('source','threshold','sample_fps','min_shot_seconds','max_clips','max_duration','min_score'),('source',))
+        output=shot_quality(params['source'],threshold=params.get('threshold',.23),
+                sample_fps=params.get('sample_fps',4),
+                min_shot_seconds=params.get('min_shot_seconds',.65),
+                max_clips=params.get('max_clips',3),max_duration=params.get('max_duration',30.),
+                min_score=params.get('min_score',.5))
     elif capability=='video.recut':
         _guard_keys(params,('source','segments','output','fps'),('source','segments','output'))
         output=recut(params['source'],params['segments'],params['output'],fps=params.get('fps',24))

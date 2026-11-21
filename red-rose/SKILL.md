@@ -2,7 +2,7 @@
 name: red-rose
 description: "الوردة الحمراء 🌹 مستقلة لتخطيط المهام، ذاكرة SQLite، فهرسة آمنة لملخصات معرفة السبيكة، استايلات محفوظة بالاسم، وإخراج فيديو SVG/MP4 مع حركة كاميرا وشخصيات ثنائية الأبعاد واختبارات جودة."
 ---
-# الوردة الحمراء V17 🌹
+# الوردة الحمراء V18 🌹
 
 **Any incoming coding agent: read `AGENTS.md` → `NEXT_AGENT_HANDOFF.md` → `QUESTIONS_AND_ANSWERS.md` → `QUESTION_COVERAGE.json` first. Missing original question/answer texts are explicitly unresolved; do not fabricate them.**
 
@@ -74,3 +74,8 @@ cannot overwrite arbitrary folders. Do not import any legacy runtime modules.
 - `video.edit_suggest` (read): suggest bounded edit list for user review, never automatically alter original footage.
 - `video.recut` (write): export **only** after the user explicitly approves; refuse to overwrite existing output and verify MP4.
 - CLI: `rose.py timeline-analyze footage.mp4`; `rose.py edit-suggest footage.mp4`; review the EDL then `rose.py recut footage.mp4 edits.json new.mp4 --approve-write`.
+
+## V18 — قياس جودة اللقطات تقنيًا
+- `video.shot_quality` (read): لكل لقطة: التفاصيل (Laplacian)، التعريض (ظلام/احتراق)، التباين، الحركة بين الكادرات؛ علامات قابلة للشرح ودرجة 0–1، ثم EDL مقترح فقط بلا كتابة.
+- `low_detail` لا يفرّق بين الضبابية وموضوع مسطح بطبيعته؛ لا حكم على الوجوه أو التكوين أو القصة.
+- CLI: `rose.py shot-quality footage.mp4` → راجع `suggested_edl` → `rose.py recut footage.mp4 edits.json new.mp4 --approve-write`.
