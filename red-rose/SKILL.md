@@ -74,3 +74,8 @@ cannot overwrite arbitrary folders. Do not import any legacy runtime modules.
 - `video.edit_suggest` (read): suggest bounded edit list for user review, never automatically alter original footage.
 - `video.recut` (write): export **only** after the user explicitly approves; refuse to overwrite existing output and verify MP4.
 - CLI: `rose.py timeline-analyze footage.mp4`; `rose.py edit-suggest footage.mp4`; review the EDL then `rose.py recut footage.mp4 edits.json new.mp4 --approve-write`.
+
+
+## V18 — Q&A provenance and evidence routing
+
+Before new work, run \`python rose.py question-audit\` and inspect \`QA_TRACEABILITY.json\`; for an existing paraphrased decision run \`python rose.py question-trace A17\`. The new read-only \`qa.trace\` adapter is available through \`capability-run\` too. Trace IDs **A01–A35 are summary IDs, NOT the original 1–1400 questions**. Do not invent missing source text, mark linked capabilities as complete, or claim auto-execution of imported reference material.
