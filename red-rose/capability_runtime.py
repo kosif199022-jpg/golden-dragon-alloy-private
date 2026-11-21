@@ -22,10 +22,16 @@ from styles import list_styles
 from scene_edit_v16 import analyze_cuts, recut
 from audio_scene_v17 import detect_silences, timeline_analyze, suggest_edit
 from qa_trace import trace as qa_trace
+from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fusion_frame, render_video as fusion_render, iphone_export, PRESETS
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
  'qa.trace': ('Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A', 'read', 'builtin'),
+ 'fusion.route': ('Generate spherical route coordinates without imagery', 'read', 'builtin'),
+ 'fusion.plan': ('Plan original clay/map shots in explicit frames', 'read', 'builtin'),
+ 'fusion.frame': ('Generate an original illustrated SVG frame', 'read', 'pillow_cairosvg'),
+ 'fusion.render': ('Render a short original SVG illustrated MP4', 'write', 'pillow_cairosvg'),
+ 'media.iphone_export': ('Transcode authorized local video into AVC/AAC MP4', 'write', 'ffmpeg'),
  'knowledge.search': ('Search imported reference descriptions', 'read', 'database'),
  'knowledge.route': ('Match request to reference descriptions; not execute them', 'read', 'database'),
  'knowledge.stats': ('Count imported reference units', 'read', 'database'),
@@ -43,6 +49,10 @@ REGISTRY = {
  'character.svg': ('Create standalone original IK character SVG', 'write', 'builtin'),
 }
 ALIASES = {
+ 'صلصال': ('fusion.plan','fusion.frame','fusion.render'),
+ 'خريطة': ('fusion.route','fusion.plan','fusion.render'),
+ 'آيفون': ('media.iphone_export',),
+ 'iphone': ('media.iphone_export',),
  'video': ('video.scene_analyze','video.recut','video.preview','video.produce','video.verify'),
  'render': ('video.preview','video.produce'),
  'cuts': ('video.scene_analyze','video.timeline_analyze','video.edit_suggest','video.recut'),
@@ -80,6 +90,12 @@ def list_capabilities():
     result=[]
     for ident,(description,effect,dependency) in REGISTRY.items():
         if dependency == 'ffmpeg':ready = bool(shutil.which('ffmpeg') and shutil.which('ffprobe'))
+        elif dependency == 'pillow_cairosvg':
+            try:
+                import cairosvg
+                import PIL
+                ready=bool(shutil.which('ffmpeg') and shutil.which('ffprobe'))
+            except ImportError:ready=False
         elif dependency == 'cairosvg':
             try:
                 import cairosvg
@@ -144,7 +160,30 @@ def execute(db, capability, params, *, approve_write=False):
     if effect=='write' and not approve_write:
         return {'capability':capability,'status':'approval_required',
                 'detail':'Use --approve-write after reviewing output destination; nothing executed.'}
-    if capability=='qa.trace':
+    if capability=='fusion.route':
+        _guard_keys(params,('from','to','samples'),('from','to'))
+        output=greatcircle(params['from'],params['to'],params.get('samples',25))
+    elif capability=='fusion.plan':
+        _guard_keys(params,('scenes','fps','preset'),('scenes',))
+        output=fusion_plan(params['scenes'],params.get('fps',24),params.get('preset','iphone-vertical'))
+    elif capability=='fusion.frame':
+        _guard_keys(params,('scenes','fps','preset','frame'),('scenes','frame'))
+        project=fusion_plan(params['scenes'],params.get('fps',24),params.get('preset','iphone-vertical'))
+        output={'frame':params['frame'],'svg':fusion_frame(project,params['frame']),
+                'format':'original-illustration-svg','user_fonts_embedded':False}
+    elif capability=='fusion.render':
+        _guard_keys(params,('scenes','fps','preset','output'),('scenes','output'))
+        project=fusion_plan(params['scenes'],params.get('fps',24),params.get('preset','iphone-vertical'))
+        output=fusion_render(project,params['output'],approve_write=True)
+        output['qa']=verify_video(output['output'],expected_fps=project['fps'],
+                                  width=project['width'],height=project['height'])
+    elif capability=='media.iphone_export':
+        _guard_keys(params,('source','output','preset'),('source','output'))
+        output=iphone_export(params['source'],params['output'],approve_write=True,
+                             preset=params.get('preset','iphone-vertical'))
+        width,height=PRESETS[output['preset']]
+        output['qa']=verify_video(output['output'],width=width,height=height)
+    elif capability=='qa.trace':
         _guard_keys(params,('question_id',))
         output=qa_trace(params.get('question_id'),registry=REGISTRY)
     elif capability=='knowledge.search':
