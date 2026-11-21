@@ -751,6 +751,156 @@
    ],
    "evidence": "geometry_v20.lens_distortion: native stdlib code; acceptance test in test_geometry_v20.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
+  "06.01": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "palette_lock",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.palette_lock: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.02": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "rough_lines",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.rough_lines: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.03": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "clay_look",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.clay_look: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.04": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "flat_cartoon",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.flat_cartoon: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.05": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "machine_drawing",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.machine_drawing: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.06": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "watercolor",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.watercolor: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.07": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "mono_style",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.mono_style: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.08": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "reference_character",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.reference_character: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.09": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "style_guide_check",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.style_guide_check: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "06.10": {
+   "status": "unit_tested",
+   "module": "styles_v23",
+   "symbol": "style_descriptor",
+   "test": "test_styles_v23.py",
+   "adapter": "style.draw",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "styles_v23.style_descriptor: native stdlib code; acceptance test in test_styles_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
   "08.01": {
    "status": "unit_tested",
    "module": "physics_v20",
@@ -1201,6 +1351,306 @@
    ],
    "evidence": "code_analysis_v21.diff_review: native stdlib code; acceptance test in test_code_analysis_v21.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
+  "13.01": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "frame_composition",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.frame_composition: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.02": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "landscape_layers",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.landscape_layers: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.03": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "three_point_light",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.three_point_light: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.04": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "palette_harmony",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.palette_harmony: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.05": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "arabic_text_layout",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.arabic_text_layout: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.06": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "logo_marks",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.logo_marks: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.07": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "poster_hierarchy",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.poster_hierarchy: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.08": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "interior_layout",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.interior_layout: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.09": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "horizon_fov",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.horizon_fov: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "13.10": {
+   "status": "unit_tested",
+   "module": "design_v23",
+   "symbol": "continuity_diff",
+   "test": "test_design_v23.py",
+   "adapter": "design.layout",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "design_v23.continuity_diff: native stdlib code; acceptance test in test_design_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.01": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "skeleton",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.skeleton: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.02": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "walk_cycle",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.walk_cycle: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.03": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "run_cycle",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.run_cycle: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.04": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "expressions",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.expressions: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.05": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "viseme_track",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.viseme_track: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.06": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "landmark_smoothing",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.landmark_smoothing: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.07": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "identity_lock",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.identity_lock: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.08": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "hand_grip",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.hand_grip: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.09": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "secondary_motion",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.secondary_motion: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "14.10": {
+   "status": "unit_tested",
+   "module": "characters_v23",
+   "symbol": "crowd_layers",
+   "test": "test_characters_v23.py",
+   "adapter": "character.animate",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "characters_v23.crowd_layers: native stdlib code; acceptance test in test_characters_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
   "15.01": {
    "status": "unit_tested",
    "module": "scene_edit_v16",
@@ -1268,6 +1718,156 @@
     "acceptance"
    ],
    "evidence": "20 Hz RMS envelope; test_silence_never_invents_speech keeps the mouth closed in silence."
+  },
+  "18.01": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "machine_mesh",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.machine_mesh: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.02": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "car_rig",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.car_rig: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.03": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "cloth3d",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.cloth3d: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.04": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "camera3d",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.camera3d: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.05": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "skinning",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.skinning: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.06": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "uv_atlas",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.uv_atlas: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.07": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "area_lighting",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.area_lighting: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.08": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "export_mesh",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.export_mesh: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.09": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "lod_budget",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.lod_budget: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "18.10": {
+   "status": "unit_tested",
+   "module": "modeling3d_v23",
+   "symbol": "cutaway",
+   "test": "test_modeling3d_v23.py",
+   "adapter": "model3d.build",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "modeling3d_v23.cutaway: native stdlib code; acceptance test in test_modeling3d_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
   "19.01": {
    "status": "unit_tested",
@@ -1460,6 +2060,156 @@
     "permission"
    ],
    "evidence": "Write effects return approval_required without --approve-write; nothing executed."
+  },
+  "22.01": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "permitted_extract",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.permitted_extract: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.02": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "crawl_policy",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.crawl_policy: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.03": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "oem_normalise",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.oem_normalise: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.04": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "price_records",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.price_records: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.05": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "html_text",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.html_text: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.06": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "source_link",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.source_link: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.07": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "dedupe_content",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.dedupe_content: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.08": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "retry_policy",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.retry_policy: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.09": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "export_json",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.export_json: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
+  },
+  "22.10": {
+   "status": "unit_tested",
+   "module": "web_offline_v23",
+   "symbol": "data_licence",
+   "test": "test_web_offline_v23.py",
+   "adapter": "web.offline",
+   "lenses": [
+    "contract",
+    "algorithm",
+    "acceptance",
+    "permission",
+    "performance"
+   ],
+   "evidence": "web_offline_v23.data_licence: native stdlib code; acceptance test in test_web_offline_v23.py; run() rejects unknown ops/params; no I/O imports and default call under 3 s checked in test_roadmap_1400.py."
   },
   "24.01": {
    "status": "unit_tested",

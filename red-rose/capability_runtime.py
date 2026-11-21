@@ -36,6 +36,11 @@ import architecture_v22
 import agents_v22
 import learning_v22
 import compose_v22
+import styles_v23
+import design_v23
+import characters_v23
+import modeling3d_v23
+import web_offline_v23
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
 PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
@@ -43,7 +48,10 @@ PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
                 'decision.make': decision_v21, 'code.analyze': code_analysis_v21,
                 'accounting.check': accounting_v21, 'governance.audit': governance_v22,
                 'architecture.check': architecture_v22, 'agents.coordinate': agents_v22,
-                'learning.evolve': learning_v22, 'compose.pipeline': compose_v22}
+                'learning.evolve': learning_v22, 'compose.pipeline': compose_v22,
+                'style.draw': styles_v23, 'design.layout': design_v23,
+                'character.animate': characters_v23, 'model3d.build': modeling3d_v23,
+                'web.offline': web_offline_v23}
 from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fusion_frame, render_video as fusion_render, iphone_export, PRESETS
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
@@ -82,6 +90,11 @@ REGISTRY = {
  'architecture.check': ('Architecture checks: CLI spec, versioned messages, distribution guard, dependency status, redacted config, cache keys, checkpoint resume, path portability, SemVer migrations', 'read', 'builtin'),
  'agents.coordinate': ('Agent coordination: task contract, stage DAG, roster, safe batches, critique, handoff check, injection guard, claim check, progress monitor, rigor level', 'read', 'builtin'),
  'learning.evolve': ('Evidence-based learning: similar errors, lesson ranking, reviewed rule proposals, capability gaps, regression cases, rule versions, lesson benefit, local-only guard, forget plans', 'read', 'builtin'),
+ 'style.draw': ('Code-drawn styles as SVG: palette lock, rough lines, clay, flat cartoon, machine drawing, watercolour, mono, reference sheet, style guide, neutral descriptors', 'read', 'builtin'),
+ 'design.layout': ('Design checks and SVG: thirds and balance, landscapes, three-point light, palettes with WCAG contrast, Arabic RTL text prep, logo similarity, posters, interiors, horizon, continuity', 'read', 'builtin'),
+ 'character.animate': ('2D character animation data: skeleton FK, walk and run cycles, expressions, rule-based visemes, landmark smoothing, identity lock, grip, secondary motion, crowd layers', 'read', 'builtin'),
+ 'model3d.build': ('CPU-only 3D: meshes and interference, car steering, cloth, camera, skinning, UV atlas, area light, OBJ/glTF text export, LOD, cutaway', 'read', 'builtin'),
+ 'web.offline': ('Offline web building blocks on supplied pages only: allow-list, robots policy, OEM numbers, dated prices, HTML text, citations, dedupe, retry policy, JSON export, data licence (no network)', 'read', 'builtin'),
  'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
@@ -162,6 +175,20 @@ ALIASES = {
  'نسيان': ('learning.evolve',),
  'دمج': ('compose.pipeline',),
  'طبقات': ('compose.pipeline',),
+ 'رسم': ('style.draw','character.svg'),
+ 'استايل': ('style.draw',),
+ 'ألوان': ('style.draw','design.layout'),
+ 'تصميم': ('design.layout',),
+ 'ملصق': ('design.layout',),
+ 'شعار': ('design.layout',),
+ 'مشي': ('character.animate',),
+ 'تعبيرات': ('character.animate',),
+ '3d': ('model3d.build',),
+ 'ثلاثي': ('model3d.build',),
+ 'مجسم': ('model3d.build',),
+ 'موقع': ('web.offline',),
+ 'html': ('web.offline',),
+ 'قطع غيار': ('web.offline',),
  '1400': ('roadmap.status',),
  'خطة': ('roadmap.status',),
  'تقدم': ('roadmap.status',),

@@ -18,7 +18,8 @@ ROOT = Path(__file__).resolve().parent
 # Pure-computation modules built for the roadmap; each must expose TOPICS/OPS/run.
 PURE_MODULES = ('physics_v20', 'geometry_v20', 'science_v20', 'thinking_v21',
                 'decision_v21', 'code_analysis_v21', 'accounting_v21', 'governance_v22',
-                'architecture_v22', 'agents_v22', 'learning_v22', 'compose_v22')
+                'architecture_v22', 'agents_v22', 'learning_v22', 'compose_v22',
+                'styles_v23', 'design_v23', 'characters_v23', 'modeling3d_v23', 'web_offline_v23')
 # compose_v22 is allowed to import the pure modules above; nothing else from the project.
 FORBIDDEN_IMPORTS = {'subprocess', 'socket', 'urllib', 'http', 'shutil', 'os', 'sqlite3', 'ctypes'}
 
@@ -85,8 +86,12 @@ class OwnerRoadmapTests(unittest.TestCase):
         self.assertTrue(answered['owner_approved'])
         reconciled = rm.explain_question(1151, registry=REGISTRY)  # 24.01 bank reconciliation
         self.assertTrue(reconciled['answered_in_tested_code'])
-        untouched = rm.explain_question(1051, registry=REGISTRY)  # 22.01 web data, not built
-        self.assertFalse(untouched['answered_in_tested_code'])
+        # Pick a question from any topic that has no evidence yet (none left means complete).
+        built = rm.load_status(registry=REGISTRY)
+        pending = [t for k, t in rm.topics().items() if k not in built]
+        if pending:
+            untouched = rm.explain_question(pending[0]['question_ids']['contract'], registry=REGISTRY)
+            self.assertFalse(untouched['answered_in_tested_code'])
         self.assertEqual(untouched['topic_status'], 'proposed')
         for bad in (0, 1401, '5', True):
             with self.subTest(bad=bad), self.assertRaises(ValueError):
