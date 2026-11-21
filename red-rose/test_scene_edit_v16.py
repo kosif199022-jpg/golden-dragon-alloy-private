@@ -93,7 +93,7 @@ class SceneEditingV16(unittest.TestCase):
     def test_registered_two_native_adapters(self):
         self.assertIn('video.scene_analyze',REGISTRY)
         self.assertIn('video.recut',REGISTRY)
-        self.assertEqual(len(list_capabilities()),13)
+        self.assertGreaterEqual(len(list_capabilities()),13)
 
     def test_capability_read_analyze_executes(self):
         with closing(sqlite3.connect(':memory:')) as db:

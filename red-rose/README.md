@@ -177,3 +177,22 @@ Alternatively use `capability-run video.scene_analyze` and `capability-run video
 **Verified demo:** a synthetic three-shot source with audio yielded cut marks at **1.50s** and **3.00s**. The reordered shot 3→shot 1 compilation was **3.0s, 72 frames, 432×768, H.264/AAC**, verified by FFprobe and full FFmpeg decode. The proof is synthetic footage (not a real-world film), and the algorithm performs hard cuts only; no optical-flow interpolation, cinematic transitions, automatic storyboarding, or professional editor replacement is claimed.
 
 **Tests:** V15 baseline 131/131 plus V16 feature/integration tests, total **146/146** locally on Linux with FFmpeg 7.1; resource warnings treated as failures. A blank/source-only Git checkout must re-run tests in CI before being declared portable. Knowledge summaries (25,675 on owner's PRIVATE local machine in an earlier migration) are NOT 25,675 executable tools. The 1,400-item requirements roadmap is NOT complete.
+
+## V17 — original-video sound-aware edit suggestions (2026-11-21)
+
+Two new **read-only** native adapters bring registry total to **15**:
+
+- `video.timeline_analyze`: FFmpeg's silencedetect + downsampled RGB cut detection. Reports acoustic-silence intervals, visual-shot boundaries and quiet/audible fraction per shot. **Audio activity is not a speech detector.**
+- `video.edit_suggest`: ranks full visual shots by sound activity and duration, returning a bounded editable EDL. It only proposes edits, never writes, chooses story meaning or renders autonomously.
+
+```bash
+python rose.py timeline-analyze /path/to/footage.mp4
+python rose.py edit-suggest /path/to/footage.mp4 --max-clips 3 --max-duration 30 --min-audible-ratio .2
+# Review result.suggested_edl and save that array to edits.json
+python rose.py recut /path/to/footage.mp4 edits.json new-edit.mp4 --fps 24 --approve-write
+python -W error::ResourceWarning -m unittest discover -v
+```
+
+The existing `video.recut` remains approval-gated and creates new outputs only, with FFprobe/full-decode verification. Unit+integration evidence: local 154/154 tests and a three-color original video with audio only in the middle shot; cuts at 1 s and 2 s, quiet endpoints, proposed EDL 1–2 s, exported one-second H.264/AAC output after explicit approval.
+
+**Limitations:** no semantic scene understanding, speaker classification, true transcript, dialogue comprehension or AI montage. Local original footage and user SQLite data are never committed to GitHub. Reference descriptions are not executable skills; the full 1,400 requirements remain incomplete.

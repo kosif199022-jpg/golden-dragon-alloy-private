@@ -66,3 +66,9 @@ cannot overwrite arbitrary folders. Do not import any legacy runtime modules.
 - To assemble only the approved sections, run `python rose.py recut video.mp4 edits.json new_video.mp4 --fps 24 --approve-write`. Without `--approve-write`, the capability returns `approval_required`. Never overwrite an existing file.
 - Registered native actions `video.scene_analyze` (read) and `video.recut` (write) are original standard-library/FFmpeg implementations. No historical dragon module is loaded at runtime. Each completed MP4 receives independent FFprobe and full decode checks.
 - Protect source and private memory files; only code and tests belong in GitHub. This remains hard-cut editing, not an autonomous pro-grade editor or complete fusion.
+
+## V17 — analysis-based EDL proposals
+- `video.timeline_analyze` (read): combine approximate visual-cut boundaries and acoustic silence; quietness is NOT speech detection.
+- `video.edit_suggest` (read): suggest bounded edit list for user review, never automatically alter original footage.
+- `video.recut` (write): export **only** after the user explicitly approves; refuse to overwrite existing output and verify MP4.
+- CLI: `rose.py timeline-analyze footage.mp4`; `rose.py edit-suggest footage.mp4`; review the EDL then `rose.py recut footage.mp4 edits.json new.mp4 --approve-write`.
