@@ -1,5 +1,5 @@
 """Independent multi-shot SVG storyboard with deterministic scene transitions."""
-import html, math
+import html, math, re
 from render import svg_frame, PALETTE
 from camera import camera_frame
 from character import character_frame
@@ -26,8 +26,17 @@ def _render(shot,local,width,height):
     if mode=='camera2_5d': return camera_frame(local,duration,width,height,recipe)
     return svg_frame(local,duration,width,height,recipe)
 
-def _svg_inside(svg):
-    return svg[svg.index('>')+1:svg.rindex('</svg>')]
+def _svg_inside(svg, namespace=''):
+    """Extract SVG content, scoping paint-server IDs before crossfading."""
+    fragment=svg[svg.index('>')+1:svg.rindex('</svg>')]
+    if namespace:
+        # Keep each scene's paint-server identifiers isolated in one SVG.
+        ids=re.findall(r'\bid=["\']([A-Za-z_][\w.-]*)["\']',fragment)
+        for item in ids:
+            fragment=re.sub(r'\bid=(["\'])'+re.escape(item)+r'\1',
+                            'id="'+namespace+'_'+item+'"',fragment)
+            fragment=fragment.replace('url(#'+item+')','url(#'+namespace+'_'+item+')')
+    return fragment
 
 def frame_at(shots,t,width=540,height=960):
     duration=validate_shots(shots)
@@ -41,11 +50,15 @@ def frame_at(shots,t,width=540,height=960):
             if index and shot.get('transition')=='fade' and local < 0.35:
                 # True cross-dissolve: previous clip continues behind the next.
                 previous=shots[index-1]
-                old=_render(previous,previous['duration'],width,height)
+                old_plain=dict(previous)
+                old_recipe=dict(previous.get('recipe',{}))
+                old_recipe.pop('title',None)
+                old_plain['recipe']=old_recipe
+                old=_render(old_plain,previous['duration'],width,height)
                 amount=max(0.0,min(local/0.35,1.0))
                 return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">'
-                        f'<g opacity="{1-amount:.5f}">{_svg_inside(old)}</g>'
-                        f'<g opacity="{amount:.5f}">{_svg_inside(svg)}</g></svg>')
+                        f'<g opacity="{1-amount:.5f}">{_svg_inside(old,"old")}</g>'
+                        f'<g opacity="{amount:.5f}">{_svg_inside(svg,"new")}</g></svg>')
             return svg
         start=end
     raise RuntimeError('unreachable')
