@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Independent Red Rose memory, knowledge ingestion and planning core."""
-import argparse, hashlib, json, os, sqlite3, re
+import argparse, hashlib, json, os, sqlite3, re, sys
 from contextlib import closing
 from pathlib import Path
 from datetime import datetime, timezone
@@ -46,6 +46,10 @@ def ingest(db, directory, origin="local", revision="unversioned", license_id="un
     db.commit(); return {'imported':count,'unreadable':skipped}
 
 def main(argv=None):
+    # Windows PowerShell may inherit cp1252; UTF-8 is required for Arabic JSON.
+    # A redirected in-memory test stream is left unchanged.
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     a=argparse.ArgumentParser(); a.add_argument('--db',default=os.environ.get('RED_ROSE_DB',str(Path.home()/'.red-rose'/'memory.sqlite3')))
     sub=a.add_subparsers(dest='command',required=True)
     sub.add_parser('doctor')
