@@ -218,3 +218,7 @@ The first two commands do not open or create the user's private SQLite database.
 The trace enforces that every linked capability belongs to the *current* \`capability_runtime.REGISTRY\`; it rejects unknown legacy/nonexecutable names, false verbatim-original flags, missing/extra Q&A IDs, or historical question numbers masquerading as recovered source text. A link means **partially related implementation**, not full requirement satisfaction. The original 1,400 questions have **not** been restored or implemented.
 
 The 16th adapter \`qa.trace\` provides project-level provenance and validation, not a new image/AI/video engine. Existing V17 video algorithms and limitations are unchanged.
+
+## V20 — five user-supplied media archives distilled to one independent runtime
+
+Five source ZIP files were inspected and SHA256-registered in SOURCE_FUSION_AUDIT_V20.json. Original independently written fusion_studio_v20.py adds 5 registered native adapters: fusion.route, fusion.plan, fusion.frame (read-only), fusion.render and media.iphone_export (write approval required). See FUSION_V20_GUIDE.md for CLI usage and limitations. This is partial independent reimplementation, NOT wholesale functional equivalence or legacy engine invocation. V19 PR #16/#17 remain separate open developments.

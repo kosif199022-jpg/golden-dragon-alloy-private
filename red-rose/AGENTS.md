@@ -52,3 +52,7 @@ For video features, inspect `ffmpeg -version`, `ffprobe -version`, Python `cairo
 ## V18 traceability checkpoint
 
 Use \`python rose.py question-audit\` before taking a new roadmap item, and \`python rose.py question-trace A17\` to inspect the actual linked source and adapters. The source of truth is \`QA_TRACEABILITY.json\`, verified against the live native \`REGISTRY\`. **A01–A35 are paraphrases, not the literal 1–1400 original list.** No number of mapped rows proves those requirements complete. Treat \`qa.trace\` as read-only provenance tooling. Verify the current test count and branch before reporting any V18 CI result.
+
+## V20 — protect parallel V19 and original inputs
+
+The owner supplied 5 personal ZIP files. Their hashes and original-code distillation are tracked in SOURCE_FUSION_AUDIT_V20.json. Native fusion_studio_v20.py does not import those archives; no font files, credentials or raw third-party engines belong in commits. Read FUSION_V20_GUIDE.md and run test_fusion_studio_v20.py plus test_fusion_adapter_v20.py and the full suite. GitHub PR #16/#17 are competing pending V19 tracks: do not silently overwrite their branches or claim they were merged.

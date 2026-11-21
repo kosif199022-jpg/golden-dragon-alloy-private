@@ -1,0 +1,40 @@
+{
+  "version": "20.0",
+  "user_attests_ownership": true,
+  "raw_source_archives_embedded_in_runtime": false,
+  "fonts_distributed": false,
+  "private_memory_uploaded": false,
+  "method": "ZIP inventory, path safety, SHA256, original implementation and tests",
+  "archives": [
+    {
+      "name": "remotion-skills.zip",
+      "sha256": "8d247ff27f1441b7a995a7c13d74e4499922feb16ca1d0ef10ab6dd62c77a002",
+      "files": 291,
+      "feature": "frame-based editable timeline"
+    },
+    {
+      "name": "maven-toon-skill(1).zip",
+      "sha256": "603c3bb3abd19e439a8a9d38d625df4aa971fba651fb13287c195338b06012a0",
+      "files": 52,
+      "feature": "procedural original shaded cartoon"
+    },
+    {
+      "name": "kitten_rescue_code%281%29.zip",
+      "sha256": "05105bfac4efbdb1e9b629d443863c863aa6eb88bd2c1908623f9002a299dd0f",
+      "files": 14,
+      "feature": "clay kitten motion scene concepts"
+    },
+    {
+      "name": "Cinema_C_V31_SmartMedia_iPhone(1).zip",
+      "sha256": "ea0f707aa63a0fc22da0ef2f7fc716fb0357bc6b00e862e6c560aa10e1127575",
+      "files": 3,
+      "feature": "offline AVC/AAC MP4 compatibility"
+    },
+    {
+      "name": "maven-map-skill.zip",
+      "sha256": "662fd50a6123a38e0f73a8bfb559dfe5a749b952eba1881100202a12eacf15d9",
+      "files": 59,
+      "feature": "spherical route geometry and schematic map visualization"
+    }
+  ]
+}
