@@ -79,3 +79,7 @@ cannot overwrite arbitrary folders. Do not import any legacy runtime modules.
 ## V18 — Q&A provenance and evidence routing
 
 Before new work, run \`python rose.py question-audit\` and inspect \`QA_TRACEABILITY.json\`; for an existing paraphrased decision run \`python rose.py question-trace A17\`. The new read-only \`qa.trace\` adapter is available through \`capability-run\` too. Trace IDs **A01–A35 are summary IDs, NOT the original 1–1400 questions**. Do not invent missing source text, mark linked capabilities as complete, or claim auto-execution of imported reference material.
+
+## V20 — owner-supplied archive distillation
+
+Start with FUSION_V20_GUIDE.md and SOURCE_FUSION_AUDIT_V20.json. Use fusion.plan/fusion.route/fusion.frame to inspect and preview an original clay+map storyboard. fusion.render and media.iphone_export require an explicit approved destination and must never overwrite. Five ZIP archive engines are source references, not called at runtime. This is a real but partial V20 independent prototype; do not claim full fusion, physical iPhone playback, or real satellite imagery.
