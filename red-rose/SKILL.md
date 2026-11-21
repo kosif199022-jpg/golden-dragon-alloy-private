@@ -2,7 +2,7 @@
 name: red-rose
 description: "الوردة الحمراء 🌹 مستقلة لتخطيط المهام، ذاكرة SQLite، فهرسة آمنة لملخصات معرفة السبيكة، استايلات محفوظة بالاسم، وإخراج فيديو SVG/MP4 مع حركة كاميرا وشخصيات ثنائية الأبعاد واختبارات جودة."
 ---
-# الوردة الحمراء V15 🌹
+# الوردة الحمراء V16 🌹
 
 Use the ONE entrypoint: `python rose.py <command>`; inspect the README and `--help` before commands. No invocation of older Dragon skills at runtime.
 
@@ -59,3 +59,10 @@ can execute. The unified CLI supports:
 SQLite memory database must not be included in skill bundles or Git commits.
 Video outputs require a dedicated directory, are capped before rendering, and
 cannot overwrite arbitrary folders. Do not import any legacy runtime modules.
+
+## V16 — Source footage analysis + approved hard-cut recut
+
+- To inspect real video locally, run `python rose.py scene-analyze video.mp4`; copy the `suggested_edl` list to an editable JSON file. Cut points are approximate RGB change detection, not semantic recognition.
+- To assemble only the approved sections, run `python rose.py recut video.mp4 edits.json new_video.mp4 --fps 24 --approve-write`. Without `--approve-write`, the capability returns `approval_required`. Never overwrite an existing file.
+- Registered native actions `video.scene_analyze` (read) and `video.recut` (write) are original standard-library/FFmpeg implementations. No historical dragon module is loaded at runtime. Each completed MP4 receives independent FFprobe and full decode checks.
+- Protect source and private memory files; only code and tests belong in GitHub. This remains hard-cut editing, not an autonomous pro-grade editor or complete fusion.

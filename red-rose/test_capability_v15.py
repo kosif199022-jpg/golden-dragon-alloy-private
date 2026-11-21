@@ -29,9 +29,9 @@ class CapabilityTest(unittest.TestCase):
         self.db=connect(self.root/'memory.sqlite3')
         self.addCleanup(self.db.close)
 
-    def test_eleven_native_adapters(self):
+    def test_native_adapter_registry_v16(self):
         records=list_capabilities()
-        self.assertEqual(len(records),11)
+        self.assertEqual(len(records),13)
         self.assertEqual({r['id'] for r in records},set(REGISTRY))
         self.assertTrue(all(r['status']=='adapter_implemented' for r in records))
 
