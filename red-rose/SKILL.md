@@ -2,7 +2,7 @@
 name: red-rose
 description: "الوردة الحمراء 🌹 مستقلة لتخطيط المهام، ذاكرة SQLite، فهرسة آمنة لملخصات معرفة السبيكة، استايلات محفوظة بالاسم، وإخراج فيديو SVG/MP4 مع حركة كاميرا وشخصيات ثنائية الأبعاد واختبارات جودة."
 ---
-# الوردة الحمراء V13 🌹
+# الوردة الحمراء V15 🌹
 
 Use the ONE entrypoint: `python rose.py <command>`; inspect the README and `--help` before commands. No invocation of older Dragon skills at runtime.
 
