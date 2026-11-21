@@ -98,3 +98,10 @@ PR/merge state:
 ```
 
 **موانع مطلقة:** لا كتابة فوق بيانات المستخدم أو نشرها بلا موافقة؛ لا حفظ أسرار في Git؛ لا نسبة أسئلة أو أجوبة إلى المستخدم بلا مصدر؛ لا الإيحاء بتفعيل 26 ألف قدرة أو إنجاز كل 1,400؛ لا حذف مستودعات المصدر أو استدعائها في تشغيل الوردة الحمراء.
+
+
+## 7. V18 traceability continuation
+
+A new, intentionally narrow native **read-only** adapter \`qa.trace\` was added to query the documented A01–A35 paraphrases, backed by \`QA_TRACEABILITY.json\` and checked against the runtime registry. It also exposes \`question-audit\` and \`question-trace A17\` without requiring a local SQLite database. This is **not** restoration of historical question texts.
+
+The **V17 snapshot above remains historical**: 15 native adapters and 154 local tests at that previous release. V18 changes the registry to 16 and adds regression coverage; the next agent must obtain the CI run result on the exact V18 commit before claiming it passed. New code: \`qa_trace.py\`, \`test_qa_trace_v18.py\`; main requirement is proof that a mapped ID is registered and missing verbatim sources are not fabricated.
