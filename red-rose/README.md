@@ -1,4 +1,4 @@
-# الوردة الحمراء 🌹 V14 — Independent, editable video prototype + offline knowledge
+# الوردة الحمراء 🌹 V13 — Independent, editable video prototype + offline knowledge
 
 **Project status:** working local prototype, NOT full fusion of the Golden/Black Dragon engines. The owner's approval of 1,400 design requirements is not evidence of 1,400 implemented abilities.
 
@@ -44,38 +44,47 @@ Migrates **descriptions/metadata only**, not original executable body blobs, cre
 
 V10.1: 43 legacy local tests. V11: tests for keyframes, art-directed illustration, editable projects, audio padding, FFprobe QA and resource-clean SQLite tests added. The source package and tests must be verified on each target host before calling them fully portable.
 
+## V12 — IK rig and corrected cross-dissolve (2026-11-21)
 
-## V12 — character IK and cross-dissolve fixes
-- actor.rig="ik2d": independent analytical two-bone IK for walking legs and moving arms.
-- actor.blink_keys and actor.mouth_keys: normalized 0..1 expression control; expression smile/serious/surprised.
-- Fixed duplicate SVG gradient IDs and overlapping outgoing titles during scene fade transitions.
-- Demo: python rose.py produce demo_v12.json output --fps 24 --width 540 --height 960
-- Locally verified on complete V12 bundle: 68/68 tests, five-second 120-frame MP4 FFprobe/FFmpeg QA.
-- This is stylized 2D animation, NOT automatic lip sync, 3D rigging or complete 1,400-capability fusion.
+- Optional `actor.rig="ik2d"` enables an original 2D character with analytic two-bone inverse kinematics for each arm and leg. No legacy skill executed or model API required.
+- New numeric `actor.blink_keys` and `actor.mouth_keys` support timeline expressions; `expression` is `smile`, `serious`, or `surprised`. This is a **keyframed facial animation**, not automatic phoneme/lip synchronization.
+- Corrected two-shot cross-dissolve to scope duplicate SVG paint-server IDs and prevent outgoing title superimposition.
+- Existing `director2d` projects without `actor.rig` retain the previous drawing style.
+- `demo_v12.json` produces an original five-second two-shot MP4 at 540×960, 24 FPS (120 frames), with an editable `project.json` and independent QA.
+- Local regression tests: 68/68 passed. See `test_rig.py` and `test_crossfade_v12.py`.
+- Still NOT a professional 3D character rig, model-driven video generation, source-engine fusion, or implementation of all 1,400 design requirements.
 
 ## V13 — shared original character profile and approximate voice lip response
 
-V13 adds two independent components, integrated through `rose.py produce`:
+V13 adds two independent components, integrated through the existing `rose.py produce` command:
 
-1. `identity.py` validates a named cartoon character profile with four hex colors (`skin`, `hair`, `coat`, `trousers`), uses a deterministic SHA256 fingerprint and applies it across all `director2d` shots with `actor.character_id`. A conflicting per-scene color or missing profile is rejected. This is **style consistency of a drawn figure**, not face recognition or preservation of a real person's appearance.
-2. `lip_sync.py` extracts RMS audio energy at 20 Hz via local FFmpeg decode and converts it into scene-local mouth keyframes (up to 64 per shot). Silence closes the mouth. It is amplitude-driven, **not** phoneme/viseme recognition, transcript generation, or word alignment. `--lip-sync` is opt-in and requires `--audio`, `director2d`, and `rig=ik2d`.
+1. `identity.py` validates a named cartoon profile with **four hex colors**, uses a deterministic SHA256 fingerprint and applies it consistently across all `director2d` shots with `actor.character_id`. A conflicting per-scene color or missing character profile is rejected. Scene timelines (position, expression, camera) stay independently editable. This is **style consistency for a drawn figure**, *not* recognition/preservation of any real person's facial features.
+2. `lip_sync.py` extracts RMS energy at 20 Hz from an audio file decoded locally by FFmpeg and converts it into scene-local mouth keyframes (`mouth_keys`, at most 64 per shot). Silence closes the mouth. The algorithm is amplitude-triggered, not phoneme/viseme recognition, transcript generation, or automatic word alignment. `--lip-sync` is opt-in and requires `--audio` and `director2d` + `rig=ik2d`. Existing manual mouth keyframes are never overwritten without notice; the process raises an error instead.
 
-Run:
 ```bash
-python rose.py produce demo_v13.json out --fps 18 --width 432 --height 768 --audio voice.wav --lip-sync --profiles profiles_v13.json --srt demo_v13.srt
+python rose.py produce demo_v13.json out \
+  --fps 18 --width 432 --height 768 \
+  --audio /path/to/speech.wav --lip-sync \
+  --profiles profiles_v13.json --srt demo_v13.srt
 python rose.py verify out/video.mp4 --fps 18 --width 432 --height 768
 python -W error::ResourceWarning -m unittest discover -v
 ```
 
-**Evidence:** Local V13 tests: 82/82; two-scene 121-frame 432×768 MP4 with locally synthesized original spoken sample, AAC/H.264 passed independent FFprobe/FFmpeg verification. The demo eSpeak voice is not part of the built-in skill or this source repository. No personal SQLite database or legacy executable runtime is included. **Still unimplemented:** user-face fidelity, phoneme-level alignment, professional 3D, high-end editorial automation, full 1,400-requirement fusion.
+**Evidence:** local V13 tests: 82/82, generated a two-scene 121-frame 432×768 MP4 with a locally synthesized spoken demo, verified AAC/H.264 and full decode via FFprobe/FFmpeg. The demo speech was produced separately with eSpeak and is not part of the skill's built-in engine. The source-code ZIP never includes the owner's private knowledge SQLite database, secrets, original dragons' executable runtimes, or proprietary fonts.
 
-## V14 — Text-guided mouth poses with silence gating
+**Remaining:** real-person visual identity fidelity, high-end character animation, speech phoneme alignment, advanced editorial automation, and the entire 1,400 requirement backlog.
 
-Adds five illustrated mouth poses: **closed, wide, round, open and teeth**. The
-engine uses supplied word timestamps (JSON) or **estimated** word positions
-inside SRT caption intervals, combined with the existing 20-Hz audio-energy
-mouth track. This is **not** acoustic phoneme recognition or forced alignment.
-The SRT approach is not guaranteed to match individual words' real timing.
+## V14 — Text-guided viseme mouth poses (new)
+
+`visemes.py` adds **five original, hand-drawn pose families** (`closed`, `wide`,
+`round`, `open`, `teeth`) to the existing IK character rig, with `neutral` for
+pauses. A valid speech-energy track closes the lips during silence. This uses
+written letters only as an **approximation** of visible speech mouth shapes:
+there is **no automatic phoneme detection, speech recognition or forced
+alignment**. It is not suitable for claims of ±100ms word accuracy unless you
+supply externally timed words and validate against the audio.
+
+Run with existing SRT captions (word position estimated inside subtitle cues):
 
 ```bash
 python rose.py produce demo_v13.json output-v14 \
@@ -84,11 +93,63 @@ python rose.py produce demo_v13.json output-v14 \
   --profiles profiles_v13.json --srt demo_v13.srt
 ```
 
-For externally timestamped words, use `--words-json words_v14_example.json`
-instead of estimating from SRT. `--words-json` requires `--viseme-sync`;
-`--viseme-sync` requires both `--lip-sync` and `--audio`. Word timing is
-absolute seconds; character mouth poses are still grapheme-derived heuristics.
+For more accurate timing, use `--words-json words_v14_example.json`, a list of
+`{"start": 0.1, "end": 0.35, "text": "hello"}` entries in **absolute seconds**.
+Use `--words-json` with `--viseme-sync --lip-sync --audio`; the word positions
+are taken from the supplied file, but the mouth shapes remain heuristics.
 
-Tested in local V14 bundle: 93/93 tests. Video QA: 121 frames, 18 fps, 432x768,
-H.264 video + AAC audio, 6.72 seconds, FFprobe and FFmpeg verified. No private
-speech recording or private SQLite data uploaded to this repository.
+The output `project.json` stores scene-local `viseme_keys` and `mouth_keys`,
+so the animation remains editable. `manifest.json` reports the timing method.
+Rejects overlapping/out-of-range word events and existing manually authored
+viseme tracks. This is all in the new Red Rose engine, not a call to a legacy
+skill.
+
+## V15 — executable Red Rose core (2026-11-21)
+
+V15 closes part of the gap between *reference search* and *actually executing* a verified
+native capability. It includes **11 explicitly registered local adapters** in
+`capability_runtime.py`, plus `pipeline_v15.py` to reuse the **same** video pipeline
+through the traditional `produce` CLI and the controlled capability interface.
+
+No original Golden/Black Dragon programs are imported or run. The user's migrated
+knowledge index is independent, private, and **not packaged or uploaded**.
+
+### Inspect, plan and execute
+
+```bash
+python rose.py capabilities
+python rose.py capability-plan 'اعمل مونتاج فيديو لشخصية'
+python rose.py capability-run video.preview '{"storyboard":"examples/demo_v15.json","fps":12,"width":320,"height":568}'
+# The preceding preview is read-only, except for a local hashed invocation audit.
+python rose.py capability-run video.produce '{"storyboard":"examples/demo_v15.json","output":"v15-output","fps":12,"width":320,"height":568}' --approve-write
+python rose.py capability-run video.verify '{"video":"v15-output/video.mp4","fps":12,"width":320,"height":568}'
+python rose.py capability-audit
+```
+
+To save a lesson **after a real execution**:
+
+```bash
+python rose.py capability-run learning.record '{"lesson":"Verify H264 with FFprobe","source_audit_id":2,"category":"improvement"}' --approve-write
+python rose.py capability-run memory.recall '{"query":"FFprobe"}'
+```
+
+Replace `source_audit_id` with an **actual** `audit_id` returned by a successful call.
+The lesson is saved in a local private SQLite database; its content and any user
+media must never be committed to GitHub. No model-weight training takes place.
+
+### Verification scope
+
+- `python -W error::ResourceWarning -m unittest discover -q`: **130/130 tests** passed locally, including 37 new tests over the V14 baseline of 93.
+- Executed a new V15 test movie end-to-end: **24 decoded H.264 frames**, **320×568**, **12 FPS**, **2 seconds**; independent FFprobe + full FFmpeg decode passed.
+- Tested the default denial when `--approve-write` was missing; after opt-in, generated editable `project.json`, `manifest.json`, and `video.mp4`.
+- Successfully saved and recalled one **synthetic** evidence-linked lesson from the video verification step. This is reproducible demo data, not the user's private experience.
+- Out-of-budget exports, unknown action names, unrecognized overwrite directories, malformed parameters and unapproved writes are rejected.
+
+### What this DOES NOT prove
+
+Eleven tested adapters are **not** 11,000 skills, 25,675 executable units or 1,400
+completed requirements. The original Alloy description entries remain references;
+turning an entry into a native adapter takes separate implementation and tests.
+The 1,400 detailed requirement statements have not been fully enumerated or
+mapped, so no completion percentage is justified. The current video character
+is an original stylized 2D rig, not photoreal footage or professional 3D.
