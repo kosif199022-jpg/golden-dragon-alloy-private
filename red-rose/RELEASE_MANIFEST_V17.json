@@ -1,0 +1,16 @@
+{
+  "name": "red-rose",
+  "version": "17.0",
+  "date": "2026-11-21",
+  "registered_adapters": 15,
+  "tests_local_passed": 154,
+  "knowledge_reference_capabilities_are_executables": false,
+  "full_1400_requirements_implemented": false,
+  "new_adapters": [
+    "video.timeline_analyze",
+    "video.edit_suggest"
+  ],
+  "requires_approval_to_export_with": [
+    "video.recut"
+  ]
+}
