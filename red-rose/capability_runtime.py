@@ -62,6 +62,8 @@ IO_ADAPTERS = {'knowledge.store': knowledge_v25, 'database.manage': database_v25
                'video.analyze': media_analysis_v25, 'video.edit': editing_v25,
                'audio.process': audio_v25, 'automation.run': automation_v25,
                'release.verify': release_v26, 'studio.render': studio_v27}
+# Adapters the owner asked to ship without tests (2026-11-22); release checks list them apart.
+CODED_UNTESTED = ('motion.core', 'text.motion', 'graphics.motion', 'studio.render')
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
 PURE_MODULES = {'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
@@ -246,7 +248,7 @@ ALIASES = {
  'كابشن': ('text.motion',),
  'ترجمة': ('text.motion',),
  'نيون': ('graphics.motion',),
- 'خريطة': ('graphics.motion',),
+ 'خريطة': ('fusion.route','graphics.motion'),
  'رسم بياني': ('graphics.motion',),
  'رندر': ('studio.render','video.produce'),
  'تلوين': ('studio.render',),

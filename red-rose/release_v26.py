@@ -445,7 +445,8 @@ def registry_reality(*, registry=None, **extra):
     branches = _branch_ids_and_modules(cr_path.read_text(encoding='utf-8'))
     tests = {p.name: p.read_text(encoding='utf-8', errors='replace')
              for p in sorted(ROOT.glob('test_*.py'))}
-    rows, phantoms = [], []
+    rows, phantoms, untested = [], [], []
+    declared_untested = set(getattr(cr, 'CODED_UNTESTED', ()))
     for ident in registry:
         if ident in cr.PURE_MODULES:
             dispatch, modules = 'PURE_MODULES', {cr.PURE_MODULES[ident].__name__}
@@ -469,15 +470,22 @@ def registry_reality(*, registry=None, **extra):
         problems = []
         if dispatch is None:
             problems.append('no dispatch path in capability_runtime.execute')
+        status = 'tested_reference'
         if not refs:
-            problems.append('no test_*.py references the id or its module')
+            if dispatch is not None and ident in declared_untested:
+                # Owner-requested "coded, not tested" adapters: real code, honestly reported apart.
+                status = 'coded_untested'
+                untested.append(ident)
+            else:
+                problems.append('no test_*.py references the id or its module')
         row = {'id': ident, 'dispatch': dispatch, 'modules': sorted(modules),
                'test_refs': len(refs), 'example_tests': [r['test'] for r in refs[:3]],
-               'problems': problems}
+               'status': status, 'problems': problems}
         rows.append(row)
         if problems:
             phantoms.append({'id': ident, 'problems': problems})
     result = {'checked': len(rows), 'phantoms': phantoms, 'phantom_count': len(phantoms),
+              'coded_untested': untested, 'coded_untested_count': len(untested),
               'passed': not phantoms, 'rows': rows,
               'capability_runtime_sha256': _sha256_file(cr_path), 'test_files': len(tests)}
     return _pack('registry_reality', result,
