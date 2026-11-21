@@ -1,0 +1,80 @@
+{
+  "version": "15.0.0",
+  "source": "capability_runtime.REGISTRY",
+  "verified_local_test_suite": {
+    "total_tests": 130,
+    "result": "passed",
+    "target": "Python 3.13 Linux; FFmpeg 7.1.5; CairoSVG"
+  },
+  "claimed_fused_executables": 11,
+  "imported_references_are_executables": false,
+  "requirements_1400_verified": false,
+  "capabilities": [
+    {
+      "id": "knowledge.search",
+      "effect": "read",
+      "dependency": "database",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "knowledge.route",
+      "effect": "read",
+      "dependency": "database",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "knowledge.stats",
+      "effect": "read",
+      "dependency": "database",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "memory.recall",
+      "effect": "read",
+      "dependency": "database",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "learning.record",
+      "effect": "write",
+      "dependency": "database",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "style.list",
+      "effect": "read",
+      "dependency": "database",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "audio.analyze",
+      "effect": "read",
+      "dependency": "ffmpeg",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "video.verify",
+      "effect": "read",
+      "dependency": "ffmpeg",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "video.preview",
+      "effect": "read",
+      "dependency": "cairosvg",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "video.produce",
+      "effect": "write",
+      "dependency": "cairosvg",
+      "status": "native_implemented_tested_locally"
+    },
+    {
+      "id": "character.svg",
+      "effect": "write",
+      "dependency": "builtin",
+      "status": "native_implemented_tested_locally"
+    }
+  ]
+}
