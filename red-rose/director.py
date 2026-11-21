@@ -8,6 +8,7 @@ import html
 import math
 from camera import _color
 from motion_tracks import scalar
+from rig import rig_character
 
 
 def _phase(t,duration):
@@ -112,7 +113,8 @@ def director_frame(t,duration,width,height,recipe):
          _mountains(width,height,shift*.55,1,middle,.11),
          f'<rect x="{-width*.2+shift:.1f}" y="{height*.72:.1f}" width="{width*1.4:.1f}" height="{height*.4:.1f}" fill="{ground}"/>',
          f'<path d="M {-width*.2+shift:.1f} {height*.72:.1f} Q {width*.5+shift:.1f} {height*.66:.1f} {width*1.2+shift:.1f} {height*.72:.1f}" stroke="{horizon}" stroke-width="2.2" opacity=".5" fill="none"/>',
-         _character(ax-shift*.55,ay,size*min(width/340,height/640),phase,actor),
+         (rig_character(ax-shift*.55,ay,size*min(width/340,height/640),phase,actor)
+          if actor.get('rig') == 'ik2d' else _character(ax-shift*.55,ay,size*min(width/340,height/640),phase,actor)),
          '</g>']
     title=str(recipe.get('title',''))[:96]
     if title:
