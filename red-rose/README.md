@@ -43,3 +43,12 @@ Migrates **descriptions/metadata only**, not original executable body blobs, cre
 ## Releases
 
 V10.1: 43 legacy local tests. V11: tests for keyframes, art-directed illustration, editable projects, audio padding, FFprobe QA and resource-clean SQLite tests added. The source package and tests must be verified on each target host before calling them fully portable.
+
+
+## V12 — character IK and cross-dissolve fixes
+- actor.rig="ik2d": independent analytical two-bone IK for walking legs and moving arms.
+- actor.blink_keys and actor.mouth_keys: normalized 0..1 expression control; expression smile/serious/surprised.
+- Fixed duplicate SVG gradient IDs and overlapping outgoing titles during scene fade transitions.
+- Demo: python rose.py produce demo_v12.json output --fps 24 --width 540 --height 960
+- Locally verified on complete V12 bundle: 68/68 tests, five-second 120-frame MP4 FFprobe/FFmpeg QA.
+- This is stylized 2D animation, NOT automatic lip sync, 3D rigging or complete 1,400-capability fusion.
