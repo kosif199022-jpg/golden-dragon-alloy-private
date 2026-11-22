@@ -1,0 +1,97 @@
+{
+  "release": "v29-source-distillation",
+  "scope": "Ten newly uploaded user-designated sources, including the 8 nested bundles in skills-library.",
+  "sources": [
+    {
+      "name": "Cinema_C_V31_SmartMedia_iPhone(2).sh",
+      "sha256": "e2ab93f0e8ac181df431320b180a510689667b12dcde950cf68131140d0b8373",
+      "inventory": "shell",
+      "techniques": "iPhone Photos-safe H.264/AAC export, download recovery, explicit diagnostics",
+      "adapted_by": "media.iphone_export",
+      "limits": "Network fetch, app login and media capture not incorporated into V29"
+    },
+    {
+      "name": "skills-library(2).zip",
+      "sha256": "2637e6a3b2a1d8ad294ec75a909b5765afaf0ae4adac84ac0b359bfdd4258657",
+      "inventory": "archive; 14 direct members, 8 nested skill bundles",
+      "techniques": "Storyboard kits, motion reels, talking-head, editorial sequencing, SaaS/product animation and Figma examples",
+      "adapted_by": "intelligence.director",
+      "limits": "Nested source engines and external models not embedded or executed"
+    },
+    {
+      "name": "Safari(4).pdf",
+      "sha256": "83926ba2051ce10c222fdc38bc79c5efc710d8e35ac1d6d2a22864648e462486",
+      "inventory": "468-page book; Daniel Kahneman Thinking, Fast and Slow",
+      "techniques": "Two-speed deliberation analogy, base-rate check, overconfidence and framing counterchecks",
+      "adapted_by": "intelligence.director",
+      "limits": "General concepts only; no book text or images copied, no psychological/personhood claim"
+    },
+    {
+      "name": "remotion-skills(1).zip",
+      "sha256": "8d247ff27f1441b7a995a7c13d74e4499922feb16ca1d0ef10ab6dd62c77a002",
+      "inventory": "archive; 291 entries",
+      "techniques": "Frame-accurate timelines, trim consistency, editable beat boundaries, Arabic word-safe motion",
+      "adapted_by": "intelligence.director",
+      "limits": "Does not embed or execute React/Remotion"
+    },
+    {
+      "name": "maven-toon-skill(2).zip",
+      "sha256": "603c3bb3abd19e439a8a9d38d625df4aa971fba651fb13287c195338b06012a0",
+      "inventory": "archive; 52 entries",
+      "techniques": "Character continuity and illustrated storyboard review",
+      "adapted_by": "intelligence.director;fusion.plan",
+      "limits": "Full 3D/character renderer not reproduced"
+    },
+    {
+      "name": "maven-reels(1).zip",
+      "sha256": "716075626ae74fae17a0b47bfe1b89e02aae7b42d5b94456a881c319d9484d77",
+      "inventory": "archive; 560 entries",
+      "techniques": "Visual beat pacing, narration-to-word timing, Arabic captions",
+      "adapted_by": "intelligence.director",
+      "limits": "Word timing requires real audio or trusted timestamps"
+    },
+    {
+      "name": "maven-3d-skill.zip",
+      "sha256": "429a66260a1830ca0f09e1d4e147a25ca120a859167a034866bd4482db0b7258",
+      "inventory": "archive; 62 entries",
+      "techniques": "3D shot planning, camera/lighting narrative",
+      "adapted_by": "intelligence.director;model3d.build",
+      "limits": "Not a complete three.js/Blender engine"
+    },
+    {
+      "name": "faceless-shorts-skill(3).zip",
+      "sha256": "162711eb2842941fed837261bd5a77d7f702222060d7c83a568691e3aebd19e5",
+      "inventory": "archive; 247 entries",
+      "techniques": "Vertical storytelling, hook/setup/payoff beats, caption-safe short videos",
+      "adapted_by": "intelligence.director",
+      "limits": "No TTS, Chrome rendering or generated media in V29"
+    },
+    {
+      "name": "Figma+Auto+Layout+Excercise(1).fig",
+      "sha256": "cf0c297db3bdebd22e99db44e73ce47a3699a6bfaff64fc5ce972b442edde91b",
+      "inventory": "Figma archive; 22 members; canvas.fig and images",
+      "techniques": "Constrained row/column allocation, spacing, RTL placement and overflow checks",
+      "adapted_by": "intelligence.director",
+      "limits": "Actual binary Figma node tree not parsed or editable"
+    },
+    {
+      "name": "saas-animation(1).skill",
+      "sha256": "b1c99cf6b37f9679e0f140bc8eb0fd657726f2289c50778c5dac594254f00baf",
+      "inventory": "skill archive; 30 entries",
+      "techniques": "Story-first product ad, end-state planning, scene transitions and pre-render review",
+      "adapted_by": "intelligence.director",
+      "limits": "4K/Blender/live footage engine not copied"
+    }
+  ],
+  "new_engine": "intelligence_director_v29.py",
+  "new_adapter": "intelligence.director",
+  "ops": [
+    "decision_review",
+    "storyboard_plan",
+    "layout_audit"
+  ],
+  "source_integration_method": "Reviewed source concepts; original independent bounded standard-library implementation. No original source archive imported into runtime.",
+  "rights_note": "User asserts ownership; do not reproduce book chapters, licensed fonts, media, embedded third-party binaries or credentials. Only filenames/hashes and original implementation are committed.",
+  "fusion_scope": "Partial genuine distillation; this is not full functionality equivalence of the 10 uploads or their nested toolchains.",
+  "created_on": "2026-11-22"
+}

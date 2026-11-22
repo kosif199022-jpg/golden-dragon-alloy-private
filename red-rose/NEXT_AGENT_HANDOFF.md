@@ -254,3 +254,16 @@ python rose.py capability-run studio.render '{"op":"preview_frame","params":{"sp
 **التغطية (`FUSION_COVERAGE.json`):** كل الـ25,675 وحدة لها طريق في الوردة، **لكن بأنواع مختلفة**: 19,654 أصلي/مُستوعب (76.5%)، 2,526 خطة تشغيل مستخلصة آليًا، 3,495 بموافقة أو جسر لبرنامج خارجي. «طريق» ≠ «مختبر».
 
 **قيود:** الاستخراج نصّي تقريبي (أهداف تُقطع أحيانًا)؛ الشبكة والجسور لم تُشغَّل قط؛ بعض أعلام yt-dlp وخيارات FFmpeg كُتبت من الذاكرة.
+
+
+## V29 — source-guided intelligence (limited independent distillation)
+
+Read `SOURCE_INTELLIGENCE_AUDIT_V29.json`, `V29_INTELLIGENCE_GUIDE.md`, `intelligence_director_v29.py` and its two regression test files. The owner attached ten sources (one includes eight nested skills), including video/motion reference skills, an iPhone utility, a Figma binary and *Thinking, Fast and Slow*. They were reviewed, **not copied whole** or loaded as runtime engines.
+
+`intelligence.director` is a new **read-only** native adapter with three explicit ops: `decision_review`, `storyboard_plan`, `layout_audit`. It adds evidence calibration, bias review, frame-exact storyboard allocation and overflow detection. It is deterministic and cannot understand content like a trained video model. It does not overwrite or render user files. It also cannot guarantee the user's professional/creative outcome. See the guide for commands and limitations.
+
+The V27/V28 set of 8 `CODED_UNTESTED` adapters **remains unverified**. Do not call this full fusion of the source code or a wholesale increase in model IQ.
+
+## V30 — completed supervised storyboard-to-video bridge
+
+The standalone module `storyboard_pipeline_v30.py` connects V29 `storyboard_plan` to V20 `fusion_studio_v20.plan/render_video`, dispatch via `storyboard.pipeline` mixed adapter with `compile` (read) and `render` (approved write). Tests `test_storyboard_pipeline_v30.py` enforce frame exactness, Arabic captions, no silent 3D downgrade, map route validation, no overwrite, approval spoof protection and original 5s MP4 SHA/QA. Does **not** solve cinematic semantic editing or the eight V27–V28 `CODED_UNTESTED` adapters. Run full suite on main, update provenance and test count based on CI; use the V30 guide for commands. Next agent should test those older unverified adapters rather than declaring full fusion.

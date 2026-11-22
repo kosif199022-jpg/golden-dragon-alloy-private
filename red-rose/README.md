@@ -299,3 +299,17 @@ Progress at commit `b4d784b`: 129 of 280 topics, 632 of 1,400 questions answered
 ## V26 — 1,400 roadmap: final measured state
 
 `python rose.py roadmap` reports **1,398 of 1,400** owner-approved questions answered in tested code (278 topics unit-tested, 2 end-to-end verified with sha256 receipts). The last two need the owner: real device screenshots (28.05) and a human edit review (28.08). New adapters since V23: `library.evaluate`, `app.build`, `vfx.compose`, `security.guard`, and the file/media adapters `knowledge.store`, `database.manage`, `video.analyze`, `video.edit`, `audio.process`, `automation.run`, `release.verify` (per-op read/write; every write needs `--approve-write`). 51 adapters in total.
+
+
+
+## V29 — source-guided intelligence (limited independent distillation)
+
+Read `SOURCE_INTELLIGENCE_AUDIT_V29.json`, `V29_INTELLIGENCE_GUIDE.md`, `intelligence_director_v29.py` and its two regression test files. The owner attached ten sources (one includes eight nested skills), including video/motion reference skills, an iPhone utility, a Figma binary and *Thinking, Fast and Slow*. They were reviewed, **not copied whole** or loaded as runtime engines.
+
+`intelligence.director` is a new **read-only** native adapter with three explicit ops: `decision_review`, `storyboard_plan`, `layout_audit`. It adds evidence calibration, bias review, frame-exact storyboard allocation and overflow detection. It is deterministic and cannot understand content like a trained video model. It does not overwrite or render user files. It also cannot guarantee the user's professional/creative outcome. See the guide for commands and limitations.
+
+The V27/V28 set of 8 `CODED_UNTESTED` adapters **remains unverified**. Do not call this full fusion of the source code or a wholesale increase in model IQ.
+
+## V30 — approved V29-to-V20 original video bridge
+
+New native mixed adapter `storyboard.pipeline`: read-only `compile` and approved `render`. Produces actual H264/MP4 from a frame-exact V29 beat plan using the independent V20 illustrated clay/schematic-map renderer, with full FFprobe+decode verification, no-overwrite stage and hash receipt. No silent downgrade from 3D/Remotion/Figma: unsupported visual styles are rejected, or a specific limited fallback must be opted into. See [V30_STORYBOARD_RENDER_GUIDE.md](V30_STORYBOARD_RENDER_GUIDE.md). Other eight coded V27/V28 adapters remain untested.

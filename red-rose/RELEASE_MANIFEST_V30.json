@@ -1,0 +1,31 @@
+{
+  "project": "red-rose",
+  "version": "30.0",
+  "date": "2026-11-22",
+  "feature": "approved_storyboard_to_original_illustrated_mp4",
+  "base_merge": "38d92b780a92778643495a6039ce6d12424243e8",
+  "new_adapter": "storyboard.pipeline",
+  "effect": "mixed",
+  "operations": {
+    "compile": "read",
+    "render": "write_only_with_explicit_approval"
+  },
+  "expected_registered_adapters": 61,
+  "new_files": [
+    "storyboard_pipeline_v30.py",
+    "test_storyboard_pipeline_v30.py",
+    "V30_STORYBOARD_RENDER_GUIDE.md"
+  ],
+  "native_backend": [
+    "intelligence_director_v29.storyboard_plan",
+    "fusion_studio_v20.plan",
+    "fusion_studio_v20.render_video",
+    "verify_media.verify_video"
+  ],
+  "visual_fidelity": "limited original 2D clay illustration and schematic map only; no 3D/full Remotion",
+  "output": "silent H264 MP4 after independent FFprobe/full decode and SHA256",
+  "output_never_overwritten": true,
+  "source_memory_uploaded": false,
+  "v27_v28_eight_unverified": true,
+  "test_results": "pending CI; must not invent pass count"
+}
