@@ -1,0 +1,39 @@
+{
+  "id": "title-frame-ar",
+  "title_ar": "إطار عنوان متحرك بالعربي (PNG)",
+  "title_en": "Arabic title frame (PNG)",
+  "status": "ready",
+  "when": [
+    "اعمل عنوان متحرك للريلز باسم الوردة الحمراء",
+    "عايز إطار عنوان بالعربي للفيديو بخط متوصل",
+    "make an animated Arabic title frame for a reel"
+  ],
+  "tags": ["title", "arabic", "png", "reel", "studio"],
+  "deliver_ar": "صورة PNG للعنوان 1080x1920 ومعاها SVG، والكلام بالحرف زي ما كتبته، والحروف العربي متوصلة",
+  "place": "needs_ffmpeg",
+  "inputs": [
+    {"key": "text", "type": "string", "required": true, "default": null, "impact": "الكلام اللي يتكتب بالحرف", "redo": "لو اتغير الكلام لازم تتعمل من الأول", "question_ar": "إيه الكلام اللي عايزه على العنوان؟", "suggest_ar": "الوردة الحمراء"},
+    {"key": "style", "type": "string", "required": false, "default": "fade_up", "impact": "شكل الحركة بس", "redo": "لو اتغير الشكل يتعمل تاني", "question_ar": "إيه شكل الحركة؟", "suggest_ar": "fade_up"},
+    {"key": "at", "type": "string", "required": false, "default": "mid", "impact": "الوقت اللي بيتصور فيه الإطار", "redo": "", "question_ar": "أي وقت من الحركة؟", "suggest_ar": "mid"},
+    {"key": "platform", "type": "string", "required": false, "default": "reel", "impact": "المقاس: reel 1080x1920 أو wide 1920x1080", "redo": "", "question_ar": "الريلز ولا الفيديو العريض؟", "suggest_ar": "reel"}
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "do_ar": "أرسم إطار العنوان بحركة وأعمل نسخة PNG وSVG، وأتأكد إن الحروف العربي متوصلة",
+      "op": "studio.render.title_frame",
+      "args": {"text": "${text}", "style": "${style}", "at": "${at}", "platform": "${platform}", "rasterize": true},
+      "effect": "read",
+      "approval": true,
+      "save": {"png_base64": "${work}/title-frame.png", "svg": "${work}/title-frame.svg"},
+      "deliver": true,
+      "gate": [
+        {"text_ar": "الحروف العربي متوصلة وفيها تشكيل صح", "check": "json_path", "expect": {"field": "text_shaping_ok", "equals": true}},
+        {"text_ar": "الـ PNG اتكتب وحجمه معقول", "check": "file_exists", "expect": {"path": "${work}/title-frame.png", "min_bytes": 2000}}
+      ]
+    }
+  ],
+  "approvals": [{"step": 1, "text_ar": "أكتب صورة العنوان (PNG و SVG) في مجلد الشغل"}],
+  "rules": ["arabic_shaped", "no_overlays_unless_named", "no_fade_from_black"],
+  "selftest": {"inputs": {"text": "الوردة الحمراء"}, "approve": true}
+}

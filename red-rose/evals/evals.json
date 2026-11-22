@@ -1,0 +1,57 @@
+{
+  "skill_name": "red-rose",
+  "evals": [
+    {
+      "id": 1,
+      "name": "kinetic-title-wrong-keyboard-layout",
+      "prompt": "hulg uk,hk ljpv; ggvdg. fhsl hg,v]m hgplvhx",
+      "expected_output": "First reply contains «فهمت إنك عايز» with the decoded Arabic «اعمل عنوان متحرك للريلز باسم الوردة الحمراء» and states that it was decoded from the English layout; the owner is not asked to retype. | `rose.py understand` on the prompt returns changed true and fixes with why 'layout'. | brief routes to recipe title-frame-ar (or op studio.render.title_frame) first. | Deliverable PNG exists, 1080x1920, evidence envelope outcome ok with no arabic_unshaped warning; the agent opened the PNG with the image reader before delivering. | No write happened before an explicit owner yes (first run exits 3 with would_write). | Transcript: at most 6 tool calls, 0 reads of module source files, 0 guessed parameter names.",
+      "files": [],
+      "assertions": [
+        "First reply contains «فهمت إنك عايز» with the decoded Arabic «اعمل عنوان متحرك للريلز باسم الوردة الحمراء» and states that it was decoded from the English layout; the owner is not asked to retype.",
+        "`rose.py understand` on the prompt returns changed true and fixes with why 'layout'.",
+        "brief routes to recipe title-frame-ar (or op studio.render.title_frame) first.",
+        "Deliverable PNG exists, 1080x1920, evidence envelope outcome ok with no arabic_unshaped warning; the agent opened the PNG with the image reader before delivering.",
+        "No write happened before an explicit owner yes (first run exits 3 with would_write).",
+        "Transcript: at most 6 tool calls, 0 reads of module source files, 0 guessed parameter names."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "bank-reconciliation-csv",
+      "prompt": "عايز اطابق كشف حساب البنك مع الدفتر وطلعلي الفروقات  [مرفق: bank.csv, ledger.csv]",
+      "expected_output": "Route is recipe bank-reconcile (or accounting.check.bank_reconcile); no source file read, no guessed key. | Result on the 3x3 fixture: 2 matched, 1 unmatched on each side, near-miss amount difference 1.00, totals difference 1.00. | Envelope example_data is false and outcome ok (the run used the owner's files, not built-in rows). | Reply states the difference with the two row ids and marks it as measured. | At most 4 tool calls.",
+      "files": [],
+      "assertions": [
+        "Route is recipe bank-reconcile (or accounting.check.bank_reconcile); no source file read, no guessed key.",
+        "Result on the 3x3 fixture: 2 matched, 1 unmatched on each side, near-miss amount difference 1.00, totals difference 1.00.",
+        "Envelope example_data is false and outcome ok (the run used the owner's files, not built-in rows).",
+        "Reply states the difference with the two row ids and marks it as measured.",
+        "At most 4 tool calls."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "ambiguous-montage-one-question",
+      "prompt": "اعمل مونتاج",
+      "expected_output": "brief decision is ask with exactly one must_ask question (where is the footage), suggestion first with a star. | The agent's reply asks exactly one question and runs no write and no media command. | Follow-up «نفذ انت اللي تشوفه» with a file attached yields 0 questions and a listed set of assumptions (go_with_assumptions).",
+      "files": [],
+      "assertions": [
+        "brief decision is ask with exactly one must_ask question (where is the footage), suggestion first with a star.",
+        "The agent's reply asks exactly one question and runs no write and no media command.",
+        "Follow-up «نفذ انت اللي تشوفه» with a file attached yields 0 questions and a listed set of assumptions (go_with_assumptions)."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "greeting-no-plan",
+      "prompt": "ازيك يا ورده عامل ايه النهارده",
+      "expected_output": "`rose.py brief` returns kind greet, route.type none, output under 200 characters. | The agent replies normally in Egyptian Arabic with no plan, no recipe and no op run.",
+      "files": [],
+      "assertions": [
+        "`rose.py brief` returns kind greet, route.type none, output under 200 characters.",
+        "The agent replies normally in Egyptian Arabic with no plan, no recipe and no op run."
+      ]
+    }
+  ]
+}

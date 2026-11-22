@@ -1,0 +1,55 @@
+{
+  "id": "loudness-fix",
+  "title_ar": "ضبط مستوى الصوت (LUFS)",
+  "title_en": "Loudness fix (LUFS)",
+  "status": "ready",
+  "when": [
+    "ظبطلي صوت الفيديو ده على مستوى مريح للسماع",
+    "الصوت واطي أوي اعمله تطبيع قبل ما أرفعه",
+    "normalise the loudness of this clip to -16 LUFS"
+  ],
+  "tags": ["audio", "loudness", "lufs", "normalise"],
+  "deliver_ar": "ملف صوت AAC (m4a) مضبوط على الهدف، ومعاه قياس قبل وبعد. الفيديو نفسه ما يتغيرش في الوصفة دي",
+  "place": "needs_ffmpeg",
+  "inputs": [
+    {"key": "source", "type": "path", "required": true, "default": null, "impact": "الملف اللي هيتقاس صوته", "redo": "لو اتغير الملف القياس يتعمل تاني", "question_ar": "أي ملف أقيس صوته وأظبطه؟", "suggest_ar": "المسار الكامل للملف"},
+    {"key": "target_lufs", "type": "number", "required": false, "default": -16, "impact": "مستوى الصوت المطلوب (LUFS)", "redo": "لو اتغير الهدف يتعمل تاني", "question_ar": "الهدف كام LUFS؟", "suggest_ar": "-16"}
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "do_ar": "أقيس مستوى الصوت الحالي",
+      "op": "audio.process.loudness",
+      "args": {"source": "${source}"},
+      "effect": "read",
+      "gate": [
+        {"text_ar": "القياس اتعمل على صوت حقيقي", "check": "json_path", "expect": {"field": "integrated_lufs", "not_empty": true}}
+      ]
+    },
+    {
+      "n": 2,
+      "do_ar": "أطبّع الصوت على الهدف في ملف m4a جديد، بعد موافقتك",
+      "op": "audio.process.loudness_normalise",
+      "args": {"source": "${source}", "output": "${work}/loud-fixed.m4a", "target_lufs": "${target_lufs}"},
+      "effect": "write",
+      "approval": true,
+      "deliver": true,
+      "gate": [
+        {"text_ar": "ملف الصوت الجديد اتكتب", "check": "file_exists", "expect": {"path": "${work}/loud-fixed.m4a", "min_bytes": 1000}}
+      ]
+    },
+    {
+      "n": 3,
+      "do_ar": "أقيس الملف الجديد وأتأكد إنه قرب الهدف",
+      "op": "audio.process.loudness",
+      "args": {"source": "${work}/loud-fixed.m4a"},
+      "effect": "read",
+      "gate": [
+        {"text_ar": "الصوت الجديد قرب الهدف (بفرق نص درجة لحد درجة)", "check": "json_path", "expect": {"field": "integrated_lufs", "near": "${target_lufs}", "tol": 1.0}}
+      ]
+    }
+  ],
+  "approvals": [{"step": 2, "text_ar": "أكتب ملف الصوت المضبوط الجديد في مجلد الشغل"}],
+  "rules": ["no_overlays_unless_named"],
+  "selftest": {"inputs": {"source": "@SAMPLE_VIDEO"}, "approve": true}
+}

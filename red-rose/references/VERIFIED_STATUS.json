@@ -1,0 +1,1207 @@
+{
+  "schema": "red-rose/verified-status/1",
+  "platform": "win32 py3.12",
+  "counts": {
+    "not_run_needs_approval": 30,
+    "runs_with_defaults": 7,
+    "unavailable_here": 9,
+    "verified": 193
+  },
+  "ops": {
+    "accounting.check.meat_costing": {
+      "status": "runs_with_defaults",
+      "outcome": "example_only",
+      "error": null
+    },
+    "agents.coordinate.agent_roster": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "agents.coordinate.handoff_check": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "agents.coordinate.parallel_plan": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "agents.coordinate.progress_monitor": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "agents.coordinate.rigor_mode": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "agents.coordinate.solution_critique": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "agents.coordinate.stage_dag": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "agents.coordinate.task_contract": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.bridge.blender_render": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "pc_only: needs the owner PC private memory"
+    },
+    "app.bridge.blender_script": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.bridge.detect": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "pc_only: needs the owner PC private memory"
+    },
+    "app.bridge.nle_export": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "app.bridge.tts_local": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "pc_only: needs the owner PC private memory"
+    },
+    "app.build.deploy_plan": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.build.feature_tests": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.build.openapi_spec": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.build.package_manifest": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.build.router_spec": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.build.rtl_ui": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.build.scaffold": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.build.session_tokens": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "app.build.sql_schema": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.cache_key": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.checkpoint_resume": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.cli_spec_check": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.config_redact": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.dependency_status": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.distribution_guard": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.message_schema": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.path_portability": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "architecture.check.semver_migrate": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "audio.process.cut_crossfade": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "audio.process.denoise": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "audio.process.extract_pcm": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "audio.process.loudness_normalise": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "automation.run.bounded_pool": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "automation.run.execution_receipt": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "automation.run.perf_log": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "automation.run.run_command": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "automation.run.task_queue": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "automation.run.timeout_cancel": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "character.animate.crowd_layers": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.expressions": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.hand_grip": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.identity_lock": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.landmark_smoothing": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.run_cycle": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.secondary_motion": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.skeleton": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.viseme_track": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "character.animate.walk_cycle": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.boundary_cases": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.complexity": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.diff_review": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.duplicate_functions": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.import_cycles": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.race_check": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.resource_handling": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.secret_scan": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "code.analyze.traceback_repro": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.accounting_workflow": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.audio_scene_edl": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.capability_proposal": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.generic_contract": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.ik_physics": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.layer_composer": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.originality_check": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.retrieve_then_dispatch": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "compose.pipeline.variations": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "database.manage.backup_restore": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "database.manage.import_tabular": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "database.manage.index_plan": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "database.manage.lineage": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "database.manage.protect_sensitive": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "database.manage.record_conflicts": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "database.manage.safe_migration": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "database.manage.safe_schema": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "database.manage.tenant_query": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "database.manage.time_series": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.blind_review": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.confidence": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.decision_record": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.failure_log": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.incomplete_info": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.intent_state": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.phase_machine": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.resolve_conflict": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.route_tested": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "decision.make.tool_choice": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.arabic_text_layout": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.frame_composition": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.horizon_fov": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.interior_layout": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.landscape_layers": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.logo_marks": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.palette_harmony": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.poster_hierarchy": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "design.layout.three_point_light": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "governance.audit.adapter_reality": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "governance.audit.approval_lifecycle": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "governance.audit.behaviour_compare": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "governance.audit.capability_overlap": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "governance.audit.capability_passport": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "governance.audit.completion_matrix": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "governance.audit.skill_contract": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "governance.audit.snapshot_restore": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.brand_reveal": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.choose_chart": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.data_viz": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.explainer_diagram": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.list_catalogue": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.neon_glow": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.particles_svg": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.retro_pixel": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.route_map": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.shape_morph": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "graphics.motion.textures": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "knowledge.store.error_memory": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "knowledge.store.index_source": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "knowledge.store.migrate_memory": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "knowledge.store.owner_instructions": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "knowledge.store.reference_conflicts": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "knowledge.store.search_receipt": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "knowledge.store.workspace_isolation": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "learning.evolve.capability_gaps": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "learning.evolve.forget_request": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "learning.evolve.lesson_benefit": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "learning.evolve.rank_lessons": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "learning.evolve.regression_from_defect": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "learning.evolve.rule_proposal": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "learning.evolve.rule_versions": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "learning.evolve.similar_errors": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.arabic_shaping_eval": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.audio_lib_eval": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.cv_lib_eval": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.licence_check": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.lockfile": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.shot_detect_compare": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.tool_benchmark": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.vector_lib_eval": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.web_anim_eval": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "library.evaluate.webgl_eval": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "math.geometry.aspect_fit": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "math.geometry.depth_of_field": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "math.geometry.ik_two_bone": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "math.geometry.lens_distortion": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.area_lighting": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.camera3d": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.car_rig": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.cloth3d": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.cutaway": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.export_mesh": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.lod_budget": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.machine_mesh": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.skinning": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "model3d.build.uv_atlas": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "motion.core.beat_transitions": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "motion.core.camera": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "motion.core.ease": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "motion.core.list_catalogue": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "motion.core.track": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "motion.core.transition_frame": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "net.fetch.collect_links": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "not executed here: network"
+    },
+    "net.fetch.crawl_site": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "not executed here: network"
+    },
+    "net.fetch.fetch_file": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "not executed here: network"
+    },
+    "net.fetch.fetch_page": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "not executed here: network"
+    },
+    "net.fetch.github_repo_info": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "not executed here: network"
+    },
+    "net.fetch.media_download": {
+      "status": "unavailable_here",
+      "outcome": null,
+      "error": "not executed here: network"
+    },
+    "physics.simulate.cloth": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.collide": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.fall": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.flow": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.friction": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.motion_blur": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.particles": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.projectile": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.shading": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "physics.simulate.spring": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "playbook.library.build_index": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "playbook.library.stats": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "prompt.prepare.approval_request": {
+      "status": "runs_with_defaults",
+      "outcome": "example_only",
+      "error": null
+    },
+    "prompt.prepare.cost_estimate": {
+      "status": "runs_with_defaults",
+      "outcome": "example_only",
+      "error": null
+    },
+    "prompt.prepare.image_prompt": {
+      "status": "runs_with_defaults",
+      "outcome": "example_only",
+      "error": null
+    },
+    "prompt.prepare.music_prompt": {
+      "status": "runs_with_defaults",
+      "outcome": "example_only",
+      "error": null
+    },
+    "prompt.prepare.style_library": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "prompt.prepare.video_prompt": {
+      "status": "runs_with_defaults",
+      "outcome": "example_only",
+      "error": null
+    },
+    "prompt.prepare.voice_prompt": {
+      "status": "runs_with_defaults",
+      "outcome": "example_only",
+      "error": null
+    },
+    "qa.trace": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "release.verify.integrated_video": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "release.verify.portable_release": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "roadmap.status": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "security.guard.fuzz_inputs": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "security.guard.output_hashing": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "security.guard.output_path_guard": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "security.guard.publish_gate": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "security.guard.resource_limits": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "security.guard.rollback_plan": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "studio.render.apply_grade": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "studio.render.render_timeline": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "style.draw.clay_look": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.flat_cartoon": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.machine_drawing": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.mono_style": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.palette_lock": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.reference_character": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.rough_lines": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.style_descriptor": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.style_guide_check": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "style.draw.watercolor": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.caption": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.catalogue": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.derive_canvas": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.karaoke_caption": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.kinetic_text": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.list_styles": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.lower_third": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.srt": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "text.motion.wrap_caption": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.aesthetic_decision": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.alternatives": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.budget_filter": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.causal": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.decision_matrix": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.first_principles": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.lesson_match": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.plan_gaps": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "thinking.reason.poc_gate": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "video.edit.safe_crossfade": {
+      "status": "not_run_needs_approval",
+      "outcome": "approval_required",
+      "error": null
+    },
+    "web.offline.crawl_policy": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.data_licence": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.dedupe_content": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.export_json": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.html_text": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.oem_normalise": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.permitted_extract": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.price_records": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.retry_policy": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    },
+    "web.offline.source_link": {
+      "status": "verified",
+      "outcome": "ok",
+      "error": null
+    }
+  }
+}

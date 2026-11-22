@@ -1,0 +1,45 @@
+{
+  "id": "beat-synced-cut",
+  "title_ar": "قص على إيقاع الموسيقى",
+  "title_en": "Beat-synced cut",
+  "status": "ready",
+  "when": [
+    "اقطع الفيديو ده على إيقاع الموسيقى",
+    "عايز القطع يتزامن مع الـ beat في الكليب",
+    "cut this clip on the beat of the music"
+  ],
+  "tags": ["beat", "music", "cut", "rhythm", "edit"],
+  "deliver_ar": "فيديو MP4 مقصوص على الضربات (beats) المتقاسة من الملف، بعد موافقتك. الإيقاع بيتقاس من الملف نفسه ومش بيتخمن",
+  "place": "needs_ffmpeg",
+  "inputs": [
+    {"key": "source", "type": "path", "required": true, "default": null, "impact": "الملف اللي فيه الموسيقى والفيديو", "redo": "لو اتغير الملف القطع يتعمل تاني", "question_ar": "أي ملف أقطعه على الإيقاع؟", "suggest_ar": "المسار الكامل للملف"},
+    {"key": "audio_rights_confirmed", "type": "bool", "required": true, "default": null, "impact": "لازم تكون الموسيقى دي بتاعتك أو ليك حق استخدامها", "redo": "", "question_ar": "الموسيقى دي بتاعتك أو ليك حق تستخدمها؟ (نعم أو لا)", "suggest_ar": "نعم"}
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "do_ar": "أقيس الضربات (beats) والإيقاع من الصوت، بدون ما أكتب أي ملف",
+      "op": "video.edit.beat_sync_cuts",
+      "args": {"source": "${source}", "audio_rights_confirmed": "${audio_rights_confirmed}"},
+      "effect": "read",
+      "gate": [
+        {"text_ar": "فيه ضربات متقاسة من الصوت (مش مثال)", "check": "json_path", "expect": {"field": "beats", "min_len": 2}}
+      ]
+    },
+    {
+      "n": 2,
+      "do_ar": "أقص الفيديو بين الضربات المتتالية في فيديو MP4 جديد، بعد موافقتك، وأتحقق منه",
+      "op": "video.recut",
+      "args": {"source": "${source}", "segments": "${s1.beats|consecutive:8}", "output": "${work}/beat-cut.mp4", "fps": 30},
+      "effect": "write",
+      "approval": true,
+      "deliver": true,
+      "gate": [
+        {"text_ar": "القطع الناتج صح: الصوت AAC وأول فريم مش أسود والفريمات = المدة × 30", "check": "verify_video", "expect": {"path": "${work}/beat-cut.mp4", "audio": "aac_or_none", "frames_match": true, "no_black_first_frame": true, "even_dims": true}}
+      ]
+    }
+  ],
+  "approvals": [{"step": 2, "text_ar": "أكتب فيديو MP4 مقصوص على الإيقاع في مجلد الشغل"}],
+  "rules": ["aac_in_mp4", "no_black_first_frame", "frames_match_duration", "even_dimensions", "no_overlays_unless_named"],
+  "selftest": {"inputs": {"source": "@SAMPLE_VIDEO", "audio_rights_confirmed": true}, "approve": true}
+}

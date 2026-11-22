@@ -1,0 +1,47 @@
+{
+  "id": "title-clip-mp4",
+  "title_ar": "كليب عنوان متحرك MP4",
+  "title_en": "Animated title clip (MP4)",
+  "status": "ready",
+  "when": [
+    "اعمل كليب MP4 للعنوان المتحرك باسم الوردة الحمراء",
+    "عايز فيديو قصير فيه العنوان بالعربي يتحرك",
+    "render an animated Arabic title as an MP4 clip"
+  ],
+  "tags": ["title", "arabic", "mp4", "clip", "render"],
+  "deliver_ar": "فيديو MP4 بالعنوان المتحرك، H.264 وyuv420p وبدون أول فريم أسود، بمدة وفريمات متطابقة",
+  "place": "needs_ffmpeg",
+  "inputs": [
+    {"key": "text", "type": "string", "required": true, "default": null, "impact": "الكلام اللي يتكتب بالحرف", "redo": "لو اتغير الكلام يتعمل الرندر تاني", "question_ar": "إيه الكلام اللي عايزه يظهر في الكليب؟", "suggest_ar": "الوردة الحمراء"},
+    {"key": "style", "type": "string", "required": false, "default": "fade_up", "impact": "شكل الحركة", "redo": "لو اتغير الشكل يتعمل تاني", "question_ar": "إيه شكل الحركة؟", "suggest_ar": "fade_up"},
+    {"key": "duration", "type": "number", "required": false, "default": 4, "impact": "مدة الكليب بالثواني", "redo": "لو اتغيرت المدة يتعمل تاني", "question_ar": "الكليب يكون كام ثانية؟", "suggest_ar": "4"}
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "do_ar": "أرندر خط زمني فيه العنوان المتحرك على خلفية ملونة، ينتج MP4 جديد وأتحقق منه",
+      "op": "studio.render.render_timeline",
+      "args": {
+        "spec": {
+          "width": 1080, "height": 1920, "fps": 30, "duration": "${duration}",
+          "background": "#5a1020",
+          "layers": [{"module": "typemotion", "op": "kinetic_text", "start": 0.0, "end": "${duration}",
+                      "params": {"text": "${text}", "style": "${style}", "duration": "${duration}"}}],
+          "audio": []
+        },
+        "output": "${work}/title-clip.mp4",
+        "crf": 18,
+        "preset": "medium"
+      },
+      "effect": "write",
+      "approval": true,
+      "deliver": true,
+      "gate": [
+        {"text_ar": "الفيديو MP4 صح: H.264 وyuv420p ومقاس زوجي، الفريمات = المدة × 30، وأول فريم مش أسود", "check": "verify_video", "expect": {"path": "${work}/title-clip.mp4", "audio": "none", "frames_match": true, "no_black_first_frame": true, "even_dims": true}}
+      ]
+    }
+  ],
+  "approvals": [{"step": 1, "text_ar": "أكتب ملف MP4 جديد في مجلد الشغل"}],
+  "rules": ["aac_in_mp4", "no_black_first_frame", "frames_match_duration", "even_dimensions", "arabic_shaped", "no_overlays_unless_named"],
+  "selftest": {"inputs": {"text": "الوردة الحمراء", "duration": 3}, "approve": true}
+}

@@ -56,3 +56,7 @@ Use \`python rose.py question-audit\` before taking a new roadmap item, and \`py
 ## V20 — protect parallel V19 and original inputs
 
 The owner supplied 5 personal ZIP files. Their hashes and original-code distillation are tracked in SOURCE_FUSION_AUDIT_V20.json. Native fusion_studio_v20.py does not import those archives; no font files, credentials or raw third-party engines belong in commits. Read FUSION_V20_GUIDE.md and run test_fusion_studio_v20.py plus test_fusion_adapter_v20.py and the full suite. GitHub PR #16/#17 are competing pending V19 tracks: do not silently overwrite their branches or claim they were merged.
+
+## قاعدة التعلم المستمر (V29، دائمة)
+
+كل مهمة تمر بالدورة في `CLAUDE.md` هذا المجلد: اكتشف، حلّل، قارن، اصهر، اختبر، احفظ. كل اكتشاف يُسجَّل في `DISCOVERIES.md` قبل أي تنفيذ. الدروس الخاصة بصاحب المشروع تُحفظ في الذاكرة المحلية بموافقته فقط.

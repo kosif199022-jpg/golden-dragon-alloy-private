@@ -1,0 +1,20 @@
+{
+  "version": "W07-1",
+  "note": "Owner phrases that delegate the choice to the agent. They turn a must-ask into a declared assumption (decision go_with_assumptions, zero questions). They never approve a write, an upload, a payment or an install.",
+  "phrases": [
+    "نفذ اللي تشوفه",
+    "نفّذ اللي تشوفه",
+    "نفذ انت اللي تشوفه",
+    "نفّذ إنت اللي تشوفه",
+    "نفذ إنت اللي تشوفه",
+    "انت اختار",
+    "إنت اختار",
+    "اختار انت",
+    "اختار إنت",
+    "خليها زي ما تشوف",
+    "اعمل زي ما تشوف",
+    "مش فارق",
+    "افترض انت",
+    "اعمل الافتراضي"
+  ]
+}

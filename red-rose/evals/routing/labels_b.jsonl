@@ -1,0 +1,160 @@
+{"id": 0, "best": "video.verify", "ok": ["automation.run", "studio.render"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1, "best": "video.verify", "ok": ["studio.render"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2, "best": "video.scene_analyze", "ok": ["video.timeline_analyze", "video.analyze"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3, "best": "video.scene_analyze", "ok": ["video.timeline_analyze", "video.shot_score", "video.analyze"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 4, "best": "video.recut", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 5, "best": "video.recut", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 6, "best": "video.timeline_analyze", "ok": ["video.edit_suggest", "video.scene_analyze", "audio.analyze", "compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 7, "best": "video.timeline_analyze", "ok": ["video.edit_suggest", "compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 8, "best": "video.edit_suggest", "ok": ["video.timeline_analyze", "audio.process", "compose.pipeline", "video.edit"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 9, "best": "video.edit_suggest", "ok": ["video.timeline_analyze", "video.shot_score", "video.edit", "compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 10, "best": "video.shot_score", "ok": ["video.analyze"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 11, "best": "video.shot_score", "ok": ["video.analyze"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 12, "best": "video.preview", "ok": ["studio.render"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 13, "best": "video.preview", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 14, "best": "video.produce", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 15, "best": "video.produce", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 16, "best": "video.analyze", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 17, "best": "video.analyze", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 18, "best": "video.analyze", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 19, "best": "video.edit", "ok": ["video.analyze", "math.geometry"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 20, "best": "video.edit", "ok": ["motion.core"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 21, "best": "video.edit", "ok": ["video.analyze"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 22, "best": "audio.analyze", "ok": ["audio.process"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 23, "best": "audio.analyze", "ok": ["audio.process", "video.timeline_analyze"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 24, "best": "audio.process", "ok": ["studio.render"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 25, "best": "audio.process", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 26, "best": "audio.process", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 27, "best": "studio.render", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 28, "best": "studio.render", "ok": ["video.preview"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 29, "best": "studio.render", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 30, "best": "media.iphone_export", "ok": ["video.verify"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 31, "best": "media.iphone_export", "ok": ["math.geometry"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 32, "best": "fusion.plan", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 33, "best": "fusion.plan", "ok": ["graphics.motion"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 34, "best": "fusion.render", "ok": ["video.produce", "fusion.plan"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 35, "best": "fusion.render", "ok": ["video.produce"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 36, "best": "fusion.frame", "ok": ["style.draw", "design.layout"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 37, "best": "fusion.frame", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 38, "best": "fusion.route", "ok": ["graphics.motion"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 39, "best": "fusion.route", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1000, "best": "motion.core", "ok": ["graphics.motion"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1001, "best": "motion.core", "ok": ["video.edit"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1002, "best": "motion.core", "ok": ["math.geometry"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1003, "best": "text.motion", "ok": ["design.layout"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1004, "best": "text.motion", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1005, "best": "text.motion", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1006, "best": "graphics.motion", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1007, "best": "graphics.motion", "ok": ["motion.core"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1008, "best": "graphics.motion", "ok": ["fusion.route", "fusion.plan"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1009, "best": "style.draw", "ok": ["fusion.frame"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1010, "best": "style.draw", "ok": ["graphics.motion"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1011, "best": "style.draw", "ok": ["design.layout", "fusion.frame"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1012, "best": "style.list", "ok": ["text.motion", "prompt.prepare"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1013, "best": "style.list", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1014, "best": "design.layout", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1015, "best": "design.layout", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1016, "best": "design.layout", "ok": ["model3d.build"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1017, "best": "character.svg", "ok": ["style.draw", "character.animate"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1018, "best": "character.svg", "ok": ["style.draw", "character.animate"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1019, "best": "character.animate", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1020, "best": "character.animate", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1021, "best": "character.animate", "ok": ["physics.simulate", "compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1022, "best": "model3d.build", "ok": ["app.bridge"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1023, "best": "model3d.build", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1024, "best": "vfx.compose", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1025, "best": "vfx.compose", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1026, "best": "vfx.compose", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1027, "best": "physics.simulate", "ok": ["science.compute"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1028, "best": "physics.simulate", "ok": ["science.compute"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1029, "best": "physics.simulate", "ok": ["model3d.build"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1030, "best": "math.geometry", "ok": ["video.edit", "text.motion"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1031, "best": "math.geometry", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1032, "best": "math.geometry", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1033, "best": "science.compute", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1034, "best": "science.compute", "ok": ["audio.analyze"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1035, "best": "science.compute", "ok": ["math.geometry"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1036, "best": "prompt.prepare", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1037, "best": "prompt.prepare", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1038, "best": "app.bridge", "ok": ["automation.run"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 1039, "best": "app.bridge", "ok": ["video.edit_suggest"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2000, "best": "accounting.check", "ok": ["compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2001, "best": "accounting.check", "ok": ["compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2002, "best": "accounting.check", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2003, "best": "accounting.check", "ok": ["compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2004, "best": "database.manage", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2005, "best": "database.manage", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2006, "best": "database.manage", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2007, "best": "knowledge.store", "ok": ["governance.audit"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2008, "best": "knowledge.store", "ok": ["learning.record"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2009, "best": "knowledge.store", "ok": ["knowledge.search", "decision.make"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2010, "best": "knowledge.search", "ok": ["knowledge.store", "knowledge.route", "playbook.library"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2011, "best": "knowledge.search", "ok": ["knowledge.store", "knowledge.route", "playbook.library"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2012, "best": "knowledge.route", "ok": ["knowledge.search", "playbook.library"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2013, "best": "knowledge.route", "ok": ["knowledge.search", "playbook.library"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2014, "best": "knowledge.stats", "ok": ["playbook.library"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2015, "best": "knowledge.stats", "ok": ["playbook.library"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2016, "best": "memory.recall", "ok": ["learning.evolve", "thinking.reason", "knowledge.store"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2017, "best": "memory.recall", "ok": ["learning.evolve", "thinking.reason", "knowledge.store"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2018, "best": "learning.record", "ok": ["knowledge.store"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2019, "best": "learning.record", "ok": ["knowledge.store"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2020, "best": "learning.evolve", "ok": ["memory.recall"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2021, "best": "learning.evolve", "ok": ["app.build"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2022, "best": "learning.evolve", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2023, "best": "code.analyze", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2024, "best": "code.analyze", "ok": ["security.guard"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2025, "best": "app.build", "ok": ["database.manage"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2026, "best": "app.build", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2027, "best": "security.guard", "ok": ["code.analyze", "release.verify", "architecture.check"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2028, "best": "security.guard", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2029, "best": "architecture.check", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2030, "best": "architecture.check", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2031, "best": "web.offline", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2032, "best": "web.offline", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2033, "best": "net.fetch", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2034, "best": "net.fetch", "ok": ["library.evaluate"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2035, "best": "library.evaluate", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2036, "best": "library.evaluate", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2037, "best": "automation.run", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2038, "best": "automation.run", "ok": ["architecture.check", "release.verify"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 2039, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3000, "best": "thinking.reason", "ok": ["decision.make"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3001, "best": "thinking.reason", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3002, "best": "thinking.reason", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3003, "best": "decision.make", "ok": ["thinking.reason"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3004, "best": "decision.make", "ok": ["learning.record", "knowledge.store"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3005, "best": "decision.make", "ok": ["thinking.reason"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3006, "best": "agents.coordinate", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3007, "best": "agents.coordinate", "ok": ["video.verify"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3008, "best": "agents.coordinate", "ok": ["compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3009, "best": "governance.audit", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3010, "best": "governance.audit", "ok": ["release.verify"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3011, "best": "governance.audit", "ok": ["roadmap.status", "release.verify"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3012, "best": "release.verify", "ok": ["governance.audit", "architecture.check"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3013, "best": "release.verify", "ok": ["automation.run", "architecture.check"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3014, "best": "release.verify", "ok": ["roadmap.status"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3015, "best": "roadmap.status", "ok": ["release.verify"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3016, "best": "roadmap.status", "ok": ["qa.trace", "release.verify"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3017, "best": "qa.trace", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3018, "best": "qa.trace", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3019, "best": "playbook.library", "ok": ["knowledge.search", "knowledge.route"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3020, "best": "playbook.library", "ok": ["knowledge.store"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3021, "best": "compose.pipeline", "ok": ["design.layout"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3022, "best": "compose.pipeline", "ok": ["physics.simulate", "character.animate", "math.geometry"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3023, "best": "compose.pipeline", "ok": ["design.layout"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3024, "best": "video.timeline_analyze", "ok": ["video.edit_suggest", "video.recut", "media.iphone_export"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3025, "best": "net.fetch", "ok": ["audio.process", "text.motion"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3026, "best": "database.manage", "ok": ["accounting.check", "compose.pipeline"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3027, "best": "graphics.motion", "ok": ["text.motion", "studio.render", "design.layout", "video.produce"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3028, "best": "video.scene_analyze", "ok": ["video.shot_score", "video.edit"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3029, "best": "prompt.prepare", "ok": ["app.bridge", "thinking.reason"], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3030, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3031, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3032, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3033, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3034, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3035, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3036, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3037, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3038, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}
+{"id": 3039, "best": "none", "ok": [], "labeller": "frozen-set", "agreement": "both"}

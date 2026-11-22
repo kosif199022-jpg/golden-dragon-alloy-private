@@ -1,0 +1,589 @@
+{
+  "adapters": {
+    "audio.analyze": {
+      "audio": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      }
+    },
+    "character.svg": {
+      "actor": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      },
+      "output": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "phase": {
+        "choices": null,
+        "default": 0,
+        "required": false,
+        "type": "integer"
+      },
+      "scale": {
+        "choices": null,
+        "default": 1,
+        "required": false,
+        "type": "integer"
+      },
+      "x": {
+        "choices": null,
+        "default": 160,
+        "required": false,
+        "type": "integer"
+      },
+      "y": {
+        "choices": null,
+        "default": 280,
+        "required": false,
+        "type": "integer"
+      }
+    },
+    "fusion.frame": {
+      "fps": {
+        "choices": null,
+        "default": 24,
+        "required": false,
+        "type": "integer"
+      },
+      "frame": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      },
+      "preset": {
+        "choices": null,
+        "default": "iphone-vertical",
+        "required": false,
+        "type": "string"
+      },
+      "scenes": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      }
+    },
+    "fusion.plan": {
+      "fps": {
+        "choices": null,
+        "default": 24,
+        "required": false,
+        "type": "integer"
+      },
+      "preset": {
+        "choices": null,
+        "default": "iphone-vertical",
+        "required": false,
+        "type": "string"
+      },
+      "scenes": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      }
+    },
+    "fusion.render": {
+      "fps": {
+        "choices": null,
+        "default": 24,
+        "required": false,
+        "type": "integer"
+      },
+      "output": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "preset": {
+        "choices": null,
+        "default": "iphone-vertical",
+        "required": false,
+        "type": "string"
+      },
+      "scenes": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      }
+    },
+    "fusion.route": {
+      "from": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      },
+      "samples": {
+        "choices": null,
+        "default": 25,
+        "required": false,
+        "type": "integer"
+      },
+      "to": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      }
+    },
+    "knowledge.route": {
+      "limit": {
+        "choices": null,
+        "default": 6,
+        "required": false,
+        "type": "integer"
+      },
+      "task": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      }
+    },
+    "knowledge.search": {
+      "limit": {
+        "choices": null,
+        "default": 10,
+        "required": false,
+        "type": "integer"
+      },
+      "query": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      }
+    },
+    "knowledge.stats": {},
+    "learning.record": {
+      "category": {
+        "choices": null,
+        "default": "lesson",
+        "required": false,
+        "type": "string"
+      },
+      "lesson": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      },
+      "source_audit_id": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      }
+    },
+    "media.iphone_export": {
+      "output": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "preset": {
+        "choices": null,
+        "default": "iphone-vertical",
+        "required": false,
+        "type": "string"
+      },
+      "source": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      }
+    },
+    "memory.recall": {
+      "limit": {
+        "choices": null,
+        "default": 10,
+        "required": false,
+        "type": "integer"
+      },
+      "query": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      }
+    },
+    "qa.trace": {
+      "question_id": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      }
+    },
+    "roadmap.status": {
+      "question": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      },
+      "topic": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      }
+    },
+    "style.list": {},
+    "video.edit_suggest": {
+      "max_clips": {
+        "choices": null,
+        "default": 3,
+        "required": false,
+        "type": "integer"
+      },
+      "max_duration": {
+        "choices": null,
+        "default": 30.0,
+        "required": false,
+        "type": "number"
+      },
+      "min_audible_ratio": {
+        "choices": null,
+        "default": 0.2,
+        "required": false,
+        "type": "number"
+      },
+      "min_silence": {
+        "choices": null,
+        "default": 0.3,
+        "required": false,
+        "type": "number"
+      },
+      "noise_db": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      },
+      "sample_fps": {
+        "choices": null,
+        "default": 6,
+        "required": false,
+        "type": "integer"
+      },
+      "source": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "threshold": {
+        "choices": null,
+        "default": 0.23,
+        "required": false,
+        "type": "number"
+      }
+    },
+    "video.preview": {
+      "audio": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "path"
+      },
+      "fps": {
+        "choices": null,
+        "default": 24,
+        "required": false,
+        "type": "integer"
+      },
+      "height": {
+        "choices": null,
+        "default": 960,
+        "required": false,
+        "type": "integer"
+      },
+      "lip_sync": {
+        "choices": null,
+        "default": false,
+        "required": false,
+        "type": "bool"
+      },
+      "profiles": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "path"
+      },
+      "srt": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "path"
+      },
+      "storyboard": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      },
+      "viseme_sync": {
+        "choices": null,
+        "default": false,
+        "required": false,
+        "type": "bool"
+      },
+      "width": {
+        "choices": null,
+        "default": 540,
+        "required": false,
+        "type": "integer"
+      },
+      "words_json": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "path"
+      }
+    },
+    "video.produce": {
+      "audio": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "path"
+      },
+      "fps": {
+        "choices": null,
+        "default": 24,
+        "required": false,
+        "type": "integer"
+      },
+      "height": {
+        "choices": null,
+        "default": 960,
+        "required": false,
+        "type": "integer"
+      },
+      "lip_sync": {
+        "choices": null,
+        "default": false,
+        "required": false,
+        "type": "bool"
+      },
+      "output": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "overwrite": {
+        "choices": null,
+        "default": false,
+        "required": false,
+        "type": "bool"
+      },
+      "profiles": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "path"
+      },
+      "srt": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "path"
+      },
+      "storyboard": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      },
+      "viseme_sync": {
+        "choices": null,
+        "default": false,
+        "required": false,
+        "type": "bool"
+      },
+      "width": {
+        "choices": null,
+        "default": 540,
+        "required": false,
+        "type": "integer"
+      },
+      "words_json": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "path"
+      }
+    },
+    "video.recut": {
+      "fps": {
+        "choices": null,
+        "default": 24,
+        "required": false,
+        "type": "integer"
+      },
+      "output": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "segments": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "auto"
+      },
+      "source": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      }
+    },
+    "video.scene_analyze": {
+      "min_shot_seconds": {
+        "choices": null,
+        "default": 0.65,
+        "required": false,
+        "type": "number"
+      },
+      "sample_fps": {
+        "choices": null,
+        "default": 6,
+        "required": false,
+        "type": "integer"
+      },
+      "source": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "threshold": {
+        "choices": null,
+        "default": 0.23,
+        "required": false,
+        "type": "number"
+      }
+    },
+    "video.shot_score": {
+      "max_clips": {
+        "choices": null,
+        "default": 3,
+        "required": false,
+        "type": "integer"
+      },
+      "max_duration": {
+        "choices": null,
+        "default": 30.0,
+        "required": false,
+        "type": "number"
+      },
+      "min_silence": {
+        "choices": null,
+        "default": 0.3,
+        "required": false,
+        "type": "number"
+      },
+      "noise_db": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      },
+      "sample_fps": {
+        "choices": null,
+        "default": 6,
+        "required": false,
+        "type": "integer"
+      },
+      "source": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "threshold": {
+        "choices": null,
+        "default": 0.23,
+        "required": false,
+        "type": "number"
+      }
+    },
+    "video.timeline_analyze": {
+      "min_silence": {
+        "choices": null,
+        "default": 0.3,
+        "required": false,
+        "type": "number"
+      },
+      "noise_db": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      },
+      "sample_fps": {
+        "choices": null,
+        "default": 6,
+        "required": false,
+        "type": "integer"
+      },
+      "source": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "threshold": {
+        "choices": null,
+        "default": 0.23,
+        "required": false,
+        "type": "number"
+      }
+    },
+    "video.verify": {
+      "fps": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      },
+      "height": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      },
+      "video": {
+        "choices": null,
+        "default": null,
+        "required": true,
+        "type": "path"
+      },
+      "width": {
+        "choices": null,
+        "default": null,
+        "required": false,
+        "type": "auto"
+      }
+    }
+  },
+  "version": "V29-W02"
+}

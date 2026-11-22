@@ -1,0 +1,126 @@
+{
+  "schema": "red-rose/package-policy/1",
+  "name": "red-rose",
+  "archive": "red-rose.skill",
+  "_note": "Packing POLICY (allowlist). It is not shipped as is. pack writes a generated red-rose/PACKAGE_MANIFEST.json (files, sha256, version, no dates) into the archive.",
+  "root_files_required": [
+    "SKILL.md"
+  ],
+  "root_files_optional": [
+    "LICENSE",
+    "LICENSE.md",
+    "LICENSE.txt"
+  ],
+  "root_python": {
+    "include_suffix": ".py",
+    "exclude_names": [
+      "test_*"
+    ]
+  },
+  "root_json": [
+    "ROADMAP_1400_STATUS.json",
+    "profiles_v13.json",
+    "words_v14_example.json"
+  ],
+  "dirs": [
+    "agent",
+    "catalog",
+    "examples",
+    "recipes",
+    "references"
+  ],
+  "exclude_dir_names": [
+    "__pycache__",
+    ".git",
+    ".pytest_cache",
+    "evals",
+    "drafts",
+    "questions",
+    "output",
+    "private",
+    "owner-memory",
+    "credentials"
+  ],
+  "exclude_file_names": [
+    "test_*",
+    "QUESTIONS_*",
+    "owner_1400*",
+    "*.sqlite",
+    "*.sqlite3",
+    "*.sqlite-journal",
+    "*.db",
+    "*.pyc",
+    "*.mp4",
+    "*.mov",
+    "*.png",
+    "*.jpg",
+    "*.jpeg",
+    "*.gif",
+    "*.wav",
+    "*.mp3",
+    "*.m4a",
+    "*.zip",
+    "*.skill",
+    "*.log",
+    ".env",
+    ".env.*",
+    "*.env",
+    "*.pem",
+    "*.key",
+    "*.p12",
+    "*.pfx"
+  ],
+  "limits": {
+    "max_total_bytes": 10485760,
+    "max_file_bytes": 4194304
+  },
+  "text_suffixes": [
+    ".py",
+    ".md",
+    ".json",
+    ".txt",
+    ".svg",
+    ".html",
+    ".cfg",
+    ".csv",
+    ".srt",
+    ".ini",
+    ".toml",
+    ".yml",
+    ".yaml"
+  ],
+  "scan": {
+    "secret_patterns": [
+      "-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----",
+      "\\bgh[pousr]_[A-Za-z0-9]{30,}\\b",
+      "\\bsk-[A-Za-z0-9_\\-]{32,}",
+      "\\bAKIA[0-9A-Z]{16}\\b",
+      "(?i)\\b(?:bridge_token|api[_-]?key|access[_-]?token|secret|password|passwd|cookie)\\s*[:=]\\s*[\"'][^\"'\\s]{8,}[\"']"
+    ],
+    "profile_path_patterns": [
+      "(?i)[a-z]:[\\/]+users[\\/]+(?!public\\b|user\\b|username\\b|you\\b|example\\b|<)[a-z0-9._-]+",
+      "(?i)/home/(?!user\\b|username\\b|you\\b|example\\b)[a-z0-9._-]+/",
+      "(?i)/users/(?!user\\b|username\\b|you\\b|example\\b)[a-z0-9._-]+/"
+    ],
+    "legacy_import_patterns": [
+      "(?m)^\\s*(?:from|import)\\s+(?:dragon_fusion|golden_tools|rd|blackdragon\\w*|golden_dragon\\w*|kosif\\w*)\\b",
+      "(?i)(?:subprocess|os\\.system|Popen|check_output|check_call)\\s*\\(.*(?:golden[-_ ]dragon|\\brd\\.py\\b|black[-_ ]dragon|kosif|dragon_fusion)"
+    ]
+  },
+  "verify_commands": [
+    [
+      "start",
+      "--json"
+    ],
+    [
+      "selfcheck",
+      "--quick",
+      "--json"
+    ],
+    [
+      "recipe",
+      "selftest",
+      "title-frame-ar"
+    ]
+  ]
+}

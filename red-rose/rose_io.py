@@ -29,16 +29,23 @@ EXIT_USAGE = 2
 EXIT_APPROVAL = 3
 EXIT_UNAVAILABLE = 4
 EXIT_EXAMPLE_ONLY = 5
+EXIT_NEEDS_INPUT = 6
 
-OUTCOMES = ('ok', 'example_only', 'approval_required', 'unavailable_here', 'error')
+# One outcome per call. The envelope's `status` is always equal to `outcome` (see USE.md).
+# needs_input means: the skill needs one answer from the owner; nothing failed and nothing ran.
+OUTCOMES = ('ok', 'needs_input', 'example_only', 'approval_required', 'unavailable_here', 'error')
 OUTCOME_EXIT = {'ok': EXIT_OK, 'error': EXIT_ERROR, 'approval_required': EXIT_APPROVAL,
-                'unavailable_here': EXIT_UNAVAILABLE, 'example_only': EXIT_EXAMPLE_ONLY}
+                'unavailable_here': EXIT_UNAVAILABLE, 'example_only': EXIT_EXAMPLE_ONLY,
+                'needs_input': EXIT_NEEDS_INPUT}
 
 PARAM_TYPES = ('string', 'number', 'integer', 'bool', 'path', 'list', 'object', 'auto')
 MAX_PARAM_FILE_BYTES = 64 * 1024 * 1024
 
 HINT_INLINE_JSON = ('do not put JSON on the command line (PowerShell 5.1 strips the inner quotes): '
                     'write the object to a .json file with the file tool and pass --params-file FILE')
+HINT_POWERSHELL_QUOTES = ('this is PowerShell 5.1 quoting, not the skill: PowerShell splits an unquoted argument '
+                          'at every space, so the Arabic words after the first one arrive as separate tokens. '
+                          'Wrap the whole key=value pair in double quotes, for example text="الوردة الحمراء"')
 
 
 class ParamError(ValueError):
@@ -163,7 +170,12 @@ def parse_pairs(tokens, schema=None):
         if not isinstance(tok, str):
             raise ParamError('parameters must be key=value strings')
         if '=' not in tok:
-            hint = HINT_INLINE_JSON if tok.lstrip()[:1] in ('{', '[') else 'write parameters as key=value (e.g. text="..." t=0.8)'
+            if tok.lstrip()[:1] in ('{', '['):
+                hint = HINT_INLINE_JSON
+            elif any(ord(ch) > 127 for ch in tok):
+                hint = HINT_POWERSHELL_QUOTES
+            else:
+                hint = 'write parameters as key=value (e.g. text="..." t=0.8)'
             raise ParamError(f'not a key=value parameter: {tok[:80]!r}', hint=hint)
         key, value = tok.split('=', 1)
         raw = key.endswith(':')

@@ -1,0 +1,34 @@
+{
+  "id": "iphone-export",
+  "title_ar": "تصدير فيديو للآيفون (رأسي)",
+  "title_en": "iPhone vertical export (MP4)",
+  "status": "ready",
+  "when": [
+    "صدّرلي الفيديو ده يشتغل على الآيفون",
+    "عايز نسخة MP4 رأسي تفتح على الموبايل بالصوت",
+    "export this clip as an iPhone-friendly vertical MP4"
+  ],
+  "tags": ["export", "iphone", "mp4", "vertical"],
+  "deliver_ar": "ملف MP4 جديد H.264 وyuv420p وصوت AAC وfaststart، بفريمات متطابقة مع المدة، ومقاس زوجي",
+  "place": "needs_ffmpeg",
+  "inputs": [
+    {"key": "source", "type": "path", "required": true, "default": null, "impact": "الفيديو اللي هيتصدر", "redo": "لو اتغير الفيديو التصدير يتعمل تاني", "question_ar": "أي فيديو أصدّره للآيفون؟", "suggest_ar": "المسار الكامل للملف (MP4 أو MOV)"}
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "do_ar": "أصدّر نسخة MP4 جديدة بالمقاس الرأسي للآيفون، وأتحقق منها",
+      "op": "media.iphone_export",
+      "args": {"source": "${source}", "output": "${work}/iphone-vertical.mp4", "preset": "iphone-vertical"},
+      "effect": "write",
+      "approval": true,
+      "deliver": true,
+      "gate": [
+        {"text_ar": "التصدير صح: H.264 وyuv420p ومقاس زوجي، الصوت AAC لو موجود، الفريمات = المدة × الفريم، وأول فريم مش أسود", "check": "verify_video", "expect": {"path": "${work}/iphone-vertical.mp4", "audio": "aac_or_none", "frames_match": true, "no_black_first_frame": true, "even_dims": true}}
+      ]
+    }
+  ],
+  "approvals": [{"step": 1, "text_ar": "أكتب ملف MP4 جديد للآيفون في مجلد الشغل (الأصلي ما يتلمسش)"}],
+  "rules": ["aac_in_mp4", "no_black_first_frame", "frames_match_duration", "even_dimensions", "no_overlays_unless_named"],
+  "selftest": {"inputs": {"source": "@SAMPLE_VIDEO"}, "approve": true}
+}

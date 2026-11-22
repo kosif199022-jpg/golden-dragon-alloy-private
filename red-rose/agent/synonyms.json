@@ -1,0 +1,282 @@
+{
+  "version": "W07-1",
+  "note": "Query expansion for routing. Keys are Arabic words (folded at load); values are English route terms. Expansions count at 0.6 of an original term. The catalogue's own synonyms are merged in at load.",
+  "terms": {
+    "قص": [
+      "cut",
+      "trim",
+      "recut",
+      "edit"
+    ],
+    "قصه": [
+      "cut",
+      "trim",
+      "recut"
+    ],
+    "مونتاج": [
+      "edit",
+      "montage",
+      "cut"
+    ],
+    "تحرير": [
+      "edit"
+    ],
+    "ريل": [
+      "reel",
+      "reels",
+      "vertical",
+      "short"
+    ],
+    "ريلز": [
+      "reel",
+      "reels",
+      "vertical",
+      "short"
+    ],
+    "عنوان": [
+      "title",
+      "kinetic"
+    ],
+    "متحرك": [
+      "animated",
+      "kinetic",
+      "motion"
+    ],
+    "كابشن": [
+      "caption",
+      "captions",
+      "subtitle",
+      "words"
+    ],
+    "ترجمه": [
+      "subtitle",
+      "caption",
+      "srt"
+    ],
+    "صوت": [
+      "audio",
+      "sound",
+      "loudness"
+    ],
+    "لقطات": [
+      "shot",
+      "shots",
+      "scene"
+    ],
+    "لقطه": [
+      "shot",
+      "shots",
+      "scene"
+    ],
+    "تقرير": [
+      "report"
+    ],
+    "بنك": [
+      "bank"
+    ],
+    "دفتر": [
+      "ledger",
+      "book"
+    ],
+    "مطابقه": [
+      "reconcile",
+      "reconciliation",
+      "match"
+    ],
+    "فروقات": [
+      "difference",
+      "reconcile"
+    ],
+    "لوجو": [
+      "logo"
+    ],
+    "ايفون": [
+      "iphone"
+    ],
+    "آيفون": [
+      "iphone"
+    ],
+    "موبايل": [
+      "iphone",
+      "phone",
+      "vertical"
+    ],
+    "رأسي": [
+      "vertical",
+      "portrait"
+    ],
+    "تطبيع": [
+      "normalise",
+      "loudness",
+      "lufs"
+    ],
+    "موسيقى": [
+      "music",
+      "beat",
+      "rhythm"
+    ],
+    "ايقاع": [
+      "beat",
+      "rhythm"
+    ],
+    "قيّم": [
+      "score",
+      "shot"
+    ],
+    "قيم": [
+      "score",
+      "shot"
+    ],
+    "تصدير": [
+      "export"
+    ],
+    "رندر": [
+      "render"
+    ],
+    "يوتيوب": [
+      "upload",
+      "publish"
+    ],
+    "ترند": [
+      "trend"
+    ],
+    "ألوان": [
+      "grade",
+      "color"
+    ],
+    "الوان": [
+      "grade",
+      "color"
+    ],
+    "لون": [
+      "grade",
+      "color"
+    ],
+    "فيديو": [
+      "video",
+      "clip",
+      "mp4"
+    ],
+    "صورة": [
+      "image",
+      "png",
+      "frame"
+    ],
+    "اطار": [
+      "frame",
+      "png"
+    ],
+    "إطار": [
+      "frame",
+      "png"
+    ],
+    "تحقق": [
+      "verify",
+      "check"
+    ],
+    "افحص": [
+      "check",
+      "verify",
+      "delivery"
+    ],
+    "قيس": [
+      "measure",
+      "loudness",
+      "score"
+    ],
+    "ابعت": [
+      "publish",
+      "send"
+    ],
+    "صدر": [
+      "export"
+    ],
+    "صدّر": [
+      "export"
+    ],
+    "lut": [
+      "export",
+      "grade"
+    ],
+    "تسليم": [
+      "delivery",
+      "check"
+    ]
+  },
+  "stopwords": [
+    "عايز",
+    "عاوز",
+    "عايزه",
+    "اعمل",
+    "اعملي",
+    "اعمله",
+    "شوف",
+    "قولي",
+    "وريني",
+    "حط",
+    "هات",
+    "ده",
+    "دي",
+    "دا",
+    "من",
+    "في",
+    "على",
+    "عن",
+    "مع",
+    "ان",
+    "إن",
+    "لو",
+    "ولا",
+    "او",
+    "أو",
+    "انت",
+    "انا",
+    "إنت",
+    "ايه",
+    "إيه",
+    "كده",
+    "كدة",
+    "بس",
+    "يعني",
+    "علشان",
+    "عشان",
+    "ممكن",
+    "محتاج",
+    "محتاجه",
+    "نفسي",
+    "يا",
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "to",
+    "of",
+    "me",
+    "please",
+    "make",
+    "want",
+    "this",
+    "that",
+    "for",
+    "with",
+    "my",
+    "i",
+    "do",
+    "it",
+    "is",
+    "قبل",
+    "بعد",
+    "لما",
+    "ما",
+    "بتاع",
+    "حاجه",
+    "حاجة",
+    "ازاي",
+    "ازى",
+    "اللي",
+    "الي",
+    "بعدين",
+    "وبعدين"
+  ]
+}
