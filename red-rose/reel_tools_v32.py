@@ -118,7 +118,7 @@ def color_stats(video, start: float = 0.0, duration: float | None = None, sample
 
 
 def color_match(reference, clip, out_cube=None, start: float = 0.0, duration: float | None = None,
-                strength: float = 0.9, lift: float = 0.0, approve_write: bool = False) -> dict:
+                strength: float = 0.9, lift: float = 0.0, approve_write: bool = False, target: dict | None = None) -> dict:
     """LUT that moves `clip` (its start..start+duration window) to the reference's colour.
 
     Lab mean/std transfer, blended by `strength`. `lift` adds brightness to the target
@@ -127,7 +127,12 @@ def color_match(reference, clip, out_cube=None, start: float = 0.0, duration: fl
     """
     if not 0 < strength <= 1:
         raise ValueError('strength must be in (0, 1]')
-    ref = color_stats(reference)
+    if target:   # a measured style preset instead of a reference video: {'mean': [L,a,b], 'std': [L,a,b]}
+        ref = {'ok': True, 'L': target['mean'][0], 'a': target['mean'][1], 'b': target['mean'][2],
+               'chroma': target.get('chroma'), 'std': target['std'], '_mean': list(target['mean']),
+               '_std': list(target['std'])}
+    else:
+        ref = color_stats(reference)
     src = color_stats(clip, start, duration, samples=6)
     mu_r = [ref['_mean'][0] + lift, ref['_mean'][1], ref['_mean'][2]]
     ratio = [min(2.2, max(0.5, ref['_std'][k] / max(src['_std'][k], 1e-3))) for k in range(3)]

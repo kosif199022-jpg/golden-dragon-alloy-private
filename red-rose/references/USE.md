@@ -175,6 +175,21 @@ Makes a dua reel in the measured trending style: fixed date header, gold salawat
 4. Lines without times get a reading pace. To follow a sound exactly, take `t0`/`t1` from `line-times` (a reference video) or `speech-sync` (a recording).
 5. With no `audio` the file has a silent AAC track: the owner adds the trend sound inside TikTok.
 
+Style and fonts (V35):
+
+- `"style": "channel"` gives the calm natural colour measured on the dua channel (median of 69 text-free clips: L 47.9, chroma 12.6). `"style": "trend"` gives the warm saturated look of the trending TikTok (L 56.5, chroma 23.3). Both live in `agent/colour_styles.json`. `"reference": "video.mp4"` still matches any other video.
+- `"fonts": {"line": "...", "calligraphy": "...", "title": "...", "latin": "..."}` picks fonts by name from the font library (`rose.py fonts find "..."`). Unset roles keep the measured defaults (Lalezar, Aref Ruqaa, Amiri, Cinzel). A calligraphy-piece font (digits map to artwork) is refused for text lines.
+- Write the day name without diacritics: fitted to the header width, tashkeel grows too large.
+- The `dua` library skips thumbnails and clips its `_analysis.json` marks as carrying text. On another PC, get it with `rose.py library fetch dua --approve-write` (private GitHub release `dua-library-v1`, 100 clips, 366 MB).
+
+## Font library (`fonts`)
+
+- `rose.py fonts scan FOLDER... --approve-write` indexes fonts (family, Arabic support, licence from the font's own name table, a usage note when the font's guide has one) into `~/.red-rose/fonts/library.json`. Font files stay where they are; they are never copied into Git.
+- `rose.py fonts list --arabic`, `fonts find "kufi"`, `fonts show NAME`, `fonts path NAME`.
+- `rose.py fonts preview OUT.png [--filter words] --approve-write` draws a sample of every matching font so the owner can choose by eye.
+- Licence: `OFL` is free to use. `unknown` or `see text` means ask the owner before commercial use; fonts from chat channels are often «free for personal use» only (several here say so in their names).
+- The Laylat al-Qadr font (Elgharib-Omar AlQadr 2025) is a calligraphy-piece font: type digits 1–11 to get the pieces. Its author does not allow it over music.
+
 The dua text must come from the owner or be written fresh and shown to them first. Do not invent a hadith or attribute words to the Prophet ﷺ. The Hijri day can differ by one between calendars: ask the owner which to show.
 
 ## Toolbox: outside tools on this PC (`toolbox`)

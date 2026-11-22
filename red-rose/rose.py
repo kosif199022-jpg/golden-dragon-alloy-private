@@ -78,6 +78,8 @@ def main(argv=None):
     x=sub.add_parser('line-times',help='on/off times of white on-screen text in a crop box of a reference video'); x.add_argument('video'); x.add_argument('--box',required=True,help='x:y:w:h in source pixels')
     x=sub.add_parser('toolbox',help='outside programs, libraries, repos and fonts found on this PC'); x.add_argument('--domain',choices=['montage','audio','image','thinking','utility']); x.add_argument('--find'); x.add_argument('--missing',action='store_true'); x.add_argument('--fonts',action='store_true')
     x=sub.add_parser('dua-reel',help='make a dua reel in the measured trending style from a plan JSON and a footage library'); x.add_argument('plan_json'); x.add_argument('output'); x.add_argument('--work'); x.add_argument('--storyboard',action='store_true',help='only write the storyboard image'); x.add_argument('--approve-write',action='store_true')
+    x=sub.add_parser('fonts',help='font library: scan, list, find, show, preview, path'); x.add_argument('action',choices=['scan','list','find','show','preview','path']); x.add_argument('args',nargs='*'); x.add_argument('--arabic',action='store_true'); x.add_argument('--style'); x.add_argument('--filter'); x.add_argument('--text'); x.add_argument('--approve-write',action='store_true')
+    x=sub.add_parser('library',help='footage libraries: list, fetch from the private GitHub release'); x.add_argument('action',choices=['list','fetch']); x.add_argument('name',nargs='?'); x.add_argument('--dest'); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
     x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
     x=sub.add_parser('timeline-analyze'); x.add_argument('source'); x.add_argument('--noise-db',type=float,default=-35); x.add_argument('--sample-fps',type=int,default=6)
@@ -173,6 +175,26 @@ def main(argv=None):
         print(json.dumps(result,ensure_ascii=False))
         if result.get('outcome')=='approval_required': raise SystemExit(3)
         if not result.get('ok'): raise SystemExit(1)
+        return
+    if args.command=='library':
+        import media_library_v35 as ml
+        result=ml.listing() if args.action=='list' else ml.fetch(args.name or 'dua',args.dest,args.approve_write)
+        print(json.dumps(result,ensure_ascii=False))
+        if result.get('outcome')=='approval_required': raise SystemExit(3)
+        return
+    if args.command=='fonts':
+        import font_library_v35 as fl
+        a=args.action
+        if a=='scan': result=fl.scan(args.args,args.approve_write)
+        elif a=='list': result=fl.listing(args.arabic,args.style,args.filter)
+        elif a=='find': result=fl.listing(args.arabic,args.style,' '.join(args.args))
+        elif a in ('show','path'):
+            r=fl.find_one(' '.join(args.args)); result={'ok':bool(r),'font':r} if a=='show' else {'ok':bool(r),'path':r and r['file']}
+        else:
+            if not args.args: raise SystemExit('fonts preview OUT.png')
+            result=fl.preview(args.args[0],args.filter,args.text or fl.SAMPLE,True,60,args.approve_write)
+        print(json.dumps(result,ensure_ascii=False))
+        if result.get('outcome')=='approval_required': raise SystemExit(3)
         return
     if args.command=='toolbox':
         import toolbox_v33
