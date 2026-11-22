@@ -77,6 +77,7 @@ def main(argv=None):
     x=sub.add_parser('color-match',help='build a .cube LUT moving a clip to a reference video colour'); x.add_argument('reference'); x.add_argument('clip'); x.add_argument('--out'); x.add_argument('--start',type=float,default=0.0); x.add_argument('--duration',type=float); x.add_argument('--strength',type=float,default=0.9); x.add_argument('--lift',type=float,default=0.0); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('line-times',help='on/off times of white on-screen text in a crop box of a reference video'); x.add_argument('video'); x.add_argument('--box',required=True,help='x:y:w:h in source pixels')
     x=sub.add_parser('toolbox',help='outside programs, libraries, repos and fonts found on this PC'); x.add_argument('--domain',choices=['montage','audio','image','thinking','utility']); x.add_argument('--find'); x.add_argument('--missing',action='store_true'); x.add_argument('--fonts',action='store_true')
+    x=sub.add_parser('dua-reel',help='make a dua reel in the measured trending style from a plan JSON and a footage library'); x.add_argument('plan_json'); x.add_argument('output'); x.add_argument('--work'); x.add_argument('--storyboard',action='store_true',help='only write the storyboard image'); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
     x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
     x=sub.add_parser('timeline-analyze'); x.add_argument('source'); x.add_argument('--noise-db',type=float,default=-35); x.add_argument('--sample-fps',type=int,default=6)
@@ -164,6 +165,14 @@ def main(argv=None):
         print(json.dumps(result,ensure_ascii=False))
         if result.get('outcome')=='approval_required': raise SystemExit(3)
         if args.command=='flat-check' and not result['ok']: raise SystemExit(1)
+        return
+    if args.command=='dua-reel':
+        import dua_reel_v34
+        plan=json.loads(Path(args.plan_json).expanduser().read_text(encoding='utf-8-sig'))
+        result=dua_reel_v34.build(plan,args.output,args.work,args.approve_write,args.storyboard)
+        print(json.dumps(result,ensure_ascii=False))
+        if result.get('outcome')=='approval_required': raise SystemExit(3)
+        if not result.get('ok'): raise SystemExit(1)
         return
     if args.command=='toolbox':
         import toolbox_v33
