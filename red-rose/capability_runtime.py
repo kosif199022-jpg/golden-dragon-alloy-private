@@ -60,10 +60,11 @@ import net_v28
 import bridges_v28
 import prompts_v28
 import intelligence_director_v29
+import storyboard_pipeline_v30
 import playbooks_v28
 
 # File/media/database adapters: per-op EFFECTS; writes need the owner's --approve-write.
-IO_ADAPTERS = {'knowledge.store': knowledge_v25, 'database.manage': database_v25,
+IO_ADAPTERS = {'storyboard.pipeline': storyboard_pipeline_v30, 'knowledge.store': knowledge_v25, 'database.manage': database_v25,
                'video.analyze': media_analysis_v25, 'video.edit': editing_v25,
                'audio.process': audio_v25, 'automation.run': automation_v25,
                'release.verify': release_v26, 'studio.render': studio_v27,
@@ -91,6 +92,7 @@ from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fus
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
+ 'storyboard.pipeline': ('Compile V29 beats to original V20 illustration; render silent verified MP4 only after explicit user approval', 'mixed', 'ffmpeg'),
  'intelligence.director': ('Calibrated option review, editable Arabic-safe storyboard, constrained RTL auto layout; no network/media execution', 'read', 'builtin'),
  'qa.trace': ('Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A', 'read', 'builtin'),
  'roadmap.status': ('Report verified progress on the owner-approved 1,400-question roadmap by topic or question', 'read', 'builtin'),
@@ -153,6 +155,10 @@ REGISTRY = {
  'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
+ 'اخراج': ('storyboard.pipeline',),
+ 'إخراج': ('storyboard.pipeline',),
+ 'ستوري بورد': ('intelligence.director','storyboard.pipeline'),
+ 'storyboard render': ('storyboard.pipeline',),
  'تحليل قرار': ('intelligence.director',),
  'تحيز': ('intelligence.director',),
  'تفكير نقدي': ('intelligence.director',),
