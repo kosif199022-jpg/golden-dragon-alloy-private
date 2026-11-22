@@ -104,3 +104,6 @@ Start with FUSION_V20_GUIDE.md and SOURCE_FUSION_AUDIT_V20.json. Use fusion.plan
 
 ## V29 — evidence-based direction
 Use the original native `intelligence.director` via `capability-run` for bounded alternative scoring, frame-exact storyboarding and RTL layout checks. Its outputs are proposals only. Source hashes and limitations: `SOURCE_INTELLIGENCE_AUDIT_V29.json` and `V29_INTELLIGENCE_GUIDE.md`. No foreign engine is invoked. New engine's 18 tests and full suite must pass on the current PR before merge.
+
+## V30 — supervised original MP4 production
+Use `storyboard.pipeline` `compile` to review a V29 story, then `render` with explicit `--approve-write` only for 2D illustrated clay or schematic map output. The render is silent H264/MP4 with verified frame count and hash receipt. Unsupported visual fidelity (3D, true SaaS screenshot video, full Remotion) is refused unless a disclosed 2D clay fallback is explicitly allowed for supported names. See `V30_STORYBOARD_RENDER_GUIDE.md`; no legacy runtime imports.
