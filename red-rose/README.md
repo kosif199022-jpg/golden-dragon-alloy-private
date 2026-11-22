@@ -272,3 +272,7 @@ Read `SOURCE_INTELLIGENCE_AUDIT_V29.json`, `V29_INTELLIGENCE_GUIDE.md`, `intelli
 `intelligence.director` is a new **read-only** native adapter with three explicit ops: `decision_review`, `storyboard_plan`, `layout_audit`. It adds evidence calibration, bias review, frame-exact storyboard allocation and overflow detection. It is deterministic and cannot understand content like a trained video model. It does not overwrite or render user files. It also cannot guarantee the user's professional/creative outcome. See the guide for commands and limitations.
 
 The V27/V28 set of 8 `CODED_UNTESTED` adapters **remains unverified**. Do not call this full fusion of the source code or a wholesale increase in model IQ.
+
+## V30 — approved V29-to-V20 original video bridge
+
+New native mixed adapter `storyboard.pipeline`: read-only `compile` and approved `render`. Produces actual H264/MP4 from a frame-exact V29 beat plan using the independent V20 illustrated clay/schematic-map renderer, with full FFprobe+decode verification, no-overwrite stage and hash receipt. No silent downgrade from 3D/Remotion/Figma: unsupported visual styles are rejected, or a specific limited fallback must be opted into. See [V30_STORYBOARD_RENDER_GUIDE.md](V30_STORYBOARD_RENDER_GUIDE.md). Other eight coded V27/V28 adapters remain untested.
