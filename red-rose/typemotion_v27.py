@@ -29,7 +29,9 @@ font metrics.
 """
 from __future__ import annotations
 
+import functools
 import html
+import inspect
 import json
 import math
 import re
@@ -134,9 +136,12 @@ _M64 = 0xFFFFFFFFFFFFFFFF
 
 # --------------------------------------------------------------------------- validation
 
-def _no_extra(extra):
+def _no_extra(extra, allowed=None):
     if extra:
-        raise ValueError('unknown parameter(s): ' + ', '.join(sorted(map(str, extra))))
+        msg = 'unknown parameter(s): ' + ', '.join(sorted(map(str, extra)))
+        if allowed is not None:
+            msg += '; allowed: ' + (', '.join(sorted(map(str, allowed))) or '(none)')
+        raise ValueError(msg)
 
 
 def _num(value, low, high, name):
@@ -379,9 +384,9 @@ def _advance(ch):
     if cat == 'Nd':
         return 0.56
     if cat == 'Lu':
-        return 0.66
+        return 0.70
     if cat.startswith('L'):
-        return 0.53
+        return 0.57          # Latin advances measured too narrow at 0.53 ('Red Rose' touched)
     if cat.startswith('P'):
         return 0.32
     return 0.55
@@ -626,12 +631,19 @@ def _timed_words(value):
     return out
 
 
-def _font_attrs(size, weight, fill, stroke, stroke_width):
-    s = (f' font-family="{FONT_STACK}" font-size="{_f(size)}" font-weight="{weight}" fill="{fill}"')
-    if stroke is not None and stroke_width > 0:
-        s += (f' stroke="{stroke}" stroke-width="{_f(stroke_width)}" stroke-linejoin="round"'
-              f' paint-order="stroke fill"')
-    return s
+def _font_attrs(size, weight, fill):
+    """Font + fill attributes. The outline is NOT set here: it is drawn as a separate text copy
+    underneath (see _outline_attrs), because CairoSVG ignores paint-order and would paint the
+    stroke over the fill."""
+    return f' font-family="{FONT_STACK}" font-size="{_f(size)}" font-weight="{weight}" fill="{fill}"'
+
+
+def _outline_attrs(stroke, stroke_width):
+    """Attributes of the outline copy drawn under the fill copy ('' when there is no outline)."""
+    if stroke is None or stroke_width <= 0:
+        return ''
+    return (f' fill="{stroke}" stroke="{stroke}" stroke-width="{_f(stroke_width)}"'
+            f' stroke-linejoin="round"')
 
 
 # --------------------------------------------------------------------------- canvas / safe areas
@@ -739,7 +751,7 @@ def _st0():
             'fill': None, 'text': None, 'anchor': None, 'ghosts': [], 'filter': None}
 
 
-def _word_svg(word, st, cx, baseline, size, dirattr):
+def _word_svg(word, st, cx, baseline, size, dirattr, outline=''):
     if st['op'] <= 0.001 or st['sc'] <= 0.001:
         return ''
     txt = st['text'] if st['text'] is not None else word
@@ -769,8 +781,70 @@ def _word_svg(word, st, cx, baseline, size, dirattr):
         inner += (f'<text x="{_f(gdx)}" y="0" {base_attrs} fill="{gcol}" stroke="none" '
                   f'opacity="{_f(gop, 3)}">{_esc(txt)}</text>')
     fill_attr = f' fill="{st["fill"]}"' if st['fill'] else ''
+    if outline:
+        inner += f'<text x="0" y="0" {base_attrs}{outline}>{_esc(txt)}</text>'
     inner += f'<text x="0" y="0" {base_attrs}{fill_attr}>{_esc(txt)}</text>'
     return f'<g{attrs}>{inner}</g>'
+
+
+def _inv_ease_in_out(q):
+    """Inverse of _ease_in_out on [0, 1]."""
+    q = _clamp(q)
+    if q < 0.5:
+        return (q / 4.0) ** (1.0 / 3.0)
+    return 1.0 - (2.0 * (1.0 - q)) ** (1.0 / 3.0) / 2.0
+
+
+def _word_timings(style, words, lines, place, base, duration, fps, hold, latin_per_letter, x0, bw):
+    """Reveal window of every word: start = first moment it can be seen, end = fully shown.
+    Same schedule as the style code in _kinetic_core; the exit fade is not included."""
+    n = len(words)
+    sched = [(0.0, 0.0)] * n
+    if style == 'word_typewriter':
+        step = 0.7 * duration / n
+        win = max(step * 0.9, 1e-3)
+        for gi in range(n):
+            s = gi * step
+            typed = (latin_per_letter and not _has_arabic(words[gi]) and place[gi][2] == 'ltr'
+                     and len(_clusters(words[gi])) > 1)
+            sched[gi] = (s, s + win if typed else s)
+    elif style in ('fade_up', 'slide_in', 'pop_scale', 'blur_in', 'stagger_words', 'bounce_words',
+                   'glitch_words', 'underline_draw'):
+        if style == 'stagger_words':
+            starts, win = _stagger(n, 0.4 * duration, 0.5, 0.35)
+        elif style == 'bounce_words':
+            starts, win = _stagger(n, 0.65 * duration, 0.45, 0.8)
+        elif style == 'underline_draw':
+            starts, win = _stagger(n, 0.35 * duration, 0.5, 0.4)
+        else:
+            starts, win = _stagger(n, 0.6 * duration)
+        sched = [(starts[gi], starts[gi] + win) for gi in range(n)]
+    elif style == 'counter_numbers':
+        sched = [(0.0, 0.75 * duration if _DIGIT_RE.search(w) else min(0.4, duration)) for w in words]
+    elif style == 'held_frames':
+        starts, _ = _stagger(n, 0.6 * duration, 0.3, 0.5)
+        pose = hold / fps
+        for gi in range(n):
+            first = math.ceil(starts[gi] / pose - 1e-9) * pose
+            sched[gi] = (first, first + 2 * pose)
+    elif style == 'split_lines':
+        lstarts, win = _stagger(len(lines), 0.6 * duration, 0.5, 0.7)
+        for li, idxs in enumerate(lines):
+            for gi in idxs:
+                sched[gi] = (lstarts[li], lstarts[li] + win)
+    elif style == 'mask_reveal':
+        span = 0.6 * duration
+        for gi in range(n):
+            cx, w = place[gi][0], place[gi][1]
+            if base == 'rtl':
+                q0, q1 = (x0 + bw - (cx + w / 2)) / bw, (x0 + bw - (cx - w / 2)) / bw
+            else:
+                q0, q1 = (cx - w / 2 - x0) / bw, (cx + w / 2 - x0) / bw
+            sched[gi] = (span * _inv_ease_in_out(q0), span * _inv_ease_in_out(q1))
+    elif style == 'drift_zoom':
+        sched = [(0.0, min(0.6, duration))] * n
+    return [{'word': words[gi], 'start': round(min(duration, a), 3), 'end': round(min(duration, b), 3)}
+            for gi, (a, b) in enumerate(sched)]
 
 
 def _kinetic_core(text=EXAMPLE_AR, style='fade_up', t=1.2, duration=3.0, width=1080, height=1920, *,
@@ -852,10 +926,6 @@ def _kinetic_core(text=EXAMPLE_AR, style='fade_up', t=1.2, duration=3.0, width=1
             'word_count': len(words), 'contrast': contrast, 'warnings': warnings,
             't': t, 'duration': duration, 'safe_box': _rect((x0, y0, x1, y1)), 'shaping': SHAPING_NOTE,
             'per_letter_arabic': False}
-    if t < 0 or t > duration:
-        meta['visible'] = False
-        return '', meta
-    g_op = 1.0 if exit <= 0 else _clamp((duration - t) / exit)
 
     # ---- layout
     n = len(words)
@@ -879,6 +949,12 @@ def _kinetic_core(text=EXAMPLE_AR, style='fade_up', t=1.2, duration=3.0, width=1
         for k, gi in enumerate(idxs):
             cx, w, d = pos[k]
             place[gi] = (cx, w, d, li, baseline)
+    meta['word_timings'] = _word_timings(style, words, lines, place, base, duration, fps, hold,
+                                         latin_per_letter, x0, bw)
+    if t < 0 or t > duration:
+        meta['visible'] = False
+        return '', meta
+    g_op = 1.0 if exit <= 0 else _clamp((duration - t) / exit)
 
     rd = 1.0 if base == 'rtl' else -1.0     # x sign of "reading start" side
     states = [_st0() for _ in range(n)]
@@ -1071,13 +1147,14 @@ def _kinetic_core(text=EXAMPLE_AR, style='fade_up', t=1.2, duration=3.0, width=1
                           f'rx="{_f(size * 0.2)}" fill="{plate}" fill-opacity="{_f(plate_opacity, 3)}"/>')
     word_parts = []
     visible_words = 0
+    outline = _outline_attrs(stroke, sw)
     for li, idxs in enumerate(lines):
         chunk = []
         for gi in idxs:
             cx, w, d, _, bl = place[gi]
             if states[gi]['anchor'] is not None:
                 d = 'ltr'
-            el = _word_svg(words[gi], states[gi], cx, bl, size, d)
+            el = _word_svg(words[gi], states[gi], cx, bl, size, d, outline)
             if el:
                 visible_words += 1
                 chunk.append(el)
@@ -1097,7 +1174,7 @@ def _kinetic_core(text=EXAMPLE_AR, style='fade_up', t=1.2, duration=3.0, width=1
         g_attrs += f' transform="{group_tr}"'
     svg = (f'<g{g_attrs}>' + (f'<defs>{"".join(defs)}</defs>' if defs else '')
            + ''.join(plates) + ''.join(back)
-           + f'<g{_font_attrs(size, weight, fill, stroke, sw)}>' + ''.join(word_parts) + '</g>'
+           + f'<g{_font_attrs(size, weight, fill)}>' + ''.join(word_parts) + '</g>'
            + ''.join(front) + '</g>')
     meta['visible'] = True
     meta['visible_words'] = visible_words
@@ -1179,7 +1256,11 @@ def _caption_style(preset, width, height, platform, font_size, position, fill, h
 
 
 def _draw_caption(lines, st, direction, css_class):
-    """lines: list of lists of (word, fill-or-None); blank words are skipped but keep their line slot."""
+    """lines: list of lists of (word, fill-or-None); blank words are skipped but keep their line slot.
+
+    Every word is its own <text> (text-anchor middle) placed with the word-level bidi model, so
+    the result does not depend on how a renderer anchors <tspan> runs (CairoSVG anchors only the
+    first tspan) or on direction-dependent text-anchor. Words are never split."""
     size = st['size']
     lh = size * st['line_height']
     x0, y0, x1, y1 = st['box']
@@ -1191,34 +1272,37 @@ def _draw_caption(lines, st, direction, css_class):
         top = y0
     else:
         top = (y0 + y1) / 2 - block_h / 2
-    cx = (x0 + x1) / 2
     plates = []
     texts = []
     warn = []
+    outline = _outline_attrs(st['stroke'], st['stroke_width'])
     for li, toks in enumerate(lines):
         toks = [(w, c) for w, c in toks if w]
         if not toks:
             continue
         line_text = ' '.join(w for w, _ in toks)
         d = _resolve_dir(direction, line_text)
-        lw = _text_width(line_text, size)
-        if lw > (x1 - x0):
+        pos, (lx0, lx1) = _layout_line([w for w, _ in toks], d, size, x0, x1, 'center')
+        if lx1 - lx0 > (x1 - x0):
             warn.append(f'line {li} is estimated wider than the safe area')
         ltop = top + li * lh
         bl = ltop + lh / 2 + size * 0.35
         if st['plate']:
             pad = size * 0.35
-            plates.append(f'<rect x="{_f(cx - lw / 2 - pad)}" y="{_f(ltop + lh * 0.04)}" '
-                          f'width="{_f(lw + 2 * pad)}" height="{_f(lh * 0.92)}" rx="{_f(size * 0.18)}" '
+            plates.append(f'<rect x="{_f(lx0 - pad)}" y="{_f(ltop + lh * 0.04)}" '
+                          f'width="{_f(lx1 - lx0 + 2 * pad)}" height="{_f(lh * 0.92)}" rx="{_f(size * 0.18)}" '
                           f'fill="{st["plate"]}" fill-opacity="{_f(st["plate_opacity"], 3)}"/>')
-        spans = []
-        for w, c in toks:
+        words_svg = []
+        for (w, c), (cx, _, wd) in zip(toks, pos):
+            attrs = (f'x="{_f(cx)}" y="{_f(bl)}" text-anchor="middle" direction="{wd}" '
+                     f'unicode-bidi="embed"{_lang_attr(wd, w)}')
+            if outline:
+                words_svg.append(f'<text {attrs}{outline}>{_esc(w)}</text>')
             fa = f' fill="{c}"' if c else ''
-            spans.append(f'<tspan{fa}>{_esc(w)}</tspan>')
-        texts.append(f'<text x="{_f(cx)}" y="{_f(bl)}" text-anchor="middle" direction="{d}" '
-                     f'unicode-bidi="embed"{_lang_attr(d, line_text)}>' + ' '.join(spans) + '</text>')
+            words_svg.append(f'<text {attrs}{fa}>{_esc(w)}</text>')
+        texts.append(f'<g class="rr-line" data-direction="{d}">' + ''.join(words_svg) + '</g>')
     svg = (f'<g class="{css_class}" data-preset="{st["preset"]}">' + ''.join(plates)
-           + f'<g{_font_attrs(size, st["weight"], st["fill"], st["stroke"], st["stroke_width"])}>'
+           + f'<g{_font_attrs(size, st["weight"], st["fill"])}>'
            + ''.join(texts) + '</g></g>')
     return svg, warn
 
@@ -1312,7 +1396,7 @@ def _karaoke_core(words_with_times=None, t=1.2, width=1080, height=1920, *, pres
 
 def karaoke_caption(words_with_times=None, t=1.2, width=1080, height=1920, **options):
     """Caption page at time t with the current word (from the supplied timings) highlighted.
-    Words are whole <tspan>s inside one <text> per line, so the renderer keeps bidi order."""
+    Every word is one whole <text> placed with the module's word-level bidi order."""
     svg, _ = _karaoke_core(words_with_times, t, width, height, **options)
     return svg
 
@@ -1517,14 +1601,18 @@ def _lower_third_core(name='الوردة الحمراء', role='استوديو �
     name_bl = top + pad * 0.7 + ns * 1.0
     role_bl = name_bl + rs * 1.45
     texts = []
+    # text-anchor="middle" at the estimated centre: 'start' is the right edge for rtl in browsers
+    # but the left edge in CairoSVG, which pushed Arabic names off the card.
+    def centre(width_est):
+        return text_x + sgn * width_est / 2
     if k_name > 0.001:
         dx = -sgn * (1 - k_name) * ns * 0.9
-        texts.append(f'<text x="{_f(text_x + dx)}" y="{_f(name_bl)}" text-anchor="start" direction="{d}" '
+        texts.append(f'<text x="{_f(centre(wn) + dx)}" y="{_f(name_bl)}" text-anchor="middle" direction="{d}" '
                      f'unicode-bidi="embed"{_lang_attr(d, name)} font-size="{_f(ns)}" font-weight="700" '
                      f'fill="{fill}" opacity="{_f(min(1.0, k_name), 3)}">{_esc(name)}</text>')
     if role and k_role > 0.001:
         dx = -sgn * (1 - k_role) * rs * 0.9
-        texts.append(f'<text x="{_f(text_x + dx)}" y="{_f(role_bl)}" text-anchor="start" direction="{d}" '
+        texts.append(f'<text x="{_f(centre(wr) + dx)}" y="{_f(role_bl)}" text-anchor="middle" direction="{d}" '
                      f'unicode-bidi="embed"{_lang_attr(d, role)} font-size="{_f(rs)}" font-weight="400" '
                      f'fill="{role_fill}" opacity="{_f(min(1.0, k_role), 3)}">{_esc(role)}</text>')
     if texts:
@@ -1707,16 +1795,30 @@ _COMMON_ASSUMPTIONS = [
 ]
 
 
-def _op_kinetic_text(**params):
+def _op_kinetic_text(document=False, background='#000000', **params):
+    document = _bool(document, 'document')
+    background = _color(background, 'background')
     svg, meta = _kinetic_core(**params)
     meta['svg'] = svg
+    if document:
+        w = params.get('width', 1080)
+        h = params.get('height', 1920)
+        meta['document'] = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+                            f'viewBox="0 0 {w} {h}"><rect x="0" y="0" width="{w}" height="{h}" '
+                            f'fill="{background}"/>{svg}</svg>')
     return _pack('kinetic_text', meta, _COMMON_ASSUMPTIONS + [
         'mixed Arabic/English word order uses a word-level bidi model (W2/W7/N1/N2/I1/I2/L2); '
         'each word keeps its own direction attribute, strings are never reversed',
-        'glitch_words and held_frames use a seeded integer hash: same seed -> same frames'],
+        'glitch_words and held_frames use a seeded integer hash: same seed -> same frames',
+        'word_timings are each word\'s reveal window (start = can first be seen, end = fully shown); '
+        'the exit fade is not included',
+        'outlines are a separate text copy under the fill (renderers that ignore paint-order still '
+        'show the fill)'],
         [f'text <= {MAX_TEXT} chars and <= {MAX_WORDS} words', 'duration 0.2-600 s, max_lines 1-8',
          'font_size >= 3.5% of frame height; contrast >= 4.5 against plate (worst case) or stroke',
-         'title-safe 90% box (intersected with platform UI margins when platform is set)'])
+         'title-safe 90% box (intersected with platform UI margins when platform is set)',
+         'document=True adds result.document: a standalone <svg> with width/height and a '
+         'background rect (background is used only then)'])
 
 
 def _op_wrap_caption(**params):
@@ -1735,7 +1837,7 @@ def _op_karaoke_caption(**params):
     return _pack('karaoke_caption', meta, _COMMON_ASSUMPTIONS + [
         'timings come only from the caller; the current word is start <= t < end',
         'a page shows from its first word start until the next page starts (or last end + linger)',
-        'each line is one <text> with whole-word <tspan>s, so the renderer resolves bidi order'],
+        'each word is one whole <text> (anchor middle) placed by a word-level bidi model'],
         [f'at most {MAX_TIMED} timed words', 'presets: ' + ', '.join(PRESETS),
          'contrast of fill and highlight >= 4.5 against plate (worst case) or stroke'])
 
@@ -1801,6 +1903,30 @@ def _op_catalogue(**params):
         ['<= 64 layers, <= 12 languages, <= 500 catalogue keys'])
 
 
+def _named(impl, doc, *sources, extra=(), drop=()):
+    """Op callable with keyword-only named parameters taken from the source functions' signatures
+    (defaults included), a one-line docstring and an 'allowed: ...' guard for unknown names."""
+    params, seen = [], set()
+    for src in sources:
+        for q in inspect.signature(src).parameters.values():
+            if q.kind is inspect.Parameter.VAR_KEYWORD or q.name in seen or q.name in drop:
+                continue
+            seen.add(q.name)
+            params.append(q.replace(kind=inspect.Parameter.KEYWORD_ONLY))
+    for name, default in extra:
+        params.append(inspect.Parameter(name, inspect.Parameter.KEYWORD_ONLY, default=default))
+    names = tuple(q.name for q in params)
+
+    @functools.wraps(impl)
+    def op(**kwargs):
+        _no_extra([k for k in kwargs if k not in names], allowed=names)
+        return impl(**kwargs)
+    op.__doc__ = doc
+    op.__signature__ = inspect.Signature(params)
+    op.allowed_params = names
+    return op
+
+
 OPS = {
     'kinetic_text': _op_kinetic_text,
     'wrap_caption': _op_wrap_caption,
@@ -1811,6 +1937,26 @@ OPS = {
     'list_styles': _op_list_styles,
     'caption': _op_caption,
     'catalogue': _op_catalogue,
+}
+OPS = {
+    'kinetic_text': _named(_op_kinetic_text, 'Animated kinetic title (SVG <g>, optional full <svg> document) '
+                           'with per-word reveal timings at time t.', _kinetic_core,
+                           extra=(('document', False), ('background', '#000000'))),
+    'wrap_caption': _named(_op_wrap_caption, 'Break words into caption lines and pages without '
+                           'splitting any word.', wrap_caption),
+    'karaoke_caption': _named(_op_karaoke_caption, 'Caption page at time t with the current word '
+                              '(from supplied timings) highlighted.', _karaoke_core),
+    'srt': _named(_op_srt, 'Build SRT from supplied timed words, or parse srt_text into cues.',
+                  _op_srt, _srt_cues),
+    'lower_third': _named(_op_lower_third, 'Animated name/role card (RTL on the right, LTR on the '
+                          'left) at time t.', _lower_third_core),
+    'derive_canvas': _named(_op_derive_canvas, 'Frame size, fps and safe areas for a delivery '
+                            'platform.', derive_canvas),
+    'list_styles': _named(_op_list_styles, 'List the kinetic text styles and caption presets with '
+                          'Arabic descriptions.'),
+    'caption': _named(_op_caption, 'Static burned caption page (SVG) drawn with a preset.', _caption_core),
+    'catalogue': _named(_op_catalogue, 'Render one text timeline once per language from a '
+                        '{key: {lang: text}} catalogue.', render_catalogue_timeline),
 }
 
 

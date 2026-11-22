@@ -22,6 +22,10 @@ Safety rules:
   file inside a caller-supplied existing work_dir, and needs approve_write=True.
   Rows of kind lesson/rule and rows with origin 'owner' are skipped, so private
   lessons stay private.
+- search / plan_from_playbook / stats read db (default DEFAULT_INDEX =
+  ~/.red-rose/playbooks_v28.sqlite3, the derived index only). A missing index raises
+  ValueError starting 'pc_only: playbook index not found at <path>': the index exists
+  only on a PC where build_index was run.
 - Parsing is a pure keyword/regex heuristic; 'confidence' only measures how
   many playbook fields the heuristic found, not whether the playbook is right.
 """
@@ -49,6 +53,10 @@ MAX_LIST = 12
 SCHEMA_VERSION = 'playbooks_v28/2'
 
 PRIVATE_DIR = Path.home() / '.red-rose'
+# Where build_index output is looked for when search / plan_from_playbook / stats get no db.
+# The index is built on the owner's PC from the catalogue; it is not shipped with the skill.
+DEFAULT_INDEX = PRIVATE_DIR / 'playbooks_v28.sqlite3'
+PC_ONLY_PREFIX = 'pc_only: playbook index not found at '
 
 SOURCE_TABLE = 'fused_knowledge'
 SOURCE_KINDS = ('catalog-skill', 'skill', 'tool', 'lib', 're', 'program', 'mcp')
@@ -729,8 +737,23 @@ def build_index(*, db=None, work_dir=None, out_name='playbooks_v28.sqlite3', kin
 
 # --------------------------------------------------------------------------- reading the playbook DB
 
+def _index_path(db, allow_private_db):
+    """Resolve the playbook index (db or DEFAULT_INDEX); a missing file is a pc_only error."""
+    if db is None:
+        db = DEFAULT_INDEX
+    if isinstance(db, Path):
+        db = str(db)
+    raw = _str(db, 'db', max_len=1000)
+    if raw != ':memory:' and not raw.lower().startswith('file:'):
+        candidate = Path(raw).expanduser().resolve()
+        if not candidate.exists():
+            raise ValueError(f'{PC_ONLY_PREFIX}{candidate} (build it on the owner PC with '
+                             'build_index and --approve-write, or pass db=<path>)')
+    return _db_path(raw, allow_private_db)
+
+
 def _open_playbooks(db, allow_private_db):
-    path = _db_path(db, allow_private_db)
+    path = _index_path(db, allow_private_db)
     conn = _connect_ro(path)
     try:
         if not (_has_table(conn, 'playbooks') and _has_table(conn, 'meta')):
@@ -756,10 +779,11 @@ def _row_to_pb(row):
 
 def search(*, db=None, query=None, mode='all', limit=10, domain=None, min_confidence=0.0,
            allow_private_db=False, **extra):
-    """BM25-ranked FTS5 search over title/goal/triggers/steps of a playbook database."""
+    """BM25-ranked FTS5 search over title/goal/triggers/steps of a playbook database.
+
+    db defaults to DEFAULT_INDEX (~/.red-rose/playbooks_v28.sqlite3); a missing index raises
+    ValueError('pc_only: playbook index not found at <path> ...')."""
     _no_extra(extra)
-    if db is None:
-        raise ValueError('db is required (playbook database built by build_index)')
     query = _str(query, 'query', max_len=MAX_QUERY)
     mode = _choice(mode, {'all', 'any'}, 'mode')
     limit = _int(limit, 1, 100, 'limit')
@@ -805,10 +829,10 @@ _MANUAL = 'manual/agent step'
 
 def plan_from_playbook(*, db=None, playbook_id=None, task=None, deliverable=None, constraints=None,
                        done_when=None, available_adapters=None, allow_private_db=False, **extra):
-    """Turn one playbook + a task text into an agents_v22 task contract and an adapter-mapped step list."""
+    """Turn one playbook + a task text into an agents_v22 task contract and an adapter-mapped step list.
+
+    db defaults to DEFAULT_INDEX; a missing index raises the pc_only ValueError."""
     _no_extra(extra)
-    if db is None:
-        raise ValueError('db is required (playbook database built by build_index)')
     playbook_id = _str(playbook_id, 'playbook_id', max_len=40)
     if not re.fullmatch(r'pb_[0-9a-f]{20}', playbook_id):
         raise ValueError('playbook_id must look like pb_ followed by 20 hex characters')
@@ -903,10 +927,8 @@ def plan_from_playbook(*, db=None, playbook_id=None, task=None, deliverable=None
 # --------------------------------------------------------------------------- op: stats
 
 def stats(*, db=None, allow_private_db=False, **extra):
-    """Domain / category / confidence breakdown of a playbook database."""
+    """Domain / category / confidence breakdown of a playbook database (db defaults to DEFAULT_INDEX)."""
     _no_extra(extra)
-    if db is None:
-        raise ValueError('db is required (playbook database built by build_index)')
     with closing(_open_playbooks(db, allow_private_db)) as conn:
         total = conn.execute('SELECT count(*) FROM playbooks').fetchone()[0]
         by_domain = dict(conn.execute('SELECT domain, count(*) FROM playbooks GROUP BY domain '

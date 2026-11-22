@@ -39,10 +39,17 @@ def render(output, duration=10, fps=24, width=540, height=960, recipe=None, mp4=
             raise RuntimeError('MP4 export requires cairosvg (pip install cairosvg) and ffmpeg') from exc
         if not shutil.which('ffmpeg'):
             raise RuntimeError('MP4 export requires ffmpeg')
+        from arabic_shape import RasterShaper
+        shaper=RasterShaper()  # CairoSVG has no Arabic shaper: shape a copy of each frame first
         for i in range(count):
-            cairosvg.svg2png(url=str(out/f'frame_{i:05d}.svg'),write_to=str(out/f'frame_{i:05d}.png'))
+            svg=(out/f'frame_{i:05d}.svg').read_text(encoding='utf-8')
+            cairosvg.svg2png(bytestring=shaper(svg).encode('utf-8'),write_to=str(out/f'frame_{i:05d}.png'))
         target=out/'video.mp4'
         subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-framerate',str(fps),'-i',str(out/'frame_%05d.png'),'-c:v','libx264','-pix_fmt','yuv420p',str(target)],check=True)
         manifest['mp4']=str(target)
+        shaping=shaper.summary()
+        manifest['shaping']=shaping
+        manifest['warnings']=list(shaping['warnings'])
+        manifest['qa']={'passed':shaping['ok'],'text_shaping_ok':shaping['ok']}
     (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
     return manifest

@@ -152,19 +152,24 @@ def render_video(project,output,*,approve_write=False):
     if not shutil.which('ffmpeg'):raise RuntimeError('FFmpeg required')
     import cairosvg
     from PIL import Image
+    from arabic_shape import RasterShaper
+    shaper=RasterShaper()  # CairoSVG has no Arabic shaper: rasterise a shaped copy of each frame
     cmd=['ffmpeg','-hide_banner','-nostdin','-v','error','-y','-f','rawvideo','-pix_fmt','rgb24','-s',f'{project["width"]}x{project["height"]}',
          '-r',str(project['fps']),'-i','pipe:0','-an','-c:v','libx264','-preset','veryfast','-crf','22','-pix_fmt','yuv420p','-movflags','+faststart',str(target)]
     proc=subprocess.Popen(cmd,stdin=subprocess.PIPE,stderr=subprocess.PIPE)
     try:
         for i in range(project['frames']):
-            png=cairosvg.svg2png(bytestring=frame_svg(project,i).encode(),output_width=project['width'],output_height=project['height'])
+            png=cairosvg.svg2png(bytestring=shaper(frame_svg(project,i)).encode('utf-8'),output_width=project['width'],output_height=project['height'])
             with Image.open(io.BytesIO(png)) as img:raw=img.convert('RGB').tobytes()
             proc.stdin.write(raw)
         proc.stdin.close();proc.stdin=None
         _,err=proc.communicate(timeout=120)
         if proc.returncode:raise RuntimeError('FFmpeg render failed '+err.decode(errors='replace')[-220:])
+        shaping=shaper.summary()
         return {'output':str(target),'frames':project['frames'],'fps':project['fps'],
-                'dimensions':[project['width'],project['height']],'mode':'original SVG illustrated silent MP4'}
+                'dimensions':[project['width'],project['height']],'mode':'original SVG illustrated silent MP4',
+                'shaping':shaping,'warnings':list(shaping['warnings']),
+                'qa':{'passed':shaping['ok'],'text_shaping_ok':shaping['ok']}}
     except Exception:
         proc.kill();proc.communicate();target.unlink(missing_ok=True)
         raise

@@ -50,6 +50,7 @@ import zlib
 from fractions import Fraction
 from pathlib import Path
 
+import arabic_shape
 from scene_edit_v16 import probe_source
 from verify_media import verify_video
 
@@ -504,6 +505,10 @@ def _norm_layer(raw, i, duration, fps):
     warnings = []
     if (end - start) * fps < 1:
         warnings.append(f'{where} is shorter than one frame and may never be drawn')
+    if (op in _DURATION_OPS.get(module, ()) and 'duration' not in params
+            and end - start >= 0.2):
+        # a text layer animates over its own span unless the caller says otherwise
+        params = dict(params, duration=round(end - start, 6))
     return {'module': module, 'op': op, 'params': params, 'start': start, 'end': end,
             'z': z, 'opacity': opacity}, warnings
 
@@ -651,9 +656,28 @@ def _cairosvg():
         raise RuntimeError('CairoSVG is required for rasterising frames') from exc
 
 
-def _raster(svg, width, height):
-    return _cairosvg().svg2png(bytestring=svg.encode('utf-8'), output_width=width,
+def _shape(svg):
+    """Raster copy of a logical SVG: Arabic shaped, rtl anchors fixed, stroke under fill.
+
+    CairoSVG has no text shaper, so this runs before EVERY rasterisation; the
+    logical SVG returned to callers is never modified. Never shapes twice."""
+    return arabic_shape.shape_svg_for_raster(svg)
+
+
+def _svg2png(shaped_svg, width, height):
+    return _cairosvg().svg2png(bytestring=shaped_svg.encode('utf-8'), output_width=width,
                                output_height=height, unsafe=False)
+
+
+def _raster(svg, width, height, reports=None):
+    shaped, rep = _shape(svg)
+    if reports is not None:
+        reports.append(rep)
+    return _svg2png(shaped, width, height)
+
+
+def _shaping_summary(reports):
+    return arabic_shape.summarize(reports)
 
 
 def _png_luma(data):
@@ -733,7 +757,9 @@ def _first_frame_estimate(spec):
     try:
         svg, _ = _compose(spec, 0.0)
         sw, sh = _small_size(spec['width'], spec['height'])
-        luma = _png_luma(_raster(svg, sw, sh))
+        reps = []
+        luma = _png_luma(_raster(svg, sw, sh, reps))
+        result['shaping_warnings'] = _shaping_summary(reps)['warnings']
         if luma is not None:
             result.update(method='raster_t0', luma=luma, black=_is_black(luma))
             return result
@@ -758,6 +784,10 @@ def validate_timeline(*, spec=None, **extra):
         raise ValueError('spec is required')
     norm, errors, warnings = _normalize(spec)
     first = None
+    dry = []
+    if norm is not None and not errors:
+        dry = _dry_run(norm)
+        errors.extend(e['error'] for e in dry if e['error'])
     if norm is not None and not errors:
         first = _first_frame_estimate(norm)
         if first['black'] is True:
@@ -766,8 +796,13 @@ def validate_timeline(*, spec=None, **extra):
         elif first['black'] is None:
             warnings.append('first frame could not be rasterised and the background is dark: '
                             'cannot confirm it is not black')
+        for w in first.get('shaping_warnings') or []:
+            if w not in warnings:
+                warnings.append(w)
     result = {'valid': not errors, 'errors': errors, 'warnings': warnings,
               'first_frame': first,
+              'layers_checked': [{k: v for k, v in e.items() if k != 'error'} for e in dry],
+              'invalid_layers': [e['layer'] for e in dry if e['error']],
               'normalized': _public(norm) if norm is not None else None}
     return _pack('validate_timeline', result,
                  ['layer times are seconds; a layer is drawn for start <= t < end',
@@ -776,8 +811,36 @@ def validate_timeline(*, spec=None, **extra):
                   'ops are taken from each sibling module\'s LAYER_OPS / RENDER_OPS / OPS'],
                  [f'<= {MAX_LAYERS} layers, <= {MAX_AUDIO} audio clips, fps 6..60, '
                   f'duration <= {MAX_SECONDS:g} s, even dims fitting 3840x2160',
-                  'layer params are not validated here beyond JSON size; render_layer validates them',
+                  'each layer is dry-run once (render_layer at its local midpoint); a param that '
+                  'only fails at other times is caught at render time',
                   'first-frame check rasterises a small proxy of t=0 only'])
+
+
+_DURATION_OPS = {'typemotion_v27': ('kinetic_text', 'lower_third', 'caption')}
+
+
+def _dry_run(norm):
+    """Render every non-svg layer once at its local midpoint; report the first failure."""
+    out = []
+    w, h = norm['width'], norm['height']
+    for i, layer in enumerate(norm['layers']):
+        where = f'layers[{i}]'
+        entry = {'layer': i, 'module': layer['module'], 'op': layer['op'], 'ok': True,
+                 'error': None}
+        if layer['module'] != 'svg':
+            local = (layer['end'] - layer['start']) / 2.0
+            try:
+                mod = _load_module(layer['module'])
+                frag = mod.render_layer(layer['op'], copy.deepcopy(layer['params']), local, w, h)
+                _safe_fragment(frag, where)
+                entry['chars'] = len(frag)
+            except Exception as exc:  # any failure makes the timeline invalid
+                msg = str(exc)
+                if not msg.startswith(where):
+                    msg = f'{where} ({layer["module"]}.{layer["op"]}): {msg}'
+                entry.update(ok=False, error=msg[:600])
+        out.append(entry)
+    return out
 
 
 def preview_frame(*, spec=None, t=0.0, rasterize=False, png_width=None, **extra):
@@ -799,25 +862,46 @@ def preview_frame(*, spec=None, t=0.0, rasterize=False, png_width=None, **extra)
               'warnings': warnings}
     if rasterize:
         pw = norm['width'] if png_width is None else _int(png_width, 16, MAX_LONG_SIDE, 'png_width')
-        ph = max(2, int(round(pw * norm['height'] / norm['width'])))
-        png = _raster(svg, pw, ph)
-        sw, sh = _small_size(norm['width'], norm['height'])
-        luma = _png_luma(_raster(svg, sw, sh))
-        result.update(png_base64=base64.b64encode(png).decode('ascii'), png_width=pw,
-                      png_height=ph, png_bytes=len(png), luma=luma,
-                      black=_is_black(luma) if luma else None)
+        _raster_into(result, svg, norm, pw)
     elif png_width is not None:
         raise ValueError('png_width needs rasterize=true')
     return _pack('preview_frame', result,
                  ['layers sorted by z (ties keep list order); opacity wraps each fragment in <g>',
-                  'fragments are sanitised: no scripts, foreignObject, entities or external hrefs'],
+                  'fragments are sanitised: no scripts, foreignObject, entities or external hrefs',
+                  'the returned svg keeps logical text; the PNG is drawn from a shaped copy '
+                  '(arabic_shape: joined presentation forms, visual order, stroke under fill)'],
                  ['PNG is returned in memory as base64; no file is written',
-                  'text shaping (Arabic joining/RTL) depends on the layer module and system fonts'])
+                  'Arabic in the PNG uses presentation forms + an installed font that has them; '
+                  'qa.passed is false and warnings name arabic_unshaped/arabic_font_missing_forms '
+                  'when that could not be guaranteed'])
 
 
-def _encode_frames(spec, stage, crf, preset, deadline):
-    """Pipe CairoSVG PNG frames into FFmpeg (image2pipe) -> H.264 yuv420p MP4."""
-    cairosvg = _cairosvg()
+def _raster_into(result, svg, norm, pw):
+    """Shape once, rasterise the full PNG and a luma proxy, and record fail-closed QA."""
+    ph = max(2, int(round(pw * norm['height'] / norm['width'])))
+    shaped, rep = _shape(svg)
+    png = _svg2png(shaped, pw, ph)
+    sw, sh = _small_size(norm['width'], norm['height'])
+    luma = _png_luma(_svg2png(shaped, sw, sh))
+    shaping = _shaping_summary([rep])
+    for w in shaping['warnings']:
+        if w not in result['warnings']:
+            result['warnings'].append(w)
+    black = _is_black(luma) if luma else None
+    result.update(png_base64=base64.b64encode(png).decode('ascii'), png_width=pw,
+                  png_height=ph, png_bytes=len(png), luma=luma, black=black,
+                  shaping=shaping,
+                  qa={'passed': shaping['ok'] and black is False,
+                      'text_shaping_ok': shaping['ok'], 'black': black})
+    return result
+
+
+def _encode_frames(spec, stage, crf, preset, deadline, reports=None):
+    """Pipe CairoSVG PNG frames into FFmpeg (image2pipe) -> H.264 yuv420p MP4.
+
+    Each composed frame is shaped (arabic_shape) before rasterising; shaping
+    reports with warnings (and the first one) are appended to `reports`."""
+    _cairosvg()
     w, h, fps, n = spec['width'], spec['height'], spec['fps'], spec['frames']
     cmd = ['ffmpeg', '-hide_banner', '-v', 'error', '-f', 'image2pipe',
            '-framerate', str(fps), '-c:v', 'png', '-i', 'pipe:0', '-frames:v', str(n),
@@ -836,8 +920,12 @@ def _encode_frames(spec, stage, crf, preset, deadline):
                     if time.monotonic() > deadline:
                         raise RuntimeError('render exceeded its time budget')
                     svg, _ = _compose(spec, i / fps)
-                    png = cairosvg.svg2png(bytestring=svg.encode('utf-8'), output_width=w,
-                                           output_height=h, unsafe=False)
+                    shaped, rep = _shape(svg)
+                    if reports is not None and (rep['warnings'] or rep['nodes_shaped']
+                                                or rep['stroke_split']):
+                        if rep['warnings'] or len(reports) < 4:
+                            reports.append(rep)
+                    png = _svg2png(shaped, w, h)
                     try:
                         proc.stdin.write(png)
                     except (BrokenPipeError, OSError) as exc:
@@ -878,6 +966,8 @@ def render_timeline(*, spec=None, output=None, approve_write=False, crf=18, pres
     preset = _choice(preset, set(PRESETS), 'preset')
     _tools()
     norm, errors, warnings = _normalize(spec)
+    if not errors:
+        errors = [e['error'] for e in _dry_run(norm) if e['error']]
     if errors:
         raise ValueError('invalid timeline: ' + '; '.join(errors[:8]))
     target = _new_output(output, [a['path'] for a in norm['audio']])
@@ -891,8 +981,9 @@ def render_timeline(*, spec=None, output=None, approve_write=False, crf=18, pres
     deadline = time.monotonic() + 120 + frames * 2.5
     video = _stage(target.parent, '.mp4', 'video')
     final = None
+    shaping_reports = []
     try:
-        _encode_frames(norm, video, crf, preset, deadline)
+        _encode_frames(norm, video, crf, preset, deadline, shaping_reports)
         if mix is not None and mix['clips']:
             final = _stage(target.parent, '.mp4', 'mux')
             cmd = ['ffmpeg', '-hide_banner', '-nostdin', '-v', 'error', '-y', '-i', str(video)]
@@ -921,7 +1012,15 @@ def render_timeline(*, spec=None, output=None, approve_write=False, crf=18, pres
     finally:
         _unlink(video)
         _unlink(final)
-    receipt = {'status': 'rendered_and_verified', 'output': str(target),
+    shaping = _shaping_summary(shaping_reports)
+    if not shaping['ok']:
+        # fail closed: text that may be unreadable is never reported as verified
+        qa = dict(qa, passed=False, text_shaping='failed')
+        warnings = list(warnings) + [w for w in shaping['warnings'] if w not in warnings]
+    else:
+        qa = dict(qa, text_shaping='ok' if shaping['applied'] else 'no_rtl_text')
+    receipt = {'status': 'rendered_and_verified' if shaping['ok'] else 'rendered_with_warnings',
+               'output': str(target), 'shaping': shaping,
                'sha256': _sha256(target), 'bytes': target.stat().st_size,
                'duration': _r(qa['duration'], 4), 'frames': qa['frames'], 'fps': norm['fps'],
                'width': norm['width'], 'height': norm['height'], 'video_codec': qa['codec'],
@@ -1512,36 +1611,150 @@ def _example_op(module, notes):
     return op, params
 
 
+_EXAMPLE_LAYERS = (
+    {'module': 'motion', 'op': 'camera', 'z': 0, 'opacity': 1.0, 'start': 0.0, 'end': 4.0,
+     'params': {'move': 'push_in',
+                'svg': '<circle cx="540" cy="960" r="430" fill="#7a1a30"/>'}},
+    {'module': 'typemotion', 'op': 'kinetic_text', 'z': 2, 'opacity': 1.0, 'start': 0.0,
+     'end': 2.4, 'params': {'text': 'الوردة الحمراء', 'style': 'fade_up'}},
+    {'module': 'graphics', 'op': 'route_map', 'z': 1, 'opacity': 1.0, 'start': 2.0, 'end': 4.0,
+     'params': {'stops': [['القاهرة', 30.04, 31.24], ['الإسكندرية', 31.2, 29.92]],
+                'duration': 2.0, 'show_note': False}},
+)
+
+
 def example_timeline(**extra):
-    """A small Arabic example: kinetic text + a transition + a route map, 1080x1920, 4 s, 24 fps."""
+    """A small Arabic example (1080x1920, 4 s, 24 fps): camera push-in, kinetic title, route map.
+
+    Every layer is dry-run before it is returned; a layer whose sibling module
+    rejects it is dropped and named in notes, so the spec always validates."""
     _no_extra(extra)
     notes = []
-    t_op, t_params = _example_op('typemotion_v27', notes)
-    m_op, m_params = _example_op('motion_v27', notes)
-    g_op, g_params = _example_op('graphics_v27', notes)
-    spec = {
-        'width': 1080, 'height': 1920, 'fps': 24, 'duration': 4.0, 'background': '#5a1020',
-        'layers': [
-            {'module': 'graphics', 'op': g_op, 'z': 1, 'opacity': 1.0, 'start': 2.0, 'end': 4.0,
-             'params': g_params if g_params is not None else
-             {'points': [[0.2, 0.75], [0.45, 0.55], [0.7, 0.62], [0.82, 0.3]],
-              'labels': ['القاهرة', 'الإسكندرية'], 'color': '#ffd166'}},
-            {'module': 'typemotion', 'op': t_op, 'z': 2, 'opacity': 1.0, 'start': 0.0, 'end': 2.4,
-             'params': t_params if t_params is not None else
-             {'text': 'الوردة الحمراء', 'direction': 'rtl', 'size': 120, 'color': '#ffffff'}},
-            {'module': 'motion', 'op': m_op, 'z': 3, 'opacity': 1.0, 'start': 1.8, 'end': 2.4,
-             'params': m_params if m_params is not None else
-             {'kind': 'wipe', 'direction': 'right_to_left', 'color': '#fdf0f2'}},
-        ],
-        'audio': [],
-    }
-    return _pack('example_timeline', {'spec': spec, 'notes': notes},
+    base = {'width': 1080, 'height': 1920, 'fps': 24, 'duration': 4.0,
+            'background': '#5a1020', 'audio': []}
+    kept = []
+    for raw in _EXAMPLE_LAYERS:
+        trial = dict(base, layers=[copy.deepcopy(raw)])
+        norm, errors, _ = _normalize(trial, probe_audio=False)
+        if not errors:
+            errors = [e['error'] for e in _dry_run(norm) if e['error']]
+        if errors:
+            notes.append(f'dropped {raw["module"]}.{raw["op"]}: {errors[0][:300]}')
+        else:
+            kept.append(copy.deepcopy(raw))
+    spec = dict(base, layers=kept)
+    return _pack('example_timeline', {'spec': spec, 'notes': notes,
+                                      'layers_kept': len(kept),
+                                      'layers_offered': len(_EXAMPLE_LAYERS)},
                  ['words "الوردة الحمراء" and the city names are placeholders: replace them with the '
                   "owner's own words before rendering (no descriptive text is invented)",
-                  'op names are discovered from the sibling modules when importable; params follow '
-                  'their EXAMPLES/DEFAULTS when offered, otherwise they are guesses to adjust',
+                  'only layers that pass a dry-run of their sibling module are returned',
+                  'a text layer without duration animates over its own start..end span',
                   'background #5a1020 (luma ~33) keeps the first frame from being black'],
                  ['run validate_timeline before render_timeline; audio list is empty (add voice/music clips)'])
+
+
+# --------------------------------------------------------------------------- one-call title frame
+
+_TITLE_PLATFORMS = {'reel': (1080, 1920), 'wide': (1920, 1080)}
+_TITLE_STAGGER = {  # style -> (reveal fraction of duration, window fraction, window max s)
+    'stagger_words': (0.4, 0.5, 0.35), 'bounce_words': (0.65, 0.45, 0.8),
+    'fade_up': (0.6, 0.4, 0.6), 'slide_in': (0.6, 0.4, 0.6), 'pop_scale': (0.6, 0.4, 0.6),
+    'blur_in': (0.6, 0.4, 0.6), 'glitch_words': (0.6, 0.4, 0.6),
+    'underline_draw': (0.35, 0.5, 0.4)}
+MAX_TITLE_CHARS = 300
+
+
+def _word_timings(words, style, duration):
+    """Per-word appear windows [start, end] in seconds (stagger model of the text styles)."""
+    n = len(words)
+    if style == 'word_typewriter':
+        step = 0.7 * duration / n
+        return [{'word': w, 'start': _r(i * step, 4), 'end': _r(i * step + max(step * 0.9, 1e-3), 4)}
+                for i, w in enumerate(words)], 'typewriter_step'
+    if style in _TITLE_STAGGER:
+        frac, wfrac, wmax = _TITLE_STAGGER[style]
+        reveal = frac * duration
+        if n <= 1:
+            win = max(1e-3, min(reveal, wmax))
+            starts = [0.0]
+        else:
+            win = max(min(wmax, max(0.12, reveal * wfrac), reveal), 1e-3)
+            step = max(0.0, (reveal - win) / (n - 1))
+            starts = [i * step for i in range(n)]
+        return [{'word': w, 'start': _r(s, 4), 'end': _r(s + win, 4)}
+                for w, s in zip(words, starts)], 'stagger'
+    return [{'word': w, 'start': 0.0, 'end': _r(duration, 4)} for w in words], 'whole_text'
+
+
+def title_frame(*, text=None, style='fade_up', at='mid', duration=2.0, platform='reel',
+                width=None, height=None, background=None, rasterize=True, **extra):
+    """One call: a complete title frame (SVG + optional PNG) of `text` animated with `style`.
+
+    at: 'mid' (every word has fully appeared, before the exit) or seconds in [0, duration].
+    platform 'reel' = 1080x1920, 'wide' = 1920x1080; width/height override it.
+    Returns {svg, png_base64?, width, height, t, word_timings, shaping, warnings, qa}."""
+    _no_extra(extra)
+    if not isinstance(text, str) or not text.strip():
+        raise ValueError('text is required (the owner\'s own words; nothing is invented)')
+    if len(text) > MAX_TITLE_CHARS:
+        raise ValueError(f'text must be at most {MAX_TITLE_CHARS} characters')
+    if not isinstance(style, str) or not style.strip():
+        raise ValueError('style must be a text style name (typemotion_v27 STYLES)')
+    duration = _num(duration, 0.2, 60.0, 'duration')
+    platform = _choice(platform, set(_TITLE_PLATFORMS), 'platform')
+    w, h = _TITLE_PLATFORMS[platform]
+    if width is not None:
+        w = _int(width, 64, MAX_LONG_SIDE, 'width')
+    if height is not None:
+        h = _int(height, 64, MAX_LONG_SIDE, 'height')
+    _bool(rasterize, 'rasterize')
+    words = ' '.join(text.split()).split(' ')
+    timings, model = _word_timings(words, style, duration)
+    if at == 'mid':
+        last_end = max(item['end'] for item in timings)
+        exit_start = duration - min(0.35, duration / 2)
+        t = min(max(duration / 2.0, last_end + 1e-3), max(0.0, exit_start - 1e-3))
+        if t < last_end:
+            t = last_end
+    elif isinstance(at, str):
+        raise ValueError("at must be 'mid' or a number of seconds")
+    else:
+        t = _num(at, 0.0, duration, 'at')
+    spec = {'width': w, 'height': h, 'fps': 30, 'duration': duration,
+            'background': background if background is not None else '#5a1020',
+            'layers': [{'module': 'typemotion', 'op': 'kinetic_text', 'start': 0.0,
+                        'end': duration, 'params': {'text': text, 'style': style,
+                                                    'duration': duration}}],
+            'audio': []}
+    norm, errors, warnings = _normalize(spec, probe_audio=False)
+    if not errors:
+        errors = [e['error'] for e in _dry_run(norm) if e['error']]
+    if errors:
+        raise ValueError('title_frame: ' + '; '.join(errors[:4]))
+    tt = min(t, norm['duration'] - 1e-6)
+    svg, active = _compose(norm, tt)
+    _check_xml(svg)
+    visible = [item['word'] for item in timings if item['start'] <= t]
+    result = {'svg': svg, 'width': w, 'height': h, 't': _r(t, 6), 'duration': duration,
+              'style': style, 'platform': platform, 'background': norm['background'],
+              'word_timings': timings, 'timing_model': model, 'words_started_at_t': visible,
+              'warnings': list(warnings)}
+    if rasterize:
+        _raster_into(result, svg, norm, w)
+    else:
+        shaped, rep = _shape(svg)
+        result['shaping'] = _shaping_summary([rep])
+        result['warnings'] += [x for x in result['shaping']['warnings'] if x not in result['warnings']]
+        result['qa'] = {'passed': result['shaping']['ok'], 'text_shaping_ok': result['shaping']['ok'],
+                        'black': None}
+    return _pack('title_frame', result,
+                 ['the frame is a one-layer timeline: typemotion kinetic_text from 0 to duration',
+                  "at='mid' picks a time after every word's appear window and before the exit fade",
+                  'word_timings follow the stagger model of the text styles (computed here)',
+                  'svg keeps logical text; the PNG is rasterised from an Arabic-shaped copy'],
+                 ['PNG is in memory (base64); no file is written',
+                  'word_timings are a model of the style, not measured from pixels'])
 
 
 # --------------------------------------------------------------------------- dispatcher
@@ -1551,14 +1764,14 @@ OPS = {
     'render_timeline': render_timeline, 'plan_mix': plan_mix, 'grades': grades,
     'grade_preview_filter': grade_preview_filter, 'apply_grade': apply_grade,
     'lut_parse': lut_parse, 'lut_export': lut_export, 'delivery_check': delivery_check,
-    'example_timeline': example_timeline,
+    'example_timeline': example_timeline, 'title_frame': title_frame,
 }
 
 EFFECTS = {
     'validate_timeline': 'read', 'preview_frame': 'read', 'render_timeline': 'write',
     'plan_mix': 'read', 'grades': 'read', 'grade_preview_filter': 'read',
     'apply_grade': 'write', 'lut_parse': 'read', 'lut_export': 'read',
-    'delivery_check': 'read', 'example_timeline': 'read',
+    'delivery_check': 'read', 'example_timeline': 'read', 'title_frame': 'read',
 }
 
 

@@ -33,6 +33,15 @@ Gates (all enforced in code):
     are checked with security_v24.output_path_guard;
   * every HTTP response is appended as a source record to work_dir/sources.jsonl;
   * downloaded content is untrusted data: it is never executed, imported or evaluated.
+
+Order of checks (documented V29, unchanged): every network op FIRST validates its inputs
+(allow-list, https, URL form, work_dir, rights, licence terms, and for media_download that
+yt-dlp is on PATH) and raises ValueError on any refusal; only a call that passes those
+checks reaches the approval gate, which then returns 'approval_required' unless
+approve_write=True. So an unapproved call can still fail with a refusal message, and an
+'approval_required' answer means the request is otherwise acceptable.
+Offline tests (test_net_offline_v29.py) exercise every gate with an in-memory opener;
+no real connection has been made by those tests.
 """
 from __future__ import annotations
 
@@ -1468,6 +1477,8 @@ def media_download(*, url=None, allow_list=None, work_dir=None, approve_write=Fa
             rc, err_tail = cp.returncode, (cp.stderr or '')[-1500:]
         except subprocess.TimeoutExpired:
             rc, err_tail = None, f'yt-dlp timed out after {timeout:g}s'
+        except OSError as exc:      # yt-dlp vanished or could not start: report, do not crash
+            rc, err_tail = None, f'yt-dlp could not start: {type(exc).__name__}: {str(exc)[:200]}'
         files = sorted(p for p in tmpdir.iterdir() if p.is_file() and p.suffix.lower() in MEDIA_EXTS)
         for f in files:
             try:

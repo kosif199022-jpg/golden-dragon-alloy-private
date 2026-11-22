@@ -19,6 +19,7 @@ rejection of unknown parameter names (**extra).
 from __future__ import annotations
 
 import hashlib
+import inspect
 import json
 import math
 import re
@@ -338,10 +339,27 @@ def _pack(op, result, assumptions, limits):
             'limits': list(limits)}
 
 
+def _mark_example(result, example):
+    """V29: say plainly when the built-in example content was used instead of owner input."""
+    result['example_data'] = bool(example)
+    if example:
+        result['input'] = 'built_in_example'
+    return result
+
+
+def _all_default(fn, values):
+    defaults = {k: p.default for k, p in inspect.signature(fn).parameters.items()
+                if p.default is not inspect.Parameter.empty}
+    return all(values[k] == defaults[k] for k in values)
+
+
 # --------------------------------------------------------------------------- blocklist screening
 
 def _norm(text):
-    text = unicodedata.normalize('NFKC', text).casefold()
+    # NFKD + dropping combining marks folds accents (Ghíbli -> ghibli) and Arabic hamza /
+    # madda carriers onto their base letters, so look-alike spellings cannot dodge the list.
+    text = unicodedata.normalize('NFKD', text).casefold()
+    text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')
     text = _TASHKEEL_RE.sub('', text)
     text = (text.replace('أ', 'ا').replace('إ', 'ا').replace('آ', 'ا')
             .replace('ى', 'ي').replace('ة', 'ه'))
@@ -478,6 +496,7 @@ def image_prompt(*, subject='صياد عجوز بلحية بيضا',
     if hits:
         return _pack('image_prompt', _refusal(hits), assumptions, limits)
 
+    example = _all_default(image_prompt, values)
     layers = [{'order': i + 1, 'layer': key, 'name_ar': ar, 'text': layers_text[key]}
               for i, (key, ar) in enumerate(IMAGE_LAYERS)]
     parts = [l['text'] for l in layers if l['text']]
@@ -498,7 +517,7 @@ def image_prompt(*, subject='صياد عجوز بلحية بيضا',
         'aspect_ratio': aspect_ratio,
         'size_hint_px': _size_hint(aspect_ratio, long_edge),
     }
-    return _pack('image_prompt', result, assumptions, limits)
+    return _pack('image_prompt', _mark_example(result, example), assumptions, limits)
 
 
 # --------------------------------------------------------------------------- video_prompt
@@ -672,7 +691,7 @@ def video_prompt(*, shots=None, character_sheets=None, aspect_ratio='9:16', fps=
               'total_duration_s': round(total, 3), 'total_frames': sum(s['frames'] for s in out_shots),
               'consistency_checklist': checklist,
               'warnings': sum(1 for c in checklist if c['status'] == 'warn')}
-    return _pack('video_prompt', result, assumptions, limits)
+    return _pack('video_prompt', _mark_example(result, shots is None), assumptions, limits)
 
 
 # --------------------------------------------------------------------------- music_prompt
@@ -696,6 +715,8 @@ def music_prompt(*, genre='بوب مصري خفيف', bpm=96, mood='دافي و�
     are passed through byte-for-byte (with a sha256 for integrity).
     """
     _no_extra(extra)
+    example = (instruments is None and structure is None
+               and _all_default(music_prompt, {'genre': genre, 'mood': mood}))
     genre = _text(genre, 'genre', 120)
     bpm = _int(bpm, 40, 240, 'bpm')
     mood = _text(mood, 'mood', 200)
@@ -754,7 +775,7 @@ def music_prompt(*, genre='بوب مصري خفيف', bpm=96, mood='دافي و�
         result.update(status='ready', lyrics=lyrics_text, lyrics_source='owner',
                       lyrics_sha256=_sha(lyrics_text),
                       lyrics_lines=len([ln for ln in lyrics_text.splitlines() if ln.strip()]))
-    return _pack('music_prompt', result, assumptions, limits)
+    return _pack('music_prompt', _mark_example(result, example), assumptions, limits)
 
 
 # --------------------------------------------------------------------------- voice_prompt
@@ -805,6 +826,7 @@ def voice_prompt(*, script=None, voice_id='owner_selected_voice', language='ar-E
                            'similarity': similarity, 'style': style, 'pace': pace,
                            'speaker_boost': speaker_boost, 'output_format': output_format},
               'warnings': warnings}
+    _mark_example(result, source == 'example_default')
     assumptions = [f'duration estimate: {BASE_WPM} words/min at pace 1.0 plus 0.25 s per pause mark',
                    'settings are model-neutral names; map them to the chosen service\'s fields',
                    'script is passed through unchanged; sha256 lets the caller prove it was not edited']
@@ -882,7 +904,8 @@ def cost_estimate(*, price_table=None, jobs=None, budget_cap=None, budget_curren
     a quantity in that unit. Totals are kept per currency; nothing is converted.
     """
     _no_extra(extra)
-    example = price_table is None and jobs is None
+    example = price_table is None          # invented prices are example data even with real jobs
+    example_jobs = jobs is None
     table = _price_table(list(EXAMPLE_PRICES) if price_table is None else price_table)
     jobs_in = list(EXAMPLE_JOBS) if jobs is None else jobs
     if not isinstance(jobs_in, (list, tuple)) or not 1 <= len(jobs_in) <= MAX_LIST:
@@ -926,7 +949,8 @@ def cost_estimate(*, price_table=None, jobs=None, budget_cap=None, budget_curren
               'totals_rounded_2dp': {c: format(v.quantize(cents, rounding=ROUND_HALF_UP), 'f')
                                      for c, v in sorted(totals.items())},
               'single_currency': len(totals) == 1,
-              'example_prices': example}
+              'example_prices': example, 'example_jobs': example_jobs}
+    _mark_example(result, example or example_jobs)
     if budget_cap is not None:
         cap = _dec(budget_cap, 'budget_cap', Decimal(0), Decimal(1_000_000_000))
         if budget_currency is None:
@@ -1011,7 +1035,7 @@ def approval_request(*, provider='example_provider', model='image-model-x', item
                'ده فعل مابيرجعش، والسعر الفعلي ممكن يختلف عن التقدير.\n'
                f'لو موافق اكتب في الشات بالحرف: «{phrase}»\n'
                'من غير الجملة دي مفيش أي أداة هتصرف.')
-    result = {'request': record, 'message_ar': message}
+    result = _mark_example({'request': record, 'message_ar': message}, items is None)
     assumptions = ['total = sum(quantity * price_per_unit), exact Decimal, in one currency',
                    'request_id = first 12 hex of sha256 over the canonical request; '
                    'any change to items, total, provider, model, currency or purpose changes it']

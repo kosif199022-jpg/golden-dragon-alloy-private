@@ -88,7 +88,11 @@ def main(argv=None):
     sub.add_parser('capability-audit')
     x=sub.add_parser('capability-plan'); x.add_argument('task')
     x=sub.add_parser('capability-run'); x.add_argument('capability_id'); x.add_argument('params_json'); x.add_argument('--approve-write',action='store_true')
+    try:
+        import rose_ext; rose_ext.load(sub)
+    except Exception: pass
     args=a.parse_args(argv)
+    if hasattr(args,'ext_func'): raise SystemExit(args.ext_func(args))
     if args.command=='verify':
         print(json.dumps(verify_video(args.video,expected_fps=args.fps,width=args.width,height=args.height),ensure_ascii=False)); return
     if args.command=='produce':

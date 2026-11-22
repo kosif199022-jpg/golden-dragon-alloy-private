@@ -11,12 +11,14 @@ def produce(shots, output, fps=24, width=540, height=960, audio=None, keep_frame
     if not shutil.which('ffmpeg'): raise RuntimeError('ffmpeg is required')
     try: import cairosvg
     except ImportError as e: raise RuntimeError('cairosvg is required') from e
+    from arabic_shape import RasterShaper
     output=Path(output).resolve(); output.mkdir(parents=True,exist_ok=True)
     count=round(duration*fps)
     if count<1: raise ValueError('too few frames')
+    shaper=RasterShaper()  # CairoSVG has no Arabic shaper: rasterise a shaped copy
     for i in range(count):
         svg=frame_at(shots,i/fps,width,height)
-        cairosvg.svg2png(bytestring=svg.encode(),write_to=str(output/f'frame_{i:05d}.png'))
+        cairosvg.svg2png(bytestring=shaper(svg).encode('utf-8'),write_to=str(output/f'frame_{i:05d}.png'))
     video=output/'video.mp4'
     cmd=['ffmpeg','-hide_banner','-loglevel','error','-y','-framerate',str(fps),'-i',str(output/'frame_%05d.png')]
     if audio:
@@ -26,7 +28,13 @@ def produce(shots, output, fps=24, width=540, height=960, audio=None, keep_frame
     cmd+=['-c:v','libx264','-pix_fmt','yuv420p','-movflags','+faststart',str(video)]
     subprocess.run(cmd,check=True)
     qa=verify_video(video,expected_fps=fps,width=width,height=height,expected_frames=count,expected_audio=bool(audio))
-    manifest={'shots':len(shots),'frames':count,'fps':fps,'duration':count/fps,'video':str(video),'audio':bool(audio),'qa':qa}
+    shaping=shaper.summary()
+    if not shaping['ok']:  # fail closed: unreadable Arabic is never reported as passed
+        qa=dict(qa,passed=False,text_shaping='failed')
+    else:
+        qa=dict(qa,text_shaping='ok' if shaping['applied'] else 'no_rtl_text')
+    manifest={'shots':len(shots),'frames':count,'fps':fps,'duration':count/fps,'video':str(video),'audio':bool(audio),'qa':qa,
+              'shaping':shaping,'warnings':list(shaping['warnings'])}
     (output/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
     (output/'project.json').write_text(json.dumps({'schema':'red-rose-storyboard-v11','fps':fps,'width':width,'height':height,'shots':shots,'audio_source':str(audio) if audio else None},ensure_ascii=False,indent=2),encoding='utf-8')
     (output/'qa.json').write_text(json.dumps(qa,ensure_ascii=False,indent=2),encoding='utf-8')

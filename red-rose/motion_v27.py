@@ -23,6 +23,8 @@ Conventions
 from __future__ import annotations
 
 import bisect
+import functools
+import inspect
 import json
 import math
 import random
@@ -37,10 +39,29 @@ MAX_DIM = 16_384
 # --------------------------------------------------------------------------- validation
 
 
-def _no_extra(extra, where=''):
+def _no_extra(extra, where='', allowed=None):
     if extra:
         prefix = f'{where}: ' if where else ''
-        raise ValueError(prefix + 'unknown parameter(s): ' + ', '.join(sorted(map(str, extra))))
+        msg = prefix + 'unknown parameter(s): ' + ', '.join(sorted(map(str, extra)))
+        if allowed is not None:
+            msg += '; allowed: ' + (', '.join(sorted(map(str, allowed))) or '(none)')
+        raise ValueError(msg)
+
+
+def _named_op(fn):
+    """Expose fn's keyword parameters as the op signature and reject unknown names with 'allowed: ...'."""
+    sig = inspect.signature(fn)
+    params = [q.replace(kind=inspect.Parameter.KEYWORD_ONLY) for q in sig.parameters.values()
+              if q.kind is not inspect.Parameter.VAR_KEYWORD]
+    names = tuple(q.name for q in params)
+
+    @functools.wraps(fn)
+    def op(**kwargs):
+        _no_extra([k for k in kwargs if k not in names], allowed=names)
+        return fn(**kwargs)
+    op.__signature__ = inspect.Signature(params)
+    op.allowed_params = names
+    return op
 
 
 def _num(value, low, high, name, *, low_open=False):
@@ -157,7 +178,7 @@ def _opts(spec, given, where):
     if not isinstance(given, dict):
         raise ValueError(f'{where}: options must be a dict')
     unknown = [k for k in given if k not in spec]
-    _no_extra(unknown, where)
+    _no_extra(unknown, where, allowed=spec)
     out = {}
     for key, s in spec.items():
         value = given[key] if key in given else s[1]
@@ -404,7 +425,8 @@ def _prepare_track(keys):
         where = f'keys[{i}]'
         if not isinstance(k, dict):
             raise ValueError(f'{where} must be a dict')
-        _no_extra([x for x in k if x not in ('t', 'value', 'ease', 'hold')], where)
+        _no_extra([x for x in k if x not in ('t', 'value', 'ease', 'hold')], where,
+                  allowed=('t', 'value', 'ease', 'hold'))
         if 't' not in k or 'value' not in k:
             raise ValueError(f'{where} needs t and value')
         t = _num(k['t'], -1e9, 1e9, f'{where}.t')
@@ -1320,7 +1342,8 @@ def apply_camera_svg(camera, svg_fragment, width, height, *, id_prefix=None):
         for i, item in enumerate(svg_fragment):
             if not isinstance(item, dict):
                 raise ValueError(f'svg[{i}] must be a dict {{"svg": ..., "layer": name}}')
-            _no_extra([k for k in item if k not in ('svg', 'layer')], f'svg[{i}]')
+            _no_extra([k for k in item if k not in ('svg', 'layer')], f'svg[{i}]',
+                      allowed=('svg', 'layer'))
             content = _str(item.get('svg'), f'svg[{i}].svg')
             info = layers[i] if i < len(layers) and isinstance(layers[i], dict) else None
             lname = item.get('layer') or (info.get('name') if info else None) or f'layer{i}'
@@ -1405,7 +1428,9 @@ _SVG_LIMITS = ['SVG output approximates editing-app effects (clipPath, mask, tra
                'fragments duplicated by stripes/luma masks may repeat their own ids']
 
 
+@_named_op
 def _op_ease(*, name='cubic_in_out', t=None, samples=11, opts=None, **extra):
+    """Sample an easing curve (or evaluate it at one t) with its options."""
     _no_extra(extra)
     _choice(name, EASINGS, 'name')
     opts = {} if opts is None else opts
@@ -1429,7 +1454,9 @@ def _op_ease(*, name='cubic_in_out', t=None, samples=11, opts=None, **extra):
                  [f'samples <= {MAX_SAMPLES}', 'easing options are range-checked per easing'])
 
 
+@_named_op
 def _op_track(*, keys=None, t=None, times=None, duration=2.0, fps=10.0, **extra):
+    """Sample a keyframe track (numbers, [x, y] points or colours) at t or per frame."""
     _no_extra(extra)
     prep = _prepare_track(_EXAMPLE_KEYS if keys is None else keys)
     if t is not None:
@@ -1456,8 +1483,10 @@ def _op_track(*, keys=None, t=None, times=None, duration=2.0, fps=10.0, **extra)
                   'colour channels are clamped'])
 
 
+@_named_op
 def _op_transition_frame(*, name='crossfade', p=0.5, width=640, height=360, svg_a=None,
                          svg_b=None, render_svg=True, opts=None, **extra):
+    """Per-clip state and a composed SVG frame for a named transition at progress p."""
     _no_extra(extra)
     opts = {} if opts is None else opts
     if not isinstance(opts, dict):
@@ -1479,7 +1508,9 @@ def _op_transition_frame(*, name='crossfade', p=0.5, width=640, height=360, svg_
                  _SVG_LIMITS + ['dip_to_colour refuses at_film_start=True'])
 
 
+@_named_op
 def _op_camera(*, move='push_in', t=None, samples=5, opts=None, svg=None, **extra):
+    """Camera move state at t (optionally applied to SVG) or sampled over its duration."""
     _no_extra(extra)
     opts = {} if opts is None else opts
     if not isinstance(opts, dict):
@@ -1491,6 +1522,7 @@ def _op_camera(*, move='push_in', t=None, samples=5, opts=None, svg=None, **extr
         if svg is not None:
             result['svg'] = apply_camera_svg(cam, svg, cam['width'], cam['height'],
                                              id_prefix=f'rrcam-{move}')
+            result['width'], result['height'] = cam['width'], cam['height']
     else:
         n = _int(samples, 2, 1001, 'samples')
         dur = _camera_opts(move, opts)['duration']
@@ -1502,12 +1534,16 @@ def _op_camera(*, move='push_in', t=None, samples=5, opts=None, svg=None, **extr
                   'handheld uses seeded smooth value noise; spring_zoom superposes analytic spring '
                   'step responses on log(scale)', 'focus_pull blur follows |1/focus - 1/depth|'],
                  ['2.5D only: layers are flat planes, no true 3D projection',
+                  'parallax, dolly layers and focus_pull per-layer blur need svg as a list of '
+                  '{svg, layer} dicts; a single svg string only gets the whole-frame transform',
                   'motion_blur_px is a translation-only hint; scale/rotation blur is ignored',
                   'no GPU; SVG blur is an approximation'])
 
 
+@_named_op
 def _op_beats(*, bpm=120.0, beats_per_transition=4.0, duration=10.0, transition_beats=1.0,
               names=None, offset_s=0.0, **extra):
+    """Schedule transitions centred on musical beats for a given bpm and duration."""
     _no_extra(extra)
     sched = beat_transitions(bpm, beats_per_transition, duration,
                              transition_beats=transition_beats, names=names, offset_s=offset_s)
@@ -1518,7 +1554,9 @@ def _op_beats(*, bpm=120.0, beats_per_transition=4.0, duration=10.0, transition_
                   'no beat detection: bpm is given, not measured'])
 
 
+@_named_op
 def _op_list(**extra):
+    """List the easing, transition and camera-move catalogue with Arabic descriptions."""
     _no_extra(extra)
     result = {
         'easings': [{'name': n, 'ar': e['ar'], 'options': sorted(e['opts'])}
