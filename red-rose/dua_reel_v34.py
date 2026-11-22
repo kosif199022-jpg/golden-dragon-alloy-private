@@ -89,12 +89,31 @@ def _probe(path):
         return None
 
 
+TEXT_SHARE_MAX = 0.004   # measured: clips above this carry burned-in text
+
+
+def _text_flags(folder):
+    """File names a library's _analysis.json (from its analysis run) marks as carrying on-screen text."""
+    for p in (Path(folder) / '_analysis.json', Path(folder).parent / '_analysis.json'):
+        if p.is_file():
+            try:
+                rows = json.loads(p.read_text(encoding='utf-8'))
+                return {r['file'] for r in rows if r.get('text_share', 0) > TEXT_SHARE_MAX}
+            except (ValueError, KeyError):
+                return set()
+    return set()
+
+
 def scan_library(folder):
-    """Usable vertical clips and photos in a library folder (searched recursively)."""
+    """Usable vertical clips and photos in a library folder (searched recursively).
+    Thumbnails (*_thumb.*) and clips with burned-in text (per _analysis.json) are skipped."""
     vids, pics = [], []
+    texty = _text_flags(folder)
     for p in sorted(Path(folder).rglob('*')):
         ext = p.suffix.lower()
         if ext not in VIDEO_EXT and ext not in PHOTO_EXT:
+            continue
+        if '_thumb' in p.name or p.name in texty:
             continue
         info = _probe(p)
         if not info:
@@ -131,12 +150,40 @@ def choose_clips(lengths, folder, seed=1, exclude=()):
 
 # ----------------------------------------------------------------- text layers
 
+# font roles a plan can change by name ("fonts": {"line": "Meral Sans Black", ...}); values are looked up in
+# the font library (rose.py fonts). The defaults are the measured trending look.
+ROLE_DEFAULT = {'line': 'Lalezar-Regular.ttf', 'calligraphy': 'ArefRuqaa-Bold.ttf', 'title': 'Amiri-Bold.ttf',
+                'latin': 'Cinzel.ttf'}
+_FONT_OVERRIDE: dict = {}
+
+
+def set_fonts(roles: dict | None) -> dict:
+    """Resolve plan font names through the font library. Returns {role: path} actually used."""
+    _FONT_OVERRIDE.clear()
+    used = {}
+    for role, name in (roles or {}).items():
+        if role not in ROLE_DEFAULT:
+            raise ValueError(f'unknown font role {role!r}; use one of {sorted(ROLE_DEFAULT)}')
+        p = Path(str(name)).expanduser()
+        if not p.is_file():
+            import font_library_v35 as fl
+            hit = fl.find_one(str(name))
+            if not hit:
+                raise FileNotFoundError(f'font not in the library: {name} (run: rose.py fonts find "{name}")')
+            if hit.get('glyph_font'):
+                raise ValueError(f'{hit["name"]} is a calligraphy-piece font (digits map to artwork), not for text lines')
+            p = Path(hit['file'])
+        _FONT_OVERRIDE[ROLE_DEFAULT[role]] = p
+        used[role] = str(p)
+    return used
+
+
 def _fonts():
     from PIL import ImageFont
     raqm = ImageFont.Layout.RAQM
 
     def fnt(name, size, wght=None):
-        path = FONT_DIR / name
+        path = _FONT_OVERRIDE.get(name) or FONT_DIR / name
         if not path.is_file():
             raise FileNotFoundError(f'font missing: {path}')
         f = ImageFont.truetype(str(path), size, layout_engine=raqm)
@@ -278,7 +325,18 @@ def _shot_chain(i, clip, length, lut):
     return ','.join(chain)
 
 
+COLOUR_STYLES = Path(__file__).resolve().parent / 'agent' / 'colour_styles.json'
+
+
+def colour_style(name):
+    styles = json.loads(COLOUR_STYLES.read_text(encoding='utf-8')) if COLOUR_STYLES.is_file() else {}
+    if name not in styles:
+        raise ValueError(f'unknown colour style {name!r}; use one of {sorted(styles)} or give "reference"')
+    return styles[name]
+
+
 def build(plan: dict, out, work=None, approve_write: bool = False, storyboard_only: bool = False) -> dict:
+    fonts_used = set_fonts(plan.get('fonts'))
     lines = timed_lines(plan.get('lines') or [])
     lengths, offsets, total = shot_plan(lines)
     n = len(lines)
@@ -299,6 +357,7 @@ def build(plan: dict, out, work=None, approve_write: bool = False, storyboard_on
     out = Path(out).expanduser()
     work = Path(work).expanduser() if work else out.parent / (out.stem + '_work')
     report = {'lines': n, 'seconds': total, 'frames': round(total * FPS), 'size': [W, H],
+              'fonts': fonts_used or 'defaults', 'colour': plan.get('style') or ('reference' if plan.get('reference') else 'as shot'),
               'shots': [{'line': ln['text'], 't0': ln['t0'], 't1': ln['t1'], 'clip': Path(c['file']).name,
                          'kind': c['kind'], 'start': c['start']} for ln, c in zip(lines, clips)]}
     targets = [str(work / 'storyboard.jpg')] if storyboard_only else [str(out), str(work)]
@@ -331,10 +390,17 @@ def build(plan: dict, out, work=None, approve_write: bool = False, storyboard_on
         return {'ok': True, 'saved': [report['storyboard']], **report}
 
     luts = [None] * n
-    if plan.get('reference'):
+    style = colour_style(plan['style']) if plan.get('style') else None
+    if plan.get('reference') or style:
         import reel_tools_v32 as rt
         (work / 'luts').mkdir(exist_ok=True)
         for k, c in enumerate(clips):
+            if style:
+                dur = lengths[k] if c['kind'] == 'video' else None
+                rt.color_match(None, c['file'], work / 'luts' / f'shot_{k + 1}.cube', c['start'], dur,
+                               strength=plan.get('strength', 0.8), approve_write=True, target=style)
+                luts[k] = f'luts/shot_{k + 1}.cube'
+                continue
             dur = lengths[k] if c['kind'] == 'video' else None
             rt.color_match(plan['reference'], c['file'], work / 'luts' / f'shot_{k + 1}.cube', c['start'], dur,
                            lift=plan.get('lift', 5.0), approve_write=True)

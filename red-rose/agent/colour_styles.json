@@ -1,0 +1,30 @@
+{
+ "channel": {
+  "mean": [
+   47.9,
+   3.0,
+   8.5
+  ],
+  "std": [
+   22.0,
+   8.0,
+   12.0
+  ],
+  "chroma": 12.6,
+  "source": "median of the 69 text-free videos of the ijhbis channel (2026-11-23)"
+ },
+ "trend": {
+  "mean": [
+   56.5,
+   15.8,
+   10.9
+  ],
+  "std": [
+   26.2,
+   13.6,
+   16.5
+  ],
+  "chroma": 23.3,
+  "source": "trending Sunday-dua TikTok (vt.tiktok.com/ZSsd6bjGN), measured, +5 L lift learned from the render"
+ }
+}
