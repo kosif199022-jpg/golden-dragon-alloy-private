@@ -70,6 +70,8 @@ def main(argv=None):
     x=sub.add_parser('fuse-alloy'); x.add_argument('source_db'); x.add_argument('--limit',type=int)
     x=sub.add_parser('fuse-search'); x.add_argument('query'); x.add_argument('--limit',type=int,default=20)
     sub.add_parser('fuse-stats')
+    x=sub.add_parser('fuse-gd-knowledge',help='import the Golden Dragon knowledge base (active records only)'); x.add_argument('source',nargs='?',help='golden_dragon.sqlite or golden-dragon-runtime.zip (default: found on this PC)'); x.add_argument('--limit',type=int)
+    x=sub.add_parser('speech-sync',help='tie cuts and captions to spoken words: script with @{marks} + word timings'); x.add_argument('script'); x.add_argument('words'); x.add_argument('--out'); x.add_argument('--fps',type=int,default=30); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
     x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
     x=sub.add_parser('timeline-analyze'); x.add_argument('source'); x.add_argument('--noise-db',type=float,default=-35); x.add_argument('--sample-fps',type=int,default=6)
@@ -145,6 +147,12 @@ def main(argv=None):
         with closing(connect(args.db)) as db:
             result=run_capability(db,action,params,approve_write=getattr(args,'approve_write',False))
         print(json.dumps(result,ensure_ascii=False));return
+    if args.command=='speech-sync':
+        import speech_sync_v31
+        result=speech_sync_v31.run(args.script,args.words,args.out,args.fps,args.approve_write)
+        print(json.dumps(result,ensure_ascii=False))
+        if result.get('outcome')=='approval_required': raise SystemExit(3)
+        return
     if args.command=='capabilities':
         print(json.dumps(list_capabilities(),ensure_ascii=False)); return
     if args.command=='plan': print(json.dumps({'task':args.task,'steps':['inspect','plan','execute','verify','learn'],'status':'planned_not_executed'},ensure_ascii=False)); return
@@ -161,6 +169,9 @@ def main(argv=None):
         elif args.command=='fuse-alloy': result=import_alloy(db,args.source_db,args.limit)
         elif args.command=='fuse-search': result=find_fused(db,args.query,args.limit)
         elif args.command=='fuse-stats': result=stats_fused(db)
+        elif args.command=='fuse-gd-knowledge':
+            from gd_knowledge_v31 import import_gd_knowledge
+            result=import_gd_knowledge(db,args.source,args.limit)
         elif args.command=='route': result=route_knowledge(db,args.task,args.limit)
         elif args.command=='capability-audit': result=audit_summary(db)
         elif args.command=='capability-plan': result=plan_task(db,args.task)

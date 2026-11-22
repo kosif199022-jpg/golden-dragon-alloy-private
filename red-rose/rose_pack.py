@@ -388,6 +388,15 @@ def default_target():
     return Path.home() / '.claude' / 'skills' / 'red-rose'
 
 
+def backup_dir(target):
+    """Where an existing copy is moved. Never inside a Claude `skills` folder:
+    a backup there still has SKILL.md and Claude loads it as a second skill."""
+    target = Path(target)
+    if target.parent.name.lower() == 'skills':
+        return Path.home() / '.red-rose' / 'skill-backups'
+    return target.parent
+
+
 def install_skill(target=None, approve_write=False, root=ROOT):
     target = Path(target).resolve() if target else default_target().resolve()
     root = Path(root).resolve()
@@ -396,7 +405,7 @@ def install_skill(target=None, approve_write=False, root=ROOT):
                  'error': 'target overlaps the working folder; choose another --target'}, 1)
     backup_guess = None
     if target.exists():
-        backup_guess = str(target.parent / f'red-rose.backup-{_stamp()}')
+        backup_guess = str(backup_dir(target) / f'red-rose.backup-{_stamp()}')
     rerun = 'rose.py install-skill --approve-write' + (f' --target "{target}"' if target else '')
     if not approve_write:
         return ({'ok': False, 'outcome': 'approval_required', 'command': 'install-skill',
@@ -420,10 +429,12 @@ def install_skill(target=None, approve_write=False, root=ROOT):
             json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         backup = None
         if target.exists():
-            backup = target.parent / f'red-rose.backup-{stamp}'
+            bdir = backup_dir(target)
+            bdir.mkdir(parents=True, exist_ok=True)
+            backup = bdir / f'red-rose.backup-{stamp}'
             n = 2
             while backup.exists():
-                backup = target.parent / f'red-rose.backup-{stamp}-{n}'
+                backup = bdir / f'red-rose.backup-{stamp}-{n}'
                 n += 1
             os.replace(target, backup)
         os.replace(staging, target)
