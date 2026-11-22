@@ -100,3 +100,7 @@ Start with FUSION_V20_GUIDE.md and SOURCE_FUSION_AUDIT_V20.json. Use fusion.plan
 - `knowledge.store`, `database.manage`, `video.analyze`, `video.edit`, `audio.process`, `automation.run`, `release.verify` decide read/write per op; any write returns `approval_required` until the owner passes `--approve-write`. An `approve_write` placed inside params is ignored.
 - They never use the network or a shell; inputs are local files and are never modified.
 - `release.verify` `device_checklist` and `edit_rubric` cannot pass without real human evidence — ask the owner for screenshots / review scores instead of claiming them.
+
+
+## V29 — evidence-based direction
+Use the original native `intelligence.director` via `capability-run` for bounded alternative scoring, frame-exact storyboarding and RTL layout checks. Its outputs are proposals only. Source hashes and limitations: `SOURCE_INTELLIGENCE_AUDIT_V29.json` and `V29_INTELLIGENCE_GUIDE.md`. No foreign engine is invoked. New engine's 18 tests and full suite must pass on the current PR before merge.
