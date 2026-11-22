@@ -1,0 +1,46 @@
+{
+  "id": "shot-report-recut",
+  "title_ar": "تقرير اللقطات وإعادة القص",
+  "title_en": "Shot report and recut",
+  "status": "ready",
+  "when": [
+    "شوف الفيديو ده وقولي انهي لقطات احسن وقصهالي ريل ٣٠ ثانية",
+    "اعمل تقرير بكل لقطة في الفيديو وقص أحسنها",
+    "score the shots of this clip and cut the best ones"
+  ],
+  "tags": ["shots", "report", "recut", "video", "edit"],
+  "deliver_ar": "تقرير لكل لقطة (بداية ونهاية وتقييم وسبب) من الملف نفسه، ومعاه فيديو مقصوص من أحسن اللقطات بعد موافقتك",
+  "place": "needs_ffmpeg",
+  "inputs": [
+    {"key": "source", "type": "path", "required": true, "default": null, "impact": "الفيديو اللي هيتقرأ ويتقص منه", "redo": "لو اتغير الفيديو التقرير كله يتعمل تاني", "question_ar": "أي فيديو أقرأ لقطاته؟", "suggest_ar": "المسار الكامل للملف"},
+    {"key": "max_duration", "type": "number", "required": false, "default": 30, "impact": "أقصى مدة للقص بالثواني", "redo": "لو اتغيرت المدة يتعمل الاختيار تاني", "question_ar": "الريل يكون كام ثانية كحد أقصى؟", "suggest_ar": "30"}
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "do_ar": "أقيّم كل لقطة في الفيديو (إضاءة وتفاصيل وحركة وصوت) وأقترح القطع الأحسن، بدون ما أكتب أي ملف",
+      "op": "video.shot_score",
+      "args": {"source": "${source}", "max_duration": "${max_duration}"},
+      "effect": "read",
+      "gate": [
+        {"text_ar": "التقرير فيه لقطات متقاسة من الملف (مش مثال)", "check": "json_path", "expect": {"field": "shots", "min_len": 1}},
+        {"text_ar": "فيه اقتراح قص من اللقطات", "check": "json_path", "expect": {"field": "suggested_edl", "min_len": 1}}
+      ]
+    },
+    {
+      "n": 2,
+      "do_ar": "أقص الاقتراح في فيديو MP4 جديد بالصوت الأصلي، بعد موافقتك، وأتحقق منه",
+      "op": "video.recut",
+      "args": {"source": "${source}", "segments": "${s1.suggested_edl}", "output": "${work}/recut.mp4", "fps": 30},
+      "effect": "write",
+      "approval": true,
+      "deliver": true,
+      "gate": [
+        {"text_ar": "الفيديو المقصوص صح: الصوت AAC وأول فريم مش أسود والفريمات = المدة × 30", "check": "verify_video", "expect": {"path": "${work}/recut.mp4", "audio": "aac_or_none", "frames_match": true, "no_black_first_frame": true, "even_dims": true}}
+      ]
+    }
+  ],
+  "approvals": [{"step": 2, "text_ar": "أكتب فيديو مقصوص جديد في مجلد الشغل (الملف الأصلي ما يتلمسش)"}],
+  "rules": ["aac_in_mp4", "no_black_first_frame", "no_fade_from_black", "no_overlays_unless_named", "frames_match_duration", "even_dimensions"],
+  "selftest": {"inputs": {"source": "@SAMPLE_VIDEO"}, "approve": true}
+}

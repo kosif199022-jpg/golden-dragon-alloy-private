@@ -1,0 +1,29 @@
+{
+  "top1": 0.162,
+  "top3": 0.387,
+  "abstention_recall": 0.833,
+  "history": [
+    {
+      "run": 1,
+      "split": "test",
+      "top1": 0.1375,
+      "top3": 0.325,
+      "abstention_recall": 0.8333,
+      "freeze_total_sha256": "7aac761fa7b3329305eb3977790d6d52805ce41d8ba5151479c929ea2690452c"
+    },
+    {
+      "run": 2,
+      "split": "test",
+      "top1": 0.1625,
+      "top3": 0.3875,
+      "abstention_recall": 0.6667,
+      "freeze_total_sha256": "fd7e64f42c76f6b0a4ae3d468ce97ab0df493ebe5c5089b3e8ba0394ec5921da",
+      "note": "after decode-first routing, decoder rule change, fallback off; abstention recall below floor"
+    }
+  ],
+  "decoder": {
+    "layout_exact_min": 12,
+    "english_false_positives_max": 0,
+    "note": "floors from the single test record; raise only"
+  }
+}

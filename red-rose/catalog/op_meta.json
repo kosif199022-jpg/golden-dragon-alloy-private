@@ -1,0 +1,96 @@
+{
+  "_comment": "Hand-authored overrides for rose_catalog.build(). Everything not listed here is derived from code (signatures, docstrings, EFFECTS, REGISTRY). Keys are op ids (ADAPTER.OP) or branch adapter ids.",
+  "example_when_absent": {
+    "accounting.check.bank_reconcile": ["ledger", "bank", "ledger_csv", "bank_csv"],
+    "accounting.check.duplicate_invoices": ["invoices"],
+    "accounting.check.trial_balance": ["lines"],
+    "accounting.check.payroll_check": ["payroll", "payments"],
+    "accounting.check.inventory_codes": ["items"],
+    "accounting.check.cash_flow": ["sales", "payments"],
+    "accounting.check.cost_allocation": ["expenses", "centres"],
+    "accounting.check.standards_checklist": ["items"],
+    "accounting.check.journal_approval": ["entries"]
+  },
+  "pc_only": ["app.bridge.detect", "app.bridge.blender_render", "app.bridge.tts_local"],
+  "programs": {
+    "app.bridge.blender_render": ["blender"],
+    "app.bridge.tts_local": ["piper"]
+  },
+  "network": [
+    "net.fetch.fetch_page", "net.fetch.fetch_file", "net.fetch.crawl_site",
+    "net.fetch.collect_links", "net.fetch.media_download", "net.fetch.github_repo_info"
+  ],
+  "sub_catalogue": {
+    "text.motion.kinetic_text": {"table": "typemotion_v27:STYLES", "key_param": "style"}
+  },
+  "keywords": {
+    "accounting.check.bank_reconcile": ["reconciliation", "reconcile", "statement", "bank statement", "ledger", "تسوية", "كشف حساب", "دفتر"],
+    "text.motion.kinetic_text": ["kinetic", "animated title", "kinetic title", "title motion", "عنوان متحرك", "كينيتيك"],
+    "text.motion.lower_third": ["lower third", "name card", "name title"],
+    "text.motion.karaoke_caption": ["karaoke", "highlight word", "word highlight"],
+    "text.motion.wrap_caption": ["line break", "caption wrap"],
+    "text.motion.srt": ["subtitle file", "subtitles", "ترجمة"],
+    "text.motion.caption": ["burned caption", "subtitle", "كابشن"],
+    "audio.process.loudness_normalise": ["loudnorm", "lufs", "normalize audio", "تطبيع", "تطبيع الصوت"],
+    "studio.render.render_timeline": ["render", "mp4", "timeline render", "رندر"],
+    "studio.render.preview_frame": ["preview", "frame", "معاينة"],
+    "graphics.motion.data_viz": ["chart", "bar race", "graph", "رسم بياني"],
+    "graphics.motion.route_map": ["map", "route", "خريطة"],
+    "graphics.motion.brand_reveal": ["logo reveal", "logo animation", "شعار"],
+    "video.shot_score": ["shot rating", "shot quality", "تقييم اللقطات"]
+  },
+  "flat_complete": ["knowledge.stats", "style.list"],
+  "flat_params": {
+    "video.preview": {
+      "storyboard": {"type": "auto", "required": true, "default": null, "choices": null},
+      "fps": {"type": "integer", "required": false, "default": 24, "choices": null},
+      "width": {"type": "integer", "required": false, "default": 540, "choices": null},
+      "height": {"type": "integer", "required": false, "default": 960, "choices": null},
+      "audio": {"type": "path", "required": false, "default": null, "choices": null},
+      "srt": {"type": "path", "required": false, "default": null, "choices": null},
+      "profiles": {"type": "path", "required": false, "default": null, "choices": null},
+      "lip_sync": {"type": "bool", "required": false, "default": false, "choices": null},
+      "viseme_sync": {"type": "bool", "required": false, "default": false, "choices": null},
+      "words_json": {"type": "path", "required": false, "default": null, "choices": null}
+    },
+    "video.produce": {
+      "storyboard": {"type": "auto", "required": true, "default": null, "choices": null},
+      "output": {"type": "path", "required": true, "default": null, "choices": null},
+      "fps": {"type": "integer", "required": false, "default": 24, "choices": null},
+      "width": {"type": "integer", "required": false, "default": 540, "choices": null},
+      "height": {"type": "integer", "required": false, "default": 960, "choices": null},
+      "audio": {"type": "path", "required": false, "default": null, "choices": null},
+      "srt": {"type": "path", "required": false, "default": null, "choices": null},
+      "profiles": {"type": "path", "required": false, "default": null, "choices": null},
+      "lip_sync": {"type": "bool", "required": false, "default": false, "choices": null},
+      "viseme_sync": {"type": "bool", "required": false, "default": false, "choices": null},
+      "words_json": {"type": "path", "required": false, "default": null, "choices": null},
+      "overwrite": {"type": "bool", "required": false, "default": false, "choices": null}
+    }
+  },
+  "defaults_not_runnable": {
+    "agents.coordinate.claim_check": "measured with {}: verdict fail",
+    "app.bridge.ae_jsx": "measured with {}: timeline is required",
+    "app.bridge.remotion_project": "measured with {}: timeline is required",
+    "code.analyze.syntax_check": "measured with {}: no source given",
+    "compose.pipeline.critic_roles": "measured with {}: verdict blocked",
+    "design.layout.continuity_diff": "measured with {}: ok false",
+    "governance.audit.legacy_import_audit": "measured with {}: passed false",
+    "knowledge.store.legacy_summaries": "measured with {}: db is required",
+    "knowledge.store.search_fts": "measured with {}: query is required",
+    "knowledge.store.trust_score": "measured with {}: references is required",
+    "learning.evolve.local_only_guard": "measured with {}: verdict blocked",
+    "math.geometry.camera_path": "measured with {}: keyframes is required",
+    "math.geometry.curves": "measured with {}: points is required",
+    "math.geometry.perspective": "measured with {}: points is required",
+    "math.geometry.timecode": "measured with {}: seconds is required",
+    "math.geometry.transform": "measured with {}: steps is required",
+    "playbook.library.parse_description": "measured with {}: title is required",
+    "playbook.library.plan_from_playbook": "measured with {}: playbook_id is required",
+    "playbook.library.search": "measured with {}: query is required",
+    "security.guard.sbom": "measured with {}: verdict fail",
+    "security.guard.secret_ci_scan": "measured with {}: verdict fail",
+    "thinking.reason.premortem": "measured with {}: status blocked"
+  },
+  "known_broken": {}
+}

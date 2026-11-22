@@ -1,0 +1,15 @@
+{
+  "version": "W07-1",
+  "note": "Short lessons from the design audit and the owner's stated rules. Shown at most three per brief, picked by word overlap with the request and the route tags.",
+  "lessons": [
+    {"id": "arabic_unshaped_png", "severity": "high", "tags": ["arabic", "title", "png", "caption", "عنوان", "عربي", "كابشن"], "lesson_ar": "الكتابة العربية اللي بتطلع من غير توصيل أو معكوسة ماتتسلّمش. اتفتح الـ PNG بعينك، ولو فيه arabic_unshaped ماتقولش إنها خلصت."},
+    {"id": "write_only_after_yes", "severity": "high", "tags": ["write", "approval", "render", "export", "قص", "صدر", "رندر"], "lesson_ar": "أمر بيكتب ملف لازم يطلع exit 3 الأول ويكتب حاجة صفر. الكتابة بعد موافقتك بس."},
+    {"id": "json_in_file_not_inline", "severity": "medium", "tags": ["params", "json", "powershell", "command"], "lesson_ar": "JSON طويل جوه سطر أمر PowerShell بيبوّظ علامات التنصيص. اكتب الوسايط في ملف بـ --params-file."},
+    {"id": "no_guess_speech", "severity": "high", "tags": ["caption", "words", "transcript", "كابشن", "كلام"], "lesson_ar": "الكلام اللي في الكابشن جاي من ملف الكلمات اللي إنت بعته، مش من تخمين. الكلمة الغامضة تتسأل عنها."},
+    {"id": "continue_without_context", "severity": "medium", "tags": ["continue", "followup", "كمل"], "lesson_ar": "«كمل» من غير رسالة سابقة معناها سؤال عن الرسالة اللي فاتت، مش تنفيذ. اطلب الرسالة الأولى في سطر واحد."},
+    {"id": "example_data_not_delivered", "severity": "high", "tags": ["example", "sample", "output", "نتيجة"], "lesson_ar": "النتيجة اللي بتقول example_only بيانات مثال، ماتتسلمهاش كأنها بياناتك."},
+    {"id": "verify_by_second_method", "severity": "medium", "tags": ["verify", "video", "audio", "check", "فيديو", "صوت"], "lesson_ar": "قبل ما تقول خلص، اتحقق بطريقة تانية: اقرا الملف بأداة التحقق وافتح فريم أو صورة بعينك."},
+    {"id": "ask_when_file_missing", "severity": "medium", "tags": ["ask", "source", "file", "ملف", "فيديو", "مونتاج"], "lesson_ar": "لو الملف اللي هيتشغّل عليه مش موجود ومش مرفق، اسأل عليه قبل أي أمر، ومتخمنش مسار."},
+    {"id": "word_limit_reply", "severity": "low", "tags": ["reply", "short", "رد"], "lesson_ar": "الرد يبدأ بالنتيجة في أول سطر، وأي جملة ماتتقاسش توسم بأنها استنتاج."}
+  ]
+}

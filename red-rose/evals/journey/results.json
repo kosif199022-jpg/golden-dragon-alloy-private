@@ -1,0 +1,86 @@
+{
+  "measured_by": "sub-agent self-report (four fresh general-purpose sub-agents, one per job); no transcripts were captured, so cli_errors, source_reads and guessed_params are not measured",
+  "configuration": "new skill, PowerShell 5.1 commands",
+  "not_measured": {
+    "old_snapshot_c5ec644": "not measured",
+    "git_bash_configuration": "not measured",
+    "baseline_23_3_4": "not measured for this run"
+  },
+  "jobs": [
+    {
+      "job": "J1",
+      "request": "hulg uk,hk ljpv; ggvdg. fhsl hg,v]m hgplvhx",
+      "first_command": "python -B -X utf8 \"<skill>\\rose.py\" start",
+      "tool_calls": 7,
+      "tool_calls_note": "sub-agent said 6 to 7 after recounting",
+      "cli_errors": "not measured",
+      "result_file_exists": false,
+      "result_verified": false,
+      "outcome": "stopped",
+      "outcome_note": "stopped at the write gate (exit 3); no --approve-write given, as the test rules required",
+      "friction": [
+        "USE.md gives no example of the approval step for a request that says 'اعمل'.",
+        "Passing Arabic text unquoted in PowerShell split on spaces and failed with 'not a key=value parameter'; the whole key=value had to be wrapped in single quotes. USE.md does not mention this.",
+        "start reports a default private database path when RED_ROSE_DB is not set. The sub-agent did not open it, but USE.md does not warn about it.",
+        "brief decoded the keystrokes to the Arabic title with route title-frame-ar (sub-agent reports score 73.7); the decode was checked only from the fixes list, not by reading each keystroke."
+      ]
+    },
+    {
+      "job": "J2",
+      "request": "عايز اطابق كشف حساب البنك مع الدفتر وطلعلي الفروقات  [مرفق: bank.csv, ledger.csv]",
+      "first_command": "PowerShell: New-Item -ItemType Directory under $env:TEMP",
+      "tool_calls": 6,
+      "cli_errors": "not measured",
+      "result_file_exists": false,
+      "result_verified": false,
+      "outcome": "stopped",
+      "outcome_note": "attachments were not reachable from the temp folder, so the required inputs were missing; recipe exited 1 with missing[]",
+      "friction": [
+        "USE.md uses a <skill folder> placeholder; the sub-agent took the real path from start's output.",
+        "USE.md gives no CSV header schema for bank-reconcile (column names, reference column). The owner's file layout could not be checked.",
+        "start reports the default private database path; the sub-agent set RED_ROSE_DB to a temp file. USE.md does not mention that variable.",
+        "The sub-agent ran with -B to avoid writing __pycache__ into the skill folder; USE.md does not say whether running the script writes bytecode there.",
+        "brief asked for the two CSV paths as must_ask and gave route bank-reconcile with date_window_days assumed to be 3."
+      ]
+    },
+    {
+      "job": "J3",
+      "request": "اعمل مونتاج",
+      "first_command": "python -X utf8 \"<red-rose>/rose.py\" start",
+      "tool_calls": 5,
+      "cli_errors": "not measured",
+      "result_file_exists": false,
+      "result_verified": false,
+      "outcome": "stopped",
+      "outcome_note": "no source file in the request, so the only permitted step was to ask; the test rule said ask nothing, so the sub-agent stopped",
+      "friction": [
+        "brief returned decision ask with one missing item (the video path), which is the intended behaviour.",
+        "Running shot-report-recut without a source exits 1 with missing[]; the non-zero exit reads as an error even though nothing broke.",
+        "The test rule 'ask nothing' conflicts with the skill's rule to ask the owner for missing inputs; the sub-agent followed the test rule and stopped."
+      ]
+    },
+    {
+      "job": "J4",
+      "request": "حط كابشن على الريل ده بكلامي بالظبط من غير ما تغير ولا كلمه  [مرفق: reel.mp4, words.json]",
+      "first_command": "$work = Join-Path $env:TEMP (\"rr-job4-\" + guid); New-Item ...; python -X utf8 \"<red-rose>\\rose.py\" start",
+      "tool_calls": 4,
+      "cli_errors": "not measured",
+      "result_file_exists": false,
+      "result_verified": false,
+      "outcome": "stopped",
+      "outcome_note": "words.json and reel.mp4 were not in the temp folder, so no caption text existed; the sub-agent refused to invent text",
+      "friction": [
+        "USE.md uses a <skill folder> placeholder; the real path came from start's output and was reused by hand.",
+        "captions-from-words without words exits 1 with status 'ready' and outcome 'error'. The status and outcome read inconsistently, although missing[] lists the needed input with an Arabic question.",
+        "brief returned decision ask on the words file; the first_reply_ar describes a caption render that cannot happen without it."
+      ]
+    }
+  ],
+  "summary": {
+    "succeeded": 0,
+    "stopped": 4,
+    "failed": 0,
+    "result_files_produced": 0,
+    "note": "all four jobs stopped before a deliverable. Input files were not provided in the test folders, and two jobs were blocked by the write gate or the ask-once rule, which is the intended behaviour. No job tested the render or verify path end to end."
+  }
+}

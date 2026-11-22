@@ -1,0 +1,408 @@
+{
+  "version": "W07-1",
+  "note": "Hand-written expectations. 'text' is the expected understood text; 'kind' the expected kind; 'keep' true means the input must come back byte-identical (English commands and English prose). Decoded Latin tokens were worked out from the Arabic (101) map in layout_map.json.",
+  "cases": [
+    {
+      "id": "eval-kinetic-title",
+      "input": "hulg uk,hk ljpv; ggvdg. fhsl hg,v]m hgplvhx",
+      "text": "اعمل عنوان متحرك للريلز باسم الوردة الحمراء",
+      "kind": "task"
+    },
+    {
+      "id": "ascii-ma-shi",
+      "input": "lhad",
+      "text": "ماشي",
+      "kind": "continue"
+    },
+    {
+      "id": "ascii-bank",
+      "input": "hgfk;",
+      "text": "البنك",
+      "kind": "task"
+    },
+    {
+      "id": "mixed-command-tail",
+      "input": "hulg vdg lk hgtd]d, ]i with ffmpeg -i in.mp4",
+      "text": "اعمل ريل من الفيديو ده with ffmpeg -i in.mp4",
+      "kind": "task"
+    },
+    {
+      "id": "keep-html-css-js",
+      "input": "html css js",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-rhythm-sync",
+      "input": "rhythm sync",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-git-status",
+      "input": "git status",
+      "keep": true,
+      "kind": "status"
+    },
+    {
+      "id": "keep-push-repo",
+      "input": "please push the repo and run npm install",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-npm-install",
+      "input": "npm install",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-pip",
+      "input": "pip install pandas",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-ffmpeg",
+      "input": "ffmpeg -i in.mp4 out.mp4",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-gh",
+      "input": "gh repo view",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-rose-run",
+      "input": "python -X utf8 rose.py run video.verify",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-powershell",
+      "input": "powershell -ExecutionPolicy Bypass -File build.ps1",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-ytdlp",
+      "input": "yt-dlp -x https://example.com/watch",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-ls",
+      "input": "ls -la",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-cd",
+      "input": "cd folder",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-docker",
+      "input": "docker run hello",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-curl",
+      "input": "curl -f https://example.com",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-make",
+      "input": "make build",
+      "keep": true,
+      "kind": "task"
+    },
+    {
+      "id": "keep-ok",
+      "input": "ok",
+      "keep": true,
+      "kind": "continue"
+    },
+    {
+      "id": "keep-hi",
+      "input": "hi there",
+      "keep": true,
+      "kind": "greet"
+    },
+    {
+      "id": "keep-url",
+      "input": "https://www.youtube.com/watch?v=abc",
+      "keep": true,
+      "kind": "link"
+    },
+    {
+      "id": "keep-www",
+      "input": "www.example.com",
+      "keep": true,
+      "kind": "link"
+    },
+    {
+      "id": "keep-win-path",
+      "input": "C:\\Users\\example\\video.mp4",
+      "keep": true
+    },
+    {
+      "id": "keep-posix-path",
+      "input": "/tmp/a.mp4",
+      "keep": true
+    },
+    {
+      "id": "keep-flags",
+      "input": "--out result.json -v",
+      "keep": true
+    },
+    {
+      "id": "keep-file-names",
+      "input": "clip.mp4 words.json bank.csv",
+      "keep": true
+    },
+    {
+      "id": "keep-digits",
+      "input": "30fps 1080p",
+      "keep": true
+    },
+    {
+      "id": "keep-short-ld",
+      "input": "ld",
+      "keep": true
+    },
+    {
+      "id": "keep-in-is",
+      "input": "is it in",
+      "keep": true
+    },
+    {
+      "id": "keep-english-run",
+      "input": "run the tests and show the result",
+      "keep": true
+    },
+    {
+      "id": "keep-english-fix",
+      "input": "fix the caption timing please",
+      "keep": true
+    },
+    {
+      "id": "keep-cmd-stops-decode",
+      "input": "git commit -m fix hgfk;",
+      "keep": true
+    },
+    {
+      "id": "upper-caps",
+      "input": "HULG",
+      "text": "اعمل",
+      "kind": "task"
+    },
+    {
+      "id": "upper-mixed",
+      "input": "Hulg vdg",
+      "text": "أعمل ريل",
+      "kind": "task",
+      "note": "Shift+H types أ on the Arabic-101 table (W11 frozen decoder uses the same table)"
+    },
+    {
+      "id": "single-ryl",
+      "input": "vdg",
+      "text": "ريل",
+      "kind": "task"
+    },
+    {
+      "id": "single-min",
+      "input": "lk",
+      "text": "من",
+      "kind": "task"
+    },
+    {
+      "id": "single-basm",
+      "input": "fhsl",
+      "text": "باسم",
+      "kind": "task"
+    },
+    {
+      "id": "single-alhamra",
+      "input": "hgplvhx",
+      "text": "الحمراء",
+      "kind": "task"
+    },
+    {
+      "id": "single-alwarda",
+      "input": "hg,v]m",
+      "text": "الوردة",
+      "kind": "task"
+    },
+    {
+      "id": "single-motharak",
+      "input": "ljpv;",
+      "text": "متحرك",
+      "kind": "task"
+    },
+    {
+      "id": "single-lilreels",
+      "input": "ggvdg.",
+      "text": "للريلز",
+      "kind": "task"
+    },
+    {
+      "id": "single-anwan",
+      "input": "uk,hk",
+      "text": "عنوان",
+      "kind": "task"
+    },
+    {
+      "id": "single-fidyo",
+      "input": "hgtd]d,",
+      "text": "الفيديو",
+      "kind": "task"
+    },
+    {
+      "id": "single-dah",
+      "input": "]i",
+      "text": "ده",
+      "kind": "task"
+    },
+    {
+      "id": "single-ali",
+      "input": "hulg",
+      "text": "اعمل",
+      "kind": "task"
+    },
+    {
+      "id": "dictation-fidyo",
+      "input": "الفديو ده",
+      "text": "الفيديو ده",
+      "kind": "task"
+    },
+    {
+      "id": "dictation-long",
+      "input": "شوف الفديو ده وقولي انهي لقطات احسن وقصهالي ريل ٣٠ ثانيه",
+      "text": "شوف الفيديو ده وقولي انهي لقطات احسن وقصهالي ريل ٣٠ ثانيه",
+      "kind": "task"
+    },
+    {
+      "id": "dictation-kabshin",
+      "input": "حط كابشين على الريل",
+      "text": "حط كابشن على الريل",
+      "kind": "task"
+    },
+    {
+      "id": "dictation-prefixed-monteej",
+      "input": "اعمل مونتيج للفديو",
+      "text": "اعمل مونتاج للفيديو",
+      "kind": "task"
+    },
+    {
+      "id": "dictation-iphone",
+      "input": "صدرلي الفيديو على ايفون",
+      "text": "صدرلي الفيديو على آيفون",
+      "kind": "task"
+    },
+    {
+      "id": "dictation-no-change",
+      "input": "اعمل مونتاج",
+      "text": "اعمل مونتاج",
+      "kind": "task",
+      "changed": false
+    },
+    {
+      "id": "wrapper-attachment",
+      "input": "شوف الفديو ده [مرفق: clip.mp4]",
+      "text": "شوف الفيديو ده",
+      "kind": "task",
+      "attachments": [
+        "clip.mp4"
+      ]
+    },
+    {
+      "id": "wrapper-claude-code",
+      "input": "🔗 من Claude Code: اعمل عنوان للريل",
+      "text": "اعمل عنوان للريل",
+      "kind": "task"
+    },
+    {
+      "id": "kind-greet",
+      "input": "ازيك عامل ايه",
+      "text": "ازيك عامل ايه",
+      "kind": "greet"
+    },
+    {
+      "id": "kind-greet-day",
+      "input": "ازيك يا ورده عامل ايه النهارده",
+      "text": "ازيك يا ورده عامل ايه النهارده",
+      "kind": "greet"
+    },
+    {
+      "id": "kind-thanks",
+      "input": "شكرا",
+      "text": "شكرا",
+      "kind": "thanks"
+    },
+    {
+      "id": "kind-thanks-with-work",
+      "input": "شكرا اعمل عنوان للريل",
+      "text": "شكرا اعمل عنوان للريل",
+      "kind": "task"
+    },
+    {
+      "id": "kind-continue",
+      "input": "كمل",
+      "text": "كمل",
+      "kind": "continue"
+    },
+    {
+      "id": "kind-yalla",
+      "input": "يلا",
+      "text": "يلا",
+      "kind": "continue"
+    },
+    {
+      "id": "kind-tamam",
+      "input": "تمام",
+      "text": "تمام",
+      "kind": "continue"
+    },
+    {
+      "id": "kind-complaint",
+      "input": "الكلام طالع مقطع ومش متوصل صلحه",
+      "text": "الكلام طالع مقطع ومش متوصل صلحه",
+      "kind": "complaint"
+    },
+    {
+      "id": "kind-status",
+      "input": "فين وصلت",
+      "text": "فين وصلت",
+      "kind": "status"
+    },
+    {
+      "id": "kind-link",
+      "input": "https://example.com/page",
+      "kind": "link"
+    },
+    {
+      "id": "kind-task-montage",
+      "input": "اعمل مونتاج",
+      "text": "اعمل مونتاج",
+      "kind": "task"
+    },
+    {
+      "id": "fix-empty",
+      "input": "",
+      "text": "",
+      "kind": "task"
+    },
+    {
+      "id": "fix-spaces",
+      "input": "   ",
+      "text": "   ",
+      "kind": "task"
+    }
+  ]
+}

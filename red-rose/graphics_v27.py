@@ -26,7 +26,9 @@ capped; the route map is schematic (graticule only, no map imagery).
 """
 from __future__ import annotations
 
+import functools
 import html
+import inspect
 import json
 import math
 import random
@@ -43,9 +45,17 @@ DEFAULT_FONT = 'Arial, Helvetica, sans-serif'
 
 # --------------------------------------------------------------------------- validation
 
-def _no_extra(extra):
+def _no_extra(extra, allowed=None):
     if extra:
-        raise ValueError('unknown parameter(s): ' + ', '.join(sorted(map(str, extra))))
+        msg = 'unknown parameter(s): ' + ', '.join(sorted(map(str, extra)))
+        if allowed is not None:
+            msg += '; allowed: ' + (', '.join(sorted(map(str, allowed))) or '(none)')
+        raise ValueError(msg)
+
+
+def _cfg_names(cfg_fn):
+    return tuple(q.name for q in inspect.signature(cfg_fn).parameters.values()
+                 if q.kind is not inspect.Parameter.VAR_KEYWORD)
 
 
 def _num(value, low, high, name, *, low_open=False):
@@ -312,6 +322,12 @@ def _txt(x, y, s, size, fill, *, ff=DEFAULT_FONT, anchor='middle', weight=400,
          rtl=None, opacity=None, extra=''):
     if rtl is None:
         rtl = _has_arabic(s)
+    if rtl and anchor in ('start', 'end'):
+        # With direction="rtl", 'start' is the RIGHT edge in browsers but the LEFT edge in
+        # CairoSVG. Emit the unambiguous physical anchor instead (start->right edge = 'end')
+        # and leave the word order to the bidi algorithm (an all-Arabic label reads the same).
+        anchor = 'end' if anchor == 'start' else 'start'
+        rtl = False
     attrs = (f'x="{_fmt(x)}" y="{_fmt(y)}" font-family="{_esc(ff)}" font-size="{_fmt(size)}" '
              f'font-weight="{weight}" fill="{fill}" text-anchor="{anchor}" dominant-baseline="central"')
     if rtl:
@@ -847,6 +863,25 @@ def _cfg_neon_glow(*, text='ROSE', color='#ff2d55', font_size=None, font_family=
     }
 
 
+def _latin_width(text, size, weight=400):
+    """Estimated advance of a Latin string (Arial-like metrics, no font measurement)."""
+    adv = 0.0
+    for ch in text:
+        if ch.isspace():
+            adv += 0.28
+        elif ch.isupper():
+            adv += 0.70
+        elif ch.isdigit():
+            adv += 0.56
+        elif ch in 'iljtf.,;:!|\'':
+            adv += 0.30
+        elif ch in 'mwMW':
+            adv += 0.85
+        else:
+            adv += 0.56
+    return adv * size * (1.06 if weight >= 600 else 1.0)
+
+
 def _neon_level(c, t):
     slot = math.floor(t * c['flicker_hz'])
     if c['power_on'] > 0 and t < c['power_on']:
@@ -864,8 +899,14 @@ def _render_neon_glow(c, t, w, h, pid):
     rtl = _has_arabic(c['text'])
     core = _mix_hex(c['color'], '#ffffff', 0.55)
     sw = fs * 0.05
+    anchor = 'middle'
+    if c['broken_letter'] >= 0:
+        # per-letter <tspan>s: CairoSVG centres only the first tspan of a middle-anchored text,
+        # so anchor at the estimated left edge instead (Latin only, see _cfg_neon_glow)
+        x -= _latin_width(c['text'], fs, c['font_weight']) / 2
+        anchor = 'start'
     common = (f'x="{_fmt(x)}" y="{_fmt(y)}" font-family="{_esc(c["font_family"])}" '
-              f'font-size="{_fmt(fs)}" font-weight="{c["font_weight"]}" text-anchor="middle" '
+              f'font-size="{_fmt(fs)}" font-weight="{c["font_weight"]}" text-anchor="{anchor}" '
               f'dominant-baseline="central"' + (' direction="rtl" unicode-bidi="embed"' if rtl else ''))
     parts = [f'<g id="{pid}-neon">']
     if c['glow'] and c['glow_strength'] > 0:
@@ -1490,6 +1531,8 @@ def _render_data_viz(c, t, w, h, pid):
             xh = xl + 1
         if yh - yl < 1e-12:
             yh = yl + 1
+        padx, pady = (xh - xl) * 0.06, (yh - yl) * 0.06
+        xl, xh, yl, yh = xl - padx, xh + padx, yl - pady, yh + pady
         X = lambda v: x0 + (x1 - x0) * (v - xl) / (xh - xl)
         Y = lambda v: y1 - (y1 - y0) * (v - yl) / (yh - yl)
         parts.append(f'<line x1="{_fmt(x0)}" y1="{_fmt(y1)}" x2="{_fmt(x1)}" y2="{_fmt(y1)}" '
@@ -1618,10 +1661,10 @@ def _render_route_map(c, t, w, h, pid):
     else:
         lo_min, lo_max = min(p[1] for p in un), max(p[1] for p in un)
         la_min, la_max = min(p[0] for p in un), max(p[0] for p in un)
-        span = max(lo_max - lo_min, la_max - la_min, 4.0)
         mlo, mla = (lo_min + lo_max) / 2, (la_min + la_max) / 2
-        lo_min, lo_max = mlo - span / 2, mlo + span / 2
-        la_min, la_max = mla - span / 2, mla + span / 2
+        lo_span, la_span = max(lo_max - lo_min, 4.0), max(la_max - la_min, 4.0)
+        lo_min, lo_max = mlo - lo_span / 2, mlo + lo_span / 2
+        la_min, la_max = mla - la_span / 2, mla + la_span / 2
     pw, ph = w * (1 - 2 * c['padding']), h * (1 - 2 * c['padding'])
     sc = min(pw / (lo_max - lo_min), ph / (la_max - la_min))
     mlo, mla = (lo_min + lo_max) / 2, (la_min + la_max) / 2
@@ -2501,6 +2544,8 @@ def _render(op, params, t, width, height):
     pid = _prefix(given, op, p)
     t, width, height = _canvas(t, width, height)
     cfg_fn, render_fn = _FEATURES[op][0], _FEATURES[op][1]
+    names = _cfg_names(cfg_fn)
+    _no_extra([k for k in p if k not in names], allowed=names + ('id_prefix',))
     cfg = cfg_fn(**p)
     svg, meta = render_fn(cfg, t, width, height, pid)
     return svg, meta, pid
@@ -2579,6 +2624,7 @@ def svg_document(fragment, width, height, background=None):
 
 
 def list_catalogue():
+    """Static catalogue of the graphics ops with one-line Arabic descriptions."""
     return [{'name': n, 'description_ar': d} for n, d in CATALOGUE]
 
 
@@ -2600,7 +2646,8 @@ def _op_feature(op, params):
 
 
 def _op_choose_chart(*, relationship='trend', n_parts=None, **extra):
-    _no_extra(extra)
+    """Pick a chart type from the relationship between the data (ranking, trend, composition, ...)."""
+    _no_extra(extra, allowed=('relationship', 'n_parts'))
     chart = choose_chart(relationship, n_parts)
     key = relationship.strip().lower().replace(' ', '_').replace('-', '_')
     key = _REL_SYNONYMS.get(key, key)
@@ -2611,13 +2658,64 @@ def _op_choose_chart(*, relationship='trend', n_parts=None, **extra):
 
 
 def _op_list_catalogue(**extra):
-    _no_extra(extra)
+    """List the graphics ops with one-line Arabic descriptions."""
+    _no_extra(extra, allowed=())
     return _pack('list_catalogue', {'catalogue': list_catalogue(), 'count': len(CATALOGUE)},
                  ['descriptions are one-line Arabic summaries'], ['catalogue is static'])
 
 
-OPS = {name: name for name in _FEATURES}
-OPS.update({'choose_chart': 'choose_chart', 'list_catalogue': 'list_catalogue'})
+_FEATURE_DOCS = {
+    'shape_morph': 'Morph between two shapes (presets, SVG paths or point lists) at time t.',
+    'draw_on': 'Draw a stroke on over time from its measured length (clean or hand-drawn marker).',
+    'neon_glow': 'Neon sign with seeded flicker; blur glow only when glow=True.',
+    'textures': 'Grain, paper, halftone, scanline or vignette overlays, drawn only when named.',
+    'particles_svg': 'Seeded dust, confetti, rain, snow or sparks at time t.',
+    'data_viz': 'Animated chart (bar, bar_race, line, donut, ring, stacked, counter, histogram, scatter).',
+    'route_map': 'Schematic great-circle route between stops with a moving marker on a graticule.',
+    'explainer_diagram': 'Boxes and arrows revealed step by step with the active step highlighted.',
+    'retro_pixel': 'Low-res pixel scene at an integer scale with a walking sprite cycle.',
+    'ui_mock': 'Phone or laptop mock with perspective tilt, cursor path and click ripples.',
+    'brand_reveal': 'Logo reveal (squares, circle wipe or line build) with palette tokens.',
+}
+
+
+def _feature_op(op):
+    """Op callable for a feature: keyword-only t, width, height, id_prefix + the feature options."""
+    cfg_fn = _FEATURES[op][0]
+    params = [inspect.Parameter('t', inspect.Parameter.KEYWORD_ONLY, default=_FEATURES[op][2]),
+              inspect.Parameter('width', inspect.Parameter.KEYWORD_ONLY, default=1920),
+              inspect.Parameter('height', inspect.Parameter.KEYWORD_ONLY, default=1080),
+              inspect.Parameter('id_prefix', inspect.Parameter.KEYWORD_ONLY, default=None)]
+    params += [q for q in inspect.signature(cfg_fn).parameters.values()
+               if q.kind is not inspect.Parameter.VAR_KEYWORD]
+    names = tuple(q.name for q in params)
+
+    def feature(**kwargs):
+        _no_extra([k for k in kwargs if k not in names], allowed=names)
+        return _op_feature(op, kwargs)
+    feature.__name__ = feature.__qualname__ = op
+    feature.__doc__ = _FEATURE_DOCS[op]
+    feature.__signature__ = inspect.Signature(params)
+    feature.allowed_params = names
+    return feature
+
+
+def _named_op(fn):
+    sig = inspect.signature(fn)
+    params = [q for q in sig.parameters.values() if q.kind is not inspect.Parameter.VAR_KEYWORD]
+
+    @functools.wraps(fn)
+    def op(**kwargs):
+        return fn(**kwargs)
+    op.__signature__ = inspect.Signature(params)
+    op.allowed_params = tuple(q.name for q in params)
+    return op
+
+
+OPS = {name: _feature_op(name) for name in _FEATURES}
+OPS.update({'choose_chart': _named_op(_op_choose_chart), 'list_catalogue': _named_op(_op_list_catalogue)})
+# Every op is pure computation returning SVG/JSON: nothing is written, fetched or executed.
+EFFECTS = {name: 'read' for name in OPS}
 
 
 def run(op, params=None):
@@ -2625,12 +2723,7 @@ def run(op, params=None):
     if not isinstance(op, str) or op not in OPS:
         raise ValueError(f'op must be one of {sorted(OPS)}')
     params = _check_params(params)
-    if op in _FEATURES:
-        out = _op_feature(op, params)
-    elif op == 'choose_chart':
-        out = _op_choose_chart(**params)
-    else:
-        out = _op_list_catalogue(**params)
+    out = OPS[op](**params)
     try:
         json.dumps(out, allow_nan=False)
     except (TypeError, ValueError) as exc:

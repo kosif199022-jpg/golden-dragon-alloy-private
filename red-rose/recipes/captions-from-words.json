@@ -1,0 +1,46 @@
+{
+  "id": "captions-from-words",
+  "title_ar": "كابشن من الكلام بالحرف (بتوقيت الكلمات)",
+  "title_en": "Captions from the speaker's own timed words",
+  "status": "ready",
+  "when": [
+    "حط كابشن على الريل ده بكلامي بالظبط من غير ما تغير ولا كلمة",
+    "اعمل كابشن عربي بالتوقيت من ملف الكلمات",
+    "make karaoke captions from the timed words file"
+  ],
+  "tags": ["captions", "arabic", "words", "karaoke", "exact"],
+  "deliver_ar": "صورة كابشن PNG وSVG للحظة المطلوبة، والكلام فيها هو نفس الكلمات اللي في ملف التوقيت بالحرف. الحرق على الفيديو كله مش في الوصفة دي",
+  "place": "needs_ffmpeg",
+  "inputs": [
+    {"key": "words", "type": "json_file", "required": true, "default": null, "impact": "الكلام نفسه وتوقيته: الوصفة ما تكتبش ولا تخمّن أي كلمة", "redo": "لو اتغير ملف الكلمات يتعمل تاني", "question_ar": "محتاج ملف الكلمات بتوقيتها من التسجيل (كل كلمة ببدايتها ونهايتها). مش هكتب الكلام ولا أخمّنه", "suggest_ar": "ملف JSON فيه الكلمات والتوقيت من التسجيل"},
+    {"key": "t", "type": "number", "required": false, "default": 1.2, "impact": "اللحظة اللي تتصور فيها الكابشن", "redo": "", "question_ar": "في أي ثانية تتصور الكابشن؟", "suggest_ar": "1.2"}
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "do_ar": "أرسم صفحة الكابشن بالكلمات دي في اللحظة دي، وأتأكد إن النص اللي اتكتب هو نفس الكلام بالحرف",
+      "op": "studio.render.preview_frame",
+      "args": {
+        "spec": {
+          "width": 1080, "height": 1920, "fps": 30, "duration": 3, "background": "#101010",
+          "layers": [{"module": "typemotion", "op": "karaoke", "start": 0.0, "end": 3.0,
+                      "params": {"words_with_times": "${words}"}}],
+          "audio": []
+        },
+        "t": "${t}",
+        "rasterize": true
+      },
+      "effect": "read",
+      "approval": true,
+      "save": {"png_base64": "${work}/caption-frame.png", "svg": "${work}/caption-frame.svg"},
+      "deliver": true,
+      "gate": [
+        {"text_ar": "نص الكابشن بالحرف = الكلمات اللي في ملف التوقيت (بما فيها التشكيل)", "check": "equals_input", "expect": {"field": "svg", "input": "words"}},
+        {"text_ar": "صورة الكابشن اتكتبت", "check": "file_exists", "expect": {"path": "${work}/caption-frame.png", "min_bytes": 2000}}
+      ]
+    }
+  ],
+  "approvals": [{"step": 1, "text_ar": "أكتب صورة الكابشن (PNG و SVG) في مجلد الشغل"}],
+  "rules": ["captions_exact_words", "arabic_shaped", "no_overlays_unless_named"],
+  "selftest": {"inputs": {"words": "@WORDS_JSON", "t": 1.2}, "approve": true}
+}

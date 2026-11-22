@@ -1,0 +1,36 @@
+{
+  "id": "bank-reconcile",
+  "title_ar": "مطابقة كشف البنك مع الدفتر",
+  "title_en": "Bank statement reconciliation",
+  "status": "ready",
+  "when": [
+    "عايز اطابق كشف حساب البنك مع الدفتر وطلعلي الفروقات",
+    "قارن الدفتر بكشف البنك وقولي اللي ماتطابقش",
+    "reconcile the bank csv against the ledger csv"
+  ],
+  "tags": ["accounting", "bank", "reconcile", "csv"],
+  "deliver_ar": "تقرير المطابقة: المتطابق، والمش متطابق على كل جانب، والفروقات الصغيرة بالسطور والمبلغ، ومجاميع الجانبين",
+  "place": "any",
+  "inputs": [
+    {"key": "ledger_csv", "type": "path", "required": true, "default": null, "impact": "الدفتر (CSV: id,date,amount,ref)", "redo": "لو اتغير الدفتر المطابقة تتعمل تاني", "question_ar": "فين ملف الدفتر (CSV)؟", "suggest_ar": "المسار الكامل لملف الدفتر"},
+    {"key": "bank_csv", "type": "path", "required": true, "default": null, "impact": "كشف البنك (CSV: id,date,amount,ref)", "redo": "لو اتغير الكشف المطابقة تتعمل تاني", "question_ar": "فين ملف كشف البنك (CSV)؟", "suggest_ar": "المسار الكامل لكشف البنك"},
+    {"key": "date_window_days", "type": "integer", "required": false, "default": 3, "impact": "الفرق المسموح في التاريخ بالأيام", "redo": "", "question_ar": "الفرق المسموح في التاريخ كام يوم؟", "suggest_ar": "3"}
+  ],
+  "steps": [
+    {
+      "n": 1,
+      "do_ar": "أطابق السطور بالمبلغ والتاريخ والمرجع، وأطلع الفروقات بالأرقام",
+      "op": "accounting.check.bank_reconcile",
+      "args": {"ledger_csv": "${ledger_csv}", "bank_csv": "${bank_csv}", "date_window_days": "${date_window_days}"},
+      "effect": "read",
+      "deliver": true,
+      "gate": [
+        {"text_ar": "المطابقة على ملفاتك انت (مش بيانات مثال)", "check": "not_example", "expect": {}},
+        {"text_ar": "المجاميع اتحسبت", "check": "json_path", "expect": {"field": "counts", "not_empty": true}}
+      ]
+    }
+  ],
+  "approvals": [],
+  "rules": [],
+  "selftest": {"inputs": {"ledger_csv": "@LEDGER_CSV", "bank_csv": "@BANK_CSV"}, "approve": false}
+}

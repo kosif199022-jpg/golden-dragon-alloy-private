@@ -1,14 +1,19 @@
 """Red Rose V21: bounded, deterministic accounting checks on owner-provided records.
 
-Pure standard-library Python. No file I/O, no subprocess, no network, no printing.
-Records arrive as lists of dicts inside the parameters (at most 50,000 rows per
-list). All money is decimal.Decimal parsed from strings (or ints); floats are
+Pure standard-library Python. No subprocess, no network, no printing, and no
+file I/O except one read-only exception: bank_reconcile may read the owner's
+ledger_csv / bank_csv files (UTF-8 CSV, header id,date,amount[,ref], <= 20 MB each).
+Records otherwise arrive as lists of dicts inside the parameters (at most 50,000 rows
+per list). All money is decimal.Decimal parsed from strings (or ints); floats are
 rejected for money. Money is rounded ROUND_HALF_UP to `currency_places`
 (default 2) and returned as strings. Dates are ISO 'YYYY-MM-DD'.
 
 Every op validates strictly (ValueError on unknown parameter names, floats for
 money, malformed dates, out-of-range values) and caps its work. Each op returns
-{'op', 'result', 'assumptions', 'limits'}. These are checking aids for the
+{'op', 'result', 'assumptions', 'limits'}. Since V29 every result also carries
+'example_data' (bool) and 'input': 'built_in_example' when the op ran on its built-in
+example rows because no owner records were given, otherwise 'params' (or 'csv' /
+'params+csv' for bank_reconcile file input). These are checking aids for the
 owner's own data: they give no professional (audit, tax, legal) opinion, file
 nothing with any authority and pay nothing.
 """
@@ -17,12 +22,15 @@ from __future__ import annotations
 import datetime as _dt
 import decimal
 import difflib
+import csv
 import functools
+import io
 import json
 import math
 import re
 from collections import defaultdict
 from decimal import Decimal, ROUND_HALF_UP
+from pathlib import Path
 
 MAX_PARAMS = 24
 MAX_ROWS = 50_000
@@ -92,6 +100,16 @@ def _no_extra(extra):
 def _pack(op, result, assumptions, limits):
     return {'op': op, 'result': result, 'assumptions': list(assumptions),
             'limits': list(limits) + COMMON_LIMITS}
+
+
+def _mark(out, example, source='params'):
+    """V29: state in the result whether built-in example rows were used (no key removed)."""
+    out['result']['input'] = 'built_in_example' if example else source
+    out['result']['example_data'] = bool(example)
+    if example:
+        out['assumptions'].insert(0, 'no owner records were given: the BUILT-IN EXAMPLE rows were used; '
+                                     'pass your own records to check real data')
+    return out
 
 
 def _dec(value, name, *, low=None, high=None, low_open=False):
@@ -224,6 +242,93 @@ _EX_BANK = [
 ]
 
 
+CSV_MAX_BYTES = 20 * 1024 * 1024
+CSV_COLUMNS = ('id', 'date', 'amount', 'ref')
+_CSV_REQUIRED = ('id', 'date', 'amount')
+# Arabic-Indic (U+0660..0669) and Eastern Arabic-Indic (U+06F0..06F9) digits, the Arabic
+# decimal / thousands separators and the minus sign are folded to ASCII in CSV cells.
+_DIGIT_FOLD = {**{0x0660 + i: str(i) for i in range(10)}, **{0x06F0 + i: str(i) for i in range(10)},
+               0x066B: '.', 0x066C: ',', 0x2212: '-'}
+_DIGIT_FOLD_RE = re.compile('[٠-٩۰-۹٫٬−]')
+
+
+def _read_bank_csv(value, name):
+    """Read one owner CSV (header id,date,amount[,ref]) -> (rows, ignored_columns, warnings).
+
+    Read-only; the file must be an existing .csv of at most CSV_MAX_BYTES, UTF-8 (a BOM is
+    accepted). Comma, semicolon or tab delimiter (taken from the header line). Unknown
+    columns are ignored and reported; blank lines are skipped."""
+    if isinstance(value, bool) or not isinstance(value, (str, Path)):
+        raise ValueError(f'{name} must be a path to a .csv file')
+    raw = str(value).strip()
+    if not raw or '\x00' in raw:
+        raise ValueError(f'{name} must be a path to a .csv file')
+    path = Path(raw).expanduser()
+    if path.suffix.lower() != '.csv':
+        raise ValueError(f'{name} must end with .csv')
+    if not path.is_file():
+        raise ValueError(f'{name} file not found: {path}')
+    if path.stat().st_size > CSV_MAX_BYTES:
+        raise ValueError(f'{name} is larger than {CSV_MAX_BYTES} bytes')
+    data = path.read_bytes()
+    try:
+        text = data.decode('utf-8-sig')
+    except UnicodeDecodeError:
+        raise ValueError(f'{name} must be UTF-8 text (save the sheet as "CSV UTF-8")') from None
+    first = next((ln for ln in text.splitlines() if ln.strip()), '')
+    if not first:
+        raise ValueError(f'{name} is empty')
+    delim = ','
+    if ',' not in first:
+        delim = ';' if ';' in first else ('\t' if '\t' in first else ',')
+    reader = csv.reader(io.StringIO(text, newline=''), delimiter=delim, strict=True)
+    try:
+        table = [r for r in reader]
+    except csv.Error as exc:
+        raise ValueError(f'{name} is not valid CSV: {exc}') from None
+    table = [(i + 1, r) for i, r in enumerate(table) if any(c.strip() for c in r)]
+    if not table:
+        raise ValueError(f'{name} is empty')
+    header_line, header = table[0]
+    cols = [h.strip().lower() for h in header]
+    seen = set()
+    for c in cols:
+        if c and c in seen:
+            raise ValueError(f'{name}: duplicate column {c!r} in the header')
+        seen.add(c)
+    missing = [c for c in _CSV_REQUIRED if c not in cols]
+    if missing:
+        raise ValueError(f'{name}: header must contain id,date,amount (optional ref); '
+                         f'missing {", ".join(missing)}; found {", ".join(c or "(blank)" for c in cols)}')
+    ignored = [c if c else f'(unnamed column {k + 1})' for k, c in enumerate(cols) if c not in CSV_COLUMNS]
+    keep = {c: k for k, c in enumerate(cols) if c in CSV_COLUMNS}
+    rows, folded = [], 0
+    for line_no, r in table[1:]:
+        if len(r) > len(cols) and any(x.strip() for x in r[len(cols):]):
+            raise ValueError(f'{name} line {line_no}: {len(r)} fields but the header has {len(cols)}')
+        row = {}
+        for c, k in keep.items():
+            cell = (r[k] if k < len(r) else '').strip()
+            if _DIGIT_FOLD_RE.search(cell):
+                cell = cell.translate(_DIGIT_FOLD)
+                folded += 1
+            row[c] = cell
+        for c in _CSV_REQUIRED:
+            if not row[c]:
+                raise ValueError(f'{name} line {line_no}: {c} is empty')
+        rows.append(row)
+        if len(rows) > MAX_ROWS:
+            raise ValueError(f'{name} has more than {MAX_ROWS} data rows')
+    if not rows:
+        raise ValueError(f'{name} has a header but no data rows')
+    warnings = []
+    if folded:
+        warnings.append(f'{name}: Arabic-Indic digits/separators normalised to ASCII in {folded} cell(s)')
+    if ignored:
+        warnings.append(f'{name}: column(s) ignored: {", ".join(ignored)} (only id, date, amount, ref are read)')
+    return rows, ignored, warnings
+
+
 def _ref_norm(s):
     return re.sub(r'[^0-9A-Z]', '', s.upper())
 
@@ -251,7 +356,7 @@ def _bank_lines(rows, name, places):
 @_decimal_ctx
 def bank_reconcile(*, ledger=None, bank=None, date_window_days=3, near_miss_amount='1.00',
                    near_miss_extra_days=7, min_ref_similarity=0.0, currency_places=2,
-                   max_near_misses=5000, **extra):
+                   max_near_misses=5000, ledger_csv=None, bank_csv=None, **extra):
     """Match ledger lines to bank lines: equal amount, then date within
     ±date_window_days, then best reference similarity (difflib ratio on refs
     reduced to A-Z0-9). Greedy in ledger (date, id) order; ties go to the
@@ -260,6 +365,12 @@ def bank_reconcile(*, ledger=None, bank=None, date_window_days=3, near_miss_amou
     near_miss_amount within the window ('amount'), equal amounts just outside
     the window ('date'), or equal amounts whose reference similarity is below
     min_ref_similarity ('reference'). Near-misses are never counted as matched.
+
+    Each side comes from inline rows (ledger / bank: lists of {id, date, amount, ref})
+    or from a CSV file (ledger_csv / bank_csv: header id,date,amount[,ref], amounts as
+    decimal strings, dates YYYY-MM-DD; Arabic-Indic digits are normalised with a
+    warning; unknown columns are ignored and listed in ignored_columns). With no
+    records at all the built-in example rows are used and flagged example_data=true.
     """
     _no_extra(extra)
     places = _places(currency_places)
@@ -268,7 +379,23 @@ def bank_reconcile(*, ledger=None, bank=None, date_window_days=3, near_miss_amou
     tol = _dec(near_miss_amount, 'near_miss_amount', low=Decimal(0))
     min_sim = _num(min_ref_similarity, 0, 1, 'min_ref_similarity')
     cap = _int(max_near_misses, 0, 50_000, 'max_near_misses')
-    if _pair_given(ledger, bank, 'ledger', 'bank'):
+    csv_warnings, ignored_columns = [], []
+    sources = {'params' for rows in (ledger, bank) if rows is not None}
+    for side, csv_path in (('ledger', ledger_csv), ('bank', bank_csv)):
+        if csv_path is None:
+            continue
+        if (ledger if side == 'ledger' else bank) is not None:
+            raise ValueError(f'give {side} or {side}_csv, not both')
+        rows, ign, warn = _read_bank_csv(csv_path, f'{side}_csv')
+        if side == 'ledger':
+            ledger = rows
+        else:
+            bank = rows
+        sources.add('csv')
+        csv_warnings += warn
+        ignored_columns += [c for c in ign if c not in ignored_columns]
+    example = _pair_given(ledger, bank, 'ledger (or ledger_csv)', 'bank (or bank_csv)')
+    if example:
         ledger, bank = _EX_LEDGER, _EX_BANK
     L = _bank_lines(ledger, 'ledger', places)
     B = _bank_lines(bank, 'bank', places)
@@ -376,13 +503,20 @@ def bank_reconcile(*, ledger=None, bank=None, date_window_days=3, near_miss_amou
         'totals': {'ledger': _s(tot_l, places), 'bank': _s(tot_b, places),
                    'difference': _s(tot_b - tot_l, places)},
     }
-    return _pack('bank_reconcile', result,
+    if ignored_columns:
+        result['ignored_columns'] = ignored_columns
+    if csv_warnings:
+        result['warnings'] = csv_warnings
+    source = 'params+csv' if len(sources) == 2 else (next(iter(sources)) if sources else 'params')
+    return _mark(_pack('bank_reconcile', result,
                  ['amounts are signed in the same convention on both sides (receipts positive)',
                   'one-to-one matching only (no split or batched deposits)',
                   'greedy matching in ledger date order; a global optimum is not searched',
                   'reference similarity is a text heuristic, not proof of identity'],
                  [f'<= {MAX_ROWS} rows per side', f'work budget {MAX_WORK} comparisons',
-                  f'near-misses reported up to max_near_misses ({cap})'])
+                  f'near-misses reported up to max_near_misses ({cap})',
+                  f'CSV input: UTF-8, <= {CSV_MAX_BYTES} bytes per file, columns id,date,amount[,ref]']),
+                 example, source)
 
 
 # --------------------------------------------------------------------------- 24.02 duplicate_invoices
@@ -416,7 +550,8 @@ def duplicate_invoices(*, invoices=None, window_days=7, currency_places=2, max_s
     places = _places(currency_places)
     window = _int(window_days, 0, 366, 'window_days')
     cap = _int(max_suspects, 0, 100_000, 'max_suspects')
-    if invoices is None:
+    example = invoices is None
+    if example:
         invoices = _EX_INVOICES
     rows = []
     for i, r in enumerate(_rows(invoices, 'invoices', ('supplier', 'invoice_no', 'amount'))):
@@ -477,12 +612,12 @@ def duplicate_invoices(*, invoices=None, window_days=7, currency_places=2, max_s
               'number_reuse_different_amounts': reuse,
               'counts': {'invoices': len(rows), 'duplicate_groups': len(dup_groups),
                          'suspects': len(suspects)}}
-    return _pack('duplicate_invoices', result,
+    return _mark(_pack('duplicate_invoices', result,
                  ['supplier names compared after trimming, case-folding and collapsing spaces only (no fuzzy names)',
                   'invoice numbers: spaces and dashes removed, leading zeros kept, other characters kept',
                   'amounts compared after rounding to currency_places; rows without a date are skipped for suspects'],
                  [f'<= {MAX_ROWS} invoices', f'suspects reported up to max_suspects ({cap})',
-                  'a flagged pair is a lead for review, not proof of double payment'])
+                  'a flagged pair is a lead for review, not proof of double payment']), example)
 
 
 # --------------------------------------------------------------------------- 24.03 trial_balance
@@ -502,7 +637,8 @@ def trial_balance(*, lines=None, currency_places=2, **extra):
     unbalanced entries are listed by entry_id with their difference."""
     _no_extra(extra)
     places = _places(currency_places)
-    if lines is None:
+    example = lines is None
+    if example:
         lines = _EX_JOURNAL
     acc = defaultdict(lambda: [Decimal(0), Decimal(0)])
     ent = defaultdict(lambda: [Decimal(0), Decimal(0)])
@@ -538,10 +674,10 @@ def trial_balance(*, lines=None, currency_places=2, **extra):
               'totals_equal': tdr == tcr, 'unbalanced_entries': unbalanced,
               'balanced': tdr == tcr and not unbalanced,
               'counts': {'lines': len(lines), 'entries': len(order), 'accounts': len(accounts)}}
-    return _pack('trial_balance', result,
+    return _mark(_pack('trial_balance', result,
                  ['debit and credit are non-negative and only one is non-zero per line',
                   'balance side is debit-minus-credit; account classification (asset, liability...) is not inferred'],
-                 [f'<= {MAX_ROWS} lines', 'amounts must fit currency_places exactly'])
+                 [f'<= {MAX_ROWS} lines', 'amounts must fit currency_places exactly']), example)
 
 
 # --------------------------------------------------------------------------- 24.04 payroll_check
@@ -580,7 +716,8 @@ def payroll_check(*, payroll=None, payments=None, tolerance='0.00', currency_pla
     _no_extra(extra)
     places = _places(currency_places)
     tol = _dec(tolerance, 'tolerance', low=Decimal(0))
-    if _pair_given(payroll, payments, 'payroll', 'payments'):
+    example = _pair_given(payroll, payments, 'payroll', 'payments')
+    if example:
         payroll, payments = _EX_PAYROLL, _EX_PAYMENTS
     net = defaultdict(Decimal)
     pay_count = defaultdict(int)
@@ -641,12 +778,12 @@ def payroll_check(*, payroll=None, payments=None, tolerance='0.00', currency_pla
               'totals': {'payroll_net': _s(tn, places), 'paid': _s(tp, places),
                          'difference': _s(tp - tn, places)},
               'clean': not flags}
-    return _pack('payroll_check', result,
+    return _mark(_pack('payroll_check', result,
                  ['employee ids are compared exactly after trimming',
                   'several payments to one employee are summed before comparing with net',
                   'IBAN check is the ISO 13616 mod-97 test only; it does not prove account ownership'],
                  [f'<= {MAX_ROWS} rows per side', 'IBANs are never returned unmasked (last 4 characters only)',
-                  'not a WPS file validator for any specific bank or ministry format'])
+                  'not a WPS file validator for any specific bank or ministry format']), example)
 
 
 # --------------------------------------------------------------------------- 24.05 inventory_codes
@@ -671,7 +808,8 @@ def inventory_codes(*, items=None, **extra):
     (different codes with an identical non-empty attribute set; keys and values
     trimmed and case-folded)."""
     _no_extra(extra)
-    if items is None:
+    example = items is None
+    if example:
         items = _EX_ITEMS
     parsed = []
     for i, r in enumerate(_rows(items, 'items', ('code',))):
@@ -702,14 +840,17 @@ def inventory_codes(*, items=None, **extra):
               'duplicates': duplicates, 'alternates': alternates,
               'counts': {'items': len(parsed), 'distinct_codes': len(by_code),
                          'duplicate_groups': len(duplicates), 'alternate_groups': len(alternates)}}
-    return _pack('inventory_codes', result,
+    return _mark(_pack('inventory_codes', result,
                  ['separators (space, dash, underscore, dot, slash) are equivalent; leading zeros are significant',
                   'alternates need exactly equal attribute sets after case-folding (no unit conversion or fuzzy match)'],
                  [f'<= {MAX_ROWS} items, <= 50 attributes per item',
-                  'an alternate is a candidate substitute for review, not an approved interchange'])
+                  'an alternate is a candidate substitute for review, not an approved interchange']), example)
 
 
 # --------------------------------------------------------------------------- 24.06 meat_costing
+
+_MEAT_DEFAULTS = ('100', '30.00', '10', '5', '200.00', '45.00', '0', None)
+
 
 @_decimal_ctx
 def meat_costing(*, purchase_weight_kg='100', price_per_kg='30.00', trim_pct='10', waste_pct='5',
@@ -726,6 +867,9 @@ def meat_costing(*, purchase_weight_kg='100', price_per_kg='30.00', trim_pct='10
     Intermediate values are exact Decimals; only reported values are rounded.
     """
     _no_extra(extra)
+    example = all(v == d for v, d in zip(
+        (purchase_weight_kg, price_per_kg, trim_pct, waste_pct, processing_cost, sale_price_per_kg,
+         trim_value_per_kg, target_margin_pct), _MEAT_DEFAULTS))
     places = _places(currency_places)
     w = _dec(purchase_weight_kg, 'purchase_weight_kg', low=Decimal(0), low_open=True, high=Decimal(10 ** 9))
     price = _dec(price_per_kg, 'price_per_kg', low=Decimal(0))
@@ -763,11 +907,12 @@ def meat_costing(*, purchase_weight_kg='100', price_per_kg='30.00', trim_pct='10
         'markup_on_cost_pct': str(_q(profit / total * 100, 2)) if total else None,
         'price_for_target_margin': None if tm is None else _s(cpk / (1 - tm / 100), places),
     }
-    return _pack('meat_costing', result,
+    return _mark(_pack('meat_costing', result,
                  ['trim and waste are percentages of purchase weight; waste has no resale value',
                   'trim is credited at trim_value_per_kg (0 = discarded)',
                   'processing_cost is the total for this batch; no overhead allocation, tax or shrink in storage'],
-                 ['percentages in [0, 100), trim + waste < 100', 'weights reported to 3 decimals, percentages to 2'])
+                 ['percentages in [0, 100), trim + waste < 100', 'weights reported to 3 decimals, percentages to 2']),
+                 example)
 
 
 # --------------------------------------------------------------------------- 24.07 cash_flow
@@ -799,7 +944,8 @@ def cash_flow(*, opening_cash='10000.00', start_date='2026-01-01', months=None, 
     start = _date(start_date, 'start_date')
     rate = _dec(collection_rate_pct, 'collection_rate_pct', low=Decimal(0), high=Decimal(100))
     delay = _int(collection_delay_months, 0, 12, 'collection_delay_months')
-    if _pair_given(sales, payments, 'sales', 'payments'):
+    example = _pair_given(sales, payments, 'sales', 'payments')
+    if example:
         sales, payments = _EX_SALES, _EX_PAYMENTS_CF
     for nm, seq in (('sales', sales), ('payments', payments)):
         if not isinstance(seq, (list, tuple)) or not 1 <= len(seq) <= 120:
@@ -855,12 +1001,12 @@ def cash_flow(*, opening_cash='10000.00', start_date='2026-01-01', months=None, 
     order_ok = all(Decimal(out['low']['months'][m]['closing']) <= Decimal(out['base']['months'][m]['closing'])
                    <= Decimal(out['high']['months'][m]['closing']) for m in range(months))
     result = {'scenarios': out, 'scenario_order_ok': order_ok, 'collection_delay_months': delay}
-    return _pack('cash_flow', result,
+    return _mark(_pack('cash_flow', result,
                  ['sales billed in a month are collected in one lump after the delay; the uncollected share is lost',
                   'no opening receivables or payables, no financing, tax or interest',
                   'scenario factors are uniform percentages over every month'],
                  ['<= 120 months, 3..6 scenarios', 'collections rounded per month to currency_places',
-                  'a projection from owner assumptions, not a forecast or financing advice'])
+                  'a projection from owner assumptions, not a forecast or financing advice']), example)
 
 
 # --------------------------------------------------------------------------- 24.08 cost_allocation
@@ -881,7 +1027,8 @@ def cost_allocation(*, expenses=None, centres=None, method='driver', currency_pl
     _no_extra(extra)
     places = _places(currency_places)
     method = _choice(method, {'percent', 'driver'}, 'method')
-    if _pair_given(expenses, centres, 'expenses', 'centres'):
+    example = _pair_given(expenses, centres, 'expenses', 'centres')
+    if example:
         expenses, centres = _EX_EXPENSES, _EX_CENTRES
     C = []
     for i, r in enumerate(_rows(centres, 'centres', ('centre', 'share'), max_rows=500)):
@@ -923,11 +1070,11 @@ def cost_allocation(*, expenses=None, centres=None, method='driver', currency_pl
               'total_allocated': _s(sum(by_centre.values(), Decimal(0)), places),
               'all_exact': all(c['exact'] for c in checks),
               'remainder_centre': C[largest][0]}
-    return _pack('cost_allocation', result,
+    return _mark(_pack('cost_allocation', result,
                  ['one driver set applies to every expense in this call (run once per driver pool)',
                   'single-step direct allocation; no reciprocal or step-down between service centres'],
                  ['<= 500 centres, expenses * centres <= 2000000',
-                  'expense amounts must fit currency_places exactly'])
+                  'expense amounts must fit currency_places exactly']), example)
 
 
 # --------------------------------------------------------------------------- 24.09 standards_checklist
@@ -951,7 +1098,8 @@ def standards_checklist(*, items=None, as_of=None, **extra):
     effective at as_of, are flagged. Every result carries the non-definitive
     note: the tool does not know or interpret any standard's content."""
     _no_extra(extra)
-    if items is None:
+    example = items is None
+    if example:
         items = _EX_CHECKLIST
     asof = _date(as_of, 'as_of') if as_of is not None else None
     out = []
@@ -996,10 +1144,10 @@ def standards_checklist(*, items=None, as_of=None, **extra):
               'flagged_ids': [o['id'] for o in out if o['flags']],
               'as_of': asof.isoformat() if asof else None,
               'definitive': False, 'note': NON_DEFINITIVE_NOTE}
-    return _pack('standards_checklist', result,
+    return _mark(_pack('standards_checklist', result,
                  ['checklist items, references and expected answers come from the owner; none are built in',
                   'the tool does not read, interpret or verify the text of IFRS, SOCPA or any standard'],
-                 ['<= 5000 items', 'every result is non-definitive and requires qualified review'])
+                 ['<= 5000 items', 'every result is non-definitive and requires qualified review']), example)
 
 
 # --------------------------------------------------------------------------- 24.10 journal_approval
@@ -1026,7 +1174,8 @@ def journal_approval(*, entries=None, **extra):
     edited the entry, events dated before creation. Names compare
     case-insensitively after trimming."""
     _no_extra(extra)
-    if entries is None:
+    example = entries is None
+    if example:
         entries = _EX_ENTRIES
     total_events = 0
     out = []
@@ -1080,12 +1229,12 @@ def journal_approval(*, entries=None, **extra):
               'rejected_ids': [o['id'] for o in out if o['status'] == 'rejected'],
               'flagged_ids': [o['id'] for o in out if o['status'] == 'flagged'],
               'ok_ids': [o['id'] for o in out if o['status'] == 'ok']}
-    return _pack('journal_approval', result,
+    return _mark(_pack('journal_approval', result,
                  ['timestamps are naive local times in one time zone',
                   'user names are compared after trimming and case-folding; no role or delegation table is used',
                   'an approval that is itself rejected (e.g. self-approval) still counts as the latest approval time'],
                  [f'<= {MAX_ROWS} entries, <= 1000 history events per entry, <= 200000 events in total',
-                  'checks the supplied log only; it cannot detect edits missing from the history'])
+                  'checks the supplied log only; it cannot detect edits missing from the history']), example)
 
 
 # --------------------------------------------------------------------------- dispatcher
