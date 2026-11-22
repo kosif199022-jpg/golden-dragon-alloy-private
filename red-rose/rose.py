@@ -76,6 +76,7 @@ def main(argv=None):
     x=sub.add_parser('color-stats',help='mean Lab colour and saturation of a video'); x.add_argument('video'); x.add_argument('--start',type=float,default=0.0); x.add_argument('--duration',type=float)
     x=sub.add_parser('color-match',help='build a .cube LUT moving a clip to a reference video colour'); x.add_argument('reference'); x.add_argument('clip'); x.add_argument('--out'); x.add_argument('--start',type=float,default=0.0); x.add_argument('--duration',type=float); x.add_argument('--strength',type=float,default=0.9); x.add_argument('--lift',type=float,default=0.0); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('line-times',help='on/off times of white on-screen text in a crop box of a reference video'); x.add_argument('video'); x.add_argument('--box',required=True,help='x:y:w:h in source pixels')
+    x=sub.add_parser('toolbox',help='outside programs, libraries, repos and fonts found on this PC'); x.add_argument('--domain',choices=['montage','audio','image','thinking','utility']); x.add_argument('--find'); x.add_argument('--missing',action='store_true'); x.add_argument('--fonts',action='store_true')
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
     x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
     x=sub.add_parser('timeline-analyze'); x.add_argument('source'); x.add_argument('--noise-db',type=float,default=-35); x.add_argument('--sample-fps',type=int,default=6)
@@ -164,6 +165,10 @@ def main(argv=None):
         if result.get('outcome')=='approval_required': raise SystemExit(3)
         if args.command=='flat-check' and not result['ok']: raise SystemExit(1)
         return
+    if args.command=='toolbox':
+        import toolbox_v33
+        result={'ok':True,'fonts':toolbox_v33.fonts()} if args.fonts else toolbox_v33.summary(args.domain,args.find,args.missing)
+        print(json.dumps(result,ensure_ascii=False)); return
     if args.command=='speech-sync':
         import speech_sync_v31
         result=speech_sync_v31.run(args.script,args.words,args.out,args.fps,args.approve_write)
