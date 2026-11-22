@@ -165,6 +165,18 @@ Use these when the owner sends a reference video and wants the same style. They 
 
 Rules from that job: check each stock clip across the exact window you use (hands and people enter late), look for readable signs or banners in the background, and for a trend sound deliver a silent file for posting, since TikTok links a video to a trend only when the sound is chosen inside the app.
 
+## Dua reels (`dua-reel`)
+
+Makes a dua reel in the measured trending style: fixed date header, gold salawat footer, one white line per shot, a new background per line, soft transitions, slow push-in or drift, no overlay effects.
+
+1. Write `plan.json`: `lines` (plain strings, or objects with `text` and optional `t0`/`t1`, `tail` such as ﷺ, `tail_emoji`), `fixed` (`hijri_day`, `hijri_month`, `hijri_month_latin`, `day`, `date_a`, `date_b`, `footer`, `handle`), `library` (a folder, or the name `dua` on the owner's PC), and optionally `reference` (a video to match colour to), `audio`, `seed`, `exclude`, `clips`.
+2. `rose.py dua-reel plan.json out.mp4 --storyboard --approve-write` writes only the storyboard image. Look at it and show it to the owner. Put clips with faces, crowds, screens or readable signs in `exclude`, or change `seed`, and run it again.
+3. After the owner approves the storyboard: `rose.py dua-reel plan.json out.mp4 --approve-write`. It renders, then runs the flat-frame check and reports `flat_frames`.
+4. Lines without times get a reading pace. To follow a sound exactly, take `t0`/`t1` from `line-times` (a reference video) or `speech-sync` (a recording).
+5. With no `audio` the file has a silent AAC track: the owner adds the trend sound inside TikTok.
+
+The dua text must come from the owner or be written fresh and shown to them first. Do not invent a hadith or attribute words to the Prophet ﷺ. The Hijri day can differ by one between calendars: ask the owner which to show.
+
 ## Toolbox: outside tools on this PC (`toolbox`)
 
 Before choosing a program or library for a step, ask the toolbox. Do not guess what is installed.
