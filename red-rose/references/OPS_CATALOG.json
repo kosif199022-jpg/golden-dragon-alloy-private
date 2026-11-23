@@ -288,6 +288,15 @@
       "summary": "Retrieve saved private lessons",
       "write": 0
     },
+    "mind.audit": {
+      "effect": "read",
+      "kind": "module",
+      "name_ar": "mind.audit",
+      "op_count": 3,
+      "read": 3,
+      "summary": "Original 9-step improvement gates, 12-organ self-report and held-out paired run comparison",
+      "write": 0
+    },
     "model3d.build": {
       "effect": "read",
       "kind": "module",
@@ -349,6 +358,15 @@
       "op_count": 1,
       "read": 1,
       "summary": "Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A",
+      "write": 0
+    },
+    "reel.motion": {
+      "effect": "read",
+      "kind": "module",
+      "name_ar": "reel.motion",
+      "op_count": 3,
+      "read": 3,
+      "summary": "Original SVG Abu Cap lion/ladder 22-second motion plan, frame poses and SVG previews; no media embedded",
       "write": 0
     },
     "release.verify": {
@@ -551,11 +569,11 @@
     }
   },
   "counts": {
-    "adapters": 61,
-    "entries": 365,
+    "adapters": 63,
+    "entries": 371,
     "flat_adapters": 23,
-    "module_adapters": 38,
-    "module_ops": 342
+    "module_adapters": 40,
+    "module_ops": 348
   },
   "entries": {
     "accounting.check.bank_reconcile": {
@@ -22211,6 +22229,163 @@
       "sub_catalogue": null,
       "summary": "Retrieve saved private lessons"
     },
+    "mind.audit.ladder": {
+      "adapter": "mind.audit",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "mind.audit.ladder",
+      "keywords": [
+        "audit",
+        "ladder",
+        "mind"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "mind.audit.ladder",
+      "name_en": "ladder",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "ladder",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Inspect declared nine-stage evidence."
+    },
+    "mind.audit.organ_audit": {
+      "adapter": "mind.audit",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "mind.audit.organ_audit",
+      "keywords": [
+        "audit",
+        "mind",
+        "organ"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "mind.audit.organ_audit",
+      "name_en": "organ audit",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "organ_audit",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Score supplied claims, never silently mark absent evidence as verified."
+    },
+    "mind.audit.paired_compare": {
+      "adapter": "mind.audit",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "mind.audit.paired_compare",
+      "keywords": [
+        "audit",
+        "compare",
+        "mind",
+        "paired"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "mind.audit.paired_compare",
+      "name_en": "paired compare",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "paired_compare",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Compare the SAME held-out cases and distinct version hashes; no tuned-test bluff."
+    },
     "model3d.build.area_lighting": {
       "adapter": "model3d.build",
       "approval": {
@@ -28486,6 +28661,162 @@
       "static_label": "runs_with_defaults",
       "sub_catalogue": null,
       "summary": "Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A"
+    },
+    "reel.motion.pose": {
+      "adapter": "reel.motion",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "reel.motion.pose",
+      "keywords": [
+        "motion",
+        "pose",
+        "reel"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "reel.motion.pose",
+      "name_en": "pose",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "pose",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "pose"
+    },
+    "reel.motion.story": {
+      "adapter": "reel.motion",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "reel.motion.story",
+      "keywords": [
+        "motion",
+        "reel",
+        "story"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "reel.motion.story",
+      "name_en": "story",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "story",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "story"
+    },
+    "reel.motion.svg": {
+      "adapter": "reel.motion",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "reel.motion.svg",
+      "keywords": [
+        "motion",
+        "reel",
+        "svg"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "reel.motion.svg",
+      "name_en": "svg",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "svg",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "svg"
     },
     "release.verify.closure_matrix": {
       "adapter": "release.verify",
