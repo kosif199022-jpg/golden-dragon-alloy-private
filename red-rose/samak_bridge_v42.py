@@ -100,9 +100,11 @@ class Bridge:
                 raise BridgeError(f"{method}: {msg['error'].get('message', msg['error'])}")
             return msg.get('result', {})
 
-    def call(self, tool: str, timeout=None, **args):
-        """Call one bridge tool; returns parsed JSON when the tool answers JSON, else the text."""
-        res = self._request('tools/call', {'name': tool, 'arguments': args}, timeout=timeout)
+    def call(self, tool: str, _wait=None, **args):
+        """Call one bridge tool; returns parsed JSON when the tool answers JSON, else the text.
+        `_wait` is how long this client waits; every other keyword (including a tool's own
+        `timeout`) goes to the tool."""
+        res = self._request('tools/call', {'name': tool, 'arguments': args}, timeout=_wait)
         text = '\n'.join(c.get('text', '') for c in res.get('content', []) if c.get('type') == 'text')
         if res.get('isError') or text.startswith('خطأ'):
             raise BridgeError(text or f'{tool} failed')

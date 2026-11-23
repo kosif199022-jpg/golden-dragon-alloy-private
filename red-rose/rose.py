@@ -80,6 +80,7 @@ def main(argv=None):
     x=sub.add_parser('dua-reel',help='make a dua reel in the measured trending style from a plan JSON and a footage library'); x.add_argument('plan_json'); x.add_argument('output'); x.add_argument('--work'); x.add_argument('--storyboard',action='store_true',help='only write the storyboard image'); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('fonts',help='font library: scan, list, find, show, preview, path, suggest, render, ass'); x.add_argument('action',choices=['scan','list','find','show','preview','path','suggest','render','ass','similar']); x.add_argument('args',nargs='*'); x.add_argument('--arabic',action='store_true'); x.add_argument('--style'); x.add_argument('--category'); x.add_argument('--filter'); x.add_argument('--text'); x.add_argument('--font'); x.add_argument('--size',type=int,default=120); x.add_argument('--colour',default='gold',choices=['gold','white']); x.add_argument('--commercial',action='store_true'); x.add_argument('--limit',type=int,default=8); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('library',help='footage libraries: list, fetch from the private GitHub release'); x.add_argument('action',choices=['list','fetch']); x.add_argument('name',nargs='?'); x.add_argument('--dest'); x.add_argument('--approve-write',action='store_true')
+    x=sub.add_parser('gpt',help='ChatGPT via the Black Rose app: status, read, ask, image'); x.add_argument('action',choices=['status','read','ask','image','save']); x.add_argument('prompt',nargs='?',default=''); x.add_argument('--out',default=None); x.add_argument('--new-chat',action='store_true'); x.add_argument('--approve-send',action='store_true'); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('samak',help='bridge to the Black Rose app (SamakHub): tabs, start'); x.add_argument('action',choices=['tabs','start','tools'])
     x=sub.add_parser('duas',help='dua text catalogue: list, find, day, show, quran'); x.add_argument('action',choices=['list','find','day','show','quran']); x.add_argument('args',nargs='*'); x.add_argument('--section',choices=['day','time','occasion','general'])
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
@@ -208,6 +209,24 @@ def main(argv=None):
             result=fl.preview(args.args[0],args.filter,args.text or fl.SAMPLE,True,60,args.approve_write)
         print(json.dumps(result,ensure_ascii=False))
         if result.get('outcome')=='approval_required': raise SystemExit(3)
+        return
+    if args.command=='gpt':
+        import samak_bridge_v42 as sb
+        import samak_gpt_v43 as g
+        a=args.action
+        if a in ('ask','image') and not args.prompt:
+            print(json.dumps({'ok':False,'outcome':'error','error':'a prompt is required'},ensure_ascii=False)); raise SystemExit(2)
+        if a in ('ask','image') and not args.approve_send:
+            print(json.dumps({'ok':False,'outcome':'approval_required','nothing_sent':True,'needs':'--approve-send (sends the prompt to ChatGPT)'},ensure_ascii=False)); raise SystemExit(3)
+        if a in ('image','save') and (not args.out or not args.approve_write):
+            print(json.dumps({'ok':False,'outcome':'approval_required','nothing_sent':True,'needs':'--out DIR and --approve-write (saves the image)'},ensure_ascii=False)); raise SystemExit(3)
+        try:
+            result = g.status() if a=='status' else g.read() if a=='read' else                      g.ask(args.prompt, new_chat=args.new_chat) if a=='ask' else \
+                     g.save(args.out) if a=='save' else g.image(args.prompt, args.out)
+        except sb.BridgeError as exc:
+            result={'ok':False,'outcome':'error','error':str(exc)}
+        print(json.dumps(result,ensure_ascii=False))
+        if not result.get('ok'): raise SystemExit(1)
         return
     if args.command=='samak':
         import samak_bridge_v42 as sb
