@@ -1,0 +1,102 @@
+{
+  "project": "red-rose",
+  "version": "43.0",
+  "origin": "user-provided files",
+  "date": "2026-11-23",
+  "sources": [
+    {
+      "name": "ريل أبو كاب.rar",
+      "sha256": "4e44d032640aba5a1e0aee7aa259be94ffac5f8be821b90449e15580b8aa938d",
+      "bytes": 162010677,
+      "archive_members": 688,
+      "media_inventory": {
+        "jpg_frames_and_sheets": 667,
+        "mp4": 3,
+        "wav": 2,
+        "mp3": 1,
+        "ttf": 1,
+        "html": 1,
+        "py": 1,
+        "other": 12
+      },
+      "inspected": [
+        "caption.txt",
+        "sources.txt",
+        "src/reel.info.json",
+        "ref/ref.info.json",
+        "work/lions.html",
+        "work/render.py",
+        "work/music_candidates.json"
+      ],
+      "useful_original_concepts": [
+        "SVG timeline with window.seek(t)",
+        "22 s at 30 fps = 660 frames",
+        "lions sit/walk/sleep; cap and spectacles climb",
+        "ladder narrative reversal",
+        "RTL storytelling and end-card"
+      ],
+      "not_embedded": [
+        "667 jpg files",
+        "3 mp4 files",
+        "music track",
+        "Cairo.ttf font",
+        "source HTML/JS runtime"
+      ],
+      "attribution": "Attached caption lists Happy Ukulele by Jason Shaw (Audionautix), Creative Commons Attribution 3.0; no soundtrack embedded in this implementation.",
+      "output": "reel_motion_v43.py — original SVG illustration and beat/pose data, not source-identical render"
+    },
+    {
+      "name": "app-super-mind.skill",
+      "sha256": "0007ab74c4d943838f4f33517d49da2921bb2896db829f68e978ba753c102a9d",
+      "bytes": 102446,
+      "archive_members": 22,
+      "inspected": [
+        "SKILL.md",
+        "references/ladder.md",
+        "references/organs.md",
+        "references/evals.md",
+        "references/runtime-loop.md",
+        "assets/brain_core.py",
+        "scripts/ladder.py",
+        "scripts/evalkit.py"
+      ],
+      "useful_original_concepts": [
+        "9-stage measured app improvement ladder",
+        "12 organ rubric 0-4",
+        "dev versus held-out separation",
+        "same-case before/after fingerprint verification",
+        "Wilson confidence intervals and exact McNemar comparison",
+        "explicit approval and fallback safety gates"
+      ],
+      "not_embedded": [
+        "original skill executable scripts",
+        "brain_core runtime",
+        "reference text and templates"
+      ],
+      "output": "super_mind_v43.py — original read-only evidence validation algorithms, not an independently running app-upgrade agent"
+    }
+  ],
+  "new_native_capabilities": [
+    "reel.motion",
+    "mind.audit"
+  ],
+  "registry_target_after_merge": 63,
+  "effect": "read only",
+  "source_runtime_dependencies": [],
+  "private_user_data_uploaded": false,
+  "claims": {
+    "two_sources_inspected": true,
+    "real_video_renders_from_reel_added": false,
+    "app_super_mind_skill_fully_reimplemented": false,
+    "continuous_learning_automatically_enabled": false,
+    "new_brain_llm_installed": false,
+    "src_688_original_assets_uploaded": false
+  },
+  "cautions": [
+    "Do not claim imported media is now executable",
+    "No original archive binaries/fonts/music are committed to GitHub",
+    "The 9-stage gate validates supplied evidence STRUCTURE but cannot independently inspect external files",
+    "The before/after comparator uses supplied test results; provenance must be independently verified",
+    "Existing V42 held-out abstention recall below threshold is not changed"
+  ]
+}
