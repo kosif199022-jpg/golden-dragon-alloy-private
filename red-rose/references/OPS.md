@@ -668,9 +668,9 @@ Original 9-step improvement gates, 12-organ self-report and held-out paired run 
 
 | id | name | effect | label | summary |
 |---|---|---|---|---|
-| `mind.audit.ladder` | mind.audit.ladder | read | needs_input | Inspect declared nine-stage evidence. |
-| `mind.audit.organ_audit` | mind.audit.organ_audit | read | needs_input | Score supplied claims, never silently mark absent evidence as verified. |
-| `mind.audit.paired_compare` | mind.audit.paired_compare | read | needs_input | Compare the SAME held-out cases and distinct version hashes; no tuned-test bluff. |
+| `mind.audit.ladder` | mind.audit ladder | read | needs_input | Inspect declared nine-stage evidence. |
+| `mind.audit.organ_audit` | mind.audit organ_audit | read | needs_input | Score supplied claims, never silently mark absent evidence as verified. |
+| `mind.audit.paired_compare` | mind.audit paired_compare | read | needs_input | Compare the SAME held-out cases and distinct version hashes; no tuned-test bluff. |
 
 - `mind.audit.ladder` params: params:auto*
 - `mind.audit.organ_audit` params: params:auto*
@@ -832,9 +832,9 @@ Original SVG Abu Cap lion/ladder 22-second motion plan, frame poses and SVG prev
 
 | id | name | effect | label | summary |
 |---|---|---|---|---|
-| `reel.motion.pose` | reel.motion.pose | read | needs_input | pose |
-| `reel.motion.story` | reel.motion.story | read | needs_input | story |
-| `reel.motion.svg` | reel.motion.svg | read | needs_input | svg |
+| `reel.motion.pose` | reel.motion pose | read | needs_input | pose |
+| `reel.motion.story` | reel.motion story | read | needs_input | story |
+| `reel.motion.svg` | reel.motion svg | read | needs_input | svg |
 
 - `reel.motion.pose` params: params:auto*
 - `reel.motion.story` params: params:auto*
