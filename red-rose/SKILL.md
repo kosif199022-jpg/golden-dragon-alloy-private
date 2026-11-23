@@ -157,3 +157,7 @@ Use the original native `intelligence.director` via `capability-run` for bounded
 
 ## V30 — supervised original MP4 production
 Use `storyboard.pipeline` `compile` to review a V29 story, then `render` with explicit `--approve-write` only for 2D illustrated clay or schematic map output. The render is silent H264/MP4 with a checked frame count and hash receipt. Unsupported visual fidelity (3D, true SaaS screenshot video, full Remotion) is refused unless a disclosed 2D clay fallback is explicitly allowed for supported names. See `V30_STORYBOARD_RENDER_GUIDE.md`; no legacy runtime imports.
+
+## V43 — continue with source-provenance discipline
+
+Two original read-only native adapters: `reel.motion` (story / pose / svg for the Abu Cap two-lion-and-ladder 22s animation) and `mind.audit` (ladder / organ_audit / paired_compare for the app-super-mind nine-stage measured intelligence improvement process). Read `V43_ABU_CAP_SUPER_MIND_GUIDE.md` for actual commands, claims, and limitations. The imported archives/media are not runtime dependencies. Do not claim model re-training, automatic permanent learning, end-to-end 22s render or solved V42 abstention routing until independently tested.
