@@ -2,7 +2,7 @@
 
   rose.py social endpoints [words]                 search the 198 endpoints (offline, free)
   rose.py social usage                             credits spent so far (local log, free)
-  rose.py social credits --approve-spend           remaining balance (the docs do not say it is free)
+  rose.py social credits                          remaining balance (measured free, 2026-11-23)
   rose.py social get PATH key=value ... --approve-spend [--out FILE --approve-write]
   shortcuts (same gates): ig-profile HANDLE, ig-posts HANDLE, ig-reels HANDLE, ig-post URL,
   ig-transcript URL, ig-search QUERY, tt-profile HANDLE, tt-video URL, tt-search QUERY,
@@ -134,7 +134,7 @@ def call(path: str, params: dict, approve_spend: bool, cap: int = DEFAULT_CAP, a
     if str(params.get('allow_long_transcription', '')).lower() == 'true' and not allow_long:
         raise SocialError('allow_long_transcription costs 10 credits per started minute: add --allow-long to accept')
     cost = estimate(path, params)
-    if not approve_spend:
+    if cost > 0 and not approve_spend:   # measured free calls (credit balance) need no spend approval
         return {'ok': False, 'outcome': 'approval_required', 'nothing_sent': True, 'path': path,
                 'estimated_credits': cost, 'needs': '--approve-spend (this request spends ScrapeCreators credits)'}
     today = spent_today()

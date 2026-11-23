@@ -8,7 +8,9 @@
   "/v1/find-social-profiles": 10,
   "/v1/google/company/ads": 25,
   "/v1/tiktok/user/audience": 26,
-  "transcripts": "1 credit up to 120 s; allow_long_transcription=true -> 10 credits per started minute (blocked unless --allow-long)"
+  "transcripts": "1 credit up to 120 s; allow_long_transcription=true -> 10 credits per started minute (blocked unless --allow-long)",
+  "/v1/account/credit-balance": 0,
+  "measured": "2026-11-23: credit-balance charged 0 (609 -> 609); /v1/instagram/profile charged 1 (-> 608)"
  },
  "endpoints": {
   "/v1/account/credit-balance": {
