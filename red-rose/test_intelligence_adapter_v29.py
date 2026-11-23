@@ -13,7 +13,7 @@ class V29AdapterTests(unittest.TestCase):
         self.assertIn("intelligence.director", REGISTRY)
         self.assertEqual(REGISTRY["intelligence.director"][1], "read")
         self.assertNotIn("intelligence.director", CODED_UNTESTED)
-        self.assertEqual(len(REGISTRY),61)
+        self.assertEqual(len(REGISTRY),62)
 
     def test_real_dispatch_with_audit_receipt(self):
         db=sqlite3.connect(":memory:")
