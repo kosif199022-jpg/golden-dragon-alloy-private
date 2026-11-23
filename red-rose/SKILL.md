@@ -1,6 +1,6 @@
 ---
 name: red-rose
-description: "Makes and checks Arabic-first video and bank-statement work for the owner on Windows: Arabic animated titles, reels and captions from exact words, shot reports with approved recuts, loudness fixes, iPhone exports, and bank reconciliation. Use whenever the owner asks in Arabic or English for الوردة، الوردة الحمراء، مونتاج، ريل، ريلز، قص فيديو، كابشن، عنوان متحرك، موشن، تحليل لقطات، ضبط الصوت، دعاء، ريل دعاء، ذكر/أذكار، تصميم ديني، دعاء يوم الجمعة، دعاء الصباح، تسوية بنك، مطابقة كشف حساب، Red Rose, reel, dua/duaa reel, azkar/islamic/Quran aesthetic video, captions, kinetic title, shot report, loudness, or bank reconciliation, and also when the request is Arabic typed on an English keyboard layout. For a dua reel it has both the dua-reel maker and a 112-theme dua text catalogue (rose.py duas). Use it even when the owner does not name the skill."
+description: "Makes and checks Arabic-first video and bank-statement work for the owner on Windows: Arabic animated titles, reels and captions from exact words, shot reports with approved recuts, loudness fixes, iPhone exports, and bank reconciliation. Use whenever the owner asks in Arabic or English for الوردة، الوردة الحمراء، مونتاج، ريل، ريلز، قص فيديو، كابشن، عنوان متحرك، موشن، تحليل لقطات، ضبط الصوت، دعاء، ريل دعاء، ذكر/أذكار، تصميم ديني، دعاء يوم الجمعة، دعاء الصباح، تسوية بنك، مطابقة كشف حساب، Red Rose, reel, dua/duaa reel, azkar/islamic/Quran aesthetic video, captions, kinetic title, shot report, loudness, or bank reconciliation, and also when the request is Arabic typed on an English keyboard layout. For dua reels: the maker, 112 dua themes, two measured account styles, a voices-by-day library, Pinterest clip libraries and a song lyric-motion engine (references/DUA_REELS_PLAYBOOK.md); also for أصوات الدعاء، حلل حساب، موشن جرافيك لأغنية. Use it even when the owner does not name the skill."
 compatibility: "Windows 11 with Python 3.12 and ffmpeg on PATH is the main target. Read-only commands run anywhere Python 3.12 runs. Private memory exists only on the owner PC."
 metadata:
   version: "V29"
@@ -66,6 +66,7 @@ Pick the first recipe that matches what the owner asked for. If none matches, ru
 | A vertical video that plays on an iPhone | `iphone-export` |
 | A cut that follows the music | `beat-synced-cut` |
 | A bank statement matched against a ledger | `bank-reconcile` |
+| A dua reel, a dua account analysed, dua voices by day, a song's lyric motion | read `references/DUA_REELS_PLAYBOOK.md` first |
 
 A typical title job, in order:
 
@@ -151,6 +152,7 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/INTERFACE.md`: exit codes, call form and the envelope.
 - `references/RECIPES.md` and `references/OPS.md`: the generated catalogue.
 - `references/DEVELOPING.md`: only when you change the code.
+- `references/DUA_REELS_PLAYBOOK.md`: **dua reels, voices, account analysis and song lyric motion: start here.**
 - `references/SOCIAL_FETCH.md`: how to see Instagram, TikTok and Pinterest from the cloud (what worked).
 - `references/STYLE_OAUN.md` and `references/STYLE_DXHMEN.md`: measured style cards of two dua accounts.
 - `agent/dua_audio/dua_audio.py`: collect any dua account's voices sorted by day (list, label, catalogue);
@@ -174,3 +176,13 @@ For a measured problem, `python rose.py describe intelligence.fusion.feedback_cy
 ## V43 — continue with source-provenance discipline
 
 Two original read-only native adapters: `reel.motion` (story / pose / svg for the Abu Cap two-lion-and-ladder 22s animation) and `mind.audit` (ladder / organ_audit / paired_compare for the app-super-mind nine-stage measured intelligence improvement process). Read `V43_ABU_CAP_SUPER_MIND_GUIDE.md` for actual commands, claims, and limitations. The imported archives/media are not runtime dependencies. Do not claim model re-training, automatic permanent learning, end-to-end 22s render or solved V42 abstention routing until independently tested.
+
+## V45 — dua reels, voices and lyric motion (measured)
+
+Everything learned from two dua accounts (@oaun.11: 1,384 posts, 114 reels measured; @dxhmen: 757 posts,
+85 reels measured) is in `references/DUA_REELS_PLAYBOOK.md` with the numbers in
+`agent/dua_style/presets.json`: layout, shot length, camera moves, transitions, loudness, captions,
+hashtags, posting hours and audience. Tools: `agent/reel_analyzer/` (measure any account),
+`agent/dua_audio/` (voices sorted by day), `agent/lyric_motion/` (scene-per-line song motion).
+Libraries: `rose.py library fetch pins|dxh_pins|dua_audio --approve-write`. Other creators' footage and
+voices are for private study; publish only the owner's voice and footage he may use.

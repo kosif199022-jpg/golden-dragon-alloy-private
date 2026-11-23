@@ -1,0 +1,5 @@
+{"audio": "song.wav", "dur": 8.0, "title": "اسم المطرب", "subtitle": "ARTIST", "handle": "@elkosif",
+ "lines": [["السطر الأول من الأغنية", 0.0, 4.0], ["والسطر التاني هنا", 4.0, 8.0]],
+ "clips": [{"video": "https://v1.pinimg.com/videos/iht/hls/xx/xx/xx/example.m3u8", "pin": "https://www.pinterest.com/pin/0/"},
+           {"video": "clip2.mp4", "pin": ""}],
+ "bursts": [[0.0, 4.0]], "chorus": null, "big_lines": []}
