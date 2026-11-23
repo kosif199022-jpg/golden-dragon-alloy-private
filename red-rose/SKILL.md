@@ -160,3 +160,9 @@ Use `storyboard.pipeline` `compile` to review a V29 story, then `render` with ex
 
 ## V43 — قياس الذكاء وفحص الريل
 اقرأ `V43_FUSION_GUIDE.md` و`SOURCE_FUSION_AUDIT_V43.json`. محرك `intelligence.fusion` للقراءة فقط: يقيس 12 معيارًا، يتتبع 9 بوابات، يقارن heldout قبل/بعد، ويدقق مخطط ريل أبو كاب و`seek` الحتمي. لا يعتبر النتائج شهادة ذكاء، ولا يصدر صوتًا أو فيديو، ولا يعتمد وقت التشغيل على الأرشيفات. تحقق من نتائج الاختبارات ومراجعة الحقوق قبل أي نشر.
+
+## V44 — reviewable timing and evidence-linked improvement
+
+For a supplied frame-exact cartoon storyboard, run `python rose.py describe intelligence.fusion.reel_rhythm`, then `run intelligence.fusion.reel_rhythm --params-file INPUT.json` with an object holding `project` (the V43 storyboard). This reports caption density, end-card duration and character re-entry for human review, **not** verified video quality.
+
+For a measured problem, `python rose.py describe intelligence.fusion.feedback_cycle` and `run intelligence.fusion.feedback_cycle --params-file INPUT.json` produce ranked proposals for tests. This operation **never stores memory, modifies production rules or retrains a model**. A lesson can enter the existing owner-local memory only after verified evidence and explicit owner authorization using the established `learning.record` write gate. See `V44_QUALITY_FEEDBACK_GUIDE.md`; no claim that the generated catalogue or full CI is current until it is regenerated and tested.
