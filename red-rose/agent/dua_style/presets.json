@@ -1,0 +1,48 @@
+{
+ "about": "Measured dua-reel styles (2026-11-23). Numbers are medians from reels downloaded, measured and deleted; captions/hashtags from all posts read through ScrapeCreators. Use them to make NEW reels; never reuse their footage, voice or exact texts.",
+ "styles": {
+  "oaun": {
+   "account": "@oaun.11", "posts_read": 1384, "reels_measured": 114, "views_median": 171620,
+   "length_s": 27.3, "shots": 7, "shot_len_s": 3.0, "lines": 9, "words_per_line": 4, "words_per_s": 1.49,
+   "speech_start_s": 0.0, "cut_before_line_s": 0.12, "cut_to_line_median_s": 0.24,
+   "camera": "gentle push-in or drift on every shot (zoom 1.03 -> 1.14)",
+   "transitions": ["spin", "zoom", "light", "whip", "slideup", "blurzoom"], "transition_len_s": 0.36,
+   "loudness_lufs": -16.5, "deliver_lufs": -14, "frame": "720x1280 30fps", "grade": "warm: red above blue in 97 % of shots, mean luma 117",
+   "layout": {"top_right": "day name in big white Ruqaa/Diwani + DD.MM.YYYY on a thin underline",
+              "top_left": "Hijri block: day number, month name in calligraphy, gold or teal crescent",
+              "under_header": "optional occasion line in yellow or cyan",
+              "centre": "one dua line, white bold Naskh, soft dark shadow, 2-6 words, changes with the voice",
+              "bottom": "handle in small caps; optional gold sticker for the day"},
+   "footage": ["roses in vases", "Quran on a stand or prayer mat", "incense burner smoke", "candles", "tea / Arabic coffee", "prayer beads", "lamps and orchids", "Ramadan lanterns", "mosque interiors on Fridays"],
+   "openers": ["اللهم في يوم …", "اللهم في صباح …", "اللهم في ليلة …", "اللهم في أول …", "اللهم في فجر …"],
+   "hashtags_top": ["#اللهم_امين_يارب_العالمين", "#اللهم_صل_وسلم_على_نبينا_محمد", "#دعاء_يريح_القلوب_ويطمئن_النفوس", "#اللهم_لك_الحمد_ولك_الشكر", "#صباحكم_معطر_بذكر_الله", "#ادعيه_صباحيه_تريح_القلب", "#دعاء_يوم_<اليوم>"],
+   "hashtags_per_post": 5,
+   "footage_library": "rose.py library fetch pins --approve-write (602 clips)",
+   "card": "references/STYLE_OAUN.md"
+  },
+  "dxhmen": {
+   "account": "@dxhmen", "posts_read": 757, "reels_measured": 85, "views_median": 336644, "views_best": 10777182,
+   "length_s": 27.0, "shots": 6, "shot_len_s": 5.2, "words_per_s": 1.65, "speech_start_s": 0.0,
+   "camera": {"still": 0.66, "zoom_out": 0.19, "zoom_in": 0.05, "pan": 0.05, "rotate": 0.04},
+   "transitions": {"cut": 0.79, "blur_move": 0.09, "flash": 0.06, "dip": 0.06},
+   "loudness_lufs": -16.3, "deliver_lufs": -14, "frame": "1080x1920 or 576x1026",
+   "layout": {"top_centre": "gold calligraphy title of the day or occasion (جمعة مباركة، دعاء الفجر، صباح الخير، ليلة المولد) + date DD/MM/YYYY + Hijri month in small white Ruqaa",
+              "centre": "one dua line, white Naskh, soft shadow, small heart between words sometimes",
+              "bottom": "@handle very small"},
+   "footage": ["sunset over the sea and waves", "gold incense burner with roses", "Quran with candles and prayer beads", "the Prophet's Mosque and the Kaaba", "camels in the desert at sunset", "flower fields", "a swing or chair facing the sea", "clouds", "dawn sky", "Ramadan lanterns"],
+   "caption": "«دعاء يوم <اليوم>» or «دعاء ليلة الجمعة» + one dua line + 🌷🌹🌺🌸 + 🤲",
+   "hashtags_top": ["#اللهم_امين", "#اللهم_صلي_على_نبينا_محمد💓🕋📿", "#اللهم_لك_الحمد_ولك_الشكر", "#جمعة_مباركة", "#يارب❤️", "#دعاء", "#صباح_الخير", "#دعاء_جميل", "#دعاء_يوم_<اليوم>", "#دعاء_ليلة_الجمعة"],
+   "hashtags_per_post": 5,
+   "best_tags_by_views": {"#دعاء_ليلة_الجمعة": 700696, "#دعاء": 465085, "#دعاء_يوم_الجمعه": 399852},
+   "audience": {"FR": 663, "DZ": 54, "MA": 28, "ES": 12},
+   "post_hours_utc": [19, 18, 16, 10, 12], "busiest_post_day": "Thursday (for ليلة الجمعة): 261 of 757",
+   "footage_library": "rose.py library fetch dxh_pins --approve-write (152 clips); git branch media/dxhmen-pins",
+   "card": "references/STYLE_DXHMEN.md"
+  }
+ },
+ "voices": {"library": "rose.py library fetch dua_audio --approve-write (2,126 m4a: <account>/<day or occasion>/); git branch media/dua-audio",
+            "tool": "agent/dua_audio/dua_audio.py list|label|catalog + fetch_audio.py (sandbox)",
+            "rights": "private study only; publish with the owner's voice or TikTok's in-app sound"},
+ "texts": "rose.py duas day <day> | rose.py duas show <occasion> (112 themes)",
+ "maker": "rose.py dua-reel plan.json out.mp4 --approve-write"
+}

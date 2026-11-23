@@ -1,4 +1,5 @@
-"""Dua text catalogue: 112 themes by day / time / occasion, merged from the islamic-dua-reels skill.
+"""Dua text catalogue: 29 themes by day / time / occasion (agent/dua_catalog.json); started from the islamic-dua-reels skill,
+extended in v44 with lines written in the @oaun.11 tone (see references/STYLE_OAUN.md).
 
   rose.py duas list [--section day|time|occasion|general]
   rose.py duas find "كلمات"            search theme id/ar/section and the dua lines
