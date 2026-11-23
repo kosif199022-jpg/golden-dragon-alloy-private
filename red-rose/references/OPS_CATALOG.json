@@ -189,6 +189,15 @@
       "summary": "Motion graphics (coded, untested): shape morph, draw-on, neon (on request), textures (on request), particles, data viz, schematic route maps, explainers, retro pixel, UI mocks, brand reveals",
       "write": 0
     },
+    "intelligence.director": {
+      "effect": "read",
+      "kind": "module",
+      "name_ar": "intelligence.director",
+      "op_count": 3,
+      "read": 3,
+      "summary": "Calibrated option review, editable Arabic-safe storyboard, constrained RTL auto layout; no network/media execution",
+      "write": 0
+    },
     "knowledge.route": {
       "effect": "read",
       "kind": "flat",
@@ -378,6 +387,15 @@
       "summary": "Defensive checks: secret/private-store scan, injection-as-data, output path guard, resource caps, seeded fuzzing, SBOM advisories, hash manifests, rollback plans, explicit publish gate",
       "write": 0
     },
+    "storyboard.pipeline": {
+      "effect": "mixed",
+      "kind": "module",
+      "name_ar": "storyboard.pipeline",
+      "op_count": 2,
+      "read": 1,
+      "summary": "Compile V29 beats to original V20 illustration; render silent verified MP4 only after explicit user approval",
+      "write": 1
+    },
     "studio.render": {
       "effect": "mixed",
       "kind": "module",
@@ -533,11 +551,11 @@
     }
   },
   "counts": {
-    "adapters": 59,
-    "entries": 360,
+    "adapters": 61,
+    "entries": 365,
     "flat_adapters": 23,
-    "module_adapters": 36,
-    "module_ops": 337
+    "module_adapters": 38,
+    "module_ops": 342
   },
   "entries": {
     "accounting.check.bank_reconcile": {
@@ -17682,6 +17700,165 @@
       "sub_catalogue": null,
       "summary": "Phone or laptop mock with perspective tilt, cursor path and click ripples."
     },
+    "intelligence.director.decision_review": {
+      "adapter": "intelligence.director",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "intelligence.director.decision_review",
+      "keywords": [
+        "decision",
+        "director",
+        "intelligence",
+        "review"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "intelligence.director decision_review",
+      "name_en": "decision review",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "decision_review",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Compare declared alternatives with calibrated uncertainty and counterchecks."
+    },
+    "intelligence.director.layout_audit": {
+      "adapter": "intelligence.director",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "intelligence.director.layout_audit",
+      "keywords": [
+        "audit",
+        "director",
+        "intelligence",
+        "layout"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "intelligence.director layout_audit",
+      "name_en": "layout audit",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "layout_audit",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Original constrained row/column allocation; doesn't read the binary Figma file."
+    },
+    "intelligence.director.storyboard_plan": {
+      "adapter": "intelligence.director",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "intelligence.director.storyboard_plan",
+      "keywords": [
+        "director",
+        "intelligence",
+        "plan",
+        "storyboard"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "intelligence.director storyboard_plan",
+      "name_en": "storyboard plan",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "storyboard_plan",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Produce frame-exact, editable beats, preserving Arabic words as whole strings."
+    },
     "knowledge.route": {
       "adapter": "knowledge.route",
       "approval": {
@@ -31144,6 +31321,138 @@
       "static_label": "needs_input",
       "sub_catalogue": null,
       "summary": "CI-style gate: block private stores by path and masked secrets found in text."
+    },
+    "storyboard.pipeline.compile": {
+      "adapter": "storyboard.pipeline",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "storyboard.pipeline.compile",
+      "keywords": [
+        "compile",
+        "pipeline",
+        "storyboard"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "storyboard.pipeline compile",
+      "name_en": "compile",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "compile",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "op",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        },
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "IO_ADAPTERS dispatcher injects approve_write ONLY for effect=write."
+    },
+    "storyboard.pipeline.render": {
+      "adapter": "storyboard.pipeline",
+      "approval": {
+        "needed": true,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "write",
+      "example": null,
+      "example_when_absent": null,
+      "id": "storyboard.pipeline.render",
+      "keywords": [
+        "pipeline",
+        "render",
+        "storyboard"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "storyboard.pipeline render",
+      "name_en": "render",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "render",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "op",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        },
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "IO_ADAPTERS dispatcher injects approve_write ONLY for effect=write."
     },
     "studio.render.apply_grade": {
       "adapter": "studio.render",

@@ -80,6 +80,7 @@ def main(argv=None):
     x=sub.add_parser('dua-reel',help='make a dua reel in the measured trending style from a plan JSON and a footage library'); x.add_argument('plan_json'); x.add_argument('output'); x.add_argument('--work'); x.add_argument('--storyboard',action='store_true',help='only write the storyboard image'); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('fonts',help='font library: scan, list, find, show, preview, path, suggest, render, ass'); x.add_argument('action',choices=['scan','list','find','show','preview','path','suggest','render','ass','similar']); x.add_argument('args',nargs='*'); x.add_argument('--arabic',action='store_true'); x.add_argument('--style'); x.add_argument('--category'); x.add_argument('--filter'); x.add_argument('--text'); x.add_argument('--font'); x.add_argument('--size',type=int,default=120); x.add_argument('--colour',default='gold',choices=['gold','white']); x.add_argument('--commercial',action='store_true'); x.add_argument('--limit',type=int,default=8); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('library',help='footage libraries: list, fetch from the private GitHub release'); x.add_argument('action',choices=['list','fetch']); x.add_argument('name',nargs='?'); x.add_argument('--dest'); x.add_argument('--approve-write',action='store_true')
+    x=sub.add_parser('samak',help='bridge to the Black Rose app (SamakHub): tabs, start'); x.add_argument('action',choices=['tabs','start','tools'])
     x=sub.add_parser('duas',help='dua text catalogue: list, find, day, show, quran'); x.add_argument('action',choices=['list','find','day','show','quran']); x.add_argument('args',nargs='*'); x.add_argument('--section',choices=['day','time','occasion','general'])
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
     x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
@@ -207,6 +208,22 @@ def main(argv=None):
             result=fl.preview(args.args[0],args.filter,args.text or fl.SAMPLE,True,60,args.approve_write)
         print(json.dumps(result,ensure_ascii=False))
         if result.get('outcome')=='approval_required': raise SystemExit(3)
+        return
+    if args.command=='samak':
+        import samak_bridge_v42 as sb
+        try:
+            with sb.Bridge(timeout=120) as b:
+                if args.action=='start':
+                    result={'ok':True,'result':b.call('start_app')}
+                elif args.action=='tools':
+                    result={'ok':True,'tools':sorted(t['name'] for t in b._request('tools/list',{}).get('tools',[]))}
+                else:
+                    t=b.call('list_all_tabs')
+                    result={'ok':True,'tabs':[{k:x.get(k) for k in ('key','company','url','open','is_popup')} for x in t.get('tabs',[])]}
+        except sb.BridgeError as exc:
+            result={'ok':False,'outcome':'error','error':str(exc),'hint':'open the Black Rose app, or run: rose.py samak start'}
+        print(json.dumps(result,ensure_ascii=False))
+        if not result.get('ok'): raise SystemExit(1)
         return
     if args.command=='duas':
         import dua_catalog_v40 as dc

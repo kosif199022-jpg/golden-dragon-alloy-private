@@ -36,6 +36,15 @@
       "abstention_recall": 0.5,
       "freeze_total_sha256": "ae8f55ebef3840e154d56b08266e8b555fba39ffeeb6bb429c9fdd97f634f0cd",
       "note": "V41 + out-of-scope gate + deterministic ties (forced re-record, counted). Abstention recall 3/6 still below floor 0.833; independent probe set (60 new requests): 28/30 out-of-scope refused, 1/30 in-scope refused"
+    },
+    {
+      "run": 5,
+      "split": "test",
+      "top1": 0.3625,
+      "top3": 0.5625,
+      "abstention_recall": 0.5,
+      "freeze_total_sha256": "d7287cd426ca32c820fed51682ed5aa2b459020bebf4cf271bdefd6b9987d8d0",
+      "note": "V42: money/legal refusal words + catalogue rebuilt (365 ops); forced, counted. Test abstention unchanged 3/6. Probe (now partly used for tuning): 30/30 out refused, 1/30 in refused. Stop re-recording this split: a fresh hidden set is needed for abstention."
     }
   ],
   "decoder": {
