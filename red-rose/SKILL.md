@@ -151,6 +151,10 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/INTERFACE.md`: exit codes, call form and the envelope.
 - `references/RECIPES.md` and `references/OPS.md`: the generated catalogue.
 - `references/DEVELOPING.md`: only when you change the code.
+- `references/SOCIAL_FETCH.md`: how to see Instagram, TikTok and Pinterest from the cloud (what worked).
+- `references/STYLE_OAUN.md` and `references/STYLE_DXHMEN.md`: measured style cards of two dua accounts.
+- `agent/dua_audio/dua_audio.py`: collect any dua account's voices sorted by day (list, label, catalogue);
+  `rose.py library fetch dua_audio|dxh_pins|pins --approve-write` gets the ready libraries.
 
 ## V29 — evidence-based direction
 Use the original native `intelligence.director` via `capability-run` for bounded alternative scoring, frame-exact storyboarding and RTL layout checks. Its outputs are proposals only. Source hashes and limitations: `SOURCE_INTELLIGENCE_AUDIT_V29.json` and `V29_INTELLIGENCE_GUIDE.md`. No foreign engine is invoked. New engine's 18 tests and full suite must pass on the current PR before merge.

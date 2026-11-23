@@ -32,6 +32,24 @@ KNOWN = {
                  'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/22721833-a588-47a5-8114-fce53929c5bc.zip',
                  'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/95c078a5-030d-45e9-b3fc-be51c751c6d2.zip',
              ]},
+    'dxh_pins': {'folder': 'dxh-pins-v1', 'catalog': 'agent/dxh_pins_catalog.csv',
+                 'about': '152 vertical Pinterest clips in the @dxhmen look (sunset sea, gold incense burners, Quran with '
+                          'roses, the two Holy Mosques, camels, flowers, swings, clouds, dawn, lanterns); also on the git '
+                          'branch media/dxhmen-pins of this repo; for private editing use',
+                 'urls': [
+                     'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/bc769590-24d9-4c2f-a11a-798d0a415e46.zip',
+                     'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/c2df42c5-6292-4659-bdf3-fe6ff559e178.zip',
+                 ]},
+    'dua_audio': {'folder': 'dua-audio-v1', 'catalog': 'agent/dua_audio/dua_audio_catalog.csv',
+                  'about': '2,126 dua voices (m4a) from @dxhmen and @oaun.11 sorted <account>/<day or occasion>/; '
+                           'also on the git branch media/dua-audio of this repo; private study only, never publish',
+                  'urls': [
+                      'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/f888ea9d-a117-40d5-b97b-2c52c835c686.zip',
+                      'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/a5210c6a-036f-4e84-a357-46d3f112347b.zip',
+                      'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/9260f9af-9bcd-4b62-a55a-8c9e9619c420.zip',
+                      'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/7d1ad515-8eba-4d7d-bd30-026933d74459.zip',
+                      'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/1267d081-4b98-44d9-908c-463adfd013b3.zip',
+                  ]},
     'fonts': {'tag': 'fonts-library-v1', 'asset': 'fonts-library-v1.zip', 'folder': 'fonts-library-v1',
               'about': '1,076 unique Arabic-first fonts with licence files and library_index.json; indexed after fetch',
               'index_fonts': True},
