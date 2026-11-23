@@ -40,3 +40,17 @@ class DuaPlaybook(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class CloudRender(unittest.TestCase):
+    def test_cloud_render_is_the_default(self):
+        skill = (ROOT / 'SKILL.md').read_text(encoding='utf-8')
+        self.assertIn('Higgsfield cloud sandbox', skill)
+        self.assertIn('CLOUD_RENDER.md', skill)
+        doc = (ROOT / 'references' / 'CLOUD_RENDER.md').read_text(encoding='utf-8')
+        for word in ('size: "xl"', '15 min', 'render_job.sh', 'media_confirm'):
+            self.assertIn(word, doc)
+        self.assertTrue((ROOT / 'agent' / 'cloud_render' / 'render_job.sh').is_file())
+        if shutil.which('bash'):
+            r = subprocess.run(['bash', '-n', str(ROOT / 'agent' / 'cloud_render' / 'render_job.sh')], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stderr)

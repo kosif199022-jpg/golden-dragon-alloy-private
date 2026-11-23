@@ -118,6 +118,7 @@ If a required input is missing, the run exits 6 with outcome `needs_input`, `que
 9. Never ask the owner to retype a request. Decode what he typed.
 10. Never print or save a password, key, cookie, card or bank account number.
 11. Images (generate or edit) are made with ChatGPT in the browser the owner opens for Claude. No other image generator unless he names it. No browser connected: say so and ask him to open it.
+12. Heavy renders (frame rendering, long ffmpeg encodes, Whisper, batch downloads) run on the Higgsfield cloud sandbox, `size: "xl"` (free, 4 CPUs, the owner's choice). Do not ask again. Paid GPU rental still needs his yes. How: `references/CLOUD_RENDER.md` and `agent/cloud_render/render_job.sh`.
 
 ## 8. Reply contract
 
@@ -152,6 +153,7 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/INTERFACE.md`: exit codes, call form and the envelope.
 - `references/RECIPES.md` and `references/OPS.md`: the generated catalogue.
 - `references/DEVELOPING.md`: only when you change the code.
+- `references/CLOUD_RENDER.md`: **fast rendering on the free Higgsfield XL sandbox (the default for heavy renders).**
 - `references/DUA_REELS_PLAYBOOK.md`: **dua reels, voices, account analysis and song lyric motion: start here.**
 - `references/SOCIAL_FETCH.md`: how to see Instagram, TikTok and Pinterest from the cloud (what worked).
 - `references/STYLE_OAUN.md` and `references/STYLE_DXHMEN.md`: measured style cards of two dua accounts.
