@@ -165,6 +165,16 @@ Use these when the owner sends a reference video and wants the same style. They 
 
 Rules from that job: check each stock clip across the exact window you use (hands and people enter late), look for readable signs or banners in the background, and for a trend sound deliver a silent file for posting, since TikTok links a video to a trend only when the sound is chosen inside the app.
 
+## Dua text catalogue (`duas`)
+
+112 dua themes from the «الأدعية - الحمدلله» channel, by day / time / occasion / general (merged from the islamic-dua-reels skill). Use it to pick the wording for a dua reel.
+
+- `rose.py duas list [--section day|time|occasion|general]` — the 19 themes.
+- `rose.py duas day الجمعة` (or friday / الصباح / الفجر) — the ready dua lines for a day; put one or more into a `dua-reel` plan's `lines`.
+- `rose.py duas find "رزق"` — search; `rose.py duas show rizq` — one theme.
+- `rose.py duas quran` — the Quran reference table (سورة:آية). **Quran is never ready overlay text: match every verse letter-by-letter with an approved mushaf (Hafs / quran.com / King Fahd) before rendering; never from memory.**
+- The dua lines are written in the channel's tone, not copied from the videos — edit them freely. They are free supplication (non-Quran); do not attribute a hadith to the Prophet ﷺ without checking it.
+
 ## Dua reels (`dua-reel`)
 
 Makes a dua reel in the measured trending style: fixed date header, gold salawat footer, one white line per shot, a new background per line, soft transitions, slow push-in or drift, no overlay effects.
