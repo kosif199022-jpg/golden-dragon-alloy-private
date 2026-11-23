@@ -116,6 +116,7 @@ If a required input is missing, the run exits 6 with outcome `needs_input`, `que
 8. Arabic is shaped before it is drawn. An `arabic_unshaped` warning means do not deliver that raster: deliver the SVG or render it again.
 9. Never ask the owner to retype a request. Decode what he typed.
 10. Never print or save a password, key, cookie, card or bank account number.
+11. Images (generate or edit) are made with ChatGPT in the browser the owner opens for Claude. No other image generator unless he names it. No browser connected: say so and ask him to open it.
 
 ## 8. Reply contract
 

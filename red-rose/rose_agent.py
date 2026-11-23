@@ -639,9 +639,20 @@ def _slots(rec, text, attachments, optout):
     return {'known': known, 'assumed': assumed, 'missing': missing}, must[:3], values
 
 
-def _owner_rules(ids, approvals, must_ask, outward, is_write):
+_IMAGE_WORDS = ('صورة', 'صوره', 'صور', 'رسمة', 'رسمه', 'رسم', 'شخصية', 'شخصيه', 'ثمبنيل', 'غلاف', 'بوستر', 'لوجو',
+                'image', 'photo', 'picture', 'thumbnail', 'poster', 'logo', 'chatgpt', 'شات جي بي تي')
+
+
+def _is_image_request(text):
+    t = (text or '').lower()
+    return any(w in t for w in _IMAGE_WORDS)
+
+
+def _owner_rules(ids, approvals, must_ask, outward, is_write, text=''):
     rules = {r['id']: r for r in _json('owner_rules.json')['rules']}
     chosen = ['never_retype', 'example_only_never_delivered', 'measured_not_claimed']
+    if _is_image_request(text):
+        chosen.append('images_via_chatgpt')
     if is_write:
         chosen += ['approval_before_write', 'original_untouched']
     if approvals:
@@ -868,7 +879,7 @@ def _task_brief(u, kind, prev_u, attachments, optout):
         decision = 'go'
     must_ask = must[:3]
     lessons = _lessons(source_text, rec) if depth != 'L0' else []
-    rules = (_owner_rules(rule_ids, approvals, must_ask, outward, 'write' in approvals)
+    rules = (_owner_rules(rule_ids, approvals, must_ask, outward, 'write' in approvals, source_text)
              if depth != 'L0' else [])
     next_cmd = None
     if decision not in ('ask',) and steps:
