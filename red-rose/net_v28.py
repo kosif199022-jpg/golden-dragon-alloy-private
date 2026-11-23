@@ -285,12 +285,23 @@ def _url_stem(parts):
     return _safe_stem(seg, _safe_stem(parts['host'], 'page'))
 
 
+_WIN_DEVICE_NAMES = {'con', 'prn', 'aux', 'nul', 'conin$', 'conout$'} | \
+    {f'com{i}' for i in range(1, 10)} | {f'lpt{i}' for i in range(1, 10)}
+
+
 def _guard_name(work_dir, name, exts):
     flavour = 'windows' if os.name == 'nt' else 'posix'
     g = output_path_guard(requested=name, root=str(work_dir), flavour=flavour,
                           allowed_extensions=sorted(exts))['result']
-    if not g['allowed']:
-        raise ValueError(f'refused output name {name!r}: {", ".join(g["reasons"])}')
+    reasons = list(g['reasons'])
+    if flavour == 'posix':  # the work folder syncs to the owner's Windows PC: refuse what Windows cannot hold
+        base = name.replace('\\', '/').rsplit('/', 1)[-1]
+        if base.split('.')[0].rstrip(' ').casefold() in _WIN_DEVICE_NAMES:
+            reasons.append('reserved_name')
+        if ':' in base:
+            reasons.append('alternate_stream_or_bad_character')
+    if reasons:
+        raise ValueError(f'refused output name {name!r}: {", ".join(reasons)}')
     return Path(g['resolved'])
 
 
