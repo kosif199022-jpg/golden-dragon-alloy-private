@@ -313,3 +313,7 @@ The V27/V28 set of 8 `CODED_UNTESTED` adapters **remains unverified**. Do not ca
 ## V30 — approved V29-to-V20 original video bridge
 
 New native mixed adapter `storyboard.pipeline`: read-only `compile` and approved `render`. Produces actual H264/MP4 from a frame-exact V29 beat plan using the independent V20 illustrated clay/schematic-map renderer, with full FFprobe+decode verification, no-overwrite stage and hash receipt. No silent downgrade from 3D/Remotion/Figma: unsupported visual styles are rejected, or a specific limited fallback must be opted into. See [V30_STORYBOARD_RENDER_GUIDE.md](V30_STORYBOARD_RENDER_GUIDE.md). Other eight coded V27/V28 adapters remain untested.
+
+## V43 — reel motion and app intelligence evaluation
+
+`reel.motion` is an original standalone 22s/30fps Abu Cap animated pose/beat and simplified SVG frame planner distilled from the attached reel source. `mind.audit` adds nine-stage evidence gates, 12-organ scoring and paired held-out before/after comparison, distilled from app-super-mind.skill. Both are READ-only and deliberately **not** copies of source runtimes. See `V43_ABU_CAP_SUPER_MIND_GUIDE.md`, `FUSION_PROVENANCE_V43.json`, `test_fusion_v43.py`. This is partial tested implementation, not a claim that 710 source archive files became 710 native tools.
