@@ -267,3 +267,11 @@ The V27/V28 set of 8 `CODED_UNTESTED` adapters **remains unverified**. Do not ca
 ## V30 — completed supervised storyboard-to-video bridge
 
 The standalone module `storyboard_pipeline_v30.py` connects V29 `storyboard_plan` to V20 `fusion_studio_v20.plan/render_video`, dispatch via `storyboard.pipeline` mixed adapter with `compile` (read) and `render` (approved write). Tests `test_storyboard_pipeline_v30.py` enforce frame exactness, Arabic captions, no silent 3D downgrade, map route validation, no overwrite, approval spoof protection and original 5s MP4 SHA/QA. Does **not** solve cinematic semantic editing or the eight V27–V28 `CODED_UNTESTED` adapters. Run full suite on main, update provenance and test count based on CI; use the V30 guide for commands. Next agent should test those older unverified adapters rather than declaring full fusion.
+
+## V43 — independent app-intelligence and cartoon-reel source fusion
+
+`intelligence.fusion` is a new **read-only** native adapter derived from the uploaded `app-super-mind.skill` (12 readiness dimensions, 9 evidence gates, paired dev/heldout results) and the Abu Kab cartoon RAR (22s/30fps/660-frame scene timeline, deterministic seekable beat contract, character/prop and licensed music checks). Five bounded operations: `readiness`, `ladder`, `paired_eval`, `reel_preflight`, `reel_seek`. See [V43_FUSION_GUIDE.md](V43_FUSION_GUIDE.md), [SOURCE_FUSION_AUDIT_V43.json](SOURCE_FUSION_AUDIT_V43.json) and `examples/abu_kab_reel_v43.json`.
+
+No original archives or media/music/font assets are imported or committed. V43 adds measurable **assessment tools**, not full neural training or an actual replication of the full reel. Do not claim all archived skills are rendered or fully fused. Verify all new tests and existing routing quality gates before merge.
+
+**V43 follow-up:** rebuild/publish `references/OPS_CATALOG.json` from the current native registry when available; `rose_catalog.load()` detects added adapters and builds missing ops in-memory. Verify the remaining pre-existing routing held-out abstention floor without lowering it. For a true visual port, produce licensed assets and independently verify a new H264 MP4, which is outside this partial source distillation.
