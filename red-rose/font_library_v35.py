@@ -37,6 +37,67 @@ STYLE_WORDS = {
 }
 
 
+# category from family / file name words (English and Arabic). First match wins, in this order.
+CATEGORY_WORDS = [
+    ('quran', ('quran', 'qurani', 'mushaf', 'مصحف', 'قرآن', 'uthman', 'attari', 'hafs', 'muhammadi')),
+    ('diwani', ('diwani', 'diwany', 'ديواني')),
+    ('thuluth', ('thuluth', 'thulth', 'ثلث')),
+    ('ruqaa', ('ruqaa', 'ruqa', 'roqa', 'reqa', 'رقعة', 'رقعه')),
+    ('kufi', ('kufi', 'kufic', 'kufam', 'كوفي', 'kofi')),
+    ('naskh', ('naskh', 'نسخ', 'amiri', 'scheherazade', 'lateef', 'harmattan', 'alkalami', 'markazi', 'typesetting')),
+    ('nastaliq', ('nastaliq', 'nastaleeq', 'gulzar', 'نستعليق')),
+    ('maghribi', ('maghribi', 'مغربي', 'ruwudu')),
+    ('handwriting', ('hand', 'script', 'graphology', 'brush', 'marker', 'يدوي', 'خط يد', 'playpen', 'okies')),
+    ('rounded', ('rounded', 'round', 'مدور')),
+    ('sans', ('sans', 'cairo', 'tajawal', 'almarai', 'beiruti', 'somar', 'lama', 'noto sans', 'ibm plex', 'mada',
+              'changa', 'zain', 'alan', 'steam', 'meral', 'dialogue')),
+    ('display', ('display', 'poster', 'typo', 'headline', 'title', 'black', 'heavy', 'allexp', 'lalezar', 'rakkas',
+                 'jomhuria', 'blaka', 'lemonada', 'vibes', 'katibeh', 'عناوين')),
+]
+
+# moods the owner asks for → categories that suit them (first is best)
+MOODS = {
+    'رومانسي': ['ruqaa', 'handwriting', 'diwani', 'nastaliq'], 'حب': ['ruqaa', 'handwriting', 'diwani'],
+    'ديني': ['quran', 'naskh', 'thuluth', 'diwani'], 'دعاء': ['naskh', 'thuluth', 'diwani', 'quran'],
+    'قرآن': ['quran', 'naskh'], 'رسمي': ['sans', 'kufi', 'naskh'], 'شركة': ['sans', 'kufi'],
+    'محاسبة': ['sans'], 'فخم': ['diwani', 'thuluth', 'display'], 'فرح': ['diwani', 'display', 'rounded'],
+    'أطفال': ['rounded', 'handwriting', 'display'], 'مرح': ['rounded', 'display', 'handwriting'],
+    'عناوين': ['display', 'kufi', 'sans'], 'ترند': ['display', 'sans', 'ruqaa'], 'قوي': ['display', 'kufi'],
+    'هادي': ['naskh', 'sans', 'nastaliq'], 'تراث': ['kufi', 'maghribi', 'thuluth', 'naskh'],
+}
+MOOD_ALIASES = {'romantic': 'رومانسي', 'love': 'حب', 'religious': 'ديني', 'dua': 'دعاء', 'quran': 'قرآن',
+                'formal': 'رسمي', 'corporate': 'شركة', 'luxury': 'فخم', 'wedding': 'فرح', 'kids': 'أطفال',
+                'fun': 'مرح', 'title': 'عناوين', 'trend': 'ترند', 'bold': 'قوي', 'calm': 'هادي', 'heritage': 'تراث'}
+
+
+def _category(text: str) -> str:
+    low = text.lower()
+    for cat, words in CATEGORY_WORDS:
+        if any(w in low for w in words):
+            return cat
+    return 'other'
+
+
+def measure(path: str) -> dict:
+    """Render-based facts: does Arabic join (shaped word much narrower than its letters apart), ink weight."""
+    from PIL import Image, ImageDraw, ImageFont
+    try:
+        f = ImageFont.truetype(path, 80, layout_engine=ImageFont.Layout.RAQM)
+        joined = f.getlength('بيت', direction='rtl')
+        apart = sum(f.getlength(c, direction='rtl') for c in 'بيت')
+        ratio = round(joined / apart, 3) if apart else None
+        img = Image.new('L', (520, 140), 0)
+        ImageDraw.Draw(img).text((500, 70), 'الهدى نور', font=f, fill=255, anchor='rm', direction='rtl')
+        box = img.getbbox()
+        ink = 0.0
+        if box:
+            crop = img.crop(box)
+            ink = round(sum(1 for v in crop.getdata() if v > 128) / (crop.width * crop.height), 3)
+        return {'join_ratio': ratio, 'joins': bool(ratio is not None and ratio < 0.88), 'ink': ink}
+    except Exception as exc:
+        return {'join_ratio': None, 'joins': False, 'ink': None, 'render_error': type(exc).__name__}
+
+
 def _names(tt):
     out = {}
     for rec in tt['name'].names:
@@ -107,7 +168,14 @@ def inspect(path: Path) -> dict | None:
     personal = any(w in where for w in PERSONAL_WORDS)
     if personal and lic_kind in ('unknown', 'see text'):
         lic_kind = 'personal only'
+    try:
+        weight = int(tt['OS/2'].usWeightClass) if 'OS/2' in tt else 400
+    except Exception:
+        weight = 400
+    facts = measure(str(path)) if arabic else {'join_ratio': None, 'joins': False, 'ink': None}
     return {
+        'category': 'glyphs' if digits_only else _category(f'{key} {path.stem} {path.parent.name}'),
+        'weight': weight, **facts,
         'name': key, 'family': family, 'subfamily': sub, 'file': str(path),
         'arabic_letters': f'{arabic}/{len(ARABIC_TEST)}', 'arabic': arabic >= len(ARABIC_TEST) - 2,
         'glyph_font': digits_only, 'glyphs': len(cmap), 'styles': styles,
@@ -183,7 +251,7 @@ def listing(arabic=False, style=None, words=None):
     if style:
         rows = [r for r in rows if style in r['styles']]
     rows = _match(rows, words)
-    slim = [{k: r[k] for k in ('name', 'arabic', 'glyph_font', 'styles', 'licence', 'note')} for r in rows]
+    slim = [{k: r.get(k) for k in ('name', 'category', 'weight', 'arabic', 'joins', 'glyph_font', 'licence', 'note')} for r in rows]
     return {'ok': True, 'count': len(slim), 'fonts': slim}
 
 
@@ -224,3 +292,88 @@ def preview(out, words=None, text=SAMPLE, arabic_only=True, limit=60, approve_wr
     out.parent.mkdir(parents=True, exist_ok=True)
     img.save(out)
     return {'ok': True, 'saved': [str(out)], 'fonts': len(rows)}
+
+
+# ----------------------------------------------------------------- using fonts
+
+LICENCE_RANK = {'OFL': 0, 'Apache': 0, 'see text': 1, 'personal only': 2, 'unknown': 3}
+
+
+def suggest(mood: str, limit: int = 8, commercial: bool = False) -> dict:
+    """Fonts that suit a mood. Joined Arabic only; free licences first; one weight per family."""
+    key = MOOD_ALIASES.get(mood.strip().lower(), mood.strip())
+    cats = MOODS.get(key)
+    if not cats:
+        return {'ok': False, 'outcome': 'error', 'error': f'unknown mood {mood!r}', 'moods': sorted(MOODS)}
+    rows = [r for r in load() if r.get('arabic') and r.get('joins') and not r.get('glyph_font')]
+    if commercial:
+        rows = [r for r in rows if r['licence'] in ('OFL', 'Apache')]
+    picked, families = [], set()
+    for rank, cat in enumerate(cats):
+        pool = sorted((r for r in rows if r.get('category') == cat),
+                      key=lambda r: (LICENCE_RANK.get(r['licence'], 3), abs(r.get('weight', 400) - 600), r['name']))
+        for r in pool:
+            if r['family'] in families:
+                continue
+            families.add(r['family'])
+            picked.append({'name': r['name'], 'category': cat, 'licence': r['licence'], 'weight': r.get('weight'),
+                           'file': r['file']})
+            if len(picked) >= limit:
+                break
+        if len(picked) >= limit:
+            break
+    return {'ok': True, 'mood': key, 'categories': cats, 'count': len(picked), 'fonts': picked,
+            'note': 'commercial use: only OFL/Apache are safe' if not commercial else 'free licences only'}
+
+
+def ass_name(name: str) -> dict:
+    """What to write in an ASS/SSA subtitle style (Fontname, Bold) and the folder for ffmpeg fontsdir."""
+    r = find_one(name)
+    if not r:
+        return {'ok': False, 'outcome': 'error', 'error': f'font not in the library: {name}'}
+    bold = 1 if (r.get('weight') or 400) >= 600 or 'bold' in r.get('subfamily', '').lower() else 0
+    return {'ok': True, 'fontname': r['family'], 'bold': bold, 'fontsdir': str(Path(r['file']).parent),
+            'file': r['file'], 'hint': 'copy the file into the ffmpeg working folder and pass fontsdir=<that folder>'}
+
+
+def render_text(text: str, out, font: str, size: int = 120, colour: str = 'gold', width: int = 1080,
+                approve_write: bool = False) -> dict:
+    """Shaped Arabic text as a transparent PNG (gold gradient or white) with a soft shadow, to lay over video."""
+    r = find_one(font)
+    if not r:
+        return {'ok': False, 'outcome': 'error', 'error': f'font not in the library: {font}'}
+    if r.get('glyph_font'):
+        return {'ok': False, 'outcome': 'error', 'error': 'calligraphy-piece font: type digits 1-11, not words'}
+    out = Path(out).expanduser()
+    if not approve_write:
+        return {'ok': False, 'outcome': 'approval_required', 'would_write': [str(out)], 'font': r['name']}
+    from PIL import Image, ImageDraw, ImageFilter, ImageFont
+    f = ImageFont.truetype(r['file'], size, layout_engine=ImageFont.Layout.RAQM)
+    while f.getlength(text, direction='rtl') > width - 80 and size > 24:
+        size -= 4
+        f = ImageFont.truetype(r['file'], size, layout_engine=ImageFont.Layout.RAQM)
+    h = int(size * 2.2)
+    mask = Image.new('L', (width, h), 0)
+    ImageDraw.Draw(mask).text((width / 2, h / 2), text, font=f, fill=255, anchor='mm', direction='rtl')
+    shadow = mask.filter(ImageFilter.MaxFilter(7)).filter(ImageFilter.GaussianBlur(12)).point(lambda v: int(v * 0.8))
+    img = Image.new('RGBA', (width, h), (0, 0, 0, 0))
+    img.putalpha(0)
+    img = Image.composite(Image.new('RGBA', (width, h), (20, 10, 0, 255)), img, shadow)
+    if colour == 'white':
+        fill = Image.new('RGBA', (width, h), (255, 255, 255, 255))
+    else:
+        top, bot = (255, 236, 150), (214, 150, 40)
+        box = mask.getbbox() or (0, 0, width, h)
+        col = Image.new('RGBA', (1, h))
+        for y in range(h):
+            t = min(1.0, max(0.0, (y - box[1]) / max(1, box[3] - box[1])))
+            col.putpixel((0, y), tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)) + (255,))
+        fill = col.resize((width, h))
+    layer = Image.new('RGBA', (width, h), (0, 0, 0, 0))
+    layer.paste(fill, (0, 0), mask)
+    img.alpha_composite(layer)
+    img = img.crop(img.getbbox() or (0, 0, width, h))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    img.save(out)
+    return {'ok': True, 'saved': [str(out)], 'font': r['name'], 'licence': r['licence'], 'size_px': size,
+            'image': list(img.size)}
