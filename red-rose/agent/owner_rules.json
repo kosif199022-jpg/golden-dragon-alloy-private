@@ -1,5 +1,5 @@
 {
-  "version": "W07-1",
+  "version": "W07-2",
   "note": "Owner rules shown in a brief. 'always' rules are added when relevant to the decision; recipe rule ids (from recipes/*.json 'rules') are looked up here by id.",
   "rules": [
     {"id": "approval_before_write", "text_ar": "ما فيش كتابة ولا ملف جديد قبل موافقتك الصريحة للفعل ده بالظبط. أول تشغيل بيطلع exit 3 ومايكتبش حاجة.", "when": "write"},
@@ -17,6 +17,7 @@
     {"id": "no_fade_from_black", "text_ar": "ماتعملش fade من الأسود في بداية الفيديو.", "when": "recipe"},
     {"id": "example_only_never_delivered", "text_ar": "النتيجة اللي فيها example_only بيانات مثال مش بياناتك، ماتتسلمهاش كنتيجة.", "when": "always"},
     {"id": "original_untouched", "text_ar": "الملف الأصلي ما يتلمسش. الناتج ملف جديد في مجلد الشغل.", "when": "write"},
+    {"id": "images_via_chatgpt", "text_ar": "أي صورة (توليد أو تعديل) تتعمل بـ ChatGPT في المتصفح: صاحب الشغل بيفتحه في متصفح Claude (المتصفح المدمج أو Claude in Chrome) وإنت تستخدمه. ماتبدّلش بـ Higgsfield ولا أي مولّد تاني إلا لو طلبه بالاسم. لو المتصفح مش متوصل في الجلسة: قول كده واطلب منه يفتحه، ومتولّدش بديل.", "when": "image"},
     {"id": "measured_not_claimed", "text_ar": "ماتقولش إن حاجة اتعملت قبل ما تتقاس وتتفتح بعينك.", "when": "always"}
   ]
 }

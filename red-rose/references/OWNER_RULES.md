@@ -17,6 +17,7 @@ These rules come from the owner. Every agent that uses Red Rose follows them, in
 11. **Secrets stay out.** Passwords, API keys, tokens, cookies, card numbers and bank account numbers are never typed into a file, a command or a reply. If one is pasted in chat, use it for nothing and do not repeat it.
 12. **No retyping.** The owner is never asked to retype a request. Decode the words he typed, and say what was decoded.
 13. **One yes per write, for that exact action.** A write (a file, a render, a cut, a saved result, a package, an install copy) needs the owner's explicit yes in chat that names that action. Exit 3 (`approval_required`) means: nothing was written; show the files in `would_write` to the owner and wait. A yes to one write is not a yes to the next, and «كمل» or «تمام» is not a yes.
+14. **Images go through ChatGPT in the browser (owner's standing choice, 2026-11-23).** Any image to generate or edit (a character, a thumbnail, a scene, a background) is made with ChatGPT in the browser: the owner opens ChatGPT in Claude's browser (the built-in browser or Claude in Chrome) and the agent uses it there, signed in as the owner. Do not switch to Higgsfield or another image generator unless the owner names it. If no browser is connected in the session, say so in one Arabic line and ask him to open it; do not generate a substitute elsewhere. Only the prompt and the owner's own reference images go into ChatGPT; no passwords, tokens or bank data.
 
 ## What needs an explicit yes (approval list)
 
