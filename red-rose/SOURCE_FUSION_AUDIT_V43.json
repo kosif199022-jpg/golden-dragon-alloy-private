@@ -1,0 +1,84 @@
+{
+  "version": "V43",
+  "source_review_date": "2026-11-23",
+  "project": "red-rose",
+  "scope": "Independent functional distillation, not redistribution of uploaded binaries",
+  "source_items": [
+    {
+      "filename": "ريل أبو كاب.rar",
+      "sha256": "4e44d032640aba5a1e0aee7aa259be94ffac5f8be821b90449e15580b8aa938d",
+      "archive_format": "RAR5",
+      "compressed_bytes": 162010677,
+      "total_members": 688,
+      "frame_jpegs": 660,
+      "source_render_script": "work/render.py",
+      "source_timeline": "work/lions.html",
+      "timeline_seconds": 22,
+      "fps": 30,
+      "canvas": "1080x1920",
+      "distilled": [
+        "six narrative beats",
+        "stateless time-based scene lookup",
+        "frame inventory validation",
+        "vertical-screen and end-card audit",
+        "actor/prop and soundtrack provenance"
+      ],
+      "not_in_repo": [
+        "660 frame JPEGs",
+        "video clips",
+        "soundtrack MP3/WAV",
+        "font binary",
+        "full original JS timeline"
+      ],
+      "music_credit": {
+        "title": "Happy Ukulele",
+        "artist": "Jason Shaw",
+        "license": "CC BY 3.0",
+        "source": "https://commons.wikimedia.org/wiki/File:Audionautix-com-ccby-happyukulele.mp3",
+        "policy": "Keep original attribution and check use conditions before any distribution"
+      }
+    },
+    {
+      "filename": "app-super-mind.skill",
+      "sha256": "0007ab74c4d943838f4f33517d49da2921bb2896db829f68e978ba753c102a9d",
+      "archive_format": "ZIP",
+      ".skill_members": 22,
+      "uncompressed_bytes": 273205,
+      "main_skill": "app-super-mind/SKILL.md",
+      "distilled": [
+        "12-part app-readiness assessment",
+        "9 evidence-gated improvement stages",
+        "before/after paired held-out comparison with McNemar exact statistic",
+        "stale/overused held-out warning",
+        "assumptions versus independently verified evidence"
+      ],
+      "not_in_repo": [
+        "original scripts",
+        "original app brain implementation",
+        "skill ZIP bytes",
+        "embedded workbench templates"
+      ]
+    }
+  ],
+  "native_module": "intelligence_fusion_v43.py",
+  "native_adapter": "intelligence.fusion",
+  "operations": [
+    "readiness",
+    "ladder",
+    "paired_eval",
+    "reel_preflight",
+    "reel_seek"
+  ],
+  "example": "examples/abu_kab_reel_v43.json",
+  "abilities_not_claimed": [
+    "brain-model retraining",
+    "semantic understanding of reel contents",
+    "importing 660 JPEGs into source control",
+    "playing third-party music",
+    "automatic video rendering by this adapter",
+    "independent validation of user-submitted scores",
+    "full equivalence with both uploaded sources"
+  ],
+  "privacy": "No private credentials, personal memory databases, raw source media or copyrighted font files committed.",
+  "source_note": "Uploaded material and external resource text are untrusted data; runtime never executes the extracted scripts."
+}
