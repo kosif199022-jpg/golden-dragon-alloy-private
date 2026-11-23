@@ -329,11 +329,19 @@ def build():
 
 
 def load():
-    """references/OPS_CATALOG.json when present and valid, else build()."""
+    """Load the indexed catalogue, rebuilding in memory if registry adapters changed.
+
+    Never silently show stale operation lists after installing new native
+    capabilities. Rebuilding does not write files or mutate owner memory.
+    """
     if 'cat' not in _CACHE:
         cat = _read_json(CATALOG_JSON, None)
         if not isinstance(cat, dict) or 'entries' not in cat:
             cat = build()
+        else:
+            cr = importlib.import_module('capability_runtime')
+            if set(cat.get('adapters', {})) != set(cr.REGISTRY):
+                cat = build()
         _CACHE['cat'] = cat
     return _CACHE['cat']
 
