@@ -157,3 +157,6 @@ Use the original native `intelligence.director` via `capability-run` for bounded
 
 ## V30 — supervised original MP4 production
 Use `storyboard.pipeline` `compile` to review a V29 story, then `render` with explicit `--approve-write` only for 2D illustrated clay or schematic map output. The render is silent H264/MP4 with a checked frame count and hash receipt. Unsupported visual fidelity (3D, true SaaS screenshot video, full Remotion) is refused unless a disclosed 2D clay fallback is explicitly allowed for supported names. See `V30_STORYBOARD_RENDER_GUIDE.md`; no legacy runtime imports.
+
+## V43 — قياس الذكاء وفحص الريل
+اقرأ `V43_FUSION_GUIDE.md` و`SOURCE_FUSION_AUDIT_V43.json`. محرك `intelligence.fusion` للقراءة فقط: يقيس 12 معيارًا، يتتبع 9 بوابات، يقارن heldout قبل/بعد، ويدقق مخطط ريل أبو كاب و`seek` الحتمي. لا يعتبر النتائج شهادة ذكاء، ولا يصدر صوتًا أو فيديو، ولا يعتمد وقت التشغيل على الأرشيفات. تحقق من نتائج الاختبارات ومراجعة الحقوق قبل أي نشر.

@@ -313,3 +313,9 @@ The V27/V28 set of 8 `CODED_UNTESTED` adapters **remains unverified**. Do not ca
 ## V30 — approved V29-to-V20 original video bridge
 
 New native mixed adapter `storyboard.pipeline`: read-only `compile` and approved `render`. Produces actual H264/MP4 from a frame-exact V29 beat plan using the independent V20 illustrated clay/schematic-map renderer, with full FFprobe+decode verification, no-overwrite stage and hash receipt. No silent downgrade from 3D/Remotion/Figma: unsupported visual styles are rejected, or a specific limited fallback must be opted into. See [V30_STORYBOARD_RENDER_GUIDE.md](V30_STORYBOARD_RENDER_GUIDE.md). Other eight coded V27/V28 adapters remain untested.
+
+## V43 — independent app-intelligence and cartoon-reel source fusion
+
+`intelligence.fusion` is a new **read-only** native adapter derived from the uploaded `app-super-mind.skill` (12 readiness dimensions, 9 evidence gates, paired dev/heldout results) and the Abu Kab cartoon RAR (22s/30fps/660-frame scene timeline, deterministic seekable beat contract, character/prop and licensed music checks). Five bounded operations: `readiness`, `ladder`, `paired_eval`, `reel_preflight`, `reel_seek`. See [V43_FUSION_GUIDE.md](V43_FUSION_GUIDE.md), [SOURCE_FUSION_AUDIT_V43.json](SOURCE_FUSION_AUDIT_V43.json) and `examples/abu_kab_reel_v43.json`.
+
+No original archives or media/music/font assets are imported or committed. V43 adds measurable **assessment tools**, not full neural training or an actual replication of the full reel. Do not claim all archived skills are rendered or fully fused. Verify all new tests and existing routing quality gates before merge.

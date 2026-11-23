@@ -198,6 +198,15 @@
       "summary": "Calibrated option review, editable Arabic-safe storyboard, constrained RTL auto layout; no network/media execution",
       "write": 0
     },
+    "intelligence.fusion": {
+      "effect": "read",
+      "kind": "module",
+      "name_ar": "intelligence.fusion",
+      "op_count": 5,
+      "read": 5,
+      "summary": "Read-only 12-organ app readiness, 9-stage evidence gates, paired heldout evaluation, 30fps reel storyboard audit and deterministic beat lookup",
+      "write": 0
+    },
     "knowledge.route": {
       "effect": "read",
       "kind": "flat",
@@ -551,11 +560,11 @@
     }
   },
   "counts": {
-    "adapters": 61,
-    "entries": 365,
+    "adapters": 62,
+    "entries": 370,
     "flat_adapters": 23,
-    "module_adapters": 38,
-    "module_ops": 342
+    "module_adapters": 39,
+    "module_ops": 347
   },
   "entries": {
     "accounting.check.bank_reconcile": {
@@ -17858,6 +17867,269 @@
       "static_label": "needs_input",
       "sub_catalogue": null,
       "summary": "Produce frame-exact, editable beats, preserving Arabic words as whole strings."
+    },
+    "intelligence.fusion.ladder": {
+      "adapter": "intelligence.fusion",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "intelligence.fusion.ladder",
+      "keywords": [
+        "fusion",
+        "intelligence",
+        "ladder"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "intelligence.fusion ladder",
+      "name_en": "ladder",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "ladder",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Sequential evidence checklist: a purported pass is never treated as proof."
+    },
+    "intelligence.fusion.paired_eval": {
+      "adapter": "intelligence.fusion",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "intelligence.fusion.paired_eval",
+      "keywords": [
+        "eval",
+        "fusion",
+        "intelligence",
+        "paired"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "intelligence.fusion paired_eval",
+      "name_en": "paired eval",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "paired_eval",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Paired before/after *reported* pass/fail outcomes on unchanged cases."
+    },
+    "intelligence.fusion.readiness": {
+      "adapter": "intelligence.fusion",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "intelligence.fusion.readiness",
+      "keywords": [
+        "fusion",
+        "intelligence",
+        "readiness"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "intelligence.fusion readiness",
+      "name_en": "readiness",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "readiness",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Score *provided* audit evidence, never self-certify that an app is smart."
+    },
+    "intelligence.fusion.reel_preflight": {
+      "adapter": "intelligence.fusion",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "intelligence.fusion.reel_preflight",
+      "keywords": [
+        "fusion",
+        "intelligence",
+        "preflight",
+        "reel"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "intelligence.fusion reel_preflight",
+      "name_en": "reel preflight",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "reel_preflight",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "Validate a frame-exact storyboard contract, not binary footage."
+    },
+    "intelligence.fusion.reel_seek": {
+      "adapter": "intelligence.fusion",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "intelligence.fusion.reel_seek",
+      "keywords": [
+        "fusion",
+        "intelligence",
+        "reel",
+        "seek"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "intelligence.fusion reel_seek",
+      "name_en": "reel seek",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "reel_seek",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "reel seek"
     },
     "knowledge.route": {
       "adapter": "knowledge.route",
