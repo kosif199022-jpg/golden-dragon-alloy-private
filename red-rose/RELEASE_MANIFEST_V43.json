@@ -1,0 +1,30 @@
+{
+  "project": "red-rose",
+  "version": "43.0",
+  "date": "2026-11-23",
+  "base_main_version": "V42",
+  "source_archives": 2,
+  "source_members": [
+    688,
+    22
+  ],
+  "new_adapters": [
+    "reel.motion",
+    "mind.audit"
+  ],
+  "native_registry_target": 63,
+  "new_modules": [
+    "reel_motion_v43.py",
+    "super_mind_v43.py"
+  ],
+  "new_tests": [
+    "test_fusion_v43.py"
+  ],
+  "source_runtime_dependencies": [],
+  "knowledge_vs_execution": "partially reimplemented concrete read-only algorithms",
+  "full_source_behaviour_reproduced": false,
+  "source_media_republished": false,
+  "automatic_learning_enabled": false,
+  "ci": "not yet verified at authoring; run GitHub Actions",
+  "baseline_routing_abstention_regression": "known on V42; not suppressed"
+}
