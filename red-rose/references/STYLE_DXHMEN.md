@@ -32,18 +32,18 @@ Use this card to make **new** reels in the same style. Never reuse their footage
 - Best day tag by median views: #دعاء_ليلة_الجمعة (700 k), #دعاء (465 k), #دعاء_يوم_الجمعه (400 k);
   the other weekdays sit at 190 k to 270 k.
 
-## Edit (measured sample)
+## Edit (85 reels measured: the most viewed and the most recent)
 
 | Measure | @dxhmen | @oaun.11 for comparison |
 |---|---|---|
-| Length | 23 s | 27 s |
+| Length | 27 s | 27 s |
 | Shots per reel | 6 | 7 |
 | Shot length | 5.2 s | 3.0 s |
-| Camera in a shot | mostly still (67 %), slow zoom-out (20 %), a little zoom-in, rotate, pan | gentle push-in |
-| Transitions | plain cut 73 %, blur-move 12 %, white flash 10 %, dip to black 4 % | spin, zoom, slide |
-| Speech | starts on frame 1, 1.7 words/s | 1.5 words/s |
-| Loudness | -20.7 LUFS (quiet; raise to -14 for delivery) | -16.5 LUFS |
-| Frame | mostly 576 x 1026 (re-uploaded phone clips) | 720 x 1280 |
+| Camera in a shot | mostly still (66 %), slow zoom-out (19 %), zoom-in 5 %, pan 5 %, rotate 4 % | gentle push-in |
+| Transitions | plain cut 79 %, blur-move 9 %, white flash 6 %, dip to black 6 % | spin, zoom, slide |
+| Speech | starts on frame 1, 1.65 words/s | 1.5 words/s |
+| Loudness | -16.3 LUFS (raise to -14 for delivery) | -16.5 LUFS |
+| Frame | 1080 x 1920 in 36 of 85, 576 x 1026 in 32 | 720 x 1280 |
 
 So the look is calmer than @oaun.11: fewer, longer shots, almost no camera move, and mostly hard cuts,
 with a flash or a blurred move only on the strong lines.
