@@ -61,6 +61,7 @@ import bridges_v28
 import prompts_v28
 import intelligence_director_v29
 import storyboard_pipeline_v30
+import intelligence_fusion_v43
 import playbooks_v28
 
 # File/media/database adapters: per-op EFFECTS; writes need the owner's --approve-write.
@@ -74,7 +75,7 @@ CODED_UNTESTED = ('motion.core', 'text.motion', 'graphics.motion', 'studio.rende
                   'net.fetch', 'app.bridge', 'prompt.prepare', 'playbook.library')
 
 # Pure-computation adapters: one explicit op whitelist per module, no I/O.
-PURE_MODULES = {'intelligence.director': intelligence_director_v29, 'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
+PURE_MODULES = {'intelligence.fusion': intelligence_fusion_v43, 'intelligence.director': intelligence_director_v29, 'physics.simulate': physics_v20, 'math.geometry': geometry_v20,
                 'science.compute': science_v20, 'thinking.reason': thinking_v21,
                 'decision.make': decision_v21, 'code.analyze': code_analysis_v21,
                 'accounting.check': accounting_v21, 'governance.audit': governance_v22,
@@ -92,6 +93,7 @@ from fusion_studio_v20 import greatcircle, plan as fusion_plan, frame_svg as fus
 
 # Each item has a concrete in-process implementation and a narrow allowed effect.
 REGISTRY = {
+ 'intelligence.fusion': ('Read-only 12-organ app readiness, 9-stage evidence gates, paired heldout evaluation, 30fps reel storyboard audit and deterministic beat lookup', 'read', 'builtin'),
  'storyboard.pipeline': ('Compile V29 beats to original V20 illustration; render silent verified MP4 only after explicit user approval', 'mixed', 'ffmpeg'),
  'intelligence.director': ('Calibrated option review, editable Arabic-safe storyboard, constrained RTL auto layout; no network/media execution', 'read', 'builtin'),
  'qa.trace': ('Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A', 'read', 'builtin'),
@@ -155,6 +157,12 @@ REGISTRY = {
  'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
+ 'أبو كاب': ('intelligence.fusion',),
+ 'السلم': ('intelligence.fusion',),
+ 'super mind': ('intelligence.fusion',),
+ 'عقل فائق': ('intelligence.fusion',),
+ 'قياس قبل وبعد': ('intelligence.fusion',),
+ 'heldout': ('intelligence.fusion',),
  'اخراج': ('storyboard.pipeline',),
  'إخراج': ('storyboard.pipeline',),
  'ستوري بورد': ('intelligence.director','storyboard.pipeline'),
