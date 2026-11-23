@@ -15,7 +15,8 @@ import math
 import re
 from collections import Counter
 
-OPS = ("readiness", "ladder", "paired_eval", "reel_preflight", "reel_seek")
+OPS = ("readiness", "ladder", "paired_eval", "reel_preflight", "reel_seek",
+       "reel_rhythm", "feedback_cycle")
 ORGANS = ("intent", "context", "memory", "planning", "action", "grounding",
           "verification", "calibration", "safety", "learning",
           "measurement", "resilience")
@@ -308,11 +309,124 @@ def reel_seek(params):
             "limitations":"State lookup only; no animation or source media execution."}
 
 
+
+def reel_rhythm(params):
+    """Read-only shot timing/caption-density review; not a visual quality verdict."""
+    params = _obj(params)
+    _keys(params, ("project", "caption_cps_limit", "minimum_cta_frames"), ("project",))
+    project = reel_preflight(_obj(params["project"], "project"))
+    limit = _int(params.get("caption_cps_limit", 22), "caption_cps_limit", 4, 100)
+    minimum_cta = _int(params.get("minimum_cta_frames", 30), "minimum_cta_frames", 1, 1200)
+    shots, warnings = [], list(project["warnings"])
+    ever_seen, previous = set(), set()
+    for shot in project["shots"]:
+        duration = shot["duration_frames"] / project["fps"]
+        chars = sum(not ch.isspace() for ch in shot["caption"])
+        density = round(chars / duration, 3)
+        notes = []
+        if density > limit:
+            notes.append("review_caption_density")
+        if shot["tag"] == "cta" and shot["duration_frames"] < minimum_cta:
+            notes.append("review_short_end_card")
+        current = set(shot["actors"])
+        returning = sorted((current & ever_seen) - previous)
+        if returning:
+            notes.append("review_actor_reentry")
+        shots.append({
+            "id": shot["id"],
+            "start_seconds": round(shot["start_frame"] / project["fps"], 4),
+            "duration_seconds": round(duration, 4),
+            "caption_codepoints_per_second": density,
+            "reappearing_actors": returning,
+            "review_flags": notes
+        })
+        warnings.extend(shot["id"] + ":" + flag for flag in notes)
+        ever_seen.update(current)
+        previous = current
+    return {
+        "status": "metadata_rhythm_review_not_media_verified",
+        "preflight_passed": project["preflight_passed"],
+        "shot_count": len(shots),
+        "shots": shots,
+        "warnings": warnings,
+        "review_required": bool(warnings),
+        "limitations": "Caption codepoint density is a heuristic, not reading speed; "
+                       "actor re-entry is a review prompt, not an error. "
+                       "No frames, animation, soundtrack, or source footage were inspected."
+    }
+
+
+def feedback_cycle(params):
+    """Rank evidence-linked corrections; drafts never mutate files, memory, or model."""
+    params = _obj(params)
+    _keys(params, ("task", "observations", "max_proposals"),
+          ("task", "observations"))
+    task = _str(params["task"], "task", 300)
+    rows = _list(params["observations"], "observations", 1, 100)
+    maximum = _int(params.get("max_proposals", 10), "max_proposals", 1, 25)
+    remedies = {
+        "routing": "Freeze held-out intents and rerun abstention/Top-1 evaluation",
+        "timing": "Add frame-boundary and exact-duration regression cases",
+        "caption": "Check Arabic shaping, exact text and caption timing on frames",
+        "identity": "Compare approved character/style reference across adjacent shots",
+        "audio": "Check source-to-output sync and independently decode audio",
+        "export": "Probe H264/AAC MP4 and fully decode final media",
+        "safety": "Test permission gates, untrusted source handling and negative cases",
+        "general": "Create a reproducible before/after regression test"
+    }
+    severities = {"low": 1, "medium": 2, "high": 3, "critical": 4}
+    seen, suggestions = set(), []
+    for row in rows:
+        row = _obj(row, "observation")
+        _keys(row, ("id", "category", "severity", "recurrences",
+                    "summary", "evidence_sha", "reproduced"),
+              ("id", "category", "severity", "recurrences", "summary", "reproduced"))
+        ident = _str(row["id"], "observation id", 80)
+        if not SAFE_ID.fullmatch(ident) or ident in seen:
+            raise ValueError("observation id must be unique and a safe token")
+        seen.add(ident)
+        category = _str(row["category"], "category", 32)
+        severity = _str(row["severity"], "severity", 16)
+        if category not in remedies or severity not in severities:
+            raise ValueError("unrecognized category or severity")
+        occurrences = _int(row["recurrences"], "recurrences", 1, 1000)
+        _str(row["summary"], "summary", 300)
+        if type(row["reproduced"]) is not bool:
+            raise ValueError("reproduced must be boolean")
+        evidence_sha = row.get("evidence_sha")
+        if evidence_sha is not None:
+            if type(evidence_sha) is not str or len(evidence_sha) != 64 or not HEX_SHA.fullmatch(evidence_sha):
+                raise ValueError("evidence_sha must be SHA256 hex")
+        if row["reproduced"] and not evidence_sha:
+            raise ValueError("reproduced feedback needs an evidence_sha")
+        score = 5 * severities[severity] + min(occurrences, 5) + (5 if row["reproduced"] else 0)
+        suggestions.append({
+            "id": ident, "category": category, "severity": severity,
+            "priority": score, "reported_reproduced": row["reproduced"],
+            "evidence_sha": evidence_sha,
+            "regression_test_proposal": remedies[category],
+            "status": "pending_independent_review"
+        })
+    suggestions.sort(key=lambda x: (-x["priority"], x["id"]))
+    return {
+        "status": "feedback_proposals_only_not_saved",
+        "task": task, "observations_count": len(rows),
+        "proposals": suggestions[:maximum],
+        "not_shown": max(0, len(suggestions) - maximum),
+        "local_memory_write": "explicit_owner_approval_required",
+        "next_action": "Independently inspect evidence, add regression tests, and only then "
+                       "use existing approved learning.record to save a lesson on the owner PC.",
+        "limitations": "Reproduced/evidence SHA flags are user-supplied claims; no external "
+                       "verification, automatic retraining, rule change, or persistence."
+    }
+
+
 def run(op, params):
     params = _obj(params)
     functions = {"readiness":readiness, "ladder":ladder,
                  "paired_eval":paired_eval, "reel_preflight":reel_preflight,
-                 "reel_seek":reel_seek}
+                 "reel_seek":reel_seek, "reel_rhythm":reel_rhythm,
+                  "feedback_cycle":feedback_cycle}
     if op not in OPS:
         raise ValueError("unknown fusion intelligence operation")
     return functions[op](params)
