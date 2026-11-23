@@ -186,6 +186,8 @@ Style and fonts (V35):
 
 - `rose.py fonts scan FOLDER... --approve-write` indexes fonts (family, Arabic support, licence from the font's own name table, a usage note when the font's guide has one) into `~/.red-rose/fonts/library.json`. Font files stay where they are; they are never copied into Git.
 - `rose.py fonts list --arabic`, `fonts find "kufi"`, `fonts show NAME`, `fonts path NAME`.
+- On the owner's PC the index holds 1,108 unique fonts (354 families, 1,062 Arabic): 191 OFL, 189 «personal only», 141 «see text», 587 unknown. The scanner skips macOS junk (`._*`, `__MACOSX`), merges the same family+weight found in several archives or formats (TTF kept first), and reads the licence from the font and from OFL/LICENSE files beside it. A name or path saying personal, trial, demo or «شخصي» marks the font «personal only».
+- On another PC: `rose.py library fetch fonts --approve-write` downloads the private release `fonts-library-v1` (88 MB) and indexes it.
 - `rose.py fonts preview OUT.png [--filter words] --approve-write` draws a sample of every matching font so the owner can choose by eye.
 - Licence: `OFL` is free to use. `unknown` or `see text` means ask the owner before commercial use; fonts from chat channels are often «free for personal use» only (several here say so in their names).
 - The Laylat al-Qadr font (Elgharib-Omar AlQadr 2025) is a calligraphy-piece font: type digits 1–11 to get the pieces. Its author does not allow it over music.

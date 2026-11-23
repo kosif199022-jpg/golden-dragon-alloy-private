@@ -47,6 +47,36 @@ def _names(tt):
     return out
 
 
+PERSONAL_WORDS = ('personal', 'شخصي', 'trial', 'demo', 'free for personal', 'non-commercial', 'noncommercial')
+
+
+def _junk(path: Path) -> bool:
+    """macOS resource forks and archive junk that look like fonts but are not."""
+    return path.name.startswith('._') or '__MACOSX' in path.parts or path.stat().st_size < 1024
+
+
+def _folder_licence(path: Path) -> str:
+    """Licence from files shipped next to the font (OFL.txt, LICENSE, license.md), up to 3 folders up."""
+    here = path.parent
+    for _ in range(3):
+        for f in here.iterdir() if here.is_dir() else []:
+            n = f.name.lower()
+            if f.is_file() and (n.startswith('ofl') or n.startswith('licen') or 'license' in n) and f.suffix.lower() in ('.txt', '.md', ''):
+                try:
+                    t = f.read_text(encoding='utf-8', errors='ignore')[:4000].lower()
+                except OSError:
+                    continue
+                if 'open font license' in t or 'sil ofl' in t:
+                    return 'OFL'
+                if 'apache license' in t:
+                    return 'Apache'
+                return 'see text'
+        if here.parent == here:
+            break
+        here = here.parent
+    return ''
+
+
 def inspect(path: Path) -> dict | None:
     from fontTools.ttLib import TTFont
     try:
@@ -72,7 +102,11 @@ def inspect(path: Path) -> dict | None:
     elif lic:
         lic_kind = 'see text'
     else:
-        lic_kind = 'unknown'
+        lic_kind = _folder_licence(path) or 'unknown'
+    where = (str(path) + ' ' + key + ' ' + lic).lower()
+    personal = any(w in where for w in PERSONAL_WORDS)
+    if personal and lic_kind in ('unknown', 'see text'):
+        lic_kind = 'personal only'
     return {
         'name': key, 'family': family, 'subfamily': sub, 'file': str(path),
         'arabic_letters': f'{arabic}/{len(ARABIC_TEST)}', 'arabic': arabic >= len(ARABIC_TEST) - 2,
@@ -90,8 +124,11 @@ def scan(folders=None, approve_write=False) -> dict:
             files += [p for p in d.rglob('*') if p.suffix.lower() in FONT_EXT]
         elif d.is_file() and d.suffix.lower() in FONT_EXT:
             files.append(d)
-    seen, rows, errors = set(), [], []
-    for p in sorted(files):
+    junk = [p for p in files if _junk(p)]
+    files = [p for p in files if not _junk(p)]
+    seen, names, rows, errors = set(), {}, [], []
+    # TTF before OTF so the TrueType copy wins a name tie (Pillow and libass both like it)
+    for p in sorted(files, key=lambda q: (q.suffix.lower() != '.ttf', str(q))):
         info = inspect(p)
         if not info:
             continue
@@ -101,14 +138,20 @@ def scan(folders=None, approve_write=False) -> dict:
         if info['sha256'] in seen:
             continue
         seen.add(info['sha256'])
+        nk = info['name'].lower()
+        if nk in names:              # same family + weight from another archive or format
+            names[nk].setdefault('also', []).append(info['file'])
+            continue
+        names[nk] = info
         rows.append(info)
-    old = load()
-    keep = [r for r in old if Path(r['file']).is_file() and r['sha256'] not in seen]
-    rows = keep + rows
-    summary = {'fonts': len(rows), 'arabic': sum(r['arabic'] for r in rows),
+    rows.sort(key=lambda r: r['name'].lower())
+    kinds = ('OFL', 'Apache', 'see text', 'personal only', 'unknown')
+    families = sorted({r['family'] for r in rows})
+    summary = {'fonts': len(rows), 'families': len(families), 'arabic': sum(r['arabic'] for r in rows),
                'glyph_fonts': sum(r['glyph_font'] for r in rows),
-               'licence': {k: sum(1 for r in rows if r['licence'] == k) for k in ('OFL', 'Apache', 'see text', 'unknown')},
-               'unreadable': len(errors), 'duplicates_skipped': len(files) - len(rows) - len(errors) + len(keep)}
+               'licence': {k: sum(1 for r in rows if r['licence'] == k) for k in kinds},
+               'unreadable': len(errors), 'junk_skipped': len(junk),
+               'duplicates_merged': len(files) - len(rows) - len(errors)}
     if not approve_write:
         return {'ok': False, 'outcome': 'approval_required', 'would_write': [str(LIB)], **summary,
                 'hint': 'rerun with --approve-write after the owner says yes'}
