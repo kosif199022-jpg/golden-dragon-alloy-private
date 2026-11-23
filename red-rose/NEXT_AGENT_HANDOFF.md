@@ -267,3 +267,7 @@ The V27/V28 set of 8 `CODED_UNTESTED` adapters **remains unverified**. Do not ca
 ## V30 — completed supervised storyboard-to-video bridge
 
 The standalone module `storyboard_pipeline_v30.py` connects V29 `storyboard_plan` to V20 `fusion_studio_v20.plan/render_video`, dispatch via `storyboard.pipeline` mixed adapter with `compile` (read) and `render` (approved write). Tests `test_storyboard_pipeline_v30.py` enforce frame exactness, Arabic captions, no silent 3D downgrade, map route validation, no overwrite, approval spoof protection and original 5s MP4 SHA/QA. Does **not** solve cinematic semantic editing or the eight V27–V28 `CODED_UNTESTED` adapters. Run full suite on main, update provenance and test count based on CI; use the V30 guide for commands. Next agent should test those older unverified adapters rather than declaring full fusion.
+
+## V43 — أبو كاب + عقل التطبيق الفائق (partial source fusion)
+
+Two uploaded sources were inspected: `ريل أبو كاب.rar` (688 members, 22s seek-based SVG/JS narrative) and `app-super-mind.skill` (22 files, nine-step improvement ladder and twelve measured organs). Native read-only engines `reel.motion` and `mind.audit` were added and tested in `test_fusion_v43.py`. Consult `FUSION_PROVENANCE_V43.json` and `V43_ABU_CAP_SUPER_MIND_GUIDE.md`. Source music/font/media are NOT committed. V43 does not automatically render the whole original reel, execute the uploaded skill scripts, or install a model. The previous V42 held-out abstention floor problem must be handled separately without weakening its gate.
