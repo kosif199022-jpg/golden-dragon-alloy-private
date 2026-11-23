@@ -283,7 +283,9 @@ def build():
         topic_of = {op: code for code, op in topics.items()}
         counts = {'read': 0, 'write': 0}
         for op in sorted(module.OPS):
-            fn = module.OPS[op]
+            # OPS is either {name: function} or a tuple of names dispatched by module.run(op, params)
+            fn = module.OPS[op] if isinstance(module.OPS, dict) else (
+                getattr(module, op, None) or getattr(module, 'run'))
             op_id = f'{adapter}.{op}'
             code = topic_of.get(op)
             name_ar = names.get('ops', {}).get(op_id) or topic_names.get(code) or f'{adapter} {op}'

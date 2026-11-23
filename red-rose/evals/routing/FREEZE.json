@@ -1,9 +1,9 @@
 {
   "split": "test",
-  "runs": 4,
+  "runs": 5,
   "forced": false,
-  "frozen_at_utc": "2026-11-23T06:23:34+00:00",
-  "total_sha256": "ae8f55ebef3840e154d56b08266e8b555fba39ffeeb6bb429c9fdd97f634f0cd",
+  "frozen_at_utc": "2026-11-23T06:59:30+00:00",
+  "total_sha256": "d7287cd426ca32c820fed51682ed5aa2b459020bebf4cf271bdefd6b9987d8d0",
   "data_sha256": {
     "requests.jsonl": "4b82f50fdf950b92a9d0fddf265bdc24b4c01adb17a3ecbbbb09a417e31563f8",
     "labels_b.jsonl": "2d0cc02d95d0bc71fc54861627fa2f835038a27a1573a0eed0d46c9260e603c1",
@@ -12,21 +12,21 @@
   "code_sha256": {
     "evals/routing/run_eval.py": "06bea11d8a952f602e00b3d0d544af8a634a1be15508c1238d8e22afaac8b423",
     "evals/routing/label_space.txt": "fa4dee018e9cfb2e43a11798d047c7b64be90fa52aa48e10029b4b14fce15921",
-    "rose_agent.py": "a44378fb6c87c49350889ef1943d9eddb620ec70a7397fcc5d3a9284f180ab93",
+    "rose_agent.py": "342a887c0936fcd53af8b9736c9e8eb2f7f1a19f8537ecd6af485a17dc6257a6",
     "rose_io.py": "6f878502a415acadcc39731fae125b77023d3b3fe4487ed7f43088b1039ea376",
     "rose_recipes.py": "6620a8aa978aaa71042e1c4398b211711ce7fb6a47b06f0fbd6d127941528167",
-    "rose_catalog.py": "d4af4bf37f9930416a956a0b4c4a446bfca63b0050675a03982abf9c69c027f7",
+    "rose_catalog.py": "89f5e6483df4b1f57822a19ef4aa61708518469415682a1d9bed856520c6c37d",
     "rose_run.py": "05992e9d83622053960bfd6519e1dd0c3d577b4d1412d86e23c4343196e7b814",
     "rose_env.py": "7fee72013938d0d589e854cfff231a77063b1c8ca8458a6cb25deb11eb1c0faa",
     "agent/colour_styles.json": "386d1b3bcc5e75f815f4ebc986ada19e755096cb88dc0cd35f00b7a1c4c804e6",
     "agent/dictation.json": "23dce9cb23df2227785404dcc5018605e212bbc4aa24c5e0b0841919c89c249d",
     "agent/dua_catalog.json": "c0c1c9a04072c8186dd215fb473cf34024c4e18ca64e72839344e7478771854d",
-    "agent/intents.json": "8aebdd6c7c9625053a23482f2cdd43a433affea57d30a78d993de81f8be288ba",
+    "agent/intents.json": "a5d59e8a719471b8267abf7605eef0227ae142259d81951f34413a9852d59fc2",
     "agent/kinds.json": "f26433553cc84db286f8eb9a81650aa12574ed68e61de3b5a942424f8a55c1e8",
     "agent/layout_map.json": "6d935c4f04278abfecfd1dda943753d1829b67dc549c32e52334b9b4ca8f7308",
     "agent/lessons.json": "afc01f028e1c96b33a5739503386a2858725850742ffd7d1cadabd43c1cea857",
     "agent/optout_phrases.json": "3d5e80638952048c2ba907b895b15c22ebe37a27d25e471a80cf080149f0aa2c",
-    "agent/owner_rules.json": "282706d448a164f8e6e1c470deaaba779f73742958b09555875fc1389b110c4f",
+    "agent/owner_rules.json": "5fc5873c3ec51ac29b42bc53514b86f2221cd3f67008eff04f0d2c99fb0cdb23",
     "agent/route_examples.json": "2946ed377aa36c1237fa6f4f12141ae4f17bbe89fdf5428c89c3d1d015691462",
     "agent/synonyms.json": "f87cc9be563b1634c6bd7e192132be3694667e995459dd4414ae67b94f1a0227",
     "agent/understand_tests.json": "2764d0d3a9baa8a2fc08c419234cba465a88ee2686791c0755356c1c18dbcc69",
@@ -40,6 +40,6 @@
     "recipes/shot-report-recut.json": "e4c0626f6f380574b4ee4d39bd762459594514732fa0f5e8c1dc5f0ca506ed2a",
     "recipes/title-clip-mp4.json": "1140977b6f0f9f6508b6adb2e2a6e377b9faa15ca4fbd447d7653176ca4933d2",
     "recipes/title-frame-ar.json": "a4b36548c072a40a3c20a1e305c8972dd7e307ac545139a950f18ee99549602a",
-    "references/OPS_CATALOG.json": "892a2080301bdcc9eb04492f0ee2b689fbc6a00010ca06ee2b06de86193428f5"
+    "references/OPS_CATALOG.json": "379e3a54533542d70033fa008ea8259deba4d3c3e2654e21cd72bdd5928d2696"
   }
 }

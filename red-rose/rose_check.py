@@ -83,13 +83,13 @@ def _tokens(text):
     return re.sub(r'[^\w\s]', ' ', _norm(text)).split()
 
 
-def _skel(token):
+def _skel(word):
     """Arabic consonant skeleton: drop long-vowel letters and the article."""
-    if re.search(r'[؀-ۿ]', token):
-        if token.startswith('ال') and len(token) > 4:
-            token = token[2:]
-        return re.sub('[اوي ء]', '', token)
-    return token
+    if re.search(r'[؀-ۿ]', word):
+        if word.startswith('ال') and len(word) > 4:
+            word = word[2:]
+        return re.sub('[اوي ء]', '', word)
+    return word
 
 
 def _first_line_span(text):

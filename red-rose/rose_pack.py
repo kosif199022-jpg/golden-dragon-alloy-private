@@ -393,7 +393,7 @@ def backup_dir(target):
     a backup there still has SKILL.md and Claude loads it as a second skill."""
     target = Path(target)
     if target.parent.name.lower() == 'skills':
-        return Path.home() / '.red-rose' / 'skill-backups'
+        return Path.home() / '.claude' / 'red-rose-backups'
     return target.parent
 
 
