@@ -1,0 +1,3159 @@
+{
+ "source": "https://docs.scrapecreators.com/openapi.json",
+ "fetched": "2026-11-23",
+ "base_url": "https://api.scrapecreators.com",
+ "auth_header": "x-api-key",
+ "cost_notes": {
+  "default": 1,
+  "/v1/find-social-profiles": 10,
+  "/v1/google/company/ads": 25,
+  "/v1/tiktok/user/audience": 26,
+  "transcripts": "1 credit up to 120 s; allow_long_transcription=true -> 10 credits per started minute (blocked unless --allow-long)",
+  "/v1/account/credit-balance": 0,
+  "measured": "2026-11-23: credit-balance charged 0 (609 -> 609); /v1/instagram/profile charged 1 (-> 608)"
+ },
+ "endpoints": {
+  "/v1/account/credit-balance": {
+   "summary": "Get credit balance",
+   "params": []
+  },
+  "/v1/account/get-api-usage": {
+   "summary": "Get request history",
+   "params": [
+    {
+     "name": "endpoint",
+     "required": false
+    },
+    {
+     "name": "statusCode",
+     "required": false
+    },
+    {
+     "name": "page",
+     "required": false
+    }
+   ]
+  },
+  "/v1/account/get-daily-usage-count": {
+   "summary": "Get daily usage",
+   "params": []
+  },
+  "/v1/account/get-most-used-routes": {
+   "summary": "Get most used routes",
+   "params": [
+    {
+     "name": "start_time",
+     "required": false
+    },
+    {
+     "name": "end_time",
+     "required": false
+    }
+   ]
+  },
+  "/v1/amazon/shop": {
+   "summary": "Amazon Shop page",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "pageToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/apple-music/album": {
+   "summary": "Album",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/apple-music/artist": {
+   "summary": "Artist",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/apple-music/search": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "type",
+     "required": false
+    }
+   ]
+  },
+  "/v1/apple-music/track": {
+   "summary": "Track",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/bluesky/post": {
+   "summary": "Post",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/bluesky/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/bluesky/user/posts": {
+   "summary": "Posts",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "user_id",
+     "required": false
+    }
+   ]
+  },
+  "/v1/cosmos/cluster": {
+   "summary": "Collection",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/cosmos/cluster/posts": {
+   "summary": "Collection Posts",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/cosmos/post": {
+   "summary": "Post",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/cosmos/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/cosmos/search": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/cosmos/user/clusters": {
+   "summary": "User Collections",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/cosmos/user/posts": {
+   "summary": "User Posts",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/detect-age-gender": {
+   "summary": "Get Age and Gender",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/facebook/adLibrary/ad": {
+   "summary": "Ad Details",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "get_transcript",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/adLibrary/ad/transcript": {
+   "summary": "Ad Transcript",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/adLibrary/company/ads": {
+   "summary": "Company Ads",
+   "params": [
+    {
+     "name": "pageId",
+     "required": false
+    },
+    {
+     "name": "companyName",
+     "required": false
+    },
+    {
+     "name": "country",
+     "required": false
+    },
+    {
+     "name": "status",
+     "required": false
+    },
+    {
+     "name": "media_type",
+     "required": false
+    },
+    {
+     "name": "language",
+     "required": false
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    },
+    {
+     "name": "start_date",
+     "required": false
+    },
+    {
+     "name": "end_date",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/adLibrary/search/ads": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    },
+    {
+     "name": "search_type",
+     "required": false
+    },
+    {
+     "name": "ad_type",
+     "required": false
+    },
+    {
+     "name": "country",
+     "required": false
+    },
+    {
+     "name": "language",
+     "required": false
+    },
+    {
+     "name": "status",
+     "required": false
+    },
+    {
+     "name": "media_type",
+     "required": false
+    },
+    {
+     "name": "start_date",
+     "required": false
+    },
+    {
+     "name": "end_date",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/adLibrary/search/companies": {
+   "summary": "Search for Companies",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    }
+   ]
+  },
+  "/v1/facebook/event/details": {
+   "summary": "Event Details",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/events": {
+   "summary": "Events",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "time",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/events/search": {
+   "summary": "Search Events",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/group": {
+   "summary": "Facebook Group Info",
+   "params": [
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "group_id",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/group/posts": {
+   "summary": "Facebook Group Posts",
+   "params": [
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "group_id",
+     "required": false
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/marketplace/item": {
+   "summary": "Marketplace Item",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/marketplace/location/search": {
+   "summary": "Marketplace Location Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    }
+   ]
+  },
+  "/v1/facebook/marketplace/search": {
+   "summary": "Marketplace Search",
+   "params": [
+    {
+     "name": "query",
+     "required": false
+    },
+    {
+     "name": "lat",
+     "required": true
+    },
+    {
+     "name": "lng",
+     "required": true
+    },
+    {
+     "name": "category_id",
+     "required": false
+    },
+    {
+     "name": "radius_km",
+     "required": false
+    },
+    {
+     "name": "min_price",
+     "required": false
+    },
+    {
+     "name": "max_price",
+     "required": false
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    },
+    {
+     "name": "delivery_method",
+     "required": false
+    },
+    {
+     "name": "condition",
+     "required": false
+    },
+    {
+     "name": "date_listed",
+     "required": false
+    },
+    {
+     "name": "availability",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/post": {
+   "summary": "Post",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "get_transcript",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/post/comment/replies": {
+   "summary": "Comment Replies",
+   "params": [
+    {
+     "name": "feedback_id",
+     "required": true
+    },
+    {
+     "name": "expansion_token",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/post/comments": {
+   "summary": "Comments",
+   "params": [
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "feedback_id",
+     "required": false
+    },
+    {
+     "name": "sort",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/post/transcript": {
+   "summary": "Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "get_business_hours",
+     "required": false
+    },
+    {
+     "name": "include_gated_profile",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/profile/events": {
+   "summary": "Profile Events",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/profile/photos": {
+   "summary": "Profile Photos",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "next_page_id",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/profile/posts": {
+   "summary": "Profile Posts",
+   "params": [
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "pageId",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/profile/reels": {
+   "summary": "Profile Reels",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "next_page_id",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/facebook/search/videos": {
+   "summary": "Search Videos",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/find-creator-emails": {
+   "summary": "Find Creator Emails",
+   "params": [
+    {
+     "name": "platform",
+     "required": true
+    },
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/find-social-profiles": {
+   "summary": "Find Social Profiles",
+   "params": [
+    {
+     "name": "platform",
+     "required": true
+    },
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/repository": {
+   "summary": "Repository",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/github/trending/developers": {
+   "summary": "Trending Developers",
+   "params": [
+    {
+     "name": "language",
+     "required": false
+    },
+    {
+     "name": "since",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/trending/repositories": {
+   "summary": "Trending Repositories",
+   "params": [
+    {
+     "name": "language",
+     "required": false
+    },
+    {
+     "name": "since",
+     "required": false
+    },
+    {
+     "name": "spoken_language_code",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/user": {
+   "summary": "User",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/user/activity": {
+   "summary": "Activity",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "year",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/user/contributions": {
+   "summary": "Contributions",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "year",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/user/followers": {
+   "summary": "Followers",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/user/following": {
+   "summary": "Following",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/user/pull-requests": {
+   "summary": "Pull Requests",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "since",
+     "required": false
+    },
+    {
+     "name": "until",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/github/user/repositories": {
+   "summary": "Repositories",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "type",
+     "required": false
+    },
+    {
+     "name": "sort",
+     "required": false
+    },
+    {
+     "name": "direction",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/google/ad": {
+   "summary": "Ad Details",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/google/adLibrary/advertisers/search": {
+   "summary": "Advertiser Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    }
+   ]
+  },
+  "/v1/google/company/ads": {
+   "summary": "Company Ads",
+   "params": [
+    {
+     "name": "domain",
+     "required": false
+    },
+    {
+     "name": "advertiser_id",
+     "required": false
+    },
+    {
+     "name": "topic",
+     "required": false
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "start_date",
+     "required": false
+    },
+    {
+     "name": "end_date",
+     "required": false
+    },
+    {
+     "name": "platform",
+     "required": false
+    },
+    {
+     "name": "format",
+     "required": false
+    },
+    {
+     "name": "get_ad_details",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/google/search": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "date_posted",
+     "required": false
+    },
+    {
+     "name": "page",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/audio/reels": {
+   "summary": "Get Reels By Audio Id",
+   "params": [
+    {
+     "name": "audio_id",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/basic-profile": {
+   "summary": "Basic Profile",
+   "params": [
+    {
+     "name": "userId",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/post": {
+   "summary": "Post/Reel Info",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "download_media",
+     "required": false
+    },
+    {
+     "name": "include_play_count",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/post/comment/replies": {
+   "summary": "Comment Replies",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "comment_id",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/profile/post-count": {
+   "summary": "Profile Post Count",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "allow_estimated",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/reels/trending": {
+   "summary": "Trending Reels",
+   "params": []
+  },
+  "/v1/instagram/search": {
+   "summary": "Search Instagram",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    }
+   ]
+  },
+  "/v1/instagram/search/hashtag": {
+   "summary": "Search Hashtag Posts",
+   "params": [
+    {
+     "name": "hashtag",
+     "required": true
+    },
+    {
+     "name": "date_posted",
+     "required": false
+    },
+    {
+     "name": "media_type",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/search/popular": {
+   "summary": "Popular Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/search/profiles": {
+   "summary": "Search Instagram Profiles",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    }
+   ]
+  },
+  "/v1/instagram/user/embed": {
+   "summary": "Embed HTML",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/instagram/user/highlight/detail": {
+   "summary": "Highlights Details",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/user/highlights": {
+   "summary": "Story Highlights",
+   "params": [
+    {
+     "name": "user_id",
+     "required": false
+    },
+    {
+     "name": "handle",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/user/reels": {
+   "summary": "Reels",
+   "params": [
+    {
+     "name": "user_id",
+     "required": false
+    },
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "require_play_counts",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "max_id",
+     "required": false
+    }
+   ]
+  },
+  "/v1/instagram/user/tagged-posts": {
+   "summary": "User Tagged Posts",
+   "params": [
+    {
+     "name": "user_id",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/kick/clip": {
+   "summary": "Clip",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/kick/clip/transcript": {
+   "summary": "Clip Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "use_ai_as_fallback",
+     "required": false
+    }
+   ]
+  },
+  "/v1/komi": {
+   "summary": "Komi page",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/kwai/post": {
+   "summary": "Post",
+   "params": [
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/kwai/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/kwai/user/posts": {
+   "summary": "User Posts",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "count",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/linkbio": {
+   "summary": "Linkbio page",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/linkedin/ad": {
+   "summary": "Ad Details",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/linkedin/ads/search": {
+   "summary": "Search Ads",
+   "params": [
+    {
+     "name": "company",
+     "required": false
+    },
+    {
+     "name": "keyword",
+     "required": false
+    },
+    {
+     "name": "companyId",
+     "required": false
+    },
+    {
+     "name": "countries",
+     "required": false
+    },
+    {
+     "name": "startDate",
+     "required": false
+    },
+    {
+     "name": "endDate",
+     "required": false
+    },
+    {
+     "name": "paginationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/linkedin/company": {
+   "summary": "Company Page",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/linkedin/company/posts": {
+   "summary": "Company Posts",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "page",
+     "required": false
+    }
+   ]
+  },
+  "/v1/linkedin/job": {
+   "summary": "Job Details",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/linkedin/post": {
+   "summary": "Post",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/linkedin/post/transcript": {
+   "summary": "Post Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/linkedin/profile": {
+   "summary": "Person's Profile",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/linkedin/search/jobs": {
+   "summary": "Search Jobs",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "location",
+     "required": false
+    },
+    {
+     "name": "date_posted",
+     "required": false
+    },
+    {
+     "name": "company_id",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/linkedin/search/posts": {
+   "summary": "Search Posts",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "date_posted",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/linkme": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/linktree": {
+   "summary": "Linktree page",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/pillar": {
+   "summary": "Pillar page",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/pinterest/board": {
+   "summary": "Board",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/pinterest/pin": {
+   "summary": "Pin",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/pinterest/search": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/pinterest/topic": {
+   "summary": "Topic",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/pinterest/user/boards": {
+   "summary": "User Boards",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    }
+   ]
+  },
+  "/v1/reddit/post": {
+   "summary": "Post",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/reddit/post/comments": {
+   "summary": "Post Comments",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "sort",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/reddit/post/transcript": {
+   "summary": "Post Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "language",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/reddit/search": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "filter",
+     "required": false
+    },
+    {
+     "name": "sort",
+     "required": false
+    },
+    {
+     "name": "timeframe",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "after",
+     "required": false
+    }
+   ]
+  },
+  "/v1/reddit/subreddit": {
+   "summary": "Subreddit Posts",
+   "params": [
+    {
+     "name": "subreddit",
+     "required": true
+    },
+    {
+     "name": "timeframe",
+     "required": false
+    },
+    {
+     "name": "sort",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    },
+    {
+     "name": "after",
+     "required": false
+    }
+   ]
+  },
+  "/v1/reddit/subreddit/details": {
+   "summary": "Subreddit Details",
+   "params": [
+    {
+     "name": "subreddit",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/reddit/subreddit/search": {
+   "summary": "Subreddit Search",
+   "params": [
+    {
+     "name": "subreddit",
+     "required": true
+    },
+    {
+     "name": "query",
+     "required": false
+    },
+    {
+     "name": "sort",
+     "required": false
+    },
+    {
+     "name": "timeframe",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/rumble/channel/videos": {
+   "summary": "Channel Videos",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/rumble/search": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/rumble/video": {
+   "summary": "Video",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/rumble/video/comments": {
+   "summary": "Comments",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/rumble/video/transcript": {
+   "summary": "Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/snapchat/profile": {
+   "summary": "User Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/snapchat/spotlight": {
+   "summary": "Spotlight by Link",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/snapchat/spotlight/comments": {
+   "summary": "Spotlight Comments by Link",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/soundcloud/artist": {
+   "summary": "Artist",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/soundcloud/artist/tracks": {
+   "summary": "Artist Tracks",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/soundcloud/track": {
+   "summary": "Track",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/spotify/album": {
+   "summary": "Album",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/spotify/artist": {
+   "summary": "Artist",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/spotify/playlist": {
+   "summary": "Playlist",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/spotify/podcast": {
+   "summary": "Podcast",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/spotify/podcast/episodes": {
+   "summary": "Podcast Episodes",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/spotify/search": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    }
+   ]
+  },
+  "/v1/spotify/track": {
+   "summary": "Track",
+   "params": [
+    {
+     "name": "id",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    }
+   ]
+  },
+  "/v1/telegram/channel": {
+   "summary": "Channel Details",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/telegram/channel/posts": {
+   "summary": "Channel Posts",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/telegram/post": {
+   "summary": "Post Details",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/threads/post": {
+   "summary": "Post",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/threads/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/threads/search": {
+   "summary": "Search by Keyword",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    }
+   ]
+  },
+  "/v1/threads/search/users": {
+   "summary": "Search Users",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    }
+   ]
+  },
+  "/v1/threads/user/posts": {
+   "summary": "Posts",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/ad-library/ad": {
+   "summary": "Ad Library Ad",
+   "params": [
+    {
+     "name": "ad_id",
+     "required": true
+    }
+   ]
+  },
+  "/v1/tiktok/ad-library/search": {
+   "summary": "Ad Library Search",
+   "params": [
+    {
+     "name": "query",
+     "required": false
+    },
+    {
+     "name": "advertiser_name",
+     "required": false
+    },
+    {
+     "name": "adv_biz_ids",
+     "required": false
+    },
+    {
+     "name": "start_time",
+     "required": false
+    },
+    {
+     "name": "end_time",
+     "required": false
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/collection/videos": {
+   "summary": "Collection Videos",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/get-trending-feed": {
+   "summary": "Trending Feed",
+   "params": [
+    {
+     "name": "region",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/live": {
+   "summary": "Live Info",
+   "params": [
+    {
+     "name": "room_id",
+     "required": true
+    },
+    {
+     "name": "user_id",
+     "required": true
+    }
+   ]
+  },
+  "/v1/tiktok/product": {
+   "summary": "Product Details",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "user_id",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/profile/region": {
+   "summary": "Profile Region",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/tiktok/search/hashtag": {
+   "summary": "Search by Hashtag",
+   "params": [
+    {
+     "name": "hashtag",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/search/keyword": {
+   "summary": "Search by Keyword",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "date_posted",
+     "required": false
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/search/suggestions": {
+   "summary": "Search Suggestions",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/search/top": {
+   "summary": "Top Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "publish_time",
+     "required": false
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/search/users": {
+   "summary": "Search Users",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/shop/product/reviews": {
+   "summary": "Product Reviews",
+   "params": [
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "product_id",
+     "required": false
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "page",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/shop/products": {
+   "summary": "Shop Products",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/shop/search": {
+   "summary": "Shop Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "page",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/song": {
+   "summary": "Get Song Details",
+   "params": [
+    {
+     "name": "clipId",
+     "required": true
+    }
+   ]
+  },
+  "/v1/tiktok/song/videos": {
+   "summary": "TikToks using Song",
+   "params": [
+    {
+     "name": "clipId",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/user/audience": {
+   "summary": "User's Audience Demographics",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/tiktok/user/followers": {
+   "summary": "Followers",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "user_id",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "min_time",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/user/following": {
+   "summary": "Following",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "min_time",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/user/live": {
+   "summary": "Live",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/tiktok/user/showcase": {
+   "summary": "User Showcase",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/video/comment/replies": {
+   "summary": "Comment Replies",
+   "params": [
+    {
+     "name": "comment_id",
+     "required": true
+    },
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/video/comments": {
+   "summary": "Comments",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/tiktok/video/transcript": {
+   "summary": "Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "language",
+     "required": false
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "use_ai_as_fallback",
+     "required": false
+    }
+   ]
+  },
+  "/v1/truthsocial/post": {
+   "summary": "Post",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "download_media",
+     "required": false
+    }
+   ]
+  },
+  "/v1/truthsocial/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/truthsocial/user/posts": {
+   "summary": "User Posts",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "user_id",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "next_max_id",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitch/clip": {
+   "summary": "Clip",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitch/clip/transcript": {
+   "summary": "Clip Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "use_ai_as_fallback",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitch/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitch/user/schedule": {
+   "summary": "User Schedule",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    }
+   ]
+  },
+  "/v1/twitch/user/videos": {
+   "summary": "User Videos",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "filter_by",
+     "required": false
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitter/community": {
+   "summary": "Community",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/twitter/community/tweets": {
+   "summary": "Community Tweets",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/twitter/profile": {
+   "summary": "Profile",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitter/search/posts": {
+   "summary": "Search Posts",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitter/tweet": {
+   "summary": "Tweet Details",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitter/tweet/transcript": {
+   "summary": "Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/twitter/user-tweets": {
+   "summary": "User Tweets",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "trim",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/channel": {
+   "summary": "Channel Details",
+   "params": [
+    {
+     "name": "channelId",
+     "required": false
+    },
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "url",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/channel-videos": {
+   "summary": "Channel Videos",
+   "params": [
+    {
+     "name": "channelId",
+     "required": false
+    },
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "sort",
+     "required": false
+    },
+    {
+     "name": "includeExtras",
+     "required": false
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/channel/community-posts": {
+   "summary": "Channel Community Posts",
+   "params": [
+    {
+     "name": "channelId",
+     "required": false
+    },
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/channel/lives": {
+   "summary": "Channel Lives",
+   "params": [
+    {
+     "name": "channelId",
+     "required": false
+    },
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/channel/playlists": {
+   "summary": "Channel Playlists",
+   "params": [
+    {
+     "name": "channelId",
+     "required": false
+    },
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/channel/search": {
+   "summary": "Channel Search",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/channel/shorts": {
+   "summary": "Channel Shorts",
+   "params": [
+    {
+     "name": "handle",
+     "required": false
+    },
+    {
+     "name": "channelId",
+     "required": false
+    },
+    {
+     "name": "sort",
+     "required": false
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/community-post": {
+   "summary": "Community Post Details",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    }
+   ]
+  },
+  "/v1/youtube/playlist": {
+   "summary": "Playlist",
+   "params": [
+    {
+     "name": "playlist_id",
+     "required": true
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/search": {
+   "summary": "Search",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "uploadDate",
+     "required": false
+    },
+    {
+     "name": "sortBy",
+     "required": false
+    },
+    {
+     "name": "type",
+     "required": false
+    },
+    {
+     "name": "duration",
+     "required": false
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "includeExtras",
+     "required": false
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/search/hashtag": {
+   "summary": "Search by Hashtag",
+   "params": [
+    {
+     "name": "hashtag",
+     "required": true
+    },
+    {
+     "name": "type",
+     "required": false
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/search/typeahead": {
+   "summary": "Search Typeahead",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    }
+   ]
+  },
+  "/v1/youtube/shorts/trending": {
+   "summary": "Trending Shorts",
+   "params": []
+  },
+  "/v1/youtube/video": {
+   "summary": "Video/Short Details",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "language",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/video/comment/replies": {
+   "summary": "Comment Replies",
+   "params": [
+    {
+     "name": "continuationToken",
+     "required": true
+    }
+   ]
+  },
+  "/v1/youtube/video/comments": {
+   "summary": "Comments",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "order",
+     "required": false
+    },
+    {
+     "name": "continuationToken",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/video/sponsors": {
+   "summary": "Video Sponsors",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "language",
+     "required": false
+    }
+   ]
+  },
+  "/v1/youtube/video/transcript": {
+   "summary": "Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "language",
+     "required": false
+    },
+    {
+     "name": "original_audio",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v2/instagram/media/transcript": {
+   "summary": "Transcript",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "allow_long_transcription",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v2/instagram/post/comments": {
+   "summary": "Comments",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "include_replies",
+     "required": false
+    },
+    {
+     "name": "cursor",
+     "required": false
+    }
+   ]
+  },
+  "/v2/instagram/reels/search": {
+   "summary": "Search Reels",
+   "params": [
+    {
+     "name": "query",
+     "required": true
+    },
+    {
+     "name": "date_posted",
+     "required": false
+    },
+    {
+     "name": "page",
+     "required": false
+    }
+   ]
+  },
+  "/v2/instagram/user/posts": {
+   "summary": "Posts",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "require_play_counts",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "next_max_id",
+     "required": false
+    }
+   ]
+  },
+  "/v2/tiktok/video": {
+   "summary": "Video Info",
+   "params": [
+    {
+     "name": "url",
+     "required": true
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "get_transcript",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "download_media",
+     "required": false
+    },
+    {
+     "name": "cache_max_age",
+     "required": false
+    }
+   ]
+  },
+  "/v3/tiktok/profile/videos": {
+   "summary": "Profile Videos",
+   "params": [
+    {
+     "name": "handle",
+     "required": true
+    },
+    {
+     "name": "user_id",
+     "required": false
+    },
+    {
+     "name": "sort_by",
+     "required": false
+    },
+    {
+     "name": "region",
+     "required": false
+    },
+    {
+     "name": "include_pinned",
+     "required": false
+    },
+    {
+     "name": "trim",
+     "required": false
+    },
+    {
+     "name": "max_cursor",
+     "required": false
+    }
+   ]
+  }
+ }
+}
