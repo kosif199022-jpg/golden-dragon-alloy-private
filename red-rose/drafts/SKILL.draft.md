@@ -1,6 +1,6 @@
 ---
 name: red-rose
-description: "Makes and checks Arabic-first video and bank-statement work for the owner on Windows: Arabic animated titles, reels and captions from exact words, shot reports with approved recuts, loudness fixes, iPhone exports, and bank reconciliation. Use whenever the owner asks in Arabic or English for الوردة، الوردة الحمراء، مونتاج، ريل، ريلز، قص فيديو، كابشن، عنوان متحرك، موشن، تحليل لقطات، ضبط الصوت، تسوية بنك، مطابقة كشف حساب، Red Rose, reel, captions, kinetic title, shot report, loudness, or bank reconciliation, and also when the request is Arabic typed on an English keyboard layout. Use it even when the owner does not name the skill."
+description: "Makes and checks Arabic-first video and bank-statement work for the owner on Windows: Arabic animated titles, reels and captions from exact words, shot reports with approved recuts, loudness fixes, iPhone exports, and bank reconciliation. Use whenever the owner asks in Arabic or English for الوردة، الوردة الحمراء، مونتاج، ريل، ريلز، قص فيديو، كابشن، عنوان متحرك، موشن، تحليل لقطات، ضبط الصوت، دعاء، ريل دعاء، ذكر/أذكار، تصميم ديني، دعاء يوم الجمعة، دعاء الصباح، تسوية بنك، مطابقة كشف حساب، Red Rose, reel, dua/duaa reel, azkar/islamic/Quran aesthetic video, captions, kinetic title, shot report, loudness, or bank reconciliation, and also when the request is Arabic typed on an English keyboard layout. For a dua reel it has both the dua-reel maker and a 112-theme dua text catalogue (rose.py duas). Use it even when the owner does not name the skill."
 compatibility: "Windows 11 with Python 3.12 and ffmpeg on PATH is the main target. Read-only commands run anywhere Python 3.12 runs. Private memory exists only on the owner PC."
 metadata:
   version: "V29"
@@ -150,3 +150,9 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/INTERFACE.md`: exit codes, call form and the envelope.
 - `references/RECIPES.md` and `references/OPS.md`: the generated catalogue.
 - `references/DEVELOPING.md`: only when you change the code.
+
+## V29 — evidence-based direction
+Use the original native `intelligence.director` via `capability-run` for bounded alternative scoring, frame-exact storyboarding and RTL layout checks. Its outputs are proposals only. Source hashes and limitations: `SOURCE_INTELLIGENCE_AUDIT_V29.json` and `V29_INTELLIGENCE_GUIDE.md`. No foreign engine is invoked. New engine's 18 tests and full suite must pass on the current PR before merge.
+
+## V30 — supervised original MP4 production
+Use `storyboard.pipeline` `compile` to review a V29 story, then `render` with explicit `--approve-write` only for 2D illustrated clay or schematic map output. The render is silent H264/MP4 with verified frame count and hash receipt. Unsupported visual fidelity (3D, true SaaS screenshot video, full Remotion) is refused unless a disclosed 2D clay fallback is explicitly allowed for supported names. See `V30_STORYBOARD_RENDER_GUIDE.md`; no legacy runtime imports.
