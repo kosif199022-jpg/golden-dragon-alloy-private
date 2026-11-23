@@ -50,6 +50,13 @@ class V43IntegrationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"unknown parameters"):
             execute(self.db,"intelligence.fusion",{"op":"readiness","shell":"bash"})
 
+    def test_catalogue_recognizes_new_native_ops_without_stale_cache(self):
+        from rose_catalog import load
+        catalogue=load()
+        self.assertIn("intelligence.fusion", catalogue["adapters"])
+        for op in OPS:
+            self.assertIn("intelligence.fusion."+op, catalogue["entries"])
+
     def test_archive_provenance_records_only_metadata(self):
         m=json.loads((ROOT/"SOURCE_FUSION_AUDIT_V43.json").read_text("utf-8"))
         self.assertEqual(len(m["source_items"]),2)
