@@ -1,6 +1,6 @@
 {
-  "top1": 0.162,
-  "top3": 0.387,
+  "top1": 0.362,
+  "top3": 0.562,
   "abstention_recall": 0.833,
   "history": [
     {
@@ -19,6 +19,23 @@
       "abstention_recall": 0.6667,
       "freeze_total_sha256": "fd7e64f42c76f6b0a4ae3d468ce97ab0df493ebe5c5089b3e8ba0394ec5921da",
       "note": "after decode-first routing, decoder rule change, fallback off; abstention recall below floor"
+    },
+    {
+      "run": 3,
+      "split": "test",
+      "top1": 0.35,
+      "top3": 0.5375,
+      "abstention_recall": 0.3333,
+      "note": "V41 intent cards, first record; abstention recall fell; tie order was hash-seed dependent (fixed in run 4)"
+    },
+    {
+      "run": 4,
+      "split": "test",
+      "top1": 0.3625,
+      "top3": 0.5625,
+      "abstention_recall": 0.5,
+      "freeze_total_sha256": "ae8f55ebef3840e154d56b08266e8b555fba39ffeeb6bb429c9fdd97f634f0cd",
+      "note": "V41 + out-of-scope gate + deterministic ties (forced re-record, counted). Abstention recall 3/6 still below floor 0.833; independent probe set (60 new requests): 28/30 out-of-scope refused, 1/30 in-scope refused"
     }
   ],
   "decoder": {

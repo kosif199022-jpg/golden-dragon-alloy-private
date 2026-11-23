@@ -519,13 +519,136 @@ def _confidence():
     return 'unmeasured'
 
 
+# ----------------------------------------------------------------------------- V41 intent cards
+
+INTENT_WEIGHT = 2.0      # how much one unit of intent evidence counts against lexical/example score
+INTENT_MIN = 1.2         # combined score a winning adapter needs; below it the router abstains
+GATE_RATIO = 2.0         # in-scope intent evidence must be this many times the outward evidence...
+GATE_MIN_IN = 3.0        # ...and at least this much, or an outward request is refused
+
+
+def _intents():
+    """Intent cards from agent/intents.json: adapter -> default op + cue term tuples, with idf over adapters."""
+    if 'intents' in _CACHE:
+        return _CACHE['intents']
+    raw = _json('intents.json')['intents']
+    stop = _stopwords()
+    cards, df = {}, Counter()
+    for label, card in raw.items():
+        cues = []
+        for cue in card.get('cues', []):
+            terms = tuple(dict.fromkeys(t for t in _terms(cue) if t not in stop))
+            if terms:
+                cues.append(terms)
+        cards[label] = {'op': card.get('op'), 'cues': cues}
+        df.update({t for c in cues for t in c})
+    n = max(1, len(cards))
+    idf = {t: math.log(1 + n / c) for t, c in df.items()}
+    _CACHE['intents'] = {'cards': cards, 'idf': idf}
+    return _CACHE['intents']
+
+
+def _intent_scores(text):
+    data = _intents()
+    q = set(t for t in _terms(text) if t not in _stopwords())
+    out = {}
+    for label, card in data['cards'].items():
+        score, hits = 0.0, []
+        for cue in card['cues']:
+            if all(t in q for t in cue):
+                w = sum(data['idf'].get(t, 1.0) for t in cue) / len(cue)
+                score += w * (1.5 * len(cue) if len(cue) > 1 else 1.0)
+                hits.append(' '.join(cue))
+        if score > 0:
+            out[label] = (score, hits)
+    return out
+
+
+def _label_for(kind, ident):
+    """Adapter label of a recipe or op id (recipe -> its first step op -> longest intent prefix)."""
+    key = ('label', kind, ident)
+    if key in _CACHE:
+        return _CACHE[key]
+    op = ident
+    if kind == 'recipe':
+        try:
+            import rose_recipes
+            steps = rose_recipes.get(ident).get('steps', [])
+            op = steps[0].get('op', ident) if steps else ident
+        except Exception:
+            op = ident
+    cards = _intents()['cards']
+    cand = op
+    while cand and cand not in cards:
+        cand = cand.rsplit('.', 1)[0] if '.' in cand else ''
+    _CACHE[key] = cand or None
+    return _CACHE[key]
+
+
+def _route_v41(text):
+    """Combine intent-card evidence with the lexical/example router, per adapter."""
+    scored, strong, votes = _route_scores(text)
+    intents = _intent_scores(text)
+    by_label = {}
+    for c in scored:
+        lab = _label_for(c['type'], c['id'])
+        if not lab:
+            continue
+        best = by_label.get(lab)
+        if best is None or c['score'] > best['score']:
+            by_label[lab] = c
+    totals = {}
+    for lab in set(by_label) | set(intents):
+        lex = by_label[lab]['score'] if lab in by_label else 0.0
+        ev = intents.get(lab, (0.0, []))[0]
+        totals[lab] = lex + INTENT_WEIGHT * ev
+    if strong.get('none', 0.0) >= 0.5:
+        totals['none'] = totals.get('none', 0.0) + 10.0
+    # out-of-scope gate: an outward action (money, booking, reminder, calling someone, news...) makes
+    # the router abstain unless the in-scope evidence is clearly stronger than the outward one
+    none_ev = intents.get('none', (0.0, []))[0]
+    in_ev = max([v[0] for k, v in intents.items() if k != 'none'] or [0.0])
+    outward = none_ev > 0 and not (in_ev >= GATE_RATIO * none_ev and in_ev >= GATE_MIN_IN)
+    ranked = sorted(totals.items(), key=lambda kv: (-round(kv[1], 9), kv[0]))
+
+    def concrete(lab):
+        if lab in by_label:
+            c = by_label[lab]
+            return {'id': c['id'], 'type': c['type'], 'hits': c['hits']}
+        op = _intents()['cards'][lab]['op']
+        return {'id': op, 'type': 'op', 'hits': []} if op else None
+
+    candidates = []
+    for lab, sc in ranked:
+        if lab == 'none':
+            continue
+        cc = concrete(lab)
+        if cc:
+            candidates.append({'id': cc['id'], 'type': cc['type'], 'score': round(sc, 3),
+                               'here': _here(cc['type'], cc['id'])[0]})
+        if len(candidates) == 3:
+            break
+    if outward or not ranked or ranked[0][0] == 'none' or ranked[0][1] < INTENT_MIN:
+        return {'type': 'none', 'id': None, 'matched': [], 'alternative': None,
+                'candidates': candidates, 'confidence': _confidence()}
+    lab, top = ranked[0]
+    cc = concrete(lab)
+    alt = None
+    if len(ranked) > 1 and ranked[1][0] != 'none' and ranked[1][1] >= 0.85 * top:
+        a = concrete(ranked[1][0])
+        alt = {'id': a['id'], 'type': a['type']} if a else None
+    return {'type': cc['type'], 'id': cc['id'],
+            'matched': sorted(set(cc['hits']) | set(intents.get(lab, (0, []))[1])),
+            'alternative': alt, 'candidates': candidates, 'confidence': _confidence()}
+
+
 def route(text, prev=None):
     """Route a request to a recipe or catalogue op, or abstain (type 'none')."""
     # Decode a message typed on the wrong layout first: the index is Arabic (dialect, MSA and English terms).
     text = understand(text or '')['text']
-    result = _route(text)
+    result = _route_v41(text)
     if result['type'] == 'none' and prev:
-        fallback = _route(f'{prev} {text or ""}')
+        fallback = _route_v41(f'{prev} {text or ""}')
         if fallback['type'] != 'none':
             fallback['used_context'] = True
             return fallback

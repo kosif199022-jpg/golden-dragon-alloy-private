@@ -1,0 +1,1154 @@
+{
+ "version": "V41",
+ "note": "Intent cards: for each adapter, the words the owner actually says for it (Egyptian, MSA, English). Written from what each adapter does, not copied from evaluation requests. A cue with a space is a phrase: all its words must appear. 'none' holds requests that are outside Red Rose (money transfer, reminders, bookings): they make the router abstain.",
+ "intents": {
+  "video.verify": {
+   "op": "video.verify",
+   "cues": [
+    "بيتفك",
+    "يتفك",
+    "فك كامل",
+    "فريم بايظ",
+    "فريمات بايظه",
+    "بايظ",
+    "سليم",
+    "ملف سليم",
+    "decode",
+    "corrupt",
+    "broken frames",
+    "اتأكد الملف",
+    "افحص الملف",
+    "قبل ما ابعته",
+    "ffprobe",
+    "integrity",
+    "verify"
+   ]
+  },
+  "video.scene_analyze": {
+   "op": "video.scene_analyze",
+   "cues": [
+    "اماكن القطعات",
+    "القطعات",
+    "قطعات",
+    "كشف القطعات",
+    "تغير المشهد",
+    "مشاهد",
+    "المشاهد",
+    "scene",
+    "scenes",
+    "cuts",
+    "find the cuts",
+    "shot boundaries",
+    "تصوير خام",
+    "خام",
+    "raw footage",
+    "بالثانيه"
+   ]
+  },
+  "video.recut": {
+   "op": "video.recut",
+   "cues": [
+    "من لـ",
+    "ركبهم",
+    "ركبهم ورا بعض",
+    "ورا بعض",
+    "اقطع من",
+    "خد من",
+    "قص من",
+    "trim",
+    "recut",
+    "join clips",
+    "concatenate",
+    "ingest",
+    "اجزاء",
+    "مقاطع منه"
+   ]
+  },
+  "video.timeline_analyze": {
+   "op": "video.timeline_analyze",
+   "cues": [
+    "السكتات",
+    "سكتات",
+    "الوقفات الطويله",
+    "صمت",
+    "silence",
+    "الكاميرا بتتغير",
+    "تايم لاين",
+    "timeline",
+    "حلقه",
+    "بودكاست",
+    "podcast",
+    "مقابله",
+    "interview",
+    "اماكن القطع والسكتات"
+   ]
+  },
+  "video.edit_suggest": {
+   "op": "video.edit_suggest",
+   "cues": [
+    "اقترحلي قطعات",
+    "اقترح قص",
+    "اقترحلي",
+    "يشيل الوقفات",
+    "شيل الوقفات",
+    "قايمه القطعات",
+    "edit list",
+    "suggest cuts",
+    "edl",
+    "تقصير",
+    "يبقى حوالي"
+   ]
+  },
+  "video.shot_score": {
+   "op": "video.shot_score",
+   "cues": [
+    "احسن لقطات",
+    "افضل لقطات",
+    "رتب اللقطات",
+    "ترتيب اللقطات",
+    "rank shots",
+    "best shots",
+    "score",
+    "تقييم اللقطات",
+    "انهي لقطه احسن",
+    "اللقطات الحلوه"
+   ]
+  },
+  "video.preview": {
+   "op": "video.preview",
+   "cues": [
+    "معاينه",
+    "preview",
+    "contact sheet",
+    "كونتاكت شيت",
+    "صوره مصغره",
+    "thumbnail",
+    "ثمبنيل",
+    "فريمات للمراجعه",
+    "ورقه لقطات"
+   ]
+  },
+  "video.produce": {
+   "op": "video.produce",
+   "cues": [
+    "اعمل فيديو كامل",
+    "انتاج",
+    "produce",
+    "اعملي ريل",
+    "ريل كامل",
+    "مونتاج كامل",
+    "full edit",
+    "من الصفر للنهايه"
+   ]
+  },
+  "video.analyze": {
+   "op": "video.analyze",
+   "cues": [
+    "قارن جوده",
+    "جوده",
+    "الضغط",
+    "compression",
+    "quality",
+    "لقطات متكرره",
+    "متكرره",
+    "شبه بعض",
+    "duplicates",
+    "حده",
+    "sharpness",
+    "مهزوز",
+    "الوان الفيديو",
+    "colour stats",
+    "motion stats",
+    "سطوع",
+    "brightness"
+   ]
+  },
+  "video.edit": {
+   "op": "video.edit",
+   "cues": [
+    "على الدقه",
+    "على الايقاع",
+    "على البيت",
+    "beat",
+    "beats",
+    "beat sync",
+    "ايقاع الاغنيه",
+    "اغنيه مرخصه",
+    "توازن الالوان",
+    "colour match",
+    "match colour",
+    "ثبت الصوره",
+    "stabilize",
+    "رأسي",
+    "vertical",
+    "reframe",
+    "crossfade",
+    "ريتم القطع",
+    "pacing"
+   ]
+  },
+  "media.iphone_export": {
+   "op": "media.iphone_export",
+   "cues": [
+    "الايفون",
+    "ايفون",
+    "iphone",
+    "ios",
+    "واتساب",
+    "whatsapp",
+    "من غير صوت على",
+    "بيطلع ساكت",
+    "ساكت",
+    "صدّر",
+    "صدر",
+    "export",
+    "تصدير",
+    "aac",
+    "يشتغل على الموبايل"
+   ]
+  },
+  "audio.analyze": {
+   "op": "audio.analyze",
+   "cues": [
+    "علو الصوت",
+    "شكل الصوت",
+    "ورّيني الصوت",
+    "loudness graph",
+    "lufs",
+    "مستوى الصوت",
+    "بيوطى",
+    "بيعلى",
+    "قيس الصوت",
+    "measure audio",
+    "peak",
+    "ذروه",
+    "تحليل الصوت"
+   ]
+  },
+  "audio.process": {
+   "op": "audio.process",
+   "cues": [
+    "نضف الصوت",
+    "تنضيف الصوت",
+    "دوشه",
+    "noise",
+    "denoise",
+    "وشوشه",
+    "علي الصوت",
+    "وطي الصوت",
+    "normalize",
+    "تزامن الصوت",
+    "الصوت متأخر",
+    "late",
+    "lips",
+    "الشفايف",
+    "av sync",
+    "lip sync",
+    "شيل السكتات من الصوت",
+    "voice",
+    "التعليق الصوتي",
+    "حقوق الصوت",
+    "audio rights"
+   ]
+  },
+  "fusion.plan": {
+   "op": "fusion.plan",
+   "cues": [
+    "خططلي فيلم",
+    "خطه فيلم",
+    "خطط",
+    "قصه",
+    "ستوري بورد",
+    "storyboard",
+    "لقطات بالفريم",
+    "مدتها بالفريم",
+    "سيناريو",
+    "plan a film",
+    "shot list",
+    "قايمه لقطات"
+   ]
+  },
+  "fusion.render": {
+   "op": "fusion.render",
+   "cues": [
+    "فيديو رسوم",
+    "رسوم متحركه",
+    "مرسوم بالكود",
+    "بالكود",
+    "كرتون",
+    "كرتوني",
+    "animation",
+    "animated",
+    "صلصال",
+    "clay",
+    "انيميشن",
+    "اعملي فيديو رسوم"
+   ]
+  },
+  "fusion.frame": {
+   "op": "fusion.frame",
+   "cues": [
+    "فريم واحد",
+    "svg",
+    "ارسملي فريم",
+    "ارسم مشهد",
+    "صوره مشهد",
+    "single frame",
+    "draw a frame",
+    "لوحه"
+   ]
+  },
+  "fusion.route": {
+   "op": "fusion.route",
+   "cues": [
+    "خط الطيران",
+    "خط سير",
+    "الكره الارضيه",
+    "globe",
+    "route",
+    "flight path",
+    "من مدينه لمدينه",
+    "مسار على الخريطه",
+    "نقط المسار",
+    "خريطه"
+   ]
+  },
+  "motion.core": {
+   "op": "motion.core.ease",
+   "cues": [
+    "يدخل من",
+    "يهدى في الاخر",
+    "ارتداد",
+    "bounce",
+    "ease",
+    "easing",
+    "قيم الحركه",
+    "حركه الكاميرا",
+    "push in",
+    "push-in",
+    "zoom in",
+    "تقريب بطيء",
+    "keyframes",
+    "كي فريم",
+    "انتقالات",
+    "transition",
+    "camera move",
+    "تتبع",
+    "track"
+   ]
+  },
+  "text.motion": {
+   "op": "text.motion.kinetic_text",
+   "cues": [
+    "كابشن",
+    "كابشنز",
+    "captions",
+    "subtitle",
+    "ترجمه",
+    "srt",
+    "كاريوكي",
+    "karaoke",
+    "كلمه بكلمه",
+    "نص متحرك",
+    "kinetic",
+    "lower third",
+    "اسم ووظيفه",
+    "عنوان متحرك",
+    "تتر"
+   ]
+  },
+  "graphics.motion": {
+   "op": "graphics.motion.brand_reveal",
+   "cues": [
+    "لوجو",
+    "logo",
+    "انترو",
+    "intro",
+    "رسم بياني",
+    "chart",
+    "data viz",
+    "انفوجرافيك",
+    "infographic",
+    "نيون",
+    "neon",
+    "جزيئات",
+    "particles",
+    "شرح بالرسم",
+    "explainer",
+    "خريطه متحركه",
+    "morph",
+    "تحول شكل"
+   ]
+  },
+  "studio.render": {
+   "op": "studio.render.render_timeline",
+   "cues": [
+    "رندر",
+    "render",
+    "تايم لاين جاهز",
+    "lut",
+    "جريد",
+    "grade",
+    "تلوين",
+    "color grade",
+    "درجه لون",
+    "فلتر لون",
+    "اطلع النسخه النهائيه",
+    "delivery",
+    "صوره عنوان",
+    "title frame"
+   ]
+  },
+  "style.list": {
+   "op": "style.list",
+   "cues": [
+    "الاستايلات",
+    "استايلات",
+    "الاساليب",
+    "styles",
+    "list styles",
+    "متسجله عندك",
+    "اساميها"
+   ]
+  },
+  "style.draw": {
+   "op": "style.draw.style_descriptor",
+   "cues": [
+    "ستايل رسم",
+    "اسلوب رسم",
+    "الوان مائيه",
+    "watercolor",
+    "خطوط خشنه",
+    "flat",
+    "فلات",
+    "كرتون مسطح",
+    "مونو",
+    "palette",
+    "باليت",
+    "ثبت الالوان",
+    "رسم ماكينه"
+   ]
+  },
+  "design.layout": {
+   "op": "design.layout.poster_hierarchy",
+   "cues": [
+    "بوستر",
+    "poster",
+    "يتقري",
+    "مقروء",
+    "readable",
+    "contrast",
+    "تباين",
+    "تكوين",
+    "composition",
+    "ثلث",
+    "rule of thirds",
+    "الاضاءه",
+    "كشافات",
+    "lighting setup",
+    "ترتيب العناصر",
+    "هويه",
+    "layout",
+    "تصميم"
+   ]
+  },
+  "character.svg": {
+   "op": "character.svg",
+   "cues": [
+    "شخصيه",
+    "mascot",
+    "ماسكوت",
+    "character",
+    "مفاصل",
+    "jointed",
+    "رسم شخصيه",
+    "اعمل شخصيه",
+    "شخصيه اصليه"
+   ]
+  },
+  "character.animate": {
+   "op": "character.animate.walk_cycle",
+   "cues": [
+    "حرك الشخصيه",
+    "تمشي",
+    "ماشيه",
+    "walk cycle",
+    "run cycle",
+    "بتجري",
+    "تعبيرات الوش",
+    "expressions",
+    "lip",
+    "حركه الشفايف",
+    "viseme",
+    "هيكل عظمي",
+    "skeleton",
+    "تحريك الشخصيه",
+    "animate character"
+   ]
+  },
+  "model3d.build": {
+   "op": "model3d.build.machine_mesh",
+   "cues": [
+    "مجسم",
+    "3d",
+    "ثري دي",
+    "ثلاثي الابعاد",
+    "موديل",
+    "mesh",
+    "اسطواني",
+    "قطع داخله في بعض",
+    "تداخل",
+    "glb",
+    "fbx",
+    "obj",
+    "uv"
+   ]
+  },
+  "vfx.compose": {
+   "op": "vfx.compose.rain_light",
+   "cues": [
+    "مطر",
+    "rain",
+    "تلج",
+    "snow",
+    "شرار",
+    "sparks",
+    "دخان",
+    "ضباب",
+    "لمعه",
+    "bloom",
+    "ظل",
+    "shadow",
+    "مؤثرات",
+    "vfx",
+    "تركيب",
+    "composite",
+    "ماسك",
+    "mask",
+    "inpaint",
+    "حراره",
+    "heat haze",
+    "parallax"
+   ]
+  },
+  "physics.simulate": {
+   "op": "physics.simulate.projectile",
+   "cues": [
+    "اترمت",
+    "رميه",
+    "thrown",
+    "projectile",
+    "سرعه",
+    "m/s",
+    "زاويه",
+    "جاذبيه",
+    "gravity",
+    "تقع",
+    "تنط",
+    "bounce",
+    "احتكاك",
+    "friction",
+    "قماش",
+    "cloth",
+    "زنبرك",
+    "spring",
+    "جسيمات",
+    "fluid",
+    "محاكاه",
+    "simulate"
+   ]
+  },
+  "math.geometry": {
+   "op": "math.geometry.aspect_fit",
+   "cues": [
+    "من غير ما يتمط",
+    "يتمط",
+    "مقاس",
+    "الهوامش",
+    "aspect",
+    "letterbox",
+    "عدسه",
+    "lens",
+    "فتحه",
+    "aperture",
+    "عمق الميدان",
+    "depth of field",
+    "منظور",
+    "perspective",
+    "تايم كود",
+    "timecode",
+    "منحنى",
+    "curve",
+    "ik"
+   ]
+  },
+  "science.compute": {
+   "op": "science.compute.spectrum",
+   "cues": [
+    "ترددات",
+    "frequency",
+    "fft",
+    "spectrum",
+    "عينات",
+    "samples",
+    "معادله",
+    "equation",
+    "تفاضل",
+    "derivative",
+    "وحدات",
+    "units",
+    "عشوائي",
+    "random",
+    "quaternion",
+    "حساب علمي"
+   ]
+  },
+  "thinking.reason": {
+   "op": "thinking.reason.decision_matrix",
+   "cues": [
+    "قارنلي بينهم",
+    "عروض",
+    "انهي احسن",
+    "اختار",
+    "مصفوفه قرار",
+    "pros cons",
+    "مميزات وعيوب",
+    "فكر",
+    "المبادئ الاولى",
+    "premortem",
+    "ايه اللي ممكن يبوظ",
+    "بدائل",
+    "alternatives",
+    "ميزانيه"
+   ]
+  },
+  "decision.make": {
+   "op": "decision.make.decision_record",
+   "cues": [
+    "اكتب القرار",
+    "القرار اللي خدناه",
+    "سجل القرار",
+    "decision record",
+    "ليه قررنا",
+    "ثقه",
+    "confidence",
+    "تعارض",
+    "conflict",
+    "معلومات ناقصه",
+    "انهي اداه"
+   ]
+  },
+  "code.analyze": {
+   "op": "code.analyze.secret_scan",
+   "cues": [
+    "كود",
+    "code",
+    "py",
+    "دوال",
+    "functions",
+    "مكرره",
+    "مفتاح سري",
+    "secret",
+    "syntax",
+    "traceback",
+    "خطأ في الكود",
+    "bug",
+    "راجع الكود",
+    "review code",
+    "import"
+   ]
+  },
+  "accounting.check": {
+   "op": "accounting.check.bank_reconcile",
+   "cues": [
+    "كشف البنك",
+    "كشف حساب",
+    "تسويه",
+    "reconcile",
+    "دفتر الاستاذ",
+    "ledger",
+    "فواتير",
+    "invoice",
+    "تكلفه الكيلو",
+    "cost per kilo",
+    "ذبيحه",
+    "carcass",
+    "مرتبات",
+    "رواتب",
+    "payroll",
+    "ميزان مراجعه",
+    "trial balance",
+    "مخزون",
+    "حسابات",
+    "تكلفه"
+   ]
+  },
+  "governance.audit": {
+   "op": "governance.audit.adapter_reality",
+   "cues": [
+    "شغاله فعلا",
+    "مجرد اسم",
+    "على ورق",
+    "اداه موجوده",
+    "حقيقيه",
+    "reality",
+    "audit",
+    "مراجعه القدرات",
+    "موافقات",
+    "approvals",
+    "اصل الاداه",
+    "provenance"
+   ]
+  },
+  "architecture.check": {
+   "op": "architecture.check.semver_migrate",
+   "cues": [
+    "ترقيه",
+    "upgrade",
+    "نسخه",
+    "version",
+    "ملف الاعدادات",
+    "config",
+    "migration",
+    "توافق",
+    "compatible",
+    "مسارات",
+    "paths",
+    "اعتماديات",
+    "dependencies",
+    "cli",
+    "استكمال"
+   ]
+  },
+  "agents.coordinate": {
+   "op": "agents.coordinate.parallel_plan",
+   "cues": [
+    "وكلاء",
+    "وكيل",
+    "agent",
+    "agents",
+    "brief",
+    "قسمهم",
+    "بالتوازي",
+    "parallel",
+    "مع بعض",
+    "handoff",
+    "تسليم بين",
+    "مهمه للوكيل",
+    "يراجع"
+   ]
+  },
+  "learning.record": {
+   "op": "learning.record",
+   "cues": [
+    "سجل درس",
+    "درس",
+    "lesson",
+    "اتعلم",
+    "سجل الغلطه",
+    "بعد كده",
+    "ماتكررش"
+   ]
+  },
+  "learning.evolve": {
+   "op": "learning.evolve.rule_proposal",
+   "cues": [
+    "اقترح قاعده",
+    "قاعده جديده",
+    "rule",
+    "اتكررت",
+    "الغلطه اتكررت",
+    "تمنعها",
+    "ارتب الدروس",
+    "طور نفسك",
+    "evolve",
+    "انسى",
+    "forget"
+   ]
+  },
+  "memory.recall": {
+   "op": "memory.recall",
+   "cues": [
+    "فكرني بالدروس",
+    "الدروس اللي متسجله",
+    "افتكر",
+    "recall",
+    "ذاكره",
+    "memory",
+    "اللي اتعلمته",
+    "قبل ما اسلم"
+   ]
+  },
+  "knowledge.search": {
+   "op": "knowledge.search",
+   "cues": [
+    "دور في المراجع",
+    "المراجع",
+    "مرجع",
+    "references",
+    "search knowledge",
+    "اللي دخلناها",
+    "ابحث في المعرفه"
+   ]
+  },
+  "knowledge.route": {
+   "op": "knowledge.route",
+   "cues": [
+    "انهي مرجع",
+    "اقرب مرجع",
+    "رشح",
+    "رشحلي",
+    "اقرب للطلب",
+    "which reference"
+   ]
+  },
+  "knowledge.stats": {
+   "op": "knowledge.stats",
+   "cues": [
+    "كام مرجع",
+    "عدد المراجع",
+    "how many references",
+    "احصاءات",
+    "stats",
+    "متسجل عندك"
+   ]
+  },
+  "knowledge.store": {
+   "op": "knowledge.store.owner_instructions",
+   "cues": [
+    "احفظ تعليمتي",
+    "احفظ",
+    "على طول",
+    "تعليمات",
+    "instruction",
+    "save this rule",
+    "ممنوع",
+    "سجل التعليمه",
+    "خليك فاكر"
+   ]
+  },
+  "library.evaluate": {
+   "op": "library.evaluate.tool_benchmark",
+   "cues": [
+    "قارنلي بين",
+    "انهي ادق",
+    "مكتبه",
+    "library",
+    "مكتبات",
+    "benchmark",
+    "اخف",
+    "رخصه",
+    "licence",
+    "license",
+    "pyscenedetect",
+    "transnet",
+    "opencv",
+    "مقارنه ادوات"
+   ]
+  },
+  "web.offline": {
+   "op": "web.offline.html_text",
+   "cues": [
+    "موقع",
+    "صفحه",
+    "website",
+    "html",
+    "اسعار من موقع",
+    "استخرج من الصفحه",
+    "offline",
+    "crawl",
+    "روابط المصدر"
+   ]
+  },
+  "net.fetch": {
+   "op": "net.fetch.fetch_page",
+   "cues": [
+    "نزل",
+    "حمل",
+    "download",
+    "fetch",
+    "لينك",
+    "link",
+    "url",
+    "github",
+    "جيت هاب",
+    "يوتيوب",
+    "youtube",
+    "رابط"
+   ]
+  },
+  "app.build": {
+   "op": "app.build.scaffold",
+   "cues": [
+    "ابنيلي تطبيق",
+    "تطبيق",
+    "app",
+    "واجهه",
+    "ui",
+    "موقع ويب",
+    "api",
+    "قاعده بيانات للتطبيق",
+    "build me",
+    "اعملي برنامج",
+    "صفحه ويب"
+   ]
+  },
+  "app.bridge": {
+   "op": "app.bridge.blender_render",
+   "cues": [
+    "بلندر",
+    "blender",
+    "blend",
+    "افتر افكت",
+    "after effects",
+    "jsx",
+    "ريموشن",
+    "remotion",
+    "premiere",
+    "بريمير",
+    "دافنشي",
+    "nle",
+    "شغل بلندر"
+   ]
+  },
+  "security.guard": {
+   "op": "security.guard.output_hashing",
+   "cues": [
+    "بصمه",
+    "hash",
+    "sha256",
+    "محدش غير",
+    "اتغير",
+    "حمايه",
+    "security",
+    "تسريب",
+    "secret scan",
+    "sbom",
+    "رجوع",
+    "rollback"
+   ]
+  },
+  "database.manage": {
+   "op": "database.manage.import_tabular",
+   "cues": [
+    "جدول",
+    "table",
+    "db",
+    "sqlite",
+    "قاعده بيانات",
+    "database",
+    "sql",
+    "استعلام",
+    "query",
+    "دخلهم في قاعده",
+    "نسخه احتياطيه",
+    "backup"
+   ]
+  },
+  "automation.run": {
+   "op": "automation.run.task_queue",
+   "cues": [
+    "الطابور",
+    "queue",
+    "كمل من عنده",
+    "استكمل",
+    "resume",
+    "وقف عند",
+    "ايصال",
+    "receipt",
+    "اعد المحاوله",
+    "retry",
+    "شغل الامر",
+    "run command",
+    "مهام",
+    "batch"
+   ]
+  },
+  "release.verify": {
+   "op": "release.verify.independence_audit",
+   "cues": [
+    "النسخه النهائيه",
+    "التسليم النهائي",
+    "قبل التسليم",
+    "release",
+    "واقفه لوحدها",
+    "مستقله",
+    "independent",
+    "اتقفلو",
+    "1400 سؤال",
+    "جاهزه للتسليم"
+   ]
+  },
+  "roadmap.status": {
+   "op": "roadmap.status",
+   "cues": [
+    "السؤال رقم",
+    "في الخطه",
+    "اتنفذ ولا لسه",
+    "roadmap",
+    "خارطه",
+    "حاله البند"
+   ]
+  },
+  "qa.trace": {
+   "op": "qa.trace",
+   "cues": [
+    "انهي قرار",
+    "which decision",
+    "led to",
+    "اتعملت ازاي",
+    "trace",
+    "مصدر الميزه",
+    "built-in tool"
+   ]
+  },
+  "playbook.library": {
+   "op": "playbook.library.build_index",
+   "cues": [
+    "فهرس",
+    "index",
+    "المهارات",
+    "skills",
+    "فولدر skills",
+    "playbook",
+    "بلاي بوك",
+    "ادور فيهم"
+   ]
+  },
+  "compose.pipeline": {
+   "op": "compose.pipeline.ik_physics",
+   "cues": [
+    "وبعدين",
+    "في نفس المشهد",
+    "خطوتين",
+    "pipeline",
+    "IK",
+    "يمسك",
+    "تقع بالجاذبيه",
+    "اكتر من اداه",
+    "ركب الخطوات"
+   ]
+  },
+  "prompt.prepare": {
+   "op": "prompt.prepare.video_prompt",
+   "cues": [
+    "وصف لتوليد",
+    "برومبت",
+    "prompt",
+    "توليد",
+    "generate",
+    "هيكلف كام",
+    "تكلفه التوليد",
+    "cost estimate",
+    "قبل ما نصرف",
+    "kling",
+    "كلينج",
+    "هيجز",
+    "suno"
+   ]
+  },
+  "none": {
+   "op": null,
+   "cues": [
+    "حوللي",
+    "حول فلوس",
+    "تحويل فلوس",
+    "حوّل فلوس",
+    "ابعت فلوس",
+    "ادفعلي",
+    "ادفع الفاتوره",
+    "سدد",
+    "سددلي",
+    "فودافون كاش",
+    "انستاباي",
+    "instapay",
+    "transfer money",
+    "send money",
+    "pay the",
+    "حسابي في البنك",
+    "من حسابي",
+    "فكرني بكره",
+    "فكرني الساعه",
+    "فكرني بعد",
+    "فكرني يوم",
+    "ذكرني بكره",
+    "ذكرني الساعه",
+    "ذكرني بعد",
+    "منبه",
+    "alarm",
+    "remind me",
+    "كالندر",
+    "calendar",
+    "حط ميعاد",
+    "اضبط ميعاد",
+    "احجزلي",
+    "احجز",
+    "حجز تذكره",
+    "تذكره",
+    "تذاكر",
+    "فندق",
+    "hotel",
+    "طياره",
+    "flight",
+    "اوبر",
+    "uber",
+    "book a",
+    "book me",
+    "اطلبلي",
+    "اطلب اكل",
+    "اوردر اكل",
+    "طلبات",
+    "talabat",
+    "اشتريلي",
+    "اشتري",
+    "اشتري اونلاين",
+    "buy",
+    "امازون",
+    "amazon",
+    "سله المشتريات",
+    "اتصل",
+    "اتصل ب",
+    "رن على",
+    "call",
+    "ابعت رساله",
+    "ابعتله",
+    "ابعتلها",
+    "ابعت للعميل",
+    "ابعت ايميل",
+    "send it to",
+    "email him",
+    "text him",
+    "الطقس",
+    "الجو بكره",
+    "weather",
+    "درجه الحراره",
+    "نكته",
+    "joke",
+    "الماتش",
+    "نتيجه الماتش",
+    "الاهلي",
+    "الزمالك",
+    "اخبار",
+    "news",
+    "سعر الدولار",
+    "سعر الدهب",
+    "الدولار النهارده",
+    "بيتكوين",
+    "bitcoin",
+    "crypto",
+    "كريبتو",
+    "اسهم",
+    "stocks",
+    "البورصه",
+    "دكتور",
+    "دوا",
+    "علاج",
+    "صداع",
+    "محامي",
+    "قضيه",
+    "lawyer",
+    "doctor"
+   ]
+  }
+ }
+}
