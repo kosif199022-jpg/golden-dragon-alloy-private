@@ -313,3 +313,16 @@ The V27/V28 set of 8 `CODED_UNTESTED` adapters **remains unverified**. Do not ca
 ## V30 — approved V29-to-V20 original video bridge
 
 New native mixed adapter `storyboard.pipeline`: read-only `compile` and approved `render`. Produces actual H264/MP4 from a frame-exact V29 beat plan using the independent V20 illustrated clay/schematic-map renderer, with full FFprobe+decode verification, no-overwrite stage and hash receipt. No silent downgrade from 3D/Remotion/Figma: unsupported visual styles are rejected, or a specific limited fallback must be opted into. See [V30_STORYBOARD_RENDER_GUIDE.md](V30_STORYBOARD_RENDER_GUIDE.md). Other eight coded V27/V28 adapters remain untested.
+
+## V43 — independent app-intelligence and cartoon-reel source fusion
+
+`intelligence.fusion` is a new **read-only** native adapter derived from the uploaded `app-super-mind.skill` (12 readiness dimensions, 9 evidence gates, paired dev/heldout results) and the Abu Kab cartoon RAR (22s/30fps/660-frame scene timeline, deterministic seekable beat contract, character/prop and licensed music checks). Five bounded operations: `readiness`, `ladder`, `paired_eval`, `reel_preflight`, `reel_seek`. See [V43_FUSION_GUIDE.md](V43_FUSION_GUIDE.md), [SOURCE_FUSION_AUDIT_V43.json](SOURCE_FUSION_AUDIT_V43.json) and `examples/abu_kab_reel_v43.json`.
+
+No original archives or media/music/font assets are imported or committed. V43 adds measurable **assessment tools**, not full neural training or an actual replication of the full reel. Do not claim all archived skills are rendered or fully fused. Verify all new tests and existing routing quality gates before merge.
+## V44 — measurable reel rhythm and feedback review (unmerged feature branch)
+
+The existing `intelligence.fusion` native adapter now also supports `reel_rhythm` (frame-exact shot lengths, caption-density flags, end-card hold and character re-entry review) and `feedback_cycle` (bounded, evidence-linked regression proposals). Both are **read-only**; no persistent memory change, model training, video render or unsupported visual claim. `rose_catalog.load()` invalidates stale op lists even when adapter names do not change. See [`V44_QUALITY_FEEDBACK_GUIDE.md`](V44_QUALITY_FEEDBACK_GUIDE.md) for exact input shapes and the still-required generated catalogue refresh and full-suite gate. V44 has not been merged or independently certified by CI.
+
+## V43 — reel motion and app intelligence evaluation
+
+`reel.motion` is an original standalone 22s/30fps Abu Cap animated pose/beat and simplified SVG frame planner distilled from the attached reel source. `mind.audit` adds nine-stage evidence gates, 12-organ scoring and paired held-out before/after comparison, distilled from app-super-mind.skill. Both are READ-only and deliberately **not** copies of source runtimes. See `V43_ABU_CAP_SUPER_MIND_GUIDE.md`, `FUSION_PROVENANCE_V43.json`, `test_fusion_v43.py`. This is partial tested implementation, not a claim that 710 source archive files became 710 native tools.

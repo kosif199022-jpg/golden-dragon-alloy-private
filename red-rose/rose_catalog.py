@@ -328,14 +328,38 @@ def build():
     }
 
 
+def _live_ids(cr):
+    """Exact IDs of live registered adapters AND their live module operations."""
+    ids = set()
+    for adapter in cr.REGISTRY:
+        module = cr.IO_ADAPTERS.get(adapter) or cr.PURE_MODULES.get(adapter)
+        if module is None:
+            ids.add(adapter)
+        else:
+            ids.update(f'{adapter}.{op}' for op in module.OPS)
+    return ids
+
+
 def load():
-    """references/OPS_CATALOG.json when present and valid, else build()."""
-    if 'cat' not in _CACHE:
+    """Return a current catalogue even after an op changes in an existing adapter.
+
+    Refreshes stale generated JSON and stale in-process cache *in memory only*.
+    No database, owner memory, or catalogue file is written here.
+    """
+    cat = _CACHE.get('cat')
+    if cat is None:
         cat = _read_json(CATALOG_JSON, None)
-        if not isinstance(cat, dict) or 'entries' not in cat:
-            cat = build()
-        _CACHE['cat'] = cat
-    return _CACHE['cat']
+    cr = importlib.import_module('capability_runtime')
+    stale = (
+        not isinstance(cat, dict)
+        or not isinstance(cat.get('entries'), dict)
+        or set(cat['entries']) != _live_ids(cr)
+        or set(cat.get('adapters', {})) != set(cr.REGISTRY)
+    )
+    if stale:
+        cat = build()
+    _CACHE['cat'] = cat
+    return cat
 
 
 def get(op_id):

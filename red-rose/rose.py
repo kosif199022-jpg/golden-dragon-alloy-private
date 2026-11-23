@@ -80,6 +80,7 @@ def main(argv=None):
     x=sub.add_parser('dua-reel',help='make a dua reel in the measured trending style from a plan JSON and a footage library'); x.add_argument('plan_json'); x.add_argument('output'); x.add_argument('--work'); x.add_argument('--storyboard',action='store_true',help='only write the storyboard image'); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('fonts',help='font library: scan, list, find, show, preview, path, suggest, render, ass'); x.add_argument('action',choices=['scan','list','find','show','preview','path','suggest','render','ass','similar']); x.add_argument('args',nargs='*'); x.add_argument('--arabic',action='store_true'); x.add_argument('--style'); x.add_argument('--category'); x.add_argument('--filter'); x.add_argument('--text'); x.add_argument('--font'); x.add_argument('--size',type=int,default=120); x.add_argument('--colour',default='gold',choices=['gold','white']); x.add_argument('--commercial',action='store_true'); x.add_argument('--limit',type=int,default=8); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('library',help='footage libraries: list, fetch from the private GitHub release'); x.add_argument('action',choices=['list','fetch']); x.add_argument('name',nargs='?'); x.add_argument('--dest'); x.add_argument('--approve-write',action='store_true')
+    x=sub.add_parser('social',help='ScrapeCreators (paid): Instagram/TikTok/YouTube/... public data'); x.add_argument('action'); x.add_argument('args',nargs='*'); x.add_argument('--approve-spend',action='store_true'); x.add_argument('--approve-write',action='store_true'); x.add_argument('--out',default=None); x.add_argument('--cap',type=int,default=100); x.add_argument('--allow-long',action='store_true'); x.add_argument('--full',action='store_true')
     x=sub.add_parser('gpt',help='ChatGPT via the Black Rose app: status, read, ask, image'); x.add_argument('action',choices=['status','read','ask','image','save']); x.add_argument('prompt',nargs='?',default=''); x.add_argument('--out',default=None); x.add_argument('--new-chat',action='store_true'); x.add_argument('--approve-send',action='store_true'); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('samak',help='bridge to the Black Rose app (SamakHub): tabs, start'); x.add_argument('action',choices=['tabs','start','tools'])
     x=sub.add_parser('duas',help='dua text catalogue: list, find, day, show, quran'); x.add_argument('action',choices=['list','find','day','show','quran']); x.add_argument('args',nargs='*'); x.add_argument('--section',choices=['day','time','occasion','general'])
@@ -209,6 +210,41 @@ def main(argv=None):
             result=fl.preview(args.args[0],args.filter,args.text or fl.SAMPLE,True,60,args.approve_write)
         print(json.dumps(result,ensure_ascii=False))
         if result.get('outcome')=='approval_required': raise SystemExit(3)
+        return
+    if args.command=='social':
+        import scrapecreators_v44 as sc
+        a, rest = args.action, list(args.args)
+        try:
+            if a=='endpoints':
+                result=sc.endpoints(' '.join(rest))
+            elif a=='usage':
+                result=sc.usage()
+            else:
+                if a=='credits':
+                    path, params = '/v1/account/credit-balance', {}
+                elif a=='get':
+                    if not rest: raise sc.SocialError('usage: social get PATH key=value ...')
+                    path, params = rest[0], dict(x.split('=',1) for x in rest[1:] if '=' in x)
+                elif a in sc.SHORTCUTS:
+                    path, field = sc.SHORTCUTS[a]
+                    params = {field: ' '.join(rest)} if field else {}
+                    if field and not rest: raise sc.SocialError(f'{a} needs a {field}')
+                else:
+                    raise sc.SocialError(f'unknown action {a!r}: endpoints, usage, credits, get, ' + ', '.join(sc.SHORTCUTS))
+                if args.out and not args.approve_write:
+                    raise sc.SocialError('--out writes a file: add --approve-write')
+                result=sc.call(path, params, args.approve_spend, cap=args.cap, allow_long=args.allow_long)
+                if result.get('ok') and args.out:
+                    Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+                    Path(args.out).write_text(json.dumps(result['data'],ensure_ascii=False,indent=1),encoding='utf-8')
+                    result['saved']=str(Path(args.out).resolve())
+                if 'data' in result and not args.full:
+                    d=result['data']; result['data_keys']=list(d)[:25] if isinstance(d,dict) else type(d).__name__
+                    result.pop('data')
+        except sc.SocialError as exc:
+            result={'ok':False,'outcome':'error','error':str(exc)}
+        print(json.dumps(result,ensure_ascii=False))
+        if not result.get('ok'): raise SystemExit(3 if result.get('outcome')=='approval_required' else 1)
         return
     if args.command=='gpt':
         import samak_bridge_v42 as sb

@@ -161,3 +161,16 @@ Use the original native `intelligence.director` via `capability-run` for bounded
 
 ## V30 — supervised original MP4 production
 Use `storyboard.pipeline` `compile` to review a V29 story, then `render` with explicit `--approve-write` only for 2D illustrated clay or schematic map output. The render is silent H264/MP4 with a checked frame count and hash receipt. Unsupported visual fidelity (3D, true SaaS screenshot video, full Remotion) is refused unless a disclosed 2D clay fallback is explicitly allowed for supported names. See `V30_STORYBOARD_RENDER_GUIDE.md`; no legacy runtime imports.
+
+## V43 — قياس الذكاء وفحص الريل
+اقرأ `V43_FUSION_GUIDE.md` و`SOURCE_FUSION_AUDIT_V43.json`. محرك `intelligence.fusion` للقراءة فقط: يقيس 12 معيارًا، يتتبع 9 بوابات، يقارن heldout قبل/بعد، ويدقق مخطط ريل أبو كاب و`seek` الحتمي. لا يعتبر النتائج شهادة ذكاء، ولا يصدر صوتًا أو فيديو، ولا يعتمد وقت التشغيل على الأرشيفات. تحقق من نتائج الاختبارات ومراجعة الحقوق قبل أي نشر.
+
+## V44 — reviewable timing and evidence-linked improvement
+
+For a supplied frame-exact cartoon storyboard, run `python rose.py describe intelligence.fusion.reel_rhythm`, then `run intelligence.fusion.reel_rhythm --params-file INPUT.json` with an object holding `project` (the V43 storyboard). This reports caption density, end-card duration and character re-entry for human review, **not** verified video quality.
+
+For a measured problem, `python rose.py describe intelligence.fusion.feedback_cycle` and `run intelligence.fusion.feedback_cycle --params-file INPUT.json` produce ranked proposals for tests. This operation **never stores memory, modifies production rules or retrains a model**. A lesson can enter the existing owner-local memory only after verified evidence and explicit owner authorization using the established `learning.record` write gate. See `V44_QUALITY_FEEDBACK_GUIDE.md`; no claim that the generated catalogue or full CI is current until it is regenerated and tested.
+
+## V43 — continue with source-provenance discipline
+
+Two original read-only native adapters: `reel.motion` (story / pose / svg for the Abu Cap two-lion-and-ladder 22s animation) and `mind.audit` (ladder / organ_audit / paired_compare for the app-super-mind nine-stage measured intelligence improvement process). Read `V43_ABU_CAP_SUPER_MIND_GUIDE.md` for actual commands, claims, and limitations. The imported archives/media are not runtime dependencies. Do not claim model re-training, automatic permanent learning, end-to-end 22s render or solved V42 abstention routing until independently tested.

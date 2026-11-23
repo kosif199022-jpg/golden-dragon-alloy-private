@@ -1,0 +1,121 @@
+{
+  "schema": "red-rose-reel-project-v43",
+  "project_id": "abu_kab_lions_ladder_example",
+  "title": "أبو كاب والأسود والسلم",
+  "reference_only": true,
+  "source_asset_archive_not_embedded": true,
+  "provenance": "User-provided reel archive; frame cues distilled from work/lions.html and work/render.py; third-party soundtrack attribution kept.",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "frames": 660,
+  "frame_inventory_count": 660,
+  "seekable": true,
+  "shots": [
+    {
+      "id": "threat",
+      "start_frame": 0,
+      "end_frame": 84,
+      "actors": [
+        "cap",
+        "nadara",
+        "lions"
+      ],
+      "props": [
+        "tree"
+      ],
+      "tag": "setup",
+      "caption": "خطر قريب"
+    },
+    {
+      "id": "climb",
+      "start_frame": 84,
+      "end_frame": 168,
+      "actors": [
+        "cap",
+        "nadara",
+        "lions"
+      ],
+      "props": [
+        "tree"
+      ],
+      "tag": "action",
+      "caption": "طلع فوق الشجرة"
+    },
+    {
+      "id": "false_safety",
+      "start_frame": 168,
+      "end_frame": 312,
+      "actors": [
+        "cap",
+        "nadara",
+        "lions"
+      ],
+      "props": [
+        "tree",
+        "ladder"
+      ],
+      "tag": "reversal",
+      "caption": "الأسد لقى السلّم"
+    },
+    {
+      "id": "lion_nap_idea",
+      "start_frame": 312,
+      "end_frame": 480,
+      "actors": [
+        "cap",
+        "nadara",
+        "lions"
+      ],
+      "props": [
+        "tree",
+        "ladder",
+        "clock"
+      ],
+      "tag": "insight",
+      "caption": "استنّوا القيلولة"
+    },
+    {
+      "id": "escape",
+      "start_frame": 480,
+      "end_frame": 582,
+      "actors": [
+        "cap",
+        "nadara",
+        "lions"
+      ],
+      "props": [
+        "tree",
+        "ladder"
+      ],
+      "tag": "escape",
+      "caption": "مشوا على أطراف صوابعهم"
+    },
+    {
+      "id": "endcard",
+      "start_frame": 582,
+      "end_frame": 660,
+      "actors": [
+        "cap"
+      ],
+      "props": [
+        "cta"
+      ],
+      "tag": "cta",
+      "caption": "تابعني"
+    }
+  ],
+  "music": {
+    "title": "Happy Ukulele",
+    "artist": "Jason Shaw",
+    "license": "CC BY 3.0",
+    "attribution": "Music: Happy Ukulele by Jason Shaw (Audionautix.com), CC BY 3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Audionautix-com-ccby-happyukulele.mp3"
+  },
+  "notes": [
+    "Six simplified narrative beats based on source script; sub-actions in original can be more granular",
+    "The simple source HTML produces SVG scene animation via window.seek(t); the new adapter only audits frame timing and stateless narrative beat lookup",
+    "Original video, frame JPGs, font, soundtrack and source JS are NOT redistributed here",
+    "Source end-card references user's own TikTok handle; generic caption replaces it in reusable template"
+  ]
+}

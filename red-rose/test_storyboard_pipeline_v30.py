@@ -35,7 +35,7 @@ class V30BridgeTests(unittest.TestCase):
         self.assertEqual(OPS,("compile","render"))
         self.assertEqual(EFFECTS,{"compile":"read","render":"write"})
         self.assertEqual(REGISTRY["storyboard.pipeline"][1],"mixed")
-        self.assertEqual(len(REGISTRY),61)
+        self.assertEqual(len(REGISTRY),64)
 
     def test_compile_frame_exact_without_files(self):
         before={p.name for p in self.root.iterdir()}
