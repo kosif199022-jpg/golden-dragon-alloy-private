@@ -22246,7 +22246,7 @@
         "mind"
       ],
       "known_broken_reason": null,
-      "name_ar": "mind.audit.ladder",
+      "name_ar": "mind.audit ladder",
       "name_en": "ladder",
       "needs": {
         "db": false,
@@ -22298,7 +22298,7 @@
         "organ"
       ],
       "known_broken_reason": null,
-      "name_ar": "mind.audit.organ_audit",
+      "name_ar": "mind.audit organ_audit",
       "name_en": "organ audit",
       "needs": {
         "db": false,
@@ -22351,7 +22351,7 @@
         "paired"
       ],
       "known_broken_reason": null,
-      "name_ar": "mind.audit.paired_compare",
+      "name_ar": "mind.audit paired_compare",
       "name_en": "paired compare",
       "needs": {
         "db": false,
@@ -28679,7 +28679,7 @@
         "reel"
       ],
       "known_broken_reason": null,
-      "name_ar": "reel.motion.pose",
+      "name_ar": "reel.motion pose",
       "name_en": "pose",
       "needs": {
         "db": false,
@@ -28731,7 +28731,7 @@
         "story"
       ],
       "known_broken_reason": null,
-      "name_ar": "reel.motion.story",
+      "name_ar": "reel.motion story",
       "name_en": "story",
       "needs": {
         "db": false,
@@ -28783,7 +28783,7 @@
         "svg"
       ],
       "known_broken_reason": null,
-      "name_ar": "reel.motion.svg",
+      "name_ar": "reel.motion svg",
       "name_en": "svg",
       "needs": {
         "db": false,
