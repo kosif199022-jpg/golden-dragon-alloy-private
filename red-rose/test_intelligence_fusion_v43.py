@@ -34,7 +34,7 @@ def evaluation(**updates):
 
 class SourceFusionTests(unittest.TestCase):
     def test_declared_ops_and_organ_count(self):
-        self.assertEqual(len(OPS),5)
+        self.assertEqual(len(OPS),7)
         self.assertEqual(len(ORGANS),12)
         self.assertEqual(len(STEPS),9)
 
