@@ -175,6 +175,10 @@ Makes a dua reel in the measured trending style: fixed date header, gold salawat
 4. Lines without times get a reading pace. To follow a sound exactly, take `t0`/`t1` from `line-times` (a reference video) or `speech-sync` (a recording).
 5. With no `audio` the file has a silent AAC track: the owner adds the trend sound inside TikTok.
 
+Trend transition (V39): `"transition": "spin"` cuts hard in the gaps between lines; each shot leaves with its bottom half mirrored from the top for the last 0.25 s, and the next comes in rotated, zoomed and blurred, settling in 0.35 s. Measured frame by frame on the trending Monday-dua reel. Without it, shots cross-fade softly.
+
+Matching one reference exactly: give `"reference": "ref.mp4"` and `"lift": 0` (the Sunday-measured `trend` style is close but not the same reel; on the Monday reel the reference match gave chroma 20.0 against 24.1, the preset 18.8–20.5). The dua line now grows until the longest line nearly fills the width (690 px, at most 74 px tall), as on the trending reels.
+
 Style and fonts (V35):
 
 - `"style": "channel"` gives the calm natural colour measured on the dua channel (median of 69 text-free clips: L 47.9, chroma 12.6). `"style": "trend"` gives the warm saturated look of the trending TikTok (L 56.5, chroma 23.3). Both live in `agent/colour_styles.json`. `"reference": "video.mp4"` still matches any other video.

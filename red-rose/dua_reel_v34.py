@@ -55,6 +55,15 @@ def timed_lines(lines):
     return out
 
 
+def shot_plan_cut(lines):
+    """Hard cuts in the gaps between lines (no overlap): for the spin transition."""
+    cuts = [round((lines[k]['t1'] + lines[k + 1]['t0']) / 2, 3) for k in range(len(lines) - 1)]
+    total = round(lines[-1]['t1'] + 0.35, 3)
+    starts = [0.0] + cuts
+    ends = cuts + [total]
+    return [round(e - s, 3) for s, e in zip(starts, ends)], starts, total
+
+
 def shot_plan(lines):
     cuts = [round((lines[k]['t1'] + lines[k + 1]['t0']) / 2, 3) for k in range(len(lines) - 1)]
     total = round(lines[-1]['t1'] + 0.35, 3)
@@ -279,9 +288,9 @@ def line_layers(lines):
     from PIL import Image
     fnt, fit = _fonts()
     longest = max((ln['text'] for ln in lines), key=len)
-    f = fit('Lalezar-Regular.ttf', longest, 520)
-    if f.size > 53:                       # 53 px is the measured size of the reference line
-        f = fnt('Lalezar-Regular.ttf', 53)
+    f = fit('Lalezar-Regular.ttf', longest, LINE_MAX_W)
+    if f.size > LINE_MAX_PX:             # measured on the trending reels: the longest line nearly fills the width
+        f = fnt('Lalezar-Regular.ttf', LINE_MAX_PX)
     emoji = Path(r'C:\Windows\Fonts\seguiemj.ttf')
     out = []
     for ln in lines:
@@ -307,6 +316,33 @@ def line_layers(lines):
 
 
 # ----------------------------------------------------------------- render
+
+LINE_MAX_W, LINE_MAX_PX = 690, 74
+SPIN_IN, MIRROR_OUT = 0.35, 0.25   # measured on the trending Monday-dua reel (2026-11-23)
+
+
+def _spin_chain(i, clip, length, lut, first, last):
+    """Trend transition, per shot: comes in spinning + zoomed + blurred and settles in 0.35 s;
+    leaves with the bottom half mirrored from the top for the last 0.25 s. Shots meet with a hard cut."""
+    base = _shot_chain(i, clip, length, lut).rsplit('[', 1)[0]     # same shot, without its output label
+    steps = [base]
+    if not first:
+        z = f"pow(max(0,1-t/{SPIN_IN}),2)"
+        steps.append(f"scale=w='trunc({W}*(1.02+0.38*{z})/2)*2':h=-2:eval=frame")
+        steps.append(f"rotate=a='0.24*{z}':c=black")
+        steps.append(f"crop={W}:{H}:(iw-{W})/2:(ih-{H})/2")
+        steps.append(f"boxblur=luma_radius=14:chroma_radius=7:enable='lt(t,0.10)'")
+        steps.append(f"boxblur=luma_radius=6:chroma_radius=3:enable='between(t,0.10,0.22)'")
+    # per-frame zoom (scale eval=frame, h=-2) drifts the sample aspect ratio (seen: 4023:4024); concat needs
+    # every input identical, so force size and SAR at the very end of each shot
+    steps.append(f'scale={W}:{H},setsar=1,format=yuv420p')
+    chain = ','.join(steps)
+    if last:
+        return chain + f'[v{i}]'
+    t0 = max(0.0, length - MIRROR_OUT)
+    return (chain + f',split[a{i}][b{i}];[b{i}]crop={W}:{H // 2}:0:0,vflip[m{i}];'
+            f"[a{i}][m{i}]overlay=0:{H // 2}:enable='gte(t,{t0:.3f})',setsar=1[v{i}]")
+
 
 def _shot_chain(i, clip, length, lut):
     if clip['kind'] == 'video':
@@ -338,7 +374,8 @@ def colour_style(name):
 def build(plan: dict, out, work=None, approve_write: bool = False, storyboard_only: bool = False) -> dict:
     fonts_used = set_fonts(plan.get('fonts'))
     lines = timed_lines(plan.get('lines') or [])
-    lengths, offsets, total = shot_plan(lines)
+    spin = plan.get('transition') == 'spin'
+    lengths, offsets, total = shot_plan_cut(lines) if spin else shot_plan(lines)
     n = len(lines)
     if plan.get('clips'):
         if len(plan['clips']) != n:
@@ -413,12 +450,17 @@ def build(plan: dict, out, work=None, approve_write: bool = False, storyboard_on
         inputs += ['-i', c['file']]
     for name in ['base.png'] + [f'line_{k}.png' for k in range(1, n + 1)]:
         inputs += ['-loop', '1', '-framerate', str(FPS), '-t', f'{total:.3f}', '-i', name]
-    parts = [_shot_chain(i, c, lengths[i], luts[i]) for i, c in enumerate(clips)]
-    prev = 'v0'
-    for i in range(1, n):
-        kind = TRANSITIONS[(i - 1) % len(TRANSITIONS)]
-        parts.append(f'[{prev}][v{i}]xfade=transition={kind}:duration={T}:offset={offsets[i]:.3f}[x{i}]')
-        prev = f'x{i}'
+    if spin:
+        parts = [_spin_chain(i, c, lengths[i], luts[i], i == 0, i == n - 1) for i, c in enumerate(clips)]
+        parts.append(''.join(f'[v{i}]' for i in range(n)) + f'concat=n={n}:v=1:a=0[xcat]')
+        prev = 'xcat'
+    else:
+        parts = [_shot_chain(i, c, lengths[i], luts[i]) for i, c in enumerate(clips)]
+        prev = 'v0'
+        for i in range(1, n):
+            kind = TRANSITIONS[(i - 1) % len(TRANSITIONS)]
+            parts.append(f'[{prev}][v{i}]xfade=transition={kind}:duration={T}:offset={offsets[i]:.3f}[x{i}]')
+            prev = f'x{i}'
     parts.append(f'[{n}:v]format=rgba[base]')
     parts.append(f'[{prev}][base]overlay=0:0:format=auto[o0]')
     for k, ln in enumerate(lines, 1):
@@ -440,7 +482,7 @@ def build(plan: dict, out, work=None, approve_write: bool = False, storyboard_on
     out.parent.mkdir(parents=True, exist_ok=True)
     run = subprocess.run(cmd, cwd=work, capture_output=True, text=True)
     if run.returncode != 0 or not out.is_file():
-        return {'ok': False, 'outcome': 'error', 'error': (run.stderr or 'ffmpeg failed')[-600:], **report}
+        return {'ok': False, 'outcome': 'error', 'error': (run.stderr or 'ffmpeg failed')[:1200], **report}
     import reel_tools_v32 as rt
     flat = rt.flat_check(out)
     report.update(ok=flat['ok'], saved=[str(out)], flat_frames=flat['flat'],
