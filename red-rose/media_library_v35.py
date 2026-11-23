@@ -18,6 +18,9 @@ REPO = 'kosif199022-jpg/golden-dragon-alloy-private'
 KNOWN = {
     'dua': {'tag': 'dua-library-v1', 'asset': 'dua-library-v1.zip', 'folder': 'dua-library-v1',
             'about': '100 background clips (Quran, roses, incense, candles) from t.me/ijhbis, with _analysis.json'},
+    'fonts': {'tag': 'fonts-library-v1', 'asset': 'fonts-library-v1.zip', 'folder': 'fonts-library-v1',
+              'about': '1,076 unique Arabic-first fonts with licence files and library_index.json; indexed after fetch',
+              'index_fonts': True},
 }
 
 
@@ -65,5 +68,10 @@ def fetch(name: str, dest=None, approve_write=False):
     regs[name] = str(target)
     LIBS.parent.mkdir(parents=True, exist_ok=True)
     LIBS.write_text(json.dumps(regs, ensure_ascii=False, indent=1), encoding='utf-8')
-    clips = len(list((target / 'videos').glob('*.mp4')))
-    return {'ok': True, 'saved': [str(target)], 'clips': clips, 'registered': name}
+    res = {'ok': True, 'saved': [str(target)], 'registered': name}
+    if info.get('index_fonts'):
+        import font_library_v35 as fl
+        res['fonts'] = fl.scan([str(target)], approve_write=True)
+    else:
+        res['clips'] = len(list((target / 'videos').glob('*.mp4')))
+    return res
