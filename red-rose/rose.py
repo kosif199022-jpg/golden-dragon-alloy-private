@@ -78,7 +78,7 @@ def main(argv=None):
     x=sub.add_parser('line-times',help='on/off times of white on-screen text in a crop box of a reference video'); x.add_argument('video'); x.add_argument('--box',required=True,help='x:y:w:h in source pixels')
     x=sub.add_parser('toolbox',help='outside programs, libraries, repos and fonts found on this PC'); x.add_argument('--domain',choices=['montage','audio','image','thinking','utility']); x.add_argument('--find'); x.add_argument('--missing',action='store_true'); x.add_argument('--fonts',action='store_true')
     x=sub.add_parser('dua-reel',help='make a dua reel in the measured trending style from a plan JSON and a footage library'); x.add_argument('plan_json'); x.add_argument('output'); x.add_argument('--work'); x.add_argument('--storyboard',action='store_true',help='only write the storyboard image'); x.add_argument('--approve-write',action='store_true')
-    x=sub.add_parser('fonts',help='font library: scan, list, find, show, preview, path, suggest, render, ass'); x.add_argument('action',choices=['scan','list','find','show','preview','path','suggest','render','ass']); x.add_argument('args',nargs='*'); x.add_argument('--arabic',action='store_true'); x.add_argument('--style'); x.add_argument('--category'); x.add_argument('--filter'); x.add_argument('--text'); x.add_argument('--font'); x.add_argument('--size',type=int,default=120); x.add_argument('--colour',default='gold',choices=['gold','white']); x.add_argument('--commercial',action='store_true'); x.add_argument('--limit',type=int,default=8); x.add_argument('--approve-write',action='store_true')
+    x=sub.add_parser('fonts',help='font library: scan, list, find, show, preview, path, suggest, render, ass'); x.add_argument('action',choices=['scan','list','find','show','preview','path','suggest','render','ass','similar']); x.add_argument('args',nargs='*'); x.add_argument('--arabic',action='store_true'); x.add_argument('--style'); x.add_argument('--category'); x.add_argument('--filter'); x.add_argument('--text'); x.add_argument('--font'); x.add_argument('--size',type=int,default=120); x.add_argument('--colour',default='gold',choices=['gold','white']); x.add_argument('--commercial',action='store_true'); x.add_argument('--limit',type=int,default=8); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('library',help='footage libraries: list, fetch from the private GitHub release'); x.add_argument('action',choices=['list','fetch']); x.add_argument('name',nargs='?'); x.add_argument('--dest'); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('route'); x.add_argument('task'); x.add_argument('--limit',type=int,default=6)
     x=sub.add_parser('scene-analyze'); x.add_argument('source'); x.add_argument('--threshold',type=float,default=.23); x.add_argument('--sample-fps',type=int,default=6); x.add_argument('--min-shot-seconds',type=float,default=.65)
@@ -192,6 +192,9 @@ def main(argv=None):
                 result['fonts']=[f for f in result['fonts'] if f.get('category')==args.category]; result['count']=len(result['fonts'])
         elif a=='suggest': result=fl.suggest(' '.join(args.args) or 'ترند',args.limit,args.commercial)
         elif a=='ass': result=fl.ass_name(' '.join(args.args))
+        elif a=='similar':
+            import font_shape_v38 as fs
+            result=fs.similar(' '.join(args.args),args.limit)
         elif a=='render':
             if len(args.args)<1 or not args.font: raise SystemExit('fonts render OUT.png --text "..." --font NAME')
             result=fl.render_text(args.text or fl.SAMPLE,args.args[0],args.font,args.size,args.colour,1080,args.approve_write)

@@ -192,6 +192,8 @@ Style and fonts (V35):
 - `rose.py fonts render OUT.png --text "..." --font NAME [--colour gold|white] [--size 120] --approve-write` writes the text as a transparent PNG with a soft shadow, shrunk to fit 1080 px. Lay it over any video with ffmpeg `overlay`.
 - `rose.py fonts ass NAME` gives the `Fontname` and `Bold` to write in an ASS subtitle style and the folder to pass as `fontsdir` (copy the font next to the job and use a relative path).
 - 551 fonts have no style word in their names, so their category is `other` and `suggest` does not offer them; `fonts preview --filter NAME` shows them.
+- `rose.py fonts similar NAME [--limit 8]` finds fonts that look like NAME (same words drawn, compared by shape; other weights of the same family left out). Checked by eye: Aref Ruqaa → Rakkas, Dast Nevis, Dongol; Lalezar → Lenos Black, Alyamama Black; Reem Kufi → Cofianda, Qahiri. About 7 s per search after the first run builds `~/.red-rose/fonts/shape_cache.npz`. Use it when the owner names a font they like, or to replace a «personal only» font with a free one that looks close.
+- Style labels are never guessed from shape: that was tried and measured at 28–32% (family-grouped cross-validation), so `other` stays `other`.
 - On another PC: `rose.py library fetch fonts --approve-write` downloads the private release `fonts-library-v1` (88 MB) and indexes it.
 - `rose.py fonts preview OUT.png [--filter words] --approve-write` draws a sample of every matching font so the owner can choose by eye.
 - Licence: `OFL` is free to use. `unknown` or `see text` means ask the owner before commercial use; fonts from chat channels are often «free for personal use» only (several here say so in their names).
