@@ -322,3 +322,7 @@ No original archives or media/music/font assets are imported or committed. V43 a
 ## V44 — measurable reel rhythm and feedback review (unmerged feature branch)
 
 The existing `intelligence.fusion` native adapter now also supports `reel_rhythm` (frame-exact shot lengths, caption-density flags, end-card hold and character re-entry review) and `feedback_cycle` (bounded, evidence-linked regression proposals). Both are **read-only**; no persistent memory change, model training, video render or unsupported visual claim. `rose_catalog.load()` invalidates stale op lists even when adapter names do not change. See [`V44_QUALITY_FEEDBACK_GUIDE.md`](V44_QUALITY_FEEDBACK_GUIDE.md) for exact input shapes and the still-required generated catalogue refresh and full-suite gate. V44 has not been merged or independently certified by CI.
+
+## V43 — reel motion and app intelligence evaluation
+
+`reel.motion` is an original standalone 22s/30fps Abu Cap animated pose/beat and simplified SVG frame planner distilled from the attached reel source. `mind.audit` adds nine-stage evidence gates, 12-organ scoring and paired held-out before/after comparison, distilled from app-super-mind.skill. Both are READ-only and deliberately **not** copies of source runtimes. See `V43_ABU_CAP_SUPER_MIND_GUIDE.md`, `FUSION_PROVENANCE_V43.json`, `test_fusion_v43.py`. This is partial tested implementation, not a claim that 710 source archive files became 710 native tools.
