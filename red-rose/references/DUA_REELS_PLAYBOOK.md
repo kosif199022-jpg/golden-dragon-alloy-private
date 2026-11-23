@@ -71,6 +71,12 @@ and glow gold while sung, falling petals with bursts on strong lines, cinema bar
 ## 6. Mistakes not to repeat
 
 - A clip chosen from its first frame ended on a **bakery logo**: scan every chosen clip over its full length.
+- Shop branding hides on **ribbons, boxes and bags** (a rose bouquet carried «TOGETHER A.R» on its ribbon):
+  look at the bottom third of every bouquet/gift clip at full size before using it.
+- The first frame must show the picture: no opening fade from black (owner rule 3). Measure it: mean luma of
+  frame 0 well above 0.
+- A reel «زي المقطع ده» from a dua account: read the exact text from the burnt-in captions (fix their spelling:
+  «اجعل» not «أجعل»), take the word times from Whisper on the voice, check the Hijri date in their header.
 - Higgsfield sandbox background jobs stop after **15 minutes** (exit 124): make every job resumable and
   restart it; check `nproc`: a replaced sandbox can fall back to **1 CPU** (move heavy work to `size: xl`,
   which needs no other background job running).
