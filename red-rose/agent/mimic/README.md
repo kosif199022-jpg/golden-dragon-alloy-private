@@ -20,3 +20,5 @@ Rules that came from the first run (@oaun.11 Wednesday reel, 2026-11-24):
 
 Measured result on that reel: day name, date and underline 100 % overlap, Hijri month 96 %, the number 89 %,
 all colours within Δ 33; the line font found on its own was Sultan Display (the original's family).
+
+- (2026-11-24, @alrihanii) Header pieces: trace with `--static` inside one shot. Dua lines with tashkeel: trace from **one frame** (`--t` mid-line, `--polarity light`): the static mask drops dots and harakat when the line animates. Check every trace on black before rendering (a bright background patch shows up as a block), keep traced outlines at 2 px, and give traced text `shadow` on bright footage.
