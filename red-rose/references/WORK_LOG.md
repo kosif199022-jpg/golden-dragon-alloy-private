@@ -1,6 +1,8 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-24
+### Abu Cap «طائر الريح الجنوبي» (`agent/abu_cap/stories/south_wind_bird.js`)
+Action rescue with no on-screen text (owner's ask): tornado, whales, cliff dive, flight lessons; 38 s, rendered locally in 44 s.
 ### «ستايل دعاء الترند» saved (`agent/trend`) and used
 The owner's trending Facebook dua reel (151K views, 1.7K shares) turned into a fixed style; a TikTok Tuesday dua (@1qwi_a2) remade in it: 13 lines, 13 library clips, render 34 s locally.
 ### @alrihanii Wednesday dua «دعاء يريح النفوس», copied to the pixel
