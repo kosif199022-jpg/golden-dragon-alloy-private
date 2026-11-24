@@ -284,3 +284,6 @@ Branch: `feature/red-rose-v44-quality-feedback-20261123`, branched from `feature
 ## V43 — أبو كاب + عقل التطبيق الفائق (partial source fusion)
 
 Two uploaded sources were inspected: `ريل أبو كاب.rar` (688 members, 22s seek-based SVG/JS narrative) and `app-super-mind.skill` (22 files, nine-step improvement ladder and twelve measured organs). Native read-only engines `reel.motion` and `mind.audit` were added and tested in `test_fusion_v43.py`. Consult `FUSION_PROVENANCE_V43.json` and `V43_ABU_CAP_SUPER_MIND_GUIDE.md`. Source music/font/media are NOT committed. V43 does not automatically render the whole original reel, execute the uploaded skill scripts, or install a model. The previous V42 held-out abstention floor problem must be handled separately without weakening its gate.
+
+## V46 checkpoint — 2026-11-24
+Branch red-rose-v46-self-maintenance: rose_env.py snapshot, verify_media.py chunked digest, rose_maintenance.py and test_maintenance_v46.py, rose_ext.py registration, V46_MAINTENANCE_GUIDE.md and agent instructions. Run `python rose_maintenance.py audit`, `python -m unittest test_maintenance_v46 test_env_v29 test_verify_media`, then full suite and benchmark. Actual CI and timings pending; no main merge yet. Known auto-repair rule is deliberately limited to legacy whole-file hash allocation.

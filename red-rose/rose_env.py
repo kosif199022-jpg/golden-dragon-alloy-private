@@ -241,10 +241,13 @@ def missing_here(needs):
 def readiness(op_id):
     """One label for a catalogue op (static label + VERIFIED_STATUS row + live check). None if unknown."""
     catalog = importlib.import_module('rose_catalog')
-    entry = catalog.get(op_id)
+    return _readiness_entry(catalog.get(op_id), load_status().get(op_id), missing_here)
+
+
+def _readiness_entry(entry, row, missing):
+    """Classify a single entry from a consistent, read-only snapshot."""
     if not isinstance(entry, dict):
         return None
-    row = load_status().get(op_id)
     row_status = row.get('status') if isinstance(row, dict) else None
     static = entry.get('static_label')
     needs = entry.get('needs') or {}
@@ -252,7 +255,7 @@ def readiness(op_id):
         return 'known_broken'
     if needs.get('pc_only'):
         return 'pc_only'
-    if missing_here(needs):
+    if missing(needs):
         return 'unavailable_here'
     if row_status == 'verified':
         return 'verified'
@@ -271,8 +274,16 @@ def usable_counts():
     """{label: n} over every catalogue op; every label is present (zero when unused)."""
     catalog = importlib.import_module('rose_catalog')
     counts = {label: 0 for label in LABELS}
-    for op_id in catalog.load()['entries']:
-        label = readiness(op_id)
+    entries = catalog.load()['entries']
+    statuses = load_status()
+    dependency_cache = {}
+    def cached_missing(needs):
+        key = (tuple(needs.get('programs') or []), tuple(needs.get('python') or []))
+        if key not in dependency_cache:
+            dependency_cache[key] = missing_here(needs)
+        return dependency_cache[key]
+    for op_id, entry in entries.items():
+        label = _readiness_entry(entry, statuses.get(op_id), cached_missing)
         if label:
             counts[label] = counts.get(label, 0) + 1
     return counts

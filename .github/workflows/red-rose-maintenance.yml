@@ -1,0 +1,51 @@
+name: Red Rose maintenance audit
+on:
+  schedule:
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'red-rose/rose_maintenance.py'
+      - 'red-rose/rose_env.py'
+      - 'red-rose/verify_media.py'
+      - 'red-rose/test_maintenance_v46.py'
+      - '.github/workflows/red-rose-maintenance.yml'
+permissions:
+  contents: read
+concurrency:
+  group: rose-maintenance-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: red-rose
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Audit and test known repairs
+        working-directory: red-rose
+        shell: bash
+        run: |
+          export RED_ROSE_DB="$RUNNER_TEMP/rose-maintenance.sqlite3"
+          python rose_maintenance.py audit > "$RUNNER_TEMP/rose-audit.json" || {
+            cat "$RUNNER_TEMP/rose-audit.json"
+            exit 1
+          }
+          cat "$RUNNER_TEMP/rose-audit.json"
+          python -m unittest test_maintenance_v46
+      - name: Preserve audit result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: red-rose-audit
+          path: ${{ runner.temp }}/rose-audit.json
+          if-no-files-found: warn
+          retention-days: 14

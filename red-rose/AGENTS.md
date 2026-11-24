@@ -60,3 +60,6 @@ The owner supplied 5 personal ZIP files. Their hashes and original-code distilla
 ## قاعدة التعلم المستمر (V29، دائمة)
 
 كل مهمة تمر بالدورة في `CLAUDE.md` هذا المجلد: اكتشف، حلّل، قارن، اصهر، اختبر، احفظ. كل اكتشاف يُسجَّل في `DISCOVERIES.md` قبل أي تنفيذ. الدروس الخاصة بصاحب المشروع تُحفظ في الذاكرة المحلية بموافقته فقط.
+
+## V46 maintenance
+Follow V46_MAINTENANCE_GUIDE.md for each authorized development task. Start with the lightweight native audit, use the fast lane for known operations and escalate only on measured errors. Test candidate changes and compare performance without dropping QA. Repair is bounded and explicit; never claim generic autonomous coding or a measured speedup before evidence.
