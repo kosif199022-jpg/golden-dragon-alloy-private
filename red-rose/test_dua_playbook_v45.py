@@ -54,3 +54,19 @@ class CloudRender(unittest.TestCase):
         if shutil.which('bash'):
             r = subprocess.run(['bash', '-n', str(ROOT / 'agent' / 'cloud_render' / 'render_job.sh')], capture_output=True, text=True)
             self.assertEqual(r.returncode, 0, r.stderr)
+
+
+class FastLane(unittest.TestCase):
+    def test_fast_lane_ships(self):
+        d = ROOT / 'agent' / 'fast_reel'
+        for f in ('prep.sh', 'pick.py', 'make.sh', 'index_lib.py', 'render.mjs', 'web/main.js', 'web/index.html', 'blacklist.txt', 'README.md', 'example_dxh_spec.json', 'example_dxh_hints.json'):
+            self.assertTrue((d / f).exists(), f)
+        spec = json.loads((d / 'example_dxh_spec.json').read_text(encoding='utf-8'))
+        hints = json.loads((d / 'example_dxh_hints.json').read_text(encoding='utf-8'))
+        self.assertEqual(len(spec['scenes']), len(hints))
+        self.assertIn(spec['style'], ('dxh', 'day'))
+        for rel in ('pick.py', 'index_lib.py'):
+            py_compile.compile(str(d / rel), doraise=True)
+        if shutil.which('node'):
+            r = subprocess.run(['node', '--check', str(d / 'web' / 'main.js')], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stderr)

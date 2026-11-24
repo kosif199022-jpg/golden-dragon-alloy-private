@@ -153,6 +153,7 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/INTERFACE.md`: exit codes, call form and the envelope.
 - `references/RECIPES.md` and `references/OPS.md`: the generated catalogue.
 - `references/DEVELOPING.md`: only when you change the code.
+- `agent/fast_reel/README.md`: **copy a dua reel in ~10 minutes (prep → spec → pick → make), measured end to end.**
 - `references/CLOUD_RENDER.md`: **fast rendering on the free Higgsfield XL sandbox (the default for heavy renders).**
 - `references/DUA_REELS_PLAYBOOK.md`: **dua reels, voices, account analysis and song lyric motion: start here.**
 - `references/SOCIAL_FETCH.md`: how to see Instagram, TikTok and Pinterest from the cloud (what worked).
