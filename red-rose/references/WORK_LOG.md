@@ -1,6 +1,10 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-24
+### Restyle of a @youma.design reel («بكبر في معادي») (`agent/restyle`)
+Same footage and sound, burned-in text removed by inpainting, light regraded (teal/warm, bloom, grain), new Ruqaa lettering with gold key words and glint; render 27 s + clean 6.4 min, all local.
+### Red Rose v47: dragon memory
+`rose.py dragon-sync` / `rose.py dragon` hold every Black/Golden Dragon memory and capability.
 ### «الحب وبس» lyric motion graphic with الراجل والست
 5 Higgsfield images (GPT Image 2.6, both characters as elements), canvas motion: slow camera, beat breathing (librosa beats), bokeh, rain, word-by-word Ruqaa lyrics with gold key words, beating heart; rendered locally in 42 s. Characters saved: `characters/el-ragel-wel-sit`.
 ### Mimic tool (`agent/mimic`)
