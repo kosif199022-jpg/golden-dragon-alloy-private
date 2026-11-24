@@ -1,5 +1,5 @@
 // Red Rose fast lane: one engine for measured dua-reel styles. Everything comes from spec.json:
-// {dur, style:'dxh'|'day'|'adeiat', handle, sticker_from, header:{day,date,hday,hmonth}, scenes:[{a,b,fin,fout,gain}], lines:[[t,text]]}
+// {dur, style:'dxh'|'day'|'adeiat'|'oaun'|'none', elements:[mimic draw objects], handle, sticker_from, header:{day,date,hday,hmonth}, scenes:[{a,b,fin,fout,gain}], lines:[[t,text]]}
 const W = 1080, H = 1920, FPS = 30;
 const cv = document.getElementById('c'), ctx = cv.getContext('2d');
 let S = null, C = null;
@@ -159,10 +159,29 @@ function ribbon(a) {   // blue brushed band 218..900 x 1065..1133 with hatching;
   ctx.save(); ctx.globalAlpha = a; ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 8; ctx.drawImage(RIB, 188, 1044); ctx.restore();
   ink(S.ribbon || 'دعاء يوم الثلاثاء', 'Kufam', 105, 565, 1036, '#ffffff', { alpha: a, blur: 6, w: 460, style: '400', outline: 'rgba(15,30,60,.95)', ow: 5 });
 }
+// ---- measured elements from agent/mimic (spec.elements): exact fonts or traced shapes, drawn on every frame ----
+let PATHS = null;
+function elements(t) {
+  const E = S.elements || []; if (!E.length) return;
+  if (!PATHS) PATHS = E.map(e => e.kind === 'traced' ? new Path2D(e.path) : null);
+  E.forEach((e, i) => {
+    const a = (e.from != null ? seg(t, e.from, e.from + (e.fade ?? .3)) : seg(t, 0.05, 0.55)) * (e.to != null ? 1 - seg(t, e.to - (e.fade ?? .3), e.to) : 1);
+    if (a <= 0) return;
+    if (e.kind === 'traced') {
+      ctx.save(); ctx.globalAlpha = a; ctx.lineJoin = 'round';
+      if (e.shadow) { ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 2; }
+      if (e.outline) { ctx.lineWidth = (e.outline_px || 2) * 2; ctx.strokeStyle = e.outline; ctx.stroke(PATHS[i]); ctx.shadowColor = 'transparent'; }
+      ctx.fillStyle = e.fill; ctx.fill(PATHS[i], 'evenodd'); ctx.restore();
+    } else {
+      ink(e.text, 'EL' + i, e.h, e.cx, e.top, e.fill, { alpha: a, ltr: e.ltr, w: e.w, style: String(e.weight || ''),
+        outline: e.outline, ow: (e.outline_px || 0) * 2, blur: e.shadow ? 8 : 0, shadow: e.shadow ? 'rgba(0,0,0,.6)' : 'transparent' });
+    }
+  });
+}
 let LINE = null;
 function line(text, a, o = {}) {
   if (a <= 0 && !o.wipe) return;
-  const st = STY[S.style];
+  const st = S.line ? { ...STY[S.style], ...S.line, font: S.line.font ? 'LINEF' : STY[S.style].font } : STY[S.style];
   if (!LINE) {
     ctx.save(); ctx.direction = 'rtl'; ctx.font = `100px ${st.font}`; const m = ctx.measureText(st.ref); ctx.restore();
     const k = st.h / (m.actualBoundingBoxAscent + m.actualBoundingBoxDescent);
@@ -178,6 +197,7 @@ function line(text, a, o = {}) {
   ctx.fillText(text, st.cx, LINE.base); ctx.restore();
 }
 function handle(a) {
+  if (S.noHandle) return;
   ctx.save(); ctx.globalAlpha = a * .9; ctx.direction = 'ltr'; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 4; ctx.fillStyle = '#fff';
   if (S.style === 'dxh') { ctx.font = '600 25px PlexSerifB'; ctx.letterSpacing = '7px'; ctx.fillText((S.handle || '@elkosif').toUpperCase(), 543, 1100); }
   else if (S.style === 'oaun') { ctx.font = '44px PlexSerifB'; ctx.fillText((S.handle || '@elkosif').toUpperCase(), 540, 1128); }
@@ -190,7 +210,8 @@ window.renderFrame = async function (fr) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
   await footage(i, t);
   if (S.style === 'day') dayHeader(seg(t, 0.05, 0.55));
-  if (S.style === 'oaun') oaunHeader(seg(t, 0.05, 0.55));
+  if (S.style === 'oaun' && !S.noHeader) oaunHeader(seg(t, 0.05, 0.55));
+  elements(t);
   if (S.style === 'adeiat') {
     hijriBlock(seg(t, 0, 0.4)); dayBlock(seg(t, 0, 0.4)); ribbon(seg(t, 0, 0.4));
     const L = S.lines; let j = 0; while (j + 1 < L.length && t >= L[j + 1][0] - 0.15) j++;
@@ -209,6 +230,11 @@ window.renderFrame = async function (fr) {
 };
 (async () => {
   S = await (await fetch('spec.json')).json(); C = await (await fetch('clips.json')).json();
+  if (S.line && S.line.font) { try { const f = new FontFace('LINEF', `url(fonts/${S.line.font.split('/').pop()})`); await f.load(); document.fonts.add(f); } catch (e) {} }
+  await Promise.allSettled((S.elements || []).map(async (e, i) => {      // fonts picked by mimic, copied into fonts/ by make.sh
+    if (e.kind !== 'text' || !e.font) return;
+    const f = new FontFace('EL' + i, `url(fonts/${e.font.split('/').pop()})`); await f.load(); document.fonts.add(f);
+  }));
   window.FRAMES = Math.round(S.dur * FPS);
   await Promise.allSettled(['AmiriB', 'Diwani', 'PlexSerifB', 'PlexSerifI', 'Panorama', 'Sultan', 'AlmaraiXB', 'TajawalM', 'Kufam'].map(f => document.fonts.load(`80px ${f}`, 'صباح ABC')));   // a missing font must not stop the render
   await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 5000))]); window.ready = true;
