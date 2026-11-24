@@ -1,6 +1,8 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-24
+### Red Rose V54 integrated into main
+V54 branch (mind v51, SEE native v52/v53, metacognition v54, golden and white native engines) merged with main; router out-of-scope cues for publishing, calls/complaints and certified translation: test abstention recall 0.5 -> 1.0, top-1 0.3625 -> 0.40, top-3 0.5625 -> 0.60 (floors raised, never lowered; held-out rows were inspected, so confirm on fresh requests). Full suite 1,497 passed.
 ### Abu Cap «طائر الريح الجنوبي» (`agent/abu_cap/stories/south_wind_bird.js`)
 Action rescue with no on-screen text (owner's ask): tornado, whales, cliff dive, flight lessons; 38 s, rendered locally in 44 s.
 ### «ستايل دعاء الترند» saved (`agent/trend`) and used

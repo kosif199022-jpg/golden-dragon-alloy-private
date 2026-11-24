@@ -1,7 +1,7 @@
 {
-  "freeze_total_sha256": "e0047b70e46d366bdd61584b4c916b6c4ef06eda0cdeef8ba538564340a05e11",
-  "runs": 7,
-  "tier": "unmeasured",
+  "freeze_total_sha256": "ad30cdd9630d577680d3f287eaa3d790fdca637b0013237abde7280a4b68e4b9",
+  "runs": 8,
+  "tier": "measured",
   "abstain_recall_min": 0.8,
   "abstain_precision_min": 0.8,
   "routing": {
@@ -13,17 +13,17 @@
     },
     "test": {
       "n": 80,
-      "top1": 0.3625,
-      "acceptable": 0.425,
-      "top3": 0.5625
+      "top1": 0.4,
+      "acceptable": 0.4625,
+      "top3": 0.6
     }
   },
   "abstention": {
     "test": {
       "none_rows": 6,
-      "correct_abstentions": 3,
-      "precision": 0.75,
-      "recall": 0.5
+      "correct_abstentions": 6,
+      "precision": 0.8571,
+      "recall": 1.0
     },
     "dev": {
       "none_rows": 5,
@@ -42,9 +42,9 @@
       },
       "en_layout": {
         "n": 12,
-        "top1": 0.5833,
-        "acceptable": 0.8333,
-        "top3": 0.75
+        "top1": 0.6667,
+        "acceptable": 0.9167,
+        "top3": 0.8333
       },
       "egy_typo": {
         "n": 20,
@@ -54,9 +54,9 @@
       },
       "egy": {
         "n": 39,
-        "top1": 0.4103,
-        "acceptable": 0.4359,
-        "top3": 0.5385
+        "top1": 0.4615,
+        "acceptable": 0.4872,
+        "top3": 0.5897
       },
       "mixed": {
         "n": 3,
@@ -114,15 +114,15 @@
       },
       "en_layout": {
         "n": 12,
-        "top1": 0.5833,
-        "acceptable": 0.8333,
-        "top3": 0.75
+        "top1": 0.6667,
+        "acceptable": 0.9167,
+        "top3": 0.8333
       },
       "garbled": {
         "n": 12,
-        "top1": 0.5833,
-        "acceptable": 0.8333,
-        "top3": 0.75
+        "top1": 0.6667,
+        "acceptable": 0.9167,
+        "top3": 0.8333
       },
       "egy_typo": {
         "n": 20,
@@ -138,9 +138,9 @@
       },
       "egy": {
         "n": 39,
-        "top1": 0.4103,
-        "acceptable": 0.4359,
-        "top3": 0.5385
+        "top1": 0.4615,
+        "acceptable": 0.4872,
+        "top3": 0.5897
       },
       "motion-design-3d-science": {
         "n": 20,
@@ -162,15 +162,15 @@
       },
       "abstain": {
         "n": 6,
-        "top1": 0.5,
-        "acceptable": 0.5,
-        "top3": 0.5
+        "top1": 1.0,
+        "acceptable": 1.0,
+        "top3": 1.0
       },
       "thinking-meta-outofscope": {
         "n": 20,
-        "top1": 0.3,
-        "acceptable": 0.4,
-        "top3": 0.45
+        "top1": 0.45,
+        "acceptable": 0.55,
+        "top3": 0.6
       }
     }
   },
@@ -185,7 +185,7 @@
     },
     "layout_exact": 12
   },
-  "route_p95_ms": 1.94,
+  "route_p95_ms": 1.824,
   "labeller_agreement": {
     "value": 1.0,
     "source": "frozen-set workflow stats: agreed_directly 160 of 160 (recorded, not re-measured by run_eval)"
