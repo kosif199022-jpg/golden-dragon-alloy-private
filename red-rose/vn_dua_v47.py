@@ -173,8 +173,36 @@ def inspect(path, *, sha=False):
     result["warnings"]=sorted(set(result["warnings"]))
     return result
 
+def evidence_profile(projects, *, verified_hashes):
+    """Summarize independent metadata evidence, never a validated render style."""
+    unique = [p for p in projects if p["status"] == "parsed" and "duplicate_of" not in p]
+    timing = defaultdict(list)
+    groups = Counter()
+    limited = 0
+    for p in unique:
+        evidence = p.get("evidence", {})
+        limited += bool(evidence.get("limited") or p.get("warnings"))
+        groups.update(k for k, v in evidence.get("field_candidates", {}).items() if v)
+        for path, stats in evidence.get("explicit_time_seconds", {}).items():
+            if stats["min"] >= 0:
+                timing[path].append(stats["median"])
+    return {
+        "status": "metadata_candidates_only",
+        "unique_parsed_projects": len(unique) if verified_hashes else None,
+        "content_dedup_verified": verified_hashes,
+        "parsed_nonduplicate_inputs": len(unique),
+        "limited_or_warned_projects": limited,
+        "groups_project_support": dict(groups),
+        "timing_candidates_seconds": {
+            key: {"project_support": len(values), "project_medians": quantiles(values)}
+            for key, values in sorted(timing.items()) if len(values) >= 2 and verified_hashes
+        },
+        "render_verified": False,
+        "automatic_style_promotion": False,
+    }
+
 def batch(paths, *, sha=False):
-    projects=[]; seen=set()
+    projects=[]; seen=set(); hashes={}
     for raw in paths:
         p=Path(raw)
         candidates=sorted(p.glob("*.vn")) if p.is_dir() else [p]
@@ -183,12 +211,30 @@ def batch(paths, *, sha=False):
             key=str(f.resolve())
             if key in seen:continue
             seen.add(key)
-            projects.append(inspect(f,sha=sha))
+            try:
+                # Hash once, before parsing, to avoid repeating metadata work.
+                fingerprint=digest(f) if sha and f.is_file() else None
+                if fingerprint and fingerprint in hashes:
+                    first=hashes[fingerprint]
+                    projects.append({"file":f.name,"bytes":f.stat().st_size,
+                                     "sha256":fingerprint,"status":first["status"],
+                                     "duplicate_of":first["file"]})
+                    continue
+                result=inspect(f)
+                if fingerprint:
+                    result["sha256"]=fingerprint
+                    hashes[fingerprint]=result
+                projects.append(result)
+            except OSError:
+                projects.append({"file":f.name,"status":"unreadable","warnings":["input could not be read"]})
     parsed=sum(p["status"]=="parsed" for p in projects)
+    duplicates=sum("duplicate_of" in p for p in projects)
     return {"ok":bool(projects) and parsed==len(projects),"projects":projects,
-            "counts":{"inputs":len(projects),"metadata_parsed":parsed},
+            "counts":{"inputs":len(projects),"metadata_parsed":parsed,"content_duplicates":duplicates},
+            "profile":evidence_profile(projects,verified_hashes=sha),
             "limitations":["Field candidates are not confirmed track types or rendered visual effects.",
                            "Only explicit time units are converted; raw units must be mapped against a known schema.",
+                           "Use --sha256 to verify independent projects; timing candidates require two independent sources.",
                            "Do not promote styles or claims until real project metadata and rendered reference are verified."]}
 
 def handler(args):

@@ -32,6 +32,25 @@ class VNTests(unittest.TestCase):
             r=vn.batch([p,p])
             self.assertTrue(r["ok"])
             self.assertEqual(r["counts"]["inputs"],1)
+    def test_content_duplicates_do_not_inflate_support(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            a,b,c=[Path(tmp)/name for name in ("a.vn","b.vn","c.vn")]
+            a.write_text('{"durationMs":2000}',encoding="utf-8")
+            b.write_bytes(a.read_bytes())
+            c.write_text('{"durationMs":4000}',encoding="utf-8")
+            r=vn.batch([a,b,c],sha=True)
+            self.assertTrue(r["ok"])
+            self.assertEqual(r["counts"]["content_duplicates"],1)
+            self.assertEqual(r["profile"]["unique_parsed_projects"],2)
+            self.assertEqual(r["profile"]["timing_candidates_seconds"]["$.durationMs"]["project_medians"]["median"],3)
+            self.assertFalse(r["profile"]["automatic_style_promotion"])
+    def test_unhashed_projects_do_not_become_independent_evidence(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            a,b=[Path(tmp)/name for name in ("a.vn","b.vn")]
+            for p in (a,b): p.write_text('{"durationMs":2000}',encoding="utf-8")
+            r=vn.batch([a,b])
+            self.assertIsNone(r["profile"]["unique_parsed_projects"])
+            self.assertEqual(r["profile"]["timing_candidates_seconds"],{})
     def test_invalid_archive_refused(self):
         with tempfile.TemporaryDirectory() as tmp:
             p=Path(tmp)/"sample.vn"
