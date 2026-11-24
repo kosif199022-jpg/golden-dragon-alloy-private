@@ -208,3 +208,6 @@ For substantial or uncertain tasks, use python rose.py mind plan INPUT.json befo
 
 ## V52 SEE native fusion
 Use `python rose.py see route INPUT.json` for Stage-0 method routing and exact numeric/receipt gates; `mind plan` includes the packet. Keep nine packs bounded; treat owner references as guidance, never as proof of live execution. See V52_SEE_GUIDE.md.
+
+## V53 — SEE deterministic execution gates
+Use `see fact-check`, `see graph-impact`, `see contract`, and `see lesson-proposal` with bounded JSON inputs for corresponding tasks. Anchor checks are not semantic proof; graph relationships are not runtime tests; receipt shape is not execution proof; lesson proposals are not accepted memory. See V53_SEE_EXECUTION_GUIDE.md.

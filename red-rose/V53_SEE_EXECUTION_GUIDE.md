@@ -1,0 +1,5 @@
+# V53: SEE native deterministic gates
+Source: installed KOSIF SEE 1.7.6 tools writing_fact_gate.py, graphify_impact_gate.py, ecc_contract_gate.py. The owner-requested fusion preserves the first two source implementations and extracts only receipt/lesson functions from the ECC gate; plugin-specific package audit is deliberately excluded. These are local functions, not remote SEE calls. 
+Commands: python rose.py see fact-check INPUT.json; see graph-impact INPUT.json; see contract INPUT.json; see lesson-proposal INPUT.json.
+Fact-check checks numeric/URL/email/version anchors, not semantic equivalence. Graph-impact uses supplied node-link JSON, not actual graph indexing. Contract validates receipt shape only. Lesson-proposal requires explicit consent, is project-scoped and does not write memory or change code. Existing mind evidence and approval gates remain intact.
+V52 baseline CI run 45430652221: all 13 SEE tests passed, 1483 total, two existing routing failures (freeze mismatch and abstention recall 0.5 < 0.833), five skipped. V53 adds eight test cases. No claim of test success until observed. No MAIN merge while existing regression gates fail.

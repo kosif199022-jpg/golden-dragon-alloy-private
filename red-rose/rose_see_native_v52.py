@@ -100,6 +100,32 @@ def receipt_gate(p):
     return {"ok":bool(s) and len(s)==8 and bool(e),"reported_stage":s[-1] if s else None,"independently_verified":False,
             "note":"Reported state only; actual owner receipts and observed postcondition required."}
 
+def native_gate(action,p):
+    """Data-only operations; no new external authority, network or subprocess."""
+    if action=="fact-check":
+        from rose_see_fact_gate import compare
+        if type(p) is not dict or set(p)!={"before","after"} or any(type(x) is not str or len(x)>500000 for x in p.values()):
+            raise ValueError("bounded before/after strings required")
+        r=compare(p["before"],p["after"])
+        return {"ok":r["status"]=="PASS",**r,"semantic_verification":False}
+    if action=="graph-impact":
+        from rose_see_graph_gate import scan
+        if type(p) is not dict or set(p)!={"graph","path","depth"} or type(p["path"]) is not str or not p["path"].strip() or len(p["path"])>500 or type(p["depth"]) is not int or p["depth"] not in (1,2,3):
+            raise ValueError("graph, path and depth 1..3 required")
+        r=scan(p["graph"],p["path"],p["depth"])
+        return {"ok":r["match_count"]>0,**r,"runtime_verified":False}
+    if action=="contract":
+        from rose_see_contract_gate import validate_receipt
+        r=validate_receipt(p)
+        return {"ok":r["status"]=="success",**r,"independently_verified":False}
+    if action=="lesson-proposal":
+        from rose_see_contract_gate import plan_learning
+        if type(p) is not dict or set(p)!={"record","consent"} or type(p["consent"]) is not bool:
+            raise ValueError("record and explicit consent boolean required")
+        r=plan_learning(p["record"],p["consent"])
+        return {"ok":r["status"]=="success",**r,"saved":False,"applied":False}
+    raise ValueError("unknown native gate")
+
 def handle(a):
     try:
         if a.action=="status":
@@ -108,12 +134,12 @@ def handle(a):
             path=Path(a.params or "")
             if not path.is_file() or path.stat().st_size>1024*1024:raise ValueError("bounded input JSON required")
             p=json.loads(path.read_text(encoding="utf-8-sig"))
-            r=route(**p) if a.action=="route" else reconcile(p) if a.action=="reconcile" else receipt_gate(p)
+            r=route(**p) if a.action=="route" else reconcile(p) if a.action=="reconcile" else receipt_gate(p) if a.action=="receipt" else native_gate(a.action,p)
         print(json.dumps(r,ensure_ascii=False,indent=2));return 1 if r.get("ok") is False else 0
     except (ValueError,TypeError,KeyError,OSError) as e:
         print(json.dumps({"ok":False,"error":str(e)},ensure_ascii=False));return 1
 def register(sub):
     p=sub.add_parser("see",help="native Stage-0 routing, deterministic locks and reported receipt gates")
-    p.add_argument("action",choices=["status","route","reconcile","receipt"])
+    p.add_argument("action",choices=["status","route","reconcile","receipt","fact-check","graph-impact","contract","lesson-proposal"])
     p.add_argument("params",nargs="?")
     p.set_defaults(ext_func=handle)
