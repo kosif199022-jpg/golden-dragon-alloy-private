@@ -201,3 +201,17 @@ voices are for private study; publish only the owner's voice and footage he may 
 
 ## V46 — سرعة التشغيل والإصلاح الذاتي
 Use `python rose_maintenance.py audit` for a lightweight syntax/known-regression check, then `python rose.py maintain benchmark` when measuring readiness. Run `python rose.py maintain repair` to preview a known repair; explicit `--approve-write` permits a tested exact repair only. Unknown issues require agent diagnosis, regression test and PR. See `V46_MAINTENANCE_GUIDE.md`. Do not load attachments or all references for routine jobs; keep Arabic, media and financial quality gates unchanged. No blanket permission to access owner memory or spend money.
+
+
+## V51 adaptive mind
+For substantial or uncertain tasks, use python rose.py mind plan INPUT.json before acting; supply explicit constraints, unknowns, deliverable and evidence criterion. Keep routine tasks fast. Use mind gate for local evidence integrity and mind learn only for approved reproduced correction candidates; no automatic code changes, accepted memory, or model training. Existing approval and independent review gates remain binding. See V51_MIND_GUIDE.md.
+
+## V52 SEE native fusion
+Use `python rose.py see route INPUT.json` for Stage-0 method routing and exact numeric/receipt gates; `mind plan` includes the packet. Keep nine packs bounded; treat owner references as guidance, never as proof of live execution. See V52_SEE_GUIDE.md.
+
+## V53 — SEE deterministic execution gates
+Use `see fact-check`, `see graph-impact`, `see contract`, and `see lesson-proposal` with bounded JSON inputs for corresponding tasks. Anchor checks are not semantic proof; graph relationships are not runtime tests; receipt shape is not execution proof; lesson proposals are not accepted memory. See V53_SEE_EXECUTION_GUIDE.md.
+
+
+## V54 — metacognitive review (native, read-only)
+For L2/L3 work, use the metacognition protocol returned by `mind plan`: generate alternatives, premortem, challenge assumptions, compare scenarios, test small and reassess. Routine L0/L1 stays fast. Run `python rose.py mind review INPUT.json` with alternatives (id, constraints_passed, assumptions, scenarios of id/probability/utility/evidence), optional attempts (id/outcome/evidence), budget (1–10), and min_margin. Each scenario set must sum to 1; utilities range -1 to 1. The score is 70% expected utility plus 30% worst positive-probability outcome. A failed strategy is excluded, close scores or unsupported forecasts require more evidence, and retry budget is finite. This is decision support, not a permission or autonomous execution loop. `python rose.py mind calibrate INPUT.json` measures Brier score and confidence bias from observations (id/prediction/observed boolean/evidence). References and outcomes are supplied, not independently verified. Keep existing evidence, approval, and reviewed learning gates. No new dependencies, no model training. Test with `python -m unittest test_metacognition_v54 -v` and full CI before release.

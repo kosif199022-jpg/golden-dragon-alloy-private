@@ -1,0 +1,96 @@
+{
+  "source_sha256": "778e8fd23de6820a1505662374a1112ae1480c120e4c321ab4040ca13e21d85c",
+  "comparison": {
+    "white_eligible_names": 207,
+    "shared_names": 207,
+    "white_only_names": [],
+    "note": "Function-name comparison only; not semantic equivalence. Golden inventory filters nested names."
+  },
+  "structural_evidence": {
+    "Session.compare": {
+      "line": 1416,
+      "structural_refs": [
+        "Thread",
+        "append",
+        "emit",
+        "get",
+        "join",
+        "time"
+      ]
+    },
+    "Session.drain_queue": {
+      "line": 1323,
+      "structural_refs": [
+        "emit"
+      ]
+    },
+    "Session.queue_message": {
+      "line": 1312,
+      "structural_refs": [
+        "append",
+        "emit"
+      ]
+    },
+    "Session.collect_outputs": {
+      "line": 1218,
+      "structural_refs": [
+        "append",
+        "emit",
+        "get",
+        "is_file"
+      ]
+    },
+    "Session.inside_workdir": {
+      "line": 1203,
+      "structural_refs": [
+        "resolve"
+      ]
+    },
+    "repair_tool_pairs": {
+      "line": 919,
+      "structural_refs": [
+        "get"
+      ]
+    },
+    "Session.delegate": {
+      "line": 2065,
+      "structural_refs": [
+        "ThreadPoolExecutor",
+        "append",
+        "get",
+        "join"
+      ]
+    },
+    "Api._stop_session": {
+      "line": 3774,
+      "structural_refs": [
+        "get"
+      ]
+    },
+    "Session.run_helper": {
+      "line": 2081,
+      "structural_refs": [
+        "append",
+        "emit",
+        "get",
+        "join",
+        "time"
+      ]
+    }
+  },
+  "scope": "Clean native implementations inspired by static evidence, not copied White Bird bytecode or proof of behavioral equivalence.",
+  "implemented": [
+    "persistent bounded queue",
+    "transactional single claim",
+    "expired lease recovery",
+    "stale worker fencing",
+    "workspace output hash",
+    "tool call/result pair validation",
+    "caller-scored comparison"
+  ],
+  "limitations": [
+    "Five pure operations allowlisted; no background worker, external model calls, live agents, network or device access.",
+    "Recovery is explicit; retries only expired claims, maximum three attempts.",
+    "Output hashes verify bytes, not semantic or visual quality."
+  ]
+}

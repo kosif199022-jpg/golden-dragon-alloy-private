@@ -1,0 +1,622 @@
+{
+  "schema": 1,
+  "source_binary_sha256": "1a8bc5b224299ed80bb73d1f78ae32b9077164e0e9bdcde5b4e67352303e1f8c",
+  "source_bytes": 145030781,
+  "source_format": "PE64 / PyInstaller / Python 3.12",
+  "counts": {
+    "knowledge_units": 1101,
+    "library_items": 154,
+    "recipes": 42,
+    "thinking_tools": 44,
+    "lessons": 65,
+    "routes": 39,
+    "studio_programs": 10,
+    "app_code_objects": 365,
+    "bundled_python_modules": 23268
+  },
+  "library_readiness": {
+    "reference-only": 45,
+    "needs-build": 37,
+    "ready-offline": 14,
+    "needs-install": 50,
+    "needs-unpack": 8
+  },
+  "library_groups": {
+    "motion": 99,
+    "graphics": 1,
+    "zip": 47,
+    "program": 7
+  },
+  "unit_types": {
+    "skill": 546,
+    "tool": 24,
+    "engine": 15,
+    "studio": 10,
+    "lib": 154,
+    "program": 32,
+    "re": 34,
+    "mcp": 7,
+    "playbook": 38,
+    "cmd": 29,
+    "power": 212
+  },
+  "recipes": [
+    {
+      "id": "reel-footage-song",
+      "title_ar": "ريل أو فيلم من فوتيج وأغنية",
+      "step_count": 5,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "اقيس الخامات واختار الأحسن",
+        "اعرف إيقاع الأغنية وحدد نقط القطع على البيت",
+        "ركّب المونتاج بمحرك التنين (سينما الفوتيج: modules/cinema)",
+        "لون وأسلوب من ريل مرجعي لو موجود",
+        "تحقق نهائي بالأرقام وبالعين"
+      ]
+    },
+    {
+      "id": "talking-head-reel",
+      "title_ar": "ريل كلام لشخص قدام الكاميرا",
+      "step_count": 5,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "arabic-captions",
+      "title_ar": "كابشن أو ترجمة عربي محروقة على الفيديو",
+      "step_count": 4,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "فرّغ الكلام بتوقيت الكلمة",
+        "اربط السكريبت بالكلام لو فيه سكريبت",
+        "احرق الكابشن صح",
+        "تحقق"
+      ]
+    },
+    {
+      "id": "motion-html-film",
+      "title_ar": "فيلم موشن جرافيك بالكود (HTML و HyperFrames)",
+      "step_count": 5,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "قانون الحركة والبريف الأول",
+        "مكتبة جاهزة أوفلاين بدل كود جديد",
+        "ابني المشاهد",
+        "انتقالات بين المشاهد",
+        "رندر ومراجعة ناقد"
+      ]
+    },
+    {
+      "id": "logo-intro",
+      "title_ar": "انترو أو أوترو باللوجو",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "blender-3d-shot",
+      "title_ar": "مشهد أو منتج 3D في Blender",
+      "step_count": 5,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "خطة الإنتاج",
+        "موديلينج وخامات",
+        "إضاءة وكاميرا",
+        "الرندر (التقيل على السحابة المجانية)",
+        "مراجعة"
+      ]
+    },
+    {
+      "id": "machine-teardown",
+      "title_ar": "محاكي 3D لماكينة بتشتغل إزاي",
+      "step_count": 3,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "صورة مرجع وقواعد الأسلوب",
+        "ابني الصفحة والعدادات",
+        "فيلم قصير بصوت"
+      ]
+    },
+    {
+      "id": "image-design",
+      "title_ar": "صورة أو بوستر أو هوية بصرية",
+      "step_count": 4,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "3 اتجاهات بصرية مختلفة فعلًا",
+        "التنفيذ",
+        "تشطيب",
+        "تحقق بالعين"
+      ]
+    },
+    {
+      "id": "cartoon-look",
+      "title_ar": "تحويل فيديو أو صورة لكارتون أو أنمي",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "voice-over",
+      "title_ar": "تعليق صوتي أو تحويل نص لصوت",
+      "step_count": 3,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "ولّد الصوت",
+        "نضافة وتوحيد المستوى",
+        "توقيت الكلمات للمونتاج"
+      ]
+    },
+    {
+      "id": "song-music",
+      "title_ar": "أغنية أو موسيقى خلفية",
+      "step_count": 2,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "download-media",
+      "title_ar": "تحميل فيديو أو ملف",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "reverse-engineer",
+      "title_ar": "تحليل أو هندسة عكسية لملف أو برنامج",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "reverse-android",
+      "title_ar": "تحليل تطبيق أندرويد APK",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "web-app",
+      "title_ar": "موقع أو تطبيق ويب",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "instagram",
+      "title_ar": "محتوى إنستجرام",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "youtube",
+      "title_ar": "فيديو يوتيوب: سكريبت وعنوان وSEO",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "linkedin",
+      "title_ar": "بوستات لينكدإن",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "business-launch",
+      "title_ar": "فكرة بيزنس من التقييم للإطلاق",
+      "step_count": 5,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "trading",
+      "title_ar": "بحث سهم وخطة صفقة",
+      "step_count": 5,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "debug-code",
+      "title_ar": "باج في كود أو برنامج مش شغال",
+      "step_count": 4,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "اعمل reproduce بأمر واحد",
+        "فرضية واحدة واختبار يكذّبها",
+        "أقل تصليح",
+        "مراجعة واختبار رجوع"
+      ]
+    },
+    {
+      "id": "app-self-develop",
+      "title_ar": "تطوير التطبيق نفسه (التنين الذهبي)",
+      "step_count": 4,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "اقرا المكان الصح في المصنع",
+        "عدّل واكتب اختبار",
+        "ولّد وابني",
+        "قبل ما تقول خلص"
+      ]
+    },
+    {
+      "id": "new-skill",
+      "title_ar": "مهارة Claude جديدة",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "hard-decision",
+      "title_ar": "قرار صعب أو مسألة معقدة",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "office-docs",
+      "title_ar": "مستند أو تقرير أو عرض",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "data-chart",
+      "title_ar": "رسم بياني أو أرقام متحركة",
+      "step_count": 3,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "الرسالة ونوع الرسم",
+        "التحريك",
+        "تحقق"
+      ]
+    },
+    {
+      "id": "math-explainer",
+      "title_ar": "فيديو شرح رياضيات أو فيزياء",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "heavy-cloud",
+      "title_ar": "شغل تقيل على السحابة المجانية",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "pc-browser-control",
+      "title_ar": "التحكم في الجهاز أو كروم",
+      "step_count": 2,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "lip-sync-character",
+      "title_ar": "تحريك شفايف شخصية على صوت",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "social-analytics",
+      "title_ar": "تحليل حساب أو تعليقات أو هاشتاج",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "reconcile-statements",
+      "title_ar": "مطابقة كشوف حسابات وحوالات",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "github-repos",
+      "title_ar": "تحليل مستودعات GitHub وتحويلها لقدرة",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "own-tool-build",
+      "title_ar": "بناء أداة أو برنامج بتاعك (محاكي، مشغّل، أداة)",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "ship-package",
+      "title_ar": "تحزيم وتسليم نسخة",
+      "step_count": 4,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "prompt-writing",
+      "title_ar": "كتابة برومبت أو تعليمات لوكيل",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "deep-research",
+      "title_ar": "بحث عميق بمصادر",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "shadow-theatre-film",
+      "title_ar": "فيلم مسرح ظل بعرايس",
+      "step_count": 3,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "مشهد JSON",
+        "رندر",
+        "تحقق"
+      ]
+    },
+    {
+      "id": "paid-generation",
+      "title_ar": "توليد صور أو فيديو بالذكاء الاصطناعي (مدفوع)",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "status-check",
+      "title_ar": "سؤال عن حالة الشغل أو مكان ملف",
+      "step_count": 2,
+      "status": "catalogued_not_executed"
+    },
+    {
+      "id": "lyrics-film",
+      "title_ar": "فيلم كلمات أغنية أو دعاء أو تلاوة",
+      "step_count": 5,
+      "status": "catalogued_not_executed",
+      "distilled_steps_ar": [
+        "النص من مصدر مش من Whisper",
+        "توقيت الكلمات",
+        "الفيلم (سينما الفوتيج: modules/cinema)",
+        "كابشن عربي صح",
+        "تحقق"
+      ]
+    },
+    {
+      "id": "media-hunt",
+      "title_ar": "صيد خامات ومراجع (فوتيج وصور ومزيكا)",
+      "step_count": 3,
+      "status": "catalogued_not_executed"
+    }
+  ],
+  "thinking_tools": [
+    {
+      "id": "polya-four-phases",
+      "name_ar": "مراحل بوليا الأربعة: افهم، خطّط، نفّذ، راجع"
+    },
+    {
+      "id": "restate-and-unknowns",
+      "name_ar": "أعد صياغة الطلب: المقال، والمقصود، واللي ناقص"
+    },
+    {
+      "id": "constraint-ledger",
+      "name_ar": "سجل القيود والكلمات اللي بتقلب المعنى"
+    },
+    {
+      "id": "ask-or-assume-gate",
+      "name_ar": "بوابة: أسأل ولا أفترض؟"
+    },
+    {
+      "id": "begin-with-the-end",
+      "name_ar": "ابدأ من الآخر: التسليم ودليله، وبعدين أرخص تجربة"
+    },
+    {
+      "id": "first-principles",
+      "name_ar": "المبادئ الأولى: ابني من اللي صحيح أكيد"
+    },
+    {
+      "id": "outside-view",
+      "name_ar": "النظرة من برّه: المعدل الأساسي قبل تفاصيل الحالة"
+    },
+    {
+      "id": "fermi-estimate",
+      "name_ar": "تقدير فيرمي: فكّك الرقم وخمّن قبل ما تحسب"
+    },
+    {
+      "id": "competing-hypotheses",
+      "name_ar": "تحليل الفرضيات المتنافسة (ACH)"
+    },
+    {
+      "id": "falsify-it",
+      "name_ar": "التكذيب: الملاحظة اللي لو ظهرت تهدّ استنتاجك"
+    },
+    {
+      "id": "inversion",
+      "name_ar": "اعكس: إيه اللي يضمن الفشل؟"
+    },
+    {
+      "id": "premortem",
+      "name_ar": "تشريح قبل الفشل (Pre-mortem)"
+    },
+    {
+      "id": "alternatives-before-commit",
+      "name_ar": "ولّد بدائل قبل ما تختار، واختار بمعايير"
+    },
+    {
+      "id": "red-team-council",
+      "name_ar": "الفريق الأحمر ومجلس محامي الشيطان"
+    },
+    {
+      "id": "root-cause-trace",
+      "name_ar": "السبب الجذري: ارجع لورا لحد أول سبب"
+    },
+    {
+      "id": "minimal-repro",
+      "name_ar": "إعادة إنتاج مصغّرة (Minimal Reproducible Example)"
+    },
+    {
+      "id": "verify-api-not-memory",
+      "name_ar": "الـ API والأوامر من المصدر، مش من الذاكرة"
+    },
+    {
+      "id": "independent-verification",
+      "name_ar": "تحقق مستقل: عين غير اللي عملت"
+    },
+    {
+      "id": "feynman-explain-back",
+      "name_ar": "اشرحها ببساطة عشان تتأكد إنك فاهم (Feynman)"
+    },
+    {
+      "id": "calibrate-and-update",
+      "name_ar": "عاير ثقتك وحدّثها بالدليل بس"
+    },
+    {
+      "id": "one-big-idea-first",
+      "name_ar": "النتيجة الأول: فكرة واحدة لقارئ محدد"
+    },
+    {
+      "id": "after-action-review",
+      "name_ar": "مراجعة ما بعد الفعل: كل تصحيح يبقى درس"
+    },
+    {
+      "id": "fast-slow-switch",
+      "name_ar": "السريع والبطيء: اعرف إمتى تبطّأ"
+    },
+    {
+      "id": "question-substitution",
+      "name_ar": "هل جاوبت سؤال أسهل؟"
+    },
+    {
+      "id": "wysiati-gap-list",
+      "name_ar": "اللي مش قدامك: قايمة الناقص"
+    },
+    {
+      "id": "anchor-guard",
+      "name_ar": "حارس المرساة: رقمك قبل رقمهم"
+    },
+    {
+      "id": "regression-check",
+      "name_ar": "الرجوع للمتوسط: النتيجة الشاذة بترجع"
+    },
+    {
+      "id": "reframe-both-ways",
+      "name_ar": "اقلب الإطار: مكسب وخسارة، وصورة واسعة"
+    },
+    {
+      "id": "intuition-validity-test",
+      "name_ar": "امتى تصدّق إحساسك"
+    },
+    {
+      "id": "concept-mapping",
+      "name_ar": "«نقصد إيه بـ…؟»: حلّل المفهوم"
+    },
+    {
+      "id": "concept-from-cases",
+      "name_ar": "من الحالات للفكرة: اعمل مفهوم جديد"
+    },
+    {
+      "id": "connect-seven-ways",
+      "name_ar": "اربط بسبع طرق: التوليف"
+    },
+    {
+      "id": "trigger-question-list",
+      "name_ar": "قايمة الأسئلة المحفّزة: ولّد قبل ما تحكم"
+    },
+    {
+      "id": "structure-the-ideas",
+      "name_ar": "رتّب الأفكار: علاقات المعنى والسبب"
+    },
+    {
+      "id": "analogy-three-questions",
+      "name_ar": "التشبيه بثلاث أسئلة"
+    },
+    {
+      "id": "restructure-four-moves",
+      "name_ar": "اكسر القالب: أربع حركات"
+    },
+    {
+      "id": "good-decision-five",
+      "name_ar": "القرار الكويس: خمس شروط"
+    },
+    {
+      "id": "plausibility-ledger",
+      "name_ar": "دفتر المعقولية: درجة تصديق بالأرقام"
+    },
+    {
+      "id": "story-vs-odds",
+      "name_ar": "القصة ضد الاحتمال: كل تفصيلة بتقلّل"
+    },
+    {
+      "id": "what-if-timeline",
+      "name_ar": "مُحوّل الزمن: لو اتغيّرت حاجة واحدة"
+    },
+    {
+      "id": "scene-staging",
+      "name_ar": "مسرح الخيال: حوّل الفكرة لمشهد"
+    },
+    {
+      "id": "substance-over-form",
+      "name_ar": "الجوهر قبل الشكل"
+    },
+    {
+      "id": "materiality-filter",
+      "name_ar": "فلتر الأهمية النسبية"
+    },
+    {
+      "id": "recognize-then-measure",
+      "name_ar": "اعترف الأول وبعدين قيس"
+    }
+  ],
+  "studio": [
+    {
+      "id": "rhubarb",
+      "name": "Rhubarb Lip Sync"
+    },
+    {
+      "id": "tcomposer",
+      "name": "Tahoma2D tcomposer (headless scene renderer)"
+    },
+    {
+      "id": "tconverter",
+      "name": "Tahoma2D tconverter (level/image converter)"
+    },
+    {
+      "id": "handbrakecli",
+      "name": "HandBrakeCLI"
+    },
+    {
+      "id": "synfig",
+      "name": "Synfig CLI renderer (synfig.exe)"
+    },
+    {
+      "id": "melt",
+      "name": "MLT melt (Shotcut engine CLI)"
+    },
+    {
+      "id": "whisper-cli",
+      "name": "whisper.cpp whisper-cli (bundled with Shotcut)"
+    },
+    {
+      "id": "oiiotool",
+      "name": "OpenImageIO oiiotool (bundled with Gaffer)"
+    },
+    {
+      "id": "gaffer-mcp",
+      "name": "Gaffer 'mcp' app (MCP stdio server)"
+    },
+    {
+      "id": "pencil2d",
+      "name": "Pencil2D"
+    }
+  ],
+  "lesson_domains": {
+    "consent": 1,
+    "money": 1,
+    "publish": 1,
+    "git": 2,
+    "report": 5,
+    "owner": 2,
+    "input": 2,
+    "memory": 1,
+    "agents": 2,
+    "video": 9,
+    "audio": 3,
+    "design": 1,
+    "people": 1,
+    "3d": 3,
+    "tools": 2,
+    "pc": 2,
+    "app-dev": 8,
+    "computer-use": 1,
+    "shipping": 3,
+    "meta": 1,
+    "privacy": 2,
+    "test": 4,
+    "windows": 3,
+    "security": 2,
+    "re": 2,
+    "cloud": 1
+  },
+  "notes": [
+    "Static evidence only; bundled modules are not unique capabilities.",
+    "No account data, memory database, credentials, raw bytecode, or executable copied.",
+    "No external code is executed from the target. The app was not started."
+  ]
+}

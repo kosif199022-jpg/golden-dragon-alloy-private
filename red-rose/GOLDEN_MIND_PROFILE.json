@@ -1,0 +1,1021 @@
+{
+  "source_sha256": "1a8bc5b224299ed80bb73d1f78ae32b9077164e0e9bdcde5b4e67352303e1f8c",
+  "resource_sha256": "263d6cc1d969194122171a3e997799d87dc3f5e1ed038e4bca033eeba3b1beb8",
+  "protocol_ar": [
+    "① افهم وصنّف: حدّد العمق (L0 معلومة أو أمر واضح = ① و⑧ بس، L1 = ①②③⑥⑧، L2–L3 = الكل)، ولخّص الطلب بكلامك بمجهوله وشروطه وقيوده — restate-and-unknowns، constraint-ledger، polya-four-phases · من الكتب: concept-mapping، question-substitution، fast-slow-switch",
+    "② أسأل ولا أفترض: لو الخطر 6 أو أكتر سؤال واحد باختيارات و⭐، غير كده افتراض معلن في أول الرد — ask-or-assume-gate",
+    "③ ابدأ من الآخر: اكتب سطر التسليم ومعيار «صح»، وارجع لورا لحد أول خطوة — begin-with-the-end",
+    "④ ارجع خطوة لورا: المعدل الأساسي والمبادئ الأولى قبل التفاصيل، وأي رقم بفيرمي وكود — outside-view، first-principles، fermi-estimate · من الكتب: plausibility-ledger، anchor-guard، regression-check",
+    "⑤ ولّد قبل ما تختار: 2–4 طرق أو تفسيرات مختلفة فعلًا، والدليل اللي يفرّق بينهم — alternatives-before-commit، competing-hypotheses · من الكتب: trigger-question-list، connect-seven-ways، analogy-three-questions، restructure-four-moves، what-if-timeline، scene-staging، concept-from-cases",
+    "⑥ نفّذ صغير ومتأرّض: عيّنة رخيصة الأول، كل API وأمر من المصدر، والباج: إعادة إنتاج مصغّرة ثم سبب جذري — begin-with-the-end، verify-api-not-memory، minimal-repro، root-cause-trace · من الكتب: structure-the-ideas، materiality-filter، recognize-then-measure",
+    "⑦ اكسر حلّك: تشريح قبل الفشل، اعكس، دوّر على الملاحظة اللي تهدّه، وناقد مستقل للحاجات الغالية (L2+) — premortem، inversion، falsify-it، red-team-council · من الكتب: wysiati-gap-list، story-vs-odds، substance-over-form، reframe-both-ways، intuition-validity-test، good-decision-five",
+    "⑧ اتحقق وسلّم واتعلم: فحص بطريقة تانية، اشرحه ببساطة، النتيجة أول سطر مع اتقاس/استنتاج/افتراض، وأي تصحيح يبقى درس — independent-verification، feynman-explain-back، calibrate-and-update، one-big-idea-first، after-action-review"
+  ],
+  "methods": [
+    {
+      "id": "polya-four-phases",
+      "name_ar": "مراحل بوليا الأربعة: افهم، خطّط، نفّذ، راجع",
+      "use_when": [
+        "understand",
+        "plan",
+        "analyze",
+        "debug",
+        "estimate"
+      ],
+      "trigger_words": [
+        "حل",
+        "مسألة",
+        "إزاي أعمل",
+        "خطوة خطوة",
+        "اتزنقت",
+        "مش عارف أبدأ منين",
+        "لغز",
+        "solve",
+        "problem",
+        "step by step",
+        "stuck",
+        "puzzle"
+      ],
+      "check_ar": "هل المجهول والشروط اتكتبوا قبل الحل، والناتج اترجّع عليهم في الآخر؟"
+    },
+    {
+      "id": "restate-and-unknowns",
+      "name_ar": "أعد صياغة الطلب: المقال، والمقصود، واللي ناقص",
+      "use_when": [
+        "understand",
+        "plan"
+      ],
+      "trigger_words": [
+        "مش واضح",
+        "قصدي",
+        "يعني",
+        "زي ما قلتلك",
+        "حاجة كده",
+        "ظبطلي",
+        "طوّر",
+        "شوف ده",
+        "I mean",
+        "something like",
+        "unclear",
+        "vague"
+      ],
+      "check_ar": "تقدر تكتب الطلب في جملة من غير كلماته، وتشاور على كل تخمين فيها؟"
+    },
+    {
+      "id": "constraint-ledger",
+      "name_ar": "سجل القيود والكلمات اللي بتقلب المعنى",
+      "use_when": [
+        "understand",
+        "review",
+        "create"
+      ],
+      "trigger_words": [
+        "بالظبط",
+        "نفس",
+        "لازم",
+        "ممنوع",
+        "من غير",
+        "على الأقل",
+        "بس",
+        "إلا",
+        "exactly",
+        "must",
+        "only",
+        "without"
+      ],
+      "check_ar": "هل كل بند في القايمة عليه ✓ في الناتج، ومفيش كلمة اتفهمت حرفيًا وهي مجاز (أو العكس)؟"
+    },
+    {
+      "id": "ask-or-assume-gate",
+      "name_ar": "بوابة: أسأل ولا أفترض؟",
+      "use_when": [
+        "understand",
+        "plan",
+        "communicate"
+      ],
+      "trigger_words": [
+        "اسألني لو مش واضح",
+        "مش متأكد",
+        "اللي تشوفه",
+        "نفّذ",
+        "ناقشني",
+        "ساعدني أفكر",
+        "مش عارف عايز إيه",
+        "ask me",
+        "clarify",
+        "your call",
+        "help me think",
+        "not sure"
+      ],
+      "check_ar": "هل كل سؤال اتسأل كانت إجابته هتغيّر الناتج، وظهرت فعلًا في الناتج بعد ما اتجاوب؟"
+    },
+    {
+      "id": "begin-with-the-end",
+      "name_ar": "ابدأ من الآخر: التسليم ودليله، وبعدين أرخص تجربة",
+      "use_when": [
+        "plan",
+        "create",
+        "understand"
+      ],
+      "trigger_words": [
+        "اعملي",
+        "ابنيلي",
+        "جهّزلي",
+        "عايز ملف",
+        "ريل",
+        "تقرير",
+        "تطبيق",
+        "مشروع",
+        "build",
+        "make",
+        "deliver",
+        "ship"
+      ],
+      "check_ar": "هل سطر التسليم ومعيار «صح» اتكتبوا قبل أول أداة، والعيّنة نجحت قبل الشغل الكامل؟"
+    },
+    {
+      "id": "first-principles",
+      "name_ar": "المبادئ الأولى: ابني من اللي صحيح أكيد",
+      "use_when": [
+        "analyze",
+        "decide",
+        "create",
+        "plan"
+      ],
+      "trigger_words": [
+        "من الأساس",
+        "من الصفر",
+        "ليه لازم كده",
+        "أصل المشكلة",
+        "فكّر من جديد",
+        "مبدأ",
+        "first principles",
+        "from scratch",
+        "fundamentals",
+        "rethink",
+        "why must"
+      ],
+      "check_ar": "هل كل جزء في الحل يتبرر بحقيقة مكتوبة، مش بـ«ده اللي بيتعمل عادة»؟"
+    },
+    {
+      "id": "outside-view",
+      "name_ar": "النظرة من برّه: المعدل الأساسي قبل تفاصيل الحالة",
+      "use_when": [
+        "estimate",
+        "decide",
+        "analyze",
+        "plan"
+      ],
+      "trigger_words": [
+        "هياخد قد إيه",
+        "احتمال",
+        "هينجح؟",
+        "متوقع",
+        "عادة",
+        "نسبة",
+        "كام في المية",
+        "how likely",
+        "chances",
+        "typically",
+        "forecast",
+        "base rate"
+      ],
+      "check_ar": "هل التقدير بدأ من رقم الفئة، أو قال صراحة إنه مش متاح، قبل تفاصيل الحالة؟"
+    },
+    {
+      "id": "fermi-estimate",
+      "name_ar": "تقدير فيرمي: فكّك الرقم وخمّن قبل ما تحسب",
+      "use_when": [
+        "estimate",
+        "analyze",
+        "plan"
+      ],
+      "trigger_words": [
+        "كام",
+        "تقريبًا",
+        "قدّر",
+        "حجم",
+        "هياخد وقت قد إيه",
+        "تكلفة",
+        "مساحة",
+        "estimate",
+        "how many",
+        "how much",
+        "ballpark",
+        "rough"
+      ],
+      "check_ar": "هل الرقم النهائي نطاق مبني على عوامل، ومتقارن بتخمين مبدئي، ووحداته مكتوبة؟"
+    },
+    {
+      "id": "competing-hypotheses",
+      "name_ar": "تحليل الفرضيات المتنافسة (ACH)",
+      "use_when": [
+        "analyze",
+        "debug",
+        "decide",
+        "understand"
+      ],
+      "trigger_words": [
+        "ليه حصل",
+        "السبب",
+        "إيه اللي عمل كده",
+        "تفسير",
+        "غريب",
+        "مش منطقي",
+        "بسبب",
+        "why did",
+        "cause",
+        "explain why",
+        "diagnose"
+      ],
+      "check_ar": "هل الدليل اللي حسم كان بيفرّق بين التفسيرات، ولا كان هيتوافق مع كلهم؟"
+    },
+    {
+      "id": "falsify-it",
+      "name_ar": "التكذيب: الملاحظة اللي لو ظهرت تهدّ استنتاجك",
+      "use_when": [
+        "analyze",
+        "review",
+        "decide",
+        "debug"
+      ],
+      "trigger_words": [
+        "متأكد؟",
+        "أكيد؟",
+        "اثبت",
+        "راجع كلامك",
+        "ده صح؟",
+        "ممكن يكون غلط",
+        "prove",
+        "are you sure",
+        "counterexample",
+        "falsify",
+        "sanity check"
+      ],
+      "check_ar": "هل اتكتبت قبل الحكم ملاحظة محددة كانت هتهدّه، واتدوّر عليها فعلًا؟"
+    },
+    {
+      "id": "inversion",
+      "name_ar": "اعكس: إيه اللي يضمن الفشل؟",
+      "use_when": [
+        "plan",
+        "decide",
+        "create",
+        "review"
+      ],
+      "trigger_words": [
+        "إزاي منفشلش",
+        "إيه اللي ممكن يبوّظ",
+        "أتجنب إيه",
+        "غلطات",
+        "ماعملش إيه",
+        "عكس",
+        "avoid",
+        "what not to do",
+        "pitfalls",
+        "invert"
+      ],
+      "check_ar": "فيه قايمة «ماتعملش» مكتوبة، والحل اتراجع عليها بند بند؟"
+    },
+    {
+      "id": "premortem",
+      "name_ar": "تشريح قبل الفشل (Pre-mortem)",
+      "use_when": [
+        "plan",
+        "decide",
+        "create",
+        "review"
+      ],
+      "trigger_words": [
+        "خطة",
+        "هنطلق",
+        "قبل ما نبدأ",
+        "مخاطر",
+        "ممكن يفشل",
+        "ماتغلطش",
+        "تسليم نهائي",
+        "risk",
+        "launch",
+        "what could go wrong",
+        "before we start"
+      ],
+      "check_ar": "هل كل سبب فشل متوقع ليه فحص أو احتياط باسم خطوة في الخطة؟"
+    },
+    {
+      "id": "alternatives-before-commit",
+      "name_ar": "ولّد بدائل قبل ما تختار، واختار بمعايير",
+      "use_when": [
+        "decide",
+        "create",
+        "plan"
+      ],
+      "trigger_words": [
+        "أختار",
+        "أنهي أحسن",
+        "ولا",
+        "قارن",
+        "بدائل",
+        "أفكار",
+        "اقترح",
+        "قرار",
+        "which",
+        "compare",
+        "options",
+        "should I"
+      ],
+      "check_ar": "هل البدائل مختلفة فعلًا مش نسخ من فكرة واحدة، والاختيار متبرر بمعايير مكتوبة؟"
+    },
+    {
+      "id": "red-team-council",
+      "name_ar": "الفريق الأحمر ومجلس محامي الشيطان",
+      "use_when": [
+        "review",
+        "decide",
+        "create",
+        "analyze"
+      ],
+      "trigger_words": [
+        "مجلس خبراء",
+        "محامي الشيطان",
+        "انقد",
+        "قيّم",
+        "رأي الخبراء",
+        "اعترض عليا",
+        "red team",
+        "devil's advocate",
+        "critique",
+        "poke holes",
+        "second opinion"
+      ],
+      "check_ar": "هل النقد جه من حد ماشافش استنتاجك، ولو الكل اتفق من أول جولة اتطلب هجوم أقوى؟"
+    },
+    {
+      "id": "root-cause-trace",
+      "name_ar": "السبب الجذري: ارجع لورا لحد أول سبب",
+      "use_when": [
+        "debug",
+        "analyze"
+      ],
+      "trigger_words": [
+        "مش شغال",
+        "باج",
+        "خطأ",
+        "بيضرب",
+        "وقف فجأة",
+        "اتكسر",
+        "error",
+        "crash",
+        "bug",
+        "failing",
+        "broken",
+        "exception"
+      ],
+      "check_ar": "تقدر تشاور على السطر أو القيمة اللي بدأت المشكلة، وتشرح ليه التصليح هناك مش عند العَرَض؟"
+    },
+    {
+      "id": "minimal-repro",
+      "name_ar": "إعادة إنتاج مصغّرة (Minimal Reproducible Example)",
+      "use_when": [
+        "debug",
+        "review",
+        "analyze"
+      ],
+      "trigger_words": [
+        "بيحصل ساعات",
+        "مش بيتكرر",
+        "عندي بس",
+        "اختبار",
+        "جرّب كده",
+        "reproduce",
+        "repro",
+        "flaky",
+        "intermittent",
+        "test case",
+        "minimal example"
+      ],
+      "check_ar": "فيه أمر أو ملف صغير بيطلّع المشكلة كل مرة، وبقى بيعدّي بعد التصليح بس؟"
+    },
+    {
+      "id": "verify-api-not-memory",
+      "name_ar": "الـ API والأوامر من المصدر، مش من الذاكرة",
+      "use_when": [
+        "debug",
+        "create",
+        "review",
+        "analyze"
+      ],
+      "trigger_words": [
+        "كود",
+        "مكتبة",
+        "أمر",
+        "فلاج",
+        "إصدار",
+        "سكربت",
+        "API",
+        "import",
+        "function",
+        "version",
+        "flag",
+        "CLI"
+      ],
+      "check_ar": "هل كل دالة وخيار في الكود ليهم دليل وجود في الإصدار المتثبت، أو عليهم علامة شك واضحة؟"
+    },
+    {
+      "id": "independent-verification",
+      "name_ar": "تحقق مستقل: عين غير اللي عملت",
+      "use_when": [
+        "review",
+        "debug",
+        "analyze",
+        "estimate"
+      ],
+      "trigger_words": [
+        "اتأكد",
+        "شغّال؟",
+        "خلصت؟",
+        "افحص",
+        "قيس",
+        "تمام؟",
+        "جرّبته؟",
+        "verify",
+        "check",
+        "test",
+        "confirm",
+        "does it work"
+      ],
+      "check_ar": "هل فيه فحص واحد على الأقل اتعمل بأداة أو طريقة غير اللي طلّعت الناتج؟"
+    },
+    {
+      "id": "feynman-explain-back",
+      "name_ar": "اشرحها ببساطة عشان تتأكد إنك فاهم (Feynman)",
+      "use_when": [
+        "learn",
+        "understand",
+        "review",
+        "communicate"
+      ],
+      "trigger_words": [
+        "اشرحلي",
+        "فهّمني",
+        "ببساطة",
+        "يعني إيه",
+        "إزاي بيشتغل",
+        "علّمني",
+        "explain",
+        "ELI5",
+        "how does it work",
+        "teach me",
+        "in simple terms"
+      ],
+      "check_ar": "تقدر تشرحها من الذاكرة لحد مش متخصص، وتقول إمتى ماتنفعش؟"
+    },
+    {
+      "id": "calibrate-and-update",
+      "name_ar": "عاير ثقتك وحدّثها بالدليل بس",
+      "use_when": [
+        "estimate",
+        "analyze",
+        "decide",
+        "communicate",
+        "review"
+      ],
+      "trigger_words": [
+        "متأكد قد إيه",
+        "احتمال",
+        "توقعك",
+        "رأيك",
+        "إنت غلطان",
+        "لأ مش كده",
+        "how sure",
+        "confidence",
+        "probability",
+        "you're wrong",
+        "update"
+      ],
+      "check_ar": "هل كل جملة مهمة في الرد واضح هي اتقاست ولا اتستنتجت ولا اتفترضت؟"
+    },
+    {
+      "id": "one-big-idea-first",
+      "name_ar": "النتيجة الأول: فكرة واحدة لقارئ محدد",
+      "use_when": [
+        "communicate",
+        "create",
+        "review"
+      ],
+      "trigger_words": [
+        "لخّص",
+        "اكتب",
+        "تقرير",
+        "اعرض",
+        "قدّم",
+        "رسمة",
+        "شرايح",
+        "summary",
+        "report",
+        "present",
+        "chart",
+        "slides"
+      ],
+      "check_ar": "لو القارئ قرا أول سطر بس، هيعرف النتيجة والخطوة الجاية؟"
+    },
+    {
+      "id": "after-action-review",
+      "name_ar": "مراجعة ما بعد الفعل: كل تصحيح يبقى درس",
+      "use_when": [
+        "learn",
+        "review"
+      ],
+      "trigger_words": [
+        "اتعلم من غلطك",
+        "ماتكررش",
+        "سجّل الدرس",
+        "قلتلك قبل كده",
+        "غلط تاني",
+        "مش كده",
+        "learn from",
+        "don't repeat",
+        "lesson",
+        "mistake again"
+      ],
+      "check_ar": "آخر تصحيح من صاحب الشغل بقى قاعدة مكتوبة هتظهر لوحدها في المهمة الجاية الشبيهة؟"
+    },
+    {
+      "id": "fast-slow-switch",
+      "name_ar": "السريع والبطيء: اعرف إمتى تبطّأ",
+      "use_when": [
+        "understand",
+        "decide",
+        "review"
+      ],
+      "trigger_words": [
+        "بسرعه",
+        "على طول",
+        "حاسس",
+        "بديهي",
+        "واضح",
+        "ركز",
+        "intuition",
+        "gut",
+        "quick answer",
+        "obvious"
+      ],
+      "check_ar": "لو فيه أرقام أو مخاطرة، هل الإجابة اتحسبت خطوة بخطوة مش اتحسّت؟"
+    },
+    {
+      "id": "question-substitution",
+      "name_ar": "هل جاوبت سؤال أسهل؟",
+      "use_when": [
+        "understand",
+        "analyze",
+        "decide",
+        "review"
+      ],
+      "trigger_words": [
+        "هل ينفع",
+        "هينجح",
+        "يستاهل",
+        "رأيك",
+        "تقييم",
+        "is it worth",
+        "will it work",
+        "evaluate"
+      ],
+      "check_ar": "إجابتك بتجاوب السؤال الأصلي نفسه، ولا سؤال أسهل شبهه؟"
+    },
+    {
+      "id": "wysiati-gap-list",
+      "name_ar": "اللي مش قدامك: قايمة الناقص",
+      "use_when": [
+        "analyze",
+        "learn",
+        "review",
+        "understand"
+      ],
+      "trigger_words": [
+        "متاكد",
+        "واضح جدا",
+        "اكيد",
+        "القصه",
+        "استنتج",
+        "obviously",
+        "clearly",
+        "story",
+        "conclude"
+      ],
+      "check_ar": "اتكتب إيه الناقص اللي ممكن يقلب الاستنتاج، والثقة على قد الدليل؟"
+    },
+    {
+      "id": "anchor-guard",
+      "name_ar": "حارس المرساة: رقمك قبل رقمهم",
+      "use_when": [
+        "estimate",
+        "decide"
+      ],
+      "trigger_words": [
+        "سعر",
+        "تمن",
+        "كام",
+        "تقدير",
+        "ميزانيه",
+        "مده",
+        "price",
+        "estimate",
+        "budget",
+        "how much",
+        "how long"
+      ],
+      "check_ar": "التقدير اتكتب من مصدر مستقل قبل ما يتأثر برقم مقترح؟"
+    },
+    {
+      "id": "regression-check",
+      "name_ar": "الرجوع للمتوسط: النتيجة الشاذة بترجع",
+      "use_when": [
+        "analyze",
+        "estimate",
+        "debug"
+      ],
+      "trigger_words": [
+        "فجاه",
+        "قفز",
+        "وقع",
+        "اتحسن",
+        "ارتفع",
+        "انخفض",
+        "ترند",
+        "spike",
+        "drop",
+        "improved",
+        "trend"
+      ],
+      "check_ar": "التحسن أو التدهور اتفرّق عن الرجوع الطبيعي للمتوسط بمقارنة؟"
+    },
+    {
+      "id": "reframe-both-ways",
+      "name_ar": "اقلب الإطار: مكسب وخسارة، وصورة واسعة",
+      "use_when": [
+        "decide",
+        "plan"
+      ],
+      "trigger_words": [
+        "خساره",
+        "مكسب",
+        "صرفت",
+        "دفعت",
+        "خايف",
+        "مخاطره",
+        "loss",
+        "gain",
+        "sunk cost",
+        "risky"
+      ],
+      "check_ar": "القرار ثابت لما اتصاغ كمكسب وكخسارة، ومن غير التكلفة اللي راحت؟"
+    },
+    {
+      "id": "intuition-validity-test",
+      "name_ar": "امتى تصدّق إحساسك",
+      "use_when": [
+        "decide",
+        "review"
+      ],
+      "trigger_words": [
+        "احساسي",
+        "حاسس",
+        "خبرتي",
+        "متعود",
+        "gut feeling",
+        "experience says",
+        "instinct"
+      ],
+      "check_ar": "الحدس اللي اتبنى عليه القرار عدّى الشروط الثلاثة، ولا اتعامل كفرضية؟"
+    },
+    {
+      "id": "concept-mapping",
+      "name_ar": "«نقصد إيه بـ…؟»: حلّل المفهوم",
+      "use_when": [
+        "understand",
+        "analyze",
+        "learn"
+      ],
+      "trigger_words": [
+        "احترافي",
+        "احسن",
+        "حلو",
+        "قوي",
+        "نجاح",
+        "جوده",
+        "يعني ايه",
+        "professional",
+        "better",
+        "quality",
+        "what does"
+      ],
+      "check_ar": "الكلمة الغامضة في الطلب بقى ليها تعريف تشغيلي بأمثلة؟"
+    },
+    {
+      "id": "concept-from-cases",
+      "name_ar": "من الحالات للفكرة: اعمل مفهوم جديد",
+      "use_when": [
+        "create",
+        "learn",
+        "analyze"
+      ],
+      "trigger_words": [
+        "نمط",
+        "تصنيف",
+        "مشترك",
+        "اجمع",
+        "فئه",
+        "pattern",
+        "category",
+        "classify",
+        "common"
+      ],
+      "check_ar": "المفهوم الجديد ليه اسم وتعريف في جملة واتجرّب على حالة ماكانتش في الأمثلة؟"
+    },
+    {
+      "id": "connect-seven-ways",
+      "name_ar": "اربط بسبع طرق: التوليف",
+      "use_when": [
+        "create",
+        "plan",
+        "analyze"
+      ],
+      "trigger_words": [
+        "دمج",
+        "ادمج",
+        "اربط",
+        "امزج",
+        "فكره جديده",
+        "combine",
+        "merge ideas",
+        "connect",
+        "fusion"
+      ],
+      "check_ar": "الفكرة الجديدة طلعت من وصلة مكتوبة بين حاجتين، واتختبرت مش بس اتقالت؟"
+    },
+    {
+      "id": "trigger-question-list",
+      "name_ar": "قايمة الأسئلة المحفّزة: ولّد قبل ما تحكم",
+      "use_when": [
+        "create",
+        "understand",
+        "plan",
+        "learn"
+      ],
+      "trigger_words": [
+        "افكار",
+        "عصف",
+        "ابتكر",
+        "ابداع",
+        "اقتراحات",
+        "brainstorm",
+        "ideas",
+        "ideate",
+        "suggest"
+      ],
+      "check_ar": "الأفكار اتولّدت من قايمة أسئلة كاملة قبل أي حكم، وفيها سؤال غير معتاد؟"
+    },
+    {
+      "id": "structure-the-ideas",
+      "name_ar": "رتّب الأفكار: علاقات المعنى والسبب",
+      "use_when": [
+        "analyze",
+        "plan",
+        "understand"
+      ],
+      "trigger_words": [
+        "رتب",
+        "نظم",
+        "خريطه",
+        "هيكل",
+        "اسباب",
+        "structure",
+        "organize",
+        "map",
+        "breakdown"
+      ],
+      "check_ar": "فيه خريطة مكتوبة (هرم أو سلسلة أسباب) قبل الاستنتاج؟"
+    },
+    {
+      "id": "analogy-three-questions",
+      "name_ar": "التشبيه بثلاث أسئلة",
+      "use_when": [
+        "create",
+        "analyze",
+        "debug"
+      ],
+      "trigger_words": [
+        "زي",
+        "شبه",
+        "يشبه",
+        "مثل",
+        "في مجال تاني",
+        "analogy",
+        "similar to",
+        "like how",
+        "borrow"
+      ],
+      "check_ar": "التشبيه اتبنى على سبب مشترك واتأكد بدليل، مش بس شكل شبه؟"
+    },
+    {
+      "id": "restructure-four-moves",
+      "name_ar": "اكسر القالب: أربع حركات",
+      "use_when": [
+        "create",
+        "debug",
+        "plan"
+      ],
+      "trigger_words": [
+        "اتزنقت",
+        "مفيش حل",
+        "مش نافع",
+        "جربت كل",
+        "نفس المشكله",
+        "stuck",
+        "nothing works",
+        "tried everything"
+      ],
+      "check_ar": "اتجرّبت على الأقل حركة من الأربعة قبل ما تقول مفيش حل؟"
+    },
+    {
+      "id": "good-decision-five",
+      "name_ar": "القرار الكويس: خمس شروط",
+      "use_when": [
+        "decide",
+        "plan",
+        "review"
+      ],
+      "trigger_words": [
+        "قرار",
+        "اختار",
+        "اقرر",
+        "انهي احسن",
+        "decide",
+        "choose",
+        "which one",
+        "option"
+      ],
+      "check_ar": "القرار عدّى الخمسة: معلومات، واقعية، كل الأهداف، كفاءة، قبول؟"
+    },
+    {
+      "id": "plausibility-ledger",
+      "name_ar": "دفتر المعقولية: درجة تصديق بالأرقام",
+      "use_when": [
+        "analyze",
+        "decide",
+        "estimate",
+        "debug"
+      ],
+      "trigger_words": [
+        "احتمال",
+        "نسبه",
+        "ارجح",
+        "غالبا",
+        "فرصه",
+        "دليل",
+        "probability",
+        "likely",
+        "odds",
+        "chance",
+        "evidence",
+        "bayes"
+      ],
+      "check_ar": "كل فرضية ليها رقم، والأرقام اتحركت بنسبة أرجحية الدليل مش بقوة انطباعه؟"
+    },
+    {
+      "id": "story-vs-odds",
+      "name_ar": "القصة ضد الاحتمال: كل تفصيلة بتقلّل",
+      "use_when": [
+        "analyze",
+        "estimate",
+        "review",
+        "plan"
+      ],
+      "trigger_words": [
+        "لو حصل",
+        "وبعدين",
+        "سيناريو",
+        "خطه",
+        "كل حاجه هتمشي",
+        "scenario",
+        "chain",
+        "if everything",
+        "plan"
+      ],
+      "check_ar": "احتمال السلسلة كلها اتحسب بالضرب، وأضعف حلقة معروفة؟"
+    },
+    {
+      "id": "what-if-timeline",
+      "name_ar": "مُحوّل الزمن: لو اتغيّرت حاجة واحدة",
+      "use_when": [
+        "create",
+        "plan",
+        "decide"
+      ],
+      "trigger_words": [
+        "تخيل",
+        "لو",
+        "ماذا لو",
+        "زمن",
+        "سيناريو",
+        "خيال",
+        "تصور",
+        "what if",
+        "imagine",
+        "alternate",
+        "timeline"
+      ],
+      "check_ar": "التخيل اتبنى على تغيير واحد وتتبّع لـ 3 موجات، وطلع منه حاجة مش متوقعة؟"
+    },
+    {
+      "id": "scene-staging",
+      "name_ar": "مسرح الخيال: حوّل الفكرة لمشهد",
+      "use_when": [
+        "create",
+        "communicate"
+      ],
+      "trigger_words": [
+        "قصه",
+        "مشهد",
+        "سيناريو",
+        "حكايه",
+        "شخصيه",
+        "حوار",
+        "ريل",
+        "story",
+        "scene",
+        "script",
+        "character"
+      ],
+      "check_ar": "المشهد فيه رغبة وعقبة وقلبة، والفكرة ظاهرة في الفعل مش في الشرح؟"
+    },
+    {
+      "id": "substance-over-form",
+      "name_ar": "الجوهر قبل الشكل",
+      "use_when": [
+        "analyze",
+        "review",
+        "understand"
+      ],
+      "trigger_words": [
+        "عقد",
+        "اتفاق",
+        "شكلي",
+        "حقيقه",
+        "فعلا",
+        "مسمى",
+        "contract",
+        "really",
+        "actually",
+        "label"
+      ],
+      "check_ar": "الحكم مبني على اللي حصل فعلًا (مين متحكم وشايل المخاطرة) مش على الاسم؟"
+    },
+    {
+      "id": "materiality-filter",
+      "name_ar": "فلتر الأهمية النسبية",
+      "use_when": [
+        "analyze",
+        "communicate",
+        "review"
+      ],
+      "trigger_words": [
+        "مهم",
+        "تفاصيل",
+        "اولويه",
+        "ركز",
+        "تقرير",
+        "ملخص",
+        "material",
+        "priority",
+        "summary",
+        "report"
+      ],
+      "check_ar": "التقرير بيبدأ باللي يغيّر القرار، والتفاصيل اللي مالهاش أثر اتقصّرت؟"
+    },
+    {
+      "id": "recognize-then-measure",
+      "name_ar": "اعترف الأول وبعدين قيس",
+      "use_when": [
+        "analyze",
+        "estimate",
+        "review"
+      ],
+      "trigger_words": [
+        "احسب",
+        "قيمه",
+        "تكلفه",
+        "اصل",
+        "التزام",
+        "ميزانيه",
+        "measure",
+        "value",
+        "cost",
+        "asset",
+        "liability"
+      ],
+      "check_ar": "اتحسم إن الحاجة تتحسب قبل ما تتقاس، وطريقة القياس وعدم اليقين مكتوبين؟"
+    }
+  ],
+  "scope": "Static protocol metadata, no model weights or execution code copied."
+}

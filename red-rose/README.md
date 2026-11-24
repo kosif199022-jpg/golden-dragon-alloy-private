@@ -1,5 +1,24 @@
 # Red Rose (الوردة الحمراء)
 
+
+## Portable development and download contract (2026-11-25)
+
+The canonical home remains this private GitHub repository and its `red-rose/` directory. A user request to download a specific Red Rose link is a request for that ref, not a request to silently substitute `main`. Follow host connection/authorization requirements. The stable ref is `main`; the active V53 development ref at this checkpoint is `red-rose-golden-native-v49` (PR #59, not a stable release). Recheck the PR state and exact commit before downloading; never overwrite a newer installed copy.
+
+For an explicitly authorized **trial download of the development branch**, using GitHub CLI already authenticated and a fresh destination:
+
+```sh
+gh repo clone kosif199022-jpg/golden-dragon-alloy-private rr-dev -- -c core.longpaths=true --depth 1 --filter=blob:none --no-checkout --branch red-rose-golden-native-v49
+git -C rr-dev sparse-checkout set --no-cone "red-rose/"
+git -C rr-dev checkout red-rose-golden-native-v49
+git -C rr-dev rev-parse HEAD
+python -X utf8 rr-dev/red-rose/rose.py start
+```
+
+For a stable download, substitute `main` for the development branch. For a pinned revision, verify the checked-out SHA against the requested SHA (fetch that revision if shallow history does not include it). Do not run unreviewed source or installers. Read SKILL.md and BOOTSTRAP.md, report missing dependencies, and use a trial database separate from private memory. Installation, external calls, writes and spending still follow existing approvals. These development clone commands are documented, not yet verified on a fresh device in this checkpoint. A private link requires authentication and a runtime; a chat without those cannot run the skill merely by receiving its URL.
+
+Use the existing `check-skill`, `pack`, and `pack-verify` commands where supported to produce and test a portable `red-rose.skill` archive. Before declaring a release portable, test the exact commit from a clean checkout and the extracted package; verify native SEE, mind, Golden and White dispatch and record unavailable optional features. No original KOSIF/Dragon/White Bird plugin or application may be a mandatory runtime dependency. Optional external providers must be explicitly identified and gracefully unavailable when not configured. Do not bundle credentials, owner memory or unlicensed source/media. See AGENTS.md for the development acceptance contract.
+
 ## If you are an AI agent arriving from the link
 
 Red Rose is a private skill for Arabic video and bank-statement work. The skill folder is `red-rose/` in this repository. Do this, in order:
