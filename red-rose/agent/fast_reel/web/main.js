@@ -1,5 +1,5 @@
 // Red Rose fast lane: one engine for measured dua-reel styles. Everything comes from spec.json:
-// {dur, style:'dxh'|'day', handle, sticker_from, header:{day,date,hday,hmonth}, scenes:[{a,b,fin,fout,gain}], lines:[[t,text]]}
+// {dur, style:'dxh'|'day'|'adeiat', handle, sticker_from, header:{day,date,hday,hmonth}, scenes:[{a,b,fin,fout,gain}], lines:[[t,text]]}
 const W = 1080, H = 1920, FPS = 30;
 const cv = document.getElementById('c'), ctx = cv.getContext('2d');
 let S = null, C = null;
@@ -7,6 +7,7 @@ const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const seg = (t, a, b) => clamp((t - a) / (b - a));
 const STY = {
   dxh: { font: 'AmiriB', ref: 'وقضاء الحاجات', w: 498, h: 93, top: 910, cx: 540, maxw: 980 },
+  adeiat: { font: 'AlmaraiXB', ref: 'اللهم في يوم الثلاثاء', w: 458, h: 54, top: 943, cx: 536, maxw: 940 },
   day: { font: 'Sultan', ref: 'اللهم اجعل لنا من كل هم فرجا', w: 699, h: 94, top: 914, cx: 542, maxw: 1000 },
 };
 const cache = new Map();
@@ -16,8 +17,23 @@ function img(src) {
   cache.set(src, p); if (cache.size > 300) cache.delete(cache.keys().next().value);
   return p;
 }
-async function footage(i, t) {
+async function clipFrame(i, t, alpha) {
   const sc = S.scenes[i], cl = C.clips[i];
+  const n = clamp(Math.floor((t - sc.a) * FPS) + 1, 1, cl.frames);
+  const im = await img(`fx/c${String(i).padStart(2, '0')}/${String(n).padStart(4, '0')}.jpg`);
+  if (!im) return;
+  const s = Math.max(W / im.width, H / im.height); ctx.save(); ctx.globalAlpha = alpha;
+  if (sc.gain && sc.gain !== 1) ctx.filter = `brightness(${sc.gain})`;
+  ctx.drawImage(im, (W - im.width * s) / 2, (H - im.height * s) / 2, im.width * s, im.height * s); ctx.restore();
+}
+async function footage(i, t) {
+  const sc = S.scenes[i];
+  // crossfade: scene i fades in over the tail of scene i-1 for sc.xf seconds (clips are cut with spare frames)
+  if (sc.xf && i > 0 && t < sc.a + sc.xf) {
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+    await clipFrame(i - 1, t, 1); await clipFrame(i, t, seg(t, sc.a, sc.a + sc.xf)); return;
+  }
+  const cl = C.clips[i];
   const n = clamp(Math.floor((t - sc.a) * FPS) + 1, 1, cl.frames);
   const im = await img(`fx/c${String(i).padStart(2, '0')}/${String(n).padStart(4, '0')}.jpg`);
   ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
@@ -45,6 +61,7 @@ function ink(text, family, th, cx, top, color, o = {}) {
   ctx.font = `${o.style || ''} ${f.px.toFixed(1)}px ${family}`;
   ctx.translate(cx, 0); ctx.scale(f.sx, 1); ctx.translate(-cx, 0);
   ctx.shadowColor = o.shadow || 'rgba(0,0,0,.75)'; ctx.shadowBlur = o.blur ?? 10; ctx.shadowOffsetY = 2;
+  if (o.outline) { ctx.lineJoin = 'round'; ctx.lineWidth = o.ow || 6; ctx.strokeStyle = o.outline; ctx.strokeText(text, cx, top + f.asc); ctx.shadowColor = 'transparent'; }
   if (o.stroke) { ctx.lineJoin = 'round'; ctx.lineWidth = o.stroke; ctx.strokeStyle = color; ctx.strokeText(text, cx, top + f.asc); }
   ctx.fillStyle = color; ctx.fillText(text, cx, top + f.asc); ctx.restore();
 }
@@ -71,9 +88,70 @@ function sabah(a) {      // «صباح الخير» sticker, measured on the @dx
   ctx.shadowBlur = 4; ctx.lineWidth = 4; heart(492, 476, 36); ctx.stroke(); ctx.lineWidth = 2.5; heart(492, 476, 36); ctx.strokeStyle = '#fff'; ctx.stroke();
   ctx.restore();
 }
-let LINE = null;
-function line(text, a) {
+// ---- style «adeiat»: measured on the @adeiat129 Tuesday reel (720x1280 source, coordinates x1.5) ----
+function goldFill(y0, y1) {
+  const g = ctx.createLinearGradient(0, y0, 0, y1);
+  g.addColorStop(0, '#fff1c1'); g.addColorStop(.45, '#e9c46f'); g.addColorStop(.75, '#c8963a'); g.addColorStop(1, '#f2d98f'); return g;
+}
+function ornament(cx, cy, w, h, flip) {   // gold arabesque medallion (pointed diamond with filigree) beside the Hijri date
+  ctx.save(); ctx.translate(cx, cy); if (flip) ctx.scale(-1, 1);
+  const shape = (k) => { const W2 = w * k / 2, H2 = h * k / 2; ctx.beginPath(); ctx.moveTo(0, -H2);
+    ctx.bezierCurveTo(W2 * .35, -H2 * .55, W2 * 1.05, -H2 * .35, W2, 0); ctx.bezierCurveTo(W2 * 1.05, H2 * .35, W2 * .35, H2 * .55, 0, H2);
+    ctx.bezierCurveTo(-W2 * .35, H2 * .55, -W2 * 1.05, H2 * .35, -W2, 0); ctx.bezierCurveTo(-W2 * 1.05, -H2 * .35, -W2 * .35, -H2 * .55, 0, -H2); ctx.closePath(); };
+  ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 8; shape(1); ctx.fillStyle = 'rgba(30,22,14,.85)'; ctx.fill(); ctx.shadowBlur = 0;
+  const g = goldFill(-h / 2, h / 2); ctx.strokeStyle = g; ctx.fillStyle = g;
+  ctx.lineWidth = 3; shape(1); ctx.stroke(); ctx.lineWidth = 1.4; shape(.8); ctx.stroke();
+  // filigree: four-petal rosette, scrolls and a stem of dots
+  for (let a = 0; a < 4; a++) { ctx.save(); ctx.rotate(a * Math.PI / 2); ctx.beginPath(); ctx.ellipse(0, -w * .16, w * .07, w * .16, 0, 0, Math.PI * 2); ctx.stroke(); ctx.restore(); }
+  ctx.beginPath(); ctx.arc(0, 0, w * .06, 0, Math.PI * 2); ctx.fill();
+  for (const sy of [-1, 1]) {
+    ctx.beginPath(); ctx.moveTo(0, sy * h * .2); ctx.bezierCurveTo(w * .22, sy * h * .22, w * .2, sy * h * .32, w * .05, sy * h * .3); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0, sy * h * .2); ctx.bezierCurveTo(-w * .22, sy * h * .22, -w * .2, sy * h * .32, -w * .05, sy * h * .3); ctx.stroke();
+    for (const d of [.36, .41]) { ctx.beginPath(); ctx.arc(0, sy * h * d, 2, 0, Math.PI * 2); ctx.fill(); }
+  }
+  for (const sx of [-1, 1]) { ctx.beginPath(); ctx.arc(sx * w * .3, 0, 2.2, 0, Math.PI * 2); ctx.fill(); }
+  ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(0, -h / 2 - 12); ctx.lineTo(0, -h / 2); ctx.moveTo(0, h / 2); ctx.lineTo(0, h / 2 + 12); ctx.stroke();
+  ctx.restore();
+}
+function hijriBlock(a) {
+  const h = S.header; if (a <= 0) return;
+  ctx.save(); ctx.globalAlpha = a;
+  ornament(70, 205, 72, 150, false); ornament(578, 205, 72, 150, true);
+  ctx.restore();
+  ink(`${h.hday} ${h.hmonth}`, 'Panorama', 140, 326, 134, goldFill(134, 274), { alpha: a, blur: 10, w: 440, shadow: 'rgba(0,0,0,.8)', outline: 'rgba(60,40,15,.8)', ow: 3 });
+  ink(h.hline || '', 'AmiriB', 40, 330, 282, '#f3ead8', { alpha: a, blur: 6, w: 350 });
+  ink(h.hyear || '', 'AmiriB', 23, 328, 340, '#f3ead8', { alpha: a, blur: 5, w: 80 });
+}
+function dayBlock(a) {
+  const h = S.header; if (a <= 0) return;
+  ink(h.day, 'Panorama', 280, 755, 386, '#ffffff', { alpha: a, blur: 14, w: 350, shadow: 'rgba(0,0,0,.85)', outline: 'rgba(20,14,10,.9)' });
+  ink(h.date, 'TajawalM', 88, 730, 682, '#ffffff', { alpha: a, ltr: true, blur: 12, w: 528, shadow: 'rgba(0,0,0,.85)' });
+}
+let RIB = null;
+function ribbon(a) {   // blue brushed band 218..900 x 1065..1133 with hatching; «دعاء يوم ...» in Kufam, white with a navy edge
   if (a <= 0) return;
+  if (!RIB) {
+    RIB = document.createElement('canvas'); RIB.width = 760; RIB.height = 110; const r = RIB.getContext('2d');
+    const x0 = 30, x1 = 712, y0 = 21, y1 = 89;
+    const g = r.createLinearGradient(0, y0, 0, y1); g.addColorStop(0, '#2f7fd0'); g.addColorStop(.5, '#1f6cc0'); g.addColorStop(1, '#2a78c8');
+    r.fillStyle = g; r.beginPath(); r.moveTo(x0 + 20, y0 + 3);
+    for (let x = x0 + 20; x <= x1 - 15; x += 14) r.lineTo(x, y0 + Math.sin(x * .7) * 2.5);
+    r.lineTo(x1, y0 + 12); r.lineTo(x1 + 8, y1 - 18); r.lineTo(x1 - 10, y1);
+    for (let x = x1 - 10; x >= x0; x -= 14) r.lineTo(x, y1 + Math.cos(x * .5) * 2.5);
+    r.lineTo(x0 - 6, y0 + 30); r.closePath(); r.fill();
+    r.globalCompositeOperation = 'source-atop'; r.strokeStyle = 'rgba(10,40,90,.55)'; r.lineWidth = 1.4;
+    for (let x = -100; x < 800; x += 5) { r.beginPath(); r.moveTo(x, y1 + 4); r.lineTo(x + 40, y0 - 4); r.stroke(); }
+    r.strokeStyle = 'rgba(180,215,255,.35)'; for (let x = -98; x < 800; x += 11) { r.beginPath(); r.moveTo(x, y1 + 4); r.lineTo(x + 40, y0 - 4); r.stroke(); }
+    // feathered ends like a dry brush
+    r.globalCompositeOperation = 'destination-out';
+    for (const [xa, xb] of [[0, x0 + 70], [x1 + 20, x1 - 60]]) { const f = r.createLinearGradient(xa, 0, xb, 0); f.addColorStop(0, 'rgba(0,0,0,1)'); f.addColorStop(1, 'rgba(0,0,0,0)'); r.fillStyle = f; r.fillRect(Math.min(xa, xb), 0, Math.abs(xb - xa), 110); }
+  }
+  ctx.save(); ctx.globalAlpha = a; ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 8; ctx.drawImage(RIB, 188, 1044); ctx.restore();
+  ink(S.ribbon || 'دعاء يوم الثلاثاء', 'Kufam', 105, 565, 1036, '#ffffff', { alpha: a, blur: 6, w: 460, style: '400', outline: 'rgba(15,30,60,.95)', ow: 5 });
+}
+let LINE = null;
+function line(text, a, o = {}) {
+  if (a <= 0 && !o.wipe) return;
   const st = STY[S.style];
   if (!LINE) {
     ctx.save(); ctx.direction = 'rtl'; ctx.font = `100px ${st.font}`; const m = ctx.measureText(st.ref); ctx.restore();
@@ -83,7 +161,9 @@ function line(text, a) {
   ctx.save(); ctx.globalAlpha = a; ctx.direction = 'rtl'; ctx.textAlign = 'center';
   ctx.font = `${LINE.px.toFixed(1)}px ${st.font}, 'Noto Color Emoji'`;
   const w = ctx.measureText(text).width * LINE.sx, fk = w > st.maxw ? st.maxw / w : 1;
-  ctx.translate(st.cx, LINE.base); ctx.scale(LINE.sx * fk, fk); ctx.translate(-st.cx, -LINE.base);
+  const z = (o.big || 1) * (o.pop ?? 1), mid = LINE.base - 0.3 * LINE.px;
+  if (o.wipe != null) { const ww = (w * fk * z) + 40, x0 = st.cx - ww / 2; ctx.beginPath(); ctx.rect(x0 + ww * o.wipe, 0, ww, H); ctx.clip(); }
+  ctx.translate(st.cx, mid); ctx.scale(LINE.sx * fk * z, fk * z); ctx.translate(-st.cx, -mid);
   ctx.shadowColor = 'rgba(0,0,0,.7)'; ctx.shadowBlur = 10; ctx.shadowOffsetY = 2; ctx.fillStyle = '#fff';
   ctx.fillText(text, st.cx, LINE.base); ctx.restore();
 }
@@ -99,6 +179,15 @@ window.renderFrame = async function (fr) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
   await footage(i, t);
   if (S.style === 'day') dayHeader(seg(t, 0.05, 0.55));
+  if (S.style === 'adeiat') {
+    hijriBlock(seg(t, 0, 0.4)); dayBlock(seg(t, 0, 0.4)); ribbon(seg(t, 0, 0.4));
+    const L = S.lines; let j = 0; while (j + 1 < L.length && t >= L[j + 1][0] - 0.15) j++;
+    const nxt = j + 1 < L.length ? L[j + 1][0] - 0.15 : S.dur + 1, st0 = j === 0 ? 0 : L[j][0] - 0.15;
+    const big = L[j][2] === 'big' ? 1.75 : 1, ain = seg(t, st0, st0 + 0.3);
+    if (t < nxt - 0.28) line(L[j][1], ain, { big, pop: 0.72 + 0.28 * (1 - Math.pow(1 - ain, 3)) });
+    else line(L[j][1], 1, { big, wipe: seg(t, nxt - 0.28, nxt) });       // old line erased right to left from its end
+    return true;
+  }
   if (S.sticker_from != null) sabah(seg(t, S.sticker_from, S.sticker_from + 0.35));
   const L = S.lines; let j = 0; while (j + 1 < L.length && t >= L[j + 1][0] - 0.1) j++;
   const nxt = j + 1 < L.length ? L[j + 1][0] - 0.1 : S.dur + 1;
@@ -109,6 +198,6 @@ window.renderFrame = async function (fr) {
 (async () => {
   S = await (await fetch('spec.json')).json(); C = await (await fetch('clips.json')).json();
   window.FRAMES = Math.round(S.dur * FPS);
-  await Promise.all(['AmiriB', 'Diwani', 'PlexSerifB', 'PlexSerifI', 'Panorama', 'Sultan'].map(f => document.fonts.load(`80px ${f}`, 'صباح ABC')));
+  await Promise.all(['AmiriB', 'Diwani', 'PlexSerifB', 'PlexSerifI', 'Panorama', 'Sultan', 'AlmaraiXB', 'TajawalM', 'Kufam'].map(f => document.fonts.load(`80px ${f}`, 'صباح ABC')));
   await document.fonts.ready; window.ready = true;
 })();
