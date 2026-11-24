@@ -68,7 +68,9 @@ def plan(p):
     deliverable=p.get("deliverable");done=p.get("done_when")
     if deliverable is not None:deliverable=string(deliverable,"deliverable",500)
     if done is not None:done=string(done,"done_when",500)
-    return {"ok":True,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
+    from rose_see_native_v52 import route as see_route
+    see_packet=see_route(request,mode="deep" if depth>=2 else "normal")
+    return {"ok":True,"see":see_packet,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
             "approvals":approvals,"execution_allowed":False,"requires_review":blocked,
             "decision":"review_required" if blocked else "plan_only",
             "next_question":questions[0] if questions else None,"remaining_high_risk_unknowns":questions[1:],

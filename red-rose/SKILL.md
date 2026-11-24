@@ -205,3 +205,6 @@ Use `python rose_maintenance.py audit` for a lightweight syntax/known-regression
 
 ## V51 adaptive mind
 For substantial or uncertain tasks, use python rose.py mind plan INPUT.json before acting; supply explicit constraints, unknowns, deliverable and evidence criterion. Keep routine tasks fast. Use mind gate for local evidence integrity and mind learn only for approved reproduced correction candidates; no automatic code changes, accepted memory, or model training. Existing approval and independent review gates remain binding. See V51_MIND_GUIDE.md.
+
+## V52 SEE native fusion
+Use `python rose.py see route INPUT.json` for Stage-0 method routing and exact numeric/receipt gates; `mind plan` includes the packet. Keep nine packs bounded; treat owner references as guidance, never as proof of live execution. See V52_SEE_GUIDE.md.
