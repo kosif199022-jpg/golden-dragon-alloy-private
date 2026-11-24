@@ -70,7 +70,8 @@ def plan(p):
     if done is not None:done=string(done,"done_when",500)
     from rose_see_native_v52 import route as see_route
     see_packet=see_route(request,mode="deep" if depth>=2 else "normal")
-    return {"ok":True,"see":see_packet,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
+    from rose_metacognition_v54 import protocol
+    return {"ok":True,"metacognition":protocol(depth),"see":see_packet,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
             "approvals":approvals,"execution_allowed":False,"requires_review":blocked,
             "decision":"review_required" if blocked else "plan_only",
             "next_question":questions[0] if questions else None,"remaining_high_risk_unknowns":questions[1:],
@@ -141,14 +142,18 @@ def handle(a):
             p=Path(a.params or "")
             if not p.is_file() or p.stat().st_size>256*1024:raise ValueError("bounded JSON input required")
             obj=json.loads(p.read_text(encoding="utf-8-sig"))
-            r=plan(obj) if a.action=="plan" else gate(obj) if a.action=="gate" else learn(obj,a.mind_db,a.approve_write)
+            if a.action in ("review","calibrate"):
+                from rose_metacognition_v54 import review, calibration
+                r=review(obj) if a.action=="review" else calibration(obj)
+            else:
+                r=plan(obj) if a.action=="plan" else gate(obj) if a.action=="gate" else learn(obj,a.mind_db,a.approve_write)
         print(json.dumps(r,ensure_ascii=False,indent=2))
         return 3 if r.get("outcome")=="approval_required" else 1 if not r.get("ok") else 0
     except (ValueError,TypeError,KeyError,OSError,sqlite3.Error) as e:
         print(json.dumps({"ok":False,"error":str(e)},ensure_ascii=False));return 1
 def register(sub):
     p=sub.add_parser("mind",help="adaptive planning, evidence gate and reviewed learning")
-    p.add_argument("action",choices=["status","plan","gate","learn","lessons"])
+    p.add_argument("action",choices=["status","plan","gate","learn","lessons","review","calibrate"])
     p.add_argument("params",nargs="?")
     p.add_argument("--mind-db",type=Path,default=DB)
     p.add_argument("--approve-write",action="store_true")
