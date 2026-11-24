@@ -22,7 +22,6 @@ jobs:
     env:
       PYTHONDONTWRITEBYTECODE: '1'
       PYTHONUTF8: '1'
-      RED_ROSE_DB: ${{ runner.temp }}/rose-maintenance.sqlite3
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,6 +34,7 @@ jobs:
         working-directory: red-rose
         shell: bash
         run: |
+          export RED_ROSE_DB="$RUNNER_TEMP/rose-maintenance.sqlite3"
           python rose_maintenance.py audit > "$RUNNER_TEMP/rose-audit.json" || {
             cat "$RUNNER_TEMP/rose-audit.json"
             exit 1
