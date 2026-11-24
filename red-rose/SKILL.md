@@ -189,3 +189,6 @@ hashtags, posting hours and audience. Tools: `agent/reel_analyzer/` (measure any
 `agent/dua_audio/` (voices sorted by day), `agent/lyric_motion/` (scene-per-line song motion).
 Libraries: `rose.py library fetch pins|dxh_pins|dua_audio --approve-write`. Other creators' footage and
 voices are for private study; publish only the owner's voice and footage he may use.
+
+## V46 — سرعة التشغيل والإصلاح الذاتي
+Use `python rose_maintenance.py audit` for a lightweight syntax/known-regression check, then `python rose.py maintain benchmark` when measuring readiness. Run `python rose.py maintain repair` to preview a known repair; explicit `--approve-write` permits a tested exact repair only. Unknown issues require agent diagnosis, regression test and PR. See `V46_MAINTENANCE_GUIDE.md`. Do not load attachments or all references for routine jobs; keep Arabic, media and financial quality gates unchanged. No blanket permission to access owner memory or spend money.

@@ -35,7 +35,12 @@ def verify_video(video, *, expected_fps=None, width=None, height=None, expected_
     if expected_audio is False and audio_streams:raise ValueError('unexpected audio stream')
     subprocess.run(['ffmpeg','-v','error','-xerror','-i',str(p),'-f','null','-'],
                    capture_output=True,text=True,check=True)
-    digest=hashlib.sha256(p.read_bytes()).hexdigest()
+    # Stream large video hashes instead of allocating a second copy in RAM.
+    h = hashlib.sha256()
+    with p.open('rb') as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b''):
+            h.update(block)
+    digest = h.hexdigest()
     return {'passed':True,'codec':v['codec_name'],'fps':fps,'frames':frames,
             'width':v['width'],'height':v['height'],'duration':duration,
             'audio_codec':audio_streams[0]['codec_name'] if audio_streams else None,
