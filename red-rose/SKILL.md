@@ -118,7 +118,7 @@ If a required input is missing, the run exits 6 with outcome `needs_input`, `que
 9. Never ask the owner to retype a request. Decode what he typed.
 10. Never print or save a password, key, cookie, card or bank account number.
 11. Images (generate or edit) are made with ChatGPT in the browser the owner opens for Claude. No other image generator unless he names it. No browser connected: say so and ask him to open it.
-12. Heavy renders (frame rendering, long ffmpeg encodes, Whisper, batch downloads) run on the Higgsfield cloud sandbox, `size: "xl"` (free, 4 CPUs, the owner's choice). Do not ask again. Paid GPU rental still needs his yes. How: `references/CLOUD_RENDER.md` and `agent/cloud_render/render_job.sh`.
+12. **Render locally first** (measured 2026-11-24: this container renders 810 canvas frames in 9.5 s and encodes in 10 s; the same job took 60 s on Higgsfield XL, and 65 of 336 sandbox calls hung for 3 min to 4 h and restarted the session). Use the Higgsfield sandbox only for downloads the local network refuses (TikTok, Instagram and Pinterest CDNs), in one short call, then move the file through the CDN. Do not poll it. Paid GPU rental still needs his yes. Details: `references/SPEED_AUDIT_2026-11-24.md`.
 
 ## 8. Reply contract
 
@@ -154,7 +154,7 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/RECIPES.md` and `references/OPS.md`: the generated catalogue.
 - `references/DEVELOPING.md`: only when you change the code.
 - `agent/fast_reel/README.md`: **copy a dua reel in ~10 minutes (prep → spec → pick → make), measured end to end.**
-- `references/CLOUD_RENDER.md`: **fast rendering on the free Higgsfield XL sandbox (the default for heavy renders).**
+- `references/SPEED_AUDIT_2026-11-24.md`: **where the hours went and the local-first rule.** `references/CLOUD_RENDER.md` is the fallback when the local machine cannot run a job.
 - `references/DUA_REELS_PLAYBOOK.md`: **dua reels, voices, account analysis and song lyric motion: start here.**
 - `references/SOCIAL_FETCH.md`: how to see Instagram, TikTok and Pinterest from the cloud (what worked).
 - `references/STYLE_OAUN.md` and `references/STYLE_DXHMEN.md`: measured style cards of two dua accounts.
