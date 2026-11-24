@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 """Independent Red Rose memory, knowledge ingestion and planning core."""
+# Fast dispatch for native Golden commands only.
+if __name__ == "__main__":
+    import sys as _golden_sys
+    if len(_golden_sys.argv)>1 and _golden_sys.argv[1] in ("golden-native","golden-deep","white-native","mind","see"):
+        import argparse as _golden_argparse
+        import importlib as _golden_importlib
+        _module = _golden_importlib.import_module({"golden-native":"rose_golden_native","golden-deep":"rose_golden_deep","white-native":"rose_white_native","mind":"rose_mind_v51","see":"rose_see_native_v52"}[_golden_sys.argv[1]])
+        if hasattr(_golden_sys.stdout, "reconfigure"):
+            _golden_sys.stdout.reconfigure(encoding="utf-8")
+        _parser = _golden_argparse.ArgumentParser(prog="rose.py")
+        _sub = _parser.add_subparsers(required=True)
+        _module.register(_sub)
+        _args = _parser.parse_args(_golden_sys.argv[1:])
+        raise SystemExit(_module.handle(_args))
+
 import argparse, hashlib, json, os, sqlite3, re, sys
 from contextlib import closing
 from pathlib import Path

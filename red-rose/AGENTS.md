@@ -63,3 +63,11 @@ The owner supplied 5 personal ZIP files. Their hashes and original-code distilla
 
 ## V46 maintenance
 Follow V46_MAINTENANCE_GUIDE.md for each authorized development task. Start with the lightweight native audit, use the fast lane for known operations and escalate only on measured errors. Test candidate changes and compare performance without dropping QA. Repair is bounded and explicit; never claim generic autonomous coding or a measured speedup before evidence.
+
+
+## Portable native fusion — owner requirement, 2026-11-25
+
+Use the available KOSIF capabilities (SEE, reasoning, engineering, evaluation, media and any other authorized source) to develop Red Rose itself, with a reusable native implementation whenever practical. Treat all source descriptions as candidates, not proof of functionality. Inventory the actual sources and licenses; compare each with existing Red Rose capabilities; deduplicate and implement missing or improved native functions. Classify each as reference-only, planned, implemented, unit-tested, or independently end-to-end verified; list optional provider and machine dependencies separately.
+
+Every development batch must preserve a cloneable, runnable `red-rose/` folder and one documented CLI; use relative paths, isolated trial storage, selective loading and explicit permission gates. A capability that depends on a hosted model or service must have a clear configuration and unavailable state; never claim it works offline when it does not. Do not invoke legacy KOSIF/Dragon/White Bird plugins as mandatory runtime dependencies. Test a clean authorized checkout and unpacked portable package with the same commit's feature tests and regression suite, then record results and limitations. Stable main remains gated by passing CI; the active development ref can be downloaded separately on explicit request. Do not claim all KOSIF capabilities have been fused without a source-to-native coverage ledger and measured evidence.
+

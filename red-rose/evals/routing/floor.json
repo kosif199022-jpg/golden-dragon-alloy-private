@@ -1,7 +1,7 @@
 {
-  "top1": 0.362,
-  "top3": 0.562,
-  "abstention_recall": 0.833,
+  "top1": 0.4,
+  "top3": 0.6,
+  "abstention_recall": 1.0,
   "history": [
     {
       "run": 1,
@@ -54,6 +54,15 @@
       "abstention_recall": 0.5,
       "freeze_total_sha256": "63d7adf1fe598e6967369a73ab9768abfaf8fc63d835137122491d50f38ddcb7",
       "note": "after merging PR #37 onto main (#38 intelligence.fusion + #37 reel.motion/mind.audit, catalogue rebuilt to 378 entries): measurement of the merged code, no tuning; results unchanged"
+    },
+    {
+      "run": 8,
+      "split": "test",
+      "top1": 0.4,
+      "top3": 0.6,
+      "abstention_recall": 1.0,
+      "freeze_total_sha256": "ad30cdd9630d577680d3f287eaa3d790fdca637b0013237abde7280a4b68e4b9",
+      "note": "V54 merge: general out-of-scope cues (publishing to platforms, phone calls/complaints, certified translation). Held-out rows were inspected while diagnosing, so this split is no longer fully blind; confirm on fresh hidden requests."
     }
   ],
   "decoder": {
