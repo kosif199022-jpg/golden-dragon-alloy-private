@@ -1,6 +1,8 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-24
+### @alrihanii Wednesday dua «دعاء يريح النفوس», copied to the pixel
+Header (day, date, Hijri, subtitle, hearts) and all 7 lines traced from the original with `agent/mimic` (no library font scored above 0.61 for the line), our library footage (7 shots, fades to black on the measured dips), shadow + gain 0.82 for reading; render 50 s locally.
 ### Restyle of a @youma.design reel («بكبر في معادي») (`agent/restyle`)
 Same footage and sound, burned-in text removed by inpainting, light regraded (teal/warm, bloom, grain), new Ruqaa lettering with gold key words and glint; render 27 s + clean 6.4 min, all local.
 ### Red Rose v47: dragon memory
