@@ -85,3 +85,7 @@ and glow gold while sung, falling petals with bursts on strong lines, cinema bar
 - Plain yt-dlp fails on TikTok: `yt-dlp[default,curl-cffi]` and `--impersonate chrome`.
 - Re-encoding Pinterest clips to 720p did not make them smaller: keep the originals.
 - Downloaded reels of other accounts: keep numbers, frames, transcripts; delete the videos.
+
+## V47 — Learning from the owner's VN prayer projects
+Use `python rose.py vn-dua-analyze <folder-or-vn-file> --sha256` before selecting an owner reference style. This reads ZIP metadata or known JSON/plist, skips media extraction, counts field candidates and reports explicitly labelled time units. It does not infer unlabelled timing units, store prayer text, confirm final visual quality or change a rendering preset.
+Next gate: map real project track schema, identify captions and shots, verify timing on an exported reference video, compare Sunday/Monday/Wednesday separately, then add evidence-backed style entries to presets.json. Preserve the owner's supplied exact words. Do not replace existing measured account styles with unsupported claims.

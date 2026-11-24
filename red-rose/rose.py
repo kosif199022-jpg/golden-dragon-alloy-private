@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
 """Independent Red Rose memory, knowledge ingestion and planning core."""
+# Read-only extension commands can bypass unrelated render imports.
+if __name__ == '__main__':
+    import sys as _sys
+    from rose_fast_cli import dispatch as _fast_dispatch
+    _fast_result = _fast_dispatch(_sys.argv[1:])
+    if _fast_result is not None:
+        raise SystemExit(_fast_result)
+
 import argparse, hashlib, json, os, sqlite3, re, sys
 from contextlib import closing
 from pathlib import Path
