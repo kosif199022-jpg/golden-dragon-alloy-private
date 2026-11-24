@@ -8,6 +8,7 @@ const seg = (t, a, b) => clamp((t - a) / (b - a));
 const STY = {
   dxh: { font: 'AmiriB', ref: 'وقضاء الحاجات', w: 498, h: 93, top: 910, cx: 540, maxw: 980 },
   adeiat: { font: 'AlmaraiXB', ref: 'اللهم في يوم الثلاثاء', w: 458, h: 54, top: 943, cx: 536, maxw: 940 },
+  oaun: { font: 'Sultan', ref: 'اللهم أدم علينا نعمة العطاء', w: 770, h: 62, top: 932, cx: 545, maxw: 1000 },
   day: { font: 'Sultan', ref: 'اللهم اجعل لنا من كل هم فرجا', w: 699, h: 94, top: 914, cx: 542, maxw: 1000 },
 };
 const cache = new Map();
@@ -72,6 +73,15 @@ function dayHeader(a) {   // measured on the @alihadkc2ok reel
   ctx.save(); ctx.globalAlpha = a; ctx.shadowColor = 'rgba(0,0,0,.7)'; ctx.shadowBlur = 6; ctx.fillStyle = '#fff'; ctx.fillRect(574, 614, 421, 5); ctx.restore();
   ink(h.hday, 'AmiriB', 97, 264, 264, '#fb183b', { alpha: a, blur: 8, stroke: 3, w: 101 });
   ink(h.hmonth, 'Diwani', 137, 240, 424, '#15f68d', { alpha: a, blur: 10, stroke: 6, shadow: 'rgba(0,0,0,.85)', w: 356 });
+}
+function oaunHeader(a) {  // measured on the @oaun.11 Wednesday reel (25.11.2026): day right, date on an underline, Hijri left
+  const h = S.header;
+  ink(h.day, 'Panorama', 122, 762, 460, '#ffffff', { alpha: a, blur: 12, w: 325 });
+  ink(h.date, 'PlexSerifB', 46, 760, 615, '#ffffff', { alpha: a, ltr: true, blur: 8, w: 380 });
+  ctx.save(); ctx.globalAlpha = a; ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 5; ctx.fillStyle = '#fff'; ctx.fillRect(565, 688, 390, 4); ctx.restore();
+  ink(h.hday, 'AmiriB', 70, 312, 290, '#35d26a', { alpha: a, blur: 6, outline: 'rgba(20,60,25,.9)', ow: 5, stroke: 2, w: 70 });
+  const g = ctx.createLinearGradient(0, 380, 0, 500); g.addColorStop(0, '#fff3a6'); g.addColorStop(.5, '#f2c935'); g.addColorStop(1, '#d99a17');
+  ink(h.hmonth, 'Diwani', 120, 330, 380, g, { alpha: a, blur: 8, outline: 'rgba(25,110,45,.95)', ow: 6, stroke: 7, w: 360 });
 }
 function heart(x, y, s) {
   ctx.beginPath(); ctx.moveTo(x, y + s * .35);
@@ -170,6 +180,7 @@ function line(text, a, o = {}) {
 function handle(a) {
   ctx.save(); ctx.globalAlpha = a * .9; ctx.direction = 'ltr'; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 4; ctx.fillStyle = '#fff';
   if (S.style === 'dxh') { ctx.font = '600 25px PlexSerifB'; ctx.letterSpacing = '7px'; ctx.fillText((S.handle || '@elkosif').toUpperCase(), 543, 1100); }
+  else if (S.style === 'oaun') { ctx.font = '44px PlexSerifB'; ctx.fillText((S.handle || '@elkosif').toUpperCase(), 540, 1128); }
   else { ctx.font = 'italic 27px PlexSerifI'; ctx.fillStyle = 'rgba(235,235,235,.85)'; ctx.fillText(S.handle || '@elkosif', 540, 1100); }
   ctx.restore();
 }
@@ -179,6 +190,7 @@ window.renderFrame = async function (fr) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
   await footage(i, t);
   if (S.style === 'day') dayHeader(seg(t, 0.05, 0.55));
+  if (S.style === 'oaun') oaunHeader(seg(t, 0.05, 0.55));
   if (S.style === 'adeiat') {
     hijriBlock(seg(t, 0, 0.4)); dayBlock(seg(t, 0, 0.4)); ribbon(seg(t, 0, 0.4));
     const L = S.lines; let j = 0; while (j + 1 < L.length && t >= L[j + 1][0] - 0.15) j++;
@@ -198,6 +210,6 @@ window.renderFrame = async function (fr) {
 (async () => {
   S = await (await fetch('spec.json')).json(); C = await (await fetch('clips.json')).json();
   window.FRAMES = Math.round(S.dur * FPS);
-  await Promise.all(['AmiriB', 'Diwani', 'PlexSerifB', 'PlexSerifI', 'Panorama', 'Sultan', 'AlmaraiXB', 'TajawalM', 'Kufam'].map(f => document.fonts.load(`80px ${f}`, 'صباح ABC')));
-  await document.fonts.ready; window.ready = true;
+  await Promise.allSettled(['AmiriB', 'Diwani', 'PlexSerifB', 'PlexSerifI', 'Panorama', 'Sultan', 'AlmaraiXB', 'TajawalM', 'Kufam'].map(f => document.fonts.load(`80px ${f}`, 'صباح ABC')));   // a missing font must not stop the render
+  await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 5000))]); window.ready = true;
 })();
