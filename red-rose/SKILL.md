@@ -154,6 +154,7 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/RECIPES.md` and `references/OPS.md`: the generated catalogue.
 - `references/DEVELOPING.md`: only when you change the code.
 - `agent/fast_reel/README.md`: **copy a dua reel in ~10 minutes (prep → spec → pick → make), measured end to end.**
+- `agent/mimic/README.md`: **«قلّده بالظبط / بالملي»: measure the reference's text (font by pixel match over ~1,400 fonts, or a traced shape), position, colours, then verify element by element before delivery.**
 - `references/SPEED_AUDIT_2026-11-24.md`: **where the hours went and the local-first rule.** `references/CLOUD_RENDER.md` is the fallback when the local machine cannot run a job.
 - `references/DUA_REELS_PLAYBOOK.md`: **dua reels, voices, account analysis and song lyric motion: start here.**
 - `references/SOCIAL_FETCH.md`: how to see Instagram, TikTok and Pinterest from the cloud (what worked).
