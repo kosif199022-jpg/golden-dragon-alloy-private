@@ -13,6 +13,7 @@ FAST_COMMANDS = {
     "ops": "rose_catalog", "describe": "rose_catalog", "find": "rose_catalog",
     "understand": "rose_agent", "brief": "rose_agent",
     "vn-dua-analyze": "vn_dua_v47",
+    "shot-detail": "rose_shot_detail",
 }
 
 

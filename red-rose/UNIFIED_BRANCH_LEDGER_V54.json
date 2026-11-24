@@ -1,0 +1,397 @@
+{
+  "main": "e4acb3772c2041f9a395fce75f21a6b9105c7995",
+  "branches": [
+    {
+      "name": "",
+      "sha": "e4acb3772c2041f9a395fce75f21a6b9105c7995",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "abu-cap-assets",
+      "sha": "f0966437ef6f2a5ec6012aac5d77c55383a37835",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "claude/exciting-edison-ac4l7a",
+      "sha": "8cc85a0ad6fcd0c7e3c873a9fa4b5fa5cf5cf4b1",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "claude/golden-dragon-warehouse-restaurant-imnzph",
+      "sha": "195c191f9a82de29c1fdd0d301b556586222a399",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "claude/practical-gates-6sokke",
+      "sha": "ff51179645f3b1380c17bab13cdf46285e1bf058",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "claude/thbt-almhara-6hyu1i",
+      "sha": "bab8d953dcb0e8e80277bfc247b07b46c962e953",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "docs/red-rose-agent-handoff-qa-20261121",
+      "sha": "61fd20eb84cab6d5ee6e33bfd0554b8f20acb492",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feat/memory-integrity-audit-20261119",
+      "sha": "a8ca8df0bfa1aa2c01922fb5d6fd8a737121ef56",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "feature/red-rose-unified-skill-20261120",
+      "sha": "ca1f046eab32e619b46487161e9c15b9c965e9a8",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v12-ik-rig-20261121",
+      "sha": "006a793fc0f442e12c16733c24be1942b5e0330c",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v13-identity-audio-20261121",
+      "sha": "cbfcb0b99750a15299647fc2c7a977e8014bb448",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v14-viseme-20261121",
+      "sha": "2966bb8b61dca1de184e1a17f6d7d230039ab552",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v15-execution-engine-20261121",
+      "sha": "678b01726fb05c3305fecbc07daf2b5a2205cdb9",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v16-real-footage-editing-20261121",
+      "sha": "fdf66b4b68fbe106b01210a900503b30284a8aae",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v17-audio-timeline-20261121",
+      "sha": "3e131eedf8a7f2809dea81d86950461d3c39f82f",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v18-qa-traceability-20261121",
+      "sha": "705220f4c73b165f1badf692cf4142b4d3295e87",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v18-shot-quality-20261121",
+      "sha": "a9f1fe760c0ef7f1f1ea48585124a61cd3b2e1e8",
+      "state": "review",
+      "base": "5ce29c33ebf2df0c1ea9b915104f469736fc18d0",
+      "changed": 12,
+      "rose": 12,
+      "disposition": "alternative_native",
+      "reason": "Preserve distinct original Laplacian algorithm as shot_detail_legacy_v19.py plus rose_shot_detail.py; old registration and historical docs superseded."
+    },
+    {
+      "name": "feature/red-rose-v20-five-source-fusion-20261121",
+      "sha": "84fb2481a1def1892147e0082604aa8b2612aa89",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v29-evidence-media-director",
+      "sha": "e28a50424129cf9a38b5b1b165fe69a07d3d01b5",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v30-approved-storyboard-render-20261122",
+      "sha": "f3581197bc5fd8da9cb9bb571b74e9a859289ee5",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v43-abu-cap-super-mind-fusion-20261123",
+      "sha": "d33206a223b6459c8eff7f7189e839755db42a5a",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "feature/red-rose-v43-abu-kab-super-mind-fusion",
+      "sha": "8b43d8fa37380894eb3325d8788e93fa06c5a976",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "feature/red-rose-v44-quality-feedback-20261123",
+      "sha": "67329ea284e1dcb2ae6b084cf194045b3c4023c1",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "feature/video-style-font-integration-20261120",
+      "sha": "44b00a3a557464aa1b317bc5123520dbe72351dc",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "fix/red-rose-v15-windows-utf8-20261121",
+      "sha": "d2ac138bfc74da52d767fcad0729386a3d6f64e8",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "media/dua-audio",
+      "sha": "d57662296cfe0098e4dbdd1a2e2ce4ce83ab0c1f",
+      "state": "review",
+      "base": null,
+      "changed": 2128,
+      "rose": 0,
+      "disposition": "optional_assets",
+      "reason": "Existing library fetch dua_audio; private study only, not automatic checkout."
+    },
+    {
+      "name": "media/dxhmen-pins",
+      "sha": "dd392158ddc0ae6e233ff40d2e686c55a4877440",
+      "state": "review",
+      "base": null,
+      "changed": 155,
+      "rose": 0,
+      "disposition": "optional_assets",
+      "reason": "Existing library fetch dxh_pins; use only authorized media."
+    },
+    {
+      "name": "red-rose-abu-cap-engine",
+      "sha": "82bfdef37aba45b5d4e301e34424a66bcc8a4b57",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-adeiat-style",
+      "sha": "213a82c0dfc317325660b194c11bba61d9100485",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-assets",
+      "sha": "c38cf20180d5f72b59ed15853840e69d9e65b6f8",
+      "state": "review",
+      "base": "f0966437ef6f2a5ec6012aac5d77c55383a37835",
+      "changed": 2,
+      "rose": 2,
+      "disposition": "optional_assets",
+      "reason": "Split Abu Cap RAR assets; retain pinned branch, do not include binaries in code checkout."
+    },
+    {
+      "name": "red-rose-characters",
+      "sha": "e3ddfa7653970dcb345b1e83a4a6257f19c36f9d",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-dragon-memory",
+      "sha": "6306fa2bf4eda0064c0f02ca758d80f4228c4da5",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-golden-native-v49",
+      "sha": "52dc2c04efc9b98de4d0a7073a3b811c7ee4ba82",
+      "state": "review",
+      "base": "6d519335de9196e8d451fbcfbc857cd4ffc6d563",
+      "changed": 29,
+      "rose": 29,
+      "disposition": "merged_here",
+      "reason": "a611f1d; V49-V54"
+    },
+    {
+      "name": "red-rose-mimic",
+      "sha": "9eb059df0e0c4585b007727e005e11093a1a6361",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-oaun-style",
+      "sha": "d5f1944aab680a19c25456e96b23b2a6e508c7af",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-restyle",
+      "sha": "3585b5f84793b3dc390c56e32876bcde9a7023c6",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-rihanii",
+      "sha": "1dd26176c5bd8543a589861c7ce94736385d2f11",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-south-wind-bird",
+      "sha": "6f741c9912617d4afb5d6237bd8ca951f381adf8",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-speed-local",
+      "sha": "4f1511610b7bbbeeaae99c7969ebd86b378e31f1",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-trend-style",
+      "sha": "424a9520b07b965d652dfb64cc30295db8e8ed52",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose-v46-self-maintenance",
+      "sha": "ce13a1996e57de06ab8016d200aa20f014260fcb",
+      "state": "ancestor",
+      "disposition": "ancestor"
+    },
+    {
+      "name": "red-rose-v47-vn-dua-analysis",
+      "sha": "aa0ff7dabcf08840d30d5a9db63e53269c636edd",
+      "state": "review",
+      "base": "1570a24229c5167f4a7d7b87c2ea27eeef005997",
+      "changed": 11,
+      "rose": 11,
+      "disposition": "merged_here",
+      "reason": "776cd05; V47-V48; unified fast CLI"
+    },
+    {
+      "name": "red-rose/v19-shot-quality",
+      "sha": "b26df429a2fc1363cd464d2c32294ecdc255dc92",
+      "state": "review",
+      "base": "5ce29c33ebf2df0c1ea9b915104f469736fc18d0",
+      "changed": 13,
+      "rose": 13,
+      "disposition": "equivalent_engine",
+      "reason": "Exact engine and test blobs match main; historical docs not restored."
+    },
+    {
+      "name": "red-rose/v20-roadmap-1400",
+      "sha": "60a3c11f333686faed076ba8397bf9bceea9fedb",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v29-agent-ready",
+      "sha": "b40ebf1942d4805bc3c27d2e3ad3684df04d8316",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v31-gd-knowledge",
+      "sha": "ef8692806dee9a52152d98c3b750439b9bfdc732",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v32-reel-tools",
+      "sha": "cb0c4fa27222fe993d57a27ff9601d2169cfeff7",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v33-toolbox",
+      "sha": "568042bb793fb1381212283e035c1fbf2aa550cd",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v34-dua-reel",
+      "sha": "d561de1aa518ecb03c93a0657a3149d79ffbe077",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v35-fonts-dua-library",
+      "sha": "619bd00d678c316c6209d349364e72e12159c992",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v36-font-store",
+      "sha": "f603d9e67da911b79788a5b3b220c56ed095092a",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v37-font-use",
+      "sha": "a5fa2f57e344c1be1584147f02167ae50404945e",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v38-font-similar",
+      "sha": "918533d6930d3f0a7a9601b69a92776f4f9fd9a8",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v39-spin-transition",
+      "sha": "d3b97a9af13eca803e6f57ca0a9f84ad5a880b73",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v40-dua-catalogue",
+      "sha": "50b73c4f1c216a3c1349f2bb0c546fd3627772b9",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v41-intent-router",
+      "sha": "e47b0458c1f33a1587c4a1522b3506ed77fae92f",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v42-test-debt",
+      "sha": "9f77728da9fc71045560d89955816a7c76d184e9",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v43-chatgpt",
+      "sha": "79b6fd7f23411c6750de0e1a8121add11d6aecb0",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    },
+    {
+      "name": "red-rose/v44-scrapecreators",
+      "sha": "be22c0f7f8169405ca8c6ec494f11a4a9993c7aa",
+      "state": "merged_pr",
+      "disposition": "merged_pr"
+    }
+  ],
+  "validation": {
+    "targeted_tests": 68,
+    "alternate_tests": 3,
+    "routing_failures": [
+      "freeze hash mismatch",
+      "abstention recall 0.5 below 0.833"
+    ],
+    "main_merge": "blocked",
+    "note": "Historical branch tips may be squash-merged, not git ancestors. Asset branches deliberately remain independent. No claim of every historical file being present."
+  }
+}

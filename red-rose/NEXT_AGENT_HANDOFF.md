@@ -287,3 +287,6 @@ Two uploaded sources were inspected: `ريل أبو كاب.rar` (688 members, 22
 
 ## V46 checkpoint — 2026-11-24
 Branch red-rose-v46-self-maintenance: rose_env.py snapshot, verify_media.py chunked digest, rose_maintenance.py and test_maintenance_v46.py, rose_ext.py registration, V46_MAINTENANCE_GUIDE.md and agent instructions. Run `python rose_maintenance.py audit`, `python -m unittest test_maintenance_v46 test_env_v29 test_verify_media`, then full suite and benchmark. Actual CI and timings pending; no main merge yet. Known auto-repair rule is deliberately limited to legacy whole-file hash allocation.
+
+## Unified V54 checkpoint
+Integrated current main e4acb37, V49-V54 (a611f1d), V47-V48 (776cd05) and alternate shot detail. 68 + 3 targeted tests passed; routing freeze and abstention floor failures remain. Read V54_UNIFIED_GUIDE.md and UNIFIED_BRANCH_LEDGER_V54.json. Inspect current HEAD for exact checkpoint; next action is full regression and a separate routing evaluation repair, not lowering the floor.

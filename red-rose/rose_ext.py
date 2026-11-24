@@ -14,7 +14,7 @@ from __future__ import annotations
 import importlib
 
 EXT_MODULES = ['rose_run', 'rose_catalog', 'rose_env', 'rose_selfcheck', 'rose_fixtures',
-               'rose_agent', 'rose_recipes', 'rose_check', 'rose_pack', 'rose_maintenance', 'rose_golden_deep', 'rose_golden_native', 'rose_white_native', 'rose_mind_v51', 'rose_see_native_v52', 'vn_dua_v47']
+               'rose_agent', 'rose_recipes', 'rose_check', 'rose_pack', 'rose_maintenance', 'rose_golden_deep', 'rose_golden_native', 'rose_white_native', 'rose_mind_v51', 'rose_see_native_v52', 'vn_dua_v47', 'rose_shot_detail']
 
 LAST_LOAD = {'loaded': [], 'failed': [], 'skipped': []}
 
