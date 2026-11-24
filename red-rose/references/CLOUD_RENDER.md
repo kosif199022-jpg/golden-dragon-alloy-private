@@ -35,3 +35,26 @@ ImageMagick, Pillow. pip only with `HOME=/home/user pip install --target /home/u
    + 0.3 s) and run the job again.
 
 The environment's network allowlist needs `upload.higgsfield.ai` and `d2ol7oe51mr4n9.cloudfront.net`.
+
+## Where the hour goes (measured 2026-11-24 on a 59 s dua reel)
+
+| Stage | Time on XL |
+|---|---|
+| Cut 18 clips to frames | 16 s |
+| Render 1,775 frames, 4 workers | 171 s (0.1 s a frame) |
+| Encode, preset slow | 85 s |
+| Encode, preset veryfast (crf 18, same look, 20 % smaller) | 24 s |
+| Download the result | 1 s |
+
+The machine needs about 4 minutes. The same request took 153 minutes end to end: 124 of them were four
+restarts of the Claude cloud session, where nothing ran until the next event arrived. Each restart came right
+after a `sandbox_exec` poll timed out at 60 s.
+
+Rules from this:
+1. Poll with `sleep 30` at most (the tool call itself times out at 60 s; `sleep 55` + overhead times out).
+2. Encode with `-preset veryfast -crf 18` (`render_job.sh` does); keep `slow` only when asked.
+3. Make the job deliver itself: render, encode, upload and build the page parts inside one background job, so a
+   dropped session loses nothing.
+4. Before the full render, render one frame per line and check that every line fits and reads; a fix found
+   after the full render costs a second render.
+5. Always `size: "xl"`; a 1-CPU sandbox is about 4x slower.
