@@ -1,4 +1,8 @@
-# Fast rendering on Higgsfield (the owner's choice, 2026-11-23)
+# Rendering on Higgsfield: fallback only (superseded 2026-11-24)
+
+> Since 2026-11-24 render **locally first**; see `SPEED_AUDIT_2026-11-24.md`. Keep this page for jobs the
+> local machine cannot run, and for downloads the local network refuses.
+
 
 The owner chose: **every heavy render (frames, ffmpeg encodes, Whisper, many downloads) runs on the
 Higgsfield cloud sandbox, size XL** — free, the fastest and strongest free machine we have. Use it by
