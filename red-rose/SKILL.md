@@ -144,6 +144,12 @@ An op that needs the owner's private memory, playbook index or local catalogue i
 
 If no command can run, do not claim that anything was rendered, measured, checked or cut. Give the reply contract and the owner rules only. Say in one Arabic line that commands cannot run in this chat, and name the two ways to get a running copy: Claude Code with the README link, or saving the red-rose.skill file once.
 
+## Dragon memory (Black + Golden Dragon, everything done before)
+- Red Rose holds every Black and Golden Dragon memory and capability: 26,214 fused units (skills, roads, rules, lessons, tools, engines) plus 421 memories (164 past chats, 23 lessons, 7 outcomes, the history books and `references/WORK_LOG.md`).
+- **Whenever the owner names something from before** («زي ما عملنا»، «أبو كاب»، «فيلم لميار»، «مسرح الظل»، «الباليتة»، an old style or app): run `python rose.py dragon "<his words>"` first and build on what it finds. Never treat old work as new or unknown before searching.
+- On a new machine or after the dragon repo changes: `python rose.py dragon-sync` (idempotent, private store `~/.red-rose/memory.sqlite3`; lines that look like secrets are dropped).
+- After finishing real work, add one dated entry to `references/WORK_LOG.md` so the next session remembers it.
+
 ## 12. Where to go next
 
 - `references/USE.md`: each recipe in detail, its inputs, gates and limits.

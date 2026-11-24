@@ -70,6 +70,8 @@ def main(argv=None):
     x=sub.add_parser('fuse-alloy'); x.add_argument('source_db'); x.add_argument('--limit',type=int)
     x=sub.add_parser('fuse-search'); x.add_argument('query'); x.add_argument('--limit',type=int,default=20)
     sub.add_parser('fuse-stats')
+    x=sub.add_parser('dragon-sync',help='import every Black/Golden Dragon memory and capability into Red Rose (idempotent)'); x.add_argument('--root',help='golden-dragon-alloy folder (default: beside red-rose)')
+    x=sub.add_parser('dragon',help='search all dragon memories and capabilities'); x.add_argument('query'); x.add_argument('--limit',type=int,default=12)
     x=sub.add_parser('fuse-gd-knowledge',help='import the Golden Dragon knowledge base (active records only)'); x.add_argument('source',nargs='?',help='golden_dragon.sqlite or golden-dragon-runtime.zip (default: found on this PC)'); x.add_argument('--limit',type=int)
     x=sub.add_parser('speech-sync',help='tie cuts and captions to spoken words: script with @{marks} + word timings'); x.add_argument('script'); x.add_argument('words'); x.add_argument('--out'); x.add_argument('--fps',type=int,default=30); x.add_argument('--approve-write',action='store_true')
     x=sub.add_parser('flat-check',help='find blank/flat frames that blackdetect misses'); x.add_argument('video'); x.add_argument('--step',type=float,default=0.3); x.add_argument('--threshold',type=float,default=25.0)
@@ -317,6 +319,12 @@ def main(argv=None):
         elif args.command=='fuse-alloy': result=import_alloy(db,args.source_db,args.limit)
         elif args.command=='fuse-search': result=find_fused(db,args.query,args.limit)
         elif args.command=='fuse-stats': result=stats_fused(db)
+        elif args.command=='dragon-sync':
+            from dragon_memory_v47 import dragon_sync
+            result=dragon_sync(db,args.root)
+        elif args.command=='dragon':
+            from dragon_memory_v47 import dragon_search
+            result=dragon_search(db,args.query,args.limit)
         elif args.command=='fuse-gd-knowledge':
             from gd_knowledge_v31 import import_gd_knowledge
             result=import_gd_knowledge(db,args.source,args.limit)

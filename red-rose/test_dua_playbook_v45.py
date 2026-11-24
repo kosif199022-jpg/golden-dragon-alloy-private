@@ -43,9 +43,9 @@ if __name__ == '__main__':
 
 
 class CloudRender(unittest.TestCase):
-    def test_cloud_render_is_the_default(self):
+    def test_local_render_is_the_default(self):
         skill = (ROOT / 'SKILL.md').read_text(encoding='utf-8')
-        self.assertIn('Higgsfield cloud sandbox', skill)
+        self.assertIn('Render locally first', skill)
         self.assertIn('CLOUD_RENDER.md', skill)
         doc = (ROOT / 'references' / 'CLOUD_RENDER.md').read_text(encoding='utf-8')
         for word in ('size: "xl"', '15 min', 'render_job.sh', 'media_confirm'):
