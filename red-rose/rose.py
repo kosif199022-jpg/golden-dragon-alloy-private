@@ -3,10 +3,10 @@
 # Fast dispatch for native Golden commands only.
 if __name__ == "__main__":
     import sys as _golden_sys
-    if len(_golden_sys.argv)>1 and _golden_sys.argv[1] in ("golden-native","golden-deep","white-native"):
+    if len(_golden_sys.argv)>1 and _golden_sys.argv[1] in ("golden-native","golden-deep","white-native","mind"):
         import argparse as _golden_argparse
         import importlib as _golden_importlib
-        _module = _golden_importlib.import_module({"golden-native":"rose_golden_native","golden-deep":"rose_golden_deep","white-native":"rose_white_native"}[_golden_sys.argv[1]])
+        _module = _golden_importlib.import_module({"golden-native":"rose_golden_native","golden-deep":"rose_golden_deep","white-native":"rose_white_native","mind":"rose_mind_v51"}[_golden_sys.argv[1]])
         if hasattr(_golden_sys.stdout, "reconfigure"):
             _golden_sys.stdout.reconfigure(encoding="utf-8")
         _parser = _golden_argparse.ArgumentParser(prog="rose.py")
