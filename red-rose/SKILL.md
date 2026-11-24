@@ -160,6 +160,7 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/RECIPES.md` and `references/OPS.md`: the generated catalogue.
 - `references/DEVELOPING.md`: only when you change the code.
 - `agent/fast_reel/README.md`: **copy a dua reel in ~10 minutes (prep → spec → pick → make), measured end to end.**
+- `agent/trend/README.md`: **«ستايل دعاء الترند» / «دعاء الترند»: the owner's trending dua reel as a fixed style; any new dua reel in it changes only the words, date and footage.**
 - `characters/el-ragel-wel-sit/README.md`: **«الراجل والست»: the owner's two recurring characters, their Higgsfield element ids and the tested prompt.**
 - `agent/mimic/README.md`: **«قلّده بالظبط / بالملي»: measure the reference's text (font by pixel match over ~1,400 fonts, or a traced shape), position, colours, then verify element by element before delivery.**
 - `references/SPEED_AUDIT_2026-11-24.md`: **where the hours went and the local-first rule.** `references/CLOUD_RENDER.md` is the fallback when the local machine cannot run a job.

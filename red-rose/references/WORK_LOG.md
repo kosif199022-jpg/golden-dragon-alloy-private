@@ -1,6 +1,8 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-24
+### «ستايل دعاء الترند» saved (`agent/trend`) and used
+The owner's trending Facebook dua reel (151K views, 1.7K shares) turned into a fixed style; a TikTok Tuesday dua (@1qwi_a2) remade in it: 13 lines, 13 library clips, render 34 s locally.
 ### @alrihanii Wednesday dua «دعاء يريح النفوس», copied to the pixel
 Header (day, date, Hijri, subtitle, hearts) and all 7 lines traced from the original with `agent/mimic` (no library font scored above 0.61 for the line), our library footage (7 shots, fades to black on the measured dips), shadow + gain 0.82 for reading; render 50 s locally.
 ### Restyle of a @youma.design reel («بكبر في معادي») (`agent/restyle`)
