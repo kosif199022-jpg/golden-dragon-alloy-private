@@ -228,6 +228,9 @@ window.renderFrame = async function (fr) {
   if (S.style === 'day') dayHeader(seg(t, 0.05, 0.55));
   if (S.style === 'oaun' && !S.noHeader) oaunHeader(seg(t, 0.05, 0.55));
   elements(t);
+  if (S.overlay) {   // text lifted from the reference pixel for pixel (agent/mimic/lift.py render): one RGBA frame per video frame
+    const ov = await img(`ov/f${String(fr + 1).padStart(4, '0')}.png`); if (ov) ctx.drawImage(ov, 0, 0, W, H);
+  }
   if (S.style === 'adeiat') {
     hijriBlock(seg(t, 0, 0.4)); dayBlock(seg(t, 0, 0.4)); ribbon(seg(t, 0, 0.4));
     const L = S.lines; let j = 0; while (j + 1 < L.length && t >= L[j + 1][0] - 0.15) j++;
