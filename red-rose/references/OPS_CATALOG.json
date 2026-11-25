@@ -369,6 +369,15 @@
       "summary": "Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A",
       "write": 0
     },
+    "reel.craft": {
+      "effect": "mixed",
+      "kind": "module",
+      "name_ar": "reel.craft",
+      "op_count": 5,
+      "read": 4,
+      "summary": "Short-reel craft (V56): micro-fable script check with one-dialect guard, light-as-acts story plan with a never-still camera, steady-beat significance gate (no invented BPM), export-standard gate, approved Arabic credit/end card via libass with byte-identical audio and same frame count",
+      "write": 1
+    },
     "reel.motion": {
       "effect": "read",
       "kind": "module",
@@ -578,11 +587,11 @@
     }
   },
   "counts": {
-    "adapters": 64,
-    "entries": 378,
+    "adapters": 65,
+    "entries": 383,
     "flat_adapters": 23,
-    "module_adapters": 41,
-    "module_ops": 355
+    "module_adapters": 42,
+    "module_ops": 360
   },
   "entries": {
     "accounting.check.bank_reconcile": {
@@ -29039,6 +29048,286 @@
       "static_label": "runs_with_defaults",
       "sub_catalogue": null,
       "summary": "Find attributed Red Rose decisions and corresponding native adapters; never invent original Q&A"
+    },
+    "reel.craft.credit_overlay": {
+      "adapter": "reel.craft",
+      "approval": {
+        "needed": true,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "write",
+      "example": null,
+      "example_when_absent": null,
+      "id": "reel.craft.credit_overlay",
+      "keywords": [
+        "craft",
+        "credit",
+        "overlay",
+        "reel"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "reel.craft credit_overlay",
+      "name_en": "credit overlay",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "credit_overlay",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "credit overlay"
+    },
+    "reel.craft.delivery_gate": {
+      "adapter": "reel.craft",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "reel.craft.delivery_gate",
+      "keywords": [
+        "craft",
+        "delivery",
+        "gate",
+        "reel"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "reel.craft delivery_gate",
+      "name_en": "delivery gate",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "delivery_gate",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "delivery gate"
+    },
+    "reel.craft.script_check": {
+      "adapter": "reel.craft",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "reel.craft.script_check",
+      "keywords": [
+        "check",
+        "craft",
+        "reel",
+        "script"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "reel.craft script_check",
+      "name_en": "script check",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "script_check",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "script check"
+    },
+    "reel.craft.story_plan": {
+      "adapter": "reel.craft",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "reel.craft.story_plan",
+      "keywords": [
+        "craft",
+        "plan",
+        "reel",
+        "story"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "reel.craft story_plan",
+      "name_en": "story plan",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "story_plan",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "story plan"
+    },
+    "reel.craft.tempo_steadiness": {
+      "adapter": "reel.craft",
+      "approval": {
+        "needed": false,
+        "read_actions": []
+      },
+      "call_shape": "module",
+      "effect": "read",
+      "example": null,
+      "example_when_absent": null,
+      "id": "reel.craft.tempo_steadiness",
+      "keywords": [
+        "craft",
+        "reel",
+        "steadiness",
+        "tempo"
+      ],
+      "known_broken_reason": null,
+      "name_ar": "reel.craft tempo_steadiness",
+      "name_en": "tempo steadiness",
+      "needs": {
+        "db": false,
+        "files": [],
+        "network": false,
+        "pc_only": false,
+        "programs": [
+          "ffmpeg",
+          "ffprobe"
+        ],
+        "python": [],
+        "work_dir": false
+      },
+      "op": "tempo_steadiness",
+      "params": [
+        {
+          "choices": null,
+          "default": null,
+          "name": "params",
+          "note": null,
+          "range": null,
+          "required": true,
+          "role": null,
+          "slot": null,
+          "type": "auto"
+        }
+      ],
+      "result": {
+        "artifact": "json",
+        "outcome_path": null
+      },
+      "runs_with_defaults": false,
+      "schema_complete": true,
+      "static_label": "needs_input",
+      "sub_catalogue": null,
+      "summary": "tempo steadiness"
     },
     "reel.motion.pose": {
       "adapter": "reel.motion",

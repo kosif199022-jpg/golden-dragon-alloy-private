@@ -23,7 +23,7 @@ class V43IntegrationTests(unittest.TestCase):
         self.assertIn("intelligence.fusion",REGISTRY)
         self.assertEqual(REGISTRY["intelligence.fusion"][1],"read")
         self.assertNotIn("intelligence.fusion",CODED_UNTESTED)
-        self.assertEqual(len(REGISTRY),64)
+        self.assertEqual(len(REGISTRY),65)
         self.assertEqual(len(OPS),7)
 
     def test_actual_reel_dispatch_and_audit(self):

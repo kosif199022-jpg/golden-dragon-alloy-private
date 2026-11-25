@@ -138,7 +138,7 @@ class SuperMindV43Tests(unittest.TestCase):
 
 class V43RegistryTests(unittest.TestCase):
     def test_both_registered_and_read_only(self):
-        self.assertEqual(len(REGISTRY),64)
+        self.assertEqual(len(REGISTRY),65)
         for name in ("reel.motion","mind.audit"):
             self.assertIn(name,REGISTRY)
             self.assertEqual(REGISTRY[name][1],"read")
