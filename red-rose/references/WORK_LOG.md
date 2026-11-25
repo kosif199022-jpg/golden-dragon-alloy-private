@@ -1,5 +1,9 @@
 # Red Rose work log (what was built with the owner, newest first)
 
+## 2026-11-25
+### «وضيئة الوجه» poem with الراجل والست (`characters/el-ragel-wel-sit/lyric_engine`)
+Facebook reel audio (1.15M views); 4 verses word-timed, diacritics from the original captions; the 5 saved images reused (no credits); render 34 s locally.
+
 ## 2026-11-24
 ### Red Rose V54 integrated into main
 V54 branch (mind v51, SEE native v52/v53, metacognition v54, golden and white native engines) merged with main; router out-of-scope cues for publishing, calls/complaints and certified translation: test abstention recall 0.5 -> 1.0, top-1 0.3625 -> 0.40, top-3 0.5625 -> 0.60 (floors raised, never lowered; held-out rows were inspected, so confirm on fresh requests). Full suite 1,497 passed.

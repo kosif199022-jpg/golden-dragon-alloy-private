@@ -13,3 +13,10 @@ reels (© Mahmoud Elkosif). Use them for every image, scene or style he asks for
 - Model that keeps them consistent (tested 2026-11-24): GPT Image 2.6 with both elements in the prompt, 9:16,
   "in the exact art style of the references", "No text, no letters, no watermark". 0.75 credits per image.
 - Paid generation still needs his «أيوه» each time (the price per image is above).
+
+## Lyric / poem motion engine (`lyric_engine/`)
+Five saved images of the two (street with roses, cafe tea, hand on heart, dance in the rain, balcony) are reused
+for any song or poem without new credits: slow camera per image, beat breathing, golden bokeh, word-by-word
+verses (Amiri with diacritics, key word in shimmering gold, beating heart), optional rain and setting-sun light.
+Edit `SH` (images and times) and `LY` (verse start/end and word times from Whisper, text from the original's
+captions), render with `../../agent/fast_reel/render.mjs`, mux the voice at -14 LUFS. «وضيئة الوجه» (22.4 s): 20 s render.
