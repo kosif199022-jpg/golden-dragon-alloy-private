@@ -15,3 +15,6 @@ See references/TRIAL_DXH_2026-11-25.md for the verified reel experiment, its fai
 
 ## V57 motion preservation
 For reference-matching video, measure motion before rendering using motion-capture analyze, including separate overlay regions. Preserve the resulting track JSON and inspect loss/transition candidates. Do not claim matching motion when it is unverified. See V57_MOTION_CAPTURE.md. Keep video sources private; do not commit raw frames or font binaries.
+
+## V58 motion replay
+Read V58_MOTION_REPLAY.md. Apply full-frame V57 track with motion-replay plan/render. Explicitly record lost frames and bounded transforms; use independently measured visual/timing checks before final acceptance. Do not call visibility/luma proxies exact opacity or fades. Reuse the measured data, not the original footage. 16 focused V57/V58 tests passed including a real encoded sample. Full CI not yet certified.

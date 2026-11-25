@@ -15,6 +15,7 @@ FAST_COMMANDS = {
     "vn-dua-analyze": "vn_dua_v47",
     "shot-detail": "rose_shot_detail",
     "motion-capture": "rose_motion_capture_v57",
+    "motion-replay": "rose_motion_replay_v58",
 }
 
 
