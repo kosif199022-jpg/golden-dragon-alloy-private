@@ -287,3 +287,18 @@ Two uploaded sources were inspected: `ريل أبو كاب.rar` (688 members, 22
 
 ## V46 checkpoint — 2026-11-24
 Branch red-rose-v46-self-maintenance: rose_env.py snapshot, verify_media.py chunked digest, rose_maintenance.py and test_maintenance_v46.py, rose_ext.py registration, V46_MAINTENANCE_GUIDE.md and agent instructions. Run `python rose_maintenance.py audit`, `python -m unittest test_maintenance_v46 test_env_v29 test_verify_media`, then full suite and benchmark. Actual CI and timings pending; no main merge yet. Known auto-repair rule is deliberately limited to legacy whole-file hash allocation.
+
+## V56 checkpoint — 2026-11-25: «ضيف كل القدرات وكل اللي وصلنا ليه»
+```text
+المهمة: إدخال ما وصلت إليه جلسة 2026-11-20 (دمج Maven Toon في التنين الذهبي، ودمج كل فروع التنين والسبيكة وkosif-tool) إلى الوردة كقدرات أصلية.
+اسم الفرع: claude/golden-dragon-warehouse-restaurant-imnzph (من main b84909c)
+ملفات جديدة: reel_craft_v56.py, test_reel_craft_v56.py, V56_REEL_CRAFT_GUIDE.md
+ملفات تغيّرت: capability_runtime.py (reel.craft في IO_ADAPTERS وREGISTRY و7 ALIASES), media_library_v35.py (_safe_extract أقوى),
+  references/OPS_CATALOG.json + OPS.md (catalog-build), عدّاد المحوّلات 64 ← 65 في 6 اختبارات, DISCOVERIES.md (11 صف), هذا الملف
+اختبارات: test_reel_craft_v56 = 12 OK (لينكس، Python 3.13، FFmpeg)؛ الحزمة كاملة: انظر PR (مقارنة مع main على نفس الجهاز)
+مخرجات: فيديو اختبار مُركّب 6 ث بالكريدت: 180/180 فريم، صوت MD5 مطابق، gate ✓، فريم بالعين (الكريدت أول وآخر، الكارت آخر 3 ث، العربي متوصّل)
+بوابات الأمان: credit_overlay كتابة بـ --approve-write فقط، لا كتابة فوق ملف، staging داخل مجلد الناتج؛ باقي العمليات قراءة
+ماذا اكتمل فعلًا: المحوّل 65 reel.craft بخمس عمليات، وفك zip الآمن
+العيوب والمتبقي: لم يُعَد بناء محرك Maven Toon نفسه (مرجع فقط)؛ story_plan خطة بلا رندر؛ اختبار الكريدت يتخطّى لو مفيش خط عربي (RED_ROSE_TEST_ARABIC_FONT)
+أول أمر للوكيل التالي: cd red-rose && python -m unittest test_reel_craft_v56 -v && python rose.py describe reel.craft.credit_overlay
+```

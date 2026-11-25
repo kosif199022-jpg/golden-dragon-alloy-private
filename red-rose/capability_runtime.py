@@ -61,13 +61,14 @@ import bridges_v28
 import prompts_v28
 import intelligence_director_v29
 import storyboard_pipeline_v30
+import reel_craft_v56
 import intelligence_fusion_v43
 import reel_motion_v43
 import super_mind_v43
 import playbooks_v28
 
 # File/media/database adapters: per-op EFFECTS; writes need the owner's --approve-write.
-IO_ADAPTERS = {'storyboard.pipeline': storyboard_pipeline_v30, 'knowledge.store': knowledge_v25, 'database.manage': database_v25,
+IO_ADAPTERS = {'storyboard.pipeline': storyboard_pipeline_v30, 'reel.craft': reel_craft_v56, 'knowledge.store': knowledge_v25, 'database.manage': database_v25,
                'video.analyze': media_analysis_v25, 'video.edit': editing_v25,
                'audio.process': audio_v25, 'automation.run': automation_v25,
                'release.verify': release_v26, 'studio.render': studio_v27,
@@ -158,9 +159,17 @@ REGISTRY = {
  'app.bridge': ('Outside programs (coded, untested): detect, Blender headless scripts and renders, After Effects JSX, EDL/FCPXML, local TTS (piper/espeak) from owner text, Remotion file map', 'mixed', 'builtin'),
  'prompt.prepare': ('Paid-generation preparation (coded, untested): image/video/music/voice prompts, neutral styles, cost estimates, approval requests; never calls a service', 'read', 'builtin'),
  'playbook.library': ('Catalog skills as playbooks (coded, untested): parse descriptions, build a local FTS playbook index (approved write), search, plan from a playbook', 'mixed', 'builtin'),
+ 'reel.craft': ('Short-reel craft (V56): micro-fable script check with one-dialect guard, light-as-acts story plan with a never-still camera, steady-beat significance gate (no invented BPM), export-standard gate, approved Arabic credit/end card via libass with byte-identical audio and same frame count', 'mixed', 'ffmpeg'),
  'compose.pipeline': ('Capability composition: SVG layers, audio-aware EDL, IK with physics, retrieve-then-dispatch, tenant accounting workflow, seeded variations, critique roles, contracts, proposals, originality', 'read', 'builtin'),
 }
 ALIASES = {
+ 'كريدت': ('reel.craft',),
+ 'سكربت ريل': ('reel.craft',),
+ 'هوك': ('reel.craft',),
+ 'إيقاع ثابت': ('reel.craft',),
+ 'معيار التصدير': ('reel.craft',),
+ 'script check': ('reel.craft',),
+ 'credit': ('reel.craft',),
  'أبو كاب': ('intelligence.fusion', 'reel.motion',),
  'السلم': ('intelligence.fusion',),
  'super mind': ('intelligence.fusion', 'mind.audit',),
