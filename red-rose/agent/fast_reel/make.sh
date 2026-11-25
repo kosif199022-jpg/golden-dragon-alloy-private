@@ -4,6 +4,7 @@
 set -u; W=$1; OUT=$2; U=${3:-}; HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$W" && mkdir -p web/fonts && cp -n "$HERE"/web/index.html "$HERE"/web/main.js web/ && cp "$HERE"/web/main.js web/ && cp "$HERE"/render.mjs .
 cp -n "${FONTS:-/home/user/fastfonts}"/* web/fonts/ 2>/dev/null; cp spec.json web/
+OV=$(python3 -c "import json;print(json.load(open('spec.json')).get('overlay') or '')"); [ -n "$OV" ] && ln -sfn "$(cd "$OV" && pwd)" web/ov
 python3 -c "import json,shutil,os;[shutil.copy(e['font'],'web/fonts/'+os.path.basename(e['font'])) for S in [json.load(open('spec.json'))] for e in S.get('elements',[])+[S.get('line') or {}] if e.get('font') and os.path.exists(e['font'])]"
 [ -e node_modules ] || ln -sfn "$(npm root -g)" node_modules
 T0=$(date +%s)
