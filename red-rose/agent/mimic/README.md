@@ -42,3 +42,4 @@ Example items (oaun Thursday reel): `example_oaun_lift_items.json`. Rules learnt
 - White text: `neutral_edges: true`. A mark that cannot be separated in its own shot (white hamza on a white wall):
   `borrow` it from the same mark in another line of the same source.
 - The codec bleeds the footage into thin outlines (~0.8 opacity); the lift keeps that, so the copy behaves like the source.
+- (2026-11-25, @dxhmen) Header items over many shots: keep `matting: regression` and add `dark_edges: true` (halos on bright sky came from footage tint in the shadow rim). A line that holds an emoji: `neutral_edges: false`, add the emoji colour to `colours`. A line that zooms with the voice: `steady` only on its still part (here 25.6-26.15 s); the track follows the zoom.

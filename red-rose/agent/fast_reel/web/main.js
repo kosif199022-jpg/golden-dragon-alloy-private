@@ -213,6 +213,13 @@ function line(text, a, o = {}) {
   ctx.fillText(text, st.cx, LINE.base); ctx.restore();
 }
 function handle(a) {
+  if (S.handleSpaced) {   // letters set one by one at measured x (e.g. «@ D X H M E N»): {text, xs:[..] or x0/x1, y, size, font, alpha}
+    const h = S.handleSpaced, t = [...(h.text || S.handle || '@elkosif').toUpperCase()];
+    const xs = h.xs || t.map((_, i) => i === 0 ? h.at : h.x0 + (h.x1 - h.x0) * (i - 1) / Math.max(1, t.length - 2));
+    ctx.save(); ctx.globalAlpha = a * (h.alpha ?? 0.9); ctx.direction = 'ltr'; ctx.textAlign = 'center'; ctx.fillStyle = h.fill || '#fff';
+    ctx.shadowColor = 'rgba(0,0,0,.45)'; ctx.shadowBlur = 3; ctx.font = `${h.weight || 400} ${h.size}px ${h.font || 'PlexSerifB'}`;
+    t.forEach((c, i) => ctx.fillText(c, xs[i], h.y)); ctx.restore(); return;
+  }
   if (S.noHandle) return;
   ctx.save(); ctx.globalAlpha = a * .9; ctx.direction = 'ltr'; ctx.textAlign = 'center'; ctx.shadowColor = 'rgba(0,0,0,.5)'; ctx.shadowBlur = 4; ctx.fillStyle = '#fff';
   if (S.style === 'dxh') { ctx.font = '600 25px PlexSerifB'; ctx.letterSpacing = '7px'; ctx.fillText((S.handle || '@elkosif').toUpperCase(), 543, 1100); }
