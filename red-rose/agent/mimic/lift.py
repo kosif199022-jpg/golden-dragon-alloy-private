@@ -20,7 +20,7 @@ usage:
 items.json: [{"name": "line3", "box": [x0,y0,x1,y1] (1080x1920 coords), "span": [t_in, t_out] (when it shows),
               "steady": [[t0,t1], ...] (frames where it stands still), "colours": ["#fbfbfb"], "tol": 110,
               "samples": 8 (frames taken per steady span), "matting": "regression" (many backgrounds: exact opacity),
-              "neutral_edges": true (white text: no tint), "show": [t0,t1], "borrow": [...]}, ...]
+              "neutral_edges": true (white text: no tint), "dark_edges": true (rim = black shadow), "show": [t0,t1], "borrow": [...]}, ...]
 Everything runs on the source's own resolution; the overlay is scaled to 1080x1920 at render time.
 """
 import argparse, json, os, subprocess, sys
@@ -76,7 +76,7 @@ def ecc(template, img, warp, iters=80):
         return -1, warp
 
 
-def build_sprite(frames, cols, tol, pad, neutral=False, regress=False):
+def build_sprite(frames, cols, tol, pad, neutral=False, regress=False, dark_edges=False):
     """frames: steady frames (cropped). Returns RGBA sprite (float O, float a) in the reference frame's coordinates."""
     k = np.ones((3, 3), np.uint8)
     fills = [softfill(f, cols, tol) for f in frames]
@@ -162,6 +162,10 @@ def build_sprite(frames, cols, tol, pad, neutral=False, regress=False):
     if neutral:    # white text: outline and shadow are neutral; a tint at the soft edge is footage leaking in
         lum = o.mean(2, keepdims=True); edge = (np.abs(o - cols[0]).sum(2) > 90)[..., None]
         o = np.where(edge, lum, o)
+    if dark_edges:   # the soft rim around the letters is the source's shadow: black with partial opacity, not the footage tint
+        far = np.ones(o.shape[:2], bool)
+        for c in cols: far &= np.abs(o - c).sum(2) > 160
+        o = np.where(far[..., None], np.minimum(o, 24), o)
     return o, a, len(As), ri
 
 
@@ -223,7 +227,7 @@ def cmd_extract(a):
         steady = []
         for t0, t1 in it['steady']:
             ts, fr = decode(a.video, t0, t1, crop); step = max(1, len(fr) // it.get('samples', 8)); steady += list(fr[::step])
-        O, A, used, ri = build_sprite(steady, cols, tol, it.get('pad', 4), it.get('neutral_edges', False), it.get('matting') == 'regression')
+        O, A, used, ri = build_sprite(steady, cols, tol, it.get('pad', 4), it.get('neutral_edges', False), it.get('matting') == 'regression', it.get('dark_edges', False))
         p = os.path.join(a.out, 'items', it['name'] + '.png')
         cv2.imwrite(p, np.dstack([O.astype(np.uint8), (A * 255).astype(np.uint8)]))
         ts, fr = decode(a.video, it['span'][0], it['span'][1], crop)
