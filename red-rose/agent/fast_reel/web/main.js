@@ -39,9 +39,21 @@ async function footage(i, t) {
   const im = await img(`fx/c${String(i).padStart(2, '0')}/${String(n).padStart(4, '0')}.jpg`);
   ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
   if (im) {
-    const s = Math.max(W / im.width, H / im.height);
+    const s = Math.max(W / im.width, H / im.height), dw = im.width * s, dh = im.height * s;
     if (sc.gain && sc.gain !== 1) ctx.filter = `brightness(${sc.gain})`;
-    ctx.drawImage(im, (W - im.width * s) / 2, (H - im.height * s) / 2, im.width * s, im.height * s); ctx.filter = 'none';
+    // whip: horizontal motion blur that peaks on the cut (scene.whip seconds, half before and half after)
+    const nx = S.scenes[i + 1], wIn = sc.whip && i > 0 ? 1 - seg(t, sc.a, sc.a + sc.whip / 2) : 0,
+      wOut = nx && nx.whip ? seg(t, nx.a - nx.whip / 2, nx.a) : 0, wb = Math.max(wIn, wOut);
+    if (wb > 0.01) {
+      const taps = 12, spread = 260 * wb * wb, dir = wIn > wOut ? -1 : 1;
+      ctx.drawImage(im, (W - dw) / 2, (H - dh) / 2, dw, dh);
+      for (let k = 0; k < taps; k++) {
+        ctx.globalAlpha = 1 / (k + 1); const x = ((k / (taps - 1)) - 0.5) * spread + dir * 60 * wb;
+        ctx.drawImage(im, (W - dw) / 2 + x, (H - dh) / 2, dw, dh);
+      }
+      ctx.globalAlpha = 1;
+    } else ctx.drawImage(im, (W - dw) / 2, (H - dh) / 2, dw, dh);
+    ctx.filter = 'none';
   }
   let k = 1;
   if (sc.fin) k *= seg(t, sc.fin[0], sc.fin[1]);
@@ -169,6 +181,10 @@ function elements(t) {
     if (a <= 0) return;
     if (e.kind === 'traced') {
       ctx.save(); ctx.globalAlpha = a; ctx.lineJoin = 'round';
+      if (e.pop && e.from != null && e.box) {      // enters a little larger and settles (e.pop = extra scale at the start)
+        const z = 1 + e.pop * (1 - Math.pow(seg(t, e.from, e.from + (e.popT ?? 0.45)), 0.6)), cx = (e.box[0] + e.box[2]) / 2, cy = (e.box[1] + e.box[3]) / 2;
+        ctx.translate(cx, cy); ctx.scale(z, z); ctx.translate(-cx, -cy);
+      }
       if (e.shadow) { ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 8; ctx.shadowOffsetY = 2; }
       if (e.outline) { ctx.lineWidth = (e.outline_px || 2) * 2; ctx.strokeStyle = e.outline; ctx.stroke(PATHS[i]); ctx.shadowColor = 'transparent'; }
       ctx.fillStyle = e.fill; ctx.fill(PATHS[i], 'evenodd'); ctx.restore();

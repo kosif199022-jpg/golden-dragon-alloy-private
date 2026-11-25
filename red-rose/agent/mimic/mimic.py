@@ -9,7 +9,9 @@
                              ink box, fill colour, outline colour and width, shadow, and (with --text)
                              the best fonts by pixel overlap -> element JSON usable by main.js ink()
   trace FRAME --box ...      no font close enough: trace the reference ink into an SVG path (a font built
-                             from the reference for this exact word), with its fill and outline colours
+                             from the reference for this exact word), with its fill and outline colours.
+                             Over moving footage use --tmin T0,T1 (per-pixel minimum: clean, keeps the dots);
+                             a multi-colour header is one trace per colour with --colour #rrggbb [--tol N]
   verify REF OURS --elements elements.json
                              compare our frame with the reference element by element (overlap + colour)
 
@@ -185,20 +187,30 @@ def run_match(mask_png, text, ltr, fonts, weights):
     return json.loads(r.stdout)
 
 
-def static_mask(video, box, t0, t1, n=14, pol='auto'):
+def colour_mask(crop, hexc, tol=90):
+    """Ink of one known colour (multi-colour headers: one trace per colour, the other colours stay out)."""
+    f = np.array([int(hexc[j:j + 2], 16) for j in (5, 3, 1)], np.float32)
+    m = (np.abs(crop.astype(np.float32) - f).sum(2) < tol).astype(np.uint8)
+    n, lab, st, _ = cv2.connectedComponentsWithStats(m, 8); keep = np.zeros_like(m)
+    for i in range(1, n):
+        if st[i, cv2.CC_STAT_AREA] >= 12: keep[lab == i] = 1
+    return keep
+
+
+def static_mask(video, box, t0, t1, n=14, pol='auto', colour=None, tol=90):
     """Overlay text stays still while the footage moves: keep pixels with a low change over time, then
     take the ink polarity by Otsu on the time-median image."""
     x0, y0, x1, y1 = box
     st = np.stack([load_frame(video, t)[y0:y1, x0:x1] for t in np.linspace(t0, t1, n)]).astype(np.float32)
     med = np.median(st, 0).astype(np.uint8); std = st.mean(3).std(0)
-    m, pol = ink_mask(med, pol)
+    m, pol = (colour_mask(med, colour, tol), 'colour') if colour else ink_mask(med, pol)
     m0 = m.astype(bool)
     thr = max(14.0, 0.6 * float(np.median(std[~m0]))) if (~m0).any() else 14.0
     still = (std < thr).astype(np.uint8)
     m = (m & cv2.dilate(still, np.ones((3, 3), np.uint8)))
     n_, lab, stt, _ = cv2.connectedComponentsWithStats(m, 8); keep = np.zeros_like(m)
     for i in range(1, n_):
-        if stt[i, cv2.CC_STAT_AREA] >= max(6, m.size * 0.0006): keep[lab == i] = 1
+        if stt[i, cv2.CC_STAT_AREA] >= (12 if colour else max(6, m.size * 0.0006)): keep[lab == i] = 1   # colour key is clean: keep dots and hamzas
     return med, drop_border(keep), pol
 
 
@@ -275,10 +287,18 @@ def trace_mask(m, x0, y0, col):
 
 def cmd_trace(a):
     x0, y0, x1, y1 = map(int, a.box.split(','))
-    if a.static:
-        t0, t1 = map(float, a.static.split(',')); crop, m, _ = static_mask(a.frame, (x0, y0, x1, y1), t0, t1, pol=a.polarity)
+    if a.tmin:   # still text over moving footage: the per-pixel minimum over the span keeps the light ink and darkens the rest
+        t0, t1 = map(float, a.tmin.split(','))
+        st = np.stack([load_frame(a.frame, t)[y0:y1, x0:x1] for t in np.linspace(t0, t1, a.n)])
+        crop = (st.max(0) if a.polarity == 'dark' else st.min(0)).astype(np.uint8)
+        m = colour_mask(crop, a.colour, a.tol) if a.colour else ink_mask(crop, 'dark' if a.polarity == 'dark' else 'light')[0]
+    elif a.static:
+        t0, t1 = map(float, a.static.split(',')); crop, m, _ = static_mask(a.frame, (x0, y0, x1, y1), t0, t1, pol=a.polarity,
+                                                                         colour=a.colour, tol=a.tol)
     else:
-        im = load_frame(a.frame, a.t); crop = im[y0:y1, x0:x1]; m, _ = ink_mask(crop, a.polarity)
+        im = load_frame(a.frame, a.t); crop = im[y0:y1, x0:x1]
+        m = colour_mask(crop, a.colour, a.tol) if a.colour else ink_mask(crop, a.polarity)[0]
+    if not m.sum(): sys.exit('no ink found in the box (try another --colour/--tol or --polarity)')
     col = colours(crop, m)
     up = cv2.resize(m * 255, None, fx=4, fy=4, interpolation=cv2.INTER_CUBIC)
     up = cv2.GaussianBlur(up, (5, 5), 0); _, up = cv2.threshold(up, 127, 255, cv2.THRESH_BINARY)
@@ -337,6 +357,10 @@ def main():
     m.add_argument('--top', type=int, default=8); m.add_argument('--min-score', type=float, default=0.62); m.add_argument('--preview'); m.add_argument('--out')
     t = s.add_parser('trace'); t.add_argument('frame'); t.add_argument('--t', type=float); t.add_argument('--box', required=True)
     t.add_argument('--polarity', default='auto', choices=['auto', 'light', 'dark']); t.add_argument('--out'); t.add_argument('--static')
+    t.add_argument('--tmin', help='t0,t1: still light text over moving footage - trace the per-pixel minimum over the span (max with --polarity dark); keeps dots and hamzas')
+    t.add_argument('--n', type=int, default=12, help='frames sampled for --tmin')
+    t.add_argument('--colour', help='#rrggbb: keep only ink of this colour (one trace per colour of a multi-colour header)')
+    t.add_argument('--tol', type=int, default=90, help='colour distance (sum of |dR|+|dG|+|dB|) for --colour')
     v = s.add_parser('verify'); v.add_argument('ref'); v.add_argument('ours'); v.add_argument('--elements', required=True)
     v.add_argument('--t', type=float); v.add_argument('--t-ours', type=float); v.add_argument('--min', type=float, default=0.80)
     v.add_argument('--max-colour', type=int, default=60); v.add_argument('--max-px', type=int, default=8)
