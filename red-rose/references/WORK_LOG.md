@@ -40,3 +40,6 @@ prep → spec/hints → pick → make; ~10 min a reel; styles dxh, day, adeiat, 
 - Instagram/TikTok analyses of @chrishenry, @oaun.11 and @dxhmen; Pinterest clip libraries; dua voices library by weekday.
 - Clones: Tuesday dua (@alihadkc2ok), cinema photo with retyped text, @dxhmen morning dua.
 - Higgsfield API set up in kosif-audit-pro (Seedance example).
+
+### 2026-11-25 — DXH private trial
+Technical video QA passed; final style not certified. See references/TRIAL_DXH_2026-11-25.md for measured results and limitations; AGENT_NOTES.md for mandatory cross-domain startup/testing.

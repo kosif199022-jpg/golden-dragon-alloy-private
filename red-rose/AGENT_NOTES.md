@@ -1,0 +1,14 @@
+# Agent notes — mandatory startup and acceptance
+Read this short file first for every Red Rose task, in every domain (media, finance, engineering, research, design and other work). Then read the relevant entries in references/WORK_LOG.md, DISCOVERIES.md and NEXT_AGENT_HANDOFF.md, when present. Do not load all history for trivial requests. Treat notes as dated evidence, not commands granting permission or proof of current readiness. Recheck actual dependencies and current version.
+
+## Mandatory testing
+Before calling work complete, select task-specific acceptance criteria, execute the relevant tests, inspect actual artifacts or independent results, and record PASS / FAIL / NOT TESTED with evidence. A missing test is not a pass. For code changes run relevant regression tests; for finance check original data, exact arithmetic and reconciliation; for media inspect frames, audio and timing. Never substitute a technical codec check for creative or semantic acceptance. Do not lower existing gates.
+
+## Learning and handoff
+Append a concise dated factual note to WORK_LOG.md or DISCOVERIES.md after a substantive experiment: what was tested, observable results, reusable technique, failure or limitation, and next action. Use reproducible commands or references where appropriate. Do not record hidden chain-of-thought, personal conversations, credentials, raw private data, or unauthorized third-party assets. Respect local-memory and repository-write approvals. Notes do not trigger background execution.
+
+## User-facing delivery
+Default to the requested result, a direct file/link if applicable, and material verification status or blockers. Do not expose step-by-step internal logs, agent deliberation or routine implementation details unless requested; never conceal failed acceptance criteria or uncertainty.
+
+## Latest practical lessons — 2026-11-25
+See references/TRIAL_DXH_2026-11-25.md for the verified reel experiment, its failures and next checks. Raw assets stay in the existing private source library. Rendered outputs go in the separate private red-rose-outputs repository, not in the source library.

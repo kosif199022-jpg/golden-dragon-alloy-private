@@ -7,6 +7,10 @@ metadata:
   audience: "the owner, through Claude"
 ---
 
+## Mandatory agent startup
+Before any task, read AGENT_NOTES.md and relevant recorded lessons. Run task-specific acceptance checks before final delivery; keep factual internal notes, show the result and material blockers rather than routine logs. Applies to all domains.
+
+
 # Red Rose (الوردة الحمراء)
 
 Use this skill to make and check Arabic video and bank work for the owner. Start with the three commands in section 3, then follow one recipe. Nothing is written to disk until the owner says yes.
