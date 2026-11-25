@@ -290,3 +290,6 @@ Branch red-rose-v46-self-maintenance: rose_env.py snapshot, verify_media.py chun
 
 ## Unified V54 checkpoint
 Integrated current main e4acb37, V49-V54 (a611f1d), V47-V48 (776cd05) and alternate shot detail. 68 + 3 targeted tests passed; routing freeze and abstention floor failures remain. Read V54_UNIFIED_GUIDE.md and UNIFIED_BRANCH_LEDGER_V54.json. Inspect current HEAD for exact checkpoint; next action is full regression and a separate routing evaluation repair, not lowering the floor.
+
+## V56 device absorption checkpoint
+Merged latest main b84909c into unified branch. Source-derived procedural steps, council/hypothesis review, reference index and bounded White queue batch are native. See V56_DRAGON_ABSORPTION.md. 88 distinct focused tests passed (85 + 3); full suite pending, routing freeze mismatch not waived. No claim all source capabilities were implemented. Preserve local-only RE and studio extensions.

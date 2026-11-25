@@ -67,6 +67,22 @@ def work_one(path):
     except Exception as e:
         accepted=finish(path,job["id"],job["token"],error=type(e).__name__+": "+str(e)[:300])
         return {"ok":False,"id":job["id"],"state":"failed" if accepted else "stale_claim"}
+def work_batch(path, limit=8, workers=2):
+    """Explicit bounded batch of pure jobs, using the existing fenced claims."""
+    if type(limit) is not int or not 1<=limit<=20 or type(workers) is not int or not 1<=workers<=4:
+        raise ValueError("limit 1..20; workers 1..4 required")
+    if not Path(path).is_file():
+        return {"ok":True,"results":[],"remaining":0,"processed":0,"workers":workers}
+    from concurrent.futures import ThreadPoolExecutor
+    results=[]
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        for start in range(0,limit,workers):
+            wave=list(pool.map(lambda _:work_one(path),range(min(workers,limit-start))))
+            results.extend(x for x in wave if x["state"]!="empty")
+            if any(x["state"]=="empty" for x in wave):break
+    return {"ok":all(x["ok"] for x in results),"results":results,"processed":len(results),
+            "remaining":listing(path)["counts"].get("queued",0),"workers":workers}
+
 def listing(path):
     if not Path(path).is_file():return {"ok":True,"counts":{},"jobs":[]}
     with closing(connect(path)) as c:
@@ -122,11 +138,12 @@ def compare(rows):
 def handle(a):
     try:
         action=a.action;db=a.queue_db
-        if action in ("enqueue","work-one","recover") and not a.approve_write:
+        if action in ("enqueue","work-one","work-batch","recover") and not a.approve_write:
             r={"ok":False,"outcome":"approval_required","would_write":str(db)}
         elif action=="status":r=listing(db)
         elif action=="result":r=result(db,a.arg or "")
         elif action=="work-one":r=work_one(db)
+        elif action=="work-batch":r=work_batch(db,a.limit,a.workers)
         elif action=="recover":r=recover(db)
         else:
             p=Path(a.arg or "")
@@ -142,9 +159,11 @@ def handle(a):
         print(json.dumps({"ok":False,"error":str(e)},ensure_ascii=False));return 1
 def register(sub):
     p=sub.add_parser("white-native",help="persistent local queue, recovery and delivery validation")
-    p.add_argument("action",choices=["enqueue","work-one","recover","status","result","verify-outputs","check-pairs","compare"])
+    p.add_argument("action",choices=["enqueue","work-one","work-batch","recover","status","result","verify-outputs","check-pairs","compare"])
     p.add_argument("arg",nargs="?")
     p.add_argument("--queue-db",type=Path,default=DEFAULT_DB)
+    p.add_argument("--limit",type=int,default=8)
+    p.add_argument("--workers",type=int,default=2)
     p.add_argument("--approve-write",action="store_true")
     p.set_defaults(ext_func=handle)
 if __name__=="__main__":

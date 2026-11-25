@@ -218,3 +218,6 @@ For L2/L3 work, use the metacognition protocol returned by `mind plan`: generate
 
 ## Unified V54
 Use the one selective CLI for mind, see, golden-native, white-native, VN and existing commands. shot-detail VIDEO provides an alternate technical image proxy without editing the source. See V54_UNIFIED_GUIDE.md and UNIFIED_BRANCH_LEDGER_V54.json. Asset branches are optional. Existing approval gates remain.
+
+## V56 unified dragon mind
+For substantial tasks, use mind plan and follow the selected deep_mind procedures and bias checks; use mind council, council-review and hypotheses for distinct perspectives and evidence comparison. These outputs do not create independent agents or certify factual truth. Use white-native work-batch only for approved bounded pure queue jobs. See V56_DRAGON_ABSORPTION.md; the reference index is never executable. Preserve approval gates and local memory privacy.
