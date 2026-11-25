@@ -225,3 +225,6 @@ Use the one selective CLI for mind, see, golden-native, white-native, VN and exi
 
 ## V56 unified dragon mind
 For substantial tasks, use mind plan and follow the selected deep_mind procedures and bias checks; use mind council, council-review and hypotheses for distinct perspectives and evidence comparison. These outputs do not create independent agents or certify factual truth. Use white-native work-batch only for approved bounded pure queue jobs. See V56_DRAGON_ABSORPTION.md; the reference index is never executable. Preserve approval gates and local memory privacy.
+
+## V57 motion preservation
+For reference-matching video, measure motion before rendering using motion-capture analyze, including separate overlay regions. Preserve the resulting track JSON and inspect loss/transition candidates. Do not claim matching motion when it is unverified. See V57_MOTION_CAPTURE.md. Keep video sources private; do not commit raw frames or font binaries.

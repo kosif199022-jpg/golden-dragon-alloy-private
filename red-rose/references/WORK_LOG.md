@@ -43,3 +43,6 @@ prep → spec/hints → pick → make; ~10 min a reel; styles dxh, day, adeiat, 
 
 ### 2026-11-25 — DXH private trial
 Technical video QA passed; final style not certified. See references/TRIAL_DXH_2026-11-25.md for measured results and limitations; AGENT_NOTES.md for mandatory cross-domain startup/testing.
+
+## V57 motion preservation
+For reference-matching video, measure motion before rendering using motion-capture analyze, including separate overlay regions. Preserve the resulting track JSON and inspect loss/transition candidates. Do not claim matching motion when it is unverified. See V57_MOTION_CAPTURE.md. Keep video sources private; do not commit raw frames or font binaries.

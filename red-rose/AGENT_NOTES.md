@@ -12,3 +12,6 @@ Default to the requested result, a direct file/link if applicable, and material 
 
 ## Latest practical lessons — 2026-11-25
 See references/TRIAL_DXH_2026-11-25.md for the verified reel experiment, its failures and next checks. Raw assets stay in the existing private source library. Rendered outputs go in the separate private red-rose-outputs repository, not in the source library.
+
+## V57 motion preservation
+For reference-matching video, measure motion before rendering using motion-capture analyze, including separate overlay regions. Preserve the resulting track JSON and inspect loss/transition candidates. Do not claim matching motion when it is unverified. See V57_MOTION_CAPTURE.md. Keep video sources private; do not commit raw frames or font binaries.
