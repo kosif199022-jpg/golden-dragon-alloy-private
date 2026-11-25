@@ -11,6 +11,8 @@ V54 branch (mind v51, SEE native v52/v53, metacognition v54, golden and white na
 Action rescue with no on-screen text (owner's ask): tornado, whales, cliff dive, flight lessons; 38 s, rendered locally in 44 s.
 ### «ستايل دعاء الترند» saved (`agent/trend`) and used
 The owner's trending Facebook dua reel (151K views, 1.7K shares) turned into a fixed style; a TikTok Tuesday dua (@1qwi_a2) remade in it: 13 lines, 13 library clips, render 34 s locally.
+### @alrihanii Wednesday «صباح» dua (2026-11-25), copied to the pixel
+New layout (big yellow «صباح», green «الأربعاء», Hijri top, white date, «صباح خير وبركة» at the bottom): traced per colour with `mimic trace --colour` (one trace per colour of the header), the six lines with `--tmin` (per-pixel minimum over the shot: the page/footage behind darkens, the still text stays, dots and hamzas kept). Engine: `whip` transitions (horizontal motion blur peaking on the cut) and `pop` entrances for traced lines. Six library clips (tulips + Quran, roses + Quran, incense, tasbih, wooden burner, roses), rendered locally in 36 s. Example: `agent/fast_reel/example_rihanii_sabah_spec.json`.
 ### @alrihanii Wednesday dua «دعاء يريح النفوس», copied to the pixel
 Header (day, date, Hijri, subtitle, hearts) and all 7 lines traced from the original with `agent/mimic` (no library font scored above 0.61 for the line), our library footage (7 shots, fades to black on the measured dips), shadow + gain 0.82 for reading; render 50 s locally.
 ### Restyle of a @youma.design reel («بكبر في معادي») (`agent/restyle`)

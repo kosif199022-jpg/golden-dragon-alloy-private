@@ -22,3 +22,4 @@ via `"xf"` on a scene). Fonts for it: Almarai-ExtraBold, Tajawal-Medium and Kufa
 `ONLY="30,165,660" bash make.sh ...` renders just those test frames into WORKDIR/test (about 10 s) before the full run.
 `blacklist.txt` lists clips that failed a check; add to it whenever a clip is replaced.
 Poll the sandbox with `sleep 30` at most (60 s tool limit). Fonts come from the Red Rose font library.
+- Scene `whip` (seconds): horizontal motion blur that peaks on the cut, half before and half after (the @alrihanii «صباح» transition). Traced element `pop` (e.g. 0.12): the line enters that much larger and settles over `popT` (0.45 s). Example: `example_rihanii_sabah_spec.json`.
