@@ -13,18 +13,22 @@ import json, os, subprocess, sys
 API = 'https://api.higgsfield.ai/xai/grok-imagine-image-2.0'
 CDN = 'https://d2ol7oe51mr4n9.cloudfront.net/user_36qP6wVjfYmaRqhniKJVy5dJHoh/'
 # the three style references (copies in refs/; re-upload them with media_upload if these links ever die)
-REFS = [CDN + 'f1a055a9-8dd3-42fb-88e0-f7e24afe2dac.jpg',   # refs/style_flower_shop.jpg
-        CDN + '51b8b30b-449a-45a4-aac7-9bd8fe8a0bad.jpg',   # refs/style_rain.jpg
-        CDN + '03fb31c5-6c60-434c-af62-88bc25359465.jpg']   # refs/style_shop.jpg
+REFS = [CDN + '40b14133-0d43-49d0-aed8-36a08911ba8e.jpg',   # ../../characters/el-ragel-wel-sit/ref_couple.jpg  (THE characters)
+        CDN + '033dc628-f0cf-46dd-ab43-57af4094d22a.jpg',   # ref_ragel.jpg
+        CDN + 'f497d860-d929-475e-b986-52bc5c4e7a5b.jpg']   # ref_sit.jpg
+# older style refs (refs/style_*.jpg) gave a glossier 3D look and a velvet dress; the owner said «الملامح متغيرة»
+STYLE_REFS = [CDN + 'f1a055a9-8dd3-42fb-88e0-f7e24afe2dac.jpg', CDN + '51b8b30b-449a-45a4-aac7-9bd8fe8a0bad.jpg',
+              CDN + '03fb31c5-6c60-434c-af62-88bc25359465.jpg']   # refs/style_shop.jpg
 
 # the two characters: never change these words, they are what keeps the couple the same in every song
 CHARACTERS = (
-    "Breathtaking romantic illustrated cartoon in the exact art style and with the exact same two characters as the "
-    "reference images (soft 3D-cartoon digital painting, big expressive eyes, polished, cinematic, richly detailed). "
-    "The woman = long dark-brown hair in a thick side braid, big brown eyes, rosy cheeks, elegant deep crimson velvet "
-    "coat-dress with gold buttons and a cream silk scarf; "
-    "the man = curly dark-brown hair, thin round black glasses, burgundy wool scarf, tailored charcoal long coat over a "
-    "cream knit sweater. ")
+    "Use the EXACT same two characters as the reference images: identical faces, identical hairstyles, identical outfits "
+    "and the identical painted storybook illustration style (soft digital painting, warm cinematic light), as if drawn by "
+    "the same artist in the same series. "
+    "The woman: same face, big brown eyes, long brown hair in one thick side braid, crimson red belted wool coat-dress, "
+    "dark tights, red ankle boots. "
+    "The man: same face, messy dark-brown curly hair, thin round black glasses, burgundy scarf, long grey coat, "
+    "white shirt or light sweater, dark trousers, black shoes. ")
 TAIL = " Vertical 9:16, absolutely no text, no letters, no writing, no watermark."
 
 
