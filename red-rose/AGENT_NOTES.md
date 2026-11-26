@@ -18,3 +18,6 @@ For reference-matching video, measure motion before rendering using motion-captu
 
 ## V58 motion replay
 Read V58_MOTION_REPLAY.md. Apply full-frame V57 track with motion-replay plan/render. Explicitly record lost frames and bounded transforms; use independently measured visual/timing checks before final acceptance. Do not call visibility/luma proxies exact opacity or fades. Reuse the measured data, not the original footage. 16 focused V57/V58 tests passed including a real encoded sample. Full CI not yet certified.
+
+## V60 source identity and evidence gate
+Read V60_SOURCE_PREFLIGHT.md. Before absorbing new external sources, use source-preflight inspect with expected identity/digest where known. Block mislabeled packages, unsafe archive structures and unresolved evidence. Use actual content and independent methods, not a filename or a pattern hit. A failed tool is not a negative finding. Keep third-party credentials and protected implementation details out of learning memory. Read local workshop runtime-receipt.json and repository/application inventory when applicable; reference-only is not execution-ready. This gate does not prove authenticity or safe execution.

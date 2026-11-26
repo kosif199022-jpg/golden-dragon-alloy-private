@@ -16,6 +16,7 @@ FAST_COMMANDS = {
     "shot-detail": "rose_shot_detail",
     "motion-capture": "rose_motion_capture_v57",
     "motion-replay": "rose_motion_replay_v58",
+    "source-preflight": "rose_source_preflight_v60",
 }
 
 
