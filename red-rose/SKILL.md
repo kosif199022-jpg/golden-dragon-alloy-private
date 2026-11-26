@@ -1,6 +1,6 @@
 ---
 name: red-rose
-description: "Makes and checks Arabic-first video and bank-statement work for the owner on Windows: Arabic animated titles, reels and captions from exact words, shot reports with approved recuts, loudness fixes, iPhone exports, and bank reconciliation. Use whenever the owner asks in Arabic or English for الوردة، الوردة الحمراء، مونتاج، ريل، ريلز، قص فيديو، كابشن، عنوان متحرك، موشن، تحليل لقطات، ضبط الصوت، دعاء، ريل دعاء، ذكر/أذكار، تصميم ديني، دعاء يوم الجمعة، دعاء الصباح، تسوية بنك، مطابقة كشف حساب، Red Rose, reel, dua/duaa reel, azkar/islamic/Quran aesthetic video, captions, kinetic title, shot report, loudness, or bank reconciliation, and also when the request is Arabic typed on an English keyboard layout. For dua reels: the maker, 112 dua themes, two measured account styles, a voices-by-day library, Pinterest clip libraries and a song lyric-motion engine (references/DUA_REELS_PLAYBOOK.md); also for أصوات الدعاء، حلل حساب، موشن جرافيك لأغنية. Use it even when the owner does not name the skill."
+description: "Makes and checks Arabic-first video and bank-statement work for the owner on Windows: Arabic animated titles, reels and captions from exact words, shot reports with approved recuts, loudness fixes, iPhone exports, and bank reconciliation. Use whenever the owner asks in Arabic or English for الوردة، الوردة الحمراء، مونتاج، ريل، ريلز، قص فيديو، كابشن، عنوان متحرك، موشن، تحليل لقطات، ضبط الصوت، دعاء، ريل دعاء، ذكر/أذكار، تصميم ديني، دعاء يوم الجمعة، دعاء الصباح، تسوية بنك، مطابقة كشف حساب، Red Rose, reel, dua/duaa reel, azkar/islamic/Quran aesthetic video, captions, kinetic title, shot report, loudness, or bank reconciliation, and also when the request is Arabic typed on an English keyboard layout. For dua reels: the maker, 112 dua themes, two measured account styles, a voices-by-day library, Pinterest clip libraries and a song lyric-motion engine (references/DUA_REELS_PLAYBOOK.md); also for أصوات الدعاء، حلل حساب، موشن جرافيك لأغنية، الراجل والست. Use it even when the owner does not name the skill."
 compatibility: "Windows 11 with Python 3.12 and ffmpeg on PATH is the main target. Read-only commands run anywhere Python 3.12 runs. Private memory exists only on the owner PC."
 metadata:
   version: "V29"
@@ -67,6 +67,7 @@ Pick the first recipe that matches what the owner asked for. If none matches, ru
 | A cut that follows the music | `beat-synced-cut` |
 | A bank statement matched against a ledger | `bank-reconcile` |
 | A dua reel, a dua account analysed, dua voices by day, a song's lyric motion | read `references/DUA_REELS_PLAYBOOK.md` first |
+| A song reel redone with «الراجل والست» (romantic cartoon couple, word-by-word lyrics, original audio) | read `agent/couple_motion/README.md` first |
 
 A typical title job, in order:
 
@@ -161,7 +162,8 @@ If no command can run, do not claim that anything was rendered, measured, checke
 - `references/DEVELOPING.md`: only when you change the code.
 - `agent/fast_reel/README.md`: **copy a dua reel in ~10 minutes (prep → spec → pick → make), measured end to end.**
 - `agent/trend/README.md`: **«ستايل دعاء الترند» / «دعاء الترند»: the owner's trending dua reel as a fixed style; any new dua reel in it changes only the words, date and footage.**
-- `characters/el-ragel-wel-sit/README.md`: **«الراجل والست»: the owner's two recurring characters, their Higgsfield element ids and the tested prompt.**
+- `agent/couple_motion/README.md`: **«الراجل والست» song motion: the full recipe (style, Grok prompts, refs, caption reading, timing, engine, untouched audio, page, hashtags) that made 8 delivered songs. Works from any conversation or account.**
+- `characters/el-ragel-wel-sit/README.md`: «الراجل والست»: the first version of the characters (Higgsfield element ids, GPT Image prompt).
 - `agent/mimic/README.md`: **«قلّده بالظبط / بالملي»: measure the reference's text (font by pixel match over ~1,400 fonts, or a traced shape), position, colours, then verify element by element before delivery.**
 - `references/SPEED_AUDIT_2026-11-24.md`: **where the hours went and the local-first rule.** `references/CLOUD_RENDER.md` is the fallback when the local machine cannot run a job.
 - `references/DUA_REELS_PLAYBOOK.md`: **dua reels, voices, account analysis and song lyric motion: start here.**
