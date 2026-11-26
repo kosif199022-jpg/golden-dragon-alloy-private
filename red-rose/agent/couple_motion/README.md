@@ -22,6 +22,15 @@ Look: `examples/ana_7abbetak_scenes.jpg`, `examples/awel_7ob_scenes.jpg`, `examp
 
 ## 1. الستايل (لا يتغير)
 
+> **2026-11-26 correction from the owner: «الملامح متغيرة، عايزها شبه الراجل والست تماما».** The references
+> are now the original character pictures (`characters/el-ragel-wel-sit/ref_couple.jpg`, `ref_ragel.jpg`,
+> `ref_sit.jpg`, uploaded as 40b14133…, 033dc628…, f497d860…). In them she wears a **red belted wool coat-dress
+> with red ankle boots and dark tights** (not velvet, not sneakers), and he wears a **grey coat, a burgundy
+> scarf, round glasses and messy curly hair**. The art is a painted storybook look, not glossy 3D. `gen.py`
+> sends these refs and this description. The velvet notes below are history.
+> Lyrics in an exact remake: typeset them crisp with Amiri at the source's rows and times (the owner asked
+> «اكتب الكتابة»), rather than lifting a 720p source.
+
 - **Art:** soft 3D-cartoon digital painting (Disney/Pixar-like), big expressive eyes, polished, cinematic,
   richly detailed. **VERY saturated** colours: the owner asked for exactly this saturation («نفس درجة التشبّع»).
 - **She:** long dark-brown hair in a thick **side braid**, big brown eyes, rosy cheeks, **deep crimson velvet
