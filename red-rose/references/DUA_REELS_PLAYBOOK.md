@@ -18,6 +18,7 @@ Everything here was measured on real accounts, not guessed. Numbers: `agent/dua_
 | Collect the voices of any other dua account by day | `agent/dua_audio/dua_audio.py list HANDLE` then `fetch_audio.py` in the sandbox |
 | Measure any account's reels (shots, camera move, transitions, loudness, words) | `agent/reel_analyzer/analyze.py` |
 | Lyric motion for a song (scene per line, word reveals, petals) | `agent/lyric_motion/` |
+| A song redone with «الراجل والست» (Grok cartoon couple, original audio untouched) | `agent/couple_motion/README.md` |
 | Seeing Instagram / TikTok / Pinterest from the cloud | `references/SOCIAL_FETCH.md`, `rose.py social …` (paid, `--approve-spend`) |
 
 ## 2. Make a dua reel (the order that works)
