@@ -127,3 +127,29 @@ bash $K/make.sh $J $J/song.mp4 4
 
 Check (2026-11-26): `make.sh` on the «اول حب» job reproduced the delivered frames (mean pixel difference 0.0)
 and an audio stream byte-identical to the source.
+
+## 5. «نفس الريل بالظبط بس الراجل والست» (exact remake of one reel)
+
+When the owner says «بنفس الموشن تماما، نفس القعدة ونفس اللوكيشن، بس الشخصيات راجل وست», do not use the
+scene-per-line engine. Copy the reel itself. Done this way for «الدنيا بنعيشا مرّة» (Df8wcfrIMdi,
+https://claude.ai/artifact/AjJ4YQVGqpAapemh5pSxv5):
+
+1. **Measure the motion first** (ECC between frames 1 s apart). That reel was a single still photo with a
+   linear pan of +4.85 px/s at 720 wide and no movement of the people (the difference after alignment was about 2/255).
+   So no video model was needed: one image and the same pan.
+2. **The image:** Grok with `image_urls = [a frame of the reel, refs…]` and "Recreate image 1 exactly: same
+   composition, camera angle, poses and location … painted in the art style of images 2-4 with their
+   characters", followed by the two character descriptions. Then ask for it again in **3:4** ("wider shot, full
+   bodies, extra space left and right") so the pan has room without zooming in. Scale it to 1920 high and crop
+   `x = x0 - v·t` with the same speed ×1.5.
+3. **The text, pixel for pixel:** use `agent/mimic/lift.py` with one item per stacked word row.
+   - Get the row on/off times from a white-pixel count per row band.
+   - Set `steady` to the fully visible part, `show` to [on-0.1, off+0.1], `neutral_edges`, and 24 samples.
+   - Result: all 23 words ✅, a 5 to 8 out of 255 difference from the source.
+4. **Mux:** background, then the `lift/ov` overlay, then the original audio with `-c:a copy`.
+   - When Instagram returns 429 to yt-dlp, use the ScrapeCreators `/v1/instagram/post` `video_url` instead,
+     fetched in the Higgsfield sandbox: the progressive mp4 has the AAC audio inside.
+   - Take the audio out with `-c:a copy`.
+
+If the people in a reel really move, that needs image-to-video (Higgsfield motion control). It is paid, so ask
+the owner first.
