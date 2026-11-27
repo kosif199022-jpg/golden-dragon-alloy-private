@@ -7,6 +7,9 @@ metadata:
   audience: "the owner, through Claude"
 ---
 
+## Mandatory dua-reel source gate (2026-11-27)
+For every dua or azkar reel, before any source selection or rendering, read and follow the **Mandatory owner rule — approved dua footage and exact source typography** in `references/DUA_REELS_PLAYBOOK.md`. The owner-provided `dua-telegram-complete` collection is mandatory; no alternate footage or font substitutions without explicit approval. Measure and verify the exact chosen reference typography, motion and spoken-word timing. Stop if approved inputs or acceptance evidence are missing. This applies to all dua workflows, including direct/custom code.
+
 ## Mandatory agent startup
 Before any task, read AGENT_NOTES.md and relevant recorded lessons. Run task-specific acceptance checks before final delivery; keep factual internal notes, show the result and material blockers rather than routine logs. Applies to all domains.
 
