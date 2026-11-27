@@ -1,5 +1,28 @@
 # Dua reels, voices and lyric motion: the playbook (what we learned, 2026-11-23)
 
+## 0. Owner standing rules for every dua reel (2026-11-27, mandatory, override anything below)
+
+These come from the owner, word for word in meaning, and apply to **every** future dua reel made with Red Rose.
+
+1. **Footage: the approved library only.** On the owner's PC: `C:\Users\cinde\.red-rose\libraries\dua-telegram-complete\videos`
+   (104 files, 98 distinct). Cloud copy: release `dua-telegram-complete-2026-11-25` (manifest `coverage.json`) whose files all
+   live in release `dua-library-v1` (`dua-library-v1.zip`, SHA-256 `81077bdb…b09b41`; verify after download).
+   Use these videos **only**, chosen by the meaning of each line. No other source (Pexels, Pinterest, generated) without the owner's yes.
+   Skip clips with burned-in text (`_analysis.json` `text_share > 0.004`) and scan every chosen clip over its whole length for logos.
+2. **Same style as the source, element by element:** same fonts, sizes, colours and positions; same motion graphics, camera moves
+   and transitions; the same way text appears and disappears; words in sync with the voice; Hijri and Gregorian date checked
+   (Umm al-Qura); no change to any part of the visual identity without the owner's approval.
+   - Method that worked (2026-11-27, Friday dua from a TikTok source): measure cuts and dips with `signalstats` (YAVG), find each
+     line's fully visible window from the white-pixel count, then lift the static header and each line from the source itself
+     (temporal median + stable/white mask) so fonts, sizes, colours and places are exact. Rebuild only when the date or text changes,
+     and then report which font could not be matched.
+   - Spelling mistakes in the source text are reported to the owner, not silently changed (identity rule above wins over §6).
+3. **Use every Red Rose and Golden Dragon capability** that applies, and follow this playbook.
+4. **Not final until checked:** match to the source (side-by-side frames at the same times), picture and audio sound
+   (full decode, frame count, audio stream-copied and MD5-identical), timing, and the rights of every material used
+   (the library is private, creators unknown: the owner decides before public or commercial use).
+
+
 Read this first when the owner asks for: ريل دعاء، دعاء يوم …، دعاء ليلة الجمعة، دعاء الصباح، زي حساب
 oaun / dxhmen، حلل حساب دعاء، أصوات الدعاء، مكتبة الأصوات، مقاطع بنترست للدعاء، موشن جرافيك لأغنية / كلمات أغنية.
 
