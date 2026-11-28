@@ -148,3 +148,15 @@ Owner-supplied copy, indexed locally only: `rose.py intake search "…" --label 
 Rule: every solver added to the pen states its space, norm, stability condition and expected convergence order,
 and ships a test that measures them. This is what makes the pen's self-tuning (stage 8) safe: tuning may move
 parameters only inside the proven stable region.
+
+## V75 BUILT: numerical core `living_pen/numerics.py` (2026-11-28)
+The book's methods are now code, not an index. `rose.py pen-math selftest` measures (all PASS on owner PC):
+Hermite C¹ strokes within the h⁴/384 bound (ch3); spectral paper grain slope −3.02 for target −3, Haar perfect
+reconstruction (ch4); Banach iteration stops on α/(1−α)‖xₙ−xₙ₋₁‖ with true error under the bound, Newton
+quadratic, matrix-free CG (ch5); Crank–Nicolson order 2.01 and explicit steps refused above r = 1/2 (ch6);
+Poisson order 2.00 (ch8–9); P1 FEM L2 order 2.00 — nodal error alone showed a misleading order 6
+(1D nodal superconvergence), so L2 is measured over the whole domain (ch10); obstacle/contact by projected SOR
+with u ≥ ψ and complementarity ≈ 2e-8 (ch11); Nyström exact on a separable kernel (ch12); degree-2 spherical
+harmonics exact to 3e-15 (ch14). Tests: test_pen_numerics_v75.py (9). Not yet: ch13 boundary integrals,
+2D FEM meshes; these come with the stages that need them. Every later pen module must call these solvers
+(or add one with the same stated space/norm/stability/order and a test) instead of ad-hoc numerics.
