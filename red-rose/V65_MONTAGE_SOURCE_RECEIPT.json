@@ -1,0 +1,70 @@
+{
+  "sources": [
+    {
+      "archive": "agent-skills-corpus.zip",
+      "path": "agent-skills-corpus-main/full_text/testing-qa/65891126d9a8-22e33095__ffmpeg-media-finishing.md",
+      "sha256": "65891126d9a8a392224848c2a20ce3fcc74361d99ba2aaf330c00df955a2789c",
+      "lesson": "probe first, validate actual decoded output, record commands and audio measurements",
+      "review": "relevant excerpts",
+      "license_verified": false
+    },
+    {
+      "archive": "agent-skills-corpus.zip",
+      "path": "agent-skills-corpus-main/full_text/code-review-quality/a2e6b58b6be1-1b02bafa__video-editing.md",
+      "sha256": "a2e6b58b6be1a9bf49180cb523e3970efa7ea93c44cdb1ab0b1ce42afbf98928",
+      "lesson": "frame-deterministic edits, beat map and explicit asset manifest",
+      "review": "relevant excerpts",
+      "license_verified": false
+    },
+    {
+      "archive": "agent-skills-corpus.zip",
+      "path": "agent-skills-corpus-main/full_text/code-review-quality/87e452a3f272-37d12dc9__remotion-best-practices.md",
+      "sha256": "87e452a3f27215255a0a8897273959607ac2f7356caf9b0ca373b9956a68afda",
+      "lesson": "transition overlap accounting, voice normalization without extra boost",
+      "review": "relevant excerpts",
+      "license_verified": false
+    },
+    {
+      "archive": "agent-skills-corpus.zip",
+      "path": "agent-skills-corpus-main/full_text/devops-cloud-infra/a826e90b51bc-89f1c6d8__ffmpeg-hardware-acceleration.md",
+      "sha256": "a826e90b51bc210ebcb46a3aa2f0ac4fc8481b65f23c45a23586cbe350afa210",
+      "lesson": "measure encoder and filter support; do not assume hardware",
+      "review": "relevant excerpts",
+      "license_verified": false
+    },
+    {
+      "archive": "shiyu-34k.zip",
+      "path": "ncklrs--remotion-performance-optimizer/SKILL.md",
+      "sha256": "d84061751928b000c87016622db44dcdeb4e9e6aa49a737c264d836c0fadba67",
+      "lesson": "cache deterministic stages, avoid random frame calculations",
+      "review": "relevant excerpts",
+      "license_verified": false
+    },
+    {
+      "archive": "shiyu-34k.zip",
+      "path": "ncklrs--remotion-render-config/SKILL.md",
+      "sha256": "695506dc3d62db05b917e693a8a89d3c7ced89f3b19f5c05453793769fdd2b28",
+      "lesson": "H264/AAC/yuv420p delivery checks",
+      "review": "relevant excerpts",
+      "license_verified": false
+    },
+    {
+      "archive": "shiyu-34k.zip",
+      "path": "mindmorass--ffmpeg-patterns/SKILL.md",
+      "sha256": "f018567300f88cdf39667da672dafbc81a25ed915a2985419f455d1a49d14a15",
+      "lesson": "trim/concat/probe patterns, choose re-encode where filtering",
+      "review": "relevant excerpts",
+      "license_verified": false
+    },
+    {
+      "archive": "shiyu-34k.zip",
+      "path": "ncklrs--remotion-animation/SKILL.md",
+      "sha256": "b7ee54561e1aba314d16aaaf0206b9ab3c2e6694cf20eb7e68d8977ba0b9da26",
+      "lesson": "frame-relative progress and easing",
+      "review": "relevant excerpts",
+      "license_verified": false
+    }
+  ],
+  "method": "independent implementation; no copied or executed skill scripts",
+  "engine": "rose_montage_v65.py"
+}

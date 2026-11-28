@@ -288,6 +288,12 @@ Two uploaded sources were inspected: `ريل أبو كاب.rar` (688 members, 22
 ## V46 checkpoint — 2026-11-24
 Branch red-rose-v46-self-maintenance: rose_env.py snapshot, verify_media.py chunked digest, rose_maintenance.py and test_maintenance_v46.py, rose_ext.py registration, V46_MAINTENANCE_GUIDE.md and agent instructions. Run `python rose_maintenance.py audit`, `python -m unittest test_maintenance_v46 test_env_v29 test_verify_media`, then full suite and benchmark. Actual CI and timings pending; no main merge yet. Known auto-repair rule is deliberately limited to legacy whole-file hash allocation.
 
+## Unified V54 checkpoint
+Integrated current main e4acb37, V49-V54 (a611f1d), V47-V48 (776cd05) and alternate shot detail. 68 + 3 targeted tests passed; routing freeze and abstention floor failures remain. Read V54_UNIFIED_GUIDE.md and UNIFIED_BRANCH_LEDGER_V54.json. Inspect current HEAD for exact checkpoint; next action is full regression and a separate routing evaluation repair, not lowering the floor.
+
+## V56 device absorption checkpoint
+Merged latest main b84909c into unified branch. Source-derived procedural steps, council/hypothesis review, reference index and bounded White queue batch are native. See V56_DRAGON_ABSORPTION.md. 88 distinct focused tests passed (85 + 3); full suite pending, routing freeze mismatch not waived. No claim all source capabilities were implemented. Preserve local-only RE and studio extensions.
+
 ## V56 checkpoint — 2026-11-25: «ضيف كل القدرات وكل اللي وصلنا ليه»
 ```text
 المهمة: إدخال ما وصلت إليه جلسة 2026-11-20 (دمج Maven Toon في التنين الذهبي، ودمج كل فروع التنين والسبيكة وkosif-tool) إلى الوردة كقدرات أصلية.
@@ -302,3 +308,6 @@ Branch red-rose-v46-self-maintenance: rose_env.py snapshot, verify_media.py chun
 العيوب والمتبقي: لم يُعَد بناء محرك Maven Toon نفسه (مرجع فقط)؛ story_plan خطة بلا رندر؛ اختبار الكريدت يتخطّى لو مفيش خط عربي (RED_ROSE_TEST_ARABIC_FONT)
 أول أمر للوكيل التالي: cd red-rose && python -m unittest test_reel_craft_v56 -v && python rose.py describe reel.craft.credit_overlay
 ```
+
+## V62 integration checkpoint
+Merged the main media and character changes into the experimental mind candidate. Read V62_MIND_GUIDE.md; fresh regression results required before release. No claim of complete corpus absorption.

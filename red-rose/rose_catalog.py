@@ -23,6 +23,7 @@ import re
 import sys
 import unicodedata
 from pathlib import Path
+from functools import lru_cache
 
 ROOT = Path(__file__).resolve().parent
 CATALOG_DIR = ROOT / 'catalog'
@@ -375,6 +376,13 @@ def schema(op_id):
                         'choices': p['choices']} for p in entry['params']}
 
 
+@lru_cache(maxsize=4096)
+def _search_words(name_ar, name_en, summary, keywords):
+    """Immutable token sets keyed by source values, not mutable entry identity."""
+    return (frozenset(keywords) | frozenset(tokens(name_ar)) | frozenset(tokens(name_en)),
+            frozenset(tokens(summary)))
+
+
 def find(query, limit=8):
     """Keyword search over the catalogue with Arabic folding and synonyms (see names_ar.json)."""
     cat = load()
@@ -389,19 +397,13 @@ def find(query, limit=8):
                 terms.update(tokens(value))
     scored = []
     for op_id, entry in cat['entries'].items():
-        keys = set(entry.get('keywords', []))
-        name = set(tokens(entry.get('name_ar', ''))) | set(tokens(entry.get('name_en', '')))
-        words = set(tokens(entry.get('summary', '')))
-        score, matched = 0, set()
-        for term in terms:
-            if term in keys or term in name:
-                score += 3
-                matched.add(term)
-            elif term in words:
-                score += 1
-                matched.add(term)
+        weighted, words = _search_words(entry.get('name_ar', ''), entry.get('name_en', ''),
+                                        entry.get('summary', ''), tuple(entry.get('keywords', [])))
+        strong = terms & weighted
+        weak = (terms & words) - strong
+        score = 3 * len(strong) + len(weak)
         if score:
-            scored.append((-score, op_id, entry, sorted(matched)))
+            scored.append((-score, op_id, entry, sorted(strong | weak)))
     scored.sort(key=lambda row: (row[0], row[1]))
     return [{'id': op_id, 'kind': 'op', 'score': -neg, 'name_ar': entry['name_ar'],
              'summary': entry['summary'], 'matched': matched}

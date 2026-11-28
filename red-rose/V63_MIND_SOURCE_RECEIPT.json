@@ -1,0 +1,88 @@
+{
+  "sources": [
+    {
+      "path": "gtmagents--risk-register/SKILL.md",
+      "sha256": "2097b96325de880b65b681134c6c0bf451c73604064d0a5aaa950236a343192b",
+      "review": "relevant excerpt",
+      "lesson": "risk score, mitigation owner and escalation",
+      "license_verified": false
+    },
+    {
+      "path": "d-o-hub--task-decomposition/SKILL.md",
+      "sha256": "ed13f6790172b6c1fbeae81db270c680e0c85d0b3e5065cdf536f97bd165ef9a",
+      "review": "relevant excerpt",
+      "lesson": "atomic tasks and explicit dependencies/acceptance",
+      "license_verified": false
+    },
+    {
+      "path": "pjt222--create-work-breakdown-structure/SKILL.md",
+      "sha256": "65c714cbfbffb542199a244d8e17759688006543d8c0489ccb3bfaad0d9c8bb8",
+      "review": "relevant excerpt",
+      "lesson": "work packages and deliverable coverage",
+      "license_verified": false
+    },
+    {
+      "path": "mindmorass--task-decomposition/SKILL.md",
+      "sha256": "ed7cf368896eb2923b81bbc36ff3ac58ea8e2f165e783f8c1945f7e6d325ab52",
+      "review": "relevant excerpt",
+      "lesson": "critical chain and independent tasks",
+      "license_verified": false
+    },
+    {
+      "path": "ryanthedev--aposd-optimizing-critical-paths/SKILL.md",
+      "sha256": "72757dc68db6c8b67ef93b209e02735df0110dd00fbae9066bcc718988bd28ea",
+      "review": "relevant excerpt",
+      "lesson": "measure baseline before optimizing",
+      "license_verified": false
+    },
+    {
+      "path": "Prorise-cool--decision-analysis/SKILL.md",
+      "sha256": "8debe83e8c4254433d3159fc6a5954e0f21297829be5143daf3f268b4037723e",
+      "review": "relevant excerpt",
+      "lesson": "weighted decision alternatives, explicit criteria",
+      "license_verified": false
+    },
+    {
+      "path": "borghei--pre-mortem/SKILL.md",
+      "sha256": "d2c12f5bb16f89f5e525c83e1cfaf65965dacd6f9a351f3666b9b0278e235c0d",
+      "review": "relevant excerpt",
+      "lesson": "separate high-impact risks from speculation",
+      "license_verified": false
+    },
+    {
+      "path": "wshobson--postmortem-writing/SKILL.md",
+      "sha256": "7476b079ba3d06eaec26e70555489b491b9d8d02fff93284231854105ac35891",
+      "review": "relevant excerpt",
+      "lesson": "systemic lessons rather than blame",
+      "license_verified": false
+    },
+    {
+      "path": "athola--project-planning/SKILL.md",
+      "sha256": "e416495c1f2d074dcb9c2acc423fba69b1175aa65924e7f9c3c64590b397155b",
+      "review": "relevant excerpt",
+      "lesson": "dependency-ordered plans",
+      "license_verified": false
+    },
+    {
+      "path": "oimiragieo--postmortem-writing/SKILL.md",
+      "sha256": "2fac8d24eced739f805ee9baa1b92dde7d96410d3c1182a1185690847a866209",
+      "review": "relevant excerpt",
+      "lesson": "evidence-backed action items",
+      "license_verified": false
+    },
+    {
+      "path": "zbruhnke--risk-register/SKILL.md",
+      "sha256": "5a06f211633e36643e50a6adf4613623b3e71f7a4654184173d978415e71cd2c",
+      "review": "relevant excerpt",
+      "lesson": "detection, mitigation and rollback",
+      "license_verified": false
+    }
+  ],
+  "method": "independent implementation; no imported code executed",
+  "native_ops": [
+    "schedule",
+    "decision",
+    "risks"
+  ],
+  "scan_receipt": "local deep-skills-v63/fulltext-receipt.json, if completed"
+}

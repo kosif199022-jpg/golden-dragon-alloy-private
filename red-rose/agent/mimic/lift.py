@@ -303,8 +303,8 @@ def cmd_verify(a):
             if m.sum() > 30: diffs.append(float(np.abs(fr[fi].astype(np.float32)[m] - c[m]).mean()))
         if diffs:
             d = float(np.median(diffs)); good = d <= a.max_diff; ok &= good
-            print(f"{'✅' if good else '❌'} {it['name']}: median colour difference on opaque text {d:.1f}/255 ({len(diffs)} frames)")
-    print('✅ text matches the source' if ok else '❌ some items differ: re-check their steady spans / colours')
+            print(f"{'PASS' if good else 'FAIL'} {it['name']}: median colour difference on opaque text {d:.1f}/255 ({len(diffs)} frames)")
+    print('PASS: text matches the source' if ok else 'FAIL: some items differ: re-check their steady spans / colours')
     sys.exit(0 if ok else 1)
 
 

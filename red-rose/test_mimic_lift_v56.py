@@ -34,7 +34,8 @@ def _video(path, zoom_from=2.0):
 def _check_lift_recovers_text_and_zoom():
     d = tempfile.mkdtemp(); v = os.path.join(d, 'v.mp4'); _video(v)
     items = [dict(name='line', box=[300, 860, 760, 1000], span=[0, 4], steady=[[0.1, 1.9]], colours=['#fbfbfb'], tol=110)]
-    json.dump(items, open(os.path.join(d, 'items.json'), 'w'))
+    with open(os.path.join(d, 'items.json'), 'w', encoding='utf-8') as f:
+        json.dump(items, f)
     out = os.path.join(d, 'lift')
     subprocess.run([sys.executable, '-I', LIFT, 'extract', v, os.path.join(d, 'items.json'), out], check=True, capture_output=True)
     spr = cv2.imread(os.path.join(out, 'items', 'line.png'), cv2.IMREAD_UNCHANGED)
@@ -45,11 +46,12 @@ def _check_lift_recovers_text_and_zoom():
     # the outline came along, dark; the video codec bleeds the footage into it, and the lift keeps that mix
     dark = spr[..., :3][(spr[..., 3] > 150) & (spr[..., :3].max(2) < 90)]
     assert len(dark) > 300, len(dark)
-    tr = json.load(open(os.path.join(out, 'tracks.json')))['items'][0]['track']
+    with open(os.path.join(out, 'tracks.json'), encoding='utf-8') as f:
+        tr = json.load(f)['items'][0]['track']
     sc = [np.sqrt(abs(np.linalg.det(np.array(r['warp'])[:, :2]))) for r in tr if r['found']]
     assert abs(sc[0] - 1) < 0.02 and sc[-1] > 1.06, (sc[0], sc[-1])           # still, then the zoom is followed
     r = subprocess.run([sys.executable, '-I', LIFT, 'verify', v, out], capture_output=True, text=True)
-    assert r.returncode == 0, r.stdout
+    assert r.returncode == 0, r.stdout + r.stderr
 
 
 @unittest.skipIf(cv2 is None, "numpy/opencv not installed (pip install numpy opencv-python-headless)")

@@ -1,0 +1,31 @@
+{
+  "documents_read": 74880,
+  "unique_content": 66604,
+  "unique_candidates": 61152,
+  "no_supported_candidate": 5452,
+  "sources": [
+    {
+      "archive": "shiyu-34k.zip",
+      "read": 35564,
+      "sha256": "1a21b4e7c9056cdc833b71e072b394bd950efa436fc98f9a81ca6107e14e8eaa"
+    },
+    {
+      "archive": "agent-skills-corpus.zip",
+      "read": 29205,
+      "sha256": "8a486adad1992ac3d4048569d420c9d32d43780a6c278970918cf00ac5015be1"
+    },
+    {
+      "archive": "agentic-awesome-skills.zip",
+      "read": 10111,
+      "sha256": "ce2a175b97a7c7475d1ccb018029696d5070849ab01bc6118759e1175d0e1fbe"
+    }
+  ],
+  "method": "two-pass heuristic source-grounded passage selection, second pass short procedural/declarative sentences; unreviewed candidates, not full semantic review",
+  "semantic_reviewed": false,
+  "native_capabilities_added": 0,
+  "external_scripts_executed": false,
+  "secondary_attempted": 8306,
+  "secondary_candidates": 2854,
+  "file_paths_with_candidate": 69338,
+  "file_paths_without_candidate": 5542
+}

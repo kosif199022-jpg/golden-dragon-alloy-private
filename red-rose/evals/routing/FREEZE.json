@@ -1,9 +1,9 @@
 {
   "split": "test",
-  "runs": 9,
+  "runs": 10,
   "forced": false,
-  "frozen_at_utc": "2026-11-25T12:15:48+00:00",
-  "total_sha256": "24e479a946754abbbb989bfd0d9a512ad00f649044a36bab52e11c812d4e4849",
+  "frozen_at_utc": "2026-11-28T14:08:12+00:00",
+  "total_sha256": "3afd404f2f191bc91d39573d1aba7f590dcb887b099af1949db7aab0b5c3dcbf",
   "data_sha256": {
     "requests.jsonl": "4b82f50fdf950b92a9d0fddf265bdc24b4c01adb17a3ecbbbb09a417e31563f8",
     "labels_b.jsonl": "2d0cc02d95d0bc71fc54861627fa2f835038a27a1573a0eed0d46c9260e603c1",
@@ -15,7 +15,7 @@
     "rose_agent.py": "342a887c0936fcd53af8b9736c9e8eb2f7f1a19f8537ecd6af485a17dc6257a6",
     "rose_io.py": "6f878502a415acadcc39731fae125b77023d3b3fe4487ed7f43088b1039ea376",
     "rose_recipes.py": "6620a8aa978aaa71042e1c4398b211711ce7fb6a47b06f0fbd6d127941528167",
-    "rose_catalog.py": "e42b56bb2969036cd55b8d9a155669d1dba1469da27ef63f43dfb46211b0fb2d",
+    "rose_catalog.py": "15d8b8a4e7857f9caf9c5def9b089e42d5e46d1be1a6a60cdb9233614cd23e52",
     "rose_run.py": "05992e9d83622053960bfd6519e1dd0c3d577b4d1412d86e23c4343196e7b814",
     "rose_env.py": "584141333d9b8655398979c4de67ce05143c0ea853faf20d9b187f580ca3b791",
     "agent/colour_styles.json": "386d1b3bcc5e75f815f4ebc986ada19e755096cb88dc0cd35f00b7a1c4c804e6",

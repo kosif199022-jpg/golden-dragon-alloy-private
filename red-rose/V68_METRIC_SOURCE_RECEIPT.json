@@ -1,0 +1,16 @@
+{
+  "archive": "agentic-awesome-skills.zip",
+  "source": "agentic-awesome-skills-main/plugins/agentic-awesome-skills-claude/skills/cross-source-metric-reconciliation/SKILL.md",
+  "sha256": "cf7ccac02eaca904f8fff2534c51908b2deacce18b0769305a7b1908d476ea18",
+  "review": "full source text reviewed",
+  "lessons": [
+    "explicit metric definition",
+    "declared system of record",
+    "exact residual arithmetic",
+    "independent recomputation requirement",
+    "no averaging discrepancies"
+  ],
+  "native_operation": "metric-reconcile",
+  "license_verified": false,
+  "third_party_code_copied": false
+}

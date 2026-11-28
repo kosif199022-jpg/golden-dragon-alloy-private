@@ -1,0 +1,3 @@
+# V48 speed improvements
+
+Fast CLI: the same extension parser and handler are called without importing unrelated media modules for ops, find, describe, understand, brief, and VN metadata inspection. Global flags, full startup diagnostics, render, and write operations continue using the original CLI. Search caches immutable normalized token sets with a bounded LRU; live entry content changes are reflected by the cache key. No persistent cache, no owner memory changes. Test original scoring and dispatch boundaries. Measure cold commands in separate processes and warm search in-process; do not infer video render speed from these measurements.
