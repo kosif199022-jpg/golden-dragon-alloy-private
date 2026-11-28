@@ -50,3 +50,51 @@ no paid generators; runs on Windows CPU (no GPU assumed); deterministic per fram
 Python 3.12, numpy (numba optional, must fall back), Pillow, ffmpeg; no network at render time; no GPU
 assumed; Windows paths and UTF-8 Arabic; fonts only from the owner's approved libraries when text is set in
 type (calligraphy is drawn, not typed); dua work keeps the mandatory dua footage/font gate.
+
+## Theory stack (owner request 2026-11-28): every theory maps to a pen capability and a test
+### Light (how marks look)
+| Theory | Pen capability | Test |
+|---|---|---|
+| Rendering equation, energy conservation | Lit paper/canvas, raking light that reveals texture | Albedo ≤ 1; white furnace test |
+| Microfacet BRDF (GGX) + Fresnel (Schlick) | Wet-ink sheen, varnish, gold-leaf highlights that move with light | Reciprocity; Fresnel at 0°/90° |
+| Thin-film interference | Iridescent ink, oil-on-water, mother-of-pearl | Colour vs. film thickness vs. analytic curve |
+| Subsurface scattering (dipole/diffusion) | Glow through paper, skin in portrait styles | Diffusion profile integrates to 1 |
+| Spectral rendering + CIE 1931 → OKLab | Accurate pigment colours, dispersion, metamerism | Known swatches ΔE2000 < 2 |
+| Atmospheric scattering (Rayleigh/Mie) | Sky, haze, depth in landscape styles | Sky gradient vs. reference sun angles |
+### Physics (how marks are made)
+| Theory | Capability | Test |
+|---|---|---|
+| Cosserat rods / elastic bristles, Hertz contact | Brush splay, dry-brush, pressure footprints | Static deflection vs. beam formula |
+| Thin-film lubrication + Navier–Stokes (shallow water) | Paint flow, puddles, back-runs | Mass conservation; flat-pool steady state |
+| Lucas–Washburn capillarity, anisotropic diffusion | Ink wicking along paper fibres | Penetration ∝ √t |
+| Evaporation + sedimentation | Edge darkening (coffee ring), granulation | Ring forms only with pinned edges |
+| Non-Newtonian (shear-thinning) rheology | Oil impasto, palette-knife ridges | Flow curve vs. power law |
+| Height field + normal mapping | 3D paint relief lit by any light | Normal unit length; relief preserved under resize |
+| Spring–damper dynamics | Secondary motion: hair, cloth, follow-through | Damping ratio gives expected overshoot |
+### Mathematics (shape, motion, optimisation)
+| Theory | Capability | Test |
+|---|---|---|
+| Differential geometry of curves (Frenet, G2 continuity), Euler spirals (clothoids) | Beautiful strokes with smooth curvature, calligraphic swashes | Curvature continuous at joins |
+| B-splines/NURBS, arc length | Exact stroke paths, uniform speed | Arc length vs. analytic |
+| Minimum-jerk / minimum-snap trajectories | Human-like hand speed and stroke timing | Jerk integral minimal vs. linear timing |
+| Optimal transport (Sinkhorn), Hausdorff distance | Morph one drawing into another; match cuts by shape | Mass error; symmetric distance |
+| Variational methods, Poisson/biharmonic solves | Smooth fills, shading from sketches, seamless edits | Residual below tolerance |
+| Fourier / wavelets, Perlin/Worley/fBm | Paper grain, canvas weave, stroke jitter with controlled spectrum | Power spectrum slope |
+| Constraint optimisation (augmented Lagrangian) | Calligraphy proportions, layout composition | Constraints met within tolerance |
+| Differentiable rendering + Adam/L-BFGS | Inverse painting; fit any style to a reference | Loss decreases; gradient check vs. finite differences |
+| As-rigid-as-possible deformation, optical flow | Drawn characters move; strokes stay attached | Jitter metric on static regions |
+| Lie groups SO(3)/SE(3), quaternion squad | Smooth camera over the drawn world | No gimbal flips; continuous angular velocity |
+### Art, directing and montage (why it reads well)
+| Theory | Capability | Test |
+|---|---|---|
+| Value structure (notan), lost-and-found edges | Strong silhouettes; edges sharp only where the eye should go | Value histogram has ≥3 clear groups |
+| Colour harmony in OKLab (analogous, complementary, triad) | Palettes per style and per beat | Hue angles match the chosen scheme |
+| Composition: thirds, golden ratio, leading lines, Gestalt | Auto-placement of subject and text | Subject centroid on a power point (tolerance) |
+| 12 animation principles in math (volume-preserving squash & stretch, arcs, ease, overlap) | Living characters | Area preserved within 2% while squashing |
+| Kuleshov effect, Eisenstein montage types (metric, rhythmic, tonal, intellectual) | Cut decisions inside `rose.py direct` | Each cut labelled with its montage type |
+| 180° rule, eyeline and match cuts, shot-size grammar | Continuity across drawn shots | `continuity check` passes; match-cut shape distance below threshold |
+| Rhythm: cut on beat/word onsets, breath pauses | Edit synced to voice and music | Onset offset ≤ 1 frame |
+### Style = parameters
+A style is a JSON vector (tools, media, paper, stroke grammar, palette, light, motion grammar). Styles mix by
+interpolating these vectors; a new style is learned by fitting the vector to reference images with the
+differentiable renderer (stage 5). Each theory above is added in the stage that needs it, with its test.
