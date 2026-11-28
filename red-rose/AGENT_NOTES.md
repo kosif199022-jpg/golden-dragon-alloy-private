@@ -63,3 +63,6 @@ For any motion-graphics request run `styles menu` first and offer all fitting st
 
 ## V73 style ideas — 2026-11-28
 `styles ideas` holds 125 approved ideas/borrowable styles as knowledge (not built). Search there before inventing; build any idea through style card → 3-second sample → owner OK → tests. Read V73_STYLE_IDEAS_GUIDE.md.
+
+## V74 Living Pen — 2026-11-28
+The owner chose «القلم الحي» as the engine for drawing every future style. Spec: V74_LIVING_PEN_SPEC.md (not built yet). Build only by its 7 stages with tests and a sample per stage.
