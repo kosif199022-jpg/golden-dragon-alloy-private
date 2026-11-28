@@ -1,9 +1,9 @@
 {
   "split": "test",
-  "runs": 10,
+  "runs": 11,
   "forced": false,
-  "frozen_at_utc": "2026-11-28T14:08:12+00:00",
-  "total_sha256": "3afd404f2f191bc91d39573d1aba7f590dcb887b099af1949db7aab0b5c3dcbf",
+  "frozen_at_utc": "2026-11-28T15:25:51+00:00",
+  "total_sha256": "115c1f11744ac3f0b51aa39b61c3aa1def39baa0f9bf4f81a5e90d15be242490",
   "data_sha256": {
     "requests.jsonl": "4b82f50fdf950b92a9d0fddf265bdc24b4c01adb17a3ecbbbb09a417e31563f8",
     "labels_b.jsonl": "2d0cc02d95d0bc71fc54861627fa2f835038a27a1573a0eed0d46c9260e603c1",
@@ -17,7 +17,7 @@
     "rose_recipes.py": "6620a8aa978aaa71042e1c4398b211711ce7fb6a47b06f0fbd6d127941528167",
     "rose_catalog.py": "15d8b8a4e7857f9caf9c5def9b089e42d5e46d1be1a6a60cdb9233614cd23e52",
     "rose_run.py": "05992e9d83622053960bfd6519e1dd0c3d577b4d1412d86e23c4343196e7b814",
-    "rose_env.py": "584141333d9b8655398979c4de67ce05143c0ea853faf20d9b187f580ca3b791",
+    "rose_env.py": "f9f3b7d71fe67dd6a2e6325d52792c0a97290bf4603bba5ddab7864f411b8c26",
     "agent/colour_styles.json": "386d1b3bcc5e75f815f4ebc986ada19e755096cb88dc0cd35f00b7a1c4c804e6",
     "agent/dictation.json": "23dce9cb23df2227785404dcc5018605e212bbc4aa24c5e0b0841919c89c249d",
     "agent/dua_catalog.json": "959bb4867c94a3f9f417ac45de96ca20530a8ed449ee429f8e2de5d538393902",

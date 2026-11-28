@@ -23,3 +23,6 @@ via `"xf"` on a scene). Fonts for it: Almarai-ExtraBold, Tajawal-Medium and Kufa
 `blacklist.txt` lists clips that failed a check; add to it whenever a clip is replaced.
 Poll the sandbox with `sleep 30` at most (60 s tool limit). Fonts come from the Red Rose font library.
 - Scene `whip` (seconds): horizontal motion blur that peaks on the cut, half before and half after (the @alrihanii «صباح» transition). Traced element `pop` (e.g. 0.12): the line enters that much larger and settles over `popT` (0.45 s). Example: `example_rihanii_sabah_spec.json`.
+
+## V69 mandatory preflight
+Read ../../V69_RUNTIME_GUIDE.md. The old example JSON files are historical templates, not ready-to-render jobs. Supply the approved, hashed source/trim/font/word timing contract in spec.json, use the repository make.sh, and keep fontTools, FFmpeg and Playwright available. Old standalone renderer copies and unverified overlays are refused. Do not bypass a failed gate.

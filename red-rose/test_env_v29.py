@@ -156,6 +156,8 @@ class StartTests(unittest.TestCase):
         doc = json.loads(done.stdout.decode('utf-8'))
         self.assertTrue(doc['ok'])
         self.assertEqual(doc['probe']['skill_root'], str(ROOT))
+        self.assertEqual(doc['probe']['version'], 'V69')
+        self.assertIn('version: "V69"', (ROOT/'SKILL.md').read_text(encoding='utf-8'))
         self.assertEqual(set(doc['usable']), set(env.LABELS))
 
     def test_doctor_deps_cli(self):

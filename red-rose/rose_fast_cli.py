@@ -25,6 +25,7 @@ FAST_COMMANDS = {
     "knowledge": "rose_knowledge_v67",
     "montage-code": "rose_montage_v65",
     "metric-reconcile": "rose_metric_v68",
+    "dua-gate": "rose_dua_gate_v69",
 }
 
 

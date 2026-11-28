@@ -175,6 +175,8 @@ def set_fonts(roles: dict | None) -> dict:
             raise ValueError(f'unknown font role {role!r}; use one of {sorted(ROLE_DEFAULT)}')
         p = Path(str(name)).expanduser()
         if not p.is_file():
+            if p.is_absolute():
+                raise FileNotFoundError(f'approved font disappeared: {p}')
             import font_library_v35 as fl
             hit = fl.find_one(str(name))
             if not hit:
@@ -372,10 +374,13 @@ def colour_style(name):
 
 
 def build(plan: dict, out, work=None, approve_write: bool = False, storyboard_only: bool = False) -> dict:
-    fonts_used = set_fonts(plan.get('fonts'))
+    from rose_dua_gate_v69 import bind_v34
     lines = timed_lines(plan.get('lines') or [])
     spin = plan.get('transition') == 'spin'
     lengths, offsets, total = shot_plan_cut(lines) if spin else shot_plan(lines)
+    verified = bind_v34(plan, lengths)  # fail before writes, font selection or implicit footage selection
+    plan = dict(plan, fonts=verified['fonts'], audio=verified['audio'], clips=[dict(c,kind='video') for c in verified['clips']])
+    fonts_used = set_fonts(plan.get('fonts'))
     n = len(lines)
     if plan.get('clips'):
         if len(plan['clips']) != n:

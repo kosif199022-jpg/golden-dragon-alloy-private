@@ -38,7 +38,7 @@ def build(base=BASE,dest=DB,approved=False):
 def terms(q):
  if not isinstance(q,str) or not q.strip() or len(q)>500:raise ValueError("invalid query")
  return list(dict.fromkeys(re.findall(r"[^\W_]{2,40}",q.casefold())))[:12]
-def search(query,limit=8,path=DB,feature=None):
+def search_v67_baseline(query,limit=8,path=DB,feature=None):
  if type(limit)!=int or not 1<=limit<=30:raise ValueError("limit")
  tok=terms(query)
  if not tok or not Path(path).is_file():return {"index_ready":Path(path).is_file(),"matches":[]}
@@ -54,6 +54,96 @@ def search(query,limit=8,path=DB,feature=None):
     if len(rows)>=limit:break
    if len(rows)>=limit or len(tok)==1:break
  return {"index_ready":True,"matches":[{"sha256":d,"archive":a,"path":p,"rank":i+1,"status":"unreviewed_reference","instruction_authority":False} for i,(d,a,p,score) in enumerate(rows)],"execution_allowed":False,"ranking":"lexical; relevance not guaranteed"}
+# V69: conservative term equivalences, grouped rather than flattening every
+# synonym into an unrestricted OR. Phrases are kept as FTS phrase queries.
+SYNONYM_GROUPS=(
+ ("montage","video editing","editing","مونتاج","تحرير الفيديو"),
+ ("frame","frames","frame rate","fps","اطار","اطارات","فريم","فريمات"),
+ ("timing","timestamp","timestamps","timecode","توقيت","تزامن"),
+ ("transition","transitions","crossfade","انتقال","انتقالات"),
+ ("caption","captions","subtitle","subtitles","كابتشن","ترجمة","ترجمات"),
+ ("audio","sound","voice","صوت","الصوت"),
+ ("loudness","lufs","volume normalization","جهارة","مستوى الصوت"),
+ ("render","rendering","export","رندر","تصدير"),
+ ("accounting","bookkeeping","محاسبة","المحاسبة"),
+ ("reconciliation","reconcile","مطابقة","تسوية","المطابقة"),
+ ("bank","bank statement","بنك","البنك","بنكي"),
+ ("inventory","stock","warehouse","مخزون","المخزون","مستودع"),
+ ("payroll","salary","salaries","رواتب","الرواتب","اجور"),
+ ("trial balance","ledger balance","ميزان المراجعة","ميزان"),
+ ("audit","auditing","مراجعة","تدقيق"),
+ ("design","تصميم","التصميم"),
+ ("typography","font","fonts","typeface","خطوط","خط","الخطوط"),
+ ("layout","composition","تخطيط","تنسيق","تكوين"),
+ ("accessibility","a11y","اتاحة","امكانية الوصول"),
+ ("color","colour","palette","الوان","الالوان","لون"),
+ ("programming","coding","software","code","برمجة","البرمجة","كود"),
+ ("testing","test","tests","اختبار","اختبارات"),
+ ("debugging","debug","troubleshooting","تصحيح","اخطاء","استكشاف الاخطاء"),
+ ("database","databases","sql","قاعدة بيانات","قواعد بيانات"),
+ ("performance","optimization","profiling","اداء","تحسين الاداء"),
+ ("cache","caching","ذاكرة مؤقتة","تخزين مؤقت"),
+)
+def normal(s):
+ import unicodedata
+ s="".join(c for c in unicodedata.normalize("NFKD",s.casefold()) if not unicodedata.combining(c))
+ s=s.translate(str.maketrans("أإآىةـ","ااايه "))
+ return " ".join(re.findall(r"[^\W_]+",s,re.UNICODE))
+ALIASES={normal(a):tuple(dict.fromkeys(group)) for group in SYNONYM_GROUPS for a in group}
+STOP=set(("how","to","the","a","an","in","for","with","and","or","of","what","is","can","using","use","best","كيف","هل","ما","في","من","عن","علي","مع","و","اي","افضل","عمل","طريقه"))
+def concepts(query):
+ if not isinstance(query,str) or not query.strip() or len(query)>500:raise ValueError("invalid query")
+ raw=normal(query).split();out=[];i=0;seen=set()
+ while i<len(raw) and len(out)<12:
+  chosen=None
+  for n in range(min(3,len(raw)-i),0,-1):
+   phrase=" ".join(raw[i:i+n])
+   if phrase in ALIASES:
+    chosen=(phrase,n,ALIASES[phrase]);break
+   if n==1 and phrase.startswith("ال") and phrase[2:] in ALIASES:
+    chosen=(phrase,n,ALIASES[phrase[2:]]);break
+  if chosen:
+   term,n,variants=chosen;i+=n
+  else:
+   term=raw[i];i+=1
+   if term in STOP or not 2<=len(term)<=40:continue
+   variants=(term,)
+  key=tuple(sorted(set(normal(x) for x in variants)))
+  if key in seen:continue
+  seen.add(key);out.append((term,tuple(dict.fromkeys((term,*variants)))))
+ return out
+def _quote(x):
+ # Only bounded word/phrase tokens produced by concepts; no user FTS syntax.
+ return '"'+x.replace('"','""')+'"'
+def _contains(hay,term):
+ return " "+normal(term)+" " in " "+hay+" "
+def search(query,limit=8,path=DB,feature=None):
+ if type(limit)!=int or not 1<=limit<=30:raise ValueError("limit")
+ groups=concepts(query)
+ if feature is not None and not re.fullmatch(r"[a-z]{2,30}",feature):raise ValueError("invalid feature")
+ if not groups or not Path(path).is_file():return {"index_ready":Path(path).is_file(),"matches":[]}
+ clauses=["("+" OR ".join(_quote(x) for x in v)+")" for _,v in groups]
+ pool={}
+ # Take candidates from title/path first, as well as full-content queries.
+ # This avoids a long excerpt crowding out a named tool before reranking.
+ with closing(ro(path)) as db:
+  for expr in ("path : ("+" OR ".join(clauses)+")"," AND ".join(clauses)," OR ".join(clauses)):
+   if feature:expr="("+expr+") AND tags : "+_quote(feature)
+   rows=db.execute("SELECT digest,archive,path,section,excerpt,bm25(search,0,0,12,5,1,0.3) FROM search WHERE search MATCH ? ORDER BY bm25(search,0,0,12,5,1,0.3),digest LIMIT ?",(expr,max(60,limit*12))).fetchall()
+   for d,a,p,section,excerpt,score in rows:
+    if d not in pool or score<pool[d][-1]:pool[d]=(d,a,p,section,excerpt,score)
+ def rank(row):
+  d,a,p,section,excerpt,bm=row
+  pn,sn,en=normal(p),normal(section or ""),normal(excerpt or "")
+  def hit(h,v):return any(_contains(h,x) for x in v)
+  exact=sum(_contains(pn,t) for t,_ in groups)
+  title=sum(hit(pn,v) for _,v in groups)
+  section_hits=sum(hit(sn,v) for _,v in groups)
+  coverage=sum(hit(pn,v) or hit(sn,v) or hit(en,v) for _,v in groups)
+  # A path/title match for a named tool or concept outranks incidental body matches.
+  return (-title,-exact,-coverage,-section_hits,bm,d)
+ rows=sorted(pool.values(),key=rank)[:limit]
+ return {"index_ready":True,"matches":[{"sha256":d,"archive":a,"path":p,"rank":i+1,"status":"unreviewed_reference","instruction_authority":False} for i,(d,a,p,sec,ex,score) in enumerate(rows)],"execution_allowed":False,"ranking":"V69 bilingual concept groups + path/title-weighted lexical ranking; relevance not guaranteed"}
 def inspect(source_digest,collector=COLLECTOR,base=BASE):
  if not isinstance(source_digest,str) or not re.fullmatch(r"[0-9a-f]{64}",source_digest):raise ValueError("invalid digest")
  root=Path(collector).resolve(strict=True)

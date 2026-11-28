@@ -32,7 +32,12 @@ def ff(args,timeout=180):
 def probe(p,count=False):
     return json.loads(run(["ffprobe","-v","error","-protocol_whitelist","file,pipe",*(["-count_frames"] if count else []),"-show_streams","-show_format","-of","json",p]))
 def plan(j):
-    if j.get("kind")!="general":raise ValueError("only explicitly declared general montage; dua must use mandatory owner workflow")
+    if j.get("kind")!="general":
+        if str(j.get("kind","")).casefold().strip() in ("dua","duaa","azkar","prayer","دعاء","أذكار","اذكار") and "dua_gate" in j:
+            from rose_dua_gate_v69 import check
+            check(j["dua_gate"])
+        raise ValueError("only explicitly declared general montage; dua must use mandatory owner workflow")
+    if "dua_gate" in j:raise ValueError("dua contract cannot be passed as general montage")
     if j.get("rights_confirmed") is not True:raise ValueError("approved asset rights declaration required")
     fps=integer(j.get("fps",30),24,60)
     if fps not in (24,25,30,50,60):raise ValueError("unsupported fps")

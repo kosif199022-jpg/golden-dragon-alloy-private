@@ -25,7 +25,7 @@ from pathlib import Path
 import rose_io as rio
 
 ROOT = Path(__file__).resolve().parent
-SKILL_VERSION = 'V29'
+SKILL_VERSION = 'V69'
 VERIFIED_JSON = ROOT / 'references' / 'VERIFIED_STATUS.json'
 PRIVATE_DIR = Path.home() / '.red-rose'
 PRIVATE_DB = PRIVATE_DIR / 'memory.sqlite3'

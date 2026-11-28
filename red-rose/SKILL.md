@@ -3,7 +3,7 @@ name: red-rose
 description: "Makes and checks Arabic-first video and bank-statement work for the owner on Windows: Arabic animated titles, reels and captions from exact words, shot reports with approved recuts, loudness fixes, iPhone exports, and bank reconciliation. Use whenever the owner asks in Arabic or English for الوردة، الوردة الحمراء، مونتاج، ريل، ريلز، قص فيديو، كابشن، عنوان متحرك، موشن، تحليل لقطات، ضبط الصوت، دعاء، ريل دعاء، ذكر/أذكار، تصميم ديني، دعاء يوم الجمعة، دعاء الصباح، تسوية بنك، مطابقة كشف حساب، Red Rose, reel, dua/duaa reel, azkar/islamic/Quran aesthetic video, captions, kinetic title, shot report, loudness, or bank reconciliation, and also when the request is Arabic typed on an English keyboard layout. For dua reels: the maker, 112 dua themes, two measured account styles, a voices-by-day library, Pinterest clip libraries and a song lyric-motion engine (references/DUA_REELS_PLAYBOOK.md); also for أصوات الدعاء، حلل حساب، موشن جرافيك لأغنية، الراجل والست. Use it even when the owner does not name the skill."
 compatibility: "Windows 11 with Python 3.12 and ffmpeg on PATH is the main target. Read-only commands run anywhere Python 3.12 runs. Private memory exists only on the owner PC."
 metadata:
-  version: "V29"
+  version: "V69"
   audience: "the owner, through Claude"
 ---
 
@@ -266,3 +266,6 @@ Use knowledge search and inspect to find relevant original sources, and knowledg
 
 ## V68 metric reconciliation
 For conflicting aggregate figures use metric-reconcile with explicit definitions, evidence references, tolerance and primary basis. Review source exports and recomputation independently; never average competing sources or certify from supplied arithmetic. Read V68_METRIC_GUIDE.md. Existing bank reconciliation, accounting and owner rules remain unchanged.
+
+## V69 runtime dua gate and ranked search
+Read V69_RUNTIME_GUIDE.md. Runtime enforcement is now present at the named entrypoints; old generic dua plans without an explicit hashed asset/word timing contract fail before writes. VN remains analysis only and montage-code remains general-only. V69 search uses bilingual grouped lexical terms and path/title weighting; fixture results in V69_KNOWLEDGE_EVAL.json, not a private-corpus accuracy claim. Keep independent visual/audio, licensing and write gates. Never use alternate paths to evade a failed gate.
