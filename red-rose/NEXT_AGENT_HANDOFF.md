@@ -311,3 +311,6 @@ Merged latest main b84909c into unified branch. Source-derived procedural steps,
 
 ## V62 integration checkpoint
 Merged the main media and character changes into the experimental mind candidate. Read V62_MIND_GUIDE.md; fresh regression results required before release. No claim of complete corpus absorption.
+
+## V69 runtime dua gate and ranked search
+Read V69_RUNTIME_GUIDE.md. Runtime enforcement is now present at the named entrypoints; old generic dua plans without an explicit hashed asset/word timing contract fail before writes. VN remains analysis only and montage-code remains general-only. V69 search uses bilingual grouped lexical terms and path/title weighting; fixture results in V69_KNOWLEDGE_EVAL.json, not a private-corpus accuracy claim. Keep independent visual/audio, licensing and write gates. Never use alternate paths to evade a failed gate.

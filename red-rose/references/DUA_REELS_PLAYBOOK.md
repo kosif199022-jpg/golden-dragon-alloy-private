@@ -16,6 +16,10 @@ Everything here was measured on real accounts, not guessed. Numbers: `agent/dua_
 5. Before rendering, record each chosen asset's library-relative path, SHA-256 and trim interval; selected font identity/digest, reference style, caption timecodes and rights status. Check the full selected footage for logos, unwanted text and defects. Render locally first with resumable verified segments when possible. Independently check actual decoded frame count, audio/video duration, AAC compatibility, no unintended black frames, and rendered text geometry/color/timing and motion against the reference. For reference-matching reels use the hard acceptance gate in `references/TRIAL_DXH_2026-11-25.md`. Missing or failed criteria mean no accepted final; only a clearly labeled trial with the owner's approval. Do not claim publishing rights from possession of a library.
 6. Keep private raw media and font binaries separate from the code repository and the finished video releases. Publish only rights-cleared footage/audio/fonts. Store finished outputs in the separate private `kosif199022-jpg/red-rose-outputs` repository; do not put new renders in the raw media library.
 
+## V69 runtime enforcement
+
+Before rendering use python rose.py dua-gate check JOB.json and the renderer-specific binding in V69_RUNTIME_GUIDE.md. Missing hashes, unauthorized roots, missing trims or captions not bound to word timestamps stop the named renderer. VN analysis is read-only and general montage continues to reject dua. Old example jobs are not automatically approved. Preserve all manual style, rights and delivery checks above.
+
 ## 1. What is ready to use
 
 | Need | Where |

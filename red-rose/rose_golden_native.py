@@ -59,7 +59,7 @@ def render_dua(p,approve):
     _keys(p,("plan","output"),("storyboard_only",))
     if not isinstance(p["plan"],dict):raise ValueError("plan object required")
     plan=dict(p["plan"])
-    allowed=("lines","library","seed","transition","exclude","audio","style","fonts","fixed")
+    allowed=("lines","library","seed","transition","exclude","audio","style","fonts","fixed","clips","dua_gate")
     if plan.keys()-set(allowed):raise ValueError("unsupported plan fields")
     shot=p.get("storyboard_only",False)
     if not isinstance(shot,bool):raise ValueError("storyboard_only must be boolean")
@@ -68,9 +68,7 @@ def render_dua(p,approve):
     work=out.parent/(out.stem+"_golden_work")
     if work.exists():raise FileExistsError(work)
     if not approve:return {"ok":False,"outcome":"approval_required","would_write":[str(out),str(work)]}
-    selected=preflight({k:plan[k] for k in ("lines","library","seed","transition","exclude") if k in plan})
-    plan["lines"]=selected["lines"]
-    plan["clips"]=selected["clips"]
+    # build() enforces V69 on the actual explicit plan; no auto-selection or estimated timing.
     if plan.get("audio"):plan["audio"]=str(_file(plan["audio"]))
     result=d.build(plan,out,work=work,approve_write=True,storyboard_only=shot)
     if not result.get("ok"):return result

@@ -204,7 +204,7 @@ function line(text, a, o = {}) {
     LINE = { px: 100 * k, base: st.top + m.actualBoundingBoxAscent * k, sx: st.w / ((m.actualBoundingBoxLeft + m.actualBoundingBoxRight) * k) };
   }
   ctx.save(); ctx.globalAlpha = a; ctx.direction = 'rtl'; ctx.textAlign = 'center';
-  ctx.font = `${LINE.px.toFixed(1)}px ${st.font}, 'Noto Color Emoji'`;
+  ctx.font = `${LINE.px.toFixed(1)}px ${st.font}`;
   const w = ctx.measureText(text).width * LINE.sx, fk = w > st.maxw ? st.maxw / w : 1;
   const z = (o.big || 1) * (o.pop ?? 1), mid = LINE.base - 0.3 * LINE.px;
   if (o.wipe != null) { const ww = (w * fk * z) + 40, x0 = st.cx - ww / 2; ctx.beginPath(); ctx.rect(x0 + ww * o.wipe, 0, ww, H); ctx.clip(); }
@@ -240,28 +240,28 @@ window.renderFrame = async function (fr) {
   }
   if (S.style === 'adeiat') {
     hijriBlock(seg(t, 0, 0.4)); dayBlock(seg(t, 0, 0.4)); ribbon(seg(t, 0, 0.4));
-    const L = S.lines; let j = 0; while (j + 1 < L.length && t >= L[j + 1][0] - 0.15) j++;
-    const nxt = j + 1 < L.length ? L[j + 1][0] - 0.15 : S.dur + 1, st0 = j === 0 ? 0 : L[j][0] - 0.15;
-    const big = L[j][2] === 'big' ? 1.75 : 1, ain = seg(t, st0, st0 + 0.3);
-    if (t < nxt - 0.28) line(L[j][1], ain, { big, pop: 0.72 + 0.28 * (1 - Math.pow(1 - ain, 3)) });
-    else line(L[j][1], 1, { big, wipe: seg(t, nxt - 0.28, nxt) });       // old line erased right to left from its end
+    const cap = S.dua_gate.captions.find(c => t >= c.start && t < c.end);
+    if (cap) { const j = S.dua_gate.captions.indexOf(cap), big = S.lines[j][2] === 'big' ? 1.75 : 1;
+      const fade = Math.min(.15, (cap.end-cap.start)/2);
+      const ain = seg(t,cap.start,cap.start+fade);
+      line(cap.text, Math.min(ain,1-seg(t,cap.end-fade,cap.end)), {big,pop:.72+.28*(1-Math.pow(1-ain,3))}); }
     return true;
   }
   if (S.sticker_from != null) sabah(seg(t, S.sticker_from, S.sticker_from + 0.35));
-  const L = S.lines; let j = 0; while (j + 1 < L.length && t >= L[j + 1][0] - 0.1) j++;
-  const nxt = j + 1 < L.length ? L[j + 1][0] - 0.1 : S.dur + 1;
-  line(L[j][1], Math.min(j === 0 ? seg(t, 0, 0.3) : seg(t, L[j][0] - 0.1, L[j][0] + 0.18), 1 - seg(t, nxt - 0.18, nxt)));
+  const cap = S.dua_gate.captions.find(c => t >= c.start && t < c.end);
+  if (cap) { const fade = Math.min(.15,(cap.end-cap.start)/2);
+    line(cap.text, Math.min(seg(t,cap.start,cap.start+fade),1-seg(t,cap.end-fade,cap.end))); }
   handle(1);
   return true;
 };
 (async () => {
   S = await (await fetch('spec.json')).json(); C = await (await fetch('clips.json')).json();
-  if (S.line && S.line.font) { try { const f = new FontFace('LINEF', `url(fonts/${S.line.font.split('/').pop()})`); await f.load(); document.fonts.add(f); } catch (e) {} }
-  await Promise.allSettled((S.elements || []).map(async (e, i) => {      // fonts picked by mimic, copied into fonts/ by make.sh
+  if (S.line && S.line.font) { const f = new FontFace('LINEF', `url(fonts/${S.line.font.split(/[\\/]/).pop()})`); await f.load(); document.fonts.add(f); }
+  await Promise.all((S.elements || []).map(async (e, i) => {      // fonts picked by mimic, copied into fonts/ by make.sh
     if (e.kind !== 'text' || !e.font) return;
-    const f = new FontFace('EL' + i, `url(fonts/${e.font.split('/').pop()})`); await f.load(); document.fonts.add(f);
+    const f = new FontFace('EL' + i, `url(fonts/${e.font.split(/[\\/]/).pop()})`); await f.load(); document.fonts.add(f);
   }));
   window.FRAMES = Math.round(S.dur * FPS);
-  await Promise.allSettled(['AmiriB', 'Diwani', 'PlexSerifB', 'PlexSerifI', 'Panorama', 'Sultan', 'AlmaraiXB', 'TajawalM', 'Kufam'].map(f => document.fonts.load(`80px ${f}`, 'صباح ABC')));   // a missing font must not stop the render
-  await Promise.race([document.fonts.ready, new Promise(r => setTimeout(r, 5000))]); window.ready = true;
+  await Promise.all(['AmiriB', 'Diwani', 'PlexSerifB', 'PlexSerifI', 'Panorama', 'Sultan', 'AlmaraiXB', 'TajawalM', 'Kufam'].map(f => document.fonts.load(`80px ${f}`, 'صباح ABC')));   // missing font must stop the render
+  await document.fonts.ready; window.ready = true;
 })();

@@ -345,3 +345,5 @@ The existing `intelligence.fusion` native adapter now also supports `reel_rhythm
 ## V43 — reel motion and app intelligence evaluation
 
 `reel.motion` is an original standalone 22s/30fps Abu Cap animated pose/beat and simplified SVG frame planner distilled from the attached reel source. `mind.audit` adds nine-stage evidence gates, 12-organ scoring and paired held-out before/after comparison, distilled from app-super-mind.skill. Both are READ-only and deliberately **not** copies of source runtimes. See `V43_ABU_CAP_SUPER_MIND_GUIDE.md`, `FUSION_PROVENANCE_V43.json`, `test_fusion_v43.py`. This is partial tested implementation, not a claim that 710 source archive files became 710 native tools.
+
+V69: mandatory dua input/renderer gate and improved bilingual knowledge retrieval. See V69_RUNTIME_GUIDE.md and V69_KNOWLEDGE_EVAL.json for use, validation and limitations.

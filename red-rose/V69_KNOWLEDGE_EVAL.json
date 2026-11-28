@@ -1,0 +1,627 @@
+{
+  "fixture": "synthetic labelled; not representative production-corpus benchmark",
+  "questions": 32,
+  "denominator": 96,
+  "before_hits": 38,
+  "after_hits": 95,
+  "precision_at_3_before": 0.3958333333333333,
+  "precision_at_3_after": 0.9895833333333334,
+  "cases": [
+    {
+      "question": "ffmpeg frame timing",
+      "feature": "media",
+      "expected": [
+        "ffmpeg-frame-timecode/SKILL.md",
+        "ffmpeg-frame-timing/SKILL.md",
+        "ffmpeg-pts-inspection/SKILL.md"
+      ],
+      "before": [
+        "ffmpeg-frame-timing/SKILL.md",
+        "cloudflare-browser/SKILL.md",
+        "video-reader/SKILL.md"
+      ],
+      "after": [
+        "ffmpeg-frame-timing/SKILL.md",
+        "ffmpeg-frame-timecode/SKILL.md",
+        "ffmpeg-pts-inspection/SKILL.md"
+      ],
+      "before_hits": 1,
+      "after_hits": 3
+    },
+    {
+      "question": "توقيت الاطارات ffmpeg",
+      "feature": "media",
+      "expected": [
+        "ffmpeg-frame-timecode/SKILL.md",
+        "ffmpeg-frame-timing/SKILL.md",
+        "ffmpeg-pts-inspection/SKILL.md"
+      ],
+      "before": [
+        "ffmpeg-frame-timing/SKILL.md",
+        "ffmpeg-frame-timecode/SKILL.md",
+        "ffmpeg-pts-inspection/SKILL.md"
+      ],
+      "after": [
+        "ffmpeg-frame-timecode/SKILL.md",
+        "ffmpeg-frame-timing/SKILL.md",
+        "ffmpeg-pts-inspection/SKILL.md"
+      ],
+      "before_hits": 3,
+      "after_hits": 3
+    },
+    {
+      "question": "video transition crossfade",
+      "feature": "media",
+      "expected": [
+        "montage-crossfade/SKILL.md",
+        "video-editing-transitions/SKILL.md",
+        "video-transition-design/SKILL.md"
+      ],
+      "before": [
+        "video-transition-design/SKILL.md",
+        "video-reader/SKILL.md",
+        "video-editing-transitions/SKILL.md"
+      ],
+      "after": [
+        "video-transition-design/SKILL.md",
+        "video-editing-transitions/SKILL.md",
+        "video-reader/SKILL.md"
+      ],
+      "before_hits": 2,
+      "after_hits": 2
+    },
+    {
+      "question": "انتقالات المونتاج",
+      "feature": "media",
+      "expected": [
+        "montage-crossfade/SKILL.md",
+        "video-editing-transitions/SKILL.md",
+        "video-transition-design/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "montage-crossfade/SKILL.md",
+        "video-editing-transitions/SKILL.md",
+        "video-transition-design/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "audio loudness normalization",
+      "feature": "media",
+      "expected": [
+        "audio-loudness/SKILL.md",
+        "audio-lufs-delivery/SKILL.md",
+        "sound-volume-normalization/SKILL.md"
+      ],
+      "before": [
+        "sound-volume-normalization/SKILL.md",
+        "cloudflare-browser/SKILL.md",
+        "video-reader/SKILL.md"
+      ],
+      "after": [
+        "sound-volume-normalization/SKILL.md",
+        "audio-loudness/SKILL.md",
+        "audio-lufs-delivery/SKILL.md"
+      ],
+      "before_hits": 1,
+      "after_hits": 3
+    },
+    {
+      "question": "ضبط جهارة الصوت",
+      "feature": "media",
+      "expected": [
+        "audio-loudness/SKILL.md",
+        "audio-lufs-delivery/SKILL.md",
+        "sound-volume-normalization/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "sound-volume-normalization/SKILL.md",
+        "audio-lufs-delivery/SKILL.md",
+        "audio-loudness/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "caption subtitle timing",
+      "feature": "media",
+      "expected": [
+        "caption-timing/SKILL.md",
+        "captions-word-timestamps/SKILL.md",
+        "subtitle-timecode/SKILL.md"
+      ],
+      "before": [
+        "caption-timing/SKILL.md",
+        "cloudflare-browser/SKILL.md",
+        "subtitle-timecode/SKILL.md"
+      ],
+      "after": [
+        "caption-timing/SKILL.md",
+        "subtitle-timecode/SKILL.md",
+        "captions-word-timestamps/SKILL.md"
+      ],
+      "before_hits": 2,
+      "after_hits": 3
+    },
+    {
+      "question": "توقيت الكابتشن",
+      "feature": "media",
+      "expected": [
+        "caption-timing/SKILL.md",
+        "captions-word-timestamps/SKILL.md",
+        "subtitle-timecode/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "subtitle-timecode/SKILL.md",
+        "caption-timing/SKILL.md",
+        "captions-word-timestamps/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "bank reconciliation",
+      "feature": "finance",
+      "expected": [
+        "bank-reconcile-review/SKILL.md",
+        "bank-reconciliation/SKILL.md",
+        "bank-statement-reconcile/SKILL.md"
+      ],
+      "before": [
+        "bank-reconciliation/SKILL.md",
+        "business-dashboard/SKILL.md",
+        "bank-statement-reconcile/SKILL.md"
+      ],
+      "after": [
+        "bank-reconciliation/SKILL.md",
+        "bank-statement-reconcile/SKILL.md",
+        "bank-reconcile-review/SKILL.md"
+      ],
+      "before_hits": 2,
+      "after_hits": 3
+    },
+    {
+      "question": "مطابقة البنك",
+      "feature": "finance",
+      "expected": [
+        "bank-reconcile-review/SKILL.md",
+        "bank-reconciliation/SKILL.md",
+        "bank-statement-reconcile/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "bank-statement-reconcile/SKILL.md",
+        "bank-reconciliation/SKILL.md",
+        "bank-reconcile-review/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "inventory accounting",
+      "feature": "finance",
+      "expected": [
+        "inventory-accounting/SKILL.md",
+        "inventory-bookkeeping/SKILL.md",
+        "warehouse-stock-accounting/SKILL.md"
+      ],
+      "before": [
+        "inventory-accounting/SKILL.md",
+        "warehouse-stock-accounting/SKILL.md",
+        "business-dashboard/SKILL.md"
+      ],
+      "after": [
+        "inventory-accounting/SKILL.md",
+        "warehouse-stock-accounting/SKILL.md",
+        "inventory-bookkeeping/SKILL.md"
+      ],
+      "before_hits": 2,
+      "after_hits": 3
+    },
+    {
+      "question": "محاسبة المخزون",
+      "feature": "finance",
+      "expected": [
+        "inventory-accounting/SKILL.md",
+        "inventory-bookkeeping/SKILL.md",
+        "warehouse-stock-accounting/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "warehouse-stock-accounting/SKILL.md",
+        "inventory-accounting/SKILL.md",
+        "inventory-bookkeeping/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "payroll accounting",
+      "feature": "finance",
+      "expected": [
+        "payroll-accounting/SKILL.md",
+        "payroll-ledger-accounting/SKILL.md",
+        "salary-bookkeeping/SKILL.md"
+      ],
+      "before": [
+        "payroll-accounting/SKILL.md",
+        "payroll-ledger-accounting/SKILL.md",
+        "business-dashboard/SKILL.md"
+      ],
+      "after": [
+        "payroll-accounting/SKILL.md",
+        "payroll-ledger-accounting/SKILL.md",
+        "salary-bookkeeping/SKILL.md"
+      ],
+      "before_hits": 2,
+      "after_hits": 3
+    },
+    {
+      "question": "محاسبة الرواتب",
+      "feature": "finance",
+      "expected": [
+        "payroll-accounting/SKILL.md",
+        "payroll-ledger-accounting/SKILL.md",
+        "salary-bookkeeping/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "salary-bookkeeping/SKILL.md",
+        "payroll-accounting/SKILL.md",
+        "payroll-ledger-accounting/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "trial balance audit",
+      "feature": "finance",
+      "expected": [
+        "ledger-balance-auditing/SKILL.md",
+        "trial-balance-audit/SKILL.md",
+        "trial-balance-review/SKILL.md"
+      ],
+      "before": [
+        "trial-balance-audit/SKILL.md",
+        "trial-balance-review/SKILL.md",
+        "business-dashboard/SKILL.md"
+      ],
+      "after": [
+        "trial-balance-audit/SKILL.md",
+        "ledger-balance-auditing/SKILL.md",
+        "trial-balance-review/SKILL.md"
+      ],
+      "before_hits": 2,
+      "after_hits": 3
+    },
+    {
+      "question": "مراجعة ميزان المراجعة",
+      "feature": "finance",
+      "expected": [
+        "ledger-balance-auditing/SKILL.md",
+        "trial-balance-audit/SKILL.md",
+        "trial-balance-review/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "ledger-balance-auditing/SKILL.md",
+        "trial-balance-audit/SKILL.md",
+        "trial-balance-review/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "typography design",
+      "feature": "design",
+      "expected": [
+        "design-typeface-system/SKILL.md",
+        "font-design/SKILL.md",
+        "typography-design/SKILL.md"
+      ],
+      "before": [
+        "typography-design/SKILL.md",
+        "font-design/SKILL.md",
+        "marketing-brief/SKILL.md"
+      ],
+      "after": [
+        "typography-design/SKILL.md",
+        "font-design/SKILL.md",
+        "design-typeface-system/SKILL.md"
+      ],
+      "before_hits": 2,
+      "after_hits": 3
+    },
+    {
+      "question": "تصميم الخطوط",
+      "feature": "design",
+      "expected": [
+        "design-typeface-system/SKILL.md",
+        "font-design/SKILL.md",
+        "typography-design/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "font-design/SKILL.md",
+        "design-typeface-system/SKILL.md",
+        "typography-design/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "layout design",
+      "feature": "design",
+      "expected": [
+        "design-composition/SKILL.md",
+        "design-layout-grid/SKILL.md",
+        "layout-design/SKILL.md"
+      ],
+      "before": [
+        "layout-design/SKILL.md",
+        "design-layout-grid/SKILL.md",
+        "design-composition/SKILL.md"
+      ],
+      "after": [
+        "design-layout-grid/SKILL.md",
+        "layout-design/SKILL.md",
+        "design-composition/SKILL.md"
+      ],
+      "before_hits": 3,
+      "after_hits": 3
+    },
+    {
+      "question": "تصميم التخطيط",
+      "feature": "design",
+      "expected": [
+        "design-composition/SKILL.md",
+        "design-layout-grid/SKILL.md",
+        "layout-design/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "design-composition/SKILL.md",
+        "design-layout-grid/SKILL.md",
+        "layout-design/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "accessibility design",
+      "feature": "design",
+      "expected": [
+        "accessibility-design/SKILL.md",
+        "design-a11y/SKILL.md",
+        "design-accessibility-review/SKILL.md"
+      ],
+      "before": [
+        "design-accessibility-review/SKILL.md",
+        "accessibility-design/SKILL.md",
+        "design-a11y/SKILL.md"
+      ],
+      "after": [
+        "design-accessibility-review/SKILL.md",
+        "accessibility-design/SKILL.md",
+        "design-a11y/SKILL.md"
+      ],
+      "before_hits": 3,
+      "after_hits": 3
+    },
+    {
+      "question": "تصميم امكانية الوصول",
+      "feature": "design",
+      "expected": [
+        "accessibility-design/SKILL.md",
+        "design-a11y/SKILL.md",
+        "design-accessibility-review/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "design-a11y/SKILL.md",
+        "design-accessibility-review/SKILL.md",
+        "accessibility-design/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "color palette design",
+      "feature": "design",
+      "expected": [
+        "color-palette-design/SKILL.md",
+        "colour-design/SKILL.md",
+        "design-color-tokens/SKILL.md"
+      ],
+      "before": [
+        "color-palette-design/SKILL.md",
+        "design-color-tokens/SKILL.md",
+        "colour-design/SKILL.md"
+      ],
+      "after": [
+        "color-palette-design/SKILL.md",
+        "design-color-tokens/SKILL.md",
+        "colour-design/SKILL.md"
+      ],
+      "before_hits": 3,
+      "after_hits": 3
+    },
+    {
+      "question": "تصميم الالوان",
+      "feature": "design",
+      "expected": [
+        "color-palette-design/SKILL.md",
+        "colour-design/SKILL.md",
+        "design-color-tokens/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "colour-design/SKILL.md",
+        "color-palette-design/SKILL.md",
+        "design-color-tokens/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "programming testing",
+      "feature": "software",
+      "expected": [
+        "code-tests/SKILL.md",
+        "programming-testing/SKILL.md",
+        "software-test-design/SKILL.md"
+      ],
+      "before": [
+        "programming-testing/SKILL.md",
+        "project-summary/SKILL.md",
+        "programming-debugging/SKILL.md"
+      ],
+      "after": [
+        "programming-testing/SKILL.md",
+        "code-tests/SKILL.md",
+        "software-test-design/SKILL.md"
+      ],
+      "before_hits": 1,
+      "after_hits": 3
+    },
+    {
+      "question": "اختبارات البرمجة",
+      "feature": "software",
+      "expected": [
+        "code-tests/SKILL.md",
+        "programming-testing/SKILL.md",
+        "software-test-design/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "code-tests/SKILL.md",
+        "software-test-design/SKILL.md",
+        "programming-testing/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "debugging programming",
+      "feature": "software",
+      "expected": [
+        "code-debug/SKILL.md",
+        "programming-debugging/SKILL.md",
+        "software-troubleshooting/SKILL.md"
+      ],
+      "before": [
+        "programming-debugging/SKILL.md",
+        "project-summary/SKILL.md",
+        "programming-testing/SKILL.md"
+      ],
+      "after": [
+        "programming-debugging/SKILL.md",
+        "code-debug/SKILL.md",
+        "software-troubleshooting/SKILL.md"
+      ],
+      "before_hits": 1,
+      "after_hits": 3
+    },
+    {
+      "question": "تصحيح اخطاء البرمجة",
+      "feature": "software",
+      "expected": [
+        "code-debug/SKILL.md",
+        "programming-debugging/SKILL.md",
+        "software-troubleshooting/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "code-debug/SKILL.md",
+        "software-troubleshooting/SKILL.md",
+        "programming-debugging/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    },
+    {
+      "question": "database sql",
+      "feature": "software",
+      "expected": [
+        "database-sql-migrations/SKILL.md",
+        "database-sql/SKILL.md",
+        "sql-database-query/SKILL.md"
+      ],
+      "before": [
+        "database-sql/SKILL.md",
+        "sql-database-query/SKILL.md",
+        "database-sql-migrations/SKILL.md"
+      ],
+      "after": [
+        "database-sql/SKILL.md",
+        "sql-database-query/SKILL.md",
+        "database-sql-migrations/SKILL.md"
+      ],
+      "before_hits": 3,
+      "after_hits": 3
+    },
+    {
+      "question": "قاعدة بيانات sql",
+      "feature": "software",
+      "expected": [
+        "database-sql-migrations/SKILL.md",
+        "database-sql/SKILL.md",
+        "sql-database-query/SKILL.md"
+      ],
+      "before": [
+        "database-sql/SKILL.md",
+        "database-sql-migrations/SKILL.md",
+        "sql-database-query/SKILL.md"
+      ],
+      "after": [
+        "database-sql/SKILL.md",
+        "sql-database-query/SKILL.md",
+        "database-sql-migrations/SKILL.md"
+      ],
+      "before_hits": 3,
+      "after_hits": 3
+    },
+    {
+      "question": "performance cache",
+      "feature": "software",
+      "expected": [
+        "cache-optimization/SKILL.md",
+        "performance-cache/SKILL.md",
+        "performance-caching/SKILL.md"
+      ],
+      "before": [
+        "performance-cache/SKILL.md",
+        "cache-optimization/SKILL.md",
+        "project-summary/SKILL.md"
+      ],
+      "after": [
+        "performance-cache/SKILL.md",
+        "cache-optimization/SKILL.md",
+        "performance-caching/SKILL.md"
+      ],
+      "before_hits": 2,
+      "after_hits": 3
+    },
+    {
+      "question": "تحسين الاداء ذاكرة مؤقتة",
+      "feature": "software",
+      "expected": [
+        "cache-optimization/SKILL.md",
+        "performance-cache/SKILL.md",
+        "performance-caching/SKILL.md"
+      ],
+      "before": [],
+      "after": [
+        "cache-optimization/SKILL.md",
+        "performance-caching/SKILL.md",
+        "performance-cache/SKILL.md"
+      ],
+      "before_hits": 0,
+      "after_hits": 3
+    }
+  ]
+}

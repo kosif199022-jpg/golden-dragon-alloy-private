@@ -238,13 +238,22 @@ def batch(paths, *, sha=False):
                            "Do not promote styles or claims until real project metadata and rendered reference are verified."]}
 
 def handler(args):
+    if args.render_job:
+        from rose_dua_gate_v69 import check, read_json
+        try:
+            gate=check(read_json(args.render_job))
+        except (ValueError,KeyError,TypeError,OSError,__import__('subprocess').SubprocessError) as e:
+            print(json.dumps({'ok':False,'error':str(e)}));return 1
+        print(json.dumps({'ok':True,'render_preflight':gate,'rendered':False},ensure_ascii=False));return 0
+    if not args.paths:raise ValueError('VN input paths required')
     result=batch(args.paths,sha=args.sha256)
     print(json.dumps(result,ensure_ascii=False,indent=2))
     return 0 if result["ok"] else 1
 
 def register(subparsers):
     p=subparsers.add_parser("vn-dua-analyze",help="Read-only VN project metadata evidence for dua reels")
-    p.add_argument("paths",nargs="+")
+    p.add_argument("paths",nargs="*")
+    p.add_argument("--render-job",help="validate a proposed dua render job; never renders VN")
     p.add_argument("--sha256",action="store_true",help="stream full file hashes for duplicate detection")
     p.set_defaults(ext_func=handler)
 

@@ -87,3 +87,6 @@ Use knowledge search and inspect to find relevant original sources, and knowledg
 
 ## V68 metric reconciliation
 For conflicting aggregate figures use metric-reconcile with explicit definitions, evidence references, tolerance and primary basis. Review source exports and recomputation independently; never average competing sources or certify from supplied arithmetic. Read V68_METRIC_GUIDE.md. Existing bank reconciliation, accounting and owner rules remain unchanged.
+
+## V69 runtime dua gate and ranked search
+Read V69_RUNTIME_GUIDE.md. Runtime enforcement is now present at the named entrypoints; old generic dua plans without an explicit hashed asset/word timing contract fail before writes. VN remains analysis only and montage-code remains general-only. V69 search uses bilingual grouped lexical terms and path/title weighting; fixture results in V69_KNOWLEDGE_EVAL.json, not a private-corpus accuracy claim. Keep independent visual/audio, licensing and write gates. Never use alternate paths to evade a failed gate.

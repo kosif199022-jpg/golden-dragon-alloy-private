@@ -8,7 +8,7 @@ if __name__ == '__main__':
     if _fast_result is not None:
         raise SystemExit(_fast_result)
 
-import argparse, hashlib, json, os, sqlite3, re, sys
+import argparse, hashlib, json, os, sqlite3, re, sys, subprocess
 from contextlib import closing
 from pathlib import Path
 from datetime import datetime, timezone
@@ -185,7 +185,10 @@ def main(argv=None):
     if args.command=='dua-reel':
         import dua_reel_v34
         plan=json.loads(Path(args.plan_json).expanduser().read_text(encoding='utf-8-sig'))
-        result=dua_reel_v34.build(plan,args.output,args.work,args.approve_write,args.storyboard)
+        try:
+            result=dua_reel_v34.build(plan,args.output,args.work,args.approve_write,args.storyboard)
+        except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError) as e:
+            result={'ok':False,'outcome':'error','error':str(e)}
         print(json.dumps(result,ensure_ascii=False))
         if result.get('outcome')=='approval_required': raise SystemExit(3)
         if not result.get('ok'): raise SystemExit(1)

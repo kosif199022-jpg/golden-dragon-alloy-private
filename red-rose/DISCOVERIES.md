@@ -73,3 +73,6 @@
 
 ## V46 source review — 2026-11-24
 Static finding: usable_counts repeatedly loaded and revalidated the full catalogue; a snapshot removes that redundant loop. Media verification allocated an entire video for SHA-256; streaming preserves the digest. Attachment sources and proposed media techniques are listed in V46_MAINTENANCE_GUIDE.md; no foreign engine copied. Actual timing and integration tests pending exact-commit execution.
+
+## V69 source review
+V34 previously guessed timings/selected clips; fast-reel selected seeks and looped short sources; VN V47 is read-only; V65 excludes dua. Explicit source/audio/caption bindings and staged digests now block unsupported plans. The V67 lexical ranker was evaluated on 32 synthetic bilingual questions with explicit gold paths; see V69_KNOWLEDGE_EVAL.json.
