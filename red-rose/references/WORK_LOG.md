@@ -84,3 +84,6 @@ Read V66_DISTILL_GUIDE.md. For substantial work use distill-skills find to retri
 
 ## V67 ranked knowledge adoption
 Use knowledge search and inspect to find relevant original sources, and knowledge adopt to prepare a bounded review contract before independent implementation. Mind plans now retrieve ranked reference locators for complex tasks. No raw external instruction in plan, no automatic execution/promotion. Preserve V64 evidence review and mandatory dua source/font rules.
+
+## V68 metric reconciliation
+For conflicting aggregate figures use metric-reconcile with explicit definitions, evidence references, tolerance and primary basis. Review source exports and recomputation independently; never average competing sources or certify from supplied arithmetic. Read V68_METRIC_GUIDE.md. Existing bank reconciliation, accounting and owner rules remain unchanged.
