@@ -1,6 +1,12 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-28
+### V71 directing mind, borrowings list, 8 more style packs
+- `rose.py direct`: director's treatment (genre, hook, beats, shot grammar, style per beat) with an immediate continuity check; live run on a 30 s story cocktail: 12 shots, 0 continuity errors, sizes never repeated.
+- `rose.py borrow`: 30 styles + 29 tools/engines (teardown, Blender, Black Dragon engines, whisperx, demucs…); all 29 detected on this PC.
+- Library +8 packs (24 total). Duplicates skipped by hash. Tests: 8 new PASS (25 with V69/V70 suites).
+- Still not render-tested: any pack engine (needs the owner's permission to run third-party code).
+
 ### V70 motion-graphics style catalogue (`rose.py styles`)
 - 16 owner-supplied style packs (10 from Telegram Desktop.rar, 5 khaam from ChatExport (2), maven-3d-v2) installed to `~/.red-rose/libraries/style-packs` (1,406 files, 71 MB, MANIFEST tree hashes). Scan: no executables/install hooks; setup.ps1 and get-tools.mjs read, not run.
 - `styles menu/show/cocktail`: 22 styles in 9 families (6 native + 16 packs); segment cocktails split in whole frames; layer cocktails refuse mixing characters/places from different engines.

@@ -13,6 +13,7 @@ class Styles70(unittest.TestCase):
             if s["source"].startswith("pack:"):
                 d = self.lib / s["source"][5:]
                 d.mkdir()
+                (d / s["doc"]).parent.mkdir(parents=True, exist_ok=True)
                 (d / s["doc"]).write_text("# doc", encoding="utf-8")
                 (d / "LICENSE.md").write_text("rights", encoding="utf-8")
 

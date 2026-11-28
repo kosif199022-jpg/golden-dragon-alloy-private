@@ -57,3 +57,6 @@ Read V69_INTAKE_CONTINUITY_GUIDE.md. Owner-approved sources outside the V66/V67 
 
 ## V70 style catalogue — 2026-11-28
 For any motion-graphics request run `styles menu` first and offer all fitting styles (native + owner style-pack library at ~/.red-rose/libraries/style-packs); support one style or a cocktail via `styles cocktail`. Read the chosen style's doc (`styles show`) before running its engine; render a 3-second sample and record evidence in agent/style_tests_v70.json before calling a style working. Pack engines are third-party code: running them needs the owner's explicit permission. Packs' licences forbid republishing them; keep them local. Dua styles keep the dua gate.
+
+## V71 directing mind and borrowings — 2026-11-28
+«إيه الاستعارات المتاحة؟» → `borrow` (styles + tools/engines/machines, live availability). Before any video plan → `direct` (genre, hook ≤1.5 s, beats, shot grammar, style per beat, continuity-checked shot list); show the treatment and wait for the owner's OK before rendering. Read V71_DIRECTING_GUIDE.md.

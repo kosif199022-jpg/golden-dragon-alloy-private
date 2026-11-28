@@ -1,31 +1,766 @@
 {
-  "version": "V70",
-  "library": "~/.red-rose/libraries/style-packs",
-  "note": "Descriptions written by Red Rose. Packs keep their own rights files; use is local (owner devices), videos made are the owner's; do not republish the packs.",
-  "styles": [
-    {"id": "el-ragel-wel-sit", "name_ar": "الراجل والست", "name_en": "Man & Woman romantic cartoon couple", "family": "2d-characters", "source": "native:agent/couple_motion", "doc": "agent/couple_motion/README.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["song", "lyrics"], "layers": ["characters", "places", "captions", "camera"], "best_for": "أغاني رومانسية، كلام كلمة بكلمة، شخصيتين", "credit": "Red Rose"},
-    {"id": "abu-cap", "name_ar": "أبو كاب (كاب ونضارة)", "name_en": "Abu Cap flat stickman", "family": "2d-characters", "source": "native:agent/abu_cap", "doc": "agent/abu_cap/README.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["script", "voice"], "layers": ["characters", "places"], "best_for": "قصص كوميدية بسيطة بشخصيات ستيك مان وطبيعة ملونة", "credit": "Red Rose / Mahmoud Elkosif"},
-    {"id": "dua-trend", "name_ar": "دعاء الترند", "name_en": "Owner trend dua reel", "family": "kinetic-type", "source": "native:agent/trend", "doc": "agent/trend/README.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["dua-text", "voice"], "layers": ["captions", "type", "places"], "best_for": "ريل دعاء بنفس ستايل الترند (بوابة الدعاء إلزامية)", "credit": "Red Rose", "dua_gate": true},
-    {"id": "dua-fast-reel", "name_ar": "ريل الدعاء السريع", "name_en": "Fast cloned dua reel", "family": "kinetic-type", "source": "native:agent/fast_reel", "doc": "agent/fast_reel/README.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["dua-text", "voice"], "layers": ["captions", "type", "places"], "best_for": "دعاء على فوتيج المكتبة المعتمدة", "credit": "Red Rose", "dua_gate": true},
-    {"id": "lyric-motion", "name_ar": "موشن كلمات الأغنية", "name_en": "Lyric motion reel", "family": "kinetic-type", "source": "native:agent/lyric_motion", "doc": "agent/lyric_motion/README.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["song", "lyrics", "clips"], "layers": ["type", "captions", "camera"], "best_for": "كلمات أغنية بتطلع مع الغنا وانتقالات وبتلات ورد", "credit": "Red Rose"},
-    {"id": "mimic", "name_ar": "تقليد ريل مرجعي بالظبط", "name_en": "Pixel-exact reference text match", "family": "reference-match", "source": "native:agent/mimic", "doc": "agent/mimic/README.md", "runtime": "python", "aspect": ["any"], "input": ["reference-video"], "layers": ["type", "captions"], "best_for": "نفس خط وحركة نص ريل مرجعي بالقياس", "credit": "Red Rose"},
-
-    {"id": "maven-gta", "name_ar": "ستايل GTA (مدينة ساحلية 3D)", "name_en": "GTA-style 3D cartoon city", "family": "3d-city", "source": "pack:maven-gta", "doc": "SKILL.md", "runtime": "blender", "aspect": ["9:16"], "input": ["script", "voice"], "layers": ["characters", "places", "camera", "sfx", "captions"], "best_for": "قصص سلسلة أحداث ساخرة، أسرار ونظريات GTA، 8 شخصيات متحركة على أركيد ومارينا وحمام سباحة", "credit": "Maven (@maven.iqq)"},
-    {"id": "maven-3d", "name_ar": "بلوكات 3D (عالم روبلوكس)", "name_en": "Blocky-avatar 3D stories", "family": "3d-blocky", "source": "pack:maven-3d", "doc": "SKILL.md", "runtime": "threejs-chromium", "aspect": ["9:16"], "input": ["script", "voice"], "layers": ["characters", "places", "camera", "captions", "sfx"], "best_for": "قصص «في العالم ده…» بكاميرا وعمق ميدان وكابشن كلمة بكلمة", "credit": "Maven (@maven.iqq)"},
-    {"id": "maven-3d-v2", "name_ar": "بلوكات 3D نسخة 2 (الميناء والرعب)", "name_en": "Blocky 3D v2 harbor/horror kit", "family": "3d-blocky", "source": "pack:maven-3d-v2", "doc": "SKILL.md", "runtime": "threejs-chromium", "aspect": ["9:16"], "input": ["script", "voice"], "layers": ["characters", "places", "camera", "captions", "sfx"], "best_for": "12 شخصية و10 أماكن و6 مخلوقات، ألغاز ورعب", "credit": "Maven (@maven.iqq)"},
-    {"id": "maven-toon", "name_ar": "كرتون 2D عربي (حجي وحجية وسوق)", "name_en": "Rich 2D Arab cartoon", "family": "2d-characters", "source": "pack:maven-toon", "doc": "SKILL.md", "runtime": "python-skia", "aspect": ["9:16"], "input": ["script", "voice"], "layers": ["characters", "places", "camera", "captions"], "best_for": "شخصيات عربية بلبس تفصيلي وخلفيات بارالاكس (قهوة، سوق، نهر، سطوح)", "credit": "Maven (@maven.iqq)"},
-    {"id": "maven-animate", "name_ar": "شرح متحرك فيكتور (حيوانات وعلوم)", "name_en": "Flat-vector explainer", "family": "2d-explainer", "source": "pack:maven-animate", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["9:16", "16:9"], "input": ["script", "voice"], "layers": ["characters", "places", "type", "captions"], "best_for": "معلومات عن الحيوانات والعلوم بعدادات وسونار", "credit": "Maven (@maven.iqq)"},
-    {"id": "maven-map", "name_ar": "خريطة بالأقمار الصناعية (كرة أرضية)", "name_en": "Satellite globe map explainer", "family": "map", "source": "pack:maven-map", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["script", "voice"], "layers": ["places", "camera", "type", "captions"], "best_for": "جغرافيا سياسية وحدود ومضايق وتاريخ، نزول من الفضاء للشارع", "credit": "Maven (@maven.iqq)"},
-    {"id": "maven-reels", "name_ar": "نسخ ستايل أي ريل", "name_en": "Copy any reel's style", "family": "reference-match", "source": "pack:maven-reels", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["reference-video", "script"], "layers": ["type", "captions", "camera"], "best_for": "يقيس ريل مرجعي (قطعات، إيقاع، ألوان) ويعمل جديد بنفس الستايل", "credit": "Maven (@maven.iqq)"},
-    {"id": "cartoon-short-kit", "name_ar": "كرتون شخصيات كروت في عالم مرسوم", "name_en": "Inked painted cartoon short", "family": "2d-characters", "source": "pack:cartoon-short-kit", "doc": "README.md", "runtime": "threejs-chromium", "aspect": ["9:16"], "input": ["voice", "script"], "layers": ["characters", "places", "camera", "music", "sfx"], "best_for": "قصة كرتون بشخصيات مرسومة في عالم 3D بالحبر", "credit": "cartoon-short-kit (MIT parts)"},
-    {"id": "khaam-cartoon", "name_ar": "شورت كرتون من صوت", "name_en": "Khaam voice-to-cartoon short", "family": "2d-characters", "source": "pack:khaam-cartoon", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["voice"], "layers": ["characters", "places", "camera", "captions", "sfx"], "best_for": "مشهد لكل جملة وكاميرا تتحرك مع الكلام", "credit": "خام (@khaam.hq)"},
-    {"id": "khaam-documentary", "name_ar": "وثائقي لوح تحقيق", "name_en": "Investigation-board documentary", "family": "documentary", "source": "pack:khaam-documentary", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["16:9"], "input": ["voice", "images", "script"], "layers": ["places", "type", "captions", "maps", "sfx"], "best_for": "تاريخ وسيرة: صور معلقة ودواير حمرا وصفحات بنقش إسلامي وخرايط جيوش", "credit": "خام (@khaam.hq)"},
-    {"id": "khaam-maps", "name_ar": "خرايط عربي بالعدّاد", "name_en": "Arabic map videos", "family": "map", "source": "pack:khaam-maps", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["9:16", "16:9"], "input": ["data", "script"], "layers": ["maps", "type"], "best_for": "دول بتنور واحدة واحدة بقيمها وزوم على منطقة", "credit": "خام (@khaam.hq)"},
-    {"id": "khaam-reminder", "name_ar": "تذكير بمشاهد مرسومة", "name_en": "Illustrated reminder (dua/hadith/ayah)", "family": "2d-characters", "source": "pack:khaam-reminder", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["9:16"], "input": ["voice", "text", "source"], "layers": ["characters", "places", "captions"], "best_for": "دعاء أو حديث بمشهد مرسوم لكل جملة وشخصية بثوب وغترة بدون وجه", "credit": "خام (@khaam.hq)", "dua_gate": true},
-    {"id": "khaam-motion", "name_ar": "موشن خام (نص وكابشن عربي)", "name_en": "Khaam Arabic kinetic type", "family": "kinetic-type", "source": "pack:khaam-motion", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["9:16", "16:9", "1:1"], "input": ["script", "voice", "images"], "layers": ["type", "captions", "sfx"], "best_for": "نص متحرك وقصص مسرودة وكولاج صور", "credit": "خام (@khaam.hq)",
-     "substyles": ["ascii-terminal", "collage-desk", "collage-fast", "editorial-explainer", "ink-in-water", "jazari-notebook", "one-line", "paper-theatre", "pixel-art", "risograph", "showreel", "told-in-light"]},
-    {"id": "higgsfield-motion-saas", "name_ar": "إطلاق منتج SaaS", "name_en": "SaaS / app launch motion", "family": "product-launch", "source": "pack:higgsfield-motion-saas", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["16:9", "9:16"], "input": ["brief"], "layers": ["type", "camera", "music", "sfx"], "best_for": "فيلم إطلاق 15 ث بانتقالات بتخبّي القطع", "credit": "higgsfield-motion-saas"},
-    {"id": "higgsfield-motion-claude", "name_ar": "موشن ديزاين بالهوية (12 بريست)", "name_en": "HFT token motion design", "family": "product-launch", "source": "pack:higgsfield-motion-claude", "doc": "SKILL.md", "runtime": "html-chromium", "aspect": ["16:9", "9:16"], "input": ["brief"], "layers": ["type", "camera", "music", "sfx"], "best_for": "كي فريمز وستايل بورد وأفلام إطلاق بأي هوية وخط", "credit": "higgsfield-motion-claude"},
-    {"id": "vox-motion", "name_ar": "ستايل Vox ديوراما", "name_en": "Vox-style diorama explainer", "family": "documentary", "source": "pack:vox-motion", "doc": "SKILL.md", "runtime": "prompt-guide", "aspect": ["16:9", "9:16"], "input": ["script"], "layers": ["places", "type"], "best_for": "برومبتات لأدوات توليد (مدفوعة)؛ مفيش محرك رندر محلي", "credit": "vox-motion", "paid_generation": true}
-  ]
+ "version": "V71",
+ "library": "~/.red-rose/libraries/style-packs",
+ "note": "Descriptions written by Red Rose. Packs keep their own rights files; use is local (owner devices), videos made are the owner's; do not republish the packs.",
+ "styles": [
+  {
+   "id": "el-ragel-wel-sit",
+   "name_ar": "الراجل والست",
+   "name_en": "Man & Woman romantic cartoon couple",
+   "family": "2d-characters",
+   "source": "native:agent/couple_motion",
+   "doc": "agent/couple_motion/README.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "song",
+    "lyrics"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "captions",
+    "camera"
+   ],
+   "best_for": "أغاني رومانسية، كلام كلمة بكلمة، شخصيتين",
+   "credit": "Red Rose"
+  },
+  {
+   "id": "abu-cap",
+   "name_ar": "أبو كاب (كاب ونضارة)",
+   "name_en": "Abu Cap flat stickman",
+   "family": "2d-characters",
+   "source": "native:agent/abu_cap",
+   "doc": "agent/abu_cap/README.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "script",
+    "voice"
+   ],
+   "layers": [
+    "characters",
+    "places"
+   ],
+   "best_for": "قصص كوميدية بسيطة بشخصيات ستيك مان وطبيعة ملونة",
+   "credit": "Red Rose / Mahmoud Elkosif"
+  },
+  {
+   "id": "dua-trend",
+   "name_ar": "دعاء الترند",
+   "name_en": "Owner trend dua reel",
+   "family": "kinetic-type",
+   "source": "native:agent/trend",
+   "doc": "agent/trend/README.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "dua-text",
+    "voice"
+   ],
+   "layers": [
+    "captions",
+    "type",
+    "places"
+   ],
+   "best_for": "ريل دعاء بنفس ستايل الترند (بوابة الدعاء إلزامية)",
+   "credit": "Red Rose",
+   "dua_gate": true
+  },
+  {
+   "id": "dua-fast-reel",
+   "name_ar": "ريل الدعاء السريع",
+   "name_en": "Fast cloned dua reel",
+   "family": "kinetic-type",
+   "source": "native:agent/fast_reel",
+   "doc": "agent/fast_reel/README.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "dua-text",
+    "voice"
+   ],
+   "layers": [
+    "captions",
+    "type",
+    "places"
+   ],
+   "best_for": "دعاء على فوتيج المكتبة المعتمدة",
+   "credit": "Red Rose",
+   "dua_gate": true
+  },
+  {
+   "id": "lyric-motion",
+   "name_ar": "موشن كلمات الأغنية",
+   "name_en": "Lyric motion reel",
+   "family": "kinetic-type",
+   "source": "native:agent/lyric_motion",
+   "doc": "agent/lyric_motion/README.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "song",
+    "lyrics",
+    "clips"
+   ],
+   "layers": [
+    "type",
+    "captions",
+    "camera"
+   ],
+   "best_for": "كلمات أغنية بتطلع مع الغنا وانتقالات وبتلات ورد",
+   "credit": "Red Rose"
+  },
+  {
+   "id": "mimic",
+   "name_ar": "تقليد ريل مرجعي بالظبط",
+   "name_en": "Pixel-exact reference text match",
+   "family": "reference-match",
+   "source": "native:agent/mimic",
+   "doc": "agent/mimic/README.md",
+   "runtime": "python",
+   "aspect": [
+    "any"
+   ],
+   "input": [
+    "reference-video"
+   ],
+   "layers": [
+    "type",
+    "captions"
+   ],
+   "best_for": "نفس خط وحركة نص ريل مرجعي بالقياس",
+   "credit": "Red Rose"
+  },
+  {
+   "id": "maven-gta",
+   "name_ar": "ستايل GTA (مدينة ساحلية 3D)",
+   "name_en": "GTA-style 3D cartoon city",
+   "family": "3d-city",
+   "source": "pack:maven-gta",
+   "doc": "SKILL.md",
+   "runtime": "blender",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "script",
+    "voice"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "sfx",
+    "captions"
+   ],
+   "best_for": "قصص سلسلة أحداث ساخرة، أسرار ونظريات GTA، 8 شخصيات متحركة على أركيد ومارينا وحمام سباحة",
+   "credit": "Maven (@maven.iqq)"
+  },
+  {
+   "id": "maven-3d",
+   "name_ar": "بلوكات 3D (عالم روبلوكس)",
+   "name_en": "Blocky-avatar 3D stories",
+   "family": "3d-blocky",
+   "source": "pack:maven-3d",
+   "doc": "SKILL.md",
+   "runtime": "threejs-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "script",
+    "voice"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "captions",
+    "sfx"
+   ],
+   "best_for": "قصص «في العالم ده…» بكاميرا وعمق ميدان وكابشن كلمة بكلمة",
+   "credit": "Maven (@maven.iqq)"
+  },
+  {
+   "id": "maven-3d-v2",
+   "name_ar": "بلوكات 3D نسخة 2 (الميناء والرعب)",
+   "name_en": "Blocky 3D v2 harbor/horror kit",
+   "family": "3d-blocky",
+   "source": "pack:maven-3d-v2",
+   "doc": "SKILL.md",
+   "runtime": "threejs-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "script",
+    "voice"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "captions",
+    "sfx"
+   ],
+   "best_for": "12 شخصية و10 أماكن و6 مخلوقات، ألغاز ورعب",
+   "credit": "Maven (@maven.iqq)"
+  },
+  {
+   "id": "maven-toon",
+   "name_ar": "كرتون 2D عربي (حجي وحجية وسوق)",
+   "name_en": "Rich 2D Arab cartoon",
+   "family": "2d-characters",
+   "source": "pack:maven-toon",
+   "doc": "SKILL.md",
+   "runtime": "python-skia",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "script",
+    "voice"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "captions"
+   ],
+   "best_for": "شخصيات عربية بلبس تفصيلي وخلفيات بارالاكس (قهوة، سوق، نهر، سطوح)",
+   "credit": "Maven (@maven.iqq)"
+  },
+  {
+   "id": "maven-animate",
+   "name_ar": "شرح متحرك فيكتور (حيوانات وعلوم)",
+   "name_en": "Flat-vector explainer",
+   "family": "2d-explainer",
+   "source": "pack:maven-animate",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16",
+    "16:9"
+   ],
+   "input": [
+    "script",
+    "voice"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "type",
+    "captions"
+   ],
+   "best_for": "معلومات عن الحيوانات والعلوم بعدادات وسونار",
+   "credit": "Maven (@maven.iqq)"
+  },
+  {
+   "id": "maven-map",
+   "name_ar": "خريطة بالأقمار الصناعية (كرة أرضية)",
+   "name_en": "Satellite globe map explainer",
+   "family": "map",
+   "source": "pack:maven-map",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "script",
+    "voice"
+   ],
+   "layers": [
+    "places",
+    "camera",
+    "type",
+    "captions"
+   ],
+   "best_for": "جغرافيا سياسية وحدود ومضايق وتاريخ، نزول من الفضاء للشارع",
+   "credit": "Maven (@maven.iqq)"
+  },
+  {
+   "id": "maven-reels",
+   "name_ar": "نسخ ستايل أي ريل",
+   "name_en": "Copy any reel's style",
+   "family": "reference-match",
+   "source": "pack:maven-reels",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "reference-video",
+    "script"
+   ],
+   "layers": [
+    "type",
+    "captions",
+    "camera"
+   ],
+   "best_for": "يقيس ريل مرجعي (قطعات، إيقاع، ألوان) ويعمل جديد بنفس الستايل",
+   "credit": "Maven (@maven.iqq)"
+  },
+  {
+   "id": "cartoon-short-kit",
+   "name_ar": "كرتون شخصيات كروت في عالم مرسوم",
+   "name_en": "Inked painted cartoon short",
+   "family": "2d-characters",
+   "source": "pack:cartoon-short-kit",
+   "doc": "README.md",
+   "runtime": "threejs-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "voice",
+    "script"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "music",
+    "sfx"
+   ],
+   "best_for": "قصة كرتون بشخصيات مرسومة في عالم 3D بالحبر",
+   "credit": "cartoon-short-kit (MIT parts)"
+  },
+  {
+   "id": "khaam-cartoon",
+   "name_ar": "شورت كرتون من صوت",
+   "name_en": "Khaam voice-to-cartoon short",
+   "family": "2d-characters",
+   "source": "pack:khaam-cartoon",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "voice"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "captions",
+    "sfx"
+   ],
+   "best_for": "مشهد لكل جملة وكاميرا تتحرك مع الكلام",
+   "credit": "خام (@khaam.hq)"
+  },
+  {
+   "id": "khaam-documentary",
+   "name_ar": "وثائقي لوح تحقيق",
+   "name_en": "Investigation-board documentary",
+   "family": "documentary",
+   "source": "pack:khaam-documentary",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "16:9"
+   ],
+   "input": [
+    "voice",
+    "images",
+    "script"
+   ],
+   "layers": [
+    "places",
+    "type",
+    "captions",
+    "maps",
+    "sfx"
+   ],
+   "best_for": "تاريخ وسيرة: صور معلقة ودواير حمرا وصفحات بنقش إسلامي وخرايط جيوش",
+   "credit": "خام (@khaam.hq)"
+  },
+  {
+   "id": "khaam-maps",
+   "name_ar": "خرايط عربي بالعدّاد",
+   "name_en": "Arabic map videos",
+   "family": "map",
+   "source": "pack:khaam-maps",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16",
+    "16:9"
+   ],
+   "input": [
+    "data",
+    "script"
+   ],
+   "layers": [
+    "maps",
+    "type"
+   ],
+   "best_for": "دول بتنور واحدة واحدة بقيمها وزوم على منطقة",
+   "credit": "خام (@khaam.hq)"
+  },
+  {
+   "id": "khaam-reminder",
+   "name_ar": "تذكير بمشاهد مرسومة",
+   "name_en": "Illustrated reminder (dua/hadith/ayah)",
+   "family": "2d-characters",
+   "source": "pack:khaam-reminder",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "voice",
+    "text",
+    "source"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "captions"
+   ],
+   "best_for": "دعاء أو حديث بمشهد مرسوم لكل جملة وشخصية بثوب وغترة بدون وجه",
+   "credit": "خام (@khaam.hq)",
+   "dua_gate": true
+  },
+  {
+   "id": "khaam-motion",
+   "name_ar": "موشن خام (نص وكابشن عربي)",
+   "name_en": "Khaam Arabic kinetic type",
+   "family": "kinetic-type",
+   "source": "pack:khaam-motion",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "9:16",
+    "16:9",
+    "1:1"
+   ],
+   "input": [
+    "script",
+    "voice",
+    "images"
+   ],
+   "layers": [
+    "type",
+    "captions",
+    "sfx"
+   ],
+   "best_for": "نص متحرك وقصص مسرودة وكولاج صور",
+   "credit": "خام (@khaam.hq)",
+   "substyles": [
+    "ascii-terminal",
+    "collage-desk",
+    "collage-fast",
+    "editorial-explainer",
+    "ink-in-water",
+    "jazari-notebook",
+    "one-line",
+    "paper-theatre",
+    "pixel-art",
+    "risograph",
+    "showreel",
+    "told-in-light"
+   ]
+  },
+  {
+   "id": "higgsfield-motion-saas",
+   "name_ar": "إطلاق منتج SaaS",
+   "name_en": "SaaS / app launch motion",
+   "family": "product-launch",
+   "source": "pack:higgsfield-motion-saas",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "16:9",
+    "9:16"
+   ],
+   "input": [
+    "brief"
+   ],
+   "layers": [
+    "type",
+    "camera",
+    "music",
+    "sfx"
+   ],
+   "best_for": "فيلم إطلاق 15 ث بانتقالات بتخبّي القطع",
+   "credit": "higgsfield-motion-saas"
+  },
+  {
+   "id": "higgsfield-motion-claude",
+   "name_ar": "موشن ديزاين بالهوية (12 بريست)",
+   "name_en": "HFT token motion design",
+   "family": "product-launch",
+   "source": "pack:higgsfield-motion-claude",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "16:9",
+    "9:16"
+   ],
+   "input": [
+    "brief"
+   ],
+   "layers": [
+    "type",
+    "camera",
+    "music",
+    "sfx"
+   ],
+   "best_for": "كي فريمز وستايل بورد وأفلام إطلاق بأي هوية وخط",
+   "credit": "higgsfield-motion-claude"
+  },
+  {
+   "id": "vox-motion",
+   "name_ar": "ستايل Vox ديوراما",
+   "name_en": "Vox-style diorama explainer",
+   "family": "documentary",
+   "source": "pack:vox-motion",
+   "doc": "SKILL.md",
+   "runtime": "prompt-guide",
+   "aspect": [
+    "16:9",
+    "9:16"
+   ],
+   "input": [
+    "script"
+   ],
+   "layers": [
+    "places",
+    "type"
+   ],
+   "best_for": "برومبتات لأدوات توليد (مدفوعة)؛ مفيش محرك رندر محلي",
+   "credit": "vox-motion",
+   "paid_generation": true
+  },
+  {
+   "id": "arabic-case-file-documentary",
+   "name_ar": "وثائقي ملف القضية (لوحة أدلة)",
+   "name_en": "Arabic case-file / evidence-board documentary",
+   "family": "documentary",
+   "source": "pack:arabic-case-file-documentary",
+   "doc": "SKILL.md",
+   "runtime": "python",
+   "aspect": [
+    "16:9"
+   ],
+   "input": [
+    "script",
+    "voice",
+    "images"
+   ],
+   "layers": [
+    "places",
+    "type",
+    "captions",
+    "maps",
+    "camera",
+    "music",
+    "sfx"
+   ],
+   "best_for": "أخبار وتاريخ وألغاز: كروت بدبابيس، أختام عربي، تاجات بتتكتب، لقطات كرتون سينما صامتة (60 ث لـ 20 د)",
+   "credit": "arabic-case-file-documentary",
+   "downloads": "free OFL fonts (Amiri, Noto Kufi) from GitHub when missing"
+  },
+  {
+   "id": "arabic-minimal-reels",
+   "name_ar": "ريل مينيمال عربي (كلمة واحدة كبيرة)",
+   "name_en": "Arabic minimal talking-head reel",
+   "family": "talking-head",
+   "source": "pack:arabic-minimal-reels",
+   "doc": "SKILL.md",
+   "runtime": "python",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "talking-head-video"
+   ],
+   "layers": [
+    "type",
+    "captions",
+    "places"
+   ],
+   "best_for": "مقطع كلام: جملة قصيرة وكلمة كبيرة، خطوط زرقا ولوحات وورق، ورجوع للوش كتير",
+   "credit": "arabic-minimal-reels",
+   "notes": "OWNER_PROMPTS.txt: study prompt, transcribe each sentence separately, plan doc with 3 designs per line before building"
+  },
+  {
+   "id": "archival-editorial",
+   "name_ar": "تحرير أرشيفي (جرين وبلوم وماسكات)",
+   "name_en": "Archival editorial edit",
+   "family": "editorial",
+   "source": "pack:archival-editorial",
+   "doc": "SKILL.md",
+   "runtime": "python",
+   "aspect": [
+    "9:16",
+    "16:9"
+   ],
+   "input": [
+    "footage",
+    "script"
+   ],
+   "layers": [
+    "type",
+    "camera",
+    "captions"
+   ],
+   "best_for": "مونتاج أرشيفي بنص متحرك وحبيبات فيلم وبلوم وماسكات وتقسيم مع المتكلم",
+   "credit": "Claude edit skill"
+  },
+  {
+   "id": "talking-head-reels",
+   "name_ar": "ريل متكلم إديتوريال (Anton + Didot)",
+   "name_en": "Bold editorial talking-head reel",
+   "family": "talking-head",
+   "source": "pack:talking-head-reels",
+   "doc": "SKILL.md",
+   "runtime": "python",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "talking-head-video"
+   ],
+   "layers": [
+    "type",
+    "captions",
+    "camera"
+   ],
+   "best_for": "قص السكتات، نص أحمر وأبيض وأسود، بي-رول بيوضّح الكلام، سبليت سكرين، -14 LUFS",
+   "credit": "talking-head-reels"
+  },
+  {
+   "id": "faceless-shorts",
+   "name_ar": "شورتس بدون وش (6 ستايلات)",
+   "name_en": "Faceless narrated shorts",
+   "family": "2d-explainer",
+   "source": "pack:faceless-shorts",
+   "doc": "SKILL.md",
+   "runtime": "threejs-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "script"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "captions",
+    "sfx"
+   ],
+   "best_for": "شرح علمي 3D «إيه اللي يحصل لو»، ألغاز وجرايم، إكس راي، ستيك مان، أطلس ورق، حكايات",
+   "credit": "faceless-shorts",
+   "substyles": [
+    "deep-dive",
+    "night-file",
+    "inside-out",
+    "stick-story",
+    "paper-atlas",
+    "tall-tale"
+   ],
+   "downloads": "free local Kokoro TTS model (~300 MB) on first voice run"
+  },
+  {
+   "id": "growkaz-stickman",
+   "name_ar": "ستيك مان سينمائي (GrowKaz)",
+   "name_en": "Cinematic stick figures 2.5D",
+   "family": "2d-characters",
+   "source": "pack:growkaz-stickman",
+   "doc": "skills/make-2d-video/SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "16:9",
+    "9:16"
+   ],
+   "input": [
+    "voice",
+    "script"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "type",
+    "music",
+    "sfx"
+   ],
+   "best_for": "ستيك مان بإضاءة حواف وديكور 2.5D ولقطات وش عملاقة وفريز وبلوبرينت",
+   "credit": "GrowKaz",
+   "substyles": [
+    "emerald",
+    "ember",
+    "arctic",
+    "sakura",
+    "retro"
+   ]
+  },
+  {
+   "id": "saas-animation",
+   "name_ar": "أنيميشن منتج وبراند 4K",
+   "name_en": "High-end SaaS/product animation",
+   "family": "product-launch",
+   "source": "pack:saas-animation",
+   "doc": "SKILL.md",
+   "runtime": "html-chromium",
+   "aspect": [
+    "16:9",
+    "9:16",
+    "1:1"
+   ],
+   "input": [
+    "brief"
+   ],
+   "layers": [
+    "type",
+    "camera",
+    "places"
+   ],
+   "best_for": "8-20 ث بكاميرا واحدة متصلة ولقطات بتتحول لبعض وواجهة تطبيق في 3D",
+   "credit": "saas-animation"
+  },
+  {
+   "id": "cartoon-audio-short",
+   "name_ar": "كرتون من فويس أوفر (10 أفكار + سكريبت)",
+   "name_en": "Cartoon audio short (ideas to MP4)",
+   "family": "2d-characters",
+   "source": "pack:cartoon-audio-short",
+   "doc": "SKILL.md",
+   "runtime": "threejs-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "voice",
+    "script",
+    "idea"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "music",
+    "sfx"
+   ],
+   "best_for": "10 أفكار، سكريبت بصيغة هوك وتويست، شخصيات كروت في عالم 3D بالحبر، موسيقى ومؤثرات عند نص مستوى الصوت",
+   "credit": "cartoon-short-kit (MIT parts)"
+  }
+ ]
 }
