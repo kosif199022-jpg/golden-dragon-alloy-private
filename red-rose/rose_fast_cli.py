@@ -14,6 +14,7 @@ FAST_COMMANDS = {
     "understand": "rose_agent", "brief": "rose_agent",
     "vn-dua-analyze": "vn_dua_v47",
     "shot-detail": "rose_shot_detail",
+    "re-tools": "rose_re_tools",
     "motion-capture": "rose_motion_capture_v57",
     "motion-replay": "rose_motion_replay_v58",
     "source-preflight": "rose_source_preflight_v60",
