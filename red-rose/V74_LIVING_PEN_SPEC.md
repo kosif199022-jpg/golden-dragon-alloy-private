@@ -126,3 +126,25 @@ Loop after every pen job, local only:
 7. Reversible: every promoted preset keeps its predecessor; `rose.py pen rollback PRESET` restores it.
 Tests: tuning never leaves bounds; frozen benchmark hash checked before each run; a worse candidate is never
 promoted; proposals never modify code on disk; rollback restores the exact previous vector.
+
+## Numerical foundations from Atkinson & Han, *Theoretical Numerical Analysis* (3rd ed., 2009)
+Owner-supplied copy, indexed locally only: `rose.py intake search "…" --label atkinson-han-numerical-analysis-2009`
+(chapter files; read the original section before implementing; summarise, never copy text into the repo).
+| Ch. | Topic | Pen module → what it guarantees | Test |
+|---|---|---|---|
+| 1 | Normed, Banach, Hilbert, Hölder, Lp spaces | Strokes, pressure and pigment fields as functions in stated spaces; every error reported in a named norm (L2, L∞, H1) | Norm helpers vs. analytic values |
+| 2 | Operators, Riesz, adjoints, geometric-series theorem, Fredholm | `inverse.py`: gradients via adjoint operators; perturbation bound decides when a linear solve is safe | Adjoint identity ⟨Au,v⟩=⟨u,A*v⟩ to 1e-10 |
+| 3 | Hermite/piecewise interpolation, best approximation, projection on convex sets, orthogonal polynomials, uniform error bounds | `strokes.py`: C1 Hermite stroke paths with proven error bound; pressure profiles in Legendre/Chebyshev bases; `calligraphy.py`: proportion constraints as projection onto convex sets | Interpolation error ≤ theoretical bound on known functions |
+| 4 | Fourier series/transform, DFT, Haar wavelets, multiresolution | `paper.py`: paper/canvas grain with a prescribed spectrum; `inverse.py`: coarse→fine via multiresolution | Spectrum slope; perfect reconstruction of Haar MRA |
+| 5 | Banach fixed point, Fréchet/Gâteaux derivatives, Newton–Kantorovich, conjugate gradient | Implicit drying/flow steps proven contractive before use; Newton for nib–paper footprint; CG for Poisson/diffusion solves | Contraction constant < 1 measured; CG residual ↓; Newton quadratic rate |
+| 6 | Finite differences, Lax equivalence (consistency + stability ⇔ convergence) | `media.py`/`paper.py`: wicking, diffusion and shallow-water schemes with stated stability limits (CFL) | Grid-refinement order matches theory; unstable step size refused |
+| 7 | Sobolev spaces, weak derivatives | Regularisers for inverse painting and fills (H1 smoothness, H2 bending) | Energy decreases; weak-derivative identity on test functions |
+| 8–9 | Weak formulations, Lax–Milgram, elliptic BVPs | Smooth fills and shading from a sketch as well-posed elliptic problems (unique solution guaranteed) | Coercivity check; solution vs. manufactured solution |
+| 10 | Finite element analysis, interpolation error estimates | `animate.py`: elastic/ARAP deformation of drawn characters on triangle meshes; paper cockling under wet paint; mesh refinement by estimate | Convergence order on manufactured solutions |
+| 11 | Elliptic variational inequalities, obstacle and Signorini contact, friction | `tools.py`: nib/bristle contact with paper (no penetration), paint thickness ≥ 0, friction for dry-brush | Complementarity residual ≈ 0; obstacle solution vs. analytic 1D case |
+| 12 | Integral equations: Galerkin, collocation, Nyström, product integration, iteration | Light scattering inside paper (integral form), blur/bleed kernels | Nyström convergence on a known kernel |
+| 13 | Boundary integral equations (Laplace, Kelvin transform, exterior problems) | Harmonic flow fields around glyph outlines: ink and ornaments flowing around letters, computed from the outline only | Harmonic test (mean-value property); exterior decay |
+| 14 | Approximation on the sphere/ball, hyperinterpolation | Spherical-harmonic environment lighting for paint relief and gold; globe-style drawings | Exactness for low-degree polynomials |
+Rule: every solver added to the pen states its space, norm, stability condition and expected convergence order,
+and ships a test that measures them. This is what makes the pen's self-tuning (stage 8) safe: tuning may move
+parameters only inside the proven stable region.
