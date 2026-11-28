@@ -1,6 +1,9 @@
 """Mimic trace over moving footage: --tmin keeps the small dots, --colour keeps one colour of a multi-colour header."""
-import json, os, subprocess, sys, tempfile
-import numpy as np, cv2
+import json, os, subprocess, sys, tempfile, unittest
+try:                       # optional media stack: CI installs it (red-rose-v11.yml); a bare machine skips, never errors
+    import numpy as np, cv2
+except ImportError:        # pragma: no cover - depends on the machine
+    np = cv2 = None
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 MIMIC = os.path.join(HERE, 'agent', 'mimic', 'mimic.py')
@@ -34,7 +37,7 @@ def _shapes(el):
     return out
 
 
-def test_tmin_keeps_dot_and_drops_moving_background():
+def _check_tmin_keeps_dot_and_drops_moving_background():
     d = tempfile.mkdtemp(); v = os.path.join(d, 'v.mp4'); _video(v)
     el = _trace(v, os.path.join(d, 'line'), '--box', '250,820,760,960', '--colour', '#fbfbfb', '--tol', '90', '--tmin', '0.5,5.5')
     sh = _shapes(el)
@@ -43,10 +46,25 @@ def test_tmin_keeps_dot_and_drops_moving_background():
     assert len(sh) <= 4, sh                                                                           # no noise blobs
 
 
-def test_colour_trace_keeps_only_that_colour():
+def _check_colour_trace_keeps_only_that_colour():
     d = tempfile.mkdtemp(); v = os.path.join(d, 'v.mp4'); _video(v)
     el = _trace(v, os.path.join(d, 'hy'), '--box', '280,280,720,380', '--colour', '#fee800', '--tol', '120', '--tmin', '0.5,5.5')
     x0, y0, x1, y1 = el['box']
     assert 295 <= x0 <= 305 and x1 <= 510, el['box']        # the green block next to it is not part of the yellow trace
     f = el['fill'].lstrip('#'); r, g, b = (int(f[i:i + 2], 16) for i in (0, 2, 4))
     assert r > 220 and g > 200 and b < 80, el['fill']
+
+
+@unittest.skipIf(cv2 is None, "numpy/opencv not installed (pip install numpy opencv-python-headless)")
+class MimicTraceV55(unittest.TestCase):
+    """Run under `unittest discover` (the CI runner); the checks were pytest-only functions before."""
+
+    def test_tmin_keeps_dot_and_drops_moving_background(self):
+        _check_tmin_keeps_dot_and_drops_moving_background()
+
+    def test_colour_trace_keeps_only_that_colour(self):
+        _check_colour_trace_keeps_only_that_colour()
+
+
+if __name__ == "__main__":
+    unittest.main()

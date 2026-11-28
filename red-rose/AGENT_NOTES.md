@@ -33,3 +33,9 @@ Read V61_SKILL_FUSION.md. For substantial media, engineering, finance, design or
 
 ## V62 experimental mind — 2026-11-28
 Read V62_MIND_GUIDE.md and V62_MIND_SOURCE_RECEIPT.json. For unresolved complex problems use mind experiments to select discriminating tests, mind diagnose to locate failure boundaries and require reproduction/red-green evidence, mind acceptance to check task-bound evidence files. No execution authority or semantic certification. Preserve earlier mind gates and mandatory dua sources. Eight source excerpts reviewed, not all 1,911 reasoning candidates.
+
+## V63 robust planning and risk
+Read V63_MIND_GUIDE.md. For complex plans use mind schedule to validate dependencies and calculate critical path, mind decision to preserve uncertainty and hard constraints, and mind risks to identify unresolved critical risks. Pair with V62 experiments and acceptance. None of these commands executes a task or certifies source claims. Respect mandatory dua inputs.
+
+## V64 continuous evolution — 2026-11-28
+Read V64_EVOLUTION_GUIDE.md and V64_EVOLUTION_SOURCE_RECEIPT.json. Before substantial tasks retrieve scoped approved lessons via evolution recall; mind plan includes general-scope lessons. After verified results or failures, record minimal non-sensitive task observations with evidence under local write approval. Do not auto-promote or rewrite code; owner-reviewed candidates need distinct runs/evidence, and a later failure reopens review. Use evolution find to locate collector references across domains; inspect source and license. No account data imported from Black Rose/SamakHub. All dua rules remain binding.

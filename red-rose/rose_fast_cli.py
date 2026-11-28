@@ -20,6 +20,7 @@ FAST_COMMANDS = {
     "studio-fusion": "studio_fusion_v61",
     "skill-corpus": "rose_skill_corpus_v61",
     "media-contract": "rose_media_contract_v61",
+    "evolution": "rose_evolution_v64",
 }
 
 

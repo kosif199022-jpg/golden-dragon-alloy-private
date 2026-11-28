@@ -293,3 +293,21 @@ Integrated current main e4acb37, V49-V54 (a611f1d), V47-V48 (776cd05) and altern
 
 ## V56 device absorption checkpoint
 Merged latest main b84909c into unified branch. Source-derived procedural steps, council/hypothesis review, reference index and bounded White queue batch are native. See V56_DRAGON_ABSORPTION.md. 88 distinct focused tests passed (85 + 3); full suite pending, routing freeze mismatch not waived. No claim all source capabilities were implemented. Preserve local-only RE and studio extensions.
+
+## V56 checkpoint — 2026-11-25: «ضيف كل القدرات وكل اللي وصلنا ليه»
+```text
+المهمة: إدخال ما وصلت إليه جلسة 2026-11-20 (دمج Maven Toon في التنين الذهبي، ودمج كل فروع التنين والسبيكة وkosif-tool) إلى الوردة كقدرات أصلية.
+اسم الفرع: claude/golden-dragon-warehouse-restaurant-imnzph (من main b84909c)
+ملفات جديدة: reel_craft_v56.py, test_reel_craft_v56.py, V56_REEL_CRAFT_GUIDE.md
+ملفات تغيّرت: capability_runtime.py (reel.craft في IO_ADAPTERS وREGISTRY و7 ALIASES), media_library_v35.py (_safe_extract أقوى),
+  references/OPS_CATALOG.json + OPS.md (catalog-build), عدّاد المحوّلات 64 ← 65 في 6 اختبارات, DISCOVERIES.md (11 صف), هذا الملف
+اختبارات: test_reel_craft_v56 = 12 OK (لينكس، Python 3.13، FFmpeg)؛ الحزمة كاملة: انظر PR (مقارنة مع main على نفس الجهاز)
+مخرجات: فيديو اختبار مُركّب 6 ث بالكريدت: 180/180 فريم، صوت MD5 مطابق، gate ✓، فريم بالعين (الكريدت أول وآخر، الكارت آخر 3 ث، العربي متوصّل)
+بوابات الأمان: credit_overlay كتابة بـ --approve-write فقط، لا كتابة فوق ملف، staging داخل مجلد الناتج؛ باقي العمليات قراءة
+ماذا اكتمل فعلًا: المحوّل 65 reel.craft بخمس عمليات، وفك zip الآمن
+العيوب والمتبقي: لم يُعَد بناء محرك Maven Toon نفسه (مرجع فقط)؛ story_plan خطة بلا رندر؛ اختبار الكريدت يتخطّى لو مفيش خط عربي (RED_ROSE_TEST_ARABIC_FONT)
+أول أمر للوكيل التالي: cd red-rose && python -m unittest test_reel_craft_v56 -v && python rose.py describe reel.craft.credit_overlay
+```
+
+## V62 integration checkpoint
+Merged the main media and character changes into the experimental mind candidate. Read V62_MIND_GUIDE.md; fresh regression results required before release. No claim of complete corpus absorption.

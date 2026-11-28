@@ -1,6 +1,6 @@
 {
-  "freeze_total_sha256": "ad30cdd9630d577680d3f287eaa3d790fdca637b0013237abde7280a4b68e4b9",
-  "runs": 8,
+  "freeze_total_sha256": "24e479a946754abbbb989bfd0d9a512ad00f649044a36bab52e11c812d4e4849",
+  "runs": 9,
   "tier": "measured",
   "abstain_recall_min": 0.8,
   "abstain_precision_min": 0.8,
@@ -185,7 +185,7 @@
     },
     "layout_exact": 12
   },
-  "route_p95_ms": 1.824,
+  "route_p95_ms": 1.718,
   "labeller_agreement": {
     "value": 1.0,
     "source": "frozen-set workflow stats: agreed_directly 160 of 160 (recorded, not re-measured by run_eval)"

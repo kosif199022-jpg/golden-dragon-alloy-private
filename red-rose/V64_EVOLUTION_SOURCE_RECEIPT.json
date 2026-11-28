@@ -1,0 +1,42 @@
+{
+  "sources": [
+    {
+      "archive": "agent-skills-corpus.zip",
+      "path": "agent-skills-corpus-main/full_text/architecture-planning/efae6cf90965-7796e285__continuous-learning-v2.md",
+      "sha256": "efae6cf9096592a8893cec08cc91b8380ce3050f3b7a883796c114f6467d8598",
+      "lesson": "atomic observations and promotion",
+      "license_verified": false
+    },
+    {
+      "archive": "agent-skills-corpus.zip",
+      "path": "agent-skills-corpus-main/full_text/architecture-planning/1974d6c223e9-b5096871__agent-memory-architecture.md",
+      "sha256": "1974d6c223e9ede2ad68dc49306179ad6d405cfe2170b05e2874d6f09bfbe66d",
+      "lesson": "shared project memory and scope",
+      "license_verified": false
+    },
+    {
+      "archive": "agent-skills-corpus.zip",
+      "path": "agent-skills-corpus-main/full_text/architecture-planning/77de581da8d1-e4130330__feedback-loops.md",
+      "sha256": "77de581da8d14fbc6a60aa383deb1fcf08fc422c055c681424a631e9abda313d",
+      "lesson": "verification and correction cycle",
+      "license_verified": false
+    },
+    {
+      "archive": "agent-skills-corpus.zip",
+      "path": "agent-skills-corpus-main/full_text/code-review-quality/36a1a6f098d2-c6bee5bd__self-improving-agent.md",
+      "sha256": "36a1a6f098d272d8ced2fec3baf54bf7f78bdf2749975a57ce499752eb86540f",
+      "lesson": "curation and human review",
+      "license_verified": false
+    }
+  ],
+  "black_rose_shortcut_target": "SamakHub.exe",
+  "black_rose_source": "hub_memory.py (owner local backup)",
+  "black_rose_source_sha256": "a1f77f00b0e3a2222d063a4077da421487b3838c477e116765d0169daf72ba34",
+  "black_rose_lessons": [
+    "application-owned durable memory",
+    "cross-session recall",
+    "reusable task routes"
+  ],
+  "private_memory_imported": false,
+  "raw_source_copied": false
+}

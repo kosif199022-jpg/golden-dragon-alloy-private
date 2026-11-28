@@ -74,11 +74,26 @@ def listing():
     return {'ok': True, 'libraries': rows}
 
 
+MAX_UNPACKED = 8 * 1024 ** 3      # a footage pack bigger than this is refused before writing anything
+
+
 def _safe_extract(zpath, into):
+    """Refuse the archive before writing a byte: absolute or drive paths, '..', symlinks, or an unpacked
+    size beyond MAX_UNPACKED (zip bomb). Backslashes count as separators (zips made on Windows)."""
     with zipfile.ZipFile(zpath) as z:
-        bad = [n for n in z.namelist() if n.startswith('/') or '..' in Path(n).parts]
+        bad, total = [], 0
+        for i in z.infolist():
+            n = i.filename.replace('\\', '/')
+            mode = (i.external_attr >> 16) & 0o170000
+            if n.startswith('/') or (len(n) > 1 and n[1] == ':') or '..' in Path(n).parts:
+                bad.append(n)
+            elif mode == 0o120000:
+                bad.append(n + ' (symlink)')
+            total += i.file_size
         if bad:
             raise ValueError(f'unsafe paths in zip: {bad[:3]}')
+        if total > MAX_UNPACKED:
+            raise ValueError(f'zip unpacks to {total} bytes, over the {MAX_UNPACKED} limit')
         z.extractall(into)
 
 

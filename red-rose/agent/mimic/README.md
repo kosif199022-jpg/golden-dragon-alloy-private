@@ -23,3 +23,23 @@ all colours within Δ 33; the line font found on its own was Sultan Display (the
 
 - (2026-11-24, @alrihanii) Header pieces: trace with `--static` inside one shot. Dua lines with tashkeel: trace from **one frame** (`--t` mid-line, `--polarity light`): the static mask drops dots and harakat when the line animates. Check every trace on black before rendering (a bright background patch shows up as a block), keep traced outlines at 2 px, and give traced text `shadow` on bright footage.
 - (2026-11-25, @alrihanii «صباح») Lines over moving footage (a Quran page behind): `trace --tmin T0,T1 --colour #fbfbfb --tol 90` takes the per-pixel minimum over the shot: the background darkens, the still white text stays, dots and hamzas kept. A multi-colour header is one trace per colour (`--colour #fee800 --tol 150`, `--colour #19c95f`, white date …); thin parts over a bright patch: trace that piece from a frame where its background is dark. Colour traces keep pieces down to 12 px (dots).
+- (2026-11-26, @oaun.11) `--tmin` needs a span where the text stays still: oaun whips shake the whole frame, so header spans go inside one shot, and lines that zoom while held are set in the measured font instead. Hairline Latin caps: use `measure --ltr` (Cinzel matched) rather than a trace.
+
+## Lift: the source's own text, pixel for pixel (`lift.py`)
+«الكتابة تبقى مطابقة تماماً للفيديو»: no font and no trace. Every text item is taken out of the reference as an RGBA
+sprite (the source's fill, outline, shadow and anti-aliasing, solved per pixel from I = a·O + (1-a)·B over many
+frames), then followed frame by frame (zoom, shift, fade, whip blur) and laid over the new footage the same way.
+```
+python3 -I lift.py extract SRC.mp4 items.json OUT     # sprites + tracks
+python3 -I lift.py verify  SRC.mp4 OUT                # colour difference vs the source, per item (≤ 12/255 passes)
+python3 -I lift.py render  OUT --dur D                # OUT/ov/f0001.png ... ; spec "overlay": "OUT/ov"
+```
+Example items (oaun Thursday reel): `example_oaun_lift_items.json`. Rules learnt on it:
+- `steady` spans inside one shot, 0.3-0.4 s away from the cuts; `samples: 24` for lines, 8 for a header seen in every shot.
+- A header over many shots: `"matting": "regression"` (each pixel over many backgrounds gives its exact opacity);
+  lines in one shot keep the default (upper-percentile un-compositing).
+- `show: [cut_in - 0.05, cut_out + 0.35]` per line: the next line, same font in the same place, is not mistaken for it.
+- White text: `neutral_edges: true`. A mark that cannot be separated in its own shot (white hamza on a white wall):
+  `borrow` it from the same mark in another line of the same source.
+- The codec bleeds the footage into thin outlines (~0.8 opacity); the lift keeps that, so the copy behaves like the source.
+- (2026-11-25, @dxhmen) Header items over many shots: keep `matting: regression` and add `dark_edges: true` (halos on bright sky came from footage tint in the shadow rim). A line that holds an emoji: `neutral_edges: false`, add the emoji colour to `colours`. A line that zooms with the voice: `steady` only on its still part (here 25.6-26.15 s); the track follows the zoom.

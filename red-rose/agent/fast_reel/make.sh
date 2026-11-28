@@ -4,6 +4,7 @@
 set -u; W=$1; OUT=$2; U=${3:-}; HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$W" && mkdir -p web/fonts && cp -n "$HERE"/web/index.html "$HERE"/web/main.js web/ && cp "$HERE"/web/main.js web/ && cp "$HERE"/render.mjs .
 cp -n "${FONTS:-/home/user/fastfonts}"/* web/fonts/ 2>/dev/null; cp spec.json web/
+OV=$(python3 -c "import json;print(json.load(open('spec.json')).get('overlay') or '')"); [ -n "$OV" ] && ln -sfn "$(cd "$OV" && pwd)" web/ov
 python3 -c "import json,shutil,os;[shutil.copy(e['font'],'web/fonts/'+os.path.basename(e['font'])) for S in [json.load(open('spec.json'))] for e in S.get('elements',[])+[S.get('line') or {}] if e.get('font') and os.path.exists(e['font'])]"
 [ -e node_modules ] || ln -sfn "$(npm root -g)" node_modules
 T0=$(date +%s)
@@ -14,7 +15,7 @@ S = json.load(open('spec.json')); sel = [l.strip() for l in open('sel.txt') if l
 def cut(i):
     sc = S['scenes'][i]; f = sel[i]; length = sc['b'] - sc['a'] + 0.2 + max((x.get('xf', 0) for x in S['scenes']), default=0)
     d = float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',f],capture_output=True,text=True).stdout or 0)
-    ss = max(0, min(d * 0.2, d - length)) if d > length else 0
+    ss = sc['ss'] if 'ss' in sc else (max(0, min(d * 0.2, d - length)) if d > length else 0)   # scene 'ss': where in the clip to start
     out = f'web/fx/c{i:02d}'; os.makedirs(out, exist_ok=True)
     for x in os.listdir(out): os.remove(f'{out}/{x}')
     loop = ['-stream_loop','-1'] if d < length else []
