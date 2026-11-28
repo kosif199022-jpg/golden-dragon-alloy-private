@@ -15,7 +15,8 @@ class DuaAudio(unittest.TestCase):
         self.assertEqual(da.label('يارب'), 'other')
 
     def test_catalog_and_library(self):
-        rows = list(csv.DictReader(open(ROOT / 'agent' / 'dua_audio' / 'dua_audio_catalog.csv', encoding='utf-8-sig')))
+        with (ROOT / 'agent' / 'dua_audio' / 'dua_audio_catalog.csv').open(encoding='utf-8-sig') as f:
+            rows = list(csv.DictReader(f))
         self.assertGreater(len(rows), 2000)
         self.assertTrue({'dxhmen', 'oaun'} <= {r['account'] for r in rows})
         spec = importlib.util.spec_from_file_location('ml', ROOT / 'media_library_v35.py')

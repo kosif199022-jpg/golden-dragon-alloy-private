@@ -25,7 +25,8 @@ def _video(path):
 
 def _trace(video, out, *args):
     subprocess.run([sys.executable, '-I', MIMIC, 'trace', video, '--out', out, *args], check=True, capture_output=True)
-    return json.load(open(out + '.json'))
+    with open(out + '.json', encoding='utf-8') as f:
+        return json.load(f)
 
 
 def _shapes(el):

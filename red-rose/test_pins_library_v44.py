@@ -24,7 +24,8 @@ class PinsLibraryTests(unittest.TestCase):
         self.assertIn('6 zip packs', r['download'])
 
     def test_catalogue_matches_packs(self):
-        rows = list(csv.DictReader(open(ROOT / 'agent' / 'pins_catalog.csv', encoding='utf-8-sig')))
+        with (ROOT / 'agent' / 'pins_catalog.csv').open(encoding='utf-8-sig') as f:
+            rows = list(csv.DictReader(f))
         self.assertEqual(len(rows), 602)
         urls = set(ml.KNOWN['pins']['urls'])
         self.assertTrue(all(r['pack_zip_link'] in urls for r in rows))
