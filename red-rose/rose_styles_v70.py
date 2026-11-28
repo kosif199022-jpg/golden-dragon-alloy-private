@@ -233,9 +233,104 @@ def ideas(for_text=None, family=None, path=IDEAS):
             "ideas": rows, "built": False, "note": doc["note"]}
 
 
+# ---------------- V76 style advisor: propose a mix, list on request, obey when the owner insists ----------------
+ALIASES = {
+    "el-ragel-wel-sit": ("الراجل والست", "الرجل والمرأة", "الرجل والست", "الراجل والمرأة", "الراجل والمراه", "الرجل والمراة", "couple"),
+    "maven-gta": ("gta", "جي تي اي", "جي تي ايه", "جراند", "جاتا"),
+    "abu-cap": ("أبو كاب", "ابو كاب"),
+    "maven-3d": ("روبلوكس", "roblox", "بلوكات"),
+    "maven-toon": ("حجي", "كرتون عراقي"),
+    "khaam-motion": ("موشن خام", "خام"),
+    "dua-trend": ("دعاء الترند",),
+    "lyric-motion": ("كلمات الأغنية", "كلمات الاغنية"),
+}
+TYPE_LAYERS = ("type", "captions")
+
+
+def _norm(s):
+    s = s.casefold()
+    return s.translate(str.maketrans("أإآةى", "اااهي"))
+
+
+def named_styles(request, reg):
+    t = _norm(request)
+    hits = []
+    for s in reg:
+        keys = (s["id"], s["name_ar"].split("(")[0].strip(), *ALIASES.get(s["id"], ()))
+        if any(len(k) > 2 and _norm(k) in t for k in keys):
+            hits.append(s["id"])
+    return hits
+
+
+def advise(request, clip=None, insist=False, reg=None, lib=LIB, tested=None, ideas_path=IDEAS):
+    """The owner names a style or sends a clip: propose (1) his style as is, (2) up to 3 cocktails that complete
+    it, (3) one not-yet-built idea; or, if he insists, plan exactly his style and nothing else."""
+    if not isinstance(request, str) or not request.strip() or len(request) > 2000:
+        raise ValueError("request text required")
+    reg = reg if reg is not None else registry()
+    tested = tested if tested is not None else tests()
+    by = {s["id"]: s for s in reg}
+    info = probe_clip(clip) if clip else None
+    aspect = (info or {}).get("aspect") or "9:16"
+    named = named_styles(request, reg)
+    t = _norm(request)
+    dua = any(w in t for w in ("دعاء", "ذكر", "اذكار", "dua"))
+    if insist:
+        if not named:
+            raise ValueError("insist needs a named style in the request")
+        return {"mode": "owner_insists", "style": named[0], "plan": cocktail(named[0], (info or {}).get("seconds") or 30,
+                aspect=aspect, reg=reg, lib=lib, tested=tested), "suggestions": [],
+                "rule": "the owner insisted: make exactly this style, no further suggestions"}
+    usable = [s for s in reg if _fits(s, aspect) and install_state(s, lib) != "missing"
+              and not s.get("paid_generation") and (dua or not s.get("dua_gate"))]
+    base = by[named[0]] if named else None
+    opts = []
+    if base:
+        opts.append({"kind": "as_asked", "styles": [base["id"]], "why": f"ستايلك زي ما هو: {base['name_ar']}"})
+        typ = next((s for s in usable if s["family"] == "kinetic-type" and s["id"] != base["id"] and not s.get("dua_gate")), None)
+        if typ and set(TYPE_LAYERS) - set(base["layers"]) != set():
+            opts.append({"kind": "layers", "spec": f"characters={base['id']},places={base['id']},captions={typ['id']}",
+                         "styles": [base["id"], typ["id"]], "why": f"نفس مشهد {base['name_ar']} وفوقه كتابة {typ['name_ar']}"})
+        for fam in ("3d-city", "3d-blocky", "2d-characters", "map", "documentary"):
+            other = next((s for s in usable if s["family"] == fam and s["id"] != base["id"]
+                          and s["family"] != base["family"]), None)
+            if other and len([o for o in opts if o["kind"] == "segments"]) < 2:
+                opts.append({"kind": "segments", "spec": f"{base['id']}+{other['id']}", "styles": [base["id"], other["id"]],
+                             "why": f"مشاهد {base['name_ar']} تتبادل مع {other['name_ar']}"})
+    else:
+        ref = any(w in t for w in ("مرجع", "زي الريل", "نفس الريل", "قلد", "reference"))
+        fams = {}
+        for s in usable:
+            if s["family"] == "reference-match" and not ref:
+                continue
+            fams.setdefault(s["family"], s)
+        picks = list(fams.values())[:3]
+        for s in picks:
+            opts.append({"kind": "single", "styles": [s["id"]], "why": s["best_for"]})
+        if len(picks) >= 2:
+            opts.append({"kind": "segments", "spec": f"{picks[0]['id']}+{picks[1]['id']}", "styles": [picks[0]["id"], picks[1]["id"]],
+                         "why": "خليط بين أقرب عيلتين للمقطع"})
+    for o in opts:
+        o["render_tested"] = all(tested.get(i, {}).get("status") == "rendered_ok" for i in o["styles"])
+    idea = None
+    try:
+        words = "romance" if base and base["family"] == "2d-characters" else None
+        pool = ideas(family=words)["ideas"] if words else ideas()["ideas"]
+        idea = next((i for i in pool if i["status"] == "idea_not_built"), None)
+    except (OSError, ValueError, KeyError):
+        pass
+    return {"mode": "propose", "request_style": named[0] if named else None, "clip": info, "aspect": aspect,
+            "dua_request": dua, "suggestions": opts[:4], "new_idea": idea,
+            "ask_owner": "اختار: ستايلك زي ما هو، أو خليط من الاقتراحات، أو قولي «اعرض المحفوظ» أعرض كل الستايلات. ولو مصمم على ستايلك أعمله بالظبط.",
+            "rule": "propose first; list all saved styles only when asked; if the owner insists, do exactly his style",
+            "execution_allowed": False}
+
+
 def handle(a):
     try:
-        if a.action == "ideas":
+        if a.action == "advise":
+            r = advise(a.target, a.clip, a.insist)
+        elif a.action == "ideas":
             r = ideas(a.target or None, a.family)
         elif a.action == "menu":
             r = menu(a.target or None, (a.need or "").split(",") if a.need else ())
@@ -252,7 +347,9 @@ def handle(a):
 
 def register(sub):
     p = sub.add_parser("styles", help="V70 motion-graphics style menu, details and cocktail plan (read-only)")
-    p.add_argument("action", choices=["menu", "show", "cocktail", "ideas"])
+    p.add_argument("action", choices=["menu", "show", "cocktail", "ideas", "advise"])
+    p.add_argument("--clip", help="advise: the owner's video")
+    p.add_argument("--insist", action="store_true", help="advise: the owner insists on the named style")
     p.add_argument("--family", help="ideas: filter by family")
     p.add_argument("target", nargs="?", default="", help="menu: optional clip; show: style id; cocktail: a+b or role=id,...")
     p.add_argument("--need", help="menu filter, comma roles e.g. characters,places")

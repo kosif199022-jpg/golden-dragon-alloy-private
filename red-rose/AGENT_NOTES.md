@@ -69,3 +69,6 @@ The owner chose «القلم الحي» as the engine for drawing every future s
 Living Pen is the primary drawing/visual tool once built; it has a self-learning loop (metrics, owner verdicts, bounded tuning, frozen benchmarks, rollback) and only PROPOSES code changes, never applies them without tests and owner OK.
 Living Pen numerics follow Atkinson & Han (indexed locally as atkinson-han-numerical-analysis-2009): every solver states space, norm, stability limit and convergence order, with a test.
 V75: the Living Pen numerical core (living_pen/numerics.py) is built and self-tested (`rose.py pen-math selftest`); pen modules use its solvers.
+
+## V76 style advisor — owner rule
+Any styled request or any clip: `styles advise` → offer his style + mixes + one idea; list saved styles only when asked; if he insists, `--insist` and make exactly his style.

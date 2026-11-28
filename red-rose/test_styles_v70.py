@@ -101,3 +101,40 @@ class Styles70(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Advise76(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.lib = Path(self.tmp.name)
+        for s in REG:
+            if s["source"].startswith("pack:"):
+                d = self.lib / s["source"][5:] / s["doc"]
+                d.parent.mkdir(parents=True, exist_ok=True)
+                d.write_text("# doc", encoding="utf-8")
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_named_style_aliases(self):
+        for text in ("بستايل الرجل والمرأة", "الراجل والست", "زي الرجل والست"):
+            self.assertEqual(st.named_styles(text, REG)[:1], ["el-ragel-wel-sit"], text)
+        self.assertIn("maven-gta", st.named_styles("عايزه جي تي اي", REG))
+
+    def test_propose_mix_then_insist(self):
+        r = st.advise("اعمل الأغنية دي بستايل الرجل والمرأة", lib=self.lib, tested={})
+        self.assertEqual(r["mode"], "propose")
+        self.assertEqual(r["suggestions"][0]["kind"], "as_asked")
+        self.assertTrue(any(o["kind"] in ("segments", "layers") for o in r["suggestions"]))
+        self.assertFalse(r["execution_allowed"])
+        i = st.advise("اعمل بستايل الرجل والمرأة", insist=True, lib=self.lib, tested={})
+        self.assertEqual((i["mode"], i["style"], i["suggestions"]), ("owner_insists", "el-ragel-wel-sit", []))
+        with self.assertRaises(ValueError):
+            st.advise("اعمل فيديو", insist=True, lib=self.lib, tested={})
+
+    def test_unnamed_request_and_dua_gate(self):
+        r = st.advise("اعمل فيديو للمقطع ده", lib=self.lib, tested={})
+        ids = [i for o in r["suggestions"] for i in o["styles"]]
+        self.assertTrue(ids and "mimic" not in ids and "dua-trend" not in ids)
+        d = st.advise("ريل دعاء يوم الجمعة", lib=self.lib, tested={})
+        self.assertTrue(d["dua_request"])

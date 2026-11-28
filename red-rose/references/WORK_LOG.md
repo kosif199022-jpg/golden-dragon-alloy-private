@@ -1,6 +1,9 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-28
+### V76 style advisor (owner rule)
+- `styles advise`: names the requested style from Arabic variants (الرجل والمرأة = الراجل والست), proposes as-is + layer/segment mixes + one idea, `--insist` plans only his style. 20 tests PASS.
+
 ### V75 Living Pen numerical core from Atkinson & Han
 - living_pen/numerics.py: 11 chapters as working solvers with measured guarantees; `pen-math selftest` all_ok on the owner PC (0.2 s). 9 tests PASS.
 - Lesson: 1D P1 FEM looked like order 6 at the nodes (superconvergence); the book's guarantee is the L2 error over the domain, which measured 2.00. Rounded spherical-harmonic constants gave 2e-6 error; exact constants give 3e-15.

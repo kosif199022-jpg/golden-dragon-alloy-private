@@ -21,6 +21,13 @@ When the owner asks for موشن جرافيك / motion graphics / ستايل / c
 ## «القلم الحي» is the primary drawing tool (V74, owner decision 2026-11-28)
 For any task that draws, paints, writes calligraphy, designs a frame or animates drawn material: plan with `direct`/`styles`, then draw with `rose.py pen` together with the other Red Rose capabilities. The pen learns from every job (measured metrics, owner verdicts, bounded parameter tuning, approved style presets) and proposes code improvements that need tests and the owner's OK. Not built yet: until a stage passes its tests, use the existing engines and say so. Spec: `V74_LIVING_PEN_SPEC.md`.
 
+## Owner rule: propose a style mix first, obey when he insists (V76, 2026-11-28)
+Whenever the owner asks for any video in a named style (e.g. «بستايل الرجل والمرأة / الراجل والست») or sends any clip:
+1. Run `rose.py styles advise "<his words>" [--clip FILE]` and offer: his style as is, up to 3 mixes that complete it (layers or alternating segments), and one new idea. Ask him to choose.
+2. If he asks what is saved («إيه الستايلات المحفوظة / اعرض المحفوظ»), show `styles menu` (and `styles ideas` for unbuilt ideas).
+3. If he insists on his style («لا، بالستايل ده / زي ما قلت»), run `styles advise "<words>" --insist` and make exactly that style; do not propose again in that task.
+Then plan with `direct` and the chosen style(s); dua requests keep the dua gate.
+
 ## Mandatory agent startup
 Before any task, read AGENT_NOTES.md and relevant recorded lessons. Run task-specific acceptance checks before final delivery; keep factual internal notes, show the result and material blockers rather than routine logs. Applies to all domains.
 
