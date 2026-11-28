@@ -98,3 +98,31 @@ type (calligraphy is drawn, not typed); dua work keeps the mandatory dua footage
 A style is a JSON vector (tools, media, paper, stroke grammar, palette, light, motion grammar). Styles mix by
 interpolating these vectors; a new style is learned by fitting the vector to reference images with the
 differentiable renderer (stage 5). Each theory above is added in the stage that needs it, with its test.
+
+## Role in Red Rose (owner decision 2026-11-28)
+The Living Pen is Red Rose's primary drawing/visual tool: for any task that draws, paints, writes calligraphy,
+designs a frame or animates drawn material, Claude plans with `direct`/`styles`, then draws with `rose.py pen`,
+alongside the other Red Rose capabilities (montage-code, continuity, media-contract, audio, dua gate). Until a
+stage is built and tested, Claude uses the existing engines for that need and says so; it never claims a pen
+stage works before its tests pass.
+
+## Self-learning and self-improvement (stage 8, built on V64 `evolution`)
+Loop after every pen job, local only:
+1. Measure: every acceptance metric of the job (ΔE, proportion error, flicker, onset offset, render time,
+   inverse-painting loss) is written to `~/.red-rose/pen/runs.sqlite3` with the job's parameter vector and hashes.
+2. Learn from feedback: the owner's verdict (accepted / rejected + reason) is recorded with
+   `rose.py evolution record`; rejections reopen any related approved lesson.
+3. Self-tune parameters (allowed automatically): Bayesian optimisation / CMA-ES over style and tool
+   parameters inside declared bounds, maximising the measured metrics on a fixed benchmark set; a new preset
+   is kept only if it beats the current one on the benchmark without breaking any gate.
+4. Grow the style library: a style the owner approved becomes a named preset (JSON vector + reference
+   thumbnails + metrics); styles are fitted from new references by inverse rendering.
+5. Self-improve code (proposal only): when a metric plateaus or a failure repeats, the pen writes a
+   diagnosis, a minimal reproduction and a proposed patch with new tests into `~/.red-rose/pen/proposals/`.
+   Code changes are never applied automatically: they need passing tests, regression of the full suite and the
+   owner's OK (same rule as V64: no auto-promotion of code).
+6. Benchmarks are frozen: the evaluation set and its expected values cannot be edited by the tuning loop
+   (prevents "learning" by moving the target); any benchmark change is a reviewed commit.
+7. Reversible: every promoted preset keeps its predecessor; `rose.py pen rollback PRESET` restores it.
+Tests: tuning never leaves bounds; frozen benchmark hash checked before each run; a worse candidate is never
+promoted; proposals never modify code on disk; rollback restores the exact previous vector.
