@@ -27,3 +27,22 @@ An Arabic word or dua line becomes a living Islamic geometric universe, driven b
 Measured acceptance (not taste only): fluid divergence norm, OT mass error, tiling vertex-rule violations = 0,
 word-onset vs. visual-event offset ≤ 1 frame, frame determinism (same frame → same hash), media verify.
 Paid tools: none needed. Status: idea_not_built; build in stages with tests, sample first.
+
+## Tier above: «سِفر الكون» (Book of the Cosmos) — research-grade, not built yet
+A dua line is written by the universe itself. Seven coupled systems, each research-level:
+1. Kerr black-hole lensing: null geodesics integrated (adaptive RK45) in Boyer–Lindquist coordinates; accretion
+   disk with Doppler beaming and gravitational redshift; the word appears as the lensed ring.
+2. Hopf fibration: S³ → S² fibres, stereographically projected, as linked light rings that braid the letters.
+3. 4D quaternion Julia set, ray-marched with a distance estimator and sliced through time by SO(4) rotations.
+4. Optimal-control fluid (the hardest): adjoint (differentiable) Navier–Stokes solves for the forces that make
+   smoke form the exact Arabic word at the exact frame it is spoken; gradients through hundreds of steps with
+   checkpointing.
+5. Spectral geometry: Laplace–Beltrami eigenfunctions on the calligraphy mesh; letters vibrate in Chladni
+   modes chosen by the voice's harmonics.
+6. Maqam-aware audio: constant-Q transform and YIN pitch tracking with quarter-tone bins; the maqam drives the
+   colour wheel.
+7. Spectral (per-wavelength) rendering: glass letters disperse light by Cauchy's equation; camera on SE(3)
+   with quaternion (squad) splines minimising jerk.
+Acceptance: Carter-constant drift on geodesics, adjoint gradient vs finite differences, eigenvalues vs the
+analytic disk, word-form error at its onset frame, frame determinism. Cost: CPU-heavy (no GPU on cloud);
+expect low-res previews first and minutes per frame at full size. Build only stage by stage with tests.
