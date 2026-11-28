@@ -1,6 +1,12 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-28
+### V70 motion-graphics style catalogue (`rose.py styles`)
+- 16 owner-supplied style packs (10 from Telegram Desktop.rar, 5 khaam from ChatExport (2), maven-3d-v2) installed to `~/.red-rose/libraries/style-packs` (1,406 files, 71 MB, MANIFEST tree hashes). Scan: no executables/install hooks; setup.ps1 and get-tools.mjs read, not run.
+- `styles menu/show/cocktail`: 22 styles in 9 families (6 native + 16 packs); segment cocktails split in whole frames; layer cocktails refuse mixing characters/places from different engines.
+- Tests: 8 new PASS; related suites PASS except the known location-only BOOTSTRAP check.
+- Not done: no pack engine render-tested (running pack code was blocked pending owner permission); alpha overlay compositing unverified. Packs' licences forbid republishing: kept local, not pushed.
+
 ### V69 intake of owner archives + storyboard continuity ledger
 - Checked 4 owner archives: `skills.zip` and `CLAUDE_SKILLS_COLLECTION.zip` were already in the V66 corpus (hash match). New: KOSIF Video Mega-Pack and `Telegram Desktop.rar`.
 - New `rose.py intake` (rose_intake_v69.py): append-only text-only FTS5 index; 3 sources, 1,727 docs, 15,639 chunks; 6 secret-like chunks blocked; APK deleted unopened from temp copy; `collect.py` not run.

@@ -14,7 +14,7 @@ from __future__ import annotations
 import importlib
 
 EXT_MODULES = ['rose_run', 'rose_catalog', 'rose_env', 'rose_selfcheck', 'rose_fixtures',
-               'rose_agent', 'rose_recipes', 'rose_check', 'rose_pack', 'rose_maintenance', 'rose_re_tools', 'rose_golden_deep', 'rose_golden_native', 'rose_white_native', 'rose_mind_v51', 'rose_see_native_v52', 'vn_dua_v47', 'rose_shot_detail', 'rose_motion_capture_v57', 'rose_motion_replay_v58', 'rose_source_preflight_v60', 'studio_fusion_v61', 'rose_skill_corpus_v61', 'rose_media_contract_v61', 'rose_evolution_v64', 'rose_distill_v66', 'rose_knowledge_v67', 'rose_montage_v65', 'rose_metric_v68', 'rose_intake_v69', 'rose_continuity_v69']
+               'rose_agent', 'rose_recipes', 'rose_check', 'rose_pack', 'rose_maintenance', 'rose_re_tools', 'rose_golden_deep', 'rose_golden_native', 'rose_white_native', 'rose_mind_v51', 'rose_see_native_v52', 'vn_dua_v47', 'rose_shot_detail', 'rose_motion_capture_v57', 'rose_motion_replay_v58', 'rose_source_preflight_v60', 'studio_fusion_v61', 'rose_skill_corpus_v61', 'rose_media_contract_v61', 'rose_evolution_v64', 'rose_distill_v66', 'rose_knowledge_v67', 'rose_montage_v65', 'rose_metric_v68', 'rose_intake_v69', 'rose_continuity_v69', 'rose_styles_v70']
 
 LAST_LOAD = {'loaded': [], 'failed': [], 'skipped': []}
 

@@ -28,6 +28,7 @@ FAST_COMMANDS = {
     "metric-reconcile": "rose_metric_v68",
     "intake": "rose_intake_v69",
     "continuity": "rose_continuity_v69",
+    "styles": "rose_styles_v70",
 }
 
 

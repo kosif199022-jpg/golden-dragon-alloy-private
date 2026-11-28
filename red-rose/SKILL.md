@@ -10,6 +10,9 @@ metadata:
 ## Mandatory dua-reel source gate (2026-11-27)
 For every dua or azkar reel, before any source selection or rendering, read and follow the **Mandatory owner rule — approved dua footage and exact source typography** in `references/DUA_REELS_PLAYBOOK.md`. The owner-provided `dua-telegram-complete` collection is mandatory; no alternate footage or font substitutions without explicit approval. Measure and verify the exact chosen reference typography, motion and spoken-word timing. Stop if approved inputs or acceptance evidence are missing. This applies to all dua workflows, including direct/custom code.
 
+## Motion graphics for any clip: offer the style menu first (V70, 2026-11-28)
+When the owner asks for موشن جرافيك / motion graphics / ستايل / cartoon / GTA / 3D / كرتون for any clip, song or script, run `python -X utf8 "<skill folder>/rose.py" styles menu [CLIP]` and show him every style that fits (22 styles: Red Rose native engines such as الراجل والست, plus the owner's style-pack library: GTA city, blocky 3D v1/v2, Arab 2D cartoon, maps, documentary board, Khaam kinetic type with 12 sub-styles, SaaS launch and more), with what each needs and whether it is render-tested here. He may pick one, or a cocktail: `styles cocktail a+b+c --seconds S` (segments joined by montage-code) or `styles cocktail characters=a,places=a,captions=b` (one scene engine plus overlays). Then `styles show ID` and read that style's own doc before running its engine; render a 3-second sample first. Details: `V70_STYLES_GUIDE.md`. Dua styles keep the dua gate above.
+
 ## Mandatory agent startup
 Before any task, read AGENT_NOTES.md and relevant recorded lessons. Run task-specific acceptance checks before final delivery; keep factual internal notes, show the result and material blockers rather than routine logs. Applies to all domains.
 
