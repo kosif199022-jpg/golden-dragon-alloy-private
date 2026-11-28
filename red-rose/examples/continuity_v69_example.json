@@ -1,0 +1,14 @@
+{
+  "fps": 30,
+  "duration_frames": 270,
+  "shots": [
+    {"id": "1", "start_frame": 0, "end_frame": 90, "shot_type": "wide", "camera_move": "slow push-in",
+     "subject_motion": "hero walks along the platform", "action_start": "reaches for the bench",
+     "state": {"location": "station platform", "wardrobe.hero": "red coat", "prop.bench": "facing left"}},
+    {"id": "2", "start_frame": 90, "end_frame": 180, "shot_type": "medium", "camera_move": "drift right",
+     "subject_motion": "hero turns the bench", "action_result": "hand lands on the bench and turns it",
+     "state": {"prop.bench": "facing camera"}, "changes": {"prop.bench": "hero turned it in this shot"}},
+    {"id": "3", "start_frame": 180, "end_frame": 270, "shot_type": "close-up", "camera_move": "handheld sway",
+     "subject_motion": "hero sits and exhales", "cut_in": "hard", "hard_cut_reason": "reveal of the letter"}
+  ]
+}

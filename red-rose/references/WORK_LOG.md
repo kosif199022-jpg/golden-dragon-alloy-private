@@ -1,5 +1,21 @@
 # Red Rose work log (what was built with the owner, newest first)
 
+## 2026-11-28
+### V69 intake of owner archives + storyboard continuity ledger
+- Checked 4 owner archives: `skills.zip` and `CLAUDE_SKILLS_COLLECTION.zip` were already in the V66 corpus (hash match). New: KOSIF Video Mega-Pack and `Telegram Desktop.rar`.
+- New `rose.py intake` (rose_intake_v69.py): append-only text-only FTS5 index; 3 sources, 1,727 docs, 15,639 chunks; 6 secret-like chunks blocked; APK deleted unopened from temp copy; `collect.py` not run.
+- New `rose.py continuity check` (rose_continuity_v69.py), method reviewed from the storyboard-builder guide; original code. Caught its own carry-forward bug in tests before release.
+- Tests: 16 new PASS. Full suite 1,687: 3 FAIL = 2 known location-only + perf-lens `release_privacy` 77 s > 60 s under concurrent load; rerun alone PASS (5/5). Guide: V69_INTAKE_CONTINUITY_GUIDE.md, receipt V69_SOURCE_RECEIPT.json.
+- Not done: SFX pack (66 MB audio, licence unknown) not added; rendered-frame continuity is not checked by this tool.
+
+### V68 synced to the owner PC as the primary skill
+- Installed copy synced to branch `red-rose-unified-v54` @ e83fc96 (529 files = 519 repo + 10 PC-only). Backup: `%APPDATA%\GoldenDragon\skill_backups\red-rose-before-v68-sync-20261128`.
+- PC-only `rose_re_tools.py` (`re-tools`) and `rose_studio.*` kept, registered with `rose_maintenance`, pushed to branch `red-rose-v68-local-modules` @ 11b1a4b (not merged).
+- `rose.py start`: MISSING none, extensions failed none, verified 193 / known_broken 0. Knowledge index: 61,152 rows; ranking is lexical and weak on "ffmpeg frame timing" (top hits off-topic).
+- `fonts-library-v1` fetched: 1,108 fonts / 354 families / 1,062 Arabic; licences OFL 191, personal-only 189, unknown 587. Trend style: only `Montserrat-Arabic-SemiBold` found, not Latin Montserrat — compare Latin glyphs before use.
+- Dua footage: 98 MP4 in `dua-telegram-complete/videos` present.
+- Full suite on installed copy: 1,671 tests, 2 FAIL, 1 skip (1,647 s). Both FAILs are location-only (`test_agent_handoff` needs repo-root AGENTS.md; `install-skill` refuses target overlapping source); the same two modules PASS in the repo clone (10 tests OK). Two ResourceWarnings (unclosed file in test_pins_library_v44 and a line.json test) remain.
+
 ## 2026-11-25
 ### «وضيئة الوجه» poem with الراجل والست (`characters/el-ragel-wel-sit/lyric_engine`)
 Facebook reel audio (1.15M views); 4 verses word-timed, diacritics from the original captions; the 5 saved images reused (no credits); render 34 s locally.
@@ -87,3 +103,10 @@ Use knowledge search and inspect to find relevant original sources, and knowledg
 
 ## V68 metric reconciliation
 For conflicting aggregate figures use metric-reconcile with explicit definitions, evidence references, tolerance and primary basis. Review source exports and recomputation independently; never average competing sources or certify from supplied arithmetic. Read V68_METRIC_GUIDE.md. Existing bank reconciliation, accounting and owner rules remain unchanged.
+
+## 2026-11-28 — الوردة السوداء (SamakHub): نوافذ مخفية ظاهرة، دروس، سجل شغل طويل، حفظ آمن
+- Live copy = %LOCALAPPDATA%\Programs\SamakHub (memory %LOCALAPPDATA%\SamakHub\memory); Claude Code/Desktop MCP re-pointed there with the owner's yes. Shared memory merged in additively (backup in %LOCALAPPDATA%\SamakHub\backups).
+- Added: hidden worker windows visible as tabs (company right-click), corrections → permanent lessons in every prompt, relevant old notes/routes per request, job_update/job_status ledger (resume on «كمل»), session_touch before saves.
+- Evidence from 82 real chats: a 978-line purchase invoice took 2 days (session expired at save, page reloads, no progress view).
+- Build fixes: seed built outside OneDrive in %TEMP%\samakhub_seed from the newest memory; deploy copies over files (no rmtree); installed copy updated by renaming files held by running MCP processes.
+- Tested: worker auto-login + show (live), lesson capture 7 phrases, job ledger on a memory copy, session_touch on an open page (live). Not tested: session_touch on a really expired session; menus by eye (screen access denied).
