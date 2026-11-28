@@ -1,0 +1,15 @@
+{
+ "version": "V72",
+ "note": "Prompt recipes for image/video generators. Generators that spend credits need the owner's explicit approval and price first. Use only on photos of the owner or people who consented; keep identity unchanged.",
+ "recipes": [
+  {
+   "id": "skin-retexture-macro",
+   "name_ar": "واقعية جلد ماكرو مع ثبات الهوية",
+   "source": "owner screenshot 2026-11-28 (prompt shown in a phone app)",
+   "inputs": ["image 1: the photo to edit", "image 2: a skin-texture reference only"],
+   "needs": "an image editor that accepts two reference images (paid generators: owner approval first)",
+   "prompt": "Image 1 is the photo to edit. Image 2 is a skin texture reference only.\n\nRetexture the skin in Image 1 to match the photographic realism and micro-detail of Image 2. Do not copy anything else from Image 2: not the face, age, glasses, lighting, or colors.\n\nMatch these qualities from Image 2:\n- Dense, sharp, clearly visible pores across the whole face, larger on the nose and cheeks\n- Fine crosshatched skin micro-texture and tiny natural creases over the forehead, cheeks, and under the eyes\n- Small freckles, faint sun spots, and slight uneven redness, scattered naturally\n- Natural oily sheen with sharp specular highlights on the nose, forehead, and cheekbones, revealing the texture instead of hiding it\n- Lips with visible vertical lines and natural dry texture\n- Eyebrows and facial hair as individual, crisp strands, with some stray hairs\n- High micro-contrast and razor-sharp focus, like a macro studio portrait shot on a medium-format camera\n\nAdapt the texture to the person's real age in Image 1: keep it realistic for their age and do not add wrinkles or aging that don't belong.\n\nKeep Image 1 identical in identity, facial features, expression, pose, hair, clothing, background, framing, and skin tone. Change only the surface texture of the skin, hair, and eyes.\n\nOutput at 4K resolution.",
+   "checks": ["identity unchanged (compare side by side)", "no added aging", "background/clothing/framing unchanged", "real 4K pixel size measured"]
+  }
+ ]
+}

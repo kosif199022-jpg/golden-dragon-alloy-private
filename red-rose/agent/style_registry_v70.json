@@ -1,5 +1,5 @@
 {
- "version": "V71",
+ "version": "V72",
  "library": "~/.red-rose/libraries/style-packs",
  "note": "Descriptions written by Red Rose. Packs keep their own rights files; use is local (owner devices), videos made are the owner's; do not republish the packs.",
  "styles": [
@@ -761,6 +761,108 @@
    ],
    "best_for": "10 أفكار، سكريبت بصيغة هوك وتويست، شخصيات كروت في عالم 3D بالحبر، موسيقى ومؤثرات عند نص مستوى الصوت",
    "credit": "cartoon-short-kit (MIT parts)"
+  },
+  {
+   "id": "ai-geek-2d-documentary",
+   "name_ar": "وثائقي ستيك مان في عوالم 3D (بيليون بيبر)",
+   "name_en": "Stick-figure documentary in 3D sets",
+   "family": "documentary",
+   "source": "pack:ai-geek-2d-documentary",
+   "doc": "SKILL.md",
+   "runtime": "threejs-chromium",
+   "aspect": [
+    "16:9"
+   ],
+   "input": [
+    "idea",
+    "script",
+    "voice"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "type",
+    "sfx"
+   ],
+   "best_for": "وثائقي أعمال وأخبار: شخصيات ستيك مان جوه ديكور 3D وكاميرا عايمة، كل فكرة كبيرة تتحول لحاجة ملموسة (متوسط اللقطة 2.6 ث)",
+   "credit": "AI Geek",
+   "engine_note": "method doc only: the engine is written per project from the doc"
+  },
+  {
+   "id": "ai-geek-depth-documentary",
+   "name_ar": "وثائقي فيكتور 2D (Depth Theory)",
+   "name_en": "Flat-vector 2D documentary",
+   "family": "documentary",
+   "source": "pack:ai-geek-depth-documentary",
+   "doc": "SKILL.md",
+   "runtime": "python-cairo",
+   "aspect": [
+    "16:9"
+   ],
+   "input": [
+    "idea",
+    "script"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "type",
+    "sfx"
+   ],
+   "best_for": "قصص تاريخية وطبيعة وغموض: سكريبت متوقّت وستوري بورد ورندر فيكتور بالكود مع فولي وأصوات HUD",
+   "credit": "AI Geek",
+   "engine_note": "method doc only; its storyboard previews ask for an image generator (paid: owner approval)"
+  },
+  {
+   "id": "cartoon-face-history",
+   "name_ar": "تاريخ كوميدي بوشوش كرتون (2.5D)",
+   "name_en": "Cartoon-face history comedy 2.5D",
+   "family": "2d-characters",
+   "source": "pack:cartoon-face-history",
+   "doc": "SKILL.md",
+   "runtime": "python",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "idea",
+    "script",
+    "images"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "captions"
+   ],
+   "best_for": "كوميديا تاريخية: قصاصات صور حقيقية بعيون وبُق كرتون مرسومين وكلام متزامن (45 ث لـ 5 د)",
+   "credit": "AI Geek (keep its start/end attribution banners per its licence)"
+  },
+  {
+   "id": "ai-geek-roblox-shorts",
+   "name_ar": "شورت 3D توون روبلوكس (كاميرا حرة)",
+   "name_en": "Coded 3D toon Roblox-style short",
+   "family": "3d-blocky",
+   "source": "pack:ai-geek-roblox-shorts",
+   "doc": "SKILL.md",
+   "runtime": "threejs-chromium",
+   "aspect": [
+    "9:16"
+   ],
+   "input": [
+    "voice",
+    "script"
+   ],
+   "layers": [
+    "characters",
+    "places",
+    "camera",
+    "captions",
+    "sfx"
+   ],
+   "best_for": "قصة كوميدي دقيقة بشخصية عادية وكائن غريب (زي ملك الموت رفيق السكن)، كابشن كلمة بكلمة",
+   "credit": "AI Geek"
   }
  ]
 }

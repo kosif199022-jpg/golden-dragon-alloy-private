@@ -1,6 +1,10 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-28
+### V72 four AI Geek styles, skin-texture recipe, two candidate repos
+- +4 styles (34), +3 borrowable items (32 incl. 2 candidates not installed). 5 duplicate uploads skipped by hash. cartoon-face-history INTEGRITY.sha256 verified OK.
+- Tests 16 PASS. Not render-tested; flow-mcp and cli-printing-press read only (README/metadata), not cloned.
+
 ### V71 directing mind, borrowings list, 8 more style packs
 - `rose.py direct`: director's treatment (genre, hook, beats, shot grammar, style per beat) with an immediate continuity check; live run on a 30 s story cocktail: 12 shots, 0 continuity errors, sizes never repeated.
 - `rose.py borrow`: 30 styles + 29 tools/engines (teardown, Blender, Black Dragon engines, whisperx, demucs…); all 29 detected on this PC.
