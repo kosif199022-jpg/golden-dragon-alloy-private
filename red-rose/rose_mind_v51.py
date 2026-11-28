@@ -78,7 +78,7 @@ def plan(p):
         deep=enrich(request,depth,selected)
     from rose_mind_v62 import profile as experiment_profile
     from rose_evolution_v64 import context as learning_context
-    from rose_distill_v66 import plan_context as skill_context
+    from rose_knowledge_v67 import context as skill_context
     return {"ok":True,"skill_reference_context":skill_context(request,depth),"learning_context":learning_context(request),"experiment_mind":experiment_profile(depth),"deep_mind":deep,"metacognition":protocol(depth),"see":see_packet,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
             "approvals":approvals,"execution_allowed":False,"requires_review":blocked,
             "decision":"review_required" if blocked else "plan_only",

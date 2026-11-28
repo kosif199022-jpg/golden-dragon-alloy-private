@@ -22,6 +22,8 @@ FAST_COMMANDS = {
     "media-contract": "rose_media_contract_v61",
     "evolution": "rose_evolution_v64",
     "distill-skills": "rose_distill_v66",
+    "knowledge": "rose_knowledge_v67",
+    "montage-code": "rose_montage_v65",
 }
 
 
