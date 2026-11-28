@@ -18,6 +18,9 @@ When the owner asks for موشن جرافيك / motion graphics / ستايل / c
 - Before planning any video, think like a director with `rose.py direct "<request>" --seconds S [--styles a+b+c]`: genre and intent, hook inside 1.5 s, beats in whole frames, shot grammar (size never repeats back to back, camera always moving, light per beat, motion-carrying cuts), a style per beat for cocktails, and a shot list already passed through `continuity check`. Show the treatment to the owner and wait for his OK before rendering (owner rule: storyboard first unless he says «نفّذ مباشرة»). Guide: `V71_DIRECTING_GUIDE.md`.
 - For "a new style / what else can you make": `rose.py styles ideas ["words"]` (125 owner-approved ideas and borrowable styles, honestly marked not built / not tested; guide `V73_STYLE_IDEAS_GUIDE.md`, including the classic-fairytale rule and the animated background for الراجل والست stills).
 
+## «القلم الحي» is the primary drawing tool (V74, owner decision 2026-11-28)
+For any task that draws, paints, writes calligraphy, designs a frame or animates drawn material: plan with `direct`/`styles`, then draw with `rose.py pen` together with the other Red Rose capabilities. The pen learns from every job (measured metrics, owner verdicts, bounded parameter tuning, approved style presets) and proposes code improvements that need tests and the owner's OK. Not built yet: until a stage passes its tests, use the existing engines and say so. Spec: `V74_LIVING_PEN_SPEC.md`.
+
 ## Mandatory agent startup
 Before any task, read AGENT_NOTES.md and relevant recorded lessons. Run task-specific acceptance checks before final delivery; keep factual internal notes, show the result and material blockers rather than routine logs. Applies to all domains.
 
