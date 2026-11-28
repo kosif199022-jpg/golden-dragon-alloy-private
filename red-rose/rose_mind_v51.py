@@ -76,7 +76,8 @@ def plan(p):
     if depth>=2:
         from rose_mind_v56 import enrich
         deep=enrich(request,depth,selected)
-    return {"ok":True,"deep_mind":deep,"metacognition":protocol(depth),"see":see_packet,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
+    from rose_mind_v62 import profile as experiment_profile
+    return {"ok":True,"experiment_mind":experiment_profile(depth),"deep_mind":deep,"metacognition":protocol(depth),"see":see_packet,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
             "approvals":approvals,"execution_allowed":False,"requires_review":blocked,
             "decision":"review_required" if blocked else "plan_only",
             "next_question":questions[0] if questions else None,"remaining_high_risk_unknowns":questions[1:],
@@ -147,7 +148,10 @@ def handle(a):
             p=Path(a.params or "")
             if not p.is_file() or p.stat().st_size>256*1024:raise ValueError("bounded JSON input required")
             obj=json.loads(p.read_text(encoding="utf-8-sig"))
-            if a.action in ("council","council-review","hypotheses","references"):
+            if a.action in ("experiments","diagnose","acceptance"):
+                from rose_mind_v62 import run
+                r=run(a.action,obj)
+            elif a.action in ("council","council-review","hypotheses","references"):
                 from rose_mind_v56 import run
                 r=run(a.action,obj)
             elif a.action in ("review","calibrate"):
@@ -161,7 +165,7 @@ def handle(a):
         print(json.dumps({"ok":False,"error":str(e)},ensure_ascii=False));return 1
 def register(sub):
     p=sub.add_parser("mind",help="adaptive planning, evidence gate and reviewed learning")
-    p.add_argument("action",choices=["status","plan","gate","learn","lessons","review","calibrate","council","council-review","hypotheses","references"])
+    p.add_argument("action",choices=["status","plan","gate","learn","lessons","review","calibrate","council","council-review","hypotheses","references","experiments","diagnose","acceptance"])
     p.add_argument("params",nargs="?")
     p.add_argument("--mind-db",type=Path,default=DB)
     p.add_argument("--approve-write",action="store_true")
