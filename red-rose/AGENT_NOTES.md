@@ -66,3 +66,8 @@ For any motion-graphics request run `styles menu` first and offer all fitting st
 
 ## V74 Living Pen — 2026-11-28
 The owner chose «القلم الحي» as the engine for drawing every future style. Spec: V74_LIVING_PEN_SPEC.md (not built yet). Build only by its 7 stages with tests and a sample per stage.
+Living Pen is the primary drawing/visual tool once built; it has a self-learning loop (metrics, owner verdicts, bounded tuning, frozen benchmarks, rollback) and only PROPOSES code changes, never applies them without tests and owner OK.
+Living Pen numerics follow Atkinson & Han (indexed locally as atkinson-han-numerical-analysis-2009): every solver states space, norm, stability limit and convergence order, with a test.
+
+## V74 integration candidate — 2026-11-28
+Stage 1 native qalam code exists at b00d6479cd4f27e6f16254f2c1c4207f09356675; read living_pen/README.md and V74_INTEGRATION_LEDGER.md. Later stages are specifications, not execution-ready. Run exact-head tests and require owner sample review; preserve the separate V69 dua runtime gate branch until integrated and independently checked. For substantial work distill reusable verified methods, never raw chats or hidden reasoning.
