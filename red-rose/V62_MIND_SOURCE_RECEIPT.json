@@ -1,0 +1,66 @@
+{
+  "sources": [
+    {
+      "path": "obra--systematic-debugging/SKILL.md",
+      "sha256": "4999cb851360485eca5074e727bbdd62ef20549c5d5b01216fcbf5831badb473",
+      "review": "relevant excerpts",
+      "lesson": "locate failing boundary, reproduce, test one variable, regression and stop after repeated failed fixes",
+      "license_verified": false
+    },
+    {
+      "path": "obra--verification-before-completion/SKILL.md",
+      "sha256": "ea52d15aabaf72bc6b558efe2c126f161b53961090ddcd712000273bfe8c7b6c",
+      "review": "relevant excerpts",
+      "lesson": "bind every required check to current evidence, inspect real results before completion",
+      "license_verified": false
+    },
+    {
+      "path": "K-Dense-AI--hypothesis-generation/SKILL.md",
+      "sha256": "2cf4d058394a973a6966351d77efb602d527658493cd6372543e8e88e80b45e3",
+      "review": "relevant excerpts",
+      "lesson": "mechanisms, falsifiers and competing testable predictions",
+      "license_verified": false
+    },
+    {
+      "path": "andurilcode--inversion-premortem/SKILL.md",
+      "sha256": "339a34fab228a96cb835f381dd74c7a565dfe341d40a913f9f136c722538d2be",
+      "review": "relevant excerpts",
+      "lesson": "review unguarded assumptions and failure mechanisms before commitment",
+      "license_verified": false
+    },
+    {
+      "path": "89jobrien--meta-cognitive-reasoning/SKILL.md",
+      "sha256": "d920180d3f1fc356351bd184a2c439a204222f7a99ac2c243f9737ed10e6a3e6",
+      "review": "relevant excerpts",
+      "lesson": "discriminating evidence and distinguish observation from mechanism",
+      "license_verified": false
+    },
+    {
+      "path": "flpbalada--hypothesis-tree/SKILL.md",
+      "sha256": "1e06ce9a012f566504344467adb702395a173c9dd430240ebe9c295e23c32ce3",
+      "review": "relevant excerpts",
+      "lesson": "prioritize tests by information and cost",
+      "license_verified": false
+    },
+    {
+      "path": "laurigates--hypothesis-testing/SKILL.md",
+      "sha256": "41ff20c9f03da50bb4133e9b0ee8ab913a16429397a2536d9c7fc555bda40f04",
+      "review": "relevant excerpts",
+      "lesson": "invariant and edge-case tests",
+      "license_verified": false
+    },
+    {
+      "path": "omer-metin--decision-frameworks/SKILL.md",
+      "sha256": "753626e62187c8d2883f1f77418c21883aebba3b21e898462c6abc4b6575f12a",
+      "review": "relevant excerpts",
+      "lesson": "clear decision criteria and reversibility",
+      "license_verified": false
+    }
+  ],
+  "method": "independent implementation, no third-party code executed",
+  "native_ops": [
+    "experiments",
+    "diagnose",
+    "acceptance"
+  ]
+}

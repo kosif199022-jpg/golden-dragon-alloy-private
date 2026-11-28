@@ -1,0 +1,90 @@
+{
+  "archive": {
+    "archive_sha256": "1a21b4e7c9056cdc833b71e072b394bd950efa436fc98f9a81ca6107e14e8eaa",
+    "archive_bytes": 787844119,
+    "skill_documents": 35564,
+    "indexed": 35564,
+    "unique_documents": 35303,
+    "roots": 34396,
+    "categories": {
+      "other": 28788,
+      "media": 486,
+      "engineering": 3908,
+      "finance": 471,
+      "reasoning": 1911
+    },
+    "source_code_executed": false,
+    "native_capabilities_claimed": 0
+  },
+  "reviewed_sources": [
+    {
+      "path": "guia-matthieu--ai-video-prompting/SKILL.md",
+      "sha256": "c68963fadbd71af2ba6bf1196349c5379e159f4764a0d2f03f9b1d500bf88123",
+      "lesson": "separate model-specific duration, explicit camera/audio and approved reference",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    },
+    {
+      "path": "inference-sh--video-prompting-guide/SKILL.md",
+      "sha256": "051597fc1c09c7be65cf8c2f7e77ab8889280d17fe949ed203dc0e671124a642",
+      "lesson": "shot/action/camera/lighting structure",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    },
+    {
+      "path": "guia-matthieu--ai-video-qa/SKILL.md",
+      "sha256": "39ab7a717898e3d97acc87d0f1a30396a8c40ae6d3176f1468f00b431ccbb7a5",
+      "lesson": "early hook, continuity, audio/lip sync and flash checks",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    },
+    {
+      "path": "guia-matthieu--ai-storyboard-2x2/SKILL.md",
+      "sha256": "96054d6d54652b03e6af9e0876585b6905925df80efca6b15df498f55fa2234d",
+      "lesson": "reference continuity and storyboard framing, not identity guarantees",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    },
+    {
+      "path": "andchir--text-animation-copier/SKILL.md",
+      "sha256": "d65b75bc0dabaa04d742342a0979fd5835b6ca1e446bb621a59af7b59ce79818",
+      "lesson": "explicit keyframe timing and reproducible preview",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    },
+    {
+      "path": "dylantarre--video-motion-graphics/SKILL.md",
+      "sha256": "8d6f0936a39f0bbc184efb88e8e47df3f0fee03c0ac31164bb7a616b4ec79b4c",
+      "lesson": "easing and frame-based motion",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    },
+    {
+      "path": "daymade--video-comparer/SKILL.md",
+      "sha256": "b9029fec57bc4bac38c8ffbcf6779c7dc2285d1e30c4ee2ad0d3d480e237ac24",
+      "lesson": "technical comparison distinguished from creative quality",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    },
+    {
+      "path": "davila7--remotion-best-practices/SKILL.md",
+      "sha256": "aca0edbad9e4e21d716818d201a14577d996d5142847710b0fdc0002b2b98c50",
+      "lesson": "frame-based composition and caption/asset handling",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    },
+    {
+      "path": "MadAppGang--ffmpeg-core/SKILL.md",
+      "sha256": "baf906258926523fa40c5ce92df230d9cd903349dba63ce7f82856203b5ee514",
+      "lesson": "metadata and frame-accurate validation",
+      "status": "reviewed_relevant_excerpt",
+      "license_verified": false
+    }
+  ],
+  "native_operations": [
+    "shot",
+    "curve",
+    "find"
+  ],
+  "source_payload_copied": false
+}

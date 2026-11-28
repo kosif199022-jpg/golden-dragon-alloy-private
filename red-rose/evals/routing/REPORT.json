@@ -1,6 +1,6 @@
 {
-  "freeze_total_sha256": "24e479a946754abbbb989bfd0d9a512ad00f649044a36bab52e11c812d4e4849",
-  "runs": 9,
+  "freeze_total_sha256": "a1955b7bb2faa0ed680a79e0665cd5c5e3843f52f410ef1199dbc6cf0aa2cad3",
+  "runs": 11,
   "tier": "measured",
   "abstain_recall_min": 0.8,
   "abstain_precision_min": 0.8,
@@ -9,7 +9,7 @@
       "n": 80,
       "top1": 0.8125,
       "acceptable": 0.85,
-      "top3": 1.0
+      "top3": 1
     },
     "test": {
       "n": 80,
@@ -23,13 +23,13 @@
       "none_rows": 6,
       "correct_abstentions": 6,
       "precision": 0.8571,
-      "recall": 1.0
+      "recall": 1
     },
     "dev": {
       "none_rows": 5,
       "correct_abstentions": 5,
-      "precision": 1.0,
-      "recall": 1.0
+      "precision": 1,
+      "recall": 1
     }
   },
   "per_style": {
@@ -62,7 +62,7 @@
         "n": 3,
         "top1": 0.6667,
         "acceptable": 0.6667,
-        "top3": 1.0
+        "top3": 1
       }
     },
     "dev": {
@@ -70,31 +70,31 @@
         "n": 49,
         "top1": 0.8367,
         "acceptable": 0.8776,
-        "top3": 1.0
+        "top3": 1
       },
       "mixed": {
         "n": 5,
         "top1": 0.6,
         "acceptable": 0.6,
-        "top3": 1.0
+        "top3": 1
       },
       "egy_typo": {
         "n": 12,
         "top1": 0.9167,
         "acceptable": 0.9167,
-        "top3": 1.0
+        "top3": 1
       },
       "english": {
         "n": 10,
         "top1": 0.9,
-        "acceptable": 1.0,
-        "top3": 1.0
+        "acceptable": 1,
+        "top3": 1
       },
       "en_layout": {
         "n": 4,
         "top1": 0.25,
         "acceptable": 0.25,
-        "top3": 1.0
+        "top3": 1
       }
     }
   },
@@ -152,7 +152,7 @@
         "n": 3,
         "top1": 0.6667,
         "acceptable": 0.6667,
-        "top3": 1.0
+        "top3": 1
       },
       "data-accounting-code": {
         "n": 20,
@@ -162,9 +162,9 @@
       },
       "abstain": {
         "n": 6,
-        "top1": 1.0,
-        "acceptable": 1.0,
-        "top3": 1.0
+        "top1": 1,
+        "acceptable": 1,
+        "top3": 1
       },
       "thinking-meta-outofscope": {
         "n": 20,
@@ -185,9 +185,9 @@
     },
     "layout_exact": 12
   },
-  "route_p95_ms": 1.718,
+  "route_p95_ms": 7.512,
   "labeller_agreement": {
-    "value": 1.0,
+    "value": 1,
     "source": "frozen-set workflow stats: agreed_directly 160 of 160 (recorded, not re-measured by run_eval)"
   },
   "baseline": {

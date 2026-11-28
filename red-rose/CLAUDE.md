@@ -1,3 +1,7 @@
+
+## Mandatory agent startup
+Before any task, read AGENT_NOTES.md and relevant recorded lessons. Run task-specific acceptance checks before final delivery; keep factual internal notes, show the result and material blockers rather than routine logs. Applies to all domains.
+
 # CLAUDE.md — تعليمات دائمة لأي Claude يعمل على الوردة الحمراء
 
 هذا الملف يُقرأ تلقائيًا في كل جلسة داخل هذا المجلد. القواعد هنا تسري على كل مهمة، وليست تعليمات مؤقتة.

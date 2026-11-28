@@ -1,0 +1,1010 @@
+{
+ "version": "V73",
+ "note": "Owner-approved style ideas (2026-11-28) kept as Red Rose knowledge. idea_not_built = not implemented; borrowable_not_tested = exists as a skill/engine on the PC but never rendered in this registry. Build path: style card, 3-second sample, owner OK, native style with tests, then add to style_registry_v70.json.",
+ "rules": {
+  "classic_fairytale_look": "Allowed: the hand-drawn storybook-film feeling with ORIGINAL characters (storybook opening, painterly watercolour/gouache backgrounds, multiplane depth, squash and stretch, anticipation and overshoot, sparkles and fireflies). Never: any studio characters, castle, logo or name, or a shot-for-shot copy of a film.",
+  "couple_animated_background": "For el-ragel-wel-sit stills: 1 cut the couple out (rembg); 2 a new moving background behind them (rain with reflections, petals, night city, sea at sunset, moving sky, or any menu style); 3 life in the still (subtle breathing scale, hair and dress sway by mesh warp, 2.5D camera orbit, light that follows the background); 4 integration (contact shadow, light wrap, colour match). Hair/cloth warp from one still is unverified: show a 3-second sample first."
+ },
+ "ideas": [
+  {
+   "n": 1,
+   "batch": "ideas-1",
+   "family": "heritage",
+   "idea_ar": "سبحة بتتعد: كل حبة بتنور مع الذكر لحد 33",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 2,
+   "batch": "ideas-1",
+   "family": "heritage",
+   "idea_ar": "مصحف بيتقلّب بفيزيا ورق والآية بتنور",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 3,
+   "batch": "ideas-1",
+   "family": "heritage",
+   "idea_ar": "محراب ونور: الكاميرا من باب الجامع للمحراب",
+   "engine": "blender",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 4,
+   "batch": "ideas-1",
+   "family": "heritage",
+   "idea_ar": "سما الفجر: النجوم بتختفي مع كل سطر والشمس على «آمين»",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 5,
+   "batch": "ideas-1",
+   "family": "heritage",
+   "idea_ar": "مية زمزم: الكلمة بتنزل في مية وتعمل دواير",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 6,
+   "batch": "ideas-1",
+   "family": "heritage",
+   "idea_ar": "قناديل في ممر بتنور واحد ورا التاني",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 7,
+   "batch": "ideas-1",
+   "family": "heritage",
+   "idea_ar": "كسوة ذهب: الحروف بتتطرز بخيط دهب",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 8,
+   "batch": "ideas-1",
+   "family": "egyptian",
+   "idea_ar": "يفط المحلات بنيون مصري وحروف ناقصة",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 9,
+   "batch": "ideas-1",
+   "family": "egyptian",
+   "idea_ar": "ميكروباص: المشاهد من الشباك والكلام على الزجاج",
+   "engine": "2.5d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 10,
+   "batch": "ideas-1",
+   "family": "egyptian",
+   "idea_ar": "سينما أبيض وأسود بكروت كلام بين المشاهد",
+   "engine": "filter",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 11,
+   "batch": "ideas-1",
+   "family": "egyptian",
+   "idea_ar": "فوانيس رمضان بتلف وظلالها بترسم الكلام",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 12,
+   "batch": "ideas-1",
+   "family": "egyptian",
+   "idea_ar": "قهوة بلدي كرتون وكل جملة على طاولة",
+   "engine": "2d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 13,
+   "batch": "ideas-1",
+   "family": "egyptian",
+   "idea_ar": "جرنال قديم بيتطبع والعنوان بماكينة",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 14,
+   "batch": "ideas-1",
+   "family": "egyptian",
+   "idea_ar": "أرابيسك ومشربية بتتفتح وتكشف المشهد",
+   "engine": "svg",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 15,
+   "batch": "ideas-1",
+   "family": "calligraphy",
+   "idea_ar": "حبر بيسيح من قصبة على ورق خشن",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 16,
+   "batch": "ideas-1",
+   "family": "calligraphy",
+   "idea_ar": "حروف بتتحول لمباني وشوارع",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 17,
+   "batch": "ideas-1",
+   "family": "calligraphy",
+   "idea_ar": "كاليجرام: الكلام في شكل الحاجة نفسها",
+   "engine": "svg",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 18,
+   "batch": "ideas-1",
+   "family": "calligraphy",
+   "idea_ar": "ختم شمع أحمر بالعربي لكل جملة",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 19,
+   "batch": "ideas-1",
+   "family": "calligraphy",
+   "idea_ar": "نقش على حجر والتراب بيطير",
+   "engine": "blender",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 20,
+   "batch": "ideas-1",
+   "family": "calligraphy",
+   "idea_ar": "ورق مقصوص بوب أب",
+   "engine": "2.5d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 21,
+   "batch": "ideas-1",
+   "family": "art",
+   "idea_ar": "ألوان مية بتترسم وتنتشر",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 22,
+   "batch": "ideas-1",
+   "family": "art",
+   "idea_ar": "طباشير على سبورة والإيد بتمسح",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 23,
+   "batch": "ideas-1",
+   "family": "art",
+   "idea_ar": "صلصال ستوب موشن ببصمات",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 24,
+   "batch": "ideas-1",
+   "family": "art",
+   "idea_ar": "خيط وإبرة بيطرز الرسمة",
+   "engine": "svg",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 25,
+   "batch": "ideas-1",
+   "family": "art",
+   "idea_ar": "رمل ملوّن بيتنتر ويتمسح",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 26,
+   "batch": "ideas-1",
+   "family": "art",
+   "idea_ar": "قزاز ملوّن مكسور موزاييك",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 27,
+   "batch": "ideas-1",
+   "family": "art",
+   "idea_ar": "فحم واسكتش سريع",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 28,
+   "batch": "ideas-1",
+   "family": "art",
+   "idea_ar": "أوريجامي بيتطبق ويبقى الحاجة",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 29,
+   "batch": "ideas-1",
+   "family": "cinema",
+   "idea_ar": "لقطة واحدة متصلة بتعدي من مكان لمكان",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 30,
+   "batch": "ideas-1",
+   "family": "cinema",
+   "idea_ar": "ميكرو العالم لحد الخلايا والذرات",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 31,
+   "batch": "ideas-1",
+   "family": "cinema",
+   "idea_ar": "ديوراما ماكيت بعمق ميدان",
+   "engine": "blender",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 32,
+   "batch": "ideas-1",
+   "family": "cinema",
+   "idea_ar": "شاشة كمبيوتر تسعيناتي",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 33,
+   "batch": "ideas-1",
+   "family": "cinema",
+   "idea_ar": "كاميرات مراقبة بتاريخ وساعة",
+   "engine": "filter",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 34,
+   "batch": "ideas-1",
+   "family": "cinema",
+   "idea_ar": "فلاش باك ذاكرة مهزوزة",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 35,
+   "batch": "ideas-1",
+   "family": "cinema",
+   "idea_ar": "رسالة صوتية والكلام طالع من الموجة",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 36,
+   "batch": "ideas-1",
+   "family": "explainer",
+   "idea_ar": "مخطط هندسي بلوبرينت بيترسم",
+   "engine": "svg",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 37,
+   "batch": "ideas-1",
+   "family": "explainer",
+   "idea_ar": "خريطة كنز والطريق بيترسم",
+   "engine": "svg",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 38,
+   "batch": "ideas-1",
+   "family": "explainer",
+   "idea_ar": "سباق أرقام بأعمدة بتتبدل",
+   "engine": "charts",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 39,
+   "batch": "ideas-1",
+   "family": "explainer",
+   "idea_ar": "تشريح منتج قطعة قطعة",
+   "engine": "teardown",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 40,
+   "batch": "ideas-1",
+   "family": "explainer",
+   "idea_ar": "خط زمني لفاف على شريط",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 41,
+   "batch": "ideas-1",
+   "family": "explainer",
+   "idea_ar": "إنفوجرافيك بشخصيات بتتصف",
+   "engine": "2d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 42,
+   "batch": "ideas-1",
+   "family": "games",
+   "idea_ar": "بكسل 8 بت وتشيب تون",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 43,
+   "batch": "ideas-1",
+   "family": "games",
+   "idea_ar": "مستويات لعبة بشريط تقدم وحياة",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 44,
+   "batch": "ideas-1",
+   "family": "games",
+   "idea_ar": "كروت لعب بتتقلب وتتصف",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 45,
+   "batch": "ideas-1",
+   "family": "games",
+   "idea_ar": "شات واتساب برسايل وإيموجي",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 46,
+   "batch": "ideas-1",
+   "family": "games",
+   "idea_ar": "ريل جوه ريل على موبايل في الكادر",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 47,
+   "batch": "ideas-1",
+   "family": "nature",
+   "idea_ar": "نبتة بتكبر ورقة مع كل جملة",
+   "engine": "procedural",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 48,
+   "batch": "ideas-1",
+   "family": "nature",
+   "idea_ar": "مطر على شباك بيمسح الحروف",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 49,
+   "batch": "ideas-1",
+   "family": "nature",
+   "idea_ar": "دخان وبخور بيطلع منه الحروف",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 50,
+   "batch": "ideas-1",
+   "family": "nature",
+   "idea_ar": "نجوم بتتوصل زي الأبراج وتكتب الكلام",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 51,
+   "batch": "ideas-2",
+   "family": "fairytale",
+   "idea_ar": "كتاب حواديت بيتفتح والكاميرا تدخل الرسمة",
+   "engine": "2.5d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 52,
+   "batch": "ideas-2",
+   "family": "fairytale",
+   "idea_ar": "كاميرا متعددة الطبقات (6 طبقات بعمق حقيقي)",
+   "engine": "2.5d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 53,
+   "batch": "ideas-2",
+   "family": "fairytale",
+   "idea_ar": "غبار سحري بيرسم المشهد وراه",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 54,
+   "batch": "ideas-2",
+   "family": "fairytale",
+   "idea_ar": "صندوق موسيقى والشخصيات راقصة صغيرة",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 55,
+   "batch": "ideas-2",
+   "family": "fairytale",
+   "idea_ar": "رسمة طفل بأقلام شمع بتصحى",
+   "engine": "2d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 56,
+   "batch": "ideas-2",
+   "family": "fairytale",
+   "idea_ar": "ظل بيتمرد على صاحبه",
+   "engine": "2d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 57,
+   "batch": "ideas-2",
+   "family": "fairytale",
+   "idea_ar": "حلم بيتشكل: مكان يتحول لمكان في نفس اللقطة",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 58,
+   "batch": "ideas-2",
+   "family": "romance",
+   "idea_ar": "خيط أحمر بيربط الاتنين ويتشد مع الكلام",
+   "engine": "2d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 59,
+   "batch": "ideas-2",
+   "family": "romance",
+   "idea_ar": "مظلة وحيدة: كل حاجة رمادي إلا تحتها",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 60,
+   "batch": "ideas-2",
+   "family": "romance",
+   "idea_ar": "صور بولارويد بتتحمض",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 61,
+   "batch": "ideas-2",
+   "family": "romance",
+   "idea_ar": "جوابات بتتطبق طيارات ورق بينهم",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 62,
+   "batch": "ideas-2",
+   "family": "romance",
+   "idea_ar": "ساعة رملية الرمل فيها بيرسم لحظاتهم",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 63,
+   "batch": "ideas-2",
+   "family": "romance",
+   "idea_ar": "شباكين قصاد بعض في مدينة بالليل",
+   "engine": "2.5d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 64,
+   "batch": "ideas-2",
+   "family": "romance",
+   "idea_ar": "رقصة ضل على حيطة بشمعة",
+   "engine": "2d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 65,
+   "batch": "ideas-2",
+   "family": "romance",
+   "idea_ar": "الوقت بيقف: مطر وورد متجمد وهما بيتحركوا",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 66,
+   "batch": "ideas-2",
+   "family": "fantasy",
+   "idea_ar": "مدينة مقلوبة والسما تحت",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 67,
+   "batch": "ideas-2",
+   "family": "fantasy",
+   "idea_ar": "جزر عايمة بكباري حبال",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 68,
+   "batch": "ideas-2",
+   "family": "fantasy",
+   "idea_ar": "محيط في كوباية شاي",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 69,
+   "batch": "ideas-2",
+   "family": "fantasy",
+   "idea_ar": "قمر ضخم والشخصيات على السطح",
+   "engine": "2.5d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 70,
+   "batch": "ideas-2",
+   "family": "fantasy",
+   "idea_ar": "مدينة أبراج من كتب",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 71,
+   "batch": "ideas-2",
+   "family": "fantasy",
+   "idea_ar": "أوريجامي بيبقى سرب طيور حقيقي",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 72,
+   "batch": "ideas-2",
+   "family": "fantasy",
+   "idea_ar": "مجرة في فنجان قهوة",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 73,
+   "batch": "ideas-2",
+   "family": "experimental",
+   "idea_ar": "رسم بالضوء لونج إكسبوجر",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 74,
+   "batch": "ideas-2",
+   "family": "experimental",
+   "idea_ar": "روتوسكوب بخطوط بتترعش",
+   "engine": "filter",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 75,
+   "batch": "ideas-2",
+   "family": "experimental",
+   "idea_ar": "صورة معمولة من حروف الأغنية",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 76,
+   "batch": "ideas-2",
+   "family": "experimental",
+   "idea_ar": "هالفتون كوميكس بفقاعات عربي",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 77,
+   "batch": "ideas-2",
+   "family": "experimental",
+   "idea_ar": "كولاج مجلات بشريط لزق",
+   "engine": "2.5d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 78,
+   "batch": "ideas-2",
+   "family": "experimental",
+   "idea_ar": "فيلم سينما متخدش ومحروق",
+   "engine": "filter",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 79,
+   "batch": "ideas-2",
+   "family": "experimental",
+   "idea_ar": "مرآة مكسورة كل شظية جزء",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 80,
+   "batch": "ideas-2",
+   "family": "experimental",
+   "idea_ar": "عرايس ظل ملونة ورا شاشة ورق",
+   "engine": "2d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 81,
+   "batch": "ideas-2",
+   "family": "civilization",
+   "idea_ar": "جدارية فرعونية بتتحرك بالجنب",
+   "engine": "2d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 82,
+   "batch": "ideas-2",
+   "family": "civilization",
+   "idea_ar": "فسيفساء رومانية بلاطات بتتقلب",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 83,
+   "batch": "ideas-2",
+   "family": "civilization",
+   "idea_ar": "مخطوطة بهوامش ذهب",
+   "engine": "svg",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 84,
+   "batch": "ideas-2",
+   "family": "civilization",
+   "idea_ar": "سجادة بتتنسج خيط خيط",
+   "engine": "procedural",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 85,
+   "batch": "ideas-2",
+   "family": "civilization",
+   "idea_ar": "خريطة رحالة وسفينة وبوصلة",
+   "engine": "svg",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 86,
+   "batch": "ideas-2",
+   "family": "civilization",
+   "idea_ar": "طوابع وعملات قديمة",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 87,
+   "batch": "ideas-2",
+   "family": "urban",
+   "idea_ar": "جرافيتي بيتبخ ونقط بتسيح",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 88,
+   "batch": "ideas-2",
+   "family": "urban",
+   "idea_ar": "مترو بالليل والمشاهد في الشبابيك",
+   "engine": "2.5d",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 89,
+   "batch": "ideas-2",
+   "family": "urban",
+   "idea_ar": "يفط نيون بتنور حرف حرف",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 90,
+   "batch": "ideas-2",
+   "family": "urban",
+   "idea_ar": "موبايل بيحكي القصة بالإشعارات",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 91,
+   "batch": "ideas-2",
+   "family": "urban",
+   "idea_ar": "مدينة isometric بتتبني",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 92,
+   "batch": "ideas-2",
+   "family": "elements",
+   "idea_ar": "أوراق خريف بتتجمع كلام",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 93,
+   "batch": "ideas-2",
+   "family": "elements",
+   "idea_ar": "تلج بيترص كلمة ويدوب",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 94,
+   "batch": "ideas-2",
+   "family": "elements",
+   "idea_ar": "موج بيكتب على الرمل ويمسح",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 95,
+   "batch": "ideas-2",
+   "family": "elements",
+   "idea_ar": "سرب فراشات بيعمل الكلمة",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 96,
+   "batch": "ideas-2",
+   "family": "elements",
+   "idea_ar": "حروف بتولع وتبقى جمر",
+   "engine": "shader",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 97,
+   "batch": "ideas-2",
+   "family": "music",
+   "idea_ar": "أسطوانة فينيل والإبرة على الكلام",
+   "engine": "threejs",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 98,
+   "batch": "ideas-2",
+   "family": "music",
+   "idea_ar": "نوتة بتطير وتبقى طيور أو ورد",
+   "engine": "particles",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 99,
+   "batch": "ideas-2",
+   "family": "music",
+   "idea_ar": "أوتار عود بتنور الكلمة",
+   "engine": "html",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 100,
+   "batch": "ideas-2",
+   "family": "music",
+   "idea_ar": "المشهد بينبض على إيقاع الأغنية",
+   "engine": "beat-sync",
+   "status": "idea_not_built"
+  },
+  {
+   "n": 101,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "مسرح الظل (bd-shadow-theatre)",
+   "engine": "engine",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 102,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "تحويل فيديو حقيقي لكرتون 3D / ai3d / أنمي hayao-shinkai / بورتريه (bd-toon)",
+   "engine": "engine",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 103,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "فيلم تكريم سينمائي (dragon film)",
+   "engine": "engine",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 104,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "فيلم ويب بالفريم (bd-web-film)",
+   "engine": "engine",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 105,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "إديتوريال أرشيفي فوتيج حقيقي (bd-editorial)",
+   "engine": "engine",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 106,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "المصفوفات اللانهائية: أنظمة بصرية جديدة (bd-matrices)",
+   "engine": "engine",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 107,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "محاكي ماكينة 3D: قطاع وتفكيك وإكس راي (teardown)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 108,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "لوجو 3D وتصوير منتج وتيرن تيبل (blender-pro)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 109,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "مجسم 3D من رسمة أو صورة (blender-image-to-3d / wireframe-to-3d)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 110,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "معادلات ورسوم رياضية متحركة (manim-video)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 111,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "فيزيا ورياضيات متحركة (physics-math)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 112,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "رسوم بيانية متحركة NYT / Pentagram / شجرة قرار (video-template-frame-*)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 113,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "كرة أرضية متحركة (motion-globe)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 114,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "قوالب نص متحرك: Swiss Grid، Vignelli، Takram، Warm Grain، مؤشر بيكتب (video-template-*)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 115,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "عناوين: بوستر عريض، جليتش، تسريب ضوء، خلفية سائلة، لوجو آخر الفيديو (frame-*)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 116,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "رسم باليد / Krita / استوديو رسم (hand-drawn, krita-draw, paint-studio)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 117,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "فن خوارزمي (algorithmic-art)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 118,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "أنيمي ستايل (anime-style)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 119,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "موشن SVG بخط رفيع (ian-xiaohei-svg-motion)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 120,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "مينيمال وتصميم Nothing (minimalist, nothing-design)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 121,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "فوتيج رعب قديم VHS (analog-found-footage-horror)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 122,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "جزيئات وأوفرليز وموشن ألوان (motion-particles, motion-overlays, chroma-motion)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 123,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "صورة ثابتة بتتحرك (motion-photo)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 124,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "ريل على البيت (beat-sync-editing)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  },
+  {
+   "n": 125,
+   "batch": "borrowed",
+   "family": "borrowed",
+   "idea_ar": "كابشن متحرك (motion-captions)",
+   "engine": "skill",
+   "status": "borrowable_not_tested"
+  }
+ ]
+}

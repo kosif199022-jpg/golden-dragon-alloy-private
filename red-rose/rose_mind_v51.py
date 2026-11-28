@@ -71,13 +71,21 @@ def plan(p):
     from rose_see_native_v52 import route as see_route
     see_packet=see_route(request,mode="deep" if depth>=2 else "normal")
     from rose_metacognition_v54 import protocol
-    return {"ok":True,"metacognition":protocol(depth),"see":see_packet,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
+    selected=select_methods(request,base.get("kind",""),(2,5,9,12)[depth])
+    deep={"enabled":False}
+    if depth>=2:
+        from rose_mind_v56 import enrich
+        deep=enrich(request,depth,selected)
+    from rose_mind_v62 import profile as experiment_profile
+    from rose_evolution_v64 import context as learning_context
+    from rose_knowledge_v67 import context as skill_context
+    return {"ok":True,"skill_reference_context":skill_context(request,depth),"learning_context":learning_context(request),"experiment_mind":experiment_profile(depth),"deep_mind":deep,"metacognition":protocol(depth),"see":see_packet,"depth":"L"+str(depth),"risk":risk,"base_route":route,"base_decision":base.get("decision"),
             "approvals":approvals,"execution_allowed":False,"requires_review":blocked,
             "decision":"review_required" if blocked else "plan_only",
             "next_question":questions[0] if questions else None,"remaining_high_risk_unknowns":questions[1:],
             "assumption_candidates":assumptions,"constraints":constraints,"deliverable":deliverable,"done_when":done,
             "stages":[{"id":STAGES[i],"status":"pending","source_stage":i+1} for i in DEPTH[depth]],
-            "methods":select_methods(request,base.get("kind",""),(2,5,9,12)[depth]),
+            "methods":selected,
             "note":"No action executed. Constraints and assumptions need human review; route is inherited, not certified. Missing evidence is not success."}
 def gate(p):
     """Require actual workspace file hashes, explicit constraint results, no unreviewed critical stage."""
@@ -142,7 +150,16 @@ def handle(a):
             p=Path(a.params or "")
             if not p.is_file() or p.stat().st_size>256*1024:raise ValueError("bounded JSON input required")
             obj=json.loads(p.read_text(encoding="utf-8-sig"))
-            if a.action in ("review","calibrate"):
+            if a.action in ("schedule","decision","risks"):
+                from rose_mind_v63 import run
+                r=run(a.action,obj)
+            elif a.action in ("experiments","diagnose","acceptance"):
+                from rose_mind_v62 import run
+                r=run(a.action,obj)
+            elif a.action in ("council","council-review","hypotheses","references"):
+                from rose_mind_v56 import run
+                r=run(a.action,obj)
+            elif a.action in ("review","calibrate"):
                 from rose_metacognition_v54 import review, calibration
                 r=review(obj) if a.action=="review" else calibration(obj)
             else:
@@ -153,7 +170,7 @@ def handle(a):
         print(json.dumps({"ok":False,"error":str(e)},ensure_ascii=False));return 1
 def register(sub):
     p=sub.add_parser("mind",help="adaptive planning, evidence gate and reviewed learning")
-    p.add_argument("action",choices=["status","plan","gate","learn","lessons","review","calibrate"])
+    p.add_argument("action",choices=["status","plan","gate","learn","lessons","review","calibrate","council","council-review","hypotheses","references","experiments","diagnose","acceptance","schedule","decision","risks"])
     p.add_argument("params",nargs="?")
     p.add_argument("--mind-db",type=Path,default=DB)
     p.add_argument("--approve-write",action="store_true")

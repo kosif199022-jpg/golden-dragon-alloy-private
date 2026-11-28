@@ -1,9 +1,9 @@
 {
   "split": "test",
-  "runs": 9,
+  "runs": 11,
   "forced": false,
-  "frozen_at_utc": "2026-11-25T12:15:48+00:00",
-  "total_sha256": "24e479a946754abbbb989bfd0d9a512ad00f649044a36bab52e11c812d4e4849",
+  "frozen_at_utc": "2026-11-28T18:26:55+00:00",
+  "total_sha256": "a1955b7bb2faa0ed680a79e0665cd5c5e3843f52f410ef1199dbc6cf0aa2cad3",
   "data_sha256": {
     "requests.jsonl": "4b82f50fdf950b92a9d0fddf265bdc24b4c01adb17a3ecbbbb09a417e31563f8",
     "labels_b.jsonl": "2d0cc02d95d0bc71fc54861627fa2f835038a27a1573a0eed0d46c9260e603c1",
@@ -15,7 +15,7 @@
     "rose_agent.py": "342a887c0936fcd53af8b9736c9e8eb2f7f1a19f8537ecd6af485a17dc6257a6",
     "rose_io.py": "6f878502a415acadcc39731fae125b77023d3b3fe4487ed7f43088b1039ea376",
     "rose_recipes.py": "6620a8aa978aaa71042e1c4398b211711ce7fb6a47b06f0fbd6d127941528167",
-    "rose_catalog.py": "e42b56bb2969036cd55b8d9a155669d1dba1469da27ef63f43dfb46211b0fb2d",
+    "rose_catalog.py": "15d8b8a4e7857f9caf9c5def9b089e42d5e46d1be1a6a60cdb9233614cd23e52",
     "rose_run.py": "05992e9d83622053960bfd6519e1dd0c3d577b4d1412d86e23c4343196e7b814",
     "rose_env.py": "584141333d9b8655398979c4de67ce05143c0ea853faf20d9b187f580ca3b791",
     "agent/colour_styles.json": "386d1b3bcc5e75f815f4ebc986ada19e755096cb88dc0cd35f00b7a1c4c804e6",
@@ -42,6 +42,10 @@
     "recipes/shot-report-recut.json": "e4c0626f6f380574b4ee4d39bd762459594514732fa0f5e8c1dc5f0ca506ed2a",
     "recipes/title-clip-mp4.json": "1140977b6f0f9f6508b6adb2e2a6e377b9faa15ca4fbd447d7653176ca4933d2",
     "recipes/title-frame-ar.json": "a4b36548c072a40a3c20a1e305c8972dd7e307ac545139a950f18ee99549602a",
-    "references/OPS_CATALOG.json": "600a80ef86c025f772d341d4e9e8dc538b645c084a093efe05ac8ebad523fb88"
+    "references/OPS_CATALOG.json": "600a80ef86c025f772d341d4e9e8dc538b645c084a093efe05ac8ebad523fb88",
+    "agent/prompt_recipes_v72.json": "a0bbeab856735cfd2c21d5486669cbfd22b9a2fd0332a41f9ec16658194c22f1",
+    "agent/style_ideas_v73.json": "c18aa16ce60f493a23f8ddd5c57f58b2be9135e1ae2c24954e926e04b67b3cc2",
+    "agent/style_registry_v70.json": "274c3bb33aacda7cc217cd72777ba68ece5bcdee703296eb389895c747c0af6d",
+    "agent/tools_registry_v71.json": "91fb178a938f4449d8094ba5f07e0c098bdafce04401a39cd6c61b4bf1725863"
   }
 }

@@ -1,0 +1,35 @@
+{
+  "version": "V69",
+  "date": "2026-11-28",
+  "sources": [
+    {
+      "label": "kosif-video-mega-pack-2026-11-28",
+      "sha256": "f879353f9866b9aa72decbdae25b7d671ddb6ec61e6c1c2340907319db6f163d"
+    },
+    {
+      "label": "telegram-export-2026-11-28",
+      "sha256": "c88a6178dc1c68fa5f1623cef606a3af77691b8757cc89a2153233f2c669c245",
+      "origin_rar_sha256": "9c4bbbe7fff14132dd2f3a88404fb5fd842b2303bbfb93631d2d692a610fee9e"
+    }
+  ],
+  "already_absorbed": {
+    "skills.zip": "1a21b4e7c9056cdc833b71e072b394bd950efa436fc98f9a81ca6107e14e8eaa",
+    "CLAUDE_SKILLS_COLLECTION.zip": "contains V66 sources 1a21b4e7/8a486ada/ce2a175b"
+  },
+  "method_source_reviewed": {
+    "label": "telegram-export-2026-11-28",
+    "entry": "ChatExport_2026-11-28/files/Hady Raie storyboard-builder.md",
+    "sections": [
+      "The Golden Rule",
+      "Phase 1 Step 3",
+      "Phase 2 Step 1.5",
+      "Pre-Delivery Continuity Checklist"
+    ]
+  },
+  "native_capabilities_added": [
+    "intake",
+    "continuity"
+  ],
+  "external_scripts_executed": false,
+  "source_text_copied": false
+}

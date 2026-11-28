@@ -1,0 +1,262 @@
+{
+ "version": "V71",
+ "note": "Tools and engines Red Rose can borrow. 'detect' is checked live (which:NAME or path:PATH, ~ = home). Borrowing runs that tool's own command; read its --help or doc first. Nothing here is imported at runtime.",
+ "tools": [
+  {
+   "id": "teardown",
+   "name_ar": "محاكي الماكينات 3D (تفكيك وقطاع وجولة)",
+   "kind": "skill",
+   "detect": "path:~/.claude/skills/teardown/SKILL.md",
+   "use": "read the teardown SKILL.md and STYLE_AR.md, ask for a reference image of the machine",
+   "best_for": "إزاي الماكينة بتشتغل، محرك، جير، طلمبة، قطاع، تفكيك، x-ray، فيلم 60 فريم"
+  },
+  {
+   "id": "blender",
+   "name_ar": "Blender 5.2 (رندر 3D في الخلفية)",
+   "kind": "program",
+   "detect": "which:blender",
+   "use": "blender -b --python SCRIPT.py",
+   "best_for": "3D، لوجو، منتج، تيرن تيبل، GTA"
+  },
+  {
+   "id": "blender-pro",
+   "name_ar": "وصفات Blender الجاهزة (لوجو ومنتج وموشن)",
+   "kind": "skill",
+   "detect": "path:~/.claude/skills/blender-pro/SKILL.md",
+   "use": "read blender-pro SKILL.md (JSON recipes)",
+   "best_for": "لوجو 3D، تصوير منتج، خامات دهب وكروم"
+  },
+  {
+   "id": "camera-director",
+   "name_ar": "مخرج الكاميرا (حركات كاميرا)",
+   "kind": "skill",
+   "detect": "path:~/.claude/skills/camera-director/SKILL.md",
+   "use": "read camera-director SKILL.md",
+   "best_for": "حركة كاميرا، دوللي، كرين، أوربت"
+  },
+  {
+   "id": "hyperframes",
+   "name_ar": "HyperFrames (موشن HTML بالفريم)",
+   "kind": "skill",
+   "detect": "path:~/.claude/skills/hyperframes/SKILL.md",
+   "use": "read hyperframes SKILL.md",
+   "best_for": "موشن بالكود، انتقالات، نص متحرك"
+  },
+  {
+   "id": "manim",
+   "name_ar": "Manim (رياضيات وشرح علمي)",
+   "kind": "skill",
+   "detect": "path:~/.claude/skills/manim-video/SKILL.md",
+   "use": "read manim-video SKILL.md",
+   "best_for": "معادلات، رسوم بيانية، شرح علمي"
+  },
+  {
+   "id": "remotion",
+   "name_ar": "Remotion (فيديو بـ React)",
+   "kind": "skill",
+   "detect": "path:~/.claude/skills/remotion-video/SKILL.md",
+   "use": "read remotion-video SKILL.md; licence check for companies",
+   "best_for": "قوالب فيديو بالكود"
+  },
+  {
+   "id": "bd-shadow-theatre",
+   "name_ar": "مسرح الظل",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run shadow_theatre --help (from the Black Dragon folder)",
+   "best_for": "أفلام ظلال بأجسام مفصلية وسما متدرجة"
+  },
+  {
+   "id": "bd-toon",
+   "name_ar": "محرك تحويل لكرتون/أنمي",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run toon --help",
+   "best_for": "تحويل فيديو أو صورة لكرتون 3D أو أنمي"
+  },
+  {
+   "id": "bd-web-film",
+   "name_ar": "فيلم ويب بالفريم",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run web_film --help",
+   "best_for": "أفلام موشن كصفحات ويب بتترندر فيديو"
+  },
+  {
+   "id": "bd-editorial",
+   "name_ar": "مونتاج إديتوريال أرشيفي",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run editorial --help",
+   "best_for": "فوتيج حقيقي بجرين وبلوم وأبيض وأسود"
+  },
+  {
+   "id": "bd-talking-head",
+   "name_ar": "ريلز المتكلم",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run talking_head --help",
+   "best_for": "تسجيل حد بيتكلم لريل 9:16"
+  },
+  {
+   "id": "bd-dragon-montage",
+   "name_ar": "مونتاج التنين",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run dragon_montage --help",
+   "best_for": "فوتيج + طلب بكلامك = مونتاج متراجع"
+  },
+  {
+   "id": "bd-voice-studio",
+   "name_ar": "استوديو الصوت (توقيت كلمات واستنساخ)",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run voice_studio --help",
+   "best_for": "توقيت الكلام بالكلمة، تفريغ، تصميم صوت"
+  },
+  {
+   "id": "bd-reel-hooks",
+   "name_ar": "تقييم الهوك وتوقيت السكريبت",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run reel_hooks --help",
+   "best_for": "أول جملة في الريل وجدول البيتس"
+  },
+  {
+   "id": "bd-matrices",
+   "name_ar": "المصفوفات اللانهائية (أنظمة بصرية)",
+   "kind": "engine",
+   "detect": "path:~/OneDrive/Desktop/مهارات/التنين الأسود",
+   "use": "python -m dragon run matrices --help",
+   "best_for": "اختراع أنظمة بصرية جديدة"
+  },
+  {
+   "id": "gd-studio",
+   "name_ar": "استوديو برامج التنين الذهبي (Rhubarb، Synfig، melt، HandBrake…)",
+   "kind": "program-set",
+   "detect": "path:~/.claude/skills/golden-dragon/apps/golden-dragon/app/golden_tools.py",
+   "use": "python -X utf8 golden_tools.py studio list",
+   "best_for": "مزامنة شفايف، رندر Synfig وTahoma2D، ترميز"
+  },
+  {
+   "id": "gd-motion-lib",
+   "name_ar": "مكتبة الموشن (GSAP، three.js، lottie…)",
+   "kind": "library",
+   "detect": "path:~/.claude/skills/golden-dragon/apps/golden-dragon/app/golden_tools.py",
+   "use": "python -X utf8 golden_tools.py lib find \"...\"",
+   "best_for": "مكتبات موشن جاهزة من غير نت"
+  },
+  {
+   "id": "whisperx",
+   "name_ar": "WhisperX (تفريغ بتوقيت الكلمة)",
+   "kind": "program",
+   "detect": "which:whisperx",
+   "use": "whisperx FILE --output_format json",
+   "best_for": "توقيت كل كلمة للكابشن والمزامنة"
+  },
+  {
+   "id": "demucs",
+   "name_ar": "Demucs (فصل الصوت عن الموسيقى)",
+   "kind": "program",
+   "detect": "which:demucs",
+   "use": "demucs FILE",
+   "best_for": "صوت نضيف من أغنية أو مقطع"
+  },
+  {
+   "id": "deep-filter",
+   "name_ar": "DeepFilter (تنضيف الصوت)",
+   "kind": "program",
+   "detect": "which:deep-filter",
+   "use": "deep-filter FILE",
+   "best_for": "شيل الدوشة"
+  },
+  {
+   "id": "rembg",
+   "name_ar": "rembg (شيل الخلفية)",
+   "kind": "program",
+   "detect": "which:rembg",
+   "use": "rembg i IN OUT",
+   "best_for": "شخصية من غير خلفية للتركيب"
+  },
+  {
+   "id": "auto-editor",
+   "name_ar": "auto-editor (قص السكتات)",
+   "kind": "program",
+   "detect": "which:auto-editor",
+   "use": "auto-editor FILE",
+   "best_for": "شيل السكتات من مقطع كلام"
+  },
+  {
+   "id": "scenedetect",
+   "name_ar": "PySceneDetect (تحديد القطعات)",
+   "kind": "program",
+   "detect": "which:scenedetect",
+   "use": "scenedetect -i FILE detect-adaptive list-scenes",
+   "best_for": "قطعات ريل مرجعي"
+  },
+  {
+   "id": "magick",
+   "name_ar": "ImageMagick (معالجة صور)",
+   "kind": "program",
+   "detect": "which:magick",
+   "use": "magick ...",
+   "best_for": "تجهيز صور وكونتاكت شيت"
+  },
+  {
+   "id": "edge-tts",
+   "name_ar": "edge-tts (صوت تجريبي)",
+   "kind": "program",
+   "detect": "which:edge-tts",
+   "use": "edge-tts --voice ... --text ...",
+   "best_for": "فويس أوفر مؤقت للتجربة"
+  },
+  {
+   "id": "ffmpeg",
+   "name_ar": "ffmpeg 9",
+   "kind": "program",
+   "detect": "which:ffmpeg",
+   "use": "ffmpeg ... (use -/filter_complex FILE)",
+   "best_for": "تجميع وترميز وتركيب"
+  },
+  {
+   "id": "rose-montage-code",
+   "name_ar": "مونتاج الوردة بالكود (انتقالات بالفريم)",
+   "kind": "native",
+   "detect": "path:~/.claude/skills/red-rose/rose_montage_v65.py",
+   "use": "rose.py montage-code plan|render",
+   "best_for": "ربط مقاطع الكوكتيل بانتقالات"
+  },
+  {
+   "id": "rose-motion-capture",
+   "name_ar": "قياس حركة ريل مرجعي ونقلها",
+   "kind": "native",
+   "detect": "path:~/.claude/skills/red-rose/rose_motion_capture_v57.py",
+   "use": "rose.py motion-capture analyze / motion-replay",
+   "best_for": "نفس حركة الكاميرا بتاعة مرجع"
+  },
+  {
+   "id": "skin-retexture-prompt",
+   "name_ar": "وصفة واقعية جلد ماكرو (مسام ونمش ولمعة) مع ثبات الهوية",
+   "kind": "prompt-recipe",
+   "detect": "path:~/.claude/skills/red-rose/agent/prompt_recipes_v72.json",
+   "use": "read agent/prompt_recipes_v72.json (id skin-retexture-macro) and paste it into an image editor that takes 2 images; paid generators need the owner's approval and price",
+   "best_for": "بورتريه واقعي، ملمس بشرة، تحسين صورة وش، 4K"
+  },
+  {
+   "id": "flow-mcp",
+   "name_ar": "flow-mcp (تشغيل Google Flow لتوليد الفيديو من كريدت جوجل المجاني)",
+   "kind": "candidate-repo",
+   "detect": "path:~/.red-rose/repos/flow-mcp/package.json",
+   "use": "NOT INSTALLED. github.com/GTAI-1/flow-mcp: no licence (all rights reserved), Windows untested, drives a Chrome profile signed in to the owner's Google account. Clone + npm install only with explicit owner OK",
+   "best_for": "توليد فيديو بـ Google Flow (50 كريدت يومي مجاني)"
+  },
+  {
+   "id": "cli-printing-press",
+   "name_ar": "CLI Printing Press (بناء أداة سطر أوامر لأي API)",
+   "kind": "candidate-repo",
+   "detect": "which:printing-press",
+   "use": "NOT INSTALLED. github.com/mvanhorn/cli-printing-press (MIT): needs Go 1.26+; installer is curl|bash and adds skills; some CLIs sniff unpublished APIs (check each site's terms). Install only with explicit owner OK, read install.sh first",
+   "best_for": "أداة سطر أوامر سريعة لخدمة أو API، بحث أوفلاين، أوامر مركّبة"
+  }
+ ]
+}
