@@ -11,7 +11,7 @@ FAST_COMMANDS = {
     "golden-native": "rose_golden_native", "golden-deep": "rose_golden_deep",
     "white-native": "rose_white_native", "mind": "rose_mind_v51", "see": "rose_see_native_v52",
     "ops": "rose_catalog", "describe": "rose_catalog", "find": "rose_catalog",
-    "understand": "rose_agent", "brief": "rose_agent",
+    "understand": "rose_agent", "brief": "rose_dua_gate_v69", "dua-gate": "rose_dua_gate_v69",
     "vn-dua-analyze": "vn_dua_v47",
     "shot-detail": "rose_shot_detail",
     "motion-capture": "rose_motion_capture_v57",

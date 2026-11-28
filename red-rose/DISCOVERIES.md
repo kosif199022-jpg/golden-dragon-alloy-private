@@ -73,3 +73,6 @@
 
 ## V46 source review — 2026-11-24
 Static finding: usable_counts repeatedly loaded and revalidated the full catalogue; a snapshot removes that redundant loop. Media verification allocated an entire video for SHA-256; streaming preserves the digest. Attachment sources and proposed media techniques are listed in V46_MAINTENANCE_GUIDE.md; no foreign engine copied. Actual timing and integration tests pending exact-commit execution.
+
+## V69 — 2026-11-28
+Discovery: the dua source rule was an instruction in three documents but absent from `brief`, the first command every agent runs. Source: live run in a cloud session. Decision: adopt (native extension `rose_dua_gate_v69.py`, router file unchanged). Existing capability checked: no earlier gate in brief; owner_rules.json has no dua entry. Test: test_dua_gate_v69.py, 9 tests. Limitation: reminder only, not asset verification.
