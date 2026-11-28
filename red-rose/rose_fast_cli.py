@@ -31,6 +31,7 @@ FAST_COMMANDS = {
     "styles": "rose_styles_v70",
     "borrow": "rose_borrow_v71",
     "direct": "rose_direct_v71",
+    "pen": "living_pen",
 }
 
 

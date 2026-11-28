@@ -311,3 +311,7 @@ Merged latest main b84909c into unified branch. Source-derived procedural steps,
 
 ## V62 integration checkpoint
 Merged the main media and character changes into the experimental mind candidate. Read V62_MIND_GUIDE.md; fresh regression results required before release. No claim of complete corpus absorption.
+
+
+## V74 Stage 1 checkpoint - 2026-11-28
+Branch red-rose-v74-pen-stage1 from cb41e06. Native living_pen/ (strokes, tools, render, CLI, sample JSON/PNG, README), test_living_pen_v74.py, additive rose_ext.py and rose_fast_cli.py registrations. Windows Python 3.12.10: 17 focused tests OK; sample SHA-256 1025488aac9bb58f781778016f8c0ab1c5e873109bd7fc92367a310957ca5dd6. Real nib photo comparison not tested (no reference supplied); full-suite verification not certified. First command: python -X utf8 -W error::ResourceWarning -m unittest test_living_pen_v74 -v. Owner review before Stage 2. See PR for exact commit and regression status.

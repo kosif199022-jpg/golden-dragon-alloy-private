@@ -73,3 +73,7 @@
 
 ## V46 source review — 2026-11-24
 Static finding: usable_counts repeatedly loaded and revalidated the full catalogue; a snapshot removes that redundant loop. Media verification allocated an entire video for SHA-256; streaming preserves the digest. Attachment sources and proposed media techniques are listed in V46_MAINTENANCE_GUIDE.md; no foreign engine copied. Actual timing and integration tests pending exact-commit execution.
+
+
+## V74 Stage 1 - 2026-11-28
+Uniform spline with unequal straight spans overshot (measured 101.4812 px instead of 100); centripetal tangents fixed it. Radius-100 closed spline relative length error 7.87e-8. Ideal swept nib with supersample mask and integer compositing: 17 targeted tests OK on Windows/Python 3.12.10. No real nib reference photo or full-suite certification. See living_pen/README.md for sources and repeatable checks.
