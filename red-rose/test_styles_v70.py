@@ -80,6 +80,17 @@ class Styles70(unittest.TestCase):
         r = st.cocktail("maven-toon", 8, lib=self.lib, tested={"maven-toon": {"status": "rendered_ok"}})
         self.assertFalse(any("not yet render-tested" in w for w in r["warnings"]))
 
+    def test_ideas_catalogue(self):
+        r = st.ideas()
+        self.assertEqual(r["total"], 125)
+        self.assertEqual([i["n"] for i in r["ideas"]], list(range(1, 126)))
+        self.assertTrue(all(i["status"] in ("idea_not_built", "borrowable_not_tested") for i in r["ideas"]))
+        self.assertIn("classic_fairytale_look", r["rules"])
+        self.assertFalse(r["built"])
+        f = st.ideas("مطر")
+        self.assertTrue(f["shown"] >= 2 and all("مطر" in i["idea_ar"] for i in f["ideas"][:2]))
+        self.assertTrue(all(i["family"] == "romance" for i in st.ideas(family="romance")["ideas"]))
+
     def test_bad_inputs(self):
         for t in ("", "zzz", "dragons=maven-gta"):
             with self.assertRaises(ValueError):

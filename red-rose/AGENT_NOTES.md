@@ -60,3 +60,6 @@ For any motion-graphics request run `styles menu` first and offer all fitting st
 
 ## V71 directing mind and borrowings — 2026-11-28
 «إيه الاستعارات المتاحة؟» → `borrow` (styles + tools/engines/machines, live availability). Before any video plan → `direct` (genre, hook ≤1.5 s, beats, shot grammar, style per beat, continuity-checked shot list); show the treatment and wait for the owner's OK before rendering. Read V71_DIRECTING_GUIDE.md.
+
+## V73 style ideas — 2026-11-28
+`styles ideas` holds 125 approved ideas/borrowable styles as knowledge (not built). Search there before inventing; build any idea through style card → 3-second sample → owner OK → tests. Read V73_STYLE_IDEAS_GUIDE.md.

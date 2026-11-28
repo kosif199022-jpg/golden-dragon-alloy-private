@@ -211,9 +211,33 @@ def cocktail(text, seconds, fps=30, aspect="9:16", reg=None, lib=LIB, tested=Non
             "plan": plan, "rendered": False, "execution_allowed": False}
 
 
+IDEAS = SKILL / "agent" / "style_ideas_v73.json"
+
+
+def ideas(for_text=None, family=None, path=IDEAS):
+    """V73: owner-approved style ideas and borrowable styles kept as knowledge (not built / not tested)."""
+    doc = json.loads(Path(path).read_text(encoding="utf-8"))
+    words = [w for w in re.findall(r"[^\W_]{2,}", for_text.casefold())] if for_text else []
+    rows = []
+    for i in doc["ideas"]:
+        if family and i["family"] != family:
+            continue
+        hay = (i["idea_ar"] + " " + i["family"] + " " + i["engine"]).casefold()
+        score = sum(1 for w in words if w in hay)
+        if words and not score:
+            continue
+        rows.append({**i, "score": score})
+    rows.sort(key=lambda r: (-r["score"], r["n"]))
+    fams = sorted({i["family"] for i in doc["ideas"]})
+    return {"total": len(doc["ideas"]), "shown": len(rows), "families": fams, "rules": doc["rules"],
+            "ideas": rows, "built": False, "note": doc["note"]}
+
+
 def handle(a):
     try:
-        if a.action == "menu":
+        if a.action == "ideas":
+            r = ideas(a.target or None, a.family)
+        elif a.action == "menu":
             r = menu(a.target or None, (a.need or "").split(",") if a.need else ())
         elif a.action == "show":
             r = show(a.target)
@@ -228,7 +252,8 @@ def handle(a):
 
 def register(sub):
     p = sub.add_parser("styles", help="V70 motion-graphics style menu, details and cocktail plan (read-only)")
-    p.add_argument("action", choices=["menu", "show", "cocktail"])
+    p.add_argument("action", choices=["menu", "show", "cocktail", "ideas"])
+    p.add_argument("--family", help="ideas: filter by family")
     p.add_argument("target", nargs="?", default="", help="menu: optional clip; show: style id; cocktail: a+b or role=id,...")
     p.add_argument("--need", help="menu filter, comma roles e.g. characters,places")
     p.add_argument("--seconds", type=float, default=30)

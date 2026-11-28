@@ -1,6 +1,9 @@
 # Red Rose work log (what was built with the owner, newest first)
 
 ## 2026-11-28
+### V73 style ideas catalogue
+- `styles ideas`: 100 owner-approved ideas + 25 borrowable styles + fairytale and couple-background rules; flagship math proposal «النقش الحي» documented. Tests PASS. Nothing built or rendered.
+
 ### V72 four AI Geek styles, skin-texture recipe, two candidate repos
 - +4 styles (34), +3 borrowable items (32 incl. 2 candidates not installed). 5 duplicate uploads skipped by hash. cartoon-face-history INTEGRITY.sha256 verified OK.
 - Tests 16 PASS. Not render-tested; flow-mcp and cli-printing-press read only (README/metadata), not cloned.
